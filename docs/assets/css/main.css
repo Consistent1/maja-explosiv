@@ -1,0 +1,738 @@
+/* Import Open Props and normalize from CDN */
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+@import "https://unpkg.com/open-props/buttons.min.css";
+
+/* Custom properties extending Open Props */
+:root {
+  /* Brand colors using Open Props as base */
+  --brand-primary: var(--blue-6);
+  --brand-secondary: var(--green-6);
+  --brand-accent: var(--red-6);
+  --brand-warning: var(--orange-6);
+
+  /* Semantic color mappings */
+  --color-primary: var(--brand-primary);
+  --color-secondary: var(--brand-secondary);
+  --color-accent: var(--brand-accent);
+  --color-warning: var(--brand-warning);
+  --color-dark: var(--gray-9);
+  --color-light: var(--gray-1);
+
+  /* Layout constraints */
+  --container-max-width: min(1400px, 95vw);
+  --content-max-width: min(900px, 90vw);
+
+  /* Component-specific overrides */
+  --nav-height: var(--size-9);
+  --card-padding: var(--size-4);
+  --section-spacing: var(--size-8);
+}
+
+/* Base styles using Open Props */
+html {
+  scroll-behavior: smooth;
+  /* Ensure proper text direction */
+  direction: ltr;
+  text-align: left;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-3);
+  line-height: var(--font-lineheight-3);
+  color: var(--gray-8);
+  background-color: var(--gray-0);
+  /* Ensure proper text direction and alignment */
+  direction: ltr;
+  text-align: left;
+}
+
+/* Typography using Open Props */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-7);
+  line-height: var(--font-lineheight-1);
+  margin-block: 0 var(--size-3);
+  color: var(--color-dark);
+}
+
+h1 { font-size: var(--font-size-8); }
+h2 { font-size: var(--font-size-7); }
+h3 { font-size: var(--font-size-6); }
+h4 { font-size: var(--font-size-5); }
+h5 { font-size: var(--font-size-4); }
+h6 { font-size: var(--font-size-3); }
+
+p {
+  margin-block: 0 var(--size-3);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--ease-3), text-decoration var(--ease-3);
+  /* Ensure links have transparent background */
+  background-color: transparent;
+}
+
+a:hover {
+  color: var(--color-dark);
+  text-decoration: underline;
+  /* Ensure hover state also has transparent background */
+  background-color: transparent;
+}
+
+a:focus {
+  /* Ensure focus state has proper contrast */
+  background-color: transparent;
+  outline: var(--border-size-2) solid var(--color-primary);
+  outline-offset: var(--size-1);
+}
+
+/* Ensure all link variants have transparent backgrounds */
+.content-wrapper a,
+.main-content a,
+p a,
+li a,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  background-color: transparent !important;
+}
+
+.content-wrapper a:hover,
+.main-content a:hover,
+p a:hover,
+li a:hover,
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  background-color: transparent !important;
+}
+
+/* Accessibility utilities using Open Props */
+.skip-link {
+  position: absolute;
+  top: calc(-1 * var(--size-8));
+  left: var(--size-2);
+  background: var(--color-dark);
+  color: var(--gray-0);
+  padding: var(--size-2);
+  text-decoration: none;
+  border-radius: var(--radius-2);
+  z-index: var(--layer-5);
+  transition: top var(--ease-3);
+}
+
+.skip-link:focus {
+  top: var(--size-2);
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Header styles using Open Props */
+.site-header {
+  background: var(--gray-0);
+  border-block-end: var(--border-size-1) solid var(--gray-3);
+  position: sticky;
+  top: 0;
+  z-index: var(--layer-4);
+  backdrop-filter: blur(var(--size-1));
+}
+
+.header-container {
+  max-inline-size: var(--container-max-width);
+  margin-inline: auto;
+  padding-block: var(--size-3);
+  padding-inline: var(--size-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-4);
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+}
+
+.site-logo {
+  font-size: var(--font-size-6);
+  font-weight: var(--font-weight-7);
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: color var(--ease-3);
+}
+
+.site-logo:hover {
+  color: var(--color-primary);
+}
+
+.site-tagline {
+  font-size: var(--font-size-1);
+  color: var(--gray-6);
+  margin: 0;
+}
+
+/* Navigation using Open Props */
+.main-navigation {
+  display: none;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--size-5);
+}
+
+.nav-link {
+  color: var(--gray-7);
+  font-weight: var(--font-weight-5);
+  padding: var(--size-2) 0;
+  border-block-end: var(--border-size-2) solid transparent;
+  transition: all var(--ease-3);
+  text-decoration: none;
+  /* Ensure navigation links have transparent background */
+  background-color: transparent;
+}
+
+.nav-link:hover,
+.nav-link.current {
+  color: var(--color-primary);
+  border-block-end-color: var(--color-primary);
+  /* Ensure hover and current states have transparent background */
+  background-color: transparent;
+}
+
+/* Mobile Menu using Open Props */
+.mobile-menu-toggle {
+  display: none; /* Hidden by default, shown on mobile */
+  flex-direction: column;
+  gap: var(--size-1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--size-2);
+  border-radius: var(--radius-2);
+  transition: background-color var(--ease-3);
+}
+
+.mobile-menu-toggle:hover {
+  background-color: var(--gray-2);
+}
+
+.hamburger-line {
+  inline-size: var(--size-6);
+  block-size: var(--border-size-2);
+  background: var(--color-dark);
+  transition: all var(--ease-3);
+  border-radius: var(--radius-1);
+}
+
+/* Mobile Menu Active State */
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(var(--size-1), var(--size-1));
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(var(--size-2), calc(-1 * var(--size-2)));
+}
+
+/* Mobile Navigation using Open Props */
+@media (max-width: 767px) {
+  /* Show mobile menu toggle button on mobile */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  /* Hide main navigation by default on mobile */
+  .main-navigation {
+    display: block;
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline: 0;
+    background: var(--gray-0);
+    border-block-end: var(--border-size-1) solid var(--gray-3);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--ease-4);
+    backdrop-filter: blur(var(--size-1));
+    z-index: var(--layer-4);
+  }
+
+  .main-navigation.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    padding: var(--size-4);
+    gap: 0;
+  }
+
+  .nav-link {
+    padding: var(--size-3) 0;
+    border-block-end: var(--border-size-1) solid var(--gray-3);
+    border-inline: none;
+  }
+
+  .nav-link:last-child {
+    border-block-end: none;
+  }
+}
+
+/* Main Content using Open Props */
+.main-content {
+  min-block-size: calc(100vh - var(--size-12));
+  max-inline-size: var(--container-max-width);
+  margin-inline: auto;
+  padding-block: var(--section-spacing);
+  padding-inline: var(--size-4);
+  /* Ensure proper text alignment */
+  text-align: left;
+  direction: ltr;
+}
+
+.content-wrapper {
+  /* Ensure content is properly centered and uses appropriate width */
+  max-inline-size: 100%;
+  margin-inline: auto;
+  /* Ensure all content is properly aligned */
+  text-align: left;
+}
+
+/* Ensure all content elements are centered within the content wrapper */
+.content-wrapper > * {
+  margin-inline: auto;
+  /* Default max width for content elements */
+  max-inline-size: var(--content-max-width);
+}
+
+/* For long-form text content, add reasonable line length constraints */
+.content-wrapper p,
+.content-wrapper li,
+.content-wrapper blockquote {
+  max-inline-size: min(80ch, 100%);
+  margin-inline: auto;
+}
+
+/* Headings should be constrained to content width and centered */
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper h3,
+.content-wrapper h4,
+.content-wrapper h5,
+.content-wrapper h6 {
+  max-inline-size: var(--content-max-width);
+  margin-inline: auto;
+}
+
+/* Code blocks should be constrained but can be wider than text */
+.content-wrapper pre {
+  max-inline-size: var(--content-max-width);
+  margin-inline: auto;
+}
+
+/* Code block styling to override normalize.css dark backgrounds */
+pre,
+code {
+  /* Override normalize.css dark background */
+  background-color: var(--gray-1) !important;
+  color: var(--gray-8) !important;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2);
+  border-radius: var(--radius-2);
+}
+
+pre {
+  padding: var(--size-4);
+  overflow-x: auto;
+  border: var(--border-size-1) solid var(--gray-3);
+  margin-block: var(--size-4);
+}
+
+code {
+  padding: var(--size-1) var(--size-2);
+  /* Inline code should have slightly different styling */
+  background-color: var(--gray-2) !important;
+}
+
+/* Code inside pre blocks shouldn't have extra padding */
+pre code {
+  padding: 0;
+  background-color: transparent !important;
+  border: none;
+}
+
+/* Allow wider elements like images, tables, grids to use more space */
+.content-wrapper img,
+.content-wrapper figure,
+.content-wrapper table,
+.content-wrapper .posts-grid,
+.content-wrapper .collections-grid {
+  max-inline-size: var(--container-max-width);
+  margin-inline: auto;
+}
+
+/* Page Header using Open Props */
+.page-header {
+  text-align: center;
+  margin-block-end: var(--size-8);
+}
+
+.page-title {
+  margin-block-end: var(--size-2);
+}
+
+.page-subtitle {
+  font-size: var(--font-size-4);
+  color: var(--gray-6);
+  margin-block-end: var(--size-3);
+}
+
+.page-date {
+  font-size: var(--font-size-1);
+  color: var(--gray-5);
+}
+
+/* Cards and Grids using Open Props */
+.posts-grid,
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--size-6);
+  margin-block-end: var(--size-8);
+}
+
+.post-card,
+.collection-card {
+  background: var(--gray-0);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+  transition: transform var(--ease-4), box-shadow var(--ease-4);
+  border: var(--border-size-1) solid var(--gray-3);
+}
+
+.post-card:hover,
+.collection-card:hover {
+  transform: translateY(calc(-1 * var(--size-1)));
+  box-shadow: var(--shadow-4);
+  border-color: var(--color-primary);
+}
+
+.post-card-image,
+.collection-card-image {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.post-card-image img,
+.collection-card-image img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  transition: transform var(--ease-out-4);
+}
+
+.post-card:hover .post-card-image img,
+.collection-card:hover .collection-card-image img {
+  transform: scale(1.05);
+}
+
+.post-card-content,
+.collection-card-content {
+  padding: var(--size-4);
+}
+
+.post-card-title,
+.collection-card-title {
+  margin-block-end: var(--size-2);
+}
+
+.post-card-title a,
+.collection-card-title a {
+  color: var(--color-dark);
+  transition: color var(--ease-3);
+}
+
+.post-card-title a:hover,
+.collection-card-title a:hover {
+  color: var(--color-primary);
+}
+
+.post-card-description,
+.collection-card-description {
+  color: var(--gray-6);
+  margin-block-end: var(--size-3);
+  line-height: var(--font-lineheight-4);
+}
+
+.post-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2);
+  font-size: var(--font-size-1);
+  color: var(--gray-5);
+}
+
+/* Footer using Open Props - Updated for full width */
+.site-footer {
+  background: var(--gray-9);
+  color: var(--gray-3);
+  margin-block-start: var(--size-10);
+}
+
+.footer-container {
+  max-inline-size: var(--container-max-width);
+  margin-inline: auto;
+  padding-block: var(--size-8);
+  padding-inline: var(--size-4);
+}
+
+.footer-content {
+  display: grid;
+  /* Mobile: single column */
+  grid-template-columns: 1fr;
+  gap: var(--size-6);
+  margin-block-end: var(--size-6);
+  /* Ensure sections align properly */
+  align-items: start;
+  /* Force grid to work properly */
+  width: 100%;
+  /* Ensure grid behavior */
+  grid-auto-flow: row;
+}
+
+.footer-section {
+  /* Ensure footer sections don't expand beyond their grid area */
+  min-inline-size: 0;
+  /* Force grid items to respect their container */
+  inline-size: auto;
+  width: auto;
+  /* Prevent overflow */
+  overflow-wrap: break-word;
+}
+
+.footer-section-title {
+  color: var(--gray-0);
+  font-size: var(--font-size-4);
+  margin-block-end: var(--size-3);
+  font-weight: var(--font-weight-6);
+}
+
+.footer-description {
+  color: var(--gray-3);
+  margin-block-end: var(--size-4);
+  /* Ensure no width constraints */
+  max-inline-size: none;
+}
+
+.social-title {
+  color: var(--gray-0);
+  font-size: var(--font-size-3);
+  margin-block-end: var(--size-2);
+  font-weight: var(--font-weight-5);
+  /* Override any normalize.css width constraints */
+  max-inline-size: none !important;
+}
+
+/* Override normalize.css width constraints for specific footer elements */
+.footer-title,
+.footer-section-title,
+.social-title,
+.footer-nav,
+.footer-nav li,
+.footer-link,
+.social-links,
+.social-list,
+.social-item,
+.social-link,
+.newsletter-form,
+.contact-info {
+  max-inline-size: none !important;
+}
+
+/* Reasonable width for long text content */
+.footer-description,
+.contact-address,
+.copyright {
+  max-inline-size: min(60ch, 100%) !important;
+}
+
+.footer-title {
+  color: var(--gray-0);
+  font-size: var(--font-size-5);
+  margin-block-end: var(--size-2);
+  font-weight: var(--font-weight-6);
+  /* Ensure no width constraints */
+  max-inline-size: none;
+}
+
+.contact-address {
+  color: var(--gray-3);
+  margin-block-end: var(--size-2);
+  /* Ensure no width constraints */
+  max-inline-size: none;
+}
+
+.copyright {
+  color: var(--gray-4);
+  font-size: var(--font-size-1);
+  margin: 0;
+  /* Ensure no width constraints */
+  max-inline-size: none;
+}
+
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin-block-end: var(--size-2);
+}
+
+.footer-link {
+  color: var(--gray-3);
+  transition: color var(--ease-3);
+  /* Ensure footer links have transparent background */
+  background-color: transparent;
+}
+
+.footer-link:hover {
+  color: var(--gray-0);
+  /* Ensure footer link hover has transparent background */
+  background-color: transparent;
+}
+
+.footer-bottom {
+  border-block-start: var(--border-size-1) solid var(--gray-7);
+  padding-block-start: var(--size-4);
+  text-align: center;
+}
+
+.copyright {
+  font-size: var(--font-size-1);
+  color: var(--gray-4);
+  margin: 0;
+}
+
+/* Responsive Design using Open Props */
+@media (min-width: 768px) {
+  .main-navigation {
+    display: block;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  .footer-content {
+    /* Use a simpler grid approach for medium screens */
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--size-8);
+  }
+
+  /* Increase container width on larger screens */
+  .header-container,
+  .main-content,
+  .footer-container {
+    padding-inline: var(--size-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-content {
+    /* Use 4 columns for large screens */
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--size-10);
+  }
+
+  /* Even more space on large screens */
+  .header-container,
+  .main-content,
+  .footer-container {
+    padding-inline: var(--size-8);
+  }
+}
+
+@media (min-width: 1400px) {
+  /* Extra wide screens get more breathing room */
+  .header-container,
+  .main-content,
+  .footer-container {
+    padding-inline: var(--size-10);
+  }
+}
+
+/* Button styles extending Open Props buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2);
+  padding: var(--size-2) var(--size-4);
+  border-radius: var(--radius-2);
+  font-weight: var(--font-weight-5);
+  text-decoration: none;
+  transition: all var(--ease-3);
+  cursor: pointer;
+  border: var(--border-size-1) solid transparent;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--gray-0);
+}
+
+.btn-primary:hover {
+  background: var(--blue-7);
+  transform: translateY(calc(-1 * var(--size-1)));
+}
+
+.btn-secondary {
+  background: var(--gray-2);
+  color: var(--gray-8);
+  border-color: var(--gray-4);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-3);
+  border-color: var(--gray-5);
+}
+
+/* Utility classes using Open Props */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-0 { margin-block-start: 0; }
+.mt-1 { margin-block-start: var(--size-1); }
+.mt-2 { margin-block-start: var(--size-2); }
+.mt-3 { margin-block-start: var(--size-3); }
+.mt-4 { margin-block-start: var(--size-4); }
+
+.mb-0 { margin-block-end: 0; }
+.mb-1 { margin-block-end: var(--size-1); }
+.mb-2 { margin-block-end: var(--size-2); }
+.mb-3 { margin-block-end: var(--size-3); }
+.mb-4 { margin-block-end: var(--size-4); }
