@@ -2,9 +2,9 @@
     <div class="header-container">
         <!-- Site Logo/Title -->
         <div class="site-branding">
-            <a href="/" class="site-logo">
+            <a href="{{ '/' | url }}" class="site-logo">
                 {% if site.logo %}
-                    <img src="{{ site.logo }}" alt="{{ site.title or 'Explosive Website' }}" class="logo-image">
+                    <img src="{{ site.logo | url }}" alt="{{ site.title or 'Explosive Website' }}" class="logo-image">
                 {% else %}
                     <span class="logo-text">{{ site.title or "Explosive Website" }}</span>
                 {% endif %}
@@ -26,15 +26,15 @@
             <ul class="nav-menu">
                 <!-- Home Link -->
                 <li class="nav-item">
-                    <a href="/" class="nav-link{% if page.url == '/' %} current{% endif %}">Home</a>
+                    <a href="{{ '/' | url }}" class="nav-link{% if page.url == '/' %} current{% endif %}">Home</a>
                 </li>
-                
+
                 <!-- Static Pages -->
                 {% set staticPages = collections.pages | sort(false, false, 'data.order') %}
                 {% for page in staticPages %}
                     {% if page.data.showInNav !== false %}
                         <li class="nav-item">
-                            <a href="{{ page.url }}" class="nav-link{% if page.url == page.url %} current{% endif %}">
+                            <a href="{{ page.url | url }}" class="nav-link{% if page.url == page.url %} current{% endif %}">
                                 {{ page.data.navTitle or page.data.title }}
                             </a>
                         </li>
@@ -48,15 +48,15 @@
                     {% set collectionData = collections.collectionData | find('name', collectionName) %}
                     {% if not collectionData or collectionData.showInNav !== false %}
                         <li class="nav-item{% if collectionData and collectionData.hasSubmenu %} has-submenu{% endif %}">
-                            <a href="/collections/{{ collectionName | slug }}/" class="nav-link{% if page.url.includes('/collections/' + collectionName) %} current{% endif %}">
+                            <a href="{{ ('/collections/' + (collectionName | slug) + '/') | url }}" class="nav-link{% if page.url.includes('/collections/' + collectionName) %} current{% endif %}">
                                 {{ (collectionData and collectionData.displayName) or (collectionName | title) }}
                             </a>
-                            
+
                             {% if collectionData and collectionData.hasSubmenu and collectionData.submenuCollections %}
                                 <ul class="submenu">
                                     {% for subCollection in collectionData.submenuCollections %}
                                         <li class="submenu-item">
-                                            <a href="/collections/{{ subCollection | slug }}/" class="submenu-link">
+                                            <a href="{{ ('/collections/' + (subCollection | slug) + '/') | url }}" class="submenu-link">
                                                 {{ subCollection | title }}
                                             </a>
                                         </li>
@@ -71,7 +71,7 @@
                 {% if site.customNavLinks %}
                     {% for link in site.customNavLinks %}
                         <li class="nav-item">
-                            <a href="{{ link.url }}" class="nav-link"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                            <a href="{% if link.external %}{{ link.url }}{% else %}{{ link.url | url }}{% endif %}" class="nav-link"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
                                 {{ link.title }}
                                 {% if link.external %}<span class="external-icon" aria-hidden="true">↗</span>{% endif %}
                             </a>

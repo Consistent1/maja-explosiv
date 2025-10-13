@@ -130,6 +130,21 @@ module.exports = function(eleventyConfig) {
 
     return related.slice(0, limit);
   });
+
+  // URL filter for handling relative paths and GitHub Pages deployment
+  eleventyConfig.addFilter("url", function(url) {
+    // Get path prefix from environment variable or default to "/"
+    const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
+
+    // Don't modify external URLs or if path prefix is root
+    if (!url || url.startsWith("http") || url.startsWith("//") || pathPrefix === "/") {
+      return url;
+    }
+
+    // Remove leading slash and prepend path prefix
+    const cleanUrl = url.replace(/^\//, "");
+    return pathPrefix.replace(/\/$/, "") + "/" + cleanUrl;
+  });
   
   return {
     dir: {
@@ -141,6 +156,7 @@ module.exports = function(eleventyConfig) {
     },
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk"
+    htmlTemplateEngine: "njk",
+    pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/"
   };
 };

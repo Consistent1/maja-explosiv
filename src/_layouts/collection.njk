@@ -29,7 +29,7 @@ layout: base.njk
             <span class="post-count">{{ posts.length }} post{{ 's' if posts.length != 1 }}</span>
             {% if collectionData and collectionData.parentCollection %}
                 <nav class="collection-breadcrumb">
-                    <a href="/collections/{{ collectionData.parentCollection | slug }}/">{{ collectionData.parentCollection | title }}</a>
+                    <a href="{{ ('/collections/' + (collectionData.parentCollection | slug) + '/') | url }}">{{ collectionData.parentCollection | title }}</a>
                     <span class="breadcrumb-separator">→</span>
                     <span>{{ collectionData.displayName or (collectionName | title) }}</span>
                 </nav>
@@ -55,14 +55,14 @@ layout: base.njk
                     <div class="nested-collection-card">
                         {% if subCollectionData and subCollectionData.featuredImage %}
                             <div class="nested-collection-image">
-                                <a href="/collections/{{ subCollectionName | slug }}/">
-                                    <img src="{{ subCollectionData.featuredImage }}" alt="{{ subCollectionData.displayName or subCollectionName }}" loading="lazy">
+                                <a href="{{ ('/collections/' + (subCollectionName | slug) + '/') | url }}">
+                                    <img src="{{ subCollectionData.featuredImage | url }}" alt="{{ subCollectionData.displayName or subCollectionName }}" loading="lazy">
                                 </a>
                             </div>
                         {% endif %}
                         <div class="nested-collection-content">
                             <h3 class="nested-collection-title">
-                                <a href="/collections/{{ subCollectionName | slug }}/">
+                                <a href="{{ ('/collections/' + (subCollectionName | slug) + '/') | url }}">
                                     {{ (subCollectionData and subCollectionData.displayName) or (subCollectionName | title) }}
                                 </a>
                             </h3>
@@ -107,14 +107,14 @@ layout: base.njk
                     <article class="post-card" data-date="{{ post.data.date | date('YYYY-MM-DD') }}" data-title="{{ post.data.title | lower }}">
                         {% if post.data.featuredImage %}
                             <div class="post-card-image">
-                                <a href="{{ post.url }}">
-                                    <img src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                <a href="{{ post.url | url }}">
+                                    <img src="{{ post.data.featuredImage | url }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
                                 </a>
                             </div>
                         {% endif %}
                         <div class="post-card-content">
                             <h3 class="post-card-title">
-                                <a href="{{ post.url }}">{{ post.data.title }}</a>
+                                <a href="{{ post.url | url }}">{{ post.data.title }}</a>
                             </h3>
                             {% if post.data.description %}
                                 <p class="post-card-description">{{ post.data.description }}</p>
@@ -151,15 +151,15 @@ layout: base.njk
         {% if pagination %}
             <nav class="pagination" aria-label="Collection pagination">
                 {% if pagination.href.previous %}
-                    <a href="{{ pagination.href.previous }}" class="pagination-link pagination-prev">← Previous</a>
+                    <a href="{{ pagination.href.previous | url }}" class="pagination-link pagination-prev">← Previous</a>
                 {% endif %}
-                
+
                 <div class="pagination-info">
                     Page {{ pagination.pageNumber }} of {{ pagination.pages.length }}
                 </div>
-                
+
                 {% if pagination.href.next %}
-                    <a href="{{ pagination.href.next }}" class="pagination-link pagination-next">Next →</a>
+                    <a href="{{ pagination.href.next | url }}" class="pagination-link pagination-next">Next →</a>
                 {% endif %}
             </nav>
         {% endif %}

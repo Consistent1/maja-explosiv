@@ -21,15 +21,15 @@
     {% if image %}<meta property="twitter:image" content="{{ site.url }}{{ image }}">{% endif %}
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
     {% if customCSS %}
         {% for css in customCSS %}
-            <link rel="stylesheet" href="{{ css }}">
+            <link rel="stylesheet" href="{{ css | url }}">
         {% endfor %}
     {% endif %}
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | url }}">
 </head>
 <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
     <!-- Skip to main content for accessibility -->
@@ -78,10 +78,10 @@
     {% include "footer.njk" %}
     
     <!-- Scripts -->
-    <script src="/assets/js/main.js"></script>
+    <script src="{{ '/assets/js/main.js' | url }}"></script>
     {% if customJS %}
         {% for js in customJS %}
-            <script src="{{ js }}"></script>
+            <script src="{{ js | url }}"></script>
         {% endfor %}
     {% endif %}
 </body>

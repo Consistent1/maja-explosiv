@@ -39,25 +39,25 @@
             <div class="footer-section footer-links">
                 <h4 class="footer-section-title">Quick Links</h4>
                 <ul class="footer-nav">
-                    <li><a href="/" class="footer-link">Home</a></li>
-                    
+                    <li><a href="{{ '/' | url }}" class="footer-link">Home</a></li>
+
                     <!-- Static Pages in Footer -->
                     {% set footerPages = collections.pages | sort(false, false, 'data.order') %}
                     {% for page in footerPages %}
                         {% if page.data.showInFooter !== false %}
                             <li>
-                                <a href="{{ page.url }}" class="footer-link">
+                                <a href="{{ page.url | url }}" class="footer-link">
                                     {{ page.data.navTitle or page.data.title }}
                                 </a>
                             </li>
                         {% endif %}
                     {% endfor %}
-                    
+
                     <!-- Additional Footer Links -->
                     {% if site.footerLinks %}
                         {% for link in site.footerLinks %}
                             <li>
-                                <a href="{{ link.url }}" class="footer-link"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                                <a href="{% if link.external %}{{ link.url }}{% else %}{{ link.url | url }}{% endif %}" class="footer-link"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
                                     {{ link.title }}
                                 </a>
                             </li>
@@ -76,7 +76,7 @@
                         {% set collectionData = collections.collectionData | find('name', collectionName) %}
                         {% if not collectionData or collectionData.showInFooter !== false %}
                             <li>
-                                <a href="/collections/{{ collectionName | slug }}/" class="footer-link">
+                                <a href="{{ ('/collections/' + (collectionName | slug) + '/') | url }}" class="footer-link">
                                     {{ (collectionData and collectionData.displayName) or (collectionName | title) }}
                                 </a>
                             </li>
@@ -90,7 +90,7 @@
                 <div class="footer-section footer-contact">
                     {% if site.showNewsletter %}
                         <h4 class="footer-section-title">Stay Updated</h4>
-                        <form class="newsletter-form" action="{{ site.newsletterAction or '#' }}" method="post">
+                        <form class="newsletter-form" action="{% if site.newsletterAction %}{{ site.newsletterAction | url }}{% else %}#{% endif %}" method="post">
                             <label for="newsletter-email" class="sr-only">Email address</label>
                             <div class="newsletter-input-group">
                                 <input type="email" id="newsletter-email" name="email" class="newsletter-input" placeholder="Enter your email" required>

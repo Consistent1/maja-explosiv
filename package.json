@@ -7,7 +7,10 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
-    "debug": "DEBUG=Eleventy* eleventy"
+    "debug": "DEBUG=Eleventy* eleventy",
+    "build:github": "ELEVENTY_PATH_PREFIX=/explosive-11ty/ eleventy",
+    "copy:docs": "rm -rf docs && cp -r _site docs",
+    "deploy:github": "npm run build:github && npm run copy:docs"
   },
   "keywords": [
     "eleventy",

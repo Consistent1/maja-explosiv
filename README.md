@@ -265,6 +265,9 @@ customSections:
 - `npm run serve` - Start development server with live reload
 - `npm run build` - Build for production
 - `npm run debug` - Build with debug information
+- `npm run build:github` - Build for GitHub Pages deployment
+- `npm run copy:docs` - Copy _site contents to docs folder
+- `npm run deploy:github` - Build and prepare for GitHub Pages
 
 ### Adding Custom Filters
 
@@ -291,10 +294,74 @@ eleventyConfig.addCollection("featured", function(collectionApi) {
 
 The template generates static files in the `_site` directory, making it compatible with any static hosting service:
 
+### GitHub Pages Deployment
+
+This template is optimized for GitHub Pages deployment using the docs folder approach:
+
+1. **Configure the repository name** in `package.json`:
+   ```bash
+   # Update the path prefix in package.json build:github script
+   # Replace 'explosive-11ty' with your repository name
+   "build:github": "ELEVENTY_PATH_PREFIX=/your-repo-name/ eleventy"
+   ```
+
+2. **Build and deploy**:
+   ```bash
+   npm run deploy:github
+   ```
+
+3. **Commit and push**:
+   ```bash
+   git add docs/
+   git commit -m "Deploy to GitHub Pages"
+   git push origin main
+   ```
+
+4. **Configure GitHub Pages**:
+   - Go to your repository settings
+   - Navigate to "Pages" section
+   - Set source to "Deploy from a branch"
+   - Select "main" branch and "/docs" folder
+   - Save the settings
+
+Your site will be available at `https://username.github.io/repository-name/`
+
+### Other Deployment Options
+
 - **Netlify**: Connect your Git repository for automatic deployments
 - **Vercel**: Import your project for instant deployment
-- **GitHub Pages**: Use GitHub Actions for automated builds
 - **Traditional Hosting**: Upload the `_site` folder via FTP
+
+### Local Development vs Production
+
+- **Local development**: All paths work from root (`/`)
+- **GitHub Pages**: Paths are automatically prefixed with repository name
+- **Custom domain**: Update `ELEVENTY_PATH_PREFIX` to `/` for root domain deployment
+
+### Important: Local Server After GitHub Build
+
+**Note**: After running `npm run build:github`, your local development server will not work correctly because the `_site` folder contains GitHub Pages paths (e.g., `/repo-name/assets/css/main.css`) instead of local paths (e.g., `/assets/css/main.css`).
+
+**Recommended Development Workflow**:
+
+```bash
+# 1. Develop locally
+npm run serve
+
+# 2. When ready to deploy to GitHub Pages
+npm run deploy:github
+
+# 3. Commit and push to GitHub
+git add docs/
+git commit -m "Deploy to GitHub Pages"
+git push origin main
+
+# 4. To continue local development, rebuild for local paths
+npm run build
+npm run serve
+```
+
+This ensures your local development environment works correctly while maintaining proper GitHub Pages deployment.
 
 ## 📚 Example Content
 
