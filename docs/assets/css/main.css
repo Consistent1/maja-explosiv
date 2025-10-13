@@ -736,3 +736,276 @@ pre code {
 .mb-2 { margin-block-end: var(--size-2); }
 .mb-3 { margin-block-end: var(--size-3); }
 .mb-4 { margin-block-end: var(--size-4); }
+
+/* ============================================
+   Carousel Component Styles
+   ============================================ */
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--gray-1);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-2);
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--ease-3) 0.5s, visibility 0s 0.5s;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Datastar's data-show adds display: none when hidden, so we override with flex when shown */
+.carousel-slide:not([style*="display: none"]) {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--ease-3) 0.5s, visibility 0s 0s;
+  z-index: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide a img {
+  transition: transform var(--ease-3) 0.3s;
+}
+
+.carousel-slide a:hover img {
+  transform: scale(1.05);
+}
+
+/* Carousel Caption */
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--size-5);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: var(--gray-0);
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-7);
+  margin: 0 0 var(--size-2) 0;
+  color: var(--gray-0);
+}
+
+.carousel-caption-text {
+  font-size: var(--font-size-2);
+  margin: 0;
+  color: var(--gray-2);
+}
+
+/* Navigation Controls */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--gray-0);
+  border: none;
+  width: var(--size-9);
+  height: var(--size-9);
+  border-radius: var(--radius-round);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--ease-3) 0.2s, transform var(--ease-3) 0.2s;
+  z-index: 2;
+  font-size: var(--font-size-6);
+  line-height: 1;
+}
+
+.carousel-control:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.carousel-control-prev {
+  left: var(--size-3);
+}
+
+.carousel-control-next {
+  right: var(--size-3);
+}
+
+.carousel-control-icon {
+  display: block;
+  font-size: var(--font-size-7);
+  font-weight: var(--font-weight-7);
+  line-height: 1;
+}
+
+/* Indicator Dots */
+.carousel-indicators {
+  position: absolute;
+  bottom: var(--size-3);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--size-2);
+  z-index: 2;
+}
+
+.carousel-indicator {
+  width: var(--size-3);
+  height: var(--size-3);
+  border-radius: var(--radius-round);
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all var(--ease-3) 0.2s;
+  padding: 0;
+}
+
+.carousel-indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.carousel-indicator:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.carousel-indicator.active {
+  background: var(--gray-0);
+  border-color: var(--gray-0);
+  transform: scale(1.3);
+}
+
+/* Responsive Carousel Styles */
+@media (max-width: 768px) {
+  .carousel-control {
+    width: var(--size-7);
+    height: var(--size-7);
+    font-size: var(--font-size-5);
+  }
+
+  .carousel-control-prev {
+    left: var(--size-2);
+  }
+
+  .carousel-control-next {
+    right: var(--size-2);
+  }
+
+  .carousel-caption {
+    padding: var(--size-3);
+  }
+
+  .carousel-title {
+    font-size: var(--font-size-3);
+  }
+
+  .carousel-caption-text {
+    font-size: var(--font-size-1);
+  }
+
+  .carousel-indicators {
+    bottom: var(--size-2);
+    gap: var(--size-1);
+  }
+
+  .carousel-indicator {
+    width: var(--size-2);
+    height: var(--size-2);
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide {
+    transition: opacity 0.1s, visibility 0s 0.1s;
+  }
+
+  .carousel-slide[data-show="true"] {
+    transition: opacity 0.1s, visibility 0s 0s;
+  }
+
+  .carousel-control,
+  .carousel-indicator {
+    transition: none;
+  }
+
+  .carousel-slide a img {
+    transition: none;
+  }
+}
+
+/* Aspect Ratio Support */
+.carousel[data-aspect-ratio] .carousel-inner {
+  aspect-ratio: var(--carousel-aspect-ratio, 16/9);
+}
+
+.carousel[data-aspect-ratio="16/9"] .carousel-inner {
+  aspect-ratio: 16/9;
+}
+
+.carousel[data-aspect-ratio="4/3"] .carousel-inner {
+  aspect-ratio: 4/3;
+}
+
+.carousel[data-aspect-ratio="1/1"] .carousel-inner {
+  aspect-ratio: 1/1;
+}
+
+.carousel[data-aspect-ratio="21/9"] .carousel-inner {
+  aspect-ratio: 21/9;
+}
+
+/* Default height for carousels without aspect ratio */
+.carousel:not([data-aspect-ratio]) .carousel-inner {
+  min-height: 400px;
+}
+
+@media (max-width: 768px) {
+  .carousel:not([data-aspect-ratio]) .carousel-inner {
+    min-height: 300px;
+  }
+}
+
+/* Keyboard focus styles */
+.carousel:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

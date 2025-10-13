@@ -30,7 +30,7 @@
 <body class="">
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <!-- Header -->
     <header class="site-header">
     <div class="header-container">
@@ -210,7 +210,8 @@
     
     
     <div class="home-content">
-        <h2>Welcome to Your New Website</h2>
+        <div class="carousel" id="carousel-s677bqlxm" data-signals="{currentSlide: 0, totalSlides: 3}" data-on-interval__duration.5000ms="$currentSlide = ($currentSlide + 1) % $totalSlides"  role="region" aria-label="Image carousel" aria-roledescription="carousel" tabindex="0"><div class="carousel-inner" style="height: 500px"><div class="carousel-slide" data-show="$currentSlide === 0" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3"><a href="/maja-explosiv/pages/about/"><img src="/maja-explosiv/assets/images/carousel/hero/hero1.svg" alt="Modern web development" loading="lazy" title="Build Fast Websites"></a><div class="carousel-caption"><h3 class="carousel-title">Build Fast Websites</h3><p class="carousel-caption-text">Create lightning-fast static sites with 11ty</p></div></div><div class="carousel-slide" data-show="$currentSlide === 1" style="display: none" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3"><img src="/maja-explosiv/assets/images/carousel/hero/hero2.svg" alt="Responsive design" loading="lazy" title="Mobile-First Design"><div class="carousel-caption"><h3 class="carousel-title">Mobile-First Design</h3><p class="carousel-caption-text">Beautiful on every device</p></div></div><div class="carousel-slide" data-show="$currentSlide === 2" style="display: none" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3"><img src="/maja-explosiv/assets/images/carousel/hero/hero3.svg" alt="Easy to use" loading="lazy" title="Simple & Powerful"><div class="carousel-caption"><h3 class="carousel-title">Simple & Powerful</h3><p class="carousel-caption-text">Markdown-based content creation</p></div></div></div><button class="carousel-control carousel-control-prev" data-on-click="$currentSlide = ($currentSlide - 1 + $totalSlides) % $totalSlides" aria-label="Previous slide"><span class="carousel-control-icon" aria-hidden="true">‹</span></button><button class="carousel-control carousel-control-next" data-on-click="$currentSlide = ($currentSlide + 1) % $totalSlides" aria-label="Next slide"><span class="carousel-control-icon" aria-hidden="true">›</span></button><div class="carousel-indicators" role="tablist"><button class="carousel-indicator" data-class="{active: $currentSlide === 0}" data-on-click="$currentSlide = 0" role="tab" aria-label="Go to slide 1"></button><button class="carousel-indicator" data-class="{active: $currentSlide === 1}" data-on-click="$currentSlide = 1" role="tab" aria-label="Go to slide 2"></button><button class="carousel-indicator" data-class="{active: $currentSlide === 2}" data-on-click="$currentSlide = 2" role="tab" aria-label="Go to slide 3"></button></div></div>
+<h2>Welcome to Your New Website</h2>
 <p>This is the home page of your Explosive Website template. You can customize this content by editing the <code>src/index.md</code> file.</p>
 <h3>What You Can Do</h3>
 <ul>
@@ -340,6 +341,32 @@
                         </div>
                     </article>
                 
+                    <article class="post-card">
+                        
+                        <div class="post-card-content">
+                            <h3 class="post-card-title">
+                                <a href="/posts/image-carousel-demo/">Image Carousel Demo</a>
+                            </h3>
+                            
+                                <p class="post-card-description">Demonstrating the image carousel component with beautiful galleries</p>
+                            
+                            <div class="post-card-meta">
+                                
+                                    <time class="post-date" datetime="2024-01-20">
+                                        January 20, 2024
+                                    </time>
+                                
+                                
+                                    <div class="post-collections">
+                                        
+                                            <a href="/collections/blog/" class="collection-tag">blog</a>
+                                        
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </article>
+                
             </div>
             <div class="section-cta">
                 <a href="/posts/" class="view-all-link">View All Posts</a>
@@ -366,7 +393,7 @@
                             </h3>
                             
                             <div class="collection-card-meta">
-                                <span class="post-count">1 post</span>
+                                <span class="post-count">2 posts</span>
                             </div>
                         </div>
                     </div>
@@ -673,6 +700,9 @@
 
     
     <!-- Scripts -->
+    <!-- Datastar library from CDN -->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.0-beta.5/bundles/datastar.js"></script>
+    <script src="/maja-explosiv/assets/js/datastar-utils.js"></script>
     <script src="/maja-explosiv/assets/js/main.js"></script>
     
 </body>
