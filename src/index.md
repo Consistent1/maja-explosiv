@@ -19,6 +19,27 @@ hero:
   ctaButton:
     text: Get Started
     url: /about/
+carousels:
+  hero:
+    autoplay: true
+    interval: 5000
+    showDots: true
+    showArrows: true
+    height: 500px
+    images:
+      - src: /assets/images/carousel/hero/hero1.svg
+        alt: Modern web development
+        title: Build Fast Websites
+        caption: Create lightning-fast static sites with 11ty
+        link: /pages/about/
+      - src: /assets/images/carousel/hero/hero2.svg
+        alt: Responsive design
+        title: Mobile-First Design
+        caption: Beautiful on every device
+      - src: /assets/images/carousel/hero/hero3.svg
+        alt: Easy to use
+        title: Simple & Powerful
+        caption: Markdown-based content creation
 customSections:
   - title: Why Choose Explosive?
     class: features-section
@@ -42,6 +63,8 @@ customSections:
         </div>
       </div>
 ---
+
+{% carousel "hero" %}
 
 ## Welcome to Your New Website
 

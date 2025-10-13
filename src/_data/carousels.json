@@ -1,0 +1,27 @@
+{
+  "sampleGallery": {
+    "autoplay": false,
+    "interval": 5000,
+    "showDots": true,
+    "showArrows": true,
+    "aspectRatio": "4/3",
+    "images": [
+      {
+        "src": "/assets/images/carousel/gallery/gallery1.svg",
+        "alt": "Colorful gradient background with circle",
+        "caption": "Beautiful gradient designs"
+      },
+      {
+        "src": "/assets/images/carousel/gallery/gallery2.svg",
+        "alt": "Gradient background with square",
+        "caption": "Modern geometric patterns"
+      },
+      {
+        "src": "/assets/images/carousel/gallery/gallery3.svg",
+        "alt": "Gradient background with triangle",
+        "caption": "Creative visual elements"
+      }
+    ]
+  }
+}
+

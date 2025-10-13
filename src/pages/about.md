@@ -10,6 +10,26 @@ featuredImage: /assets/images/about-hero.jpg
 featuredImageAlt: About us hero image
 showLastModified: true
 showTableOfContents: true
+carousels:
+  features:
+    autoplay: true
+    interval: 6000
+    showDots: true
+    showArrows: false
+    height: 400px
+    images:
+      - src: /assets/images/carousel/hero/hero1.svg
+        alt: Fast websites
+        title: Lightning Fast
+        caption: Built for speed and performance
+      - src: /assets/images/carousel/hero/hero2.svg
+        alt: Responsive design
+        title: Fully Responsive
+        caption: Perfect on any device
+      - src: /assets/images/carousel/hero/hero3.svg
+        alt: Easy to use
+        title: Developer Friendly
+        caption: Clean and maintainable code
 ---
 
 # About Explosive Website
@@ -26,6 +46,8 @@ We believe that creating beautiful, fast, and organized websites should be acces
 - **Developer-friendly** - Clean, maintainable code structure
 
 ## Key Features
+
+{% carousel "features" %}
 
 ### 🎯 Flexible Content Organization
 

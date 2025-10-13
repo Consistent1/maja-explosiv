@@ -257,6 +257,220 @@ customSections:
 - **Table of Contents**: Automatic TOC generation for long content
 - **Reading Time**: Automatic reading time calculation
 - **Breadcrumbs**: Navigation breadcrumbs for better UX
+- **Image Carousel**: Flexible, accessible carousel component powered by Datastar
+
+## 🎠 Image Carousel Component
+
+The template includes a powerful and flexible image carousel component that can be added to any page type (posts, pages, collections, etc.).
+
+### Features
+
+- **Responsive Design**: Automatically adapts to all screen sizes
+- **Touch Support**: Swipe gestures on mobile devices
+- **Keyboard Navigation**: Arrow keys, Home, and End keys for navigation
+- **Accessibility**: Full ARIA support for screen readers
+- **Customizable**: Configure autoplay, intervals, dots, arrows, and more
+- **Flexible Data Sources**: Define carousels in front matter, inline, or global data
+- **Multiple Carousels**: Add multiple carousels to the same page
+- **Image Metadata**: Support for captions, titles, alt text, and links
+
+### Basic Usage
+
+#### 1. Define Carousel in Front Matter
+
+Add a carousel configuration to your page's front matter:
+
+```yaml
+---
+title: My Page
+carousels:
+  hero:
+    autoplay: true
+    interval: 5000
+    showDots: true
+    showArrows: true
+    height: 500px
+    images:
+      - src: /assets/images/slide1.jpg
+        alt: First slide
+        title: Welcome
+        caption: This is the first slide
+      - src: /assets/images/slide2.jpg
+        alt: Second slide
+        title: Features
+        caption: Check out our features
+---
+```
+
+#### 2. Use the Carousel Shortcode
+
+In your page content, reference the carousel by its ID:
+
+```markdown
+{% carousel "hero" %}
+```
+
+### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `autoplay` | boolean | `false` | Automatically advance slides |
+| `interval` | number | `5000` | Time between slides (ms) when autoplay is enabled |
+| `showDots` | boolean | `true` | Show indicator dots at the bottom |
+| `showArrows` | boolean | `true` | Show previous/next navigation arrows |
+| `height` | string | `'auto'` | Fixed height (e.g., `'500px'`) or `'auto'` |
+| `aspectRatio` | string | `null` | Aspect ratio (e.g., `'16/9'`, `'4/3'`, `'1/1'`, `'21/9'`) |
+
+### Image Properties
+
+Each image in the carousel can have the following properties:
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `src` | string | ✅ Yes | Path to the image file |
+| `alt` | string | ✅ Yes | Alternative text for accessibility |
+| `title` | string | No | Title displayed as overlay |
+| `caption` | string | No | Caption text displayed below title |
+| `link` | string | No | URL to navigate to when image is clicked |
+| `linkTarget` | string | No | Link target (e.g., `'_blank'`) |
+
+### Usage Examples
+
+#### Simple Carousel (Just Image Paths)
+
+```yaml
+carousels:
+  simple:
+    images:
+      - /assets/images/img1.jpg
+      - /assets/images/img2.jpg
+      - /assets/images/img3.jpg
+```
+
+#### Full-Featured Carousel
+
+```yaml
+carousels:
+  gallery:
+    autoplay: false
+    showDots: true
+    showArrows: true
+    aspectRatio: 4/3
+    images:
+      - src: /assets/images/product1.jpg
+        alt: Product showcase
+        title: Our Latest Product
+        caption: Available now in stores
+        link: /products/latest/
+      - src: /assets/images/product2.jpg
+        alt: Feature highlight
+        title: Amazing Features
+        caption: Discover what makes us different
+```
+
+#### Inline Carousel (No Front Matter)
+
+You can also define a carousel inline:
+
+```markdown
+{% carousel images=[
+  {src: "/assets/images/img1.jpg", alt: "Description 1"},
+  {src: "/assets/images/img2.jpg", alt: "Description 2"}
+] %}
+```
+
+### Multiple Carousels on One Page
+
+You can add multiple carousels to the same page:
+
+```yaml
+---
+carousels:
+  hero:
+    autoplay: true
+    images: [...]
+  gallery:
+    autoplay: false
+    images: [...]
+  testimonials:
+    showArrows: false
+    images: [...]
+---
+
+{% carousel "hero" %}
+
+## Our Gallery
+
+{% carousel "gallery" %}
+
+## What People Say
+
+{% carousel "testimonials" %}
+```
+
+### Keyboard Navigation
+
+When a carousel has focus:
+- **Left Arrow**: Previous slide
+- **Right Arrow**: Next slide
+- **Home**: First slide
+- **End**: Last slide
+
+### Accessibility
+
+The carousel component includes:
+- ARIA labels and roles for screen readers
+- Keyboard navigation support
+- Focus indicators for interactive elements
+- Reduced motion support for users with motion sensitivity
+- Semantic HTML structure
+
+### Customization
+
+#### Custom Styling
+
+Override carousel styles in your CSS:
+
+```css
+.carousel {
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.carousel-control {
+  background: var(--brand-primary);
+}
+
+.carousel-indicator.active {
+  background: var(--brand-accent);
+}
+```
+
+#### Custom Aspect Ratios
+
+The carousel supports common aspect ratios:
+- `16/9` - Widescreen (default for video content)
+- `4/3` - Standard
+- `1/1` - Square
+- `21/9` - Ultra-wide
+
+Or set a custom height:
+
+```yaml
+carousels:
+  custom:
+    height: 600px
+    images: [...]
+```
+
+### Best Practices
+
+1. **Always provide alt text** for accessibility
+2. **Optimize images** before adding them to carousels
+3. **Use appropriate aspect ratios** for your content
+4. **Limit autoplay** to avoid annoying users
+5. **Test keyboard navigation** to ensure accessibility
+6. **Keep captions concise** for better readability
 
 ## 🔧 Development
 

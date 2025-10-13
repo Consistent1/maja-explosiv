@@ -2,6 +2,8 @@ module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/media");
+
+  // Datastar is loaded from CDN, no need to copy from node_modules
   
   // Watch for changes in CSS
   eleventyConfig.addWatchTarget("src/assets/css/");
@@ -144,6 +146,112 @@ module.exports = function(eleventyConfig) {
     // Remove leading slash and prepend path prefix
     const cleanUrl = url.replace(/^\//, "");
     return pathPrefix.replace(/\/$/, "") + "/" + cleanUrl;
+  });
+
+  // Carousel shortcode for image carousels
+  eleventyConfig.addShortcode("carousel", function(carouselIdOrOptions, options = {}) {
+    const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
+
+    // Helper function to apply URL filter
+    const applyUrl = (url) => {
+      if (!url || url.startsWith("http") || url.startsWith("//") || pathPrefix === "/") {
+        return url;
+      }
+      const cleanUrl = url.replace(/^\//, "");
+      return pathPrefix.replace(/\/$/, "") + "/" + cleanUrl;
+    };
+
+    let images = [];
+    let config = {
+      autoplay: false,
+      interval: 5000,
+      showDots: true,
+      showArrows: true,
+      height: 'auto',
+      aspectRatio: null
+    };
+
+    // Determine input method and extract images
+    if (typeof carouselIdOrOptions === 'string') {
+      // Method 1: Reference from front matter (e.g., {% carousel "hero" %})
+      // Access carousels from the context (this.ctx contains all page data)
+      const carouselData = this.ctx?.carousels?.[carouselIdOrOptions];
+      if (carouselData) {
+        images = carouselData.images || [];
+        config = { ...config, ...carouselData };
+        delete config.images; // Remove images from config
+      }
+    } else if (carouselIdOrOptions?.images) {
+      // Method 2: Inline images array
+      images = carouselIdOrOptions.images;
+      config = { ...config, ...carouselIdOrOptions };
+      delete config.images;
+    } else if (carouselIdOrOptions?.data) {
+      // Method 3: Global data reference
+      // This would need to be implemented with access to global data
+      images = [];
+    }
+
+    // Merge any additional options passed as second parameter
+    config = { ...config, ...options };
+
+    if (!images || images.length === 0) {
+      return '<!-- Carousel: No images provided -->';
+    }
+
+    // Normalize images to objects
+    const normalizedImages = images.map(img => {
+      if (typeof img === 'string') {
+        return { src: img, alt: '' };
+      }
+      return img;
+    });
+
+    // Generate unique ID for this carousel
+    const carouselId = `carousel-${Math.random().toString(36).substring(2, 11)}`;
+
+    // Build carousel HTML with Datastar signals (all on one line to avoid Markdown processing issues)
+    // Using String.raw or escaping $ to prevent template literal interpolation
+    const autoplayAttr = config.autoplay ? `data-on-interval__duration.${config.interval}ms="$currentSlide = ($currentSlide + 1) % $totalSlides"` : '';
+    const heightAttr = config.height !== 'auto' ? `style="height: ${config.height}"` : '';
+    const aspectRatioAttr = config.aspectRatio ? `data-aspect-ratio="${config.aspectRatio}"` : '';
+
+    let html = `<div class="carousel" id="${carouselId}" data-signals="{currentSlide: 0, totalSlides: ${normalizedImages.length}}" ${autoplayAttr} ${aspectRatioAttr} role="region" aria-label="Image carousel" aria-roledescription="carousel" tabindex="0"><div class="carousel-inner" ${heightAttr}>`;
+
+    // Add slides (compact HTML to avoid Markdown processing)
+    normalizedImages.forEach((img, index) => {
+      const imgSrc = applyUrl(img.src);
+      const linkOpen = img.link ? `<a href="${applyUrl(img.link)}"${img.linkTarget ? ` target="${img.linkTarget}"` : ''}>` : '';
+      const linkClose = img.link ? '</a>' : '';
+      const titleAttr = img.title ? `title="${img.title}"` : '';
+      const caption = (img.caption || img.title) ? `<div class="carousel-caption">${img.title ? `<h3 class="carousel-title">${img.title}</h3>` : ''}${img.caption ? `<p class="carousel-caption-text">${img.caption}</p>` : ''}</div>` : '';
+
+      // Use data-show with proper Datastar syntax
+      // First slide should not have display:none to avoid flash of empty content
+      const initialDisplay = index === 0 ? '' : ' style="display: none"';
+      html += `<div class="carousel-slide" data-show="$currentSlide === ${index}"${initialDisplay} role="group" aria-roledescription="slide" aria-label="Slide ${index + 1} of ${normalizedImages.length}">${linkOpen}<img src="${imgSrc}" alt="${img.alt || ''}" loading="lazy" ${titleAttr}>${linkClose}${caption}</div>`;
+    });
+
+    html += `</div>`;
+
+    // Add navigation arrows (compact HTML)
+    if (config.showArrows) {
+      html += `<button class="carousel-control carousel-control-prev" data-on-click="$currentSlide = ($currentSlide - 1 + $totalSlides) % $totalSlides" aria-label="Previous slide"><span class="carousel-control-icon" aria-hidden="true">‹</span></button>`;
+      html += `<button class="carousel-control carousel-control-next" data-on-click="$currentSlide = ($currentSlide + 1) % $totalSlides" aria-label="Next slide"><span class="carousel-control-icon" aria-hidden="true">›</span></button>`;
+    }
+
+    // Add indicator dots (compact HTML)
+    if (config.showDots) {
+      html += `<div class="carousel-indicators" role="tablist">`;
+      normalizedImages.forEach((_, index) => {
+        html += `<button class="carousel-indicator" data-class="{active: $currentSlide === ${index}}" data-on-click="$currentSlide = ${index}" role="tab" aria-label="Go to slide ${index + 1}"></button>`;
+      });
+      html += `</div>`;
+    }
+
+    html += `</div>`;
+
+    return html;
   });
   
   return {
