@@ -1,0 +1,22 @@
+{
+  "name": "maja-explosiv-migration-scripts",
+  "version": "1.0.0",
+  "description": "Migration scripts for TYPO3 to 11ty conversion",
+  "private": true,
+  "scripts": {
+    "setup-db": "./01-setup-database.sh",
+    "analyze-db": "sudo mysql -u root maja_typo3 < 02-analyze-database.sql",
+    "extract-pages": "node 03-extract-pages.js",
+    "extract-all": "npm run extract-pages"
+  },
+  "dependencies": {
+    "mysql2": "^3.11.5",
+    "turndown": "^7.2.0",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+

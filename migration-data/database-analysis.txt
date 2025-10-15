@@ -1,0 +1,349 @@
+
+=== PAGES OVERVIEW ===
+Metric	Count
+Total Pages	179
+Analysis	doktype	Page_Type	Count
+Pages by Type	1	Standard	168
+Pages by Type	254	Folder	5
+Pages by Type	4	Shortcut	3
+Pages by Type	255	Other (255)	1
+Pages by Type	2	Other (2)	1
+Pages by Type	7	Other (7)	1
+Analysis	uid	title	nav_title	hidden	nav_hide
+Top Level Pages	965	templates ext		0	0
+Top Level Pages	860	maja		0	0
+Top Level Pages	733	pyrofessor		0	0
+Top Level Pages	766	Media		0	0
+Analysis	uid	title	content_elements
+Pages with Most Content	803	Skulpturen	15
+Pages with Most Content	801	Feuershow fÃ¼r Kids	14
+Pages with Most Content	804	Logo & Eddie	13
+Pages with Most Content	926	Elxt 90	13
+Pages with Most Content	933	Casino Gitano	12
+Pages with Most Content	810	Videos	9
+Pages with Most Content	1054	Destroy HIV	9
+Pages with Most Content	1064	The Helixes	9
+Pages with Most Content	966	Brennende Badewanne	9
+Pages with Most Content	1055	Sculptures	8
+
+=== CONTENT ELEMENTS OVERVIEW ===
+Metric	Count
+Total Content Elements	443
+Analysis	CType	Count
+Content by Type	text	241
+Content by Type	list	122
+Content by Type	image	40
+Content by Type	html	27
+Content by Type	menu	4
+Content by Type	textpic	4
+Content by Type	search	2
+Content by Type	mailform	1
+Content by Type	login	1
+Content by Type	multimedia	1
+Metric	Count
+Content with Images	10
+Metric	Count
+Hidden Content	111
+
+=== NEWS/BLOG ANALYSIS ===
+Metric	Count
+Total News Items	148
+Analysis	uid	title	datetime	hidden	type
+News Items	222	Grosse Hafenszene	1719849720	0	0
+News Items	221	Wandskulptur Hinwil	1682885460	0	0
+News Items	217	Die Affenbande	1663619280	0	0
+News Items	220	Schiffszimmer	1655151480	0	0
+News Items	219	Blumenwolke	1628018460	0	0
+News Items	218	Lauschen statt Rauschen 	1611092580	0	0
+News Items	214	Flower Power	1574524320	0	0
+News Items	213	The Wolf	1566051720	0	0
+News Items	215	ADM Soli Party	1556031420	1	0
+News Items	216	The Raven and the Crow	1540306980	0	0
+News Items	211	Solo Ausstellung 	1536269400	0	0
+News Items	212	Metal Portraits	1523050440	0	0
+News Items	209	Riedel Communication	1512135120	0	0
+News Items	206	The Helixes	1509993900	0	0
+News Items	210	AFZO	1503664440	0	0
+News Items	208	Parookaville Festival	1500553440	0	0
+News Items	202	Weglampen	1498493400	0	0
+News Items	207	Tattling Bird	1491501180	0	0
+News Items	205	Bill Parooka	1471539660	0	0
+News Items	204	Nova 2	1435163220	0	0
+News Items	203	Nova 2	1435162860	0	0
+News Items	201	The Gong Trophy	1431078600	0	0
+News Items	199	Lionfish Gate	1409335440	0	0
+News Items	200	Apocalyptic Fence	1401387000	0	0
+News Items	198	The Sea Monster	1393693860	0	0
+News Items	197	Destroy HIV	1386629220	0	0
+News Items	194	Smachine Art Nights	1383759660	0	0
+News Items	195	The Sisyphos Gate	1375808100	0	0
+News Items	193	Tubebox Railing	1373926200	0	0
+News Items	196	The 5th Estate	1357079580	0	0
+News Items	190	Wacken Bull	1346509320	0	0
+News Items	191	Artistic Direction	1341328440	0	0
+News Items	187	Wacken Skull	1336907340	0	0
+News Items	192	Robo Field - Fusion Festival	1325416800	0	0
+News Items	188	Bread and Butter	1300018320	0	0
+News Items	185	Beke Benefit	1297598220	0	0
+News Items	186	Tony Clifton Circus, Mission Roosevelt	1293969960	0	0
+News Items	189	Robocross	1293885240	0	0
+News Items	130	Odonische Feuer	1290338760	0	0
+News Items	184	Odonische Feuer	1290338760	0	0
+News Items	129	Raw Heater Bar	1278014040	0	0
+News Items	183	Raw Heater Bar	1278014040	0	0
+News Items	128	Duschfass	1275927780	0	0
+News Items	182	Duschfass	1275927780	0	0
+News Items	127	Elefants Head	1260797280	0	0
+News Items	181	Elefants Head	1260797280	0	0
+News Items	126	Suspended Carwreck	1254245280	0	0
+News Items	179	Suspended Carwreck	1254245280	0	0
+News Items	125	Nova	1249145400	0	0
+News Items	180	Nova	1249145400	0	0
+News Items	124	Extreme arts Festival  	1243845540	0	0
+News Items	178	Extreme arts Festival  	1243845540	0	0
+News Items	123	stage construction	1241166780	0	0
+News Items	177	stage construction	1241166780	0	0
+News Items	122	birds couple	1235899740	1	0
+News Items	176	birds couple	1235899740	1	0
+News Items	108	the throne	1225537200	0	0
+News Items	165	the throne	1225537200	0	0
+News Items	85	Thrash City	1214906400	0	0
+News Items	147	Thrash City	1214906400	0	0
+News Items	60	test show termin	1214589600	1	0
+News Items	59	Neue Website	1214308680	0	0
+News Items	103	Kalandraka	1207044000	0	0
+News Items	160	Kalandraka	1207044000	0	0
+News Items	83	The Whale	1196506800	0	0
+News Items	107	Hand of Man	1188640800	0	0
+News Items	164	Hand of Man	1188640800	0	0
+News Items	106	Wheel of Power	1183284000	0	0
+News Items	163	Wheel of Power	1183284000	0	0
+News Items	102	The Alchemy Bar	1157104800	0	0
+News Items	159	The Alchemy Bar	1157104800	0	0
+News Items	110	Malaga la Vache	1136113200	0	0
+News Items	84	Juweliers Messe Basel	1136113200	0	0
+News Items	132	Malaga la Vache	1136113200	0	0
+News Items	145	Juweliers Messe Basel	1136113200	0	0
+News Items	82	LHPO	1104577200	0	0
+News Items	92	Robodock Festival	1104577200	0	0
+News Items	111	Akwa	1104577200	0	0
+News Items	142	LHPO	1104577200	0	0
+News Items	143	The Whale	1104577200	0	0
+News Items	148	Robodock Festival	1104577200	0	0
+News Items	166	Akwa	1104577200	0	0
+News Items	91	Berlin Lacht	1104490800	0	0
+News Items	81	Troy	1101898800	0	0
+News Items	101	Mantelheizung	1075633200	0	0
+News Items	141	Troy	1072954800	0	0
+News Items	146	Berlin Lacht	1072954800	0	0
+News Items	158	Mantelheizung	1072954800	0	0
+News Items	80	Casino Gitano	1071226800	0	0
+News Items	90	Vision Festival\n	1070276400	0	0
+News Items	89	Zoom Festival	1067684400	0	0
+News Items	79	PolkappenzÃ¼ndfonie	1041418800	0	0
+News Items	88	Dada Festwochen	1041418800	0	0
+News Items	105	Forget Me Not	1041418800	0	0
+News Items	121	Elxt 90	1041418800	0	0
+News Items	137	PolkappenzÃ¼ndfonie	1041418800	0	0
+News Items	138	Zoom Festival	1041418800	0	0
+News Items	139	Casino Gitano	1041418800	0	0
+News Items	140	Dada Festwochen	1041418800	0	0
+News Items	144	Vision Festival\n	1041418800	0	0
+News Items	162	Forget Me Not	1041418800	0	0
+News Items	175	Elxt 90	1041418800	0	0
+News Items	78	Free Radicals	1009882800	0	0
+News Items	120	Elxt 90	1009882800	0	0
+News Items	136	Free Radicals	1009882800	0	0
+News Items	174	Elxt 90	1009882800	0	0
+News Items	119	Elxt 90	978346800	0	0
+News Items	173	Elxt 90	978346800	0	0
+News Items	118	Elxt 90	946724400	0	0
+News Items	172	Elxt 90	946724400	0	0
+News Items	77	Elxt90	915188400	0	0
+News Items	100	Dorfbachschiff	915188400	0	0
+News Items	134	Elxt90	915188400	0	0
+News Items	157	Dorfbachschiff	915188400	0	0
+News Items	104	Bimbo Town	883652400	0	0
+News Items	161	Bimbo Town	883652400	0	0
+News Items	117	explosive licenses	852120000	0	0
+News Items	171	explosive licenses	852120000	0	0
+News Items	76	Bagger	852116400	0	0
+News Items	99	17ton Bar	852116400	0	0
+News Items	116	metal construction	852116400	0	0
+News Items	133	Bagger	852116400	0	0
+News Items	156	17ton Bar	852116400	0	0
+News Items	170	metal construction	852116400	0	0
+News Items	87	Eurokon	820494000	0	0
+News Items	98	Nailed Tanks, Machine Performance, Russian Eagle	820494000	0	0
+News Items	131	Eurokon	820494000	0	0
+News Items	155	Nailed Tanks, Machine Performance, Russian Eagle	820494000	0	0
+News Items	86	Eurokot	812545200	0	0
+News Items	135	Eurokot	812545200	0	0
+News Items	97	Iron Channel	809949600	0	0
+News Items	154	Iron Channel	809949600	0	0
+News Items	96	KVU, kleine Haifischbar, Blauwe Aanslag	788958000	0	0
+News Items	115	frame-and-body construction	788958000	0	0
+News Items	153	KVU, kleine Haifischbar, Blauwe Aanslag	788958000	0	0
+News Items	169	frame-and-body construction	788958000	0	0
+News Items	94	Felix und Regula UnterfÃ¼hrung	757422000	0	0
+News Items	95	Arena, Black Hand, Black Hand, Zeleny Dvor, KÃ¶pi	757422000	0	0
+News Items	114	Stone sculpture	757422000	0	0
+News Items	151	Felix und Regula UnterfÃ¼hrung	757422000	0	0
+News Items	152	Arena, Black Hand, Black Hand, Zeleny Dvor, KÃ¶pi	757422000	0	0
+News Items	168	Stone sculpture	757422000	0	0
+News Items	113	University of the Arts	725886000	0	0
+News Items	93	Wohlgroth	725886000	0	0
+News Items	149	University of the Arts	725886000	0	0
+News Items	150	Wohlgroth	725886000	0	0
+News Items	112	Matura Typus D	694263600	0	0
+News Items	167	Matura Typus D	694263600	0	0
+Analysis	uid	title	parent_category
+News Categories	15	Auftritt	0
+News Categories	17	Auftritt	0
+News Categories	20	Performance	0
+News Categories	21	Event Organisation	0
+News Categories	22	Murals	0
+News Categories	23	Sculptures	0
+News Categories	24	Collaborations 	0
+News Categories	25	Paper work	0
+News Categories	26	Ausbildung	0
+News Categories	27	Elxt 90	0
+News Categories	28	news	0
+News Categories	29	Auftritt	0
+News Categories	30	Performance	0
+News Categories	31	Event Organisation	0
+News Categories	32	Murals	0
+News Categories	33	Sculptures	0
+News Categories	34	Collaborations 	0
+News Categories	35	Paper work	0
+News Categories	36	Ausbildung	0
+News Categories	37	Elxt 90	0
+News Categories	38	news	0
+News Categories	39	other	0
+News Categories	40	Aktuell	0
+
+=== MEDIA FILES (DAM) ANALYSIS ===
+Metric	Count
+Total DAM Files	2312
+Analysis	file_type	Count	Total_MB
+DAM Files by Type	jpg	2116	550.79
+DAM Files by Type	gif	75	0.17
+DAM Files by Type	swf	17	4.18
+DAM Files by Type	css	16	0.03
+DAM Files by Type	html	16	0.05
+DAM Files by Type	jpeg	12	3.27
+DAM Files by Type	htm	10	0.02
+DAM Files by Type	t3d	10	24.84
+DAM Files by Type	js	8	0.13
+DAM Files by Type	pdf	7	8.49
+DAM Files by Type	tmpl	7	0.01
+DAM Files by Type	png	5	0.52
+DAM Files by Type	avi	2	4.54
+DAM Files by Type	mov	2	1.99
+DAM Files by Type	xml	2	0.86
+DAM Files by Type	php	1	0.01
+DAM Files by Type	psd	1	0.30
+DAM Files by Type	log	1	0.00
+DAM Files by Type	inc	1	0.00
+DAM Files by Type	ts	1	0.01
+DAM Files by Type	txt	1	0.01
+DAM Files by Type	xslt	1	0.01
+Analysis	uid	title	parent_id
+DAM Categories	1	pyrofessor	0
+DAM Categories	2	mhk	0
+DAM Categories	3	km	0
+DAM Categories	4	wtweb	0
+DAM Categories	5	Tacheles	1
+DAM Categories	6	1.Mai	1
+DAM Categories	7	Show	1
+DAM Categories	8	leer	1
+DAM Categories	9	leer	1
+DAM Categories	10	leer	1
+DAM Categories	11	Produktion	2
+DAM Categories	20	maja	0
+DAM Categories	12	leer	2
+DAM Categories	13	leer	2
+DAM Categories	14	leer	2
+DAM Categories	15	leer	2
+DAM Categories	16	leer	3
+DAM Categories	17	leer	3
+DAM Categories	18	leer	3
+DAM Categories	19	leer	4
+DAM Categories	21	murals	20
+DAM Categories	22	poster	20
+DAM Categories	23	2D	20
+DAM Categories	24	concept illustration	20
+DAM Categories	25	current work	20
+DAM Categories	26	leer	20
+DAM Categories	27	website	0
+
+=== SYSTEM INFORMATION ===
+Analysis	uid	pid	domainName	redirectTo
+Domains	5	733	pyrofessor.de	https://www.pyrofessor.de
+Domains	6	733	www.pyrofessor.de	
+Domains	3	733	pyrofessor.wtweb.com	
+Domains	12	860	maja.wtweb.com	https://www.maja-explosiv.com
+Domains	14	860	maja-explosiv.com	https://www.maja-explosiv.com
+Domains	15	860	maja-explosiv.net	https://www.maja-explosiv.com
+Domains	16	860	www.maja-explosiv.com	
+Domains	17	860	www.maja-explosiv.net	https://www.maja-explosiv.com
+Analysis	uid	pid	title	root
+Templates	67	733	breadcrumb	0
+Templates	68	733	SideMenue	0
+Templates	69	733	config	0
+Templates	70	733	page	0
+Templates	71	733	pyrofessor	1
+Templates	78	774	2 col 750	0
+Templates	107	860	ext: topmenuemboss	0
+Templates	84	733	ext: rgsmoothgallery watermark	0
+Templates	95	860	menue1 plain	0
+Templates	96	860	breadcrumb	0
+Templates	97	860	SideMenue	0
+Templates	98	860	tpl config maja	0
+Templates	99	860	tpl page maja 	0
+Templates	100	860	maja	1
+Templates	101	951	ext: sitemap	0
+Templates	102	973	ext mpAjax	0
+Templates	104	965	RteTablesP	0
+Templates	105	967	ext: mooflow	0
+Templates	106	812	ext rgsmoothgallery	0
+Templates	108	860	ext SideGmenu	0
+Templates	113	860	menue2 plain 	0
+Templates	109	863	ext design2	0
+Templates	110	860	ext: topmenueSilver	0
+Templates	111	860	ext SideGmenu 2	0
+Templates	112	976	tpl page maja 	0
+Templates	114	975	ext WOP	0
+Templates	115	927	ext: vertical thumbs	0
+Templates	116	1013	ext: sitemap	0
+Templates	117	932	ext: gallery frame	0
+
+=== FILE REFERENCES ===
+Analysis	uid	header	image	page_title
+Content with Image References	1075	normal	vulkan-2.jpg	Feuershow fÃ¼r Kids
+Content with Image References	1303		carsten_bad_minol.jpg	Brennende Badewanne
+Content with Image References	1449		Vogelpaarfrei2.jpg	Home
+Content with Image References	1451		kartePariskl.jpg	contact
+Content with Image References	1454		tuttifruttimigi_01.jpg,ichbarna_02.jpg,ehofjoeb2_01.jpg	show
+Content with Image References	1478		webthanksxy.jpg	contact
+Content with Image References	1525		compilation6.jpg	Home
+Content with Image References	1582		Jahrmarkt_Feuershow_foto_wendlandt.jpg	Feuershow fÃ¼r Kids
+Content with Image References	1608		feuerkrone_manstein.JPG	Feuershow fÃ¼r Kids
+Content with Image References	1609		2_Vulkane.jpg	Feuershow fÃ¼r Kids
+
+=== SPECIAL CONTENT ===
+Metric	Count
+Pages with Keywords	0
+Metric	Count
+Pages with Descriptions	0
+Metric	Count
+Pages with Media	0
+
+=== NAVIGATION STRUCTURE ===
+ERROR 1064 (42000) at line 234: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UNION ALL
+
+SELECT 
+    '',
+    CONCAT(
+        REPEAT('  ', 1),
+        '└─ ' at line 12
