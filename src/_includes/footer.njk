@@ -1,7 +1,7 @@
 <footer class="site-footer">
     <div class="footer-container">
-        <!-- Footer Content Sections -->
         <div class="footer-content">
+            {% block footer_info %}
             <!-- Site Info Section -->
             <div class="footer-section footer-info">
                 <div class="footer-branding">
@@ -34,7 +34,9 @@
                     </div>
                 {% endif %}
             </div>
+            {% endblock %}
             
+            {% block footer_links %}
             <!-- Quick Links Section -->
             <div class="footer-section footer-links">
                 <h4 class="footer-section-title">Quick Links</h4>
@@ -65,7 +67,9 @@
                     {% endif %}
                 </ul>
             </div>
+            {% endblock %}
             
+            {% block footer_collections %}
             <!-- Collections Section -->
             <div class="footer-section footer-collections">
                 <h4 class="footer-section-title">Collections</h4>
@@ -84,7 +88,9 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endblock %}
             
+            {% block footer_contact %}
             <!-- Contact/Newsletter Section -->
             {% if site.showNewsletter or site.contactInfo %}
                 <div class="footer-section footer-contact">
@@ -115,8 +121,10 @@
                     {% endif %}
                 </div>
             {% endif %}
+            {% endblock %}
         </div>
         
+        {% block footer_bottom %}
         <!-- Footer Bottom -->
         <div class="footer-bottom">
             <div class="footer-bottom-content">
@@ -138,5 +146,6 @@
                 {% endif %}
             </div>
         </div>
+        {% endblock %}
     </div>
 </footer>

@@ -1,7 +1,31 @@
+const fs = require('fs');
+const userConfigPath = './src/_user/config.js';
+
 module.exports = function(eleventyConfig) {
+  // Load user config
+  let userConfig = {};
+  if (fs.existsSync(userConfigPath)) {
+    userConfig = require(userConfigPath);
+  }
+
+  // Apply user config
+  if (userConfig.plugins) {
+    userConfig.plugins.forEach(plugin => eleventyConfig.addPlugin(plugin.plugin, plugin.options || {}));
+  }
+  if (userConfig.shortcodes) {
+    Object.keys(userConfig.shortcodes).forEach(name => eleventyConfig.addShortcode(name, userConfig.shortcodes[name]));
+  }
+  if (userConfig.filters) {
+    Object.keys(userConfig.filters).forEach(name => eleventyConfig.addFilter(name, userConfig.filters[name]));
+  }
+  if (userConfig.passthroughCopy) {
+    userConfig.passthroughCopy.forEach(target => eleventyConfig.addPassthroughCopy(target));
+  }
+
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/media");
+  eleventyConfig.addPassthroughCopy("src/_user/assets");
 
   // Datastar is loaded from CDN, no need to copy from node_modules
   

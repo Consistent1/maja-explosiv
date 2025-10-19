@@ -162,46 +162,87 @@ Edit `src/_data/collectionData.json` to customize collections:
 }
 ```
 
-## 🎨 Customization
+## 🎨 Customization Architecture
 
-### Theming with Open Props
+This template uses a **User Directory** architecture to ensure that your custom changes do not create merge conflicts when pulling updates from the upstream template. All of your site's specific customizations should be placed in the `src/_user` directory.
 
-The template uses Open Props for consistent design tokens. Customize by overriding Open Props variables in `src/assets/css/main.css`:
+The core template files are designed to be extended and overridden by files in `src/_user`.
 
-```css
-:root {
-  /* Override Open Props colors */
-  --brand-primary: var(--blue-6);
-  --brand-secondary: var(--green-6);
-  --brand-accent: var(--red-6);
+### How to Change Site Colors
 
-  /* Use Open Props design tokens */
-  --color-primary: var(--brand-primary);
-  --section-spacing: var(--size-8);
-  --card-padding: var(--size-4);
+1.  Open `src/_user/data/theme.json` (if it's empty, you can copy the contents of `src/_data/theme.json` to start).
+2.  Modify the color values. Eleventy will automatically merge this file with the base theme, with your values taking precedence.
+
+**Example: `src/_user/data/theme.json`**
+```json
+{
+  "colors": {
+    "primary": "#0056b3",
+    "accent": "#ffc107"
+  }
 }
 ```
 
-Available Open Props categories:
-- **Colors**: `--gray-1` to `--gray-12`, `--blue-1` to `--blue-12`, etc.
-- **Sizes**: `--size-1` to `--size-15` for consistent spacing
-- **Typography**: `--font-sans`, `--font-serif`, `--font-mono`
-- **Shadows**: `--shadow-1` to `--shadow-6`
-- **Animations**: `--ease-1` to `--ease-5`, `--ease-in-1` to `--ease-out-5`
+### How to Add Custom CSS
 
-### Site Configuration
+1.  Open `src/_user/assets/css/custom.css`.
+2.  Add any new CSS rules or overrides. This stylesheet is loaded after the main template stylesheet.
 
-Update `src/_data/site.json` for global settings:
+**Example: `src/_user/assets/css/custom.css`**
+```css
+.custom-hero {
+  background: var(--theme-colors-primary);
+  padding: 4rem 1rem;
+  color: white;
+}
+```
 
+### How to Modify the Header
+
+1.  Create a new file: `src/_user/includes/my-header.njk`.
+2.  In this file, extend the base header and override a specific block, like the navigation.
+
+**Example: `src/_user/includes/my-header.njk`**
+```nunjucks
+{% extends "header.njk" %}
+
+{# Replace the main navigation with a simpler one #}
+{% block header_navigation %}
+<nav class="main-navigation" aria-label="Main navigation">
+    <ul class="nav-menu">
+        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="/about/" class="nav-link">About Us</a></li>
+    </ul>
+</nav>
+{% endblock %}
+```
+3.  Tell the theme to use your new header by editing `src/_user/data/theme.json`:
+
+**Example: `src/_user/data/theme.json`**
 ```json
 {
-  "title": "Your Site Name",
-  "description": "Your site description",
-  "url": "https://yoursite.com",
-  "socialLinks": [...],
-  "customNavLinks": [...],
-  "contactInfo": {...}
+  "paths": {
+    "header": "_user/includes/my-header.njk"
+  }
 }
+```
+
+### How to Add an Eleventy Plugin
+
+1.  Install the plugin via npm: `npm install @11ty/eleventy-plugin-rss`.
+2.  Open `src/_user/config.js`.
+3.  Require the plugin and add it to the `plugins` array.
+
+**Example: `src/_user/config.js`**
+```javascript
+module.exports = {
+  plugins: [
+    {
+      plugin: require("@11ty/eleventy-plugin-rss"),
+      options: {}
+    }
+  ]
+};
 ```
 
 ## 🛠 Advanced Features

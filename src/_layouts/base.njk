@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if title %}{{ title }} - {% endif %}{{ site.title or "Explosive Website" }}</title>
@@ -21,7 +22,21 @@
     {% if image %}<meta property="twitter:image" content="{{ site.url }}{{ image }}">{% endif %}
     
     <!-- Stylesheets -->
+    <style>
+      :root {
+        {% if theme %}
+          {% for group, values in theme %}
+            {% if group != 'paths' %}
+              {% for key, value in values %}
+                --theme-{{ group }}-{{ key }}: {{ value }};
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      }
+    </style>
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | url }}">
     {% if customCSS %}
         {% for css in customCSS %}
             <link rel="stylesheet" href="{{ css | url }}">
@@ -30,14 +45,18 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | url }}">
+    {% endblock %}
 </head>
 <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    {% block header %}
     <!-- Header -->
-    {% include "header.njk" %}
+    {% include theme.paths.header %}
+    {% endblock %}
     
+    {% block content %}
     <!-- Main Content -->
     <main id="main-content" class="main-content">
         {% if breadcrumbs %}
@@ -73,11 +92,15 @@
             {{ content | safe }}
         </div>
     </main>
+    {% endblock %}
     
+    {% block footer %}
     <!-- Footer -->
-    {% include "footer.njk" %}
+    {% include theme.paths.footer %}
+    {% endblock %}
     
     <!-- Scripts -->
+    {% block scripts %}
     <!-- Datastar library from CDN -->
     <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.0-beta.5/bundles/datastar.js"></script>
     <script src="{{ '/assets/js/datastar-utils.js' | url }}"></script>
@@ -87,5 +110,6 @@
             <script src="{{ js | url }}"></script>
         {% endfor %}
     {% endif %}
+    {% endblock %}
 </body>
 </html>

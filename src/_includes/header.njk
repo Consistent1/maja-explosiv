@@ -1,5 +1,6 @@
 <header class="site-header">
     <div class="header-container">
+        {% block header_branding %}
         <!-- Site Logo/Title -->
         <div class="site-branding">
             <a href="{{ '/' | url }}" class="site-logo">
@@ -13,14 +14,18 @@
                 <p class="site-tagline">{{ site.tagline }}</p>
             {% endif %}
         </div>
+        {% endblock %}
         
+        {% block header_mobile_toggle %}
         <!-- Mobile Menu Toggle -->
         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
         </button>
+        {% endblock %}
         
+        {% block header_navigation %}
         <!-- Main Navigation -->
         <nav class="main-navigation" aria-label="Main navigation">
             <ul class="nav-menu">
@@ -80,7 +85,9 @@
                 {% endif %}
             </ul>
         </nav>
+        {% endblock %}
         
+        {% block header_search %}
         <!-- Search (optional) -->
         {% if site.enableSearch %}
             <div class="header-search">
@@ -93,5 +100,6 @@
                 </form>
             </div>
         {% endif %}
+        {% endblock %}
     </div>
 </header>

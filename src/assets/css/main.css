@@ -12,11 +12,11 @@
   --brand-warning: var(--orange-6);
 
   /* Semantic color mappings */
-  --color-primary: var(--brand-primary);
+  --color-primary: var(--theme-colors-accent, var(--brand-primary));
   --color-secondary: var(--brand-secondary);
-  --color-accent: var(--brand-accent);
+  --color-accent: var(--theme-colors-accent, var(--brand-accent));
   --color-warning: var(--brand-warning);
-  --color-dark: var(--gray-9);
+  --color-dark: var(--theme-colors-primary, var(--gray-9));
   --color-light: var(--gray-1);
 
   /* Layout constraints */
@@ -38,11 +38,11 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--theme-fonts-body, var(--font-sans));
   font-size: var(--font-size-3);
   line-height: var(--font-lineheight-3);
-  color: var(--gray-8);
-  background-color: var(--gray-0);
+  color: var(--theme-colors-text, var(--gray-8));
+  background-color: var(--theme-colors-background, var(--gray-0));
   /* Ensure proper text direction and alignment */
   direction: ltr;
   text-align: left;
@@ -50,7 +50,7 @@ body {
 
 /* Typography using Open Props */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
+  font-family: var(--theme-fonts-heading, var(--font-serif));
   font-weight: var(--font-weight-7);
   line-height: var(--font-lineheight-1);
   margin-block: 0 var(--size-3);
@@ -113,7 +113,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   top: calc(-1 * var(--size-8));
   left: var(--size-2);
   background: var(--color-dark);
-  color: var(--gray-0);
+  color: var(--color-light);
   padding: var(--size-2);
   text-decoration: none;
   border-radius: var(--radius-2);
@@ -140,8 +140,8 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 
 /* Header styles using Open Props */
 .site-header {
-  background: var(--gray-0);
-  border-block-end: var(--border-size-1) solid var(--gray-3);
+  background: var(--theme-colors-background, var(--gray-0));
+  border-block-end: var(--border-size-1) solid var(--theme-colors-border, var(--gray-3));
   position: sticky;
   top: 0;
   z-index: var(--layer-4);
@@ -179,7 +179,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 
 .site-tagline {
   font-size: var(--font-size-1);
-  color: var(--gray-6);
+  color: var(--theme-colors-text-light, var(--gray-6));
   margin: 0;
 }
 
@@ -197,7 +197,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 
 .nav-link {
-  color: var(--gray-7);
+  color: var(--theme-colors-text-light, var(--gray-7));
   font-weight: var(--font-weight-5);
   padding: var(--size-2) 0;
   border-block-end: var(--border-size-2) solid transparent;
@@ -266,8 +266,8 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     position: absolute;
     inset-block-start: 100%;
     inset-inline: 0;
-    background: var(--gray-0);
-    border-block-end: var(--border-size-1) solid var(--gray-3);
+    background: var(--theme-colors-background, var(--gray-0));
+    border-block-end: var(--border-size-1) solid var(--theme-colors-border, var(--gray-3));
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
@@ -290,7 +290,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 
   .nav-link {
     padding: var(--size-3) 0;
-    border-block-end: var(--border-size-1) solid var(--gray-3);
+    border-block-end: var(--border-size-1) solid var(--theme-colors-border, var(--gray-3));
     border-inline: none;
   }
 
@@ -356,7 +356,7 @@ pre,
 code {
   /* Override normalize.css dark background */
   background-color: var(--gray-1) !important;
-  color: var(--gray-8) !important;
+  color: var(--theme-colors-text, var(--gray-8)) !important;
   font-family: var(--font-mono);
   font-size: var(--font-size-2);
   border-radius: var(--radius-2);
@@ -365,7 +365,7 @@ code {
 pre {
   padding: var(--size-4);
   overflow-x: auto;
-  border: var(--border-size-1) solid var(--gray-3);
+  border: var(--border-size-1) solid var(--theme-colors-border, var(--gray-3));
   margin-block: var(--size-4);
 }
 
@@ -404,7 +404,7 @@ pre code {
 
 .page-subtitle {
   font-size: var(--font-size-4);
-  color: var(--gray-6);
+  color: var(--theme-colors-text-light, var(--gray-6));
   margin-block-end: var(--size-3);
 }
 
@@ -424,12 +424,12 @@ pre code {
 
 .post-card,
 .collection-card {
-  background: var(--gray-0);
+  background: var(--theme-colors-background, var(--gray-0));
   border-radius: var(--radius-3);
   box-shadow: var(--shadow-2);
   overflow: hidden;
   transition: transform var(--ease-4), box-shadow var(--ease-4);
-  border: var(--border-size-1) solid var(--gray-3);
+  border: var(--border-size-1) solid var(--theme-colors-border, var(--gray-3));
 }
 
 .post-card:hover,
@@ -481,7 +481,7 @@ pre code {
 
 .post-card-description,
 .collection-card-description {
-  color: var(--gray-6);
+  color: var(--theme-colors-text-light, var(--gray-6));
   margin-block-end: var(--size-3);
   line-height: var(--font-lineheight-4);
 }
@@ -496,7 +496,7 @@ pre code {
 
 /* Footer using Open Props - Updated for full width */
 .site-footer {
-  background: var(--gray-9);
+  background: var(--color-dark);
   color: var(--gray-3);
   margin-block-start: var(--size-10);
 }
@@ -533,7 +533,7 @@ pre code {
 }
 
 .footer-section-title {
-  color: var(--gray-0);
+  color: var(--color-light);
   font-size: var(--font-size-4);
   margin-block-end: var(--size-3);
   font-weight: var(--font-weight-6);
@@ -547,7 +547,7 @@ pre code {
 }
 
 .social-title {
-  color: var(--gray-0);
+  color: var(--color-light);
   font-size: var(--font-size-3);
   margin-block-end: var(--size-2);
   font-weight: var(--font-weight-5);
@@ -579,7 +579,7 @@ pre code {
 }
 
 .footer-title {
-  color: var(--gray-0);
+  color: var(--color-light);
   font-size: var(--font-size-5);
   margin-block-end: var(--size-2);
   font-weight: var(--font-weight-6);
@@ -620,7 +620,7 @@ pre code {
 }
 
 .footer-link:hover {
-  color: var(--gray-0);
+  color: var(--color-light);
   /* Ensure footer link hover has transparent background */
   background-color: transparent;
 }
@@ -701,7 +701,7 @@ pre code {
 
 .btn-primary {
   background: var(--color-primary);
-  color: var(--gray-0);
+  color: var(--color-light);
 }
 
 .btn-primary:hover {
@@ -711,8 +711,8 @@ pre code {
 
 .btn-secondary {
   background: var(--gray-2);
-  color: var(--gray-8);
-  border-color: var(--gray-4);
+  color: var(--theme-colors-text, var(--gray-8));
+  border-color: var(--theme-colors-border, var(--gray-4));
 }
 
 .btn-secondary:hover {
@@ -812,7 +812,7 @@ pre code {
   right: 0;
   padding: var(--size-5);
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  color: var(--gray-0);
+  color: var(--color-light);
   text-align: center;
 }
 
@@ -820,7 +820,7 @@ pre code {
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-7);
   margin: 0 0 var(--size-2) 0;
-  color: var(--gray-0);
+  color: var(--color-light);
 }
 
 .carousel-caption-text {
@@ -835,7 +835,7 @@ pre code {
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
-  color: var(--gray-0);
+  color: var(--color-light);
   border: none;
   width: var(--size-9);
   height: var(--size-9);
@@ -908,8 +908,8 @@ pre code {
 }
 
 .carousel-indicator.active {
-  background: var(--gray-0);
-  border-color: var(--gray-0);
+  background: var(--color-light);
+  border-color: var(--color-light);
   transform: scale(1.3);
 }
 
@@ -1008,4 +1008,41 @@ pre code {
 .carousel:focus-within {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* Search Input Styles */
+.search-input {
+  background-color: var(--theme-colors-background, var(--gray-0));
+  color: var(--theme-colors-text, var(--gray-8));
+  border: var(--border-size-1) solid var(--theme-colors-border, var(--gray-4));
+  border-radius: var(--radius-2);
+  padding: var(--size-2) var(--size-3);
+  font-size: var(--font-size-2);
+}
+
+.search-input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-color: var(--color-primary);
+}
+
+.search-form {
+  display: flex;
+  gap: var(--size-2);
+  align-items: center;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  color: var(--color-primary); /* Themed color for icon */
+  cursor: pointer;
+  padding: var(--size-2);
+  border-radius: var(--radius-2);
+  transition: color var(--ease-3), background-color var(--ease-3);
+}
+
+.search-button:hover {
+  color: var(--color-dark);
+  background-color: var(--gray-1);
 }
