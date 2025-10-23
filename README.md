@@ -1,3 +1,42 @@
+# Website - Maja Explosiv
+
+This repository was forked from https://github.com/Xpanda-org/explosive-11ty
+The upstream repository is the template used, with modifications, by this website.
+Changes to the template can be fetched without causing merge conflicts.
+
+
+## When Using The BMad Method - Before Running Phase 3 Workflows
+I suspect tat the Solution Architecture workflow doesn't load Phase 1 research artifacts.
+Therefore, before running any of the Phase 3 Workflows make sure to:
+Review these Phase 1 research documents:
+- [ ] /research/*.md
+- [ ] /docs/*-analysis.md
+- [ ] /docs/*-research.md
+
+Key findings to incorporate:
+- Technical requirements:
+- Cost constraints:
+- Integration needs:
+
+### Related Issues
+
+Similar issue may exist for the propagation of Phases 1 and 2 → Phase 4
+
+Other Phase 3 workflows (tech-spec, test-strategy) likely have same issue
+
+
+
+
+
+BELOW IS THE README OF THE ORIGINAL UPSTREAM FORKED TEMPLATE:
+
+
+
+
+
+
+
+
 # Explosive Website Template
 
 A flexible 11ty (Eleventy) website template featuring powerful collection management, responsive design, and comprehensive content organization capabilities.
