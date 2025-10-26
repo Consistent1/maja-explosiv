@@ -124,7 +124,13 @@ src/
 │   └── collections-overview.njk  # All collections overview
 ├── _data/              # Site configuration
 │   ├── site.json       # Global site settings
+│   ├── theme.js        # Theme configuration (colors, fonts, paths)
 │   └── collectionData.json  # Collection metadata
+├── _user/              # User customizations (override system)
+│   ├── assets/        # Custom CSS, JS, and other assets
+│   ├── data/          # Custom data files (merged with base)
+│   ├── includes/      # Custom includes (override base)
+│   └── layouts/       # Custom layouts (override base)
 ├── assets/             # Static assets
 │   ├── css/           # Stylesheets
 │   ├── js/            # JavaScript files
@@ -202,25 +208,173 @@ This template uses a **User Directory** architecture to ensure that your custom 
 
 The core template files are designed to be extended and overridden by files in `src/_user`.
 
-### How to Change Site Colors
+### 🔄 Override System Architecture
 
-1.  Open `src/_user/data/theme.json` (if it's empty, you can copy the contents of `src/_data/theme.json` to start).
-2.  Modify the color values. Eleventy will automatically merge this file with the base theme, with your values taking precedence.
+The template implements three parallel override systems that work at build time:
 
-**Example: `src/_user/data/theme.json`**
-```json
+1. **Layout Override System** - Override template layouts
+2. **Includes Override System** - Override reusable components
+3. **Data Override System** - Override and merge configuration data
+
+All three systems work the same way:
+- Base files live in `src/_layouts/`, `src/_includes/`, and `src/_data/`
+- User overrides live in `src/_user/layouts/`, `src/_user/includes/`, and `src/_user/data/`
+- At build time, files are merged into `.cache/` directories
+- Eleventy uses the merged cache directories
+- No source files are ever modified - clean separation!
+
+### 🎨 How to Change Site Colors and Theme
+
+The template uses a **Data Override System** that automatically merges your custom theme settings with the base theme. You can use either JavaScript (`.js`) or JSON (`.json`) files.
+
+**How the Data Override System Works:**
+
+The system uses a **deep merge** strategy at build time:
+
+1. **Base data files** → `src/_data/` (template defaults)
+2. **User data files** → `src/_user/data/` (your customizations)
+3. **Build-time merge** → `.cache/data/` (merged result)
+4. **Eleventy uses** → `.cache/data/` as the data directory
+
+**Merge Behavior:**
+- **Nested objects** are merged recursively (property-level override)
+- **Arrays** are replaced entirely (not merged)
+- **You only specify what you want to change** - all other values are kept from base
+- **No source files are modified** - clean separation prevents merge conflicts
+
+**Example: Deep Merge in Action**
+
+Base theme (`src/_data/theme.js`):
+```javascript
 {
   "colors": {
-    "primary": "#0056b3",
-    "accent": "#ffc107"
+    "primary": "#333",
+    "accent": "tomato",
+    "background": "#fff"
+  },
+  "fonts": {
+    "body": "Arial, sans-serif"
   }
 }
 ```
 
-### How to Add Custom CSS
+Your override (`src/_user/data/theme.js`):
+```javascript
+module.exports = {
+  "colors": {
+    "primary": "#0056b3",      // Override primary
+    "background": "#f8f9fa"    // Override background
+  }
+  // Note: accent color and fonts not specified
+};
+```
 
-1.  Open `src/_user/assets/css/custom.css`.
-2.  Add any new CSS rules or overrides. This stylesheet is loaded after the main template stylesheet.
+Merged result (`.cache/data/theme.js`):
+```javascript
+{
+  "colors": {
+    "primary": "#0056b3",      // ← Your override
+    "accent": "tomato",         // ← Base value kept
+    "background": "#f8f9fa"     // ← Your override
+  },
+  "fonts": {
+    "body": "Arial, sans-serif" // ← Base value kept
+  }
+}
+```
+
+**Build Output:**
+
+When you build, you'll see:
+```
+[Data Override] Merged user data: theme.js
+```
+
+This confirms your custom theme is being applied.
+
+**Available Theme Properties:**
+
+```javascript
+{
+  "colors": {
+    "primary": "#333",      // Main brand color
+    "accent": "tomato",     // Accent/highlight color
+    "background": "#fff",   // Page background
+    "text": "#333",         // Main text color
+    "text-light": "#666",   // Secondary text color
+    "border": "#ddd"        // Border color
+  },
+  "fonts": {
+    "body": "...",          // Body text font stack
+    "heading": "..."        // Heading font stack
+  },
+  "paths": {
+    "header": "header.njk", // Header template path
+    "footer": "footer.njk"  // Footer template path
+  }
+}
+```
+
+These values are exposed as CSS custom properties:
+- `var(--theme-colors-primary)`
+- `var(--theme-colors-accent)`
+- `var(--theme-fonts-body)`
+- etc.
+
+### 📊 How to Override Other Data Files
+
+The Data Override System tries to stike a balance between ease of use and flexibility.
+**Its main benefits are:**
+
+✅ **No merge conflicts** - User customizations separate from template
+✅ **Partial overrides** - Only specify what you want to change
+✅ **Type support** - Works with `.js` and `.json` files
+✅ **Automatic** - No manual configuration needed
+✅ **Consistent** - Same pattern as layouts/includes override system
+
+The Data Override System works for **any** data file, not just `theme.js`:
+
+**Override Site Configuration:**
+
+```json
+// src/_user/data/site.json
+{
+  "title": "My Custom Site Title",
+  "description": "My custom description"
+}
+```
+
+**Create New Data Files:**
+
+You can also create entirely new data files in `src/_user/data/`:
+
+```javascript
+// src/_user/data/myCustomData.js
+module.exports = {
+  "setting": "value",
+  "items": ["one", "two", "three"]
+};
+```
+
+Access in templates: `{{ myCustomData.setting }}`
+
+**Override Collection Data:**
+
+```javascript
+// src/_user/data/collectionData.json
+[
+  {
+    "name": "blog",
+    "displayName": "My Blog",
+    "color": "#custom-color"
+  }
+]
+```
+
+### 🎨 How to Add Custom CSS
+
+1. Open `src/_user/assets/css/custom.css`.
+2. Add any new CSS rules or overrides. This stylesheet is loaded after the main template stylesheet.
 
 **Example: `src/_user/assets/css/custom.css`**
 ```css
@@ -229,93 +383,85 @@ The core template files are designed to be extended and overridden by files in `
   padding: 4rem 1rem;
   color: white;
 }
+
+/* Override existing styles */
+body {
+  font-family: var(--theme-fonts-body);
+  background-color: var(--theme-colors-background);
+}
 ```
 
-### How to Override Layouts
+**CSS Custom Properties from Theme:**
 
-This template allows you to override any of the default layouts (e.g., `post.njk`, `base.njk`) without modifying the core template files. This is useful for making structural changes to your site while still being able to pull in upstream updates.
+All theme values are automatically available as CSS custom properties:
 
-1.  **Identify the layout** you want to override. The default layouts are in `src/_layouts/`.
-2.  **Create a new file** with the *same name* in the `src/_user/layouts/` directory. For example, to override the main post layout, create `src/_user/layouts/post.njk`.
-3.  **Add your custom content** to the new file. You can either write a completely new layout or extend the original and modify specific parts.
+```css
+/* Use theme colors */
+.my-element {
+  color: var(--theme-colors-primary);
+  background: var(--theme-colors-background);
+  border-color: var(--theme-colors-border);
+}
+
+/* Use theme fonts */
+.my-text {
+  font-family: var(--theme-fonts-body);
+}
+
+.my-heading {
+  font-family: var(--theme-fonts-heading);
+}
+```
+
+
+### 🔧 How to Override Layouts
+
+This template allows you to override any of the default layouts (e.g., `post.njk`, `base.njk`) without modifying the core template files.
+
+1. **Identify the layout** you want to override. The default layouts are in `src/_layouts/`.
+2. **Create a new file** with the *same name* in the `src/_user/layouts/` directory.
+3. **Add your custom content** to the new file. You can either write a completely new layout or extend the original.
 
 **Example: Customizing the Post Layout**
-
-Let's say you want to add a "Share on X" link at the top of every blog post.
-
-1.  Create the file `src/_user/layouts/post.njk`.
-2.  In this file, extend the original `post.njk` layout and add your changes.
 
 ```nunjucks
 {# src/_user/layouts/post.njk #}
 {% extends "theme/post.njk" %}
 
-{# The original post.njk is located in src/_layouts/ #}
-{# We can now override any block defined in it. #}
-
 {% block post_header %}
-  {# Add a share link before the original header content #}
   <div class="share-on-x">
-    <a href="https://twitter.com/intent/tweet?text={{ title | urlencode }}&url={{ page.url | urlencode }}">Share on X</a>
+    <a href="https://twitter.com/intent/tweet?text={{ title | urlencode }}">Share on X</a>
   </div>
-
-  {# Render the original header block content #}
   {{ super() }}
 {% endblock %}
 ```
 
-Eleventy will automatically detect your new layout and use it instead of the default one for all pages that specify `layout: post`.
+### 📦 How to Add Custom Includes
 
-### How to Add Custom Includes
-
-You can create reusable template components in `src/_user/includes/` that can be included in your layouts or pages. These files are merged with the base includes and can override base includes with the same name.
-
-**Example: Create a custom component**
+Create reusable template components in `src/_user/includes/`:
 
 1. Create `src/_user/includes/my-component.njk`
 2. Use it in any template with `{% include "my-component.njk" %}`
 
-User includes can also extend base includes using `{% extends "base-include-name.njk" %}`.
+### 🎯 How to Modify the Header
 
-**Note:** If you override a base include by using the same filename, you must rebuild the site (`npm run build`) for the changes to take effect. The `--watch` mode will not detect changes to files in `src/_user/includes/`.
+1. Create `src/_user/includes/my-header.njk`
+2. Extend the base header and override specific blocks
+3. Update `src/_user/data/theme.js`:
 
-### How to Modify the Header
-
-1.  Create a new file: `src/_user/includes/my-header.njk`.
-2.  In this file, extend the base header and override a specific block, like the navigation.
-
-**Example: `src/_user/includes/my-header.njk`**
-```nunjucks
-{% extends "header.njk" %}
-
-{# Replace the main navigation with a simpler one #}
-{% block header_navigation %}
-<nav class="main-navigation" aria-label="Main navigation">
-    <ul class="nav-menu">
-        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="/about/" class="nav-link">About Us</a></li>
-    </ul>
-</nav>
-{% endblock %}
-```
-3.  Tell the theme to use your new header by editing `src/_user/data/theme.json`:
-
-**Example: `src/_user/data/theme.json`**
-```json
-{
+```javascript
+module.exports = {
   "paths": {
-    "header": "_user/includes/my-header.njk"
+    "header": "my-header.njk"
   }
-}
+};
 ```
 
-### How to Add an Eleventy Plugin
+### ⚙️ How to Add an Eleventy Plugin
 
-1.  Install the plugin via npm: `npm install @11ty/eleventy-plugin-rss`.
-2.  Open `src/_user/config.js`.
-3.  Require the plugin and add it to the `plugins` array.
+1. Install: `npm install @11ty/eleventy-plugin-rss`
+2. Edit `src/_user/config.js`:
 
-**Example: `src/_user/config.js`**
 ```javascript
 module.exports = {
   plugins: [

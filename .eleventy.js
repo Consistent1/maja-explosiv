@@ -24,6 +24,32 @@ module.exports = function(eleventyConfig) {
   }
 
   // ============================================================================
+  // DEEP MERGE UTILITY
+  // ============================================================================
+  // Deep merge function for merging user data with base data
+  const deepMerge = (target, source) => {
+    const output = Object.assign({}, target);
+    if (isObject(target) && isObject(source)) {
+      Object.keys(source).forEach(key => {
+        if (isObject(source[key])) {
+          if (!(key in target)) {
+            Object.assign(output, { [key]: source[key] });
+          } else {
+            output[key] = deepMerge(target[key], source[key]);
+          }
+        } else {
+          Object.assign(output, { [key]: source[key] });
+        }
+      });
+    }
+    return output;
+  };
+
+  const isObject = (item) => {
+    return item && typeof item === 'object' && !Array.isArray(item);
+  };
+
+  // ============================================================================
   // LAYOUT OVERRIDE SYSTEM
   // ============================================================================
   // This system allows users to override theme layouts without modifying the
@@ -44,15 +70,21 @@ module.exports = function(eleventyConfig) {
   const userLayoutsDir = 'src/_user/layouts';
   const baseIncludesDir = 'src/_includes';
   const userIncludesDir = 'src/_user/includes';
+  const baseDataDir = 'src/_data';
+  const userDataDir = 'src/_user/data';
   const cacheLayoutsDir = '.cache/layouts';
   const cacheIncludesDir = '.cache/includes';
+  const cacheDataDir = '.cache/data';
 
-  // Create cache directories for merged layouts and includes
+  // Create cache directories for merged layouts, includes, and data
   if (!fs.existsSync(cacheLayoutsDir)) {
     fs.mkdirSync(cacheLayoutsDir, { recursive: true });
   }
   if (!fs.existsSync(cacheIncludesDir)) {
     fs.mkdirSync(cacheIncludesDir, { recursive: true });
+  }
+  if (!fs.existsSync(cacheDataDir)) {
+    fs.mkdirSync(cacheDataDir, { recursive: true });
   }
 
   // Copy base layouts to cache
@@ -127,6 +159,98 @@ module.exports = function(eleventyConfig) {
   // Copy user includes to cache, overriding base includes
   if (fs.existsSync(userIncludesDir)) {
     copyRecursive(userIncludesDir, cacheIncludesDir);
+  }
+
+  // ============================================================================
+  // DATA OVERRIDE SYSTEM
+  // ============================================================================
+  // This system allows users to override theme data without modifying the
+  // base data files, preventing merge conflicts when pulling upstream updates.
+  //
+  // How it works:
+  // 1. Base data files live in src/_data/ (part of the template, tracked in git)
+  // 2. User overrides live in src/_user/data/ (user customizations, tracked in git)
+  // 3. At build time, we create .cache/data/ (git-ignored)
+  // 4. We copy base data files to .cache/data/
+  // 5. We deep merge user data files with base data files (user values override)
+  // 6. Eleventy uses .cache/data/ as the data directory
+  // 7. No source files are ever modified - clean separation!
+  // ============================================================================
+
+  // Helper function to clear require cache for data files
+  const clearRequireCache = (filePath) => {
+    const resolvedPath = path.resolve(filePath);
+    delete require.cache[resolvedPath];
+  };
+
+  // Copy base data files to cache
+  if (fs.existsSync(baseDataDir)) {
+    fs.readdirSync(baseDataDir).forEach(file => {
+      if (file.startsWith('.')) return;
+
+      const srcPath = path.join(baseDataDir, file);
+      const stat = fs.statSync(srcPath);
+
+      if (stat.isFile()) {
+        const destPath = path.join(cacheDataDir, file);
+        fs.copyFileSync(srcPath, destPath);
+      }
+    });
+  }
+
+  // Merge user data files with base data files
+  if (fs.existsSync(userDataDir)) {
+    fs.readdirSync(userDataDir).forEach(file => {
+      if (file.startsWith('.')) return;
+
+      const userFilePath = path.join(userDataDir, file);
+      const stat = fs.statSync(userFilePath);
+
+      if (stat.isFile()) {
+        const baseFilePath = path.join(baseDataDir, file);
+        const cacheFilePath = path.join(cacheDataDir, file);
+        const ext = path.extname(file);
+
+        // Check if base file exists for merging
+        if (fs.existsSync(baseFilePath)) {
+          // Merge data files
+          if (ext === '.js') {
+            // Clear require cache to get fresh data
+            clearRequireCache(baseFilePath);
+            clearRequireCache(userFilePath);
+
+            const baseData = require(path.resolve(baseFilePath));
+            const userData = require(path.resolve(userFilePath));
+
+            // Deep merge: user data overrides base data
+            const mergedData = deepMerge(baseData, userData);
+
+            // Write merged data to cache
+            const dataExport = `module.exports = ${JSON.stringify(mergedData, null, 2)};\n`;
+            fs.writeFileSync(cacheFilePath, dataExport);
+            console.log(`[Data Override] Merged user data: ${file}`);
+          } else if (ext === '.json') {
+            const baseData = JSON.parse(fs.readFileSync(baseFilePath, 'utf8'));
+            const userData = JSON.parse(fs.readFileSync(userFilePath, 'utf8'));
+
+            // Deep merge: user data overrides base data
+            const mergedData = deepMerge(baseData, userData);
+
+            // Write merged data to cache
+            fs.writeFileSync(cacheFilePath, JSON.stringify(mergedData, null, 2));
+            console.log(`[Data Override] Merged user data: ${file}`);
+          } else {
+            // For other file types, just copy user file (override completely)
+            fs.copyFileSync(userFilePath, cacheFilePath);
+            console.log(`[Data Override] Using user data: ${file}`);
+          }
+        } else {
+          // No base file exists, just copy user file
+          fs.copyFileSync(userFilePath, cacheFilePath);
+          console.log(`[Data Override] Using user data: ${file}`);
+        }
+      }
+    });
   }
 
   // Configure Nunjucks to look in cache directories for templates
@@ -414,7 +538,7 @@ module.exports = function(eleventyConfig) {
       output: "_site",
       includes: "../.cache/includes",  // Use cache directory with merged includes
       layouts: "../.cache/layouts",    // Use cache directory with merged layouts
-      data: "_data"
+      data: "../.cache/data"           // Use cache directory with merged data
     },
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
@@ -422,3 +546,4 @@ module.exports = function(eleventyConfig) {
     pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/"
   };
 };
+
