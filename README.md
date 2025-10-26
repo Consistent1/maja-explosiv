@@ -266,6 +266,19 @@ Let's say you want to add a "Share on X" link at the top of every blog post.
 
 Eleventy will automatically detect your new layout and use it instead of the default one for all pages that specify `layout: post`.
 
+### How to Add Custom Includes
+
+You can create reusable template components in `src/_user/includes/` that can be included in your layouts or pages. These files are merged with the base includes and can override base includes with the same name.
+
+**Example: Create a custom component**
+
+1. Create `src/_user/includes/my-component.njk`
+2. Use it in any template with `{% include "my-component.njk" %}`
+
+User includes can also extend base includes using `{% extends "base-include-name.njk" %}`.
+
+**Note:** If you override a base include by using the same filename, you must rebuild the site (`npm run build`) for the changes to take effect. The `--watch` mode will not detect changes to files in `src/_user/includes/`.
+
 ### How to Modify the Header
 
 1.  Create a new file: `src/_user/includes/my-header.njk`.

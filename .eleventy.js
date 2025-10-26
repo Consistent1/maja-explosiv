@@ -42,11 +42,17 @@ module.exports = function(eleventyConfig) {
 
   const baseLayoutsDir = 'src/_layouts';
   const userLayoutsDir = 'src/_user/layouts';
+  const baseIncludesDir = 'src/_includes';
+  const userIncludesDir = 'src/_user/includes';
   const cacheLayoutsDir = '.cache/layouts';
+  const cacheIncludesDir = '.cache/includes';
 
-  // Create cache directory for merged layouts
+  // Create cache directories for merged layouts and includes
   if (!fs.existsSync(cacheLayoutsDir)) {
     fs.mkdirSync(cacheLayoutsDir, { recursive: true });
+  }
+  if (!fs.existsSync(cacheIncludesDir)) {
+    fs.mkdirSync(cacheIncludesDir, { recursive: true });
   }
 
   // Copy base layouts to cache
@@ -77,6 +83,11 @@ module.exports = function(eleventyConfig) {
   // Copy user layouts to cache, overriding base layouts (but NOT into theme subdirectory)
   if (fs.existsSync(userLayoutsDir)) {
     fs.readdirSync(userLayoutsDir).forEach(file => {
+      // Skip files that begin with a dot (like .gitkeep)
+      if (file.startsWith('.')) {
+        return;
+      }
+
       const userFilePath = path.join(userLayoutsDir, file);
       const stat = fs.statSync(userFilePath);
       if (stat.isFile()) {
@@ -88,14 +99,43 @@ module.exports = function(eleventyConfig) {
     });
   }
 
-  // Configure Nunjucks to look in multiple directories for templates
+  // Copy base includes to cache
+  const copyRecursive = (srcDir, destDir) => {
+    if (!fs.existsSync(destDir)) {
+      fs.mkdirSync(destDir, { recursive: true });
+    }
+
+    fs.readdirSync(srcDir).forEach(file => {
+      if (file.startsWith('.')) return;
+
+      const srcPath = path.join(srcDir, file);
+      const destPath = path.join(destDir, file);
+      const stat = fs.statSync(srcPath);
+
+      if (stat.isDirectory()) {
+        copyRecursive(srcPath, destPath);
+      } else if (stat.isFile()) {
+        fs.copyFileSync(srcPath, destPath);
+      }
+    });
+  };
+
+  if (fs.existsSync(baseIncludesDir)) {
+    copyRecursive(baseIncludesDir, cacheIncludesDir);
+  }
+
+  // Copy user includes to cache, overriding base includes
+  if (fs.existsSync(userIncludesDir)) {
+    copyRecursive(userIncludesDir, cacheIncludesDir);
+  }
+
+  // Configure Nunjucks to look in cache directories for templates
   // This allows {% extends %} and {% include %} to find templates
   const Nunjucks = require("nunjucks");
   const nunjucksEnvironment = new Nunjucks.Environment(
     new Nunjucks.FileSystemLoader([
-      "src/_includes",       // Default includes directory
-      ".cache/layouts",      // Merged layouts (base + user overrides)
-      "src/_user/includes"   // User includes
+      ".cache/includes",     // Merged includes (base + user overrides)
+      ".cache/layouts"       // Merged layouts (base + user overrides)
     ]),
     {
       throwOnUndefined: false,
@@ -372,8 +412,8 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: "src",
       output: "_site",
-      includes: "_includes",
-      layouts: "../.cache/layouts",  // Use cache directory with merged layouts
+      includes: "../.cache/includes",  // Use cache directory with merged includes
+      layouts: "../.cache/layouts",    // Use cache directory with merged layouts
       data: "_data"
     },
     templateFormats: ["md", "njk", "html"],
