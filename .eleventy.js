@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const userConfigPath = './src/_user/config.js';
 
 module.exports = function(eleventyConfig) {
@@ -21,6 +22,88 @@ module.exports = function(eleventyConfig) {
   if (userConfig.passthroughCopy) {
     userConfig.passthroughCopy.forEach(target => eleventyConfig.addPassthroughCopy(target));
   }
+
+  // ============================================================================
+  // LAYOUT OVERRIDE SYSTEM
+  // ============================================================================
+  // This system allows users to override theme layouts without modifying the
+  // base template files, preventing merge conflicts when pulling upstream updates.
+  //
+  // How it works:
+  // 1. Base layouts live in src/_layouts/ (part of the template, tracked in git)
+  // 2. Theme layouts live in src/_layouts/theme/ (copies for extending, tracked in git)
+  // 3. User overrides live in src/_user/layouts/ (user customizations, tracked in git)
+  // 4. At build time, we create .cache/layouts/ (git-ignored)
+  // 5. We copy base layouts to .cache/layouts/
+  // 6. We copy user overrides to .cache/layouts/ (overwriting base layouts)
+  // 7. Eleventy uses .cache/layouts/ as the layouts directory
+  // 8. No source files are ever modified - clean separation!
+  // ============================================================================
+
+  const baseLayoutsDir = 'src/_layouts';
+  const userLayoutsDir = 'src/_user/layouts';
+  const cacheLayoutsDir = '.cache/layouts';
+
+  // Create cache directory for merged layouts
+  if (!fs.existsSync(cacheLayoutsDir)) {
+    fs.mkdirSync(cacheLayoutsDir, { recursive: true });
+  }
+
+  // Copy base layouts to cache
+  // Also create a "theme" subdirectory with copies for user layouts to extend
+  if (fs.existsSync(baseLayoutsDir)) {
+    const cacheThemeDir = path.join(cacheLayoutsDir, 'theme');
+    if (!fs.existsSync(cacheThemeDir)) {
+      fs.mkdirSync(cacheThemeDir, { recursive: true });
+    }
+
+    fs.readdirSync(baseLayoutsDir).forEach(file => {
+      const srcPath = path.join(baseLayoutsDir, file);
+      const stat = fs.statSync(srcPath);
+
+      // Only copy files (not subdirectories like theme/)
+      if (stat.isFile()) {
+        // Copy to cache root
+        const destPath = path.join(cacheLayoutsDir, file);
+        fs.copyFileSync(srcPath, destPath);
+
+        // Also copy to theme subdirectory so user layouts can extend them
+        const themeDestPath = path.join(cacheThemeDir, file);
+        fs.copyFileSync(srcPath, themeDestPath);
+      }
+    });
+  }
+
+  // Copy user layouts to cache, overriding base layouts (but NOT into theme subdirectory)
+  if (fs.existsSync(userLayoutsDir)) {
+    fs.readdirSync(userLayoutsDir).forEach(file => {
+      const userFilePath = path.join(userLayoutsDir, file);
+      const stat = fs.statSync(userFilePath);
+      if (stat.isFile()) {
+        const targetPath = path.join(cacheLayoutsDir, file);
+        // Copy to root of cache layouts, not into theme subdirectory
+        fs.copyFileSync(userFilePath, targetPath);
+        console.log(`[Layout Override] Using user layout: ${file}`);
+      }
+    });
+  }
+
+  // Configure Nunjucks to look in multiple directories for templates
+  // This allows {% extends %} and {% include %} to find templates
+  const Nunjucks = require("nunjucks");
+  const nunjucksEnvironment = new Nunjucks.Environment(
+    new Nunjucks.FileSystemLoader([
+      "src/_includes",       // Default includes directory
+      ".cache/layouts",      // Merged layouts (base + user overrides)
+      "src/_user/includes"   // User includes
+    ]),
+    {
+      throwOnUndefined: false,
+      autoescape: false
+    }
+  );
+
+  eleventyConfig.setLibrary("njk", nunjucksEnvironment);
 
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/assets");
@@ -101,8 +184,15 @@ module.exports = function(eleventyConfig) {
     }
 
     if (format === 'YYYY-MM-DD') {
-      return d.toISOString().split('T')[0];
+          // Use local date parts to avoid timezone bug
+          const year = d.getFullYear();
+          // getMonth() is 0-indexed, so add 1
+          const month = (d.getMonth() + 1).toString().padStart(2, '0');
+          const day = d.getDate().toString().padStart(2, '0');
+          
+          return `${year}-${month}-${day}`;
     }
+
     if (format === 'YYYY') {
       return d.getFullYear().toString();
     }
@@ -210,10 +300,10 @@ module.exports = function(eleventyConfig) {
       images = carouselIdOrOptions.images;
       config = { ...config, ...carouselIdOrOptions };
       delete config.images;
-    } else if (carouselIdOrOptions?.data) {
-      // Method 3: Global data reference
-      // This would need to be implemented with access to global data
-      images = [];
+    // } else if (carouselIdOrOptions?.data) {
+    //   // Method 3: Global data reference
+    //   // This would need to be implemented with access to global data
+    //   images = [];
     }
 
     // Merge any additional options passed as second parameter
@@ -283,7 +373,7 @@ module.exports = function(eleventyConfig) {
       input: "src",
       output: "_site",
       includes: "_includes",
-      layouts: "_layouts",
+      layouts: "../.cache/layouts",  // Use cache directory with merged layouts
       data: "_data"
     },
     templateFormats: ["md", "njk", "html"],

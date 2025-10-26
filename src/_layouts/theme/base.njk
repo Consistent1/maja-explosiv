@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} - {% endif %}{{ site.title or "Explosive Website" }}</title>
+    <meta name="description" content="{{ description or site.description or 'A flexible 11ty website template' }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:title" content="{% if title %}{{ title }} - {% endif %}{{ site.title or 'Explosive Website' }}">
+    <meta property="og:description" content="{{ description or site.description or 'A flexible 11ty website template' }}">
+    {% if image %}<meta property="og:image" content="{{ site.url }}{{ image }}">{% endif %}
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="twitter:title" content="{% if title %}{{ title }} - {% endif %}{{ site.title or 'Explosive Website' }}">
+    <meta property="twitter:description" content="{{ description or site.description or 'A flexible 11ty website template' }}">
+    {% if image %}<meta property="twitter:image" content="{{ site.url }}{{ image }}">{% endif %}
+    
+    <!-- Stylesheets -->
+    <style>
+      :root {
+        {% if theme %}
+          {% for group, values in theme %}
+            {% if group != 'paths' %}
+              {% for key, value in values %}
+                --theme-{{ group }}-{{ key }}: {{ value }};
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      }
+    </style>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | url }}">
+    {% if customCSS %}
+        {% for css in customCSS %}
+            <link rel="stylesheet" href="{{ css | url }}">
+        {% endfor %}
+    {% endif %}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | url }}">
+    {% endblock %}
+</head>
+<body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    {% block header %}
+    <!-- Header -->
+    {% include theme.paths.header %}
+    {% endblock %}
+    
+    {% block content %}
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        {% if breadcrumbs %}
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    {% for crumb in breadcrumbs %}
+                        <li>
+                            {% if crumb.url and not loop.last %}
+                                <a href="{{ crumb.url }}">{{ crumb.title }}</a>
+                            {% else %}
+                                <span aria-current="page">{{ crumb.title }}</span>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ol>
+            </nav>
+        {% endif %}
+        
+        {% if title and showPageTitle !== false %}
+            <header class="page-header">
+                <h1 class="page-title">{{ title }}</h1>
+                {% if subtitle %}<p class="page-subtitle">{{ subtitle }}</p>{% endif %}
+                {% if date %}
+                    <time class="page-date" datetime="{{ date | date('YYYY-MM-DD') }}">
+                        {{ date | dateDisplay }}
+                    </time>
+                {% endif %}
+            </header>
+        {% endif %}
+        
+        <div class="content-wrapper">
+            {{ content | safe }}
+        </div>
+    </main>
+    {% endblock %}
+    
+    {% block footer %}
+    <!-- Footer -->
+    {% include theme.paths.footer %}
+    {% endblock %}
+    
+    <!-- Scripts -->
+    {% block scripts %}
+    <!-- Datastar library from CDN -->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.0-beta.5/bundles/datastar.js"></script>
+    <script src="{{ '/assets/js/datastar-utils.js' | url }}"></script>
+    <script src="{{ '/assets/js/main.js' | url }}"></script>
+    {% if customJS %}
+        {% for js in customJS %}
+            <script src="{{ js | url }}"></script>
+        {% endfor %}
+    {% endif %}
+    {% endblock %}
+</body>
+</html>

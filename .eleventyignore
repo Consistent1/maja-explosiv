@@ -1,0 +1,4 @@
+# Exclude user layouts and includes from being processed as pages
+src/_user/layouts/**
+src/_user/includes/**
+

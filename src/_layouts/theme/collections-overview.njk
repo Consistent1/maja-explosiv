@@ -1,0 +1,188 @@
+---
+layout: base.njk
+---
+
+<div class="collections-overview">
+    <!-- Overview Header -->
+    <header class="overview-header">
+        <h1 class="overview-title">{{ title or "All Collections" }}</h1>
+        {% if description %}
+            <p class="overview-description">{{ description }}</p>
+        {% endif %}
+    </header>
+    
+    <!-- Overview Content -->
+    {% if content %}
+        <div class="overview-content">
+            {{ content | safe }}
+        </div>
+    {% endif %}
+    
+    <!-- Collections Grid -->
+    <section class="collections-section">
+        {% set allPosts = collections.allPosts %}
+        {% set uniqueCollections = allPosts | getUniqueCollections %}
+        
+        {% if uniqueCollections.length > 0 %}
+            <div class="collections-grid">
+                {% for collectionName in uniqueCollections %}
+                    {% set collectionPosts = allPosts | getPostsByCollection(collectionName) %}
+                    {% set collectionData = collections.collectionData | find('name', collectionName) %}
+                    
+                    <article class="collection-overview-card">
+                        {% if collectionData and collectionData.featuredImage %}
+                            <div class="collection-overview-image">
+                                <a href="/collections/{{ collectionName | slug }}/">
+                                    <img src="{{ collectionData.featuredImage }}" alt="{{ collectionData.displayName or collectionName }}" loading="lazy">
+                                </a>
+                                {% if collectionData.color %}
+                                    <div class="collection-color-overlay" style="background-color: {{ collectionData.color }}; opacity: 0.1;"></div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        
+                        <div class="collection-overview-content">
+                            <header class="collection-overview-header">
+                                <h2 class="collection-overview-title">
+                                    <a href="/collections/{{ collectionName | slug }}/" 
+                                       {% if collectionData and collectionData.color %}style="color: {{ collectionData.color }}"{% endif %}>
+                                        {{ (collectionData and collectionData.displayName) or (collectionName | title) }}
+                                    </a>
+                                </h2>
+                                
+                                <div class="collection-overview-meta">
+                                    <span class="post-count">{{ collectionPosts.length }} post{{ 's' if collectionPosts.length != 1 }}</span>
+                                    {% if collectionData and collectionData.parentCollection %}
+                                        <span class="parent-collection">
+                                            Part of <a href="/collections/{{ collectionData.parentCollection | slug }}/">{{ collectionData.parentCollection | title }}</a>
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            </header>
+                            
+                            {% if collectionData and collectionData.description %}
+                                <p class="collection-overview-description">{{ collectionData.description }}</p>
+                            {% endif %}
+                            
+                            <!-- Recent Posts Preview -->
+                            {% if collectionPosts.length > 0 %}
+                                <div class="collection-recent-posts">
+                                    <h3 class="recent-posts-title">Recent Posts</h3>
+                                    <ul class="recent-posts-list">
+                                        {% for post in collectionPosts | reverse | limit(3) %}
+                                            <li class="recent-post-item">
+                                                <a href="{{ post.url }}" class="recent-post-link">
+                                                    <span class="recent-post-title">{{ post.data.title }}</span>
+                                                    {% if post.data.date %}
+                                                        <time class="recent-post-date" datetime="{{ post.data.date | date('YYYY-MM-DD') }}">
+                                                            {{ post.data.date | dateDisplay }}
+                                                        </time>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% if collectionPosts.length > 3 %}
+                                        <a href="/collections/{{ collectionName | slug }}/" class="view-all-posts">
+                                            View all {{ collectionPosts.length }} posts →
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            
+                            <!-- Sub-collections -->
+                            {% if collectionData and collectionData.submenuCollections %}
+                                <div class="sub-collections">
+                                    <h3 class="sub-collections-title">Sub-collections</h3>
+                                    <ul class="sub-collections-list">
+                                        {% for subCollectionName in collectionData.submenuCollections %}
+                                            {% set subCollectionPosts = allPosts | getPostsByCollection(subCollectionName) %}
+                                            {% set subCollectionData = collections.collectionData | find('name', subCollectionName) %}
+                                            <li class="sub-collection-item">
+                                                <a href="/collections/{{ subCollectionName | slug }}/" class="sub-collection-link">
+                                                    <span class="sub-collection-name">
+                                                        {{ (subCollectionData and subCollectionData.displayName) or (subCollectionName | title) }}
+                                                    </span>
+                                                    <span class="sub-collection-count">{{ subCollectionPosts.length }}</span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <footer class="collection-overview-footer">
+                            <a href="/collections/{{ collectionName | slug }}/" class="collection-link-button"
+                               {% if collectionData and collectionData.color %}style="background-color: {{ collectionData.color }}"{% endif %}>
+                                Explore Collection
+                            </a>
+                        </footer>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-collections">
+                <h2>No collections found</h2>
+                <p>There are no collections available at the moment.</p>
+            </div>
+        {% endif %}
+    </section>
+    
+    <!-- Collection Statistics -->
+    {% if showStats %}
+        <aside class="collection-stats">
+            <h2 class="stats-title">Collection Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">{{ uniqueCollections.length }}</span>
+                    <span class="stat-label">Total Collections</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">{{ allPosts.length }}</span>
+                    <span class="stat-label">Total Posts</span>
+                </div>
+                <div class="stat-item">
+                    {% set avgPostsPerCollection = (allPosts.length / uniqueCollections.length) | round %}
+                    <span class="stat-number">{{ avgPostsPerCollection }}</span>
+                    <span class="stat-label">Avg Posts per Collection</span>
+                </div>
+            </div>
+        </aside>
+    {% endif %}
+    
+    <!-- Featured Collections -->
+    {% if featuredCollections %}
+        <section class="featured-collections-section">
+            <h2 class="featured-title">Featured Collections</h2>
+            <div class="featured-collections-grid">
+                {% for featuredCollection in featuredCollections %}
+                    {% set featuredPosts = allPosts | getPostsByCollection(featuredCollection) %}
+                    {% set featuredData = collections.collectionData | find('name', featuredCollection) %}
+                    <div class="featured-collection-card">
+                        {% if featuredData and featuredData.featuredImage %}
+                            <div class="featured-collection-image">
+                                <a href="/collections/{{ featuredCollection | slug }}/">
+                                    <img src="{{ featuredData.featuredImage }}" alt="{{ featuredData.displayName or featuredCollection }}" loading="lazy">
+                                </a>
+                            </div>
+                        {% endif %}
+                        <div class="featured-collection-content">
+                            <h3 class="featured-collection-title">
+                                <a href="/collections/{{ featuredCollection | slug }}/">
+                                    {{ (featuredData and featuredData.displayName) or (featuredCollection | title) }}
+                                </a>
+                            </h3>
+                            {% if featuredData and featuredData.description %}
+                                <p class="featured-collection-description">{{ featuredData.description }}</p>
+                            {% endif %}
+                            <div class="featured-collection-meta">
+                                <span class="post-count">{{ featuredPosts.length }} posts</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+</div>

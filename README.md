@@ -231,6 +231,41 @@ The core template files are designed to be extended and overridden by files in `
 }
 ```
 
+### How to Override Layouts
+
+This template allows you to override any of the default layouts (e.g., `post.njk`, `base.njk`) without modifying the core template files. This is useful for making structural changes to your site while still being able to pull in upstream updates.
+
+1.  **Identify the layout** you want to override. The default layouts are in `src/_layouts/`.
+2.  **Create a new file** with the *same name* in the `src/_user/layouts/` directory. For example, to override the main post layout, create `src/_user/layouts/post.njk`.
+3.  **Add your custom content** to the new file. You can either write a completely new layout or extend the original and modify specific parts.
+
+**Example: Customizing the Post Layout**
+
+Let's say you want to add a "Share on X" link at the top of every blog post.
+
+1.  Create the file `src/_user/layouts/post.njk`.
+2.  In this file, extend the original `post.njk` layout and add your changes.
+
+```nunjucks
+{# src/_user/layouts/post.njk #}
+{% extends "theme/post.njk" %}
+
+{# The original post.njk is located in src/_layouts/ #}
+{# We can now override any block defined in it. #}
+
+{% block post_header %}
+  {# Add a share link before the original header content #}
+  <div class="share-on-x">
+    <a href="https://twitter.com/intent/tweet?text={{ title | urlencode }}&url={{ page.url | urlencode }}">Share on X</a>
+  </div>
+
+  {# Render the original header block content #}
+  {{ super() }}
+{% endblock %}
+```
+
+Eleventy will automatically detect your new layout and use it instead of the default one for all pages that specify `layout: post`.
+
 ### How to Modify the Header
 
 1.  Create a new file: `src/_user/includes/my-header.njk`.

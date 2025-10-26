@@ -1,0 +1,218 @@
+---
+layout: base.njk
+---
+
+<div class="collection-page">
+    <!-- Collection Header -->
+    {% set posts = collections.allPosts | getPostsByCollection(collectionName) %}
+    {% set collectionData = collections.collectionData | find('name', collectionName) %}
+    <header class="collection-header">
+        {% if collectionData and collectionData.featuredImage %}
+            <div class="collection-hero" style="background-image: url('{{ collectionData.featuredImage }}');">
+                <div class="collection-hero-content">
+                    <h1 class="collection-title">{{ collectionData.displayName or (collectionName | title) }}</h1>
+                    {% if collectionData.description %}
+                        <p class="collection-description">{{ collectionData.description }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="collection-header-simple">
+                <h1 class="collection-title">{{ collectionData.displayName or (collectionName | title) }}</h1>
+                {% if collectionData.description %}
+                    <p class="collection-description">{{ collectionData.description }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <div class="collection-meta">
+            <span class="post-count">{{ posts.length }} post{{ 's' if posts.length != 1 }}</span>
+            {% if collectionData and collectionData.parentCollection %}
+                <nav class="collection-breadcrumb">
+                    <a href="{{ ('/collections/' + (collectionData.parentCollection | slug) + '/') | url }}">{{ collectionData.parentCollection | title }}</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <span>{{ collectionData.displayName or (collectionName | title) }}</span>
+                </nav>
+            {% endif %}
+        </div>
+    </header>
+    
+    <!-- Collection Content -->
+    {% if content %}
+        <div class="collection-content">
+            {{ content | safe }}
+        </div>
+    {% endif %}
+    
+    <!-- Nested Collections -->
+    {% if collectionData and collectionData.submenuCollections %}
+        <section class="nested-collections">
+            <h2>Sub-Collections</h2>
+            <div class="nested-collections-grid">
+                {% for subCollectionName in collectionData.submenuCollections %}
+                    {% set subCollectionData = collections.collectionData | find('name', subCollectionName) %}
+                    {% set subCollectionPosts = collections.allPosts | getPostsByCollection(subCollectionName) %}
+                    <div class="nested-collection-card">
+                        {% if subCollectionData and subCollectionData.featuredImage %}
+                            <div class="nested-collection-image">
+                                <a href="{{ ('/collections/' + (subCollectionName | slug) + '/') | url }}">
+                                    <img src="{{ subCollectionData.featuredImage | url }}" alt="{{ subCollectionData.displayName or subCollectionName }}" loading="lazy">
+                                </a>
+                            </div>
+                        {% endif %}
+                        <div class="nested-collection-content">
+                            <h3 class="nested-collection-title">
+                                <a href="{{ ('/collections/' + (subCollectionName | slug) + '/') | url }}">
+                                    {{ (subCollectionData and subCollectionData.displayName) or (subCollectionName | title) }}
+                                </a>
+                            </h3>
+                            {% if subCollectionData and subCollectionData.description %}
+                                <p class="nested-collection-description">{{ subCollectionData.description }}</p>
+                            {% endif %}
+                            <div class="nested-collection-meta">
+                                <span class="post-count">{{ subCollectionPosts.length }} post{{ 's' if subCollectionPosts.length != 1 }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+    
+    <!-- Filter and Sort Options -->
+    {% if posts.length > 0 %}
+        <div class="collection-controls">
+            <div class="collection-filters">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select" class="sort-select">
+                    <option value="date-desc">Newest First</option>
+                    <option value="date-asc">Oldest First</option>
+                    <option value="title-asc">Title A-Z</option>
+                    <option value="title-desc">Title Z-A</option>
+                </select>
+            </div>
+            
+            {% if showSearch %}
+                <div class="collection-search">
+                    <label for="collection-search-input" class="sr-only">Search posts</label>
+                    <input type="search" id="collection-search-input" class="search-input" placeholder="Search posts...">
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Posts Grid -->
+        <section class="collection-posts">
+            <div class="posts-grid" id="posts-grid">
+                {% for post in posts %}
+                    <article class="post-card" data-date="{{ post.data.date | date('YYYY-MM-DD') }}" data-title="{{ post.data.title | lower }}">
+                        {% if post.data.featuredImage %}
+                            <div class="post-card-image">
+                                <a href="{{ post.url | url }}">
+                                    <img src="{{ post.data.featuredImage | url }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                </a>
+                            </div>
+                        {% endif %}
+                        <div class="post-card-content">
+                            <h3 class="post-card-title">
+                                <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+                            </h3>
+                            {% if post.data.description %}
+                                <p class="post-card-description">{{ post.data.description }}</p>
+                            {% else %}
+                                <p class="post-card-excerpt">{{ post.templateContent | excerpt(120) }}</p>
+                            {% endif %}
+                            <div class="post-card-meta">
+                                {% if post.data.date %}
+                                    <time class="post-date" datetime="{{ post.data.date | date('YYYY-MM-DD') }}">
+                                        {{ post.data.date | dateDisplay }}
+                                    </time>
+                                {% endif %}
+                                {% if post.data.author %}
+                                    <span class="post-author">by {{ post.data.author.name or post.data.author }}</span>
+                                {% endif %}
+                                {% if post.data.readingTime %}
+                                    <span class="reading-time">{{ post.data.readingTime }} min read</span>
+                                {% endif %}
+                            </div>
+                            {% if post.data.tags %}
+                                <div class="post-card-tags">
+                                    {% for tag in post.data.tags | limit(3) %}
+                                        <span class="tag">{{ tag }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <!-- Pagination -->
+        {% if pagination %}
+            <nav class="pagination" aria-label="Collection pagination">
+                {% if pagination.href.previous %}
+                    <a href="{{ pagination.href.previous | url }}" class="pagination-link pagination-prev">← Previous</a>
+                {% endif %}
+
+                <div class="pagination-info">
+                    Page {{ pagination.pageNumber }} of {{ pagination.pages.length }}
+                </div>
+
+                {% if pagination.href.next %}
+                    <a href="{{ pagination.href.next | url }}" class="pagination-link pagination-next">Next →</a>
+                {% endif %}
+            </nav>
+        {% endif %}
+    {% else %}
+        <div class="empty-collection">
+            <h2>No posts found</h2>
+            <p>This collection doesn't have any posts yet.</p>
+        </div>
+    {% endif %}
+</div>
+
+<script>
+// Collection filtering and sorting functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const sortSelect = document.getElementById('sort-select');
+    const searchInput = document.getElementById('collection-search-input');
+    const postsGrid = document.getElementById('posts-grid');
+    const postCards = Array.from(postsGrid.querySelectorAll('.post-card'));
+    
+    function sortPosts(criteria) {
+        const sortedCards = [...postCards].sort((a, b) => {
+            switch(criteria) {
+                case 'date-desc':
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                case 'date-asc':
+                    return new Date(a.dataset.date) - new Date(b.dataset.date);
+                case 'title-asc':
+                    return a.dataset.title.localeCompare(b.dataset.title);
+                case 'title-desc':
+                    return b.dataset.title.localeCompare(a.dataset.title);
+                default:
+                    return 0;
+            }
+        });
+        
+        sortedCards.forEach(card => postsGrid.appendChild(card));
+    }
+    
+    function filterPosts(searchTerm) {
+        postCards.forEach(card => {
+            const title = card.dataset.title;
+            const content = card.textContent.toLowerCase();
+            const matches = title.includes(searchTerm.toLowerCase()) || content.includes(searchTerm.toLowerCase());
+            card.style.display = matches ? 'block' : 'none';
+        });
+    }
+    
+    if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => sortPosts(e.target.value));
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => filterPosts(e.target.value));
+    }
+});
+</script>

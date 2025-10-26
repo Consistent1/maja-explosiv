@@ -1,0 +1,134 @@
+---
+layout: base.njk
+---
+
+<div class="home-page">
+    {% if hero %}
+        <section class="hero-section">
+            {% if hero.backgroundImage %}
+                <div class="hero-background" style="background-image: url('{{ hero.backgroundImage }}');">
+            {% else %}
+                <div class="hero-background">
+            {% endif %}
+                <div class="hero-content">
+                    {% if hero.title %}
+                        <h1 class="hero-title">{{ hero.title }}</h1>
+                    {% endif %}
+                    {% if hero.subtitle %}
+                        <p class="hero-subtitle">{{ hero.subtitle }}</p>
+                    {% endif %}
+                    {% if hero.description %}
+                        <div class="hero-description">
+                            {{ hero.description | safe }}
+                        </div>
+                    {% endif %}
+                    {% if hero.ctaButton %}
+                        <div class="hero-cta">
+                            <a href="{{ hero.ctaButton.url }}" class="cta-button">{{ hero.ctaButton.text }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    
+    <div class="home-content">
+        {{ content | safe }}
+    </div>
+    
+    {% if showFeaturedPosts %}
+        <section class="featured-posts">
+            <h2 class="section-title">{{ featuredPostsTitle or "Featured Posts" }}</h2>
+            {% set featuredPosts = collections.allPosts | reverse | limit(featuredPostsCount or 3) %}
+            <div class="posts-grid">
+                {% for post in featuredPosts %}
+                    <article class="post-card">
+                        {% if post.data.featuredImage %}
+                            <div class="post-card-image">
+                                <a href="{{ post.url }}">
+                                    <img src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                </a>
+                            </div>
+                        {% endif %}
+                        <div class="post-card-content">
+                            <h3 class="post-card-title">
+                                <a href="{{ post.url }}">{{ post.data.title }}</a>
+                            </h3>
+                            {% if post.data.description %}
+                                <p class="post-card-description">{{ post.data.description }}</p>
+                            {% else %}
+                                <p class="post-card-excerpt">{{ post.templateContent | excerpt(120) }}</p>
+                            {% endif %}
+                            <div class="post-card-meta">
+                                {% if post.data.date %}
+                                    <time class="post-date" datetime="{{ post.data.date | date('YYYY-MM-DD') }}">
+                                        {{ post.data.date | dateDisplay }}
+                                    </time>
+                                {% endif %}
+                                {% if post.data.postCollections %}
+                                    <div class="post-collections">
+                                        {% for collection in post.data.postCollections %}
+                                            <a href="/collections/{{ collection | slug }}/" class="collection-tag">{{ collection }}</a>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+            <div class="section-cta">
+                <a href="/posts/" class="view-all-link">View All Posts</a>
+            </div>
+        </section>
+    {% endif %}
+    
+    {% if showFeaturedCollections %}
+        <section class="featured-collections">
+            <h2 class="section-title">{{ featuredCollectionsTitle or "Explore Collections" }}</h2>
+            {% set allPosts = collections.allPosts %}
+            {% set uniqueCollections = allPosts | getUniqueCollections %}
+            <div class="collections-grid">
+                {% for collectionName in uniqueCollections | limit(featuredCollectionsCount or 4) %}
+                    {% set collectionPosts = allPosts | getPostsByCollection(collectionName) %}
+                    {% set collectionData = collections.collectionData | find('name', collectionName) %}
+                    <div class="collection-card">
+                        {% if collectionData and collectionData.featuredImage %}
+                            <div class="collection-card-image">
+                                <a href="/collections/{{ collectionName | slug }}/">
+                                    <img src="{{ collectionData.featuredImage }}" alt="{{ collectionData.displayName or collectionName }}" loading="lazy">
+                                </a>
+                            </div>
+                        {% endif %}
+                        <div class="collection-card-content">
+                            <h3 class="collection-card-title">
+                                <a href="/collections/{{ collectionName | slug }}/">
+                                    {{ (collectionData and collectionData.displayName) or (collectionName | title) }}
+                                </a>
+                            </h3>
+                            {% if collectionData and collectionData.description %}
+                                <p class="collection-card-description">{{ collectionData.description }}</p>
+                            {% endif %}
+                            <div class="collection-card-meta">
+                                <span class="post-count">{{ collectionPosts.length }} post{{ 's' if collectionPosts.length != 1 }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+    
+    {% if customSections %}
+        {% for section in customSections %}
+            <section class="custom-section {{ section.class or '' }}">
+                {% if section.title %}
+                    <h2 class="section-title">{{ section.title }}</h2>
+                {% endif %}
+                <div class="section-content">
+                    {{ section.content | safe }}
+                </div>
+            </section>
+        {% endfor %}
+    {% endif %}
+</div>
