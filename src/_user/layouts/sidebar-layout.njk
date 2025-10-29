@@ -1,0 +1,26 @@
+{% extends 'base.njk' %}
+
+{% block content %}
+  <div class="main-container">
+    <aside class="left-sidebar">
+      {% include '../includes/left-nav.njk' %}
+    </aside>
+    <main id="main-content" class="main-content">
+        {% if title and showPageTitle !== false %}
+            <header class="page-header">
+                <h1 class="page-title">{{ title }}</h1>
+                {% if subtitle %}<p class="page-subtitle">{{ subtitle }}</p>{% endif %}
+                {% if date %}
+                    <time class="page-date" datetime="{{ date | date('YYYY-MM-DD') }}">
+                        {{ date | dateDisplay }}
+                    </time>
+                {% endif %}
+            </header>
+        {% endif %}
+        
+        <div class="content-wrapper">
+            {{ content | safe }}
+        </div>
+    </main>
+  </div>
+{% endblock %}

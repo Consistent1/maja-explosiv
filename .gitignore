@@ -2,3 +2,11 @@
 /node_modules
 /package-lock.json
 /.cache
+/bmad
+/.github
+/.gemini
+/.augment
+/mcp-servers
+/.playwright-mcp
+/old
+/temp_screenshots

@@ -1,1 +1,88 @@
-/* Add your custom CSS here. */
+/* Custom CSS for Maja Explosiv Website */
+
+/* Layout */
+.main-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+.left-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: var(--theme-colors-background, #C8C8C8);
+    padding: 2rem;
+    border-right: 1px solid var(--theme-colors-border, #444444);
+}
+
+.main-content {
+    grid-column: 2 / -1;
+    padding: 2rem;
+}
+
+/* Typography */
+body {
+    font-family: var(--theme-fonts-body, sans-serif);
+    color: var(--theme-colors-text, #000000);
+    background-color: var(--theme-colors-background, #C8C8C8);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--theme-fonts-heading, sans-serif);
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-nav-header {
+    margin-bottom: 2rem;
+}
+
+.site-logo {
+    font-family: var(--theme-fonts-heading, sans-serif);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--theme-colors-text, #000000);
+}
+
+.site-subtitle {
+    font-size: 0.8rem;
+    color: var(--theme-colors-text-light, #333333);
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-section {
+    margin-bottom: 1.5rem;
+}
+
+.nav-section-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.nav-submenu {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.nav-submenu li a {
+    text-decoration: none;
+    color: var(--theme-colors-text, #000000);
+}
+
+.sidebar-nav-footer {
+    margin-top: auto;
+}
