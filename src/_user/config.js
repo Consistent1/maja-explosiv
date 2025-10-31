@@ -14,5 +14,6 @@ module.exports = {
 
   // Add Passthrough Copy targets
   // ex: passthroughCopy: ['src/my-assets'],
-  passthroughCopy: [],
+  passthroughCopy: []
+//  passthroughCopy: ['src/_user/assets']
 };

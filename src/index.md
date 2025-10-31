@@ -1,24 +1,19 @@
 ---
 layout: home.njk
-title: Welcome to Explosive Website
-description: A flexible 11ty website template with collections and static pages
+title: Maja Explosiv
+description: Contemporary artist exploring the intersection of art and design through various mediums
 showPageTitle: false
-showFeaturedPosts: true
-featuredPostsTitle: Latest Posts
-featuredPostsCount: 6
-showFeaturedCollections: true
-featuredCollectionsTitle: Explore Our Collections
-featuredCollectionsCount: 4
+showFeaturedPosts: false
+showFeaturedCollections: false
 hero:
-  title: Welcome to Explosive Website
-  subtitle: Building Amazing Web Experiences
+  title: Maja Explosiv
+  subtitle: Contemporary Artist
   description: |
-    <p>Discover our flexible 11ty website template that makes it easy to create beautiful, organized content with collections and static pages.</p>
-    <p>Perfect for blogs, documentation sites, portfolios, and more!</p>
-  backgroundImage: /assets/images/hero-bg.jpg
+    <p>Exploring the intersection of art and design through various mediums.</p>
+  backgroundImage: /assets/images/hero/hero-maja-explosiv.jpg
   ctaButton:
-    text: Get Started
-    url: /about/
+    text: Explore Works
+    url: /#projects
 carousels:
   hero:
     autoplay: true
@@ -27,61 +22,71 @@ carousels:
     showArrows: true
     height: 500px
     images:
-      - src: /assets/images/carousel/hero/hero1.svg
-        alt: Modern web development
-        title: Build Fast Websites
-        caption: Create lightning-fast static sites with 11ty
-        link: /pages/about/
-      - src: /assets/images/carousel/hero/hero2.svg
-        alt: Responsive design
-        title: Mobile-First Design
-        caption: Beautiful on every device
-      - src: /assets/images/carousel/hero/hero3.svg
-        alt: Easy to use
-        title: Simple & Powerful
-        caption: Markdown-based content creation
+      - src: /assets/images/carousel/hero/maja-explosiv-hero1.jpg
+        alt: Abstract painting by Maja Explosiv
+        title: Paintings
+        caption: Explore expressive paintings and murals
+        link: /collections/paintings/
+      - src: /assets/images/carousel/hero/maja-explosiv-hero2.jpg
+        alt: Sculpture by Maja Explosiv
+        title: Sculptures
+        caption: Discover intricate three-dimensional creations
+        link: /collections/sculptures/
+      - src: /assets/images/carousel/hero/maja-explosiv-hero3.jpg
+        alt: Art installation by Maja Explosiv
+        title: Installations
+        caption: Experience immersive art installations
+        link: /collections/installations/
 customSections:
-  - title: Why Choose Explosive?
-    class: features-section
+  - title: Projects
+    class: projects-section
+    id: projects
     content: |
-      <div class="features-grid">
-        <div class="feature-item">
-          <h3>🚀 Fast & Modern</h3>
-          <p>Built with 11ty for lightning-fast static site generation and modern web standards.</p>
+      <div class="projects-tabs">
+        <div class="tab-buttons">
+          <button class="tab-button active" data-tab="sculptures">Sculptures</button>
+          <button class="tab-button" data-tab="installations">Installations</button>
+          <button class="tab-button" data-tab="performance">Performance</button>
+          <button class="tab-button" data-tab="paintings">Paintings</button>
         </div>
-        <div class="feature-item">
-          <h3>📱 Responsive Design</h3>
-          <p>Looks great on all devices with mobile-first responsive design principles.</p>
+        <div class="tab-content">
+          <div id="sculptures" class="tab-pane active">
+            <p>Sculptural works exploring form, space, and materiality.</p>
+          </div>
+          <div id="installations" class="tab-pane">
+            <p>Large-scale installations that transform and engage with their environment.</p>
+          </div>
+          <div id="performance" class="tab-pane">
+            <p>Performance art and multimedia events.</p>
+          </div>
+          <div id="paintings" class="tab-pane">
+            <p>Paintings, murals, and works on paper.</p>
+          </div>
         </div>
-        <div class="feature-item">
-          <h3>🎨 Flexible Collections</h3>
-          <p>Organize your content with powerful collections that can be nested and cross-referenced.</p>
+      </div>
+  - title: About
+    class: about-section
+    id: about
+    content: |
+      <div class="about-tabs">
+        <div class="tab-buttons">
+          <button class="tab-button active" data-tab="bio">Bio</button>
+          <button class="tab-button" data-tab="press">Press</button>
+          <button class="tab-button" data-tab="links">Links</button>
         </div>
-        <div class="feature-item">
-          <h3>⚡ Easy to Use</h3>
-          <p>Simple Markdown-based content creation with powerful templating capabilities.</p>
+        <div class="tab-content">
+          <div id="bio" class="tab-pane active">
+            <p>Maja Explosiv is a multidisciplinary artist known for her bold and experimental approach to art. Her work often challenges conventional boundaries, blending traditional techniques with contemporary themes.</p>
+            <p>With a background in fine arts and a passion for innovation, Maja's creations invite viewers to engage in a dialogue about society, nature, and the human experience.</p>
+          </div>
+          <div id="press" class="tab-pane">
+            <p>Press information and media coverage.</p>
+          </div>
+          <div id="links" class="tab-pane">
+            <p>Links and resources.</p>
+          </div>
         </div>
       </div>
 ---
 
 {% carousel "hero" %}
-
-## Welcome to Your New Website
-
-This is the home page of your Explosive Website template. You can customize this content by editing the `src/index.md` file.
-
-### What You Can Do
-
-- **Create Static Pages**: Add pages to the `src/pages/` directory
-- **Write Posts**: Add blog posts and articles to `src/posts/`
-- **Organize with Collections**: Use the `collections` front matter to categorize your posts
-- **Customize Templates**: Modify the templates in `src/_layouts/` and `src/_includes/`
-
-### Getting Started
-
-1. Edit this home page by modifying `src/index.md`
-2. Create your first post in `src/posts/`
-3. Add static pages to `src/pages/`
-4. Customize the site configuration in `src/_data/site.json`
-
-Enjoy building with the Explosive Website template!
