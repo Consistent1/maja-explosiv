@@ -272,7 +272,7 @@ module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/media");
-  eleventyConfig.addPassthroughCopy({ "src/_user/assets": "assets" });
+  eleventyConfig.addPassthroughCopy("src/_user/assets");
 
   // Datastar is loaded from CDN, no need to copy from node_modules
   
