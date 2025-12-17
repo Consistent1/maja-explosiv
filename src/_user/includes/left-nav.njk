@@ -1,53 +1,39 @@
 <div class="sidebar-nav">
-    <div class="sidebar-nav-header">
-        <a href="{{ '/' | url }}" class="site-logo">
-            {% if site.logo %}
-                <img src="{{ site.logo | url }}" alt="{{ site.title or 'Maja Explosiv' }}" class="logo-image">
-            {% else %}
-                <span class="logo-text">{{ site.title or "Maja Explosiv" }}</span>
-            {% endif %}
-        </a>
-        {% if site.tagline %}
-            <p class="site-subtitle">{{ site.tagline }}</p>
-        {% endif %}
+    <div class="sidebar-header">
+        <h1 class="brand-title">MAJA EXPLOSIV</h1>
+        <p class="brand-subtitle">AKA MAJA THOMMEN</p>
     </div>
 
     <nav class="nav-menu-container" aria-label="Sidebar navigation">
-        <ul class="nav-menu">
-            <!-- Home Link -->
-            <li class="nav-item">
-                <a href="{{ '/' | url }}" class="nav-link{% if page.url == '/' %} current{% endif %}">Home</a>
-            </li>
+        <!-- Projects Section -->
+        <div class="nav-section">
+            <h2 class="nav-section-title"><a href="/#projects" class="nav-link-header">PROJECTS</a></h2>
+            <ul class="nav-submenu">
+                <li><a href="/#sculptures" class="nav-link" data-tab-link="sculptures">SCULPTURES</a></li>
+                <li><a href="/#installations" class="nav-link" data-tab-link="installations">INSTALLATIONS</a></li>
+                <li><a href="/#performance" class="nav-link" data-tab-link="performance">PERFORMANCE</a></li>
+                <li><a href="/#paintings" class="nav-link" data-tab-link="paintings">PAINTINGS</a></li>
+            </ul>
+        </div>
 
-            <!-- Projects Section -->
-            <li class="nav-section">
-                <span class="nav-section-title">Projects</span>
-                <ul class="nav-submenu">
-                    <li><a href="{{ '/collections/sculptures/' | url }}" class="nav-link">Sculptures</a></li>
-                    <li><a href="{{ '/collections/installations/' | url }}" class="nav-link">Installations</a></li>
-                    <li><a href="{{ '/collections/performance/' | url }}" class="nav-link">Performance</a></li>
-                    <li><a href="{{ '/collections/paintings/' | url }}" class="nav-link">Paintings</a></li>
-                </ul>
-            </li>
-
-            <!-- About Section -->
-            <li class="nav-section">
-                <span class="nav-section-title">About</span>
-                <ul class="nav-submenu">
-                    <li><a href="{{ '/about/bio/' | url }}" class="nav-link">Bio</a></li>
-                    <li><a href="{{ '/about/press/' | url }}" class="nav-link">Press</a></li>
-                    <li><a href="{{ '/about/links/' | url }}" class="nav-link">Links</a></li>
-                </ul>
-            </li>
-
-            <!-- Contact Link -->
-            <li class="nav-item">
-                <a href="{{ '/contact/' | url }}" class="nav-link{% if page.url == '/contact/' %} current{% endif %}">Contact</a>
-            </li>
-        </ul>
+        <!-- About Section -->
+        <div class="nav-section">
+            <h2 class="nav-section-title"><a href="/#about" class="nav-link-header">ABOUT</a></h2>
+            <ul class="nav-submenu">
+                <li><a href="/#bio" class="nav-link" data-tab-link="bio">BIO</a></li>
+                <li><a href="/#timeline" class="nav-link" data-tab-link="timeline">TIMELINE</a></li>
+                <li><a href="/#press" class="nav-link" data-tab-link="press">PRESS</a></li>
+                <li><a href="/#links" class="nav-link" data-tab-link="links">LINKS</a></li>
+                <li><a href="/contact/" class="nav-link contact-link">CONTACT</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <div class="sidebar-nav-footer">
+    <div class="sidebar-footer">
+        <p>ATELIER</p>
+        <p>MAAS & THOMMEN</p>
+    </div>
+</div>
         <!-- Footer content for sidebar, if any -->
     </div>
 </div>

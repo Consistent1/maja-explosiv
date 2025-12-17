@@ -104,11 +104,11 @@ layout: base.njk
         <section class="collection-posts">
             <div class="posts-grid" id="posts-grid">
                 {% for post in posts %}
-                    <article class="post-card" data-date="{{ post.data.date | date('YYYY-MM-DD') }}" data-title="{{ post.data.title | lower }}">
+                    <article class="post-card" data-date="{{ post.data.date | date('YYYY-MM-DD') }}" data-title="{{ post.data.title | lower }}" data-year="{{ post.data.date | date('YYYY') if post.data.date else '' }}" data-medium="{{ post.data.medium or '' }}" data-excerpt="{{ (post.data.description or (post.templateContent | excerpt(120))) | safe }}">
                         {% if post.data.featuredImage %}
                             <div class="post-card-image">
                                 <a href="{{ post.url | url }}">
-                                    <img src="{{ post.data.featuredImage | url }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                    <img src="{{ post.data.featuredImage | url }}" data-src="{{ post.data.featuredImage | url }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
                                 </a>
                             </div>
                         {% endif %}

@@ -3,6 +3,7 @@
 /package-lock.json
 /.cache
 /bmad
+/v4-backup
 /.github
 /.gemini
 /.augment
@@ -10,3 +11,4 @@
 /.playwright-mcp
 /old
 /temp_screenshots
+.goosehints

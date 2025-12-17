@@ -27,6 +27,15 @@
   --nav-height: var(--size-9);
   --card-padding: var(--size-4);
   --section-spacing: var(--size-8);
+  /* Map theme typography tokens (injected by base.njk) to local vars */
+  --ui-type-base: var(--theme-typography-base-size, 16px);
+  --ui-line-height: var(--theme-typography-line-height, 1.45);
+  --ui-h1: var(--theme-typography-h1, var(--font-size-8));
+  --ui-h2: var(--theme-typography-h2, var(--font-size-7));
+  --ui-h3: var(--theme-typography-h3, var(--font-size-6));
+  --ui-h4: var(--theme-typography-h4, var(--font-size-5));
+  --ui-h5: var(--theme-typography-h5, var(--font-size-4));
+  --ui-h6: var(--theme-typography-h6, var(--font-size-3));
 }
 
 /* Base styles using Open Props */
@@ -39,10 +48,11 @@ html {
 
 body {
   font-family: var(--theme-fonts-body, var(--font-sans));
-  font-size: var(--font-size-3);
-  line-height: var(--font-lineheight-3);
+  font-size: var(--ui-type-base);
+  line-height: var(--ui-line-height);
   color: var(--theme-colors-text, var(--gray-8));
-  background-color: var(--theme-colors-background, var(--gray-0));
+  /* Figma: page background should be light gray #B8B8B8 */
+  background-color: #B8B8B8;
   /* Ensure proper text direction and alignment */
   direction: ltr;
   text-align: left;
@@ -57,12 +67,40 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-dark);
 }
 
-h1 { font-size: var(--font-size-8); }
-h2 { font-size: var(--font-size-7); }
-h3 { font-size: var(--font-size-6); }
-h4 { font-size: var(--font-size-5); }
-h5 { font-size: var(--font-size-4); }
-h6 { font-size: var(--font-size-3); }
+h1 { font-size: var(--ui-h1); }
+h2 { font-size: var(--ui-h2); }
+h3 { font-size: var(--ui-h3); }
+h4 { font-size: var(--ui-h4); }
+h5 { font-size: var(--ui-h5); }
+h6 { font-size: var(--ui-h6); }
+
+/* Hero-specific typography mapped from theme tokens (Figma) */
+.hero-title {
+  font-family: var(--theme-fonts-heading, var(--font-serif));
+  font-weight: 700;
+  font-size: var(--theme-typography-hero-title, var(--ui-h1));
+  line-height: 0.74;
+  letter-spacing: -0.02em;
+  color: var(--theme-colors-text, var(--gray-8));
+}
+.hero-subtitle {
+  font-family: var(--theme-fonts-heading, var(--font-serif));
+  font-weight: 500;
+  font-size: var(--theme-typography-hero-subtitle, var(--ui-h2));
+  line-height: 0.74;
+  letter-spacing: -0.02em;
+  color: var(--theme-colors-text, var(--gray-8));
+}
+
+/* Lead / description mapping */
+.lead {
+  font-family: var(--theme-fonts-heading, var(--font-serif));
+  font-weight: 500;
+  font-size: var(--theme-typography-lead, var(--ui-h3));
+  line-height: 1.3125; /* 42px for 32px font roughly */
+  letter-spacing: -0.03em;
+  color: var(--theme-colors-text, var(--gray-8));
+}
 
 p {
   margin-block: 0 var(--size-3);
@@ -188,6 +226,194 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   display: none;
 }
 
+/* Two-column master/detail page layout for homepage */
+.page-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--size-6);
+  align-items: start;
+}
+
+.left-column {
+  /* main scrolling content area */
+}
+
+.right-column {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--size-2));
+  align-self: start;
+}
+
+/* ==================================================
+   Figma-inspired sidebar and hero adjustments
+   (Added to mimic the Figma layout; values are approximate
+    and will be updated when you provide exact tokens.)
+   ==================================================*/
+
+/* Left-side fixed sidebar (Figma: 252px, #B8B8B8, 1px #222222) */
+.left-sidebar {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 252px; /* Figma: 252px */
+  height: 100vh;
+  padding: 17.6875px; /* Figma padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* header at top, footer at bottom */
+  background: #B8B8B8; /* Figma container bg */
+  border-right: 1px solid #222222; /* Figma border */
+  z-index: var(--layer-4);
+}
+
+/* Make sure main content sits to the right of the fixed sidebar */
+.main-container {
+  display: grid;
+  grid-template-columns: 252px 1fr;
+  min-height: 100vh;
+}
+
+.main-content {
+  /* margin-left: 252px;  Removed in favor of grid */
+  padding-inline: var(--size-6);
+}
+
+/* Hero adjustments and corner image (top-right) */
+.hero-section {
+  padding-block: var(--size-6);
+}
+.hero-background {
+  background: var(--theme-colors-container, #B8B8B8);
+  padding: var(--size-6);
+  border-radius: var(--radius-1);
+  border: 1px solid var(--theme-colors-border, #222222);
+  position: relative;
+  overflow: visible;
+  /* Try known asset paths for the corner graphic as fallbacks */
+  background-image: url('/assets/images/corner.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+/* Make the hero content constrained to a readable column like Figma */
+.hero-content {
+  max-inline-size: min(900px, 70vw);
+}
+
+/* Posts / image grid tuned to mimic Figma gallery */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--size-4);
+  align-items: start;
+}
+.post-card-image,
+.post-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3; /* approximate; adjust if you prefer square tiles */
+  object-fit: cover;
+  border-radius: var(--radius-1);
+  background: var(--theme-colors-surface, #EBEBEB);
+}
+
+
+/* Project detail (right-column) styling */
+.project-detail {
+  background: var(--theme-colors-container, var(--gray-1));
+  border-radius: var(--radius-2);
+  padding: var(--size-4);
+  border: var(--border-size-1) solid var(--theme-colors-border, var(--gray-3));
+  max-inline-size: 380px;
+}
+.project-detail .project-image {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: var(--radius-2);
+  margin-block-end: var(--size-3);
+  background: var(--theme-colors-surface, var(--gray-0));
+}
+.project-detail .project-image img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-detail .project-title {
+  margin-block-end: var(--size-1);
+  font-size: var(--font-size-5);
+  color: var(--theme-colors-primary, var(--gray-9));
+}
+.project-detail .project-year,
+.project-detail .project-medium {
+  color: var(--theme-colors-text-light, var(--gray-6));
+  font-size: var(--font-size-1);
+  margin-block-end: var(--size-2);
+}
+.project-detail .project-description {
+  margin-block: var(--size-3) 0;
+}
+.project-detail .project-controls .btn {
+  display: inline-block;
+  margin-right: var(--size-2);
+}
+
+/* Tabs (accessible) */
+.tabs {
+  display: block;
+}
+.tablist {
+  display: flex;
+  gap: var(--size-4);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--size-4) 0;
+  border-bottom: var(--border-size-1) solid var(--theme-colors-border, var(--gray-3));
+}
+.tab {
+  background: none;
+  border: none;
+  padding: var(--size-2) var(--size-3);
+  cursor: pointer;
+  font-weight: var(--font-weight-6);
+  color: var(--theme-colors-text, var(--gray-8));
+}
+.tab[aria-selected="true"] {
+  color: var(--color-primary);
+  border-bottom: var(--border-size-2) solid var(--color-primary);
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Support for legacy/simple tabs used in index.md */
+.tab-button {
+  background: none;
+  border: none;
+  padding: var(--size-2) var(--size-3);
+  cursor: pointer;
+  font-weight: var(--font-weight-6);
+  color: var(--theme-colors-text, var(--gray-8));
+}
+.tab-button.active,
+.tab-button:focus {
+  color: var(--color-primary);
+  border-bottom: var(--border-size-2) solid var(--color-primary);
+}
+.tab-pane {
+  display: none;
+}
+.tab-pane.active,
+.tab-pane[aria-hidden="false"] {
+  display: block;
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
@@ -301,7 +527,8 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 
 /* Main Content using Open Props */
 .main-content {
-  min-block-size: calc(100vh - var(--size-12));
+  /* Ensure main content fills viewport minus header/nav height */
+  min-block-size: calc(100vh - var(--nav-height)); /* Updated to use header/nav height variable */
   max-inline-size: var(--container-max-width);
   margin-inline: auto;
   padding-block: var(--section-spacing);
@@ -496,7 +723,8 @@ pre code {
 
 /* Footer using Open Props - Updated for full width */
 .site-footer {
-  background: var(--color-dark);
+  /* Figma: footer background should match page container */
+  background: #B8B8B8;
   color: var(--gray-3);
   margin-block-start: var(--size-10);
 }

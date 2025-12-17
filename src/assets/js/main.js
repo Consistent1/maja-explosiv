@@ -8,7 +8,153 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearchFunctionality();
     initNewsletterForm();
     initContactForm();
+    initTabs();
+    initProjectPreview();
 });
+
+// Accessible tabs initialization
+function initTabs() {
+    const tablists = document.querySelectorAll('[role="tablist"], .tablist, .tab-buttons');
+    tablists.forEach(list => {
+        // support both ARIA tablist (.tablist/.tab) and simple .tab-buttons/.tab-pane structures
+        const tabs = Array.from(list.querySelectorAll('[role="tab"], .tab, .tab-button'));
+        tabs.forEach((tab, idx) => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                activateTab(tab, tabs);
+            });
+            tab.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const next = tabs[(idx + 1) % tabs.length];
+                    next.focus();
+                    activateTab(next, tabs);
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prev = tabs[(idx - 1 + tabs.length) % tabs.length];
+                    prev.focus();
+                    activateTab(prev, tabs);
+                }
+            });
+        });
+    });
+
+    // Activate tab from hash on load
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+        // Try modern ARIA tab id, then legacy data-tab setup
+        let targetTab = document.querySelector(`[data-tab-id="${hash}"]`);
+        if (!targetTab) targetTab = document.querySelector(`.tab-button[data-tab="${hash}"]`);
+        if (targetTab) {
+            const root = targetTab.closest('[role="tablist"], .tablist, .tab-buttons');
+            const allTabs = Array.from(root.querySelectorAll('[role="tab"], .tab, .tab-button'));
+            activateTab(targetTab, allTabs);
+        }
+    }
+
+    // Handle sidebar links that point to tabs
+    const sidebarLinks = document.querySelectorAll('.nav-link[data-tab-link]');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const tabId = link.dataset.tabLink;
+            const targetTab = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+            if (targetTab) {
+                // If we are on the home page, prevent default and switch tab
+                if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                    // e.preventDefault(); // Optional: keep default to update URL hash
+                    const root = targetTab.closest('[role="tablist"], .tablist, .tab-buttons');
+                    const allTabs = Array.from(root.querySelectorAll('[role="tab"], .tab, .tab-button'));
+                    activateTab(targetTab, allTabs);
+                    
+                    // Scroll to the tab section if needed
+                    targetTab.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+    });
+}
+
+function activateTab(tab, tabs) {
+    // Handle ARIA tabs and simple tab-buttons
+    tabs.forEach(t => {
+        // reset selection for accessible tabs
+        if (t.matches('[role="tab"]') || t.classList.contains('tab')) {
+            t.setAttribute('aria-selected', 'false');
+        } else if (t.classList.contains('tab-button')) {
+            t.classList.remove('active');
+        }
+
+        const panelId = t.getAttribute('aria-controls') || t.dataset.controls || t.dataset.tab;
+        if (panelId) {
+            const panel = document.getElementById(panelId);
+            if (panel) panel.setAttribute('aria-hidden', 'true');
+            if (panel && panel.classList.contains('tab-pane')) panel.classList.remove('active');
+        }
+    });
+
+    // activate selected
+    if (tab.matches('[role="tab"]') || tab.classList.contains('tab')) {
+        tab.setAttribute('aria-selected', 'true');
+    } else if (tab.classList.contains('tab-button')) {
+        tab.classList.add('active');
+    }
+
+    const panelId = tab.getAttribute('aria-controls') || tab.dataset.controls || tab.dataset.tab;
+    if (panelId) {
+        const panel = document.getElementById(panelId);
+        if (panel) {
+            panel.setAttribute('aria-hidden', 'false');
+            if (panel.classList.contains('tab-pane')) panel.classList.add('active');
+        }
+    }
+
+    // Update hash for deep-linking (use tab.dataset.tab or explicit id)
+    const tabId = tab.dataset.tabId || tab.dataset.tab || panelId;
+    if (tabId) {
+        history.replaceState(null, '', `#${tabId}`);
+    }
+}
+
+// Project preview wiring: populate the right-column project-detail when a project card is clicked
+function initProjectPreview() {
+    const postCards = document.querySelectorAll('.post-card, .project-card');
+    const detail = document.getElementById('project-detail');
+    if (!detail) return;
+
+    postCards.forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', (e) => {
+            // extract simple fields
+            const title = card.querySelector('.post-card-title a')?.textContent || card.querySelector('.post-card-title')?.textContent || card.querySelector('h3, h2')?.textContent || 'Project';
+            const imgEl = card.querySelector('img');
+            const imgSrc = imgEl ? (imgEl.dataset.src || imgEl.getAttribute('src')) : '/assets/images/placeholder-project.jpg';
+            const excerpt = card.querySelector('.post-card-description')?.textContent || card.querySelector('.post-card-excerpt')?.textContent || '';
+            const link = card.querySelector('a') ? card.querySelector('a').getAttribute('href') : '#';
+
+            // populate detail panel
+            const titleEl = detail.querySelector('.project-title');
+            const yearEl = detail.querySelector('.project-year');
+            const mediumEl = detail.querySelector('.project-medium');
+            const descEl = detail.querySelector('.project-description');
+            const imgWrap = detail.querySelector('.project-image img');
+            const openLink = detail.querySelector('.project-open-link');
+
+            if (titleEl) titleEl.textContent = title;
+            if (descEl) descEl.textContent = excerpt;
+            if (imgWrap) imgWrap.setAttribute('src', imgSrc);
+            if (openLink) openLink.setAttribute('href', link);
+
+            // optional: if the post's frontmatter includes date or medium, read data attributes
+            if (yearEl) yearEl.textContent = card.dataset.year || '';
+            if (mediumEl) mediumEl.textContent = card.dataset.medium || '';
+
+            // bring detail into view on small screens
+            if (window.innerWidth < 900) {
+                detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+}
 
 // Mobile Menu Toggle
 function initMobileMenu() {

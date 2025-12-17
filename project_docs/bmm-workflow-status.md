@@ -22,17 +22,19 @@ PHASE_4_COMPLETE: false
 ## Development Queue
 
 STORIES_SEQUENCE: ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8"]
-TODO_STORY: 1.3
-TODO_TITLE: Script and Execute Content Migration
-IN_PROGRESS_STORY:
-IN_PROGRESS_TITLE:
+TODO_STORY: 1.4
+TODO_TITLE: (next) Review migrations and QA
+IN_PROGRESS_STORY: 1.3
+IN_PROGRESS_TITLE: Script and Execute Content Migration
+IN_PROGRESS_NOTE: "Work paused — resume instructions in project_docs/RESUME-WORK-HERE.md"
 STORIES_DONE: ["1.1", "1.2"]
 
 ## Next Action
 
-NEXT_ACTION: Script and execute content migration from TYPO3
-NEXT_COMMAND: @dev
-NEXT_AGENT: dev
+NEXT_ACTION: Pause content migration (Story 1.3). Continue with UI improvements.
+NEXT_COMMAND: @bmm-ux-designer
+NEXT_AGENT: bmm-ux-designer
+NEXT_ACTION_NOTE: "Story 1.3 is mid-work; resume instructions saved at project_docs/RESUME-WORK-HERE.md. Skipping for now to continue UI work."
 
 ## Story Backlog
 

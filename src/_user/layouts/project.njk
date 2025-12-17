@@ -1,0 +1,55 @@
+---
+layout: sidebar-layout.njk
+---
+
+<article class="project-page">
+    <header class="project-header">
+        <div class="project-meta-top">
+            <a href="/#projects" class="back-link">← Back to Projects</a>
+        </div>
+        <h1 class="project-title">{{ title }}</h1>
+        {% if subtitle %}
+            <p class="project-subtitle">{{ subtitle }}</p>
+        {% endif %}
+        
+        <div class="project-meta">
+            {% if date %}
+                <span class="project-date">{{ date | date('YYYY') }}</span>
+            {% endif %}
+            {% if medium %}
+                <span class="project-medium">{{ medium }}</span>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="project-content">
+        {% if featuredImage %}
+            <div class="project-featured-image">
+                <img src="{{ featuredImage }}" alt="{{ featuredImageAlt or title }}">
+            </div>
+        {% endif %}
+
+        <div class="project-description">
+            {{ content | safe }}
+        </div>
+
+        {% if mediaGallery %}
+            <div class="project-gallery">
+                {% for media in mediaGallery %}
+                    <div class="gallery-item">
+                        <img src="{{ media.url }}" alt="{{ media.caption or '' }}" loading="lazy">
+                        {% if media.caption %}
+                            <p class="caption">{{ media.caption }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <footer class="project-footer">
+        <div class="project-navigation">
+            {# Add navigation links if needed #}
+        </div>
+    </footer>
+</article>

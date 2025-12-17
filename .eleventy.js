@@ -272,12 +272,13 @@ module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/media");
-  eleventyConfig.addPassthroughCopy("src/_user/assets");
+  eleventyConfig.addPassthroughCopy({ "src/_user/assets": "assets" });
 
   // Datastar is loaded from CDN, no need to copy from node_modules
   
   // Watch for changes in CSS
   eleventyConfig.addWatchTarget("src/assets/css/");
+  eleventyConfig.addWatchTarget("src/_user/assets/css/");
   
   // Create collections for posts
   eleventyConfig.addCollection("allPosts", function(collectionApi) {

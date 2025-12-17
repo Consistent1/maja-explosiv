@@ -1,0 +1,58 @@
+---
+layout: sidebar-layout.njk
+---
+
+<div class="home-page">
+    {% if hero %}
+        <section class="hero-section">
+            {% if hero.backgroundImage %}
+                <div class="hero-background" style="background-image: url('{{ hero.backgroundImage }}');">
+            {% else %}
+                <div class="hero-background">
+            {% endif %}
+                <div class="hero-content">
+                    {% if hero.title %}
+                        <h1 class="hero-title">
+                            <span class="d-block">{{ hero.title }}</span>
+                            {% if hero.subtitle %}
+                                <span class="d-block">{{ hero.subtitle }}</span>
+                            {% endif %}
+                        </h1>
+                    {% endif %}
+                    {% if hero.description %}
+                        <div class="hero-description">
+                            {{ hero.description | safe }}
+                        </div>
+                    {% endif %}
+                    {% if hero.ctaButton %}
+                        <div class="hero-cta">
+                            <a href="{{ hero.ctaButton.url }}" class="cta-button">
+                                <span class="arrow-icon">↗</span> {{ hero.ctaButton.text }}
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    
+    <div class="home-content">
+        {{ content | safe }}
+    </div>
+
+    {# Custom Sections with Tab Support #}
+    {% if customSections %}
+        {% for section in customSections %}
+            <section class="custom-section {{ section.class or '' }}" id="{{ section.id }}">
+                <div class="section-container">
+                    {% if section.title %}
+                        <h2 class="section-title">{{ section.title }}</h2>
+                    {% endif %}
+                    <div class="section-content">
+                        {{ section.content | safe }}
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% endif %}
+</div>

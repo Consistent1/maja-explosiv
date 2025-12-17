@@ -12,10 +12,12 @@ layout: sidebar-layout.njk
             {% endif %}
                 <div class="hero-content">
                     {% if hero.title %}
-                        <h1 class="hero-title">{{ hero.title }}</h1>
-                    {% endif %}
-                    {% if hero.subtitle %}
-                        <p class="hero-subtitle">{{ hero.subtitle }}</p>
+                        <h1 class="hero-title">
+                            <span class="d-block">{{ hero.title }}</span>
+                            {% if hero.subtitle %}
+                                <span class="d-block">{{ hero.subtitle }}</span>
+                            {% endif %}
+                        </h1>
                     {% endif %}
                     {% if hero.description %}
                         <div class="hero-description">
@@ -24,7 +26,9 @@ layout: sidebar-layout.njk
                     {% endif %}
                     {% if hero.ctaButton %}
                         <div class="hero-cta">
-                            <a href="{{ hero.ctaButton.url }}" class="cta-button">{{ hero.ctaButton.text }}</a>
+                            <a href="{{ hero.ctaButton.url }}" class="cta-button">
+                                <span class="arrow-icon">↗</span> {{ hero.ctaButton.text }}
+                            </a>
                         </div>
                     {% endif %}
                 </div>
@@ -42,11 +46,11 @@ layout: sidebar-layout.njk
             {% set featuredPosts = collections.allPosts | reverse | limit(featuredPostsCount or 3) %}
             <div class="posts-grid">
                 {% for post in featuredPosts %}
-                    <article class="post-card">
+                    <article class="post-card" data-year="{{ post.data.date | date('YYYY') if post.data.date else '' }}" data-medium="{{ post.data.medium or '' }}" data-excerpt="{{ (post.data.description or (post.templateContent | excerpt(120))) | safe }}">
                         {% if post.data.featuredImage %}
                             <div class="post-card-image">
                                 <a href="{{ post.url }}">
-                                    <img src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                    <img src="{{ post.data.featuredImage }}" data-src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
                                 </a>
                             </div>
                         {% endif %}
@@ -121,13 +125,52 @@ layout: sidebar-layout.njk
     
     {% if customSections %}
         {% for section in customSections %}
-            <section class="custom-section {{ section.class or '' }}">
+            <section class="custom-section {{ section.class or '' }}" id="{{ section.id }}">
                 {% if section.title %}
                     <h2 class="section-title">{{ section.title }}</h2>
                 {% endif %}
-                <div class="section-content">
-                    {{ section.content | safe }}
-                </div>
+                
+                {% if section.id == 'projects' %}
+                    <div class="projects-tabs" aria-labelledby="projects-tabs-label">
+                        <div class="tab-buttons" role="tablist" aria-label="Projects">
+                            <button role="tab" aria-selected="true" aria-controls="sculptures" id="tab-sculptures" class="tab-button active" data-tab="sculptures">Sculptures</button>
+                            <button role="tab" aria-selected="false" aria-controls="installations" id="tab-installations" class="tab-button" data-tab="installations">Installations</button>
+                            <button role="tab" aria-selected="false" aria-controls="performance" id="tab-performance" class="tab-button" data-tab="performance">Performance</button>
+                            <button role="tab" aria-selected="false" aria-controls="paintings" id="tab-paintings" class="tab-button" data-tab="paintings">Paintings</button>
+                        </div>
+                        <div class="tab-content">
+                            {% for category in ['sculptures', 'installations', 'performance', 'paintings'] %}
+                                <div id="{{ category }}" role="tabpanel" aria-labelledby="tab-{{ category }}" class="tab-pane {% if loop.first %}active{% endif %}" {% if not loop.first %}aria-hidden="true"{% endif %}>
+                                    <div class="posts-grid">
+                                        {% for post in collections[category] %}
+                                            <article class="post-card" data-year="{{ post.data.date | date('YYYY') if post.data.date else '' }}" data-medium="{{ post.data.medium or '' }}" data-excerpt="{{ (post.data.description or (post.templateContent | excerpt(120))) | safe }}">
+                                                {% if post.data.featuredImage %}
+                                                    <div class="post-card-image">
+                                                        <a href="{{ post.url }}">
+                                                            <img src="{{ post.data.featuredImage }}" data-src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                                        </a>
+                                                    </div>
+                                                {% endif %}
+                                                <div class="post-card-content">
+                                                    <h3 class="post-card-title">
+                                                        <a href="{{ post.url }}">{{ post.data.title }}</a>
+                                                    </h3>
+                                                    {% if post.data.description %}
+                                                        <p class="post-card-description">{{ post.data.description }}</p>
+                                                    {% endif %}
+                                                </div>
+                                            </article>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="section-content">
+                        {{ section.content | safe }}
+                    </div>
+                {% endif %}
             </section>
         {% endfor %}
     {% endif %}
