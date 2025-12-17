@@ -6,25 +6,47 @@
 {% block content %}
 <div class="main-container">
     <aside class="left-sidebar">
-        {% include "left-nav.njk" %}
+        <div class="sidebar-nav">
+            <div class="sidebar-header">
+                <h1 class="brand-title">MAJA EXPLOSIV</h1>
+                <p class="brand-subtitle">AKA MAJA THOMMEN</p>
+            </div>
+
+            <nav class="nav-menu-container" aria-label="Sidebar navigation">
+                <div class="nav-section">
+                    <h2 class="nav-section-title">
+                        <a href="/#projects" class="nav-link-header" data-section-link="projects">PROJECTS</a>
+                    </h2>
+                    <ul class="nav-submenu">
+                        <li><a href="/#sculptures" class="nav-link" data-tab-link="sculptures">SCULPTURES</a></li>
+                        <li><a href="/#installations" class="nav-link" data-tab-link="installations">INSTALLATIONS</a></li>
+                        <li><a href="/#performance" class="nav-link" data-tab-link="performance">PERFORMANCE</a></li>
+                        <li><a href="/#paintings" class="nav-link" data-tab-link="paintings">PAINTINGS</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h2 class="nav-section-title">
+                        <a href="/#about" class="nav-link-header" data-section-link="about">ABOUT</a>
+                    </h2>
+                    <ul class="nav-submenu">
+                        <li><a href="/#bio" class="nav-link" data-tab-link="bio">BIO</a></li>
+                        <li><a href="/#timeline" class="nav-link" data-tab-link="timeline">TIMELINE</a></li>
+                        <li><a href="/#press" class="nav-link" data-tab-link="press">PRESS</a></li>
+                        <li><a href="/#links" class="nav-link" data-tab-link="links">LINKS</a></li>
+                        <li><a href="/contact/" class="nav-link contact-link">CONTACT</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>ATELIER</p>
+                <p>MAAS & THOMMEN</p>
+            </div>
+        </div>
     </aside>
     <main id="main-content" class="main-content">
-        {% if breadcrumbs %}
-            <nav class="breadcrumbs" aria-label="Breadcrumb">
-                <ol>
-                    <li><a href="/">Home</a></li>
-                    {% for crumb in breadcrumbs %}
-                        <li>
-                            {% if crumb.url and not loop.last %}
-                                <a href="{{ crumb.url }}">{{ crumb.title }}</a>
-                            {% else %}
-                                <span aria-current="page">{{ crumb.title }}</span>
-                            {% endif %}
-                        </li>
-                    {% endfor %}
-                </ol>
-            </nav>
-        {% endif %}
+        {# Breadcrumbs removed for homepage #}
         
         {% if title and showPageTitle !== false %}
             <header class="page-header">

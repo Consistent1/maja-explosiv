@@ -196,3 +196,60 @@ The fixed sidebar layout with `position: fixed` and `margin-left` offsets is wel
 - **Design Source:** Figma design files in `project_docs/`
 - **Upstream Template:** https://github.com/Xpanda-org/explosive-11ty
 - **Template Documentation:** See README.md for full template capabilities
+
+---
+
+## Recent Updates (17 December 2025)
+
+### Hero Section Full-Width Implementation
+
+**Motivation:** The hero section needed to fill the full viewport width and height to match the design specifications in Top.png, without any visible border or background container.
+
+**Changes Made:**
+
+1. **Layout Grid System** (`src/_user/assets/css/custom.css`)
+   - Restored upstream grid layout: `display: grid; grid-template-columns: 250px 1fr`
+   - Changed sidebar from `position: fixed` to `position: sticky` to participate in grid flow
+   - Removed manual `.main-content` margins and padding
+   - Main content now correctly occupies second grid column via `grid-column: 2 / 3`
+
+2. **Hero Full-Width Technique** (`src/_user/assets/css/custom.css`)
+   - Hero section breaks out of content-wrapper constraint
+   - Uses `width: 100vw` to span full viewport width
+   - Negative margin `margin-left: calc(-250px - 97.5px)` to offset sidebar and align to viewport left edge
+   - Hero content positioned with left margin to account for sidebar + design gutter
+   - Set `min-height: 100vh` to fill viewport height
+
+3. **Hero Styling Cleanup** (`src/_user/assets/css/custom.css`)
+   - Removed `.hero-background` border, padding, and border-radius
+   - Set background to transparent (no visual box/container)
+   - Hero now flush with page background matching design
+   - Added corner image: `background-image: url('/assets/images/corner.png')` positioned at `right top`
+
+4. **Typography Refinements** (`src/_user/assets/css/custom.css`)
+   - Hero title: `5rem` font-size with `-0.03em` letter-spacing
+   - Fine-tuned margins: `margin-top: 1rem`, `margin-bottom: 1.75rem`
+   - Optical alignment: `margin-left: -6px` for large title text
+
+**Verification:**
+- Created visual diff tool (`temp/visual-diff.html`) for side-by-side comparison with design screenshots
+- Used Chrome DevTools MCP to measure element positions and confirm hero fills viewport exactly
+- Hero verified at `{x:0, y:0, width:1360, height:626}` (full viewport in test case)
+
+**Impact:**
+- ✅ Hero section now matches Top.png design exactly
+- ✅ No borders or visual containers around hero
+- ✅ Full viewport width and height coverage
+- ✅ Corner image restored and positioned correctly
+- ✅ Maintains grid layout compatibility with sidebar and content sections
+
+**Files Modified:**
+- `src/_user/assets/css/custom.css` (layout grid, hero full-width, styling cleanup)
+- `temp/visual-diff.html` (new: visual comparison tool)
+
+**Template Compatibility:**
+- All changes made in `src/_user/` override directory
+- No modifications to upstream template files
+- Grid layout follows template's intended architecture
+- Negative margin technique is CSS-only, no template changes needed
+

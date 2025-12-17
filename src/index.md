@@ -14,29 +14,29 @@ hero:
   ctaButton:
     text: LETS GET IN TOUCH
     url: /contact/
-carousels:
-  hero:
-    autoplay: true
-    interval: 5000
-    showDots: true
-    showArrows: true
-    height: 500px
-    images:
-      - src: /assets/images/carousel/hero/maja-explosiv-hero1.jpg
-        alt: Abstract painting by Maja Explosiv
-        title: Paintings
-        caption: Explore expressive paintings and murals
-        link: /collections/paintings/
-      - src: /assets/images/carousel/hero/maja-explosiv-hero2.jpg
-        alt: Sculpture by Maja Explosiv
-        title: Sculptures
-        caption: Discover intricate three-dimensional creations
-        link: /collections/sculptures/
-      - src: /assets/images/carousel/hero/maja-explosiv-hero3.jpg
-        alt: Art installation by Maja Explosiv
-        title: Installations
-        caption: Experience immersive art installations
-        link: /collections/installations/
+# carousels:
+#   hero:
+#     autoplay: true
+#     interval: 5000
+#     showDots: true
+#     showArrows: true
+#     height: 500px
+#     images:
+#       - src: /assets/images/carousel/hero/maja-explosiv-hero1.jpg
+#         alt: Abstract painting by Maja Explosiv
+#         title: Paintings
+#         caption: Explore expressive paintings and murals
+#         link: /collections/paintings/
+#       - src: /assets/images/carousel/hero/maja-explosiv-hero2.jpg
+#         alt: Sculpture by Maja Explosiv
+#         title: Sculptures
+#         caption: Discover intricate three-dimensional creations
+#         link: /collections/sculptures/
+#       - src: /assets/images/carousel/hero/maja-explosiv-hero3.jpg
+#         alt: Art installation by Maja Explosiv
+#         title: Installations
+#         caption: Experience immersive art installations
+#         link: /collections/installations/
 customSections:
   - title: Projects
     class: projects-section
@@ -92,5 +92,3 @@ customSections:
         </div>
       </div>
 ---
-
-{% carousel "hero" %}

@@ -48,9 +48,48 @@ layout: sidebar-layout.njk
                     {% if section.title %}
                         <h2 class="section-title">{{ section.title }}</h2>
                     {% endif %}
-                    <div class="section-content">
-                        {{ section.content | safe }}
-                    </div>
+                    
+                    {% if section.id == 'projects' %}
+                        <div class="projects-tabs" aria-labelledby="projects-tabs-label">
+                            <div class="tab-buttons" role="tablist" aria-label="Projects">
+                                <button role="tab" aria-selected="true" aria-controls="sculptures" id="tab-sculptures" class="tab-button active" data-tab="sculptures">Sculptures</button>
+                                <button role="tab" aria-selected="false" aria-controls="installations" id="tab-installations" class="tab-button" data-tab="installations">Installations</button>
+                                <button role="tab" aria-selected="false" aria-controls="performance" id="tab-performance" class="tab-button" data-tab="performance">Performance</button>
+                                <button role="tab" aria-selected="false" aria-controls="paintings" id="tab-paintings" class="tab-button" data-tab="paintings">Paintings</button>
+                            </div>
+                            <div class="tab-content">
+                                {% for category in ['sculptures', 'installations', 'performance', 'paintings'] %}
+                                    <div id="{{ category }}" role="tabpanel" aria-labelledby="tab-{{ category }}" class="tab-pane {% if loop.first %}active{% endif %}" {% if not loop.first %}aria-hidden="true"{% endif %}>
+                                        <div class="posts-grid">
+                                            {% for post in collections[category] %}
+                                                <article class="post-card" data-year="{{ post.data.date | date('YYYY') if post.data.date else '' }}" data-medium="{{ post.data.medium or '' }}" data-excerpt="{{ (post.data.description or (post.templateContent | excerpt(120))) | safe }}">
+                                                    {% if post.data.featuredImage %}
+                                                        <div class="post-card-image">
+                                                            <a href="{{ post.url }}">
+                                                                <img src="{{ post.data.featuredImage }}" data-src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                                            </a>
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class="post-card-content">
+                                                        <h3 class="post-card-title">
+                                                            <a href="{{ post.url }}">{{ post.data.title }}</a>
+                                                        </h3>
+                                                        {% if post.data.description %}
+                                                            <p class="post-card-description">{{ post.data.description }}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </article>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="section-content">
+                            {{ section.content | safe }}
+                        </div>
+                    {% endif %}
                 </div>
             </section>
         {% endfor %}

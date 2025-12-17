@@ -32,14 +32,15 @@ h6 {
    ============================================ */
 
 .main-container {
-    display: block;
+    display: grid;
+    grid-template-columns: 250px 1fr;
     min-height: 100vh;
 }
 
 .left-sidebar {
-    position: fixed;
+    position: sticky; /* keep in view but remain in grid flow */
     top: 0;
-    left: 0;
+    align-self: stretch;
     height: 100vh;
     width: 250px;
     background-color: #C8C8C8;
@@ -52,9 +53,9 @@ h6 {
 }
 
 .main-content {
-    margin-left: 250px;
+    /* Remove padding so hero and sections can use full width */
     padding: 0;
-    width: calc(100% - 250px);
+    grid-column: 2 / 3; /* force main content into the right-side column */
 }
 
 /* ============================================
@@ -183,72 +184,133 @@ h6 {
 }
 
 /* ============================================
-   HERO SECTION
+   HERO SECTION - Part 2
    ============================================ */
 
+/* Part 2.4: Hero Overall Layout */
 .hero-section {
+    background-color: #C8C8C8; /* Matches page background */
+    padding: 0;
+    width: 100vw; /* Full viewport width */
+    margin-left: calc(-250px - 97.5px); /* Move to viewport left edge: -(sidebar + actual offset) */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     position: relative;
-    width: 100%;
-    padding: 2rem 0;
+    min-height: 100vh; /* Fill the viewport like other main sections */
+    background-image: url('/assets/images/corner.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto; /* Keep original size */
 }
 
 .hero-content {
+    max-width: 900px;
+    width: 100%;
     z-index: 1;
-    padding: var(--size-fluid-3);
-    max-width: var(--size-content-2);
+    margin-left: calc(250px + 2.6rem); /* Offset for sidebar + left gutter */
 }
 
+/* Ensure the hero background fills the available content column
+   and uses border-box sizing so padding doesn't shrink the visual area. */
+.hero-background {
+    /* Remove boxed container so hero is flush with page like in Top.png */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0; /* no inner padding */
+    border-radius: 0;
+    border: none;
+    background: transparent;
+}
+
+/* Part 2.1: Hero Title */
 .hero-title {
-    font-size: 2.5rem;
-    line-height: 1;
+    font-size: 5rem; /* increase slightly for stronger visual match */
+    letter-spacing: -0.03em;
+    font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    color: #222;
+    color: #000000;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-top: 1rem; /* tighten vertical spacing to match Top.png */
+    margin-bottom: 1.75rem;
+    margin-left: -6px; /* minor optical alignment tweak */
 }
 
-.hero-title .d-block {
+.hero-title span.d-block {
     display: block;
 }
 
-.hero-subtitle {
-    font-size: var(--font-size-fluid-1);
-    margin-bottom: var(--size-5);
-    opacity: var(--opacity-8);
-}
-
+/* Part 2.2: Hero Description */
 .hero-description {
-    font-size: 1.8rem;
-    line-height: 1.2;
-    max-width: 800px;
-    margin-bottom: 3rem;
-    color: #222;
+    font-size: 1.25rem; /* ~20px */
+    font-weight: 400;
+    color: #333333;
+    line-height: 1.5;
+    max-width: 650px;
+    margin-bottom: 40px;
 }
 
 .hero-description p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Part 2.3: Call-to-Action Button */
+.hero-cta {
+    margin-top: 40px;
 }
 
 .cta-button {
     display: inline-flex;
     align-items: center;
-    background-color: #222;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    border-radius: 2rem;
+    background-color: #000000;
+    color: #FFFFFF;
     text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 0.9rem; /* ~14px */
+    font-weight: 500;
     text-transform: uppercase;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: background-color 0.2s;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .cta-button:hover {
-    background-color: #000;
+    background-color: #222222;
+    transform: scale(1.02);
+    color: #FFFFFF;
 }
 
-.arrow-icon {
-    margin-right: 0.5rem;
-    font-size: 1.1rem;
+.cta-button .arrow-icon {
+    margin-right: 8px;
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 40px 20px;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        margin-top: 40px;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
 }
 
 /* ============================================
@@ -504,69 +566,9 @@ h6 {
         width: 100%;
     }
 
-    .hero-section {
-        height: auto;
-    }
-
-    .hero-title {
-        font-size: var(--font-size-fluid-2);
-    }
-}
-    justify-content: center;
-    color: var(--theme-colors-on-primary, #ffffff);
-    text-align: center;
 }
 
-.hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.5);
-    z-index: -1;
-}
-
-.hero-content {
-    z-index: 1;
-    padding: var(--size-fluid-3);
-    max-width: var(--size-content-2);
-}
-
-.hero-title {
-    font-size: var(--font-size-fluid-3);
-    margin-bottom: var(--size-3);
-    line-height: var(--font-lineheight-0);
-}
-
-.hero-subtitle {
-    font-size: var(--font-size-fluid-1);
-    margin-bottom: var(--size-5);
-    opacity: var(--opacity-8);
-}
-
-.hero-description {
-    font-size: var(--font-size-fluid-0);
-    margin-bottom: var(--size-7);
-}
-
-.cta-button {
-    display: inline-block;
-    padding: var(--size-3) var(--size-5);
-    background-color: var(--theme-colors-primary, #007bff);
-    color: var(--theme-colors-on-primary, #ffffff);
-    text-decoration: none;
-    border-radius: var(--radius-2);
-    font-weight: var(--font-weight-bold);
-    transition: var(--transition-2);
-}
-
-.cta-button:hover {
-    background-color: var(--theme-colors-primary-hover, #0056b3);
-    transform: var(--scale-1);
-}
+/* Removed conflicting hero styles */
 
 /* Tab Styles */
 .projects-tabs,
@@ -818,13 +820,7 @@ h6 {
         grid-column: 1 / -1;
     }
 
-    .hero-section {
-        height: 40vh;
-    }
 
-    .hero-title {
-        font-size: var(--font-size-fluid-2);
-    }
 
 }
 
