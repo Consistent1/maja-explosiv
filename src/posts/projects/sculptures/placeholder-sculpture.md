@@ -3,8 +3,12 @@ title: "Placeholder Sculpture"
 date: 2024-01-01
 description: "Placeholder description for a sculpture project. This will be replaced with migrated content from TYPO3."
 postCollections: ["projects", "sculptures"]
+tags:
+  - sculptures
 series: "placeholder-sculpture"
 featured: false
+featuredImage: /assets/images/projects/sculptures/placeholder-sculpture/placeholder.jpg
+featuredImageAlt: Placeholder sculpture image
 images:
   - src: "/assets/images/projects/sculptures/placeholder-sculpture/placeholder.jpg"
     alt: "Placeholder sculpture image"

@@ -38,8 +38,7 @@ To understand how the site diverges from the template read the changes.md file.
 ## Design Analysis Summary
 
 Based on the design files reviewed:
-- **PDF:** `MajaExplosiv_Website Redesign - One page.pdf`
-- **Screenshots:** `Top.png`, `2nd.png`, `3rd.png`, `4th.png`, `Bottom.png`
+- **Screenshots:** `homepage.png`, `project.png`, `impressum.png`, `contact.png`
 
 The homepage follows a **one-page layout** with these main sections:
 1. Fixed left sidebar navigation
@@ -50,6 +49,57 @@ The homepage follows a **one-page layout** with these main sections:
 6. Footer section
 
 **Note on Images:** The images at the top of the page and in the projects section are NOT a carousel. They are static images determined by parsing a data file at build time. The featured images section has a special animation effect: images display in grayscale and smoothly transition to color on hover.
+
+---
+
+## Typography and Font System
+
+**Implementation Status:** ✅ Completed (December 20, 2025)
+
+The site uses a three-font system as specified in the design:
+
+### Font Families
+
+1. **Geist** (Primary)
+   - Source: Vercel CDN (`@vercel/style-guide`)
+   - Usage: Primary font for headings and body text
+   - Style: Modern, clean sans-serif
+   - Loaded in: `src/_user/layouts/base.njk`
+
+2. **Rethink Sans** (Secondary)
+   - Source: Google Fonts
+   - Usage: Secondary/fallback font for body text and all text elements
+   - Style: Versatile sans-serif with excellent readability
+   - Loaded in: `src/_user/layouts/base.njk`
+
+3. **Inter** (Buttons Only)
+   - Source: Google Fonts
+   - Usage: **Reserved exclusively for CTA buttons** (e.g., "LETS GET IN TOUCH")
+   - Style: Neutral, highly readable interface font
+   - Loaded in: `src/_user/layouts/base.njk`
+
+### Font Stack Configuration
+
+Configured in `src/_user/_data/theme.js`:
+
+```javascript
+"fonts": {
+  "body": "'Geist', 'Rethink Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  "heading": "'Geist', 'Rethink Sans', sans-serif",
+  "button": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+}
+```
+
+### CSS Implementation
+
+- Body text: Uses `var(--theme-fonts-body)` → Geist, Rethink Sans
+- Headings (h1-h6): Uses `var(--theme-fonts-heading)` → Geist, Rethink Sans
+- CTA Buttons: Uses `var(--theme-fonts-button)` → Inter
+
+**Files:**
+- Font loading: `src/_user/layouts/base.njk`
+- Theme config: `src/_user/_data/theme.js`
+- CSS application: `src/_user/assets/css/custom.css`
 
 ---
 
@@ -411,20 +461,33 @@ The homepage follows a **one-page layout** with these main sections:
 ---
 
 #### 4.2 Projects Section Title
+
+**Implementation Status:** ✅ Completed (December 20, 2025)
+
 **Styling:**
 - Text: "PROJECTS" (uppercase)
-- Font: Bold, large (~32-40px)
-- Color: Dark gray/black
-- Alignment: Center
-- Margin: Below top of section (~40px), above tabs (~40px)
+- Font: Geist with Rethink Sans fallback
+- Size: 1rem (16px) - refined, understated
+- Weight: 400 (regular weight for elegance)
+- Color: Black with 0.75 opacity
+- Letter spacing: 0.3em (extra wide for premium feel)
+- Alignment: Center with decorative horizontal bars
+
+**Bar Design:**
+- Horizontal lines flanking the title text on both sides
+- Lines: 1px height, rgba(0, 0, 0, 0.15) color
+- Line length: Flex-grows with max-width 200px (desktop), 100px (mobile)
+- Spacing: 2rem margin between line and text (desktop), 1rem (mobile)
+- Implementation: CSS flexbox with `::before` and `::after` pseudo-elements
 
 **Behavior:**
-- Static heading
-- Acts as visual anchor for section
+- Static heading with decorative visual bars
+- Acts as visual anchor and separator for section
+- Responsive: Line length and spacing adjust on mobile
 
-**Files to Modify:**
-- `src/index.md` (verify title)
-- `src/_user/assets/css/custom.css`
+**Files Modified:**
+- `src/_user/assets/css/custom.css` - Section title bar styling
+- `src/index.md` - Section title text (already in place)
 
 ---
 
@@ -615,20 +678,32 @@ projects:
 ---
 
 #### 5.2 About Section Title
+
+**Implementation Status:** ✅ Completed (December 20, 2025)
+
 **Styling:**
+- Same styling as Projects section title (consistency)
 - Text: "ABOUT" (uppercase)
-- Font: Bold, large (~32-40px)
-- Color: Dark gray/black
-- Alignment: Center
-- Margin: Below top of section (~40px), above tabs (~40px)
+- Font: Geist with Rethink Sans fallback
+- Size: 1rem (16px)
+- Weight: 400 (regular)
+- Color: Black with 0.75 opacity
+- Letter spacing: 0.3em
+- Alignment: Center with decorative horizontal bars
+
+**Bar Design:**
+- Identical to Projects section for visual consistency
+- Horizontal lines flanking the title on both sides
+- Lines: 1px height, rgba(0, 0, 0, 0.15) color
+- Responsive behavior matches Projects section
 
 **Behavior:**
-- Static heading
+- Static heading with decorative visual bars
 - Acts as visual anchor for section
 
-**Files to Modify:**
-- `src/index.md` (verify title)
-- `src/_user/assets/css/custom.css`
+**Files Modified:**
+- `src/_user/assets/css/custom.css` - Shared `.section-title` class
+- `src/index.md` - Section title text (already in place)
 
 ---
 
@@ -956,8 +1031,7 @@ Responsive design should **only be implemented if the changes are trivial** (e.g
    - **Verify visual match:** Use browser inspection tools (DevTools, screenshots) to compare against design files
    - **Test behavior:** Verify all interactions work as specified
    - **Update documentation:**
-     - Update `changes.md` if template files were modified (add entry with date and details)
-     - Update `README.md` if new features were added that differ from base template
+     - Update `changes.md` If template files were modified or if new features were added, add an entry with date and details
      - Update `homepage-changes.md` with implementation details
 
 4. **Verification checklist for each part:**
@@ -984,18 +1058,14 @@ Responsive design should **only be implemented if the changes are trivial** (e.g
 7. **Documentation updates:**
    - **`changes.md`**: Document any modifications to base template files
      - Format: Date, files changed, reason, description
-     - Only needed if template files modified (not _user files)
+     - Document template files modification (not _user files)
+     - Document new customization capabilities  
    
    - **`homepage-changes.md`**: Track all implementation work
      - Format: Date, Part implemented, files changed, notes
      - Updated after each part is completed
      - Include before/after notes, challenges encountered
    
-   - **`README.md`**: Update if new features added
-     - Document new customization capabilities
-     - Update examples if needed
-     - Generally less frequent updates
-
 8. **File organization:**
    - All customizations in `src/_user/` directory when possible
    - Override template files using user directory pattern
@@ -1027,7 +1097,6 @@ Responsive design should **only be implemented if the changes are trivial** (e.g
 - `/project_docs/homepage-changes.md` - **CREATE NEW** - Track implementation progress
 - `/project_docs/homepage-changes-plan.md` - **THIS FILE** - The plan document
 - `changes.md` - **UPDATE** - If template files modified
-- `README.md` - **UPDATE IF NEEDED** - If new features documented
 
 ### Verification Files
 - May create temporary screenshots in `.playwright-mcp/` for comparison
@@ -1044,6 +1113,7 @@ Responsive design should **only be implemented if the changes are trivial** (e.g
    - Accents: Black buttons, black active states
 
 2. **Typography:**
+   - Font families: font-family: Geist, Rethink, and Inter (for a button)
    - Headings: Bold, uppercase, large
    - Body: Regular weight, good readability
    - Navigation: Uppercase, compact
@@ -1096,15 +1166,11 @@ Implementation will be considered successful when:
 
 ---
 
-## Next Steps
+## IMPORTANT
 
-1. Review this plan for completeness and accuracy
-2. Get approval/feedback on plan before implementation
-3. Begin implementation starting with Part 1 (Fixed Left Sidebar)
-4. Create `homepage-changes.md` to track progress
-5. Proceed through each part systematically
-6. Verify each part before moving to the next
-7. Update documentation as you go
+1. Proceed through each part systematically
+2. Verify each part before moving to the next
+3. Update documentation as you go
 
 ---
 

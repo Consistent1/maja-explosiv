@@ -3,8 +3,12 @@ title: "Placeholder Installation"
 date: 2024-01-01
 description: "Placeholder description for an installation project. This will be replaced with migrated content from TYPO3."
 postCollections: ["projects", "installations"]
+tags:
+  - installations
 series: "placeholder-installation"
 featured: false
+featuredImage: /assets/images/projects/installations/placeholder-installation/placeholder.jpg
+featuredImageAlt: Placeholder installation image
 images:
   - src: "/assets/images/projects/installations/placeholder-installation/placeholder.jpg"
     alt: "Placeholder installation image"

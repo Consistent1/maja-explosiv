@@ -30,8 +30,14 @@ module.exports = {
     "h6": "16px"
   },
   "fonts": {
-    "body": "'Rethink Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    "heading": "'Geist', 'Arial Narrow', 'Helvetica Condensed', sans-serif"
+    /* Primary fonts per design specification:
+       - Geist: Main body and heading font for clean, modern aesthetic
+       - Rethink Sans: Fallback for body text
+       - Inter: Specifically for CTA buttons and interactive elements
+    */
+    "body": "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+    "heading": "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+    "button": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
   },
   "paths": {
     "header": "header.njk",

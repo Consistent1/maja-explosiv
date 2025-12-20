@@ -12,3 +12,5 @@
 /old
 /temp_screenshots
 .goosehints
+/.clj-kondo/**
+/.lsp/**

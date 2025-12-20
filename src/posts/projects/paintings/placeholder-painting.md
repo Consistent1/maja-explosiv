@@ -3,8 +3,12 @@ title: "Placeholder Painting"
 date: 2024-01-01
 description: "Placeholder description for a painting project. This will be replaced with migrated content from TYPO3."
 postCollections: ["projects", "paintings"]
+tags:
+  - paintings
 series: "placeholder-painting"
 featured: false
+featuredImage: /assets/images/projects/paintings/placeholder-painting/placeholder.jpg
+featuredImageAlt: Placeholder painting image
 images:
   - src: "/assets/images/projects/paintings/placeholder-painting/placeholder.jpg"
     alt: "Placeholder painting image"

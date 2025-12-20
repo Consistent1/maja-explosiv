@@ -21,6 +21,13 @@
     <meta property="twitter:description" content="{{ description or site.description or 'A flexible 11ty website template' }}">
     {% if image %}<meta property="twitter:image" content="{{ site.url }}{{ image }}">{% endif %}
     
+    <!-- Google Fonts: Geist, Rethink Sans, and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <!-- Geist font loaded via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/@vercel/style-guide@latest/fonts/geist/index.css" rel="stylesheet">
+    
     <!-- Stylesheets -->
     <style>
       :root {

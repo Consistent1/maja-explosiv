@@ -3,8 +3,12 @@ title: "Placeholder Performance"
 date: 2024-01-01
 description: "Placeholder description for a performance project. This will be replaced with migrated content from TYPO3."
 postCollections: ["projects", "performance"]
+tags:
+  - performance
 series: "placeholder-performance"
 featured: false
+featuredImage: /assets/images/projects/performance/placeholder-performance/placeholder.jpg
+featuredImageAlt: Placeholder performance image
 images:
   - src: "/assets/images/projects/performance/placeholder-performance/placeholder.jpg"
     alt: "Placeholder performance image"

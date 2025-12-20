@@ -5,6 +5,8 @@ category: paintings
 tags:
   - paintings
 layout: post.njk
+featuredImage: /assets/images/projects/paintings/akwa.png
+featuredImageAlt: Akwa comic strip
 ---
 
 Comic strip for the Roboduck Paperstage on the theme of 'water', Robodock Festival /NL

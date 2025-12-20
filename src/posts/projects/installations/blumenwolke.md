@@ -6,6 +6,8 @@ tags:
   - installations
   - 2021
 layout: post.njk
+featuredImage: /assets/images/projects/installations/blumenwolke.jpg
+featuredImageAlt: Blumenwolke chandelier made from recycled cutlery
 ---
 
 'Die Blumenwolke', or the Cloud of Flowers, is a chandelier realized from over 280 flowers, 

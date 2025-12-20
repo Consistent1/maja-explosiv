@@ -253,3 +253,96 @@ The fixed sidebar layout with `position: fixed` and `margin-left` offsets is wel
 - Grid layout follows template's intended architecture
 - Negative margin technique is CSS-only, no template changes needed
 
+---
+
+## Font System and Section Bar Design (December 20, 2025)
+
+**Summary:** Implemented comprehensive font family system using Geist, Rethink Sans, and Inter fonts. Enhanced section title styling with decorative horizontal bars.
+
+### 1. Font Family System
+
+**Fonts Loaded:**
+- **Geist**: Modern sans-serif (primary) - loaded via Vercel CDN
+- **Rethink Sans**: Versatile sans-serif (secondary) - loaded via Google Fonts
+- **Inter**: Used exclusively for CTA buttons - loaded via Google Fonts
+
+**Implementation:**
+1. **Font Loading** (`src/_user/layouts/base.njk`)
+   - Added Rethink Sans to Google Fonts link
+   - Maintained existing Geist and Inter font loading
+   - Updated comments to reflect three-font strategy
+
+2. **Theme Configuration** (`src/_user/_data/theme.js`)
+   - Created user theme override file (new)
+   - Defined font stacks:
+     - `fonts.body`: `'Geist', 'Rethink Sans', -apple-system, ...`
+     - `fonts.heading`: `'Geist', 'Rethink Sans', sans-serif`
+     - `fonts.button`: `'Inter', -apple-system, ...` (CTA buttons only)
+   - Updated color scheme to match design (`#C8C8C8` background, `#000000` text)
+
+3. **CSS Typography** (`src/_user/assets/css/custom.css`)
+   - Updated `body` to use theme font variables with Geist/Rethink Sans stack
+   - Updated heading elements to use theme font variables
+   - Verified CTA button continues to use Inter font via `--theme-fonts-button`
+   - Added comprehensive documentation comments explaining font strategy
+
+**Font Usage:**
+- ✅ Body text: Geist → Rethink Sans → system fallbacks
+- ✅ Headings: Geist → Rethink Sans → sans-serif
+- ✅ CTA buttons: Inter → system fallbacks
+- ✅ All fonts load efficiently from CDN with proper fallbacks
+
+### 2. Section Title Bar Design
+
+**Visual Enhancement:**
+- Section titles ("PROJECTS", "ABOUT") now display with decorative horizontal lines on both sides
+- Creates visual "bar" element separating sections
+- Matches clean, minimal aesthetic from homepage.png design reference
+
+**Implementation** (`src/_user/assets/css/custom.css`):
+- Redesigned `.section-title` class with flexbox layout
+- Added `::before` and `::after` pseudo-elements creating horizontal lines
+- Line styling:
+  - `flex: 1` with `max-width: 200px` for balanced appearance
+  - `height: 1px`, `background-color: rgba(0, 0, 0, 0.15)` for subtle effect
+  - `margin: 0 2rem` for spacing from text
+- Typography refinements:
+  - Font size: `1rem` (refined, understated)
+  - Letter spacing: `0.3em` (extra wide for premium feel)
+  - Opacity: `0.75` (subtle, not overwhelming)
+  - Font weight: `400` (regular weight for elegance)
+- Responsive design:
+  - Mobile breakpoint reduces line `max-width` to `100px`
+  - Mobile margins reduced to `1rem` for tighter spacing
+
+**Visual Result:**
+- ✅ Section titles display with balanced horizontal lines
+- ✅ Clean, minimal aesthetic matching design reference
+- ✅ Responsive behavior maintains visual balance
+- ✅ Subtle styling doesn't compete with content
+
+### 3. Build Configuration
+
+**Eleventy Updates** (`.eleventy.js`):
+- Added passthrough copy for `temp` directory (visual diff testing)
+- Added passthrough copy for `project_docs` directory (design reference access)
+- Enables visual comparison tools to work via dev server
+
+**Files Created:**
+- `src/_user/_data/theme.js` - Font and color theme configuration
+
+**Files Modified:**
+- `src/_user/layouts/base.njk` - Font loading
+- `src/_user/assets/css/custom.css` - Typography and section bar styling
+- `.eleventy.js` - Passthrough copy configuration
+
+**Design Verification:**
+- Visual diff tool confirmed section bars match design intent
+- Font rendering tested across all major elements
+- No layout breaks or visual regressions detected
+
+**Template Compatibility:**
+- All changes follow user override pattern (`src/_user/`)
+- Theme system properly overrides upstream defaults
+- CSS uses theme variables for maintainability
+- No modifications to core template files

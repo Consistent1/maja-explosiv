@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Visual Diff: Live vs Design</title>
+  <style>
+    body { margin: 0; display: flex; height: 100vh; }
+    .col { flex: 1; overflow: auto; position: relative; }
+    img { max-width: 100%; height: auto; display: block; }
+    .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+    .overlay img { opacity: 0.5; width: 100%; height: auto; }
+    .controls { position: fixed; left: 50%; top: 8px; transform: translateX(-50%); background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 6px; z-index: 9999; }
+    input[type=range] { width: 240px; }
+  </style>
+</head>
+<body>
+  <div class="controls">Overlay opacity: <input id="o" type="range" min="0" max="100" value="50"> <button id="swap">Swap</button></div>
+  <div class="col" id="left">
+    <h3 style="margin:8px">Live Site</h3>
+    <img id="live" src="../temp_live_home.png">
+  </div>
+  <div class="col" id="right">
+    <h3 style="margin:8px">Design (homepage.png)</h3>
+    <div style="position:relative">
+      <img id="design" src="../project_docs/design_screenshots/homepage.png">
+      <div class="overlay" id="ov"><img id="ovimg" src="../temp_live_home.png"></div>
+    </div>
+  </div>
+
+  <script>
+    const o = document.getElementById('o');
+    const ovimg = document.getElementById('ovimg');
+    o.addEventListener('input', () => { ovimg.style.opacity = (o.value/100); });
+    document.getElementById('swap').addEventListener('click', () => {
+      const l = document.getElementById('live');
+      const d = document.getElementById('design');
+      const ov = document.getElementById('ovimg');
+      const tmp = l.src; l.src = d.src; d.src = tmp; ov.src = l.src;
+    });
+  </script>
+</body>
+</html>

@@ -6,6 +6,8 @@ tags:
   - sculptures
   - 2019
 layout: post.njk
+featuredImage: /assets/images/projects/sculptures/the-wolf.jpg
+featuredImageAlt: The Wolf sculpture
 ---
 
 Design and realization of the life size metal statue of a male wolf.

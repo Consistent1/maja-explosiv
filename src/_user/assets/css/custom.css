@@ -11,9 +11,14 @@
     box-sizing: border-box;
 }
 
-/* Typography */
+/* Typography 
+ * Font Stack:
+ * - Primary: Geist (modern, clean sans-serif)
+ * - Secondary: Rethink Sans (for body text and secondary elements)
+ * - Buttons: Inter (reserved for CTA buttons only)
+ */
 body {
-    font-family: var(--theme-fonts-body, sans-serif);
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
     color: var(--theme-colors-text, #000000);
     background-color: var(--theme-colors-background, #C8C8C8);
 }
@@ -24,7 +29,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--theme-fonts-heading, sans-serif);
+    font-family: var(--theme-fonts-heading, 'Geist', 'Rethink Sans', sans-serif);
 }
 
 /* ============================================
@@ -276,6 +281,9 @@ h6 {
     font-size: 0.9rem; /* ~14px */
     font-weight: 500;
     text-transform: uppercase;
+    /* Use Inter font for CTA button per design specification */
+    font-family: var(--theme-fonts-button, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+    letter-spacing: 0.03em;
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
@@ -314,7 +322,8 @@ h6 {
 }
 
 /* ============================================
-   TAB STYLES
+   TAB STYLES - Projects and About Section Tabs
+   Styled to match homepage.png design with clean, minimal aesthetic
    ============================================ */
 
 .projects-tabs,
@@ -332,6 +341,11 @@ h6 {
     background-color: transparent;
 }
 
+/* Tab button styling:
+   - Uses Geist font for consistency with design
+   - Uppercase with wide letter spacing for premium feel
+   - Underline animation on active state
+*/
 .tab-button {
     padding: var(--size-2) var(--size-4);
     background: none;
@@ -340,8 +354,9 @@ h6 {
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: var(--font-size-1);
-    font-weight: var(--font-weight-6);
+    font-size: 0.875rem; /* ~14px */
+    font-weight: 400;
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
     color: var(--theme-colors-text-light, #666);
     opacity: 0.6;
     transition: all 0.3s ease;
@@ -389,21 +404,60 @@ h6 {
     padding: var(--size-fluid-5) 0;
 }
 
+/* ============================================
+   CUSTOM SECTIONS - Projects and About
+   ============================================ */
 .custom-section.projects-section,
 .custom-section.about-section {
     background-color: transparent;
     padding: var(--size-fluid-4) var(--size-fluid-3);
 }
 
+/* Section Title Bar Styling
+ * Creates a visual "bar" element at the top of Projects and About sections
+ * Matches homepage.png design with:
+ * - Centered title text
+ * - Decorative horizontal lines flanking the title
+ * - Clean, minimal aesthetic
+ * - Wide letter spacing for sophistication
+ */
 .section-title {
-    font-size: var(--font-size-fluid-2);
+    font-family: var(--theme-fonts-heading, 'Geist', 'Rethink Sans', sans-serif);
+    font-size: 1rem; /* ~16px for refined, understated look */
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: var(--size-fluid-4);
+    letter-spacing: 0.3em; /* Extra wide spacing for premium feel */
+    margin-bottom: 3rem;
+    margin-top: 2rem;
     color: var(--theme-colors-text, #000000);
-    font-weight: var(--font-weight-bold);
-    opacity: 0.8;
+    font-weight: 400; /* Regular weight for elegance */
+    opacity: 0.75;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Decorative bar lines on either side of the section title
+ * Creates the "bar" appearance referenced in the design */
+.section-title::before,
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.15);
+    margin: 0 2rem;
+    max-width: 200px; /* Limit line length for balanced appearance */
+}
+
+/* Responsive adjustments for section title bars */
+@media (max-width: 768px) {
+    .section-title::before,
+    .section-title::after {
+        margin: 0 1rem;
+        max-width: 100px;
+    }
 }
 
 /* ============================================
@@ -629,7 +683,7 @@ h6 {
     }
 }
 
-/* Custom Sections */
+/* Custom Sections - Duplicate removed, main definition at line ~398 */
 .custom-section {
     padding: var(--size-fluid-4) var(--size-fluid-3);
     margin-bottom: var(--size-fluid-4);
@@ -641,14 +695,6 @@ h6 {
 .custom-section.about-section {
     background-color: transparent;
     padding: var(--size-fluid-4) var(--size-fluid-3);
-}
-
-.section-title {
-    font-size: var(--font-size-fluid-2);
-    text-align: left;
-    margin-bottom: var(--size-fluid-3);
-    color: var(--theme-colors-text, #000000);
-    font-weight: var(--font-weight-bold);
 }
 
 /* About Section */
@@ -733,62 +779,86 @@ h6 {
 .posts-grid,
 .collections-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--size-fluid-3);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--size-5, 1.25rem);
+    margin-top: var(--size-7, 2rem);
 }
 
 .post-card,
 .collection-card {
     background-color: var(--theme-colors-surface-2, #ffffff);
-    border-radius: var(--radius-3);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow-2);
-    transition: var(--transition-2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .post-card:hover,
 .collection-card:hover {
-    box-shadow: var(--shadow-4);
-    transform: var(--scale-1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.post-card-image {
+    width: 100%;
+    overflow: hidden;
 }
 
 .post-card-image img,
 .collection-card-image img {
     width: 100%;
-    height: 180px;
+    height: auto;
     object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-card-image img,
+.collection-card:hover .collection-card-image img {
+    transform: scale(1.05);
 }
 
 .post-card-content,
 .collection-card-content {
-    padding: var(--size-4);
+    padding: var(--size-4, 1rem);
+    flex-grow: 1;
 }
 
 .post-card-title,
 .collection-card-title {
-    font-size: var(--font-size-fluid-0);
-    margin-bottom: var(--size-2);
+    font-size: var(--font-size-1, 1.125rem);
+    margin-bottom: var(--size-2, 0.5rem);
+    font-weight: 700;
 }
 
 .post-card-title a,
 .collection-card-title a {
     text-decoration: none;
     color: var(--theme-colors-text, #000000);
+    transition: color 0.2s ease;
+}
+
+.post-card-title a:hover,
+.collection-card-title a:hover {
+    color: var(--theme-colors-primary, #666666);
 }
 
 .post-card-description,
 .collection-card-description {
-    font-size: var(--font-size-0);
-    line-height: var(--font-lineheight-2);
-    margin-bottom: var(--size-4);
+    font-size: var(--font-size-0, 1rem);
+    line-height: 1.6;
+    margin-bottom: var(--size-4, 1rem);
+    color: var(--theme-colors-text-light, #666666);
 }
 
 .post-card-meta,
 .collection-card-meta {
     display: flex;
     justify-content: space-between;
-    font-size: var(--font-size--1);
-    color: var(--theme-colors-text-light, #666666);
+    font-size: var(--font-size--1, 0.875rem);
+    color: var(--theme-colors-text-light, #999999);
 }
 
 .collection-tag {
@@ -820,8 +890,21 @@ h6 {
         grid-column: 1 / -1;
     }
 
+    /* Mobile: 1 column grid for projects */
+    .posts-grid,
+    .collections-grid {
+        grid-template-columns: 1fr;
+        gap: var(--size-4, 1rem);
+    }
+}
 
-
+/* Tablet: 2 columns */
+@media (width >= 768px) and (width < 1024px) {
+    .posts-grid,
+    .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--size-4, 1rem);
+    }
 }
 
 /* Premium Tab Styling Updates */
