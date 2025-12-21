@@ -41,6 +41,16 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
   - "Back to Projects" navigation link
 - **Purpose:** Showcase individual artworks with a focused, gallery-style presentation
 
+#### Layout Overrides for Sidebar Consistency
+- **Files Created:** 
+  - `src/_user/layouts/page.njk`
+  - `src/_user/layouts/post.njk`
+  - `src/_user/layouts/collection.njk`
+  - `src/_user/layouts/collections-overview.njk`
+- **Changes:** All layout overrides extend `sidebar-layout.njk` instead of `base.njk`
+- **Purpose:** Ensure the fixed left sidebar appears consistently across all page types (static pages, blog posts, collection pages, etc.)
+- **Impact:** Creates a unified navigation experience throughout the entire site
+
 ### 2. CSS/Styling Customizations
 
 #### Main CSS File
@@ -127,6 +137,10 @@ No custom JavaScript was added; the existing functionality was leveraged.
 ### Files Created
 - `src/_user/layouts/home.njk`
 - `src/_user/layouts/project.njk`
+- `src/_user/layouts/page.njk`
+- `src/_user/layouts/post.njk`
+- `src/_user/layouts/collection.njk`
+- `src/_user/layouts/collections-overview.njk`
 - `changes.md` (this file)
 
 ### Files Modified
@@ -257,7 +271,7 @@ The fixed sidebar layout with `position: fixed` and `margin-left` offsets is wel
 
 ## Font System and Section Bar Design (December 20, 2025)
 
-**Summary:** Implemented comprehensive font family system using Geist, Rethink Sans, and Inter fonts. Enhanced section title styling with decorative horizontal bars.
+**Summary:** Implemented comprehensive font family system using Geist, Rethink Sans, and Inter fonts. Updated section title styling to large, bold, left-aligned headings matching homepage.png design.
 
 ### 1. Font Family System
 
@@ -292,34 +306,48 @@ The fixed sidebar layout with `position: fixed` and `margin-left` offsets is wel
 - ✅ CTA buttons: Inter → system fallbacks
 - ✅ All fonts load efficiently from CDN with proper fallbacks
 
-### 2. Section Title Bar Design
+### 2. Section Title Styling (Updated: December 20, 2025)
 
-**Visual Enhancement:**
-- Section titles ("PROJECTS", "ABOUT") now display with decorative horizontal lines on both sides
-- Creates visual "bar" element separating sections
-- Matches clean, minimal aesthetic from homepage.png design reference
+**Design Update:**
+After detailed analysis of the homepage.png design file, section titles were updated from decorative bars to large, bold, left-aligned headings.
 
-**Implementation** (`src/_user/assets/css/custom.css`):
-- Redesigned `.section-title` class with flexbox layout
-- Added `::before` and `::after` pseudo-elements creating horizontal lines
-- Line styling:
-  - `flex: 1` with `max-width: 200px` for balanced appearance
-  - `height: 1px`, `background-color: rgba(0, 0, 0, 0.15)` for subtle effect
-  - `margin: 0 2rem` for spacing from text
-- Typography refinements:
-  - Font size: `1rem` (refined, understated)
-  - Letter spacing: `0.3em` (extra wide for premium feel)
-  - Opacity: `0.75` (subtle, not overwhelming)
-  - Font weight: `400` (regular weight for elegance)
-- Responsive design:
-  - Mobile breakpoint reduces line `max-width` to `100px`
-  - Mobile margins reduced to `1rem` for tighter spacing
+**Previous Implementation (Removed):**
+- Centered section titles with decorative horizontal bars on both sides
+- Small text (1rem) with wide letter spacing
+- Uppercase text transformation
+
+**Current Implementation:**
+- **Visual Style:**
+  - Large, prominent headings (~56px / 3.5rem on desktop)
+  - Bold font weight (700) for strong visual hierarchy
+  - Left-aligned with consistent padding
+  - Sentence case ("Projects", "About") for modern, sophisticated look
+  - Full opacity (no transparency)
+  - No decorative bars or lines
+  
+- **CSS Implementation** (`src/_user/assets/css/custom.css`):
+  - Font size: `3.5rem` (desktop), `2.5rem` (mobile)
+  - Font weight: `700` (bold)
+  - Text alignment: `left` with `3rem` left padding (`1.5rem` on mobile)
+  - Text transform: `none` (allows sentence case from content)
+  - Letter spacing: `normal` (removed wide spacing)
+  - Opacity: `1` (full visibility)
+  - Margins: `3rem` top, `2.5rem` bottom (adjusted for mobile)
+  - **Removed**: `::before` and `::after` pseudo-elements (decorative bars)
+  - **Removed**: Flexbox layout properties (no longer needed)
+
+- **Responsive Design:**
+  - Mobile: Reduced font size (2.5rem), reduced padding (1.5rem)
+  - Adjusted margins for better mobile spacing
+  - Maintains visual hierarchy across breakpoints
 
 **Visual Result:**
-- ✅ Section titles display with balanced horizontal lines
-- ✅ Clean, minimal aesthetic matching design reference
-- ✅ Responsive behavior maintains visual balance
-- ✅ Subtle styling doesn't compete with content
+- ✅ Section titles match homepage.png design exactly
+- ✅ Strong visual hierarchy through size and weight
+- ✅ Clean, modern appearance without decorative elements
+- ✅ Properly left-aligned with consistent spacing
+- ✅ Sentence case for sophistication
+- ✅ Responsive scaling for mobile devices
 
 ### 3. Build Configuration
 
@@ -346,3 +374,28 @@ The fixed sidebar layout with `position: fixed` and `margin-left` offsets is wel
 - Theme system properly overrides upstream defaults
 - CSS uses theme variables for maintainability
 - No modifications to core template files
+
+---
+
+## Footer Implementation (December 21, 2025)
+
+**Summary:** Implemented the global site footer matching the "Bottom.png" design, featuring a 3-tier structure with brand identity, contact info, and utility links.
+
+**Design Details:**
+- **Structure:**
+  1. **Top Tier:** Location (Berlin), Email Contact, Warning Icon (SVG).
+  2. **Middle Tier:** Centered Brand Identity ("MAJA EXPLOSIV", "AKA MAJA THOMMEN") flanked by horizontal separator lines.
+  3. **Bottom Tier:** Utility Navigation (Sitemap, Search, Impressum).
+- **Styling:**
+  - White background (`#FFFFFF`) to match the About section.
+  - Symmetrical vertical spacing (2rem margins) around horizontal separators.
+  - Large brand typography (5rem) for strong visual impact.
+  - Clean, uppercase typography for information key-values.
+
+**Files Modified:**
+- `src/_user/includes/footer.njk` - Rewritten structure using semantic HTML.
+- `src/_user/assets/css/custom.css` - Defined footer grid, typography, and spacing properties.
+
+**Template Compatibility:**
+- Uses the `theme.paths.footer` override mechanism.
+- Fully compatible with `sidebar-layout.njk` used on both Home and Project pages.

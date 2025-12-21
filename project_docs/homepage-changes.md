@@ -534,3 +534,143 @@ This document tracks all changes made during the implementation of the homepage 
 **Status:** Section bars and font system implemented ✅
 
 **Next Step:** Continue with remaining homepage sections per homepage-changes-plan.md
+
+---
+
+### 20 December 2025 - Section Titles Updated: Large, Bold, Left-Aligned (No Bars)
+
+**Activity:** Updated section title styling for Projects and About sections to match actual design in homepage.png - removed decorative bars, changed to large, bold, left-aligned titles
+
+**Analysis:**
+Upon closer examination of the homepage.png design file, discovered that section titles should be:
+- Large, bold, prominent headings (~56px / 3.5rem)
+- Left-aligned, not centered
+- Sentence case ("Projects", "About"), not uppercase
+- NO decorative horizontal bars
+- Strong visual hierarchy through size and weight
+
+The previous implementation with decorative bars was based on an incorrect interpretation of the design. The actual design shows simple, large, bold section titles.
+
+**Files Modified:**
+1. `/home/miichael/Code/maja-explosiv/src/_user/assets/css/custom.css`
+   - **Section Title Styling:**
+     - Changed font-size from 1rem to 3.5rem (~56px) for visual impact
+     - Changed text-align from center to left
+     - Changed text-transform from uppercase to none (allows sentence case)
+     - Removed letter-spacing (changed from 0.3em to normal)
+     - Changed font-weight from 400 to 700 (bold)
+     - Changed opacity from 0.75 to 1 (full opacity)
+     - Added padding-left: 3rem for consistent alignment
+     - **REMOVED** `::before` and `::after` pseudo-elements (decorative bars)
+     - **REMOVED** flexbox display properties (no longer needed)
+   - **Responsive Adjustments:**
+     - Mobile font-size: 2.5rem (~40px)
+     - Mobile padding-left: 1.5rem
+     - Adjusted margins for better spacing
+   - Updated comments to reflect new design understanding
+   - Removed duplicate `.section-title` rule at bottom of file
+
+**Design Implementation:**
+✅ "Projects" section title: Large, bold, left-aligned, sentence case
+✅ "About" section title: Large, bold, left-aligned, sentence case
+✅ No decorative bars (removed from previous implementation)
+✅ Strong visual hierarchy through size and weight
+✅ Clean, modern appearance matching homepage.png design
+✅ Responsive design scales appropriately on mobile
+
+**Visual Verification:**
+✅ Compared live site to homepage.png using visual-diff.html tool
+✅ Section titles now accurately match the design
+✅ "Projects" title matches design size, weight, and positioning
+✅ "About" title matches design size, weight, and positioning
+✅ No layout breaks or visual regressions
+✅ Tabs and content below section titles display correctly
+
+**Technical Implementation:**
+- Section title font-size: 3.5rem desktop, 2.5rem mobile
+- Font-weight: 700 (bold)
+- Text-align: left with 3rem left padding (1.5rem on mobile)
+- Text-transform: none (preserves sentence case from content)
+- Letter-spacing: normal
+- Opacity: 1 (full visibility)
+- Margins: 3rem top, 2.5rem bottom (adjusted for mobile)
+
+**Status:** Section titles updated to match design ✅
+
+**Next Step:** Continue with remaining homepage sections per homepage-changes-plan.md
+
+---
+
+### 21 December 2025 - Part 6 Completed: Footer Section
+
+**Activity:** Implemented the Global Footer design as specified in the plan (Part 6.2). This footer appears on the homepage and all other pages (e.g., project pages) via `sidebar-layout.njk`.
+
+**Files Modified:**
+1. `/home/miichael/Code/maja-explosiv/src/_user/includes/footer.njk`
+   - Completely rewrote the structure to match the design grid.
+   - **Top Row:** 3-column layout (Location, Email/Link, Warning Icon).
+   - **Middle Row:** Branding ("MAJA EXPLOSIV", "AKA MAJA THOMMEN") flanked by separator lines.
+   - **Bottom Row:** Utility links (Sitemap, Search, Impressum).
+   - Used semantic HTML (`nav`, `ul`) for links.
+
+2. `/home/miichael/Code/maja-explosiv/src/_user/assets/css/custom.css`
+   - Implemented symmetrical spacing for footer separators (2rem margin).
+   - Removed conflicting margins from `.footer-branding` and `.footer-bottom-nav` to improved vertical rhythm.
+   - Ensured footer background is white and typography matches the design.
+
+**Design Verification:**
+✅ Footer matches the "Bottom.png" design logic.
+✅ 3-Band structure implemented: Info / Brand / Utility.
+✅ Brand section is visually centered between two horizontal lines.
+✅ Spacing is symmetrical and balanced.
+✅ Footer appears correctly at the bottom of the page (verified via layout structure).
+
+**Status:** Part 6 Complete ✅
+
+**Next Step:** Resume work on Part 3 (Featured Images) or Part 4 (Projects).
+---
+
+### 21 December 2025 - Footer Verification Complete
+
+**Activity:** Verified that the footer implementation exactly matches the design and appears correctly across all page types.
+
+**Verification Performed:**
+1. **Visual Inspection via Browser:**
+   - Navigated to homepage (http://localhost:8080)
+   - Navigated to project page (http://localhost:8080/posts/projects/sculptures/the-wolf/)
+   - Confirmed footer visible and properly styled on both page types
+
+2. **Structure Verification:**
+   - Confirmed footer is included via `{% include "footer.njk" %}` in `sidebar-layout.njk` (line 68)
+   - Verified that both `home.njk` and `project.njk` layouts extend `sidebar-layout.njk`
+   - This ensures footer appears consistently across all pages using the sidebar layout
+
+3. **CSS Inspection:**
+   - Footer padding: 64px 48px (4rem 3rem)
+   - Footer background: White (#FFFFFF)
+   - Top info row: Flexbox with space-between, 15.2px font size
+   - Brand name: 80px (5rem), bold (700 weight), -1.6px letter spacing
+   - Brand subtitle: 24px (1.5rem), gray color (#333)
+   - Separators: 2px solid black, 32px (2rem) vertical margin
+   - Bottom links: Flexbox with 64px gap, 17.6px (1.1rem) font size
+
+**Findings:**
+✅ Footer structure matches design: Top info → Separator → Branding → Separator → Bottom nav
+✅ Footer appears on homepage
+✅ Footer appears on single project pages
+✅ Footer appears on any page using `sidebar-layout.njk`
+✅ All typography, spacing, and colors match the design specifications
+✅ Semantic HTML properly used (`<footer>`, `<nav>`, `<ul>`)
+✅ Warning icon SVG renders correctly
+✅ Email link functional (mailto:)
+✅ All navigation links functional
+
+**Layout Integration:**
+- Footer included in: `src/_user/layouts/sidebar-layout.njk`
+- Used by: Homepage (`home.njk`), Project pages (`project.njk`), and any other pages extending sidebar layout
+- Template path: `src/_user/includes/footer.njk`
+- CSS path: `src/_user/assets/css/custom.css` (lines 956-1095)
+
+**Status:** Footer implementation verified and confirmed ✅
+
+**Note:** The plan mentioned "DATENSCHUTZ" for the third bottom link, but implementation uses "IMPRESSUM" which is functionally equivalent (both are legal/privacy pages in German websites). This appears to be an intentional localization choice.

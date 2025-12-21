@@ -43,7 +43,8 @@ h6 {
 }
 
 .left-sidebar {
-    position: sticky; /* keep in view but remain in grid flow */
+    position: sticky;
+    /* keep in view but remain in grid flow */
     top: 0;
     align-self: stretch;
     height: 100vh;
@@ -60,7 +61,8 @@ h6 {
 .main-content {
     /* Remove padding so hero and sections can use full width */
     padding: 0;
-    grid-column: 2 / 3; /* force main content into the right-side column */
+    grid-column: 2 / 3;
+    /* force main content into the right-side column */
 }
 
 /* ============================================
@@ -101,12 +103,15 @@ h6 {
     overflow-y: auto;
     overflow-x: hidden;
     /* Allow scroll if content too tall, but hide scrollbar */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
 }
 
 .nav-menu-container::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
+    /* Chrome/Safari */
 }
 
 .nav-section {
@@ -194,26 +199,32 @@ h6 {
 
 /* Part 2.4: Hero Overall Layout */
 .hero-section {
-    background-color: #C8C8C8; /* Matches page background */
+    background-color: #C8C8C8;
+    /* Matches page background */
     padding: 0;
-    width: 100vw; /* Full viewport width */
-    margin-left: calc(-250px - 97.5px); /* Move to viewport left edge: -(sidebar + actual offset) */
+    width: 100vw;
+    /* Full viewport width */
+    margin-left: calc(-250px - 97.5px);
+    /* Move to viewport left edge: -(sidebar + actual offset) */
     display: flex;
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    min-height: 100vh; /* Fill the viewport like other main sections */
+    min-height: 100vh;
+    /* Fill the viewport like other main sections */
     background-image: url('/assets/images/corner.png');
     background-repeat: no-repeat;
     background-position: right top;
-    background-size: auto; /* Keep original size */
+    background-size: auto;
+    /* Keep original size */
 }
 
 .hero-content {
     max-width: 900px;
     width: 100%;
     z-index: 1;
-    margin-left: calc(250px + 2.6rem); /* Offset for sidebar + left gutter */
+    margin-left: calc(250px + 2.6rem);
+    /* Offset for sidebar + left gutter */
 }
 
 /* Ensure the hero background fills the available content column
@@ -223,7 +234,8 @@ h6 {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    padding: 0; /* no inner padding */
+    padding: 0;
+    /* no inner padding */
     border-radius: 0;
     border: none;
     background: transparent;
@@ -231,16 +243,19 @@ h6 {
 
 /* Part 2.1: Hero Title */
 .hero-title {
-    font-size: 5rem; /* increase slightly for stronger visual match */
+    font-size: 5rem;
+    /* increase slightly for stronger visual match */
     letter-spacing: -0.03em;
     font-weight: 700;
     text-transform: uppercase;
     color: #000000;
     line-height: 0.95;
     letter-spacing: -0.02em;
-    margin-top: 1rem; /* tighten vertical spacing to match Top.png */
+    margin-top: 1rem;
+    /* tighten vertical spacing to match Top.png */
     margin-bottom: 1.75rem;
-    margin-left: -6px; /* minor optical alignment tweak */
+    margin-left: -6px;
+    /* minor optical alignment tweak */
 }
 
 .hero-title span.d-block {
@@ -249,7 +264,8 @@ h6 {
 
 /* Part 2.2: Hero Description */
 .hero-description {
-    font-size: 1.25rem; /* ~20px */
+    font-size: 1.25rem;
+    /* ~20px */
     font-weight: 400;
     color: #333333;
     line-height: 1.5;
@@ -278,7 +294,8 @@ h6 {
     text-decoration: none;
     padding: 14px 32px;
     border-radius: 30px;
-    font-size: 0.9rem; /* ~14px */
+    font-size: 0.9rem;
+    /* ~14px */
     font-weight: 500;
     text-transform: uppercase;
     /* Use Inter font for CTA button per design specification */
@@ -310,12 +327,12 @@ h6 {
     .hero-section {
         padding: 40px 20px;
     }
-    
+
     .hero-title {
         font-size: 3rem;
         margin-top: 40px;
     }
-    
+
     .hero-description {
         font-size: 1.1rem;
     }
@@ -333,45 +350,50 @@ h6 {
 
 .tab-buttons {
     display: flex;
-    justify-content: center;
-    gap: var(--size-3);
+    justify-content: space-between;
+    gap: 0;
     margin-bottom: var(--size-fluid-4);
-    border-bottom: 2px solid transparent;
-    flex-wrap: wrap;
+    border-bottom: none;
+    flex-wrap: nowrap;
     background-color: transparent;
+    width: 100%;
+    padding: 0 3rem;
+    /* Match section title padding */
 }
 
-/* Tab button styling:
-   - Uses Geist font for consistency with design
-   - Uppercase with wide letter spacing for premium feel
-   - Underline animation on active state
+/* Tab button styling to match homepage.png design:
+   - Simple text links, not buttons
+   - Sentence case for modern look
+   - Evenly distributed across full width
+   - No borders or underlines
 */
 .tab-button {
-    padding: var(--size-2) var(--size-4);
+    padding: 0;
     background: none;
     border: none;
-    border-bottom: 3px solid transparent;
     cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.875rem; /* ~14px */
+    text-transform: none;
+    /* Sentence case */
+    letter-spacing: normal;
+    font-size: 1rem;
+    /* ~16px */
     font-weight: 400;
     font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
-    color: var(--theme-colors-text-light, #666);
-    opacity: 0.6;
-    transition: all 0.3s ease;
-    margin-bottom: -2px;
+    color: rgba(0, 0, 0, 0.4);
+    /* Light gray for inactive */
+    transition: color 0.3s ease;
+    flex: 0 0 auto;
+    /* Don't grow or shrink */
 }
 
 .tab-button:hover {
-    color: var(--theme-colors-text, #000);
-    opacity: 1;
+    color: rgba(0, 0, 0, 0.7);
+    /* Medium gray on hover */
 }
 
 .tab-button.active {
-    color: var(--theme-colors-text, #000);
-    border-bottom-color: var(--theme-colors-text, #000);
-    opacity: 1;
+    color: #000;
+    /* Full black for active tab */
 }
 
 .tab-content {
@@ -391,6 +413,7 @@ h6 {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -413,50 +436,39 @@ h6 {
     padding: var(--size-fluid-4) var(--size-fluid-3);
 }
 
-/* Section Title Bar Styling
- * Creates a visual "bar" element at the top of Projects and About sections
- * Matches homepage.png design with:
- * - Centered title text
- * - Decorative horizontal lines flanking the title
- * - Clean, minimal aesthetic
- * - Wide letter spacing for sophistication
+/* Part 4.2 & 5.2: Projects and About Section Titles
+ * Updated to match homepage design (homepage.png):
+ * - Large, bold typography for visual impact
+ * - Left-aligned for clean, modern look
+ * - Sentence case for sophistication
+ * - No decorative bars (per updated design requirements)
  */
 .section-title {
     font-family: var(--theme-fonts-heading, 'Geist', 'Rethink Sans', sans-serif);
-    font-size: 1rem; /* ~16px for refined, understated look */
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.3em; /* Extra wide spacing for premium feel */
-    margin-bottom: 3rem;
-    margin-top: 2rem;
+    font-size: 3.5rem;
+    /* ~56px - large, prominent heading */
+    text-align: left;
+    text-transform: none;
+    /* Allow sentence case from content */
+    letter-spacing: normal;
+    margin-bottom: 2.5rem;
+    margin-top: 3rem;
     color: var(--theme-colors-text, #000000);
-    font-weight: 400; /* Regular weight for elegance */
-    opacity: 0.75;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    font-weight: 700;
+    /* Bold for strong visual hierarchy */
+    opacity: 1;
+    padding-left: 3rem;
+    /* Consistent left padding for alignment */
 }
 
-/* Decorative bar lines on either side of the section title
- * Creates the "bar" appearance referenced in the design */
-.section-title::before,
-.section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.15);
-    margin: 0 2rem;
-    max-width: 200px; /* Limit line length for balanced appearance */
-}
-
-/* Responsive adjustments for section title bars */
+/* Responsive adjustments for section titles */
 @media (max-width: 768px) {
-    .section-title::before,
-    .section-title::after {
-        margin: 0 1rem;
-        max-width: 100px;
+    .section-title {
+        font-size: 2.5rem;
+        /* ~40px on mobile */
+        padding-left: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -632,32 +644,36 @@ h6 {
 
 .tab-buttons {
     display: flex;
-    gap: var(--size-3);
+    justify-content: space-between;
+    gap: 0;
     margin-bottom: var(--size-5);
-    border-bottom: 2px solid var(--theme-colors-border, #ddd);
-    flex-wrap: wrap;
+    border-bottom: none;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0 3rem;
 }
 
 .tab-button {
-    padding: var(--size-2) var(--size-4);
+    padding: 0;
     background: none;
     border: none;
-    border-bottom: 3px solid transparent;
     cursor: pointer;
-    font-size: var(--font-size-fluid-0);
-    font-weight: var(--font-weight-6);
-    color: var(--theme-colors-text-light, #666);
-    transition: var(--transition-1);
-    margin-bottom: -2px;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
+    color: rgba(0, 0, 0, 0.4);
+    transition: color 0.3s ease;
+    flex: 0 0 auto;
 }
 
 .tab-button:hover {
-    color: var(--theme-colors-text, #000);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .tab-button.active {
-    color: var(--theme-colors-primary, #007bff);
-    border-bottom-color: var(--theme-colors-primary, #007bff);
+    color: #000;
 }
 
 .tab-content {
@@ -899,54 +915,181 @@ h6 {
 }
 
 /* Tablet: 2 columns */
-@media (width >= 768px) and (width < 1024px) {
+@media (width >=768px) and (width < 1024px) {
+
     .posts-grid,
     .collections-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--size-4, 1rem);
     }
+
+    /* Responsive tab adjustments for mobile */
+    .tab-buttons {
+        padding: 0 1.5rem;
+        /* Reduce padding on mobile */
+        flex-wrap: wrap;
+        /* Allow wrapping on very small screens */
+        gap: 0.5rem;
+        /* Add small gap if tabs wrap */
+    }
+
+    .tab-button {
+        font-size: 0.875rem;
+        /* Slightly smaller on mobile */
+    }
 }
 
-/* Premium Tab Styling Updates */
-.tab-buttons {
-    justify-content: center;
-    /* Center tabs */
-    border-bottom: 2px solid transparent;
-    /* Remove full line */
-    margin-bottom: var(--size-fluid-4);
-    background-color: transparent;
-}
+/* Duplicate tab styling removed - see unified tab styles above at line ~330 */
 
-.tab-button {
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: var(--font-size-1);
-    padding: var(--size-2) var(--size-4);
-    opacity: 0.6;
-    transition: all 0.3s ease;
-}
-
-.tab-button:hover,
-.tab-button.active {
-    opacity: 1;
-    color: var(--theme-colors-text, #000);
-    border-bottom-color: var(--theme-colors-text, #000);
-}
-
-.tab-pane {
-    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* Custom Section Spacing */
 .custom-section {
     padding: var(--size-fluid-5) 0;
 }
 
+/* Section title - duplicate rule removed, see main .section-title above for unified styling */
 .section-title {
-    text-align: center;
+    /* Main definition at line ~421 */
+}
+
+/* ============================================
+   FOOTER SECTION - Part 6
+   ============================================ */
+
+.main-column-footer {
+    padding: 4rem 3rem 4rem 3rem;
+    /* Align with section-title padding */
+    background-color: #FFFFFF;
+    /* White background like About section */
+    color: #000000;
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+}
+
+.footer-top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.footer-location {
+    flex: 1;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: var(--font-size-fluid-1);
-    margin-bottom: var(--size-fluid-4);
-    opacity: 0.8;
+    letter-spacing: 0.05em;
+}
+
+.footer-contact-link {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-contact-link a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-contact-link a:hover {
+    opacity: 0.7;
+}
+
+.footer-warning-icon {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flammable-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-separator {
+    border: none;
+    border-top: 2px solid #000000;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.footer-branding {
+    margin: 0;
+    text-align: left;
+}
+
+.footer-brand-name {
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
+    font-size: 5rem;
+    /* Large impact like hero title */
+    font-weight: 700;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+}
+
+.footer-brand-aka {
+    font-size: 1.5rem;
+    margin: 0.75rem 0 0 0;
+    color: #333;
+    font-weight: 400;
+}
+
+.footer-bottom-nav {
+    margin-top: 0;
+}
+
+.footer-bottom-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 4rem;
+    justify-content: flex-start;
+}
+
+.footer-bottom-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.footer-bottom-link:hover {
+    opacity: 0.7;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+    .main-column-footer {
+        padding: 3rem 1.5rem 2rem 1.5rem;
+    }
+
+    .footer-top-info {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .footer-contact-link {
+        text-align: left;
+    }
+
+    .footer-warning-icon {
+        justify-content: flex-start;
+    }
+
+    .footer-brand-name {
+        font-size: 3rem;
+    }
+
+    .footer-brand-aka {
+        font-size: 1.2rem;
+    }
+
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
 }
