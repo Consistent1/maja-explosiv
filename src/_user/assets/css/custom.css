@@ -407,26 +407,31 @@ h6 {
 */
 .tab-button {
     padding: 0;
+    margin: 0;
     background: none;
     border: none;
+    outline: none;
     cursor: pointer;
     text-transform: none;
-    /* Sentence case */
     letter-spacing: normal;
     font-size: 1rem;
-    /* ~16px */
     font-weight: 400;
     font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
     color: rgba(0, 0, 0, 0.4);
-    /* Light gray for inactive */
     transition: color 0.3s ease;
     flex: 0 0 auto;
-    /* Don't grow or shrink */
+    text-decoration: none;
+    box-shadow: none;
 }
 
 .tab-button:hover {
     color: rgba(0, 0, 0, 0.7);
-    /* Medium gray on hover */
+    text-decoration: none;
+}
+
+.tab-button:focus {
+    outline: none;
+    text-decoration: none;
 }
 
 .tab-button.active {
@@ -693,8 +698,10 @@ h6 {
 
 .tab-button {
     padding: 0;
+    margin: 0;
     background: none;
     border: none;
+    outline: none;
     cursor: pointer;
     text-transform: none;
     letter-spacing: normal;
@@ -704,10 +711,18 @@ h6 {
     color: rgba(0, 0, 0, 0.4);
     transition: color 0.3s ease;
     flex: 0 0 auto;
+    text-decoration: none;
+    box-shadow: none;
 }
 
 .tab-button:hover {
     color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+
+.tab-button:focus {
+    outline: none;
+    text-decoration: none;
 }
 
 .tab-button.active {
@@ -1059,14 +1074,12 @@ h6 {
 }
 
 .flammable-icon {
-    width: 32px;
-    /* Reduced from 40px for better proportions */
-    height: 32px;
+    width: 48px;
+    height: 48px;
 }
 
 .footer-logo-img {
-    width: 32px;
-    /* Match previous icon size */
+    width: 48px;
     height: auto;
     /* Maintain aspect ratio */
     display: block;
@@ -1092,13 +1105,20 @@ h6 {
     font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
     font-size: 3rem;
     /* Reduced from 5rem to 3rem (~48px) - matches design */
-    font-weight: 700;
-    /* Keep bold */
+    font-weight: 500;
     margin: 0;
     line-height: 0.9;
     letter-spacing: -0.02em;
     text-transform: uppercase;
     /* Ensure uppercase */
+}
+
+.footer-brand-name b {
+    font-weight: 900;
+    /* Make MAJA bolder than EXPLOSIV */
+    -webkit-text-stroke: 0.5px currentColor;
+    text-stroke: 0.5px currentColor;
+    letter-spacing: 0.02em;
 }
 
 .footer-brand-aka {
@@ -1123,9 +1143,24 @@ h6 {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 3rem;
-    /* Reduced from 4rem - tighter spacing */
-    justify-content: flex-start;
+    justify-content: space-between;
+    /* Spread links across full width like top row */
+}
+
+.footer-bottom-links li {
+    flex: 1;
+}
+
+.footer-bottom-links li:first-child {
+    text-align: left;
+}
+
+.footer-bottom-links li:nth-child(2) {
+    text-align: center;
+}
+
+.footer-bottom-links li:last-child {
+    text-align: right;
 }
 
 .footer-bottom-link {
