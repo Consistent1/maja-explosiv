@@ -239,11 +239,9 @@ h6 {
 .hero-section {
     background-color: var(--theme-colors-background, #B8B8B8);
     /* Matches page background */
-    padding: 0;
-    width: 100vw;
-    /* Full viewport width */
-    margin-left: calc(-250px - 97.5px);
-    /* Move to viewport left edge: -(sidebar + actual offset) */
+    padding: var(--size-fluid-4) var(--size-fluid-3);
+    width: 100%;
+    /* Use full available column width like other sections */
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -261,8 +259,6 @@ h6 {
     max-width: 900px;
     width: 100%;
     z-index: 1;
-    margin-left: calc(250px + 2.6rem);
-    /* Offset for sidebar + left gutter */
 }
 
 /* Ensure the hero background fills the available content column
