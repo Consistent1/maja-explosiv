@@ -2,54 +2,65 @@
 layout: sidebar-layout.njk
 ---
 
+{# 
+  Project Page Template
+  Displays individual project/artwork with hero image and metadata
+  Follows the design specified in project_docs/design_screenshots/project.png
+  
+  Design features:
+  - Large, prominent title at the top
+  - Full-width hero image as the focal point
+  - Compact metadata section below the image (title, description, author, year)
+  - Clean, minimal layout focusing on the artwork
+#}
+
 <article class="project-page">
+    {# Project Title - Large, prominent heading #}
     <header class="project-header">
-        <div class="project-meta-top">
-            <a href="/#projects" class="back-link">← Back to Projects</a>
-        </div>
         <h1 class="project-title">{{ title }}</h1>
-        {% if subtitle %}
-            <p class="project-subtitle">{{ subtitle }}</p>
-        {% endif %}
-        
-        <div class="project-meta">
-            {% if date %}
-                <span class="project-date">{{ date | date('YYYY') }}</span>
-            {% endif %}
-            {% if medium %}
-                <span class="project-medium">{{ medium }}</span>
-            {% endif %}
-        </div>
     </header>
 
-    <div class="project-content">
-        {% if featuredImage %}
-            <div class="project-featured-image">
-                <img src="{{ featuredImage }}" alt="{{ featuredImageAlt or title }}">
-            </div>
-        {% endif %}
-
-        <div class="project-description">
-            {{ content | safe }}
+    {# Hero Image - Full-width featured image #}
+    {% if featuredImage %}
+        <div class="project-hero-image">
+            <img src="{{ featuredImage }}" alt="{{ featuredImageAlt or title }}" loading="eager">
         </div>
+    {% endif %}
 
-        {% if mediaGallery %}
-            <div class="project-gallery">
-                {% for media in mediaGallery %}
-                    <div class="gallery-item">
-                        <img src="{{ media.url }}" alt="{{ media.caption or '' }}" loading="lazy">
-                        {% if media.caption %}
-                            <p class="caption">{{ media.caption }}</p>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+    {# Metadata Section - Compact info below the image #}
+    <div class="project-metadata">
+        <div class="metadata-row">
+            <div class="metadata-left">
+                <div class="metadata-label">Title</div>
+                <div class="metadata-label">Description</div>
+                {% if author %}
+                    <div class="metadata-label">Author</div>
+                {% endif %}
             </div>
-        {% endif %}
+            <div class="metadata-right">
+                {% if date %}
+                    <div class="metadata-year">{{ date | date('YYYY') }}</div>
+                {% endif %}
+            </div>
+        </div>
     </div>
 
-    <footer class="project-footer">
-        <div class="project-navigation">
-            {# Add navigation links if needed #}
+    {# Project Description - Main content area #}
+    <div class="project-content">
+        {{ content | safe }}
+    </div>
+
+    {# Media Gallery - Additional project images if available #}
+    {% if mediaGallery %}
+        <div class="project-gallery">
+            {% for media in mediaGallery %}
+                <div class="gallery-item">
+                    <img src="{{ media.url }}" alt="{{ media.caption or '' }}" loading="lazy">
+                    {% if media.caption %}
+                        <p class="gallery-caption">{{ media.caption }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
         </div>
-    </footer>
+    {% endif %}
 </article>

@@ -47,7 +47,10 @@
     <main id="main-content" class="main-content">
         {# Breadcrumbs removed for homepage #}
         
-        {% if title and showPageTitle !== false %}
+        {# Suppress page title for project pages (they handle their own title styling) #}
+        {% set isProjectPage = (category in ['sculptures', 'installations', 'performance', 'paintings']) %}
+        
+        {% if title and showPageTitle !== false and not isProjectPage %}
             <header class="page-header">
                 <h1 class="page-title">{{ title }}</h1>
                 {% if subtitle %}<p class="page-subtitle">{{ subtitle }}</p>{% endif %}

@@ -1,7 +1,72 @@
 ---
 layout: sidebar-layout.njk
 ---
-{# User override for post layout - ensures sidebar appears on all blog posts #}
+{# 
+  User override for post layout - ensures sidebar appears on all blog posts
+  Automatically routes project posts to the project template for proper display
+#}
+
+{# Check if this is a project post by category or tags #}
+{% set isProject = (category in ['sculptures', 'installations', 'performance', 'paintings']) 
+                   or ('sculptures' in tags) 
+                   or ('installations' in tags) 
+                   or ('performance' in tags) 
+                   or ('paintings' in tags) %}
+
+{# If it's a project, use the project template markup and suppress page header #}
+{% if isProject %}
+    {% set showPageTitle = false %}
+    <article class="project-page">
+        {# Project Title - Large, prominent heading #}
+        <header class="project-header">
+            <h1 class="project-title">{{ title }}</h1>
+        </header>
+
+        {# Hero Image - Full-width featured image #}
+        {% if featuredImage %}
+            <div class="project-hero-image">
+                <img src="{{ featuredImage }}" alt="{{ featuredImageAlt or title }}" loading="eager">
+            </div>
+        {% endif %}
+
+        {# Metadata Section - Compact info below the image #}
+        <div class="project-metadata">
+            <div class="metadata-row">
+                <div class="metadata-left">
+                    <div class="metadata-label">Title</div>
+                    <div class="metadata-label">Description</div>
+                    {% if author %}
+                        <div class="metadata-label">Author</div>
+                    {% endif %}
+                </div>
+                <div class="metadata-right">
+                    {% if date %}
+                        <div class="metadata-year">{{ date | date('YYYY') }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {# Project Description - Main content area #}
+        <div class="project-content">
+            {{ content | safe }}
+        </div>
+
+        {# Media Gallery - Additional project images if available #}
+        {% if mediaGallery %}
+            <div class="project-gallery">
+                {% for media in mediaGallery %}
+                    <div class="gallery-item">
+                        <img src="{{ media.url }}" alt="{{ media.caption or '' }}" loading="lazy">
+                        {% if media.caption %}
+                            <p class="gallery-caption">{{ media.caption }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </article>
+{% else %}
 
 <article class="post">
     <!-- Post Header -->
@@ -72,3 +137,5 @@ layout: sidebar-layout.njk
         {% endif %}
     </footer>
 </article>
+
+{% endif %}
