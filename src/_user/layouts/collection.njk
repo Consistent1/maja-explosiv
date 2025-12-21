@@ -1,0 +1,75 @@
+---
+layout: sidebar-layout.njk
+---
+{# User override for collection layout - ensures sidebar appears on all collection pages #}
+
+<div class="collection-page">
+    <!-- Collection Header -->
+    {% set posts = collections.allPosts | getPostsByCollection(collectionName) %}
+    {% set collectionData = collections.collectionData | find('name', collectionName) %}
+    <header class="collection-header">
+        {% if collectionData and collectionData.featuredImage %}
+            <div class="collection-hero" style="background-image: url('{{ collectionData.featuredImage }}');">
+                <div class="collection-hero-content">
+                    <h1 class="collection-title">{{ collectionData.displayName or (collectionName | title) }}</h1>
+                    {% if collectionData.description %}
+                        <p class="collection-description">{{ collectionData.description }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="collection-header-simple">
+                <h1 class="collection-title">{{ collectionData.displayName or (collectionName | title) }}</h1>
+                {% if collectionData.description %}
+                    <p class="collection-description">{{ collectionData.description }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <div class="collection-meta">
+            <span class="post-count">{{ posts.length }} post{{ 's' if posts.length != 1 }}</span>
+            {% if collectionData and collectionData.parentCollection %}
+                <a href="/collections/{{ collectionData.parentCollection | slug }}/" class="parent-collection">
+                    ← Back to {{ collectionData.parentCollection | title }}
+                </a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Collection Content -->
+    <div class="collection-content">
+        {% if posts.length > 0 %}
+            <div class="posts-grid">
+                {% for post in posts %}
+                    <article class="post-card">
+                        {% if post.data.featuredImage %}
+                            <a href="{{ post.url }}" class="post-card-image-link">
+                                <img src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" class="post-card-image">
+                            </a>
+                        {% endif %}
+                        
+                        <div class="post-card-content">
+                            <h3 class="post-card-title">
+                                <a href="{{ post.url }}">{{ post.data.title }}</a>
+                            </h3>
+                            
+                            {% if post.data.description or post.data.excerpt %}
+                                <p class="post-card-excerpt">{{ post.data.description or post.data.excerpt }}</p>
+                            {% endif %}
+                            
+                            <div class="post-card-meta">
+                                {% if post.data.date %}
+                                    <time datetime="{{ post.data.date | date('YYYY-MM-DD') }}">
+                                        {{ post.data.date | dateDisplay }}
+                                    </time>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-posts">No posts in this collection yet.</p>
+        {% endif %}
+    </div>
+</div>

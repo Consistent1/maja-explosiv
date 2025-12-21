@@ -1,0 +1,47 @@
+---
+layout: sidebar-layout.njk
+---
+{# User override for page layout - ensures sidebar appears on all static pages #}
+
+<article class="page-content">
+    {% if featuredImage %}
+        <div class="page-featured-image">
+            <img src="{{ featuredImage }}" alt="{{ featuredImageAlt or title }}" class="featured-image">
+            {% if featuredImageCaption %}
+                <figcaption class="featured-image-caption">{{ featuredImageCaption }}</figcaption>
+            {% endif %}
+        </div>
+    {% endif %}
+    
+    <div class="page-body">
+        {{ content | safe }}
+    </div>
+    
+    {% if showLastModified and page.date %}
+        <div class="page-meta">
+            <p class="last-modified">
+                <small>Last updated: <time datetime="{{ page.date | date('YYYY-MM-DD') }}">{{ page.date | dateDisplay }}</time></small>
+            </p>
+        </div>
+    {% endif %}
+    
+    {% if relatedPages %}
+        <aside class="related-pages">
+            <h2>Related Pages</h2>
+            <ul class="related-pages-list">
+                {% for relatedPage in relatedPages %}
+                    <li>
+                        <a href="{{ relatedPage.url }}">{{ relatedPage.title }}</a>
+                        {% if relatedPage.description %}
+                            <p class="related-page-description">{{ relatedPage.description }}</p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </aside>
+    {% endif %}
+    
+    {% if showTableOfContents %}
+        <!-- Table of Contents would be inserted here if implemented -->
+    {% endif %}
+</article>
