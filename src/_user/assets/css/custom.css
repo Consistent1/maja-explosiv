@@ -166,7 +166,8 @@ h6 {
 }
 
 .nav-link-header {
-    text-decoration: none;
+    text-decoration: none !important;
+    border-bottom: none !important;
     color: inherit;
     display: inline-block;
     transition: opacity 0.2s ease;
@@ -174,6 +175,8 @@ h6 {
 
 .nav-link-header:hover {
     opacity: 0.7;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .nav-link-header.active {
@@ -193,7 +196,8 @@ h6 {
 }
 
 .nav-link {
-    text-decoration: none;
+    text-decoration: none !important;
+    border-bottom: none !important;
     color: #000;
     text-transform: uppercase;
     font-size: 0.9rem;
@@ -205,6 +209,8 @@ h6 {
 
 .nav-link:hover {
     opacity: 0.7;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .nav-link.active {
