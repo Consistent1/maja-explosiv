@@ -1,6 +1,13 @@
 /* Custom CSS for Maja Explosiv Website */
 
 /* ============================================
+   THEME VARIABLES
+   ============================================ */
+:root {
+    --theme-colors-background: #B8B8B8;
+}
+
+/* ============================================
    RESET & BASE STYLES
    ============================================ */
 
@@ -20,7 +27,7 @@
 body {
     font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
     color: var(--theme-colors-text, #000000);
-    background-color: var(--theme-colors-background, #C8C8C8);
+    background-color: var(--theme-colors-background, #B8B8B8);
 }
 
 h1,
@@ -49,7 +56,7 @@ h6 {
     align-self: stretch;
     height: 100vh;
     width: 250px;
-    background-color: #C8C8C8;
+    background-color: var(--theme-colors-background, #B8B8B8);
     padding: 1.5rem 1.2rem;
     border-right: 1px solid #444444;
     overflow: hidden;
@@ -230,7 +237,7 @@ h6 {
 
 /* Part 2.4: Hero Overall Layout */
 .hero-section {
-    background-color: #C8C8C8;
+    background-color: var(--theme-colors-background, #B8B8B8);
     /* Matches page background */
     padding: 0;
     width: 100vw;
@@ -734,7 +741,7 @@ h6 {
 .custom-section {
     padding: var(--size-fluid-4) var(--size-fluid-3);
     margin-bottom: var(--size-fluid-4);
-    background-color: var(--theme-colors-surface-1, #f8f8f8);
+    background-color: var(--theme-colors-background, #B8B8B8);
     border-radius: 0;
 }
 
@@ -996,8 +1003,8 @@ h6 {
 .main-column-footer {
     padding: 2.5rem 0;
     /* No horizontal padding - footer fills entire right column width */
-    background-color: #FFFFFF;
-    /* White background like About section */
+    background-color: var(--theme-colors-background, #B8B8B8);
+    /* Background matches page background */
     color: #000000;
     font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
     width: 100%;
