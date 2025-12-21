@@ -61,8 +61,34 @@ h6 {
 .main-content {
     /* Remove padding so hero and sections can use full width */
     padding: 0;
+    margin: 0;
     grid-column: 2 / 3;
     /* force main content into the right-side column */
+    width: 100%;
+    /* Fill entire available space */
+    max-width: none;
+    /* Override template's content-max-width constraint */
+}
+
+/* Override template's default content width constraints for full-width design */
+.main-content .content-wrapper > * {
+    max-inline-size: none;
+    /* Remove max-width constraint */
+}
+
+.main-content .content-wrapper h1,
+.main-content .content-wrapper h2,
+.main-content .content-wrapper h3,
+.main-content .content-wrapper h4,
+.main-content .content-wrapper h5,
+.main-content .content-wrapper h6 {
+    max-inline-size: none;
+    /* Remove max-width constraint */
+}
+
+.main-content .content-wrapper pre {
+    max-inline-size: none;
+    /* Remove max-width constraint */
 }
 
 /* ============================================
@@ -960,14 +986,24 @@ h6 {
 /* ============================================
    FOOTER SECTION - Part 6
    ============================================ */
+/* Footer: Compact design matching homepage.png
+   - Tight vertical spacing (reduced margins)
+   - Smaller font sizes throughout
+   - Thinner separator lines (1px instead of 2px)
+   - More compact "MAJA EXPLOSIV" branding (~3rem instead of 5rem)
+*/
 
 .main-column-footer {
-    padding: 4rem 3rem 4rem 3rem;
-    /* Align with section-title padding */
+    padding: 2.5rem 0;
+    /* No horizontal padding - footer fills entire right column width */
     background-color: #FFFFFF;
     /* White background like About section */
     color: #000000;
     font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+    width: 100%;
+    /* Ensure footer fills full width of right column */
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .footer-top-info {
@@ -975,8 +1011,15 @@ h6 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-    font-weight: 500;
+    /* Kept minimal */
+    font-size: 0.75rem;
+    /* Reduced from 0.95rem - more compact */
+    font-weight: 400;
+    /* Reduced from 500 - lighter weight */
+    text-transform: uppercase;
+    /* All top row items uppercase */
+    padding: 0 3rem;
+    /* Add back horizontal padding for content spacing */
 }
 
 .footer-location {
@@ -988,6 +1031,8 @@ h6 {
 .footer-contact-link {
     flex: 1;
     text-align: center;
+    text-transform: uppercase;
+    /* Email should be uppercase */
 }
 
 .footer-contact-link a {
@@ -1007,41 +1052,63 @@ h6 {
 }
 
 .flammable-icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    /* Reduced from 40px for better proportions */
+    height: 32px;
+}
+
+.footer-logo-img {
+    width: 32px;
+    /* Match previous icon size */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
 }
 
 .footer-separator {
     border: none;
-    border-top: 2px solid #000000;
-    margin: 2rem 0;
+    border-top: 1px solid #000000;
+    /* Reduced from 2px to 1px - thinner line */
+    margin: 1rem 0;
+    /* Reduced from 2rem to 1rem - tighter spacing */
     width: 100%;
 }
 
 .footer-branding {
     margin: 0;
     text-align: left;
+    padding: 0 3rem;
+    /* Add horizontal padding for content spacing */
 }
 
 .footer-brand-name {
     font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
-    font-size: 5rem;
-    /* Large impact like hero title */
+    font-size: 3rem;
+    /* Reduced from 5rem to 3rem (~48px) - matches design */
     font-weight: 700;
+    /* Keep bold */
     margin: 0;
     line-height: 0.9;
     letter-spacing: -0.02em;
+    text-transform: uppercase;
+    /* Ensure uppercase */
 }
 
 .footer-brand-aka {
-    font-size: 1.5rem;
-    margin: 0.75rem 0 0 0;
+    font-size: 1rem;
+    /* Reduced from 1.5rem - more compact */
+    margin: 0.5rem 0 0 0;
+    /* Reduced from 0.75rem - tighter spacing */
     color: #333;
     font-weight: 400;
+    text-transform: uppercase;
+    /* Ensure uppercase */
 }
 
 .footer-bottom-nav {
     margin-top: 0;
+    padding: 0 3rem;
+    /* Add horizontal padding for content spacing */
 }
 
 .footer-bottom-links {
@@ -1049,15 +1116,20 @@ h6 {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
+    /* Reduced from 4rem - tighter spacing */
     justify-content: flex-start;
 }
 
 .footer-bottom-link {
     color: #000000;
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    /* Reduced from 1.1rem - more compact */
+    font-weight: 400;
+    /* Reduced from 500 - lighter weight */
+    text-transform: uppercase;
+    /* Ensure uppercase */
     transition: opacity 0.2s ease;
 }
 
@@ -1068,12 +1140,14 @@ h6 {
 /* Responsive adjustments for footer */
 @media (max-width: 768px) {
     .main-column-footer {
-        padding: 3rem 1.5rem 2rem 1.5rem;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        /* Further reduced for mobile */
     }
 
     .footer-top-info {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
+        /* Reduced from 1.5rem */
         align-items: flex-start;
     }
 
@@ -1086,15 +1160,18 @@ h6 {
     }
 
     .footer-brand-name {
-        font-size: 3rem;
+        font-size: 2rem;
+        /* Reduced from 3rem for mobile */
     }
 
     .footer-brand-aka {
-        font-size: 1.2rem;
+        font-size: 0.85rem;
+        /* Reduced from 1.2rem for mobile */
     }
 
     .footer-bottom-links {
         flex-direction: column;
-        gap: 1.25rem;
+        gap: 1rem;
+        /* Reduced from 1.25rem */
     }
 }

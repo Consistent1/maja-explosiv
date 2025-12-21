@@ -811,40 +811,53 @@ Each About subsection should have its own template/include file:
 ---
 
 #### 6.2 Footer Content
-**Based on design screenshot (Bottom.png):**
+**Based on design screenshot (homepage.png - footer section):**
 
-**Left side:**
-- Text: "BERLIN, GERMANY"
-- Smaller, uppercase, light gray
+**Top row layout (3 columns):**
+- **Left:** "BERLIN, GERMANY" - Smaller, uppercase, black
+- **Center:** "M-E@MAJA-EXPLOSIV.COM" - Uppercase, clickable email link
+- **Right:** Triangle warning icon (flammable symbol)
 
-**Center:**
-- **Brand info:**
-  - "MAJA EXPLOSIV" - Bold, large
-  - "AKA MAJA THOMMEN" - Regular, smaller
-  - Horizontal line separator above and below
+**Horizontal separator line**
 
-**Right side:**
-- Email: "M-E@MAJA-EXPLOSIV.COM"
-- Logo/icon: Triangle warning-style logo
+**Middle section:**
+- **Brand info (left-aligned):**
+  - "MAJA EXPLOSIV" - Bold, large (but not too large ~3rem/48px)
+  - "AKA MAJA THOMMEN" - Regular weight, smaller
 
-**Bottom row:**
-- Left: "SITEMAP"
-- Center: "SEARCH"
-- Right: "DATENSCHUTZ" (Privacy/Data Protection)
+**Horizontal separator line**
+
+**Bottom row (3 columns):**
+- **Left:** "SITEMAP"
+- **Center:** "SEARCH"
+- **Right:** "IMPRESSUM" (not "DATENSCHUTZ")
+
+**Current Discrepancies (as of December 21, 2025):**
+1. **Font sizes are too large** - All text elements significantly larger than design
+2. **"MAJA EXPLOSIV" branding is WAY too large** - Currently 5rem (~80px), should be ~3rem (~48px)
+3. **Separator lines are too thick** - Currently 2px, should be 1px
+4. **Vertical spacing is excessive** - Margins of 2rem should be reduced to ~1rem or less
+5. **"AKA MAJA THOMMEN" is too large** - Currently 1.5rem, should be ~1rem
+6. **Top info text sizes are too large** - Currently 0.95rem, should be smaller (~0.75rem)
+7. **Bottom link sizes are too large** - Currently 1.1rem, should be smaller (~0.85-0.9rem)
+8. **Overall footer lacks compactness** - Design shows much tighter spacing throughout
+9. **Font weight on "MAJA EXPLOSIV"** - Verify it matches design (should be bold/700)
+10. **Padding around footer** - May need adjustment to match design proportions
 
 **Styling:**
-- Layout: CSS Grid (3 columns for top row, 3 for bottom)
+- Layout: Flexbox for top row (3 items spread evenly)
 - Font: Uppercase for most text
-- Color: Black/dark gray on white/light background
-- Spacing: Generous between sections
-- Alignment: Top row items align to their columns, bottom row spread across
+- Color: Black text on white background
+- Spacing: Compact, minimal padding
+- Alignment: Top row items distributed evenly, bottom row items distributed evenly
+- Separator lines: 1px solid black, minimal vertical margins
 
 **Behavior:**
 - Links should be functional
 - Email should be clickable (mailto:)
-- Sitemap links to sitemap page
-- Search might trigger search modal/page
-- Datenschutz links to privacy policy
+- Sitemap links to /sitemap/
+- Search links to /search/
+- Impressum links to /impressum/
 
 **Files to Modify:**
 - `src/_user/includes/footer.njk`
