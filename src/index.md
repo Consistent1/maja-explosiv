@@ -9,11 +9,11 @@ hero:
   title: MAJA
   subtitle: EXPLOSIV
   description: |
-    <p>multidisciplinary artist whose extensive oeuvre includes metal work, illustration, painting, theatre development and project management.</p>
+    <p>Multidisciplinary artist whose extensive oeuvre includes metal work, illustration, painting, theatre development and project management.</p>
     <p>For commissions, collaborations or bookings reach out to us.</p>
   ctaButton:
     text: LETS GET IN TOUCH
-    url: /contact/
+    url: "#contact"
 # carousels:
 #   hero:
 #     autoplay: true

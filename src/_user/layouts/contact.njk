@@ -1,0 +1,61 @@
+---
+layout: base.njk
+---
+{# Custom modal contact page layout #}
+{# This layout displays the contact page as a full-screen modal overlay #}
+{# Design reference: project_docs/design_screenshots/contact.png #}
+
+<div class="contact-modal-overlay" id="contactModalOverlay">
+    <div class="contact-modal-content">
+        {# Header section with atelier info and location #}
+        <div class="contact-modal-header">
+            <div class="contact-atelier">
+                ATELIER<br>
+                MAAS & THOMMEN
+            </div>
+            <div class="contact-location">
+                10997<br>
+                BERLIN
+            </div>
+        </div>
+        
+        {# Main content section with message and email #}
+        <div class="contact-modal-body">
+            {{ content | safe }}
+        </div>
+        
+        {# Footer hint #}
+        <div class="contact-modal-footer">
+            (Click outside to close )
+        </div>
+        
+        {# Decorative plant image - bottom center #}
+        <img src="/assets/images/contact-image.png" alt="" class="contact-image-bottom" aria-hidden="true">
+        
+        {# Decorative plant image - right side faded #}
+        <img src="/assets/images/contact-image.png" alt="" class="contact-image-right" aria-hidden="true">
+    </div>
+</div>
+
+{# JavaScript for modal behavior #}
+<script>
+    // Close modal when clicking outside the content area
+    document.addEventListener('DOMContentLoaded', function() {
+        const overlay = document.getElementById('contactModalOverlay');
+        const content = document.querySelector('.contact-modal-content');
+        
+        // Close when clicking on overlay but not on content
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                window.history.back();
+            }
+        });
+        
+        // Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.history.back();
+            }
+        });
+    });
+</script>

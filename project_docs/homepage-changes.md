@@ -781,3 +781,97 @@ The footer, while structurally correct, had styling that was too large and spaci
 **Next Steps:** 
 - Part 3: Featured Images Section (static images with grayscale-to-color effect)
 - Part 4: Projects Section (grid layout with project cards)
+---
+
+### 22 December 2025 - Contact Modal Page Implementation
+
+**Activity:** Implemented a full-screen modal contact page matching the design reference
+
+**Design Reference:** `project_docs/design_screenshots/contact.png`
+
+**Files Created:**
+1. `/home/miichael/Code/maja-explosiv/src/_user/layouts/contact.njk`
+   - Custom modal layout for contact page
+   - Full-screen overlay with centered content
+   - Header section with atelier info (top left) and location (top right)
+   - Main content area with message and email link
+   - Footer hint: "(Click outside to close )"
+   - JavaScript for modal behavior:
+     - Click outside content to close (triggers browser back)
+     - Escape key to close
+     - Prevents clicks on content from closing modal
+
+**Files Modified:**
+1. `/home/miichael/Code/maja-explosiv/src/pages/contact.md`
+   - Changed layout from `page.njk` to `contact.njk`
+   - Updated content to match design:
+     - Message: "For commissions, collaborations or bookings reach out to us."
+     - Email link: `m-e@maja-explosiv.com` (with mailto link)
+   - Removed all placeholder template content
+
+2. `/home/miichael/Code/maja-explosiv/src/_user/assets/css/custom.css`
+   - Added complete Contact Modal section (~150 lines)
+   - **Modal overlay:** Full viewport (100vw x 100vh), fixed position, z-index 9999
+   - **Background:** Matches site theme (#C8C8C8)
+   - **Header:** Absolute positioned at top with atelier info (left) and location (right)
+     - Font: 0.75rem, uppercase, letter-spacing, #666 color
+   - **Main content:** Centered with flexbox
+     - Message: 1.1rem, line-height 1.6, #333 color
+     - Email: 2.5rem, underlined, 2px thickness, 8px offset, black
+     - Email hover: opacity 0.7
+   - **Footer hint:** Absolute positioned at bottom, 0.9rem, #666 color
+   - **Responsive:** Mobile breakpoints for smaller screens
+
+**Files Removed:**
+- `/home/miichael/Code/maja-explosiv/src/_user/pages/contact.md` (duplicate causing build conflict)
+
+**Design Architecture:**
+- **Separation of concerns maintained:**
+  - Layout template (`contact.njk`) defines structure and behavior
+  - Content file (`contact.md` in pages/) contains actual contact information
+  - CSS handles all styling
+- **Follows 11ty best practices:**
+  - Custom layouts in `_user/layouts/` directory
+  - Page content in `pages/` directory (not `_user/pages/`)
+  - User CSS overrides in `_user/assets/css/`
+
+**Design Verification:**
+✅ Modal displays as full-screen overlay
+✅ Header info positioned correctly (atelier left, location right)
+✅ Content centered vertically and horizontally
+✅ Email link properly styled with underline
+✅ Footer hint positioned at bottom center
+✅ Background color matches site theme (#C8C8C8)
+✅ Typography matches design (sizes, weights, colors)
+✅ Layout matches design reference exactly
+
+**Functionality Testing:**
+✅ Modal opens when navigating to `/contact/`
+✅ Email link opens mailto: URL correctly
+✅ Escape key closes modal and returns to previous page
+✅ Click outside content area closes modal (simulated by back navigation)
+✅ Click on content does not close modal
+✅ Responsive styles work on mobile viewport
+
+**Visual Verification:**
+- Used visual-diff.html tool to compare implementation with design
+- Screenshot comparison shows exact match with `contact.png` design reference
+- All measurements and positioning verified
+
+**Technical Notes:**
+- Modal uses browser history for close behavior (`window.history.back()`)
+- This allows natural browser back button functionality
+- No sidebar on contact page (uses `base.njk` instead of `sidebar-layout.njk`)
+- Contact page is intentionally separate from main site navigation flow
+- Footer from site still appears below modal (but not visible due to overlay)
+
+**Testing:**
+✅ Build succeeds without conflicts
+✅ Contact page accessible via `/contact/` URL
+✅ Contact link in sidebar navigates correctly
+✅ "LETS GET IN TOUCH" button navigates correctly
+✅ Modal behavior works as expected
+✅ No console errors
+✅ Proper ARIA/accessibility structure maintained
+
+**Status:** Contact Modal Page Implementation Complete ✅

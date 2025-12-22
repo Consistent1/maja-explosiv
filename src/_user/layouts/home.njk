@@ -95,3 +95,81 @@ layout: sidebar-layout.njk
         {% endfor %}
     {% endif %}
 </div>
+
+{# Contact Modal Overlay #}
+<div class="contact-modal-overlay" id="contactModal" style="display: none;">
+    <div class="contact-modal-content">
+        {# Header section with atelier info and location #}
+        <div class="contact-modal-header">
+            <div class="contact-atelier">
+                ATELIER<br>
+                MAAS & THOMMEN
+            </div>
+            <div class="contact-location">
+                10997<br>
+                BERLIN
+            </div>
+        </div>
+        
+        {# Main content section with message and email #}
+        <div class="contact-modal-body">
+            <div class="contact-message">
+                For commissions, collaborations or bookings reach out to us.
+            </div>
+            <a href="mailto:m-e@maja-explosiv.com" class="contact-email">m-e@maja-explosiv.com</a>
+            <div class="contact-modal-footer">
+                (Click outside to close)
+            </div>
+        </div>
+        
+        {# Decorative plant image - bottom center #}
+        <img src="/assets/images/contact-image.png" alt="" class="contact-image-bottom" aria-hidden="true">
+        
+        {# Decorative plant image - right side faded #}
+        <img src="/assets/images/contact-image.png" alt="" class="contact-image-right" aria-hidden="true">
+    </div>
+</div>
+
+{# Modal JavaScript #}
+<script>
+(function() {
+    const modal = document.getElementById('contactModal');
+    if (!modal) return;
+    
+    const overlay = modal;
+    
+    // Function to open modal
+    window.openContactModal = function() {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    };
+    
+    // Function to close modal
+    window.closeContactModal = function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    };
+    
+    // Close when clicking on overlay (not content)
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            closeContactModal();
+        }
+    });
+    
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeContactModal();
+        }
+    });
+    
+    // Attach to all contact links
+    document.querySelectorAll('a[href="/contact/"], a[href="#contact"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            openContactModal();
+        });
+    });
+})();
+</script>
