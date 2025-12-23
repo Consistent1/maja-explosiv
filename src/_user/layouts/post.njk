@@ -52,7 +52,21 @@ layout: sidebar-layout.njk
             {{ content | safe }}
         </div>
 
-        {# Media Gallery - Additional project images if available #}
+        {# Project Images - Gallery from front matter #}
+        {% if images %}
+            <div class="project-gallery">
+                {% for image in images %}
+                    <div class="gallery-item">
+                        <img src="{{ image.src }}" alt="{{ image.alt or title }}" loading="lazy">
+                        {% if image.caption %}
+                            <p class="gallery-caption">{{ image.caption }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {# Media Gallery - Additional project images if available (legacy) #}
         {% if mediaGallery %}
             <div class="project-gallery">
                 {% for media in mediaGallery %}

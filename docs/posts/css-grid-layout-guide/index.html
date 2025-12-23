@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering CSS Grid Layout - A Complete Guide - Maja Explosiv</title>
+    <meta name="description" content="Learn how to create complex layouts with CSS Grid, from basic concepts to advanced techniques">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://consistent1.github.io/maja-explosiv//posts/css-grid-layout-guide/">
+    <meta property="og:title" content="Mastering CSS Grid Layout - A Complete Guide - Maja Explosiv">
+    <meta property="og:description" content="Learn how to create complex layouts with CSS Grid, from basic concepts to advanced techniques">
+    
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://consistent1.github.io/maja-explosiv//posts/css-grid-layout-guide/">
+    <meta property="twitter:title" content="Mastering CSS Grid Layout - A Complete Guide - Maja Explosiv">
+    <meta property="twitter:description" content="Learn how to create complex layouts with CSS Grid, from basic concepts to advanced techniques">
+    
+    
+    <!-- Google Fonts: Geist, Rethink Sans, and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <!-- Geist font loaded via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/@vercel/style-guide@latest/fonts/geist/index.css" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <style>
+      :root {
+        
+          
+            
+              
+                --theme-colors-primary: #222222;
+              
+                --theme-colors-accent: #EBEBEB;
+              
+                --theme-colors-background: #B8B8B8;
+              
+                --theme-colors-text: #222222;
+              
+                --theme-colors-text-light: #8E8E93;
+              
+                --theme-colors-border: #EBEBEB;
+              
+                --theme-colors-container: #B8B8B8;
+              
+                --theme-colors-surface: #EBEBEB;
+              
+                --theme-colors-muted: #8E8E93;
+              
+                --theme-colors-dark-gray: #373737;
+              
+            
+          
+            
+              
+                --theme-fonts-body: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+              
+                --theme-fonts-heading: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+              
+                --theme-fonts-button: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+              
+            
+          
+            
+          
+            
+              
+                --theme-typography-base-size: 16px;
+              
+                --theme-typography-line-height: 1.45;
+              
+                --theme-typography-hero-title: 88.8976px;
+              
+                --theme-typography-hero-subtitle: 79.9508px;
+              
+                --theme-typography-display-1: 128px;
+              
+                --theme-typography-lead: 32px;
+              
+                --theme-typography-h1: 88.8976px;
+              
+                --theme-typography-h2: 79.9508px;
+              
+                --theme-typography-h3: 32px;
+              
+                --theme-typography-h4: 26px;
+              
+                --theme-typography-h5: 18px;
+              
+                --theme-typography-h6: 16px;
+              
+            
+          
+        
+      }
+    </style>
+    <link rel="stylesheet" href="/maja-explosiv/assets/css/main.css">
+    <link rel="stylesheet" href="/maja-explosiv/assets/css/custom.css">
+    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/maja-explosiv/assets/images/favicon.ico">
+    
+</head>
+<body class="">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    
+    
+    
+<div class="main-container">
+    <aside class="left-sidebar">
+        <div class="sidebar-nav">
+            <div class="sidebar-header">
+                <h1 class="brand-title"><a href="/" class="brand-link">MAJA EXPLOSIV</a></h1>
+                <p class="brand-subtitle">AKA MAJA THOMMEN</p>
+            </div>
+
+            <nav class="nav-menu-container" aria-label="Sidebar navigation">
+                <div class="nav-section">
+                    <h2 class="nav-section-title">
+                        <a href="/#projects" class="nav-link-header" data-section-link="projects">PROJECTS</a>
+                    </h2>
+                    <ul class="nav-submenu">
+                        <li><a href="/#sculptures" class="nav-link" data-tab-link="sculptures">SCULPTURES</a></li>
+                        <li><a href="/#installations" class="nav-link" data-tab-link="installations">INSTALLATIONS</a></li>
+                        <li><a href="/#performance" class="nav-link" data-tab-link="performance">PERFORMANCE</a></li>
+                        <li><a href="/#paintings" class="nav-link" data-tab-link="paintings">PAINTINGS</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h2 class="nav-section-title">
+                        <a href="/#about" class="nav-link-header" data-section-link="about">ABOUT</a>
+                    </h2>
+                    <ul class="nav-submenu">
+                        <li><a href="/#bio" class="nav-link" data-tab-link="bio">BIO</a></li>
+                        <li><a href="/#timeline" class="nav-link" data-tab-link="timeline">TIMELINE</a></li>
+                        <li><a href="/#press" class="nav-link" data-tab-link="press">PRESS</a></li>
+                        <li><a href="/#links" class="nav-link" data-tab-link="links">LINKS</a></li>
+                        <li><a href="/contact/" class="nav-link contact-link">CONTACT</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>ATELIER</p>
+                <p>MAAS & THOMMEN</p>
+            </div>
+        </div>
+    </aside>
+    <main id="main-content" class="main-content">
+        
+        
+        
+        
+        
+        
+            <header class="page-header">
+                <h1 class="page-title">Mastering CSS Grid Layout - A Complete Guide</h1>
+                
+                
+                    <time class="page-date" datetime="2024-01-08">
+                        January 8, 2024
+                    </time>
+                
+            </header>
+        
+        
+        <div class="content-wrapper">
+            
+
+
+
+
+
+
+
+<article class="post">
+    <!-- Post Header -->
+    <header class="post-header">
+        
+            <div class="post-featured-image">
+                <img src="/assets/images/posts/css-grid.jpg" alt="CSS Grid layout examples" class="featured-image">
+                
+            </div>
+        
+        
+        <div class="post-meta">
+            
+                <div class="post-collections">
+                    
+                        
+                        <a href="/collections/tutorials/" class="collection-tag"
+                           >
+                            Tutorials
+                        </a>
+                    
+                        
+                        <a href="/collections/design/" class="collection-tag"
+                           >
+                            Design
+                        </a>
+                    
+                        
+                        <a href="/collections/web-development/" class="collection-tag"
+                           >
+                            Web-development
+                        </a>
+                    
+                </div>
+            
+            
+            
+                <time class="post-date" datetime="2024-01-08">
+                    January 8, 2024
+                </time>
+            
+            
+            
+                <span class="post-author">By [object Object]</span>
+            
+            
+            
+                <span class="reading-time">12 min read</span>
+            
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <div class="post-content">
+        <h1>Mastering CSS Grid Layout - A Complete Guide</h1>
+<p>CSS Grid is one of the most powerful layout systems available in CSS. It allows you to create complex, responsive layouts with ease and precision. In this comprehensive guide, we'll explore everything you need to know about CSS Grid.</p>
+<h2>What is CSS Grid?</h2>
+<p>CSS Grid Layout is a two-dimensional layout system that allows you to create layouts using rows and columns. Unlike Flexbox, which is primarily one-dimensional, Grid excels at creating complex layouts where you need control over both dimensions.</p>
+<h3>Grid vs Flexbox</h3>
+<p>While both are powerful layout tools, they serve different purposes:</p>
+<ul>
+<li><strong>Flexbox</strong>: Best for one-dimensional layouts (rows OR columns)</li>
+<li><strong>Grid</strong>: Perfect for two-dimensional layouts (rows AND columns)</li>
+</ul>
+<h2>Basic Grid Concepts</h2>
+<h3>Grid Container and Grid Items</h3>
+<pre><code class="language-css">.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 200px;
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;grid-container&quot;&gt;
+    &lt;div class=&quot;grid-item&quot;&gt;Item 1&lt;/div&gt;
+    &lt;div class=&quot;grid-item&quot;&gt;Item 2&lt;/div&gt;
+    &lt;div class=&quot;grid-item&quot;&gt;Item 3&lt;/div&gt;
+    &lt;div class=&quot;grid-item&quot;&gt;Item 4&lt;/div&gt;
+    &lt;div class=&quot;grid-item&quot;&gt;Item 5&lt;/div&gt;
+    &lt;div class=&quot;grid-item&quot;&gt;Item 6&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>Grid Lines and Tracks</h3>
+<ul>
+<li><strong>Grid Lines</strong>: The dividing lines that make up the structure of the grid</li>
+<li><strong>Grid Tracks</strong>: The space between two adjacent grid lines (rows or columns)</li>
+<li><strong>Grid Cell</strong>: The space between two adjacent row and column grid lines</li>
+<li><strong>Grid Area</strong>: The total space surrounded by four grid lines</li>
+</ul>
+<h2>Defining Grid Structure</h2>
+<h3>Explicit Grid Definition</h3>
+<pre><code class="language-css">.grid {
+    display: grid;
+    
+    /* Define columns */
+    grid-template-columns: 200px 1fr 100px;
+    
+    /* Define rows */
+    grid-template-rows: 80px 1fr 60px;
+    
+    /* Shorthand for both */
+    grid-template: 80px 1fr 60px / 200px 1fr 100px;
+}
+</code></pre>
+<h3>Using repeat() Function</h3>
+<pre><code class="language-css">.grid {
+    /* Create 4 equal columns */
+    grid-template-columns: repeat(4, 1fr);
+    
+    /* Mix repeat with other values */
+    grid-template-columns: 200px repeat(3, 1fr) 100px;
+    
+    /* Auto-fit and auto-fill */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+</code></pre>
+<h3>Grid Areas</h3>
+<pre><code class="language-css">.layout {
+    display: grid;
+    grid-template-areas:
+        &quot;header header header&quot;
+        &quot;sidebar main aside&quot;
+        &quot;footer footer footer&quot;;
+    grid-template-columns: 200px 1fr 150px;
+    grid-template-rows: 80px 1fr 60px;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.aside { grid-area: aside; }
+.footer { grid-area: footer; }
+</code></pre>
+<h2>Positioning Grid Items</h2>
+<h3>Line-based Placement</h3>
+<pre><code class="language-css">.item {
+    /* Start at line 1, end at line 3 */
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    
+    /* Shorthand */
+    grid-area: 2 / 1 / 4 / 3; /* row-start / col-start / row-end / col-end */
+}
+</code></pre>
+<h3>Span Keyword</h3>
+<pre><code class="language-css">.item {
+    /* Span 2 columns */
+    grid-column: span 2;
+    
+    /* Span 3 rows */
+    grid-row: span 3;
+}
+</code></pre>
+<h2>Responsive Grid Layouts</h2>
+<h3>Auto-responsive Grid</h3>
+<pre><code class="language-css">.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+</code></pre>
+<h3>Media Query Approach</h3>
+<pre><code class="language-css">.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+</code></pre>
+<h2>Advanced Grid Techniques</h2>
+<h3>Subgrid (Limited Support)</h3>
+<pre><code class="language-css">.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.child {
+    display: grid;
+    grid-column: 1 / 4;
+    grid-template-columns: subgrid;
+}
+</code></pre>
+<h3>Dense Grid Packing</h3>
+<pre><code class="language-css">.masonry-style {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-flow: row dense;
+    gap: 1rem;
+}
+</code></pre>
+<h3>Implicit Grid Control</h3>
+<pre><code class="language-css">.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    /* Control implicit rows */
+    grid-auto-rows: minmax(100px, auto);
+    
+    /* Control flow direction */
+    grid-auto-flow: column;
+}
+</code></pre>
+<h2>Practical Examples</h2>
+<h3>Card Layout</h3>
+<pre><code class="language-css">.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+</code></pre>
+<h3>Holy Grail Layout</h3>
+<pre><code class="language-css">.holy-grail {
+    display: grid;
+    grid-template-areas:
+        &quot;header header header&quot;
+        &quot;nav main aside&quot;
+        &quot;footer footer footer&quot;;
+    grid-template-columns: 200px 1fr 150px;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+</code></pre>
+<h3>Magazine Layout</h3>
+<pre><code class="language-css">.magazine {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 200px);
+    gap: 1rem;
+}
+
+.featured { grid-area: 1 / 1 / 3 / 4; }
+.story-1 { grid-area: 1 / 4 / 2 / 7; }
+.story-2 { grid-area: 2 / 4 / 3 / 6; }
+.story-3 { grid-area: 2 / 6 / 3 / 7; }
+.story-4 { grid-area: 3 / 1 / 5 / 3; }
+.story-5 { grid-area: 3 / 3 / 4 / 7; }
+.story-6 { grid-area: 4 / 3 / 5 / 7; }
+</code></pre>
+<h2>Grid Alignment</h2>
+<h3>Container Alignment</h3>
+<pre><code class="language-css">.grid {
+    display: grid;
+    
+    /* Align the entire grid */
+    justify-content: center; /* horizontal */
+    align-content: center;   /* vertical */
+    
+    /* Shorthand */
+    place-content: center;
+}
+</code></pre>
+<h3>Item Alignment</h3>
+<pre><code class="language-css">.grid-item {
+    /* Align individual items */
+    justify-self: center; /* horizontal */
+    align-self: center;   /* vertical */
+    
+    /* Shorthand */
+    place-self: center;
+}
+</code></pre>
+<h2>Browser Support and Fallbacks</h2>
+<p>CSS Grid has excellent modern browser support, but you might need fallbacks for older browsers:</p>
+<pre><code class="language-css">.grid {
+    /* Fallback for older browsers */
+    display: flex;
+    flex-wrap: wrap;
+    
+    /* Grid for modern browsers */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Feature query for enhanced progressive enhancement */
+@supports (display: grid) {
+    .grid {
+        display: grid;
+        /* Grid-specific styles */
+    }
+}
+</code></pre>
+<h2>Common Pitfalls and Solutions</h2>
+<h3>1. Grid Blowout</h3>
+<p><strong>Problem</strong>: Grid items overflow their container.</p>
+<p><strong>Solution</strong>: Use <code>minmax()</code> and <code>fr</code> units properly:</p>
+<pre><code class="language-css">/* Instead of fixed widths */
+grid-template-columns: 300px 300px 300px;
+
+/* Use flexible units */
+grid-template-columns: repeat(3, minmax(0, 1fr));
+</code></pre>
+<h3>2. Unexpected Grid Behavior</h3>
+<p><strong>Problem</strong>: Items don't appear where expected.</p>
+<p><strong>Solution</strong>: Understand implicit vs explicit grid:</p>
+<pre><code class="language-css">.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Define what happens to extra items */
+    grid-auto-rows: 200px;
+    grid-auto-flow: row;
+}
+</code></pre>
+<h2>Conclusion</h2>
+<p>CSS Grid is a game-changer for web layout. It provides unprecedented control over two-dimensional layouts while maintaining clean, semantic HTML. The key to mastering Grid is practice and understanding its core concepts.</p>
+<p>Start with simple layouts and gradually work your way up to more complex designs. Remember that Grid works beautifully alongside Flexbox - use Grid for overall page layout and Flexbox for component-level alignment.</p>
+<h3>Key Takeaways</h3>
+<ul>
+<li>Grid excels at two-dimensional layouts</li>
+<li>Use <code>fr</code> units for flexible, responsive designs</li>
+<li>Grid areas provide semantic layout definition</li>
+<li>Combine with Flexbox for maximum layout power</li>
+<li>Always consider fallbacks for older browsers</li>
+</ul>
+<p>Ready to start building with CSS Grid? Try creating your own layouts and experiment with the techniques covered in this guide!</p>
+<hr>
+<p><em>Want to dive deeper into CSS? Check out our <a href="/posts/advanced-css-techniques/">Advanced CSS Techniques</a> post or explore more <a href="/collections/design/">design tutorials</a>.</em></p>
+
+    </div>
+
+    <!-- Post Footer -->
+    <footer class="post-footer">
+        
+            <div class="post-tags">
+                <h3>Tags</h3>
+                <ul class="tag-list">
+                    
+                        
+                            <li><a href="/tags/css/" class="tag">#css</a></li>
+                        
+                    
+                        
+                            <li><a href="/tags/grid/" class="tag">#grid</a></li>
+                        
+                    
+                        
+                            <li><a href="/tags/layout/" class="tag">#layout</a></li>
+                        
+                    
+                        
+                            <li><a href="/tags/design/" class="tag">#design</a></li>
+                        
+                    
+                        
+                            <li><a href="/tags/responsive/" class="tag">#responsive</a></li>
+                        
+                    
+                </ul>
+            </div>
+        
+        
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <!-- Site Footer (Main Content Column) -->
+        <footer class="site-footer main-column-footer">
+    <!-- Top Row: Info -->
+    <div class="footer-top-info">
+        <div class="footer-location">BERLIN, GERMANY</div>
+        <div class="footer-contact-link">
+            <a href="mailto:M-E@MAJA-EXPLOSIV.COM">M-E@MAJA-EXPLOSIV.COM</a>
+        </div>
+        <div class="footer-warning-icon">
+            <img src="/assets/images/Bildschirmfoto 2025-10-14 um 04.00.59 1.png" alt="Maja Explosiv Logo" class="footer-logo-img">
+        </div>
+    </div>
+
+    <hr class="footer-separator">
+
+    <!-- Middle Row: Branding -->
+    <div class="footer-branding">
+        <h2 class="footer-brand-name"><b>MAJA</b> EXPLOSIV</h2>
+        <p class="footer-brand-aka">AKA MAJA THOMMEN</p>
+    </div>
+
+    <hr class="footer-separator">
+
+    <!-- Bottom Row: Utility Links -->
+    <nav class="footer-bottom-nav">
+        <ul class="footer-bottom-links">
+            <li><a href="/sitemap/" class="footer-bottom-link">SITEMAP</a></li>
+            <li><a href="/search/" class="footer-bottom-link">SEARCH</a></li>
+            <li><a href="/impressum/" class="footer-bottom-link">IMPRESSUM</a></li>
+        </ul>
+    </nav>
+</footer>
+
+    </main>
+</div>
+
+    
+    
+    
+    <!-- Scripts -->
+    
+    <!-- Datastar library from CDN -->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.0-beta.5/bundles/datastar.js"></script>
+    <script src="/maja-explosiv/assets/js/datastar-utils.js"></script>
+    <script src="/maja-explosiv/assets/js/main.js"></script>
+    
+    
+</body>
+</html>

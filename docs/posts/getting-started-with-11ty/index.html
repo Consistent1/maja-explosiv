@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with 11ty - A Beginner's Guide - Maja Explosiv</title>
+    <meta name="description" content="Learn the basics of 11ty (Eleventy) static site generator and how to build your first website">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://consistent1.github.io/maja-explosiv//posts/getting-started-with-11ty/">
+    <meta property="og:title" content="Getting Started with 11ty - A Beginner's Guide - Maja Explosiv">
+    <meta property="og:description" content="Learn the basics of 11ty (Eleventy) static site generator and how to build your first website">
+    
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://consistent1.github.io/maja-explosiv//posts/getting-started-with-11ty/">
+    <meta property="twitter:title" content="Getting Started with 11ty - A Beginner's Guide - Maja Explosiv">
+    <meta property="twitter:description" content="Learn the basics of 11ty (Eleventy) static site generator and how to build your first website">
+    
+    
+    <!-- Google Fonts: Geist, Rethink Sans, and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <!-- Geist font loaded via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/@vercel/style-guide@latest/fonts/geist/index.css" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <style>
+      :root {
+        
+          
+            
+              
+                --theme-colors-primary: #222222;
+              
+                --theme-colors-accent: #EBEBEB;
+              
+                --theme-colors-background: #B8B8B8;
+              
+                --theme-colors-text: #222222;
+              
+                --theme-colors-text-light: #8E8E93;
+              
+                --theme-colors-border: #EBEBEB;
+              
+                --theme-colors-container: #B8B8B8;
+              
+                --theme-colors-surface: #EBEBEB;
+              
+                --theme-colors-muted: #8E8E93;
+              
+                --theme-colors-dark-gray: #373737;
+              
+            
+          
+            
+              
+                --theme-fonts-body: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+              
+                --theme-fonts-heading: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+              
+                --theme-fonts-button: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+              
+            
+          
+            
+          
+            
+              
+                --theme-typography-base-size: 16px;
+              
+                --theme-typography-line-height: 1.45;
+              
+                --theme-typography-hero-title: 88.8976px;
+              
+                --theme-typography-hero-subtitle: 79.9508px;
+              
+                --theme-typography-display-1: 128px;
+              
+                --theme-typography-lead: 32px;
+              
+                --theme-typography-h1: 88.8976px;
+              
+                --theme-typography-h2: 79.9508px;
+              
+                --theme-typography-h3: 32px;
+              
+                --theme-typography-h4: 26px;
+              
+                --theme-typography-h5: 18px;
+              
+                --theme-typography-h6: 16px;
+              
+            
+          
+        
+      }
+    </style>
+    <link rel="stylesheet" href="/maja-explosiv/assets/css/main.css">
+    <link rel="stylesheet" href="/maja-explosiv/assets/css/custom.css">
+    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/maja-explosiv/assets/images/favicon.ico">
+    
+</head>
+<body class="">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    
+    
+    
+<div class="main-container">
+    <aside class="left-sidebar">
+        <div class="sidebar-nav">
+            <div class="sidebar-header">
+                <h1 class="brand-title"><a href="/" class="brand-link">MAJA EXPLOSIV</a></h1>
+                <p class="brand-subtitle">AKA MAJA THOMMEN</p>
+            </div>
+
+            <nav class="nav-menu-container" aria-label="Sidebar navigation">
+                <div class="nav-section">
+                    <h2 class="nav-section-title">
+                        <a href="/#projects" class="nav-link-header" data-section-link="projects">PROJECTS</a>
+                    </h2>
+                    <ul class="nav-submenu">
+                        <li><a href="/#sculptures" class="nav-link" data-tab-link="sculptures">SCULPTURES</a></li>
+                        <li><a href="/#installations" class="nav-link" data-tab-link="installations">INSTALLATIONS</a></li>
+                        <li><a href="/#performance" class="nav-link" data-tab-link="performance">PERFORMANCE</a></li>
+                        <li><a href="/#paintings" class="nav-link" data-tab-link="paintings">PAINTINGS</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h2 class="nav-section-title">
+                        <a href="/#about" class="nav-link-header" data-section-link="about">ABOUT</a>
+                    </h2>
+                    <ul class="nav-submenu">
+                        <li><a href="/#bio" class="nav-link" data-tab-link="bio">BIO</a></li>
+                        <li><a href="/#timeline" class="nav-link" data-tab-link="timeline">TIMELINE</a></li>
+                        <li><a href="/#press" class="nav-link" data-tab-link="press">PRESS</a></li>
+                        <li><a href="/#links" class="nav-link" data-tab-link="links">LINKS</a></li>
+                        <li><a href="/contact/" class="nav-link contact-link">CONTACT</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>ATELIER</p>
+                <p>MAAS & THOMMEN</p>
+            </div>
+        </div>
+    </aside>
+    <main id="main-content" class="main-content">
+        
+        
+        
+        
+        
+        
+            <header class="page-header">
+                <h1 class="page-title">Getting Started with 11ty - A Beginner's Guide</h1>
+                
+                
+                    <time class="page-date" datetime="2024-01-10">
+                        January 10, 2024
+                    </time>
+                
+            </header>
+        
+        
+        <div class="content-wrapper">
+            
+
+
+
+
+
+
+
+<article class="post">
+    <!-- Post Header -->
+    <header class="post-header">
+        
+            <div class="post-featured-image">
+                <img src="/assets/images/posts/11ty-guide.jpg" alt="11ty logo and code editor" class="featured-image">
+                
+            </div>
+        
+        
+        <div class="post-meta">
+            
+                <div class="post-collections">
+                    
+                        
+                        <a href="/collections/tutorials/" class="collection-tag"
+                           >
+                            Tutorials
+                        </a>
+                    
+                        
+                        <a href="/collections/web-development/" class="collection-tag"
+                           >
+                            Web-development
+                        </a>
+                    
+                </div>
+            
+            
+            
+                <time class="post-date" datetime="2024-01-10">
+                    January 10, 2024
+                </time>
+            
+            
+            
+                <span class="post-author">By [object Object]</span>
+            
+            
+            
+                <span class="reading-time">8 min read</span>
+            
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <div class="post-content">
+        <h1>Getting Started with 11ty - A Beginner's Guide</h1>
+<p><a href="https://www.11ty.dev/">11ty (Eleventy)</a> is a fantastic static site generator that's been gaining popularity among developers for its simplicity, flexibility, and performance. In this comprehensive guide, we'll walk through everything you need to know to get started with 11ty.</p>
+<h2>What is 11ty?</h2>
+<p>11ty is a static site generator that transforms your content (written in Markdown, HTML, or other formats) into a fast, static website. Unlike dynamic websites that generate pages on-the-fly, static sites are pre-built, making them incredibly fast and secure.</p>
+<h3>Why Choose 11ty?</h3>
+<ul>
+<li><strong>Zero config</strong>: Works out of the box with sensible defaults</li>
+<li><strong>Flexible</strong>: Supports multiple template languages</li>
+<li><strong>Fast</strong>: Generates sites quickly and efficiently</li>
+<li><strong>Simple</strong>: Easy to learn and use</li>
+<li><strong>Powerful</strong>: Extensible with plugins and custom functionality</li>
+</ul>
+<h2>Installation and Setup</h2>
+<p>Let's create your first 11ty project:</p>
+<h3>Prerequisites</h3>
+<p>Make sure you have Node.js installed (version 14 or higher):</p>
+<pre><code class="language-bash">node --version
+npm --version
+</code></pre>
+<h3>Creating a New Project</h3>
+<ol>
+<li>
+<p><strong>Create a new directory</strong>:</p>
+<pre><code class="language-bash">mkdir my-11ty-site
+cd my-11ty-site
+</code></pre>
+</li>
+<li>
+<p><strong>Initialize npm</strong>:</p>
+<pre><code class="language-bash">npm init -y
+</code></pre>
+</li>
+<li>
+<p><strong>Install 11ty</strong>:</p>
+<pre><code class="language-bash">npm install --save-dev @11ty/eleventy
+</code></pre>
+</li>
+<li>
+<p><strong>Add build scripts</strong> to your <code>package.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;eleventy&quot;,
+    &quot;serve&quot;: &quot;eleventy --serve&quot;
+  }
+}
+</code></pre>
+</li>
+</ol>
+<h2>Project Structure</h2>
+<p>A typical 11ty project structure looks like this:</p>
+<pre><code>my-11ty-site/
+├── _site/              # Generated output (don't edit)
+├── src/
+│   ├── _includes/      # Reusable templates
+│   ├── _layouts/       # Page layouts
+│   ├── _data/          # Global data files
+│   ├── posts/          # Blog posts
+│   ├── pages/          # Static pages
+│   └── assets/         # CSS, JS, images
+├── .eleventy.js        # Configuration file
+└── package.json
+</code></pre>
+<h2>Creating Your First Page</h2>
+<p>Let's create a simple home page:</p>
+<p><strong>src/index.md</strong>:</p>
+<pre><code class="language-markdown">---
+layout: base.njk
+title: Welcome to My Site
+---
+
+# Hello, World!
+
+This is my first 11ty website. Pretty cool, right?
+
+## What I Can Do
+
+- Write content in Markdown
+- Use powerful templating
+- Build fast static sites
+</code></pre>
+<h2>Creating a Layout</h2>
+<p>Layouts wrap your content with common HTML structure:</p>
+<p><strong>src/_layouts/base.njk</strong>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Getting Started with 11ty - A Beginner's Guide - My 11ty Site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
+            &lt;a href=&quot;/about/&quot;&gt;About&lt;/a&gt;
+            &lt;a href=&quot;/blog/&quot;&gt;Blog&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;h1&gt;Getting Started with 11ty - A Beginner's Guide&lt;/h1&gt;
+        
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2024 My 11ty Site&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>Working with Collections</h2>
+<p>Collections are groups of related content. Let's create a blog:</p>
+<p><strong>src/posts/my-first-post.md</strong>:</p>
+<pre><code class="language-markdown">---
+layout: post.njk
+title: My First Blog Post
+date: 2024-01-10
+tags: [blog, first-post]
+---
+
+This is my first blog post using 11ty!
+</code></pre>
+<p><strong>src/_layouts/post.njk</strong>:</p>
+<pre><code class="language-html">---
+layout: base.njk
+---
+
+&lt;article&gt;
+    &lt;time&gt;January 10, 2024&lt;/time&gt;
+    
+    
+    
+        &lt;div class=&quot;tags&quot;&gt;
+            
+                &lt;span class=&quot;tag&quot;&gt;11ty&lt;/span&gt;
+            
+                &lt;span class=&quot;tag&quot;&gt;beginner&lt;/span&gt;
+            
+                &lt;span class=&quot;tag&quot;&gt;static-site-generator&lt;/span&gt;
+            
+                &lt;span class=&quot;tag&quot;&gt;tutorial&lt;/span&gt;
+            
+        &lt;/div&gt;
+    
+&lt;/article&gt;
+</code></pre>
+<h2>Configuration</h2>
+<p>The <code>.eleventy.js</code> file lets you customize 11ty's behavior:</p>
+<pre><code class="language-javascript">module.exports = function(eleventyConfig) {
+    // Copy static assets
+    eleventyConfig.addPassthroughCopy(&quot;src/assets&quot;);
+    
+    // Add a date filter
+    eleventyConfig.addFilter(&quot;date&quot;, function(date, format) {
+        return new Date(date).toLocaleDateString();
+    });
+    
+    // Create a collection of blog posts
+    eleventyConfig.addCollection(&quot;blog&quot;, function(collectionApi) {
+        return collectionApi.getFilteredByGlob(&quot;src/posts/*.md&quot;);
+    });
+    
+    return {
+        dir: {
+            input: &quot;src&quot;,
+            output: &quot;_site&quot;
+        }
+    };
+};
+</code></pre>
+<h2>Building and Deploying</h2>
+<h3>Development</h3>
+<p>Start the development server:</p>
+<pre><code class="language-bash">npm run serve
+</code></pre>
+<p>Your site will be available at <code>http://localhost:8080</code> with live reload.</p>
+<h3>Production Build</h3>
+<p>Generate the production site:</p>
+<pre><code class="language-bash">npm run build
+</code></pre>
+<p>The generated files will be in the <code>_site</code> directory, ready for deployment.</p>
+<h3>Deployment Options</h3>
+<p>11ty sites can be deployed anywhere that serves static files:</p>
+<ul>
+<li><strong>Netlify</strong>: Drag and drop the <code>_site</code> folder</li>
+<li><strong>Vercel</strong>: Connect your Git repository</li>
+<li><strong>GitHub Pages</strong>: Use GitHub Actions</li>
+<li><strong>Traditional hosting</strong>: Upload via FTP</li>
+</ul>
+<h2>Next Steps</h2>
+<p>Now that you understand the basics, here are some areas to explore:</p>
+<h3>Advanced Features</h3>
+<ul>
+<li><strong>Data files</strong>: Store site-wide data in JSON/YAML files</li>
+<li><strong>Shortcodes</strong>: Create reusable content snippets</li>
+<li><strong>Plugins</strong>: Extend functionality with community plugins</li>
+<li><strong>Filters</strong>: Transform content with custom functions</li>
+</ul>
+<h3>Popular Plugins</h3>
+<ul>
+<li><code>@11ty/eleventy-plugin-syntaxhighlight</code>: Code syntax highlighting</li>
+<li><code>@11ty/eleventy-plugin-rss</code>: RSS feed generation</li>
+<li><code>@11ty/eleventy-img</code>: Image optimization</li>
+<li><code>@11ty/eleventy-plugin-bundle</code>: Asset bundling</li>
+</ul>
+<h3>Learning Resources</h3>
+<ul>
+<li><a href="https://www.11ty.dev/docs/">Official 11ty Documentation</a></li>
+<li><a href="https://11ty.rocks/">11ty Rocks</a> - Community tutorials</li>
+<li><a href="https://github.com/madrilene/eleventy-excellent">Eleventy Excellent</a> - Starter template</li>
+</ul>
+<h2>Conclusion</h2>
+<p>11ty is an excellent choice for building fast, maintainable static websites. Its simplicity makes it perfect for beginners, while its flexibility satisfies advanced use cases.</p>
+<p>The key to mastering 11ty is to start simple and gradually add complexity as you need it. Begin with basic Markdown files and layouts, then explore collections, data files, and plugins as your site grows.</p>
+<p>Happy building! 🚀</p>
+<hr>
+<p><em>Want to learn more about 11ty? Check out our <a href="/posts/advanced-11ty-techniques/">advanced 11ty techniques</a> post or browse our <a href="/collections/web-development/">web development tutorials</a>.</em></p>
+
+    </div>
+
+    <!-- Post Footer -->
+    <footer class="post-footer">
+        
+            <div class="post-tags">
+                <h3>Tags</h3>
+                <ul class="tag-list">
+                    
+                        
+                            <li><a href="/tags/11ty/" class="tag">#11ty</a></li>
+                        
+                    
+                        
+                            <li><a href="/tags/beginner/" class="tag">#beginner</a></li>
+                        
+                    
+                        
+                            <li><a href="/tags/static-site-generator/" class="tag">#static-site-generator</a></li>
+                        
+                    
+                        
+                            <li><a href="/tags/tutorial/" class="tag">#tutorial</a></li>
+                        
+                    
+                </ul>
+            </div>
+        
+        
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <!-- Site Footer (Main Content Column) -->
+        <footer class="site-footer main-column-footer">
+    <!-- Top Row: Info -->
+    <div class="footer-top-info">
+        <div class="footer-location">BERLIN, GERMANY</div>
+        <div class="footer-contact-link">
+            <a href="mailto:M-E@MAJA-EXPLOSIV.COM">M-E@MAJA-EXPLOSIV.COM</a>
+        </div>
+        <div class="footer-warning-icon">
+            <img src="/assets/images/Bildschirmfoto 2025-10-14 um 04.00.59 1.png" alt="Maja Explosiv Logo" class="footer-logo-img">
+        </div>
+    </div>
+
+    <hr class="footer-separator">
+
+    <!-- Middle Row: Branding -->
+    <div class="footer-branding">
+        <h2 class="footer-brand-name"><b>MAJA</b> EXPLOSIV</h2>
+        <p class="footer-brand-aka">AKA MAJA THOMMEN</p>
+    </div>
+
+    <hr class="footer-separator">
+
+    <!-- Bottom Row: Utility Links -->
+    <nav class="footer-bottom-nav">
+        <ul class="footer-bottom-links">
+            <li><a href="/sitemap/" class="footer-bottom-link">SITEMAP</a></li>
+            <li><a href="/search/" class="footer-bottom-link">SEARCH</a></li>
+            <li><a href="/impressum/" class="footer-bottom-link">IMPRESSUM</a></li>
+        </ul>
+    </nav>
+</footer>
+
+    </main>
+</div>
+
+    
+    
+    
+    <!-- Scripts -->
+    
+    <!-- Datastar library from CDN -->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@v1.0.0-beta.5/bundles/datastar.js"></script>
+    <script src="/maja-explosiv/assets/js/datastar-utils.js"></script>
+    <script src="/maja-explosiv/assets/js/main.js"></script>
+    
+    
+</body>
+</html>

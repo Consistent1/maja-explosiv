@@ -1,0 +1,1549 @@
+/* Custom CSS for Maja Explosiv Website */
+
+/* ============================================
+   THEME VARIABLES
+   ============================================ */
+:root {
+    --theme-colors-background: #B8B8B8;
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+/* Reset Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Typography 
+ * Font Stack:
+ * - Primary: Geist (modern, clean sans-serif)
+ * - Secondary: Rethink Sans (for body text and secondary elements)
+ * - Buttons: Inter (reserved for CTA buttons only)
+ */
+body {
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+    color: var(--theme-colors-text, #000000);
+    background-color: var(--theme-colors-background, #B8B8B8);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--theme-fonts-heading, 'Geist', 'Rethink Sans', sans-serif);
+}
+
+/* ============================================
+   LAYOUT - Part 1.4: Sidebar Overall Layout
+   ============================================ */
+
+.main-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+}
+
+.left-sidebar {
+    position: sticky;
+    /* keep in view but remain in grid flow */
+    top: 0;
+    align-self: stretch;
+    height: 100vh;
+    width: 250px;
+    background-color: var(--theme-colors-background, #B8B8B8);
+    padding: 1.5rem 1.2rem;
+    border-right: 1px solid #444444;
+    overflow: hidden;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    /* Remove padding so hero and sections can use full width */
+    padding: 0;
+    margin: 0;
+    grid-column: 2 / 3;
+    /* force main content into the right-side column */
+    width: 100%;
+    /* Fill entire available space */
+    max-width: none;
+    /* Override template's content-max-width constraint */
+}
+
+/* Override template's default content width constraints for full-width design */
+.main-content .content-wrapper > * {
+    max-inline-size: none;
+    /* Remove max-width constraint */
+}
+
+.main-content .content-wrapper h1,
+.main-content .content-wrapper h2,
+.main-content .content-wrapper h3,
+.main-content .content-wrapper h4,
+.main-content .content-wrapper h5,
+.main-content .content-wrapper h6 {
+    max-inline-size: none;
+    /* Remove max-width constraint */
+}
+
+.main-content .content-wrapper pre {
+    max-inline-size: none;
+    /* Remove max-width constraint */
+}
+
+/* ============================================
+   SIDEBAR COMPONENTS
+   ============================================ */
+
+/* Part 1.1: Sidebar Header */
+.sidebar-header {
+    margin-bottom: 2.5rem;
+    flex-shrink: 0;
+}
+
+.brand-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    color: #000;
+    letter-spacing: 0.02em;
+}
+
+.brand-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin: 0.3rem 0 0 0;
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+/* Part 1.2: Navigation Sections */
+.nav-menu-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Allow scroll if content too tall, but hide scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.nav-menu-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.nav-section {
+    flex-shrink: 0;
+}
+
+.nav-section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 0.4rem 0;
+    color: #000;
+    letter-spacing: 0.05em;
+}
+
+.nav-link-header {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    color: inherit;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link-header:hover {
+    opacity: 0.7;
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+.nav-link-header.active {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.nav-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-submenu li {
+    margin-bottom: 0.2rem;
+}
+
+.nav-link {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: block;
+    padding: 2px 0;
+    transition: opacity 0.2s ease;
+    letter-spacing: 0.02em;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+.nav-link.active {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+}
+
+/* Part 1.3: Sidebar Footer */
+.sidebar-footer {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.2rem;
+    right: 1.2rem;
+}
+
+.sidebar-footer p {
+    margin: 0;
+    line-height: 1.3;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: #666;
+    letter-spacing: 0.02em;
+}
+
+/* ============================================
+   HERO SECTION - Part 2
+   ============================================ */
+
+/* Part 2.4: Hero Overall Layout */
+.hero-section {
+    background-color: var(--theme-colors-background, #B8B8B8);
+    /* Matches page background */
+    padding: var(--size-fluid-4) var(--size-fluid-3);
+    width: 100%;
+    /* Use full available column width like other sections */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    /* Fill the viewport like other main sections */
+    background-image: url('/assets/images/corner.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto;
+    /* Keep original size */
+}
+
+.hero-content {
+    max-width: 900px;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Ensure the hero background fills the available content column
+   and uses border-box sizing so padding doesn't shrink the visual area. */
+.hero-background {
+    /* Remove boxed container so hero is flush with page like in Top.png */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    /* no inner padding */
+    border-radius: 0;
+    border: none;
+    background: transparent;
+}
+
+/* Part 2.1: Hero Title */
+.hero-title {
+    font-size: 5rem;
+    /* increase slightly for stronger visual match */
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000000;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-top: 1rem;
+    /* tighten vertical spacing to match Top.png */
+    margin-bottom: 1.75rem;
+    margin-left: -6px;
+    /* minor optical alignment tweak */
+}
+
+.hero-title span.d-block {
+    display: block;
+}
+
+/* Part 2.2: Hero Description */
+.hero-description {
+    font-size: 1.25rem;
+    /* ~20px */
+    font-weight: 400;
+    color: #333333;
+    line-height: 1.5;
+    max-width: 650px;
+    margin-bottom: 40px;
+}
+
+.hero-description p {
+    margin-bottom: 20px;
+}
+
+.hero-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Part 2.3: Call-to-Action Button */
+.hero-cta {
+    margin-top: 40px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #000000;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    /* ~14px */
+    font-weight: 500;
+    text-transform: uppercase;
+    /* Use Inter font for CTA button per design specification */
+    font-family: var(--theme-fonts-button, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+    letter-spacing: 0.03em;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #222222;
+    transform: scale(1.02);
+    color: #FFFFFF;
+}
+
+.cta-button .arrow-icon {
+    margin-right: 8px;
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 40px 20px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        margin-top: 40px;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================
+   TAB STYLES - Projects and About Section Tabs
+   Styled to match homepage.png design with clean, minimal aesthetic
+   ============================================ */
+
+.projects-tabs,
+.about-tabs {
+    width: 100%;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    margin-bottom: var(--size-fluid-4);
+    border-bottom: none;
+    flex-wrap: nowrap;
+    background-color: transparent;
+    width: 100%;
+    padding: 0 3rem;
+    /* Match section title padding */
+}
+
+/* Tab button styling to match homepage.png design:
+   - Simple text links, not buttons
+   - Sentence case for modern look
+   - Evenly distributed across full width
+   - No borders or underlines
+*/
+.tab-button {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
+    color: rgba(0, 0, 0, 0.4);
+    transition: color 0.3s ease;
+    flex: 0 0 auto;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.tab-button:hover {
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+
+.tab-button:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.tab-button.active {
+    color: #000;
+    /* Full black for active tab */
+}
+
+.tab-content {
+    width: 100%;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   CUSTOM SECTIONS
+   ============================================ */
+
+.custom-section {
+    padding: var(--size-fluid-5) 0;
+}
+
+/* ============================================
+   CUSTOM SECTIONS - Projects and About
+   ============================================ */
+.custom-section.projects-section,
+.custom-section.about-section {
+    background-color: transparent;
+    padding: var(--size-fluid-4) var(--size-fluid-3);
+}
+
+/* Part 4.2 & 5.2: Projects and About Section Titles
+ * Updated to match homepage design (homepage.png):
+ * - Large, bold typography for visual impact
+ * - Left-aligned for clean, modern look
+ * - Sentence case for sophistication
+ * - No decorative bars (per updated design requirements)
+ */
+.section-title {
+    font-family: var(--theme-fonts-heading, 'Geist', 'Rethink Sans', sans-serif);
+    font-size: 3.5rem;
+    /* ~56px - large, prominent heading */
+    text-align: left;
+    text-transform: none;
+    /* Allow sentence case from content */
+    letter-spacing: normal;
+    margin-bottom: 2.5rem;
+    margin-top: 3rem;
+    color: var(--theme-colors-text, #000000);
+    font-weight: 700;
+    /* Bold for strong visual hierarchy */
+    opacity: 1;
+    padding-left: 3rem;
+    /* Consistent left padding for alignment */
+}
+
+/* Responsive adjustments for section titles */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+        /* ~40px on mobile */
+        padding-left: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.about-section .about-content {
+    max-width: var(--size-content-3);
+    margin-inline: auto;
+    text-align: center;
+}
+
+.about-section .about-content p {
+    font-size: var(--font-size-fluid-0);
+    line-height: var(--font-lineheight-3);
+    margin-bottom: var(--size-5);
+}
+
+/* ============================================
+   GRIDS & CARDS
+   ============================================ */
+
+.featured-artworks-section .artworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--size-fluid-3);
+}
+
+.posts-grid,
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--size-fluid-3);
+}
+
+.artwork-item,
+.post-card,
+.collection-card {
+    background-color: var(--theme-colors-surface-2, #ffffff);
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    box-shadow: var(--shadow-2);
+    transition: var(--transition-2);
+    display: flex;
+    flex-direction: column;
+}
+
+.artwork-item:hover,
+.post-card:hover,
+.collection-card:hover {
+    box-shadow: var(--shadow-4);
+    transform: var(--scale-1);
+}
+
+.artwork-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-card-image img,
+.collection-card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.artwork-item h3,
+.post-card-title,
+.collection-card-title {
+    font-size: var(--font-size-fluid-1);
+    margin: var(--size-4) var(--size-4) var(--size-2);
+    color: var(--theme-colors-text, #000000);
+}
+
+.post-card-title a,
+.collection-card-title a {
+    text-decoration: none;
+    color: var(--theme-colors-text, #000000);
+}
+
+.artwork-item p,
+.post-card-description,
+.collection-card-description {
+    font-size: var(--font-size-0);
+    margin: 0 var(--size-4) var(--size-5);
+    line-height: var(--font-lineheight-2);
+    flex-grow: 1;
+}
+
+.post-card-content,
+.collection-card-content {
+    padding: var(--size-4);
+}
+
+.post-card-meta,
+.collection-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size--1);
+    color: var(--theme-colors-text-light, #666666);
+}
+
+.artwork-item .view-artwork {
+    display: block;
+    text-align: center;
+    padding: var(--size-3);
+    background-color: var(--theme-colors-secondary, #6c757d);
+    color: var(--theme-colors-on-secondary, #ffffff);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition-2);
+    margin-top: auto;
+}
+
+.artwork-item .view-artwork:hover {
+    background-color: var(--theme-colors-secondary-hover, #5a6268);
+    transform: var(--scale-1);
+}
+
+.collection-tag {
+    display: inline-block;
+    padding: var(--size-1) var(--size-2);
+    background-color: var(--theme-colors-accent, #e0e0e0);
+    border-radius: var(--radius-1);
+    text-decoration: none;
+    color: var(--theme-colors-on-accent, #333333);
+    font-size: var(--font-size--2);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Hide Featured Posts and Collections */
+.featured-posts,
+.featured-collections {
+    display: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (width < 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .left-sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--theme-colors-border, #444444);
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+}
+
+/* Removed conflicting hero styles */
+
+/* Tab Styles */
+.projects-tabs,
+.about-tabs {
+    width: 100%;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    margin-bottom: var(--size-5);
+    border-bottom: none;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0 3rem;
+}
+
+.tab-button {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
+    color: rgba(0, 0, 0, 0.4);
+    transition: color 0.3s ease;
+    flex: 0 0 auto;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.tab-button:hover {
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+
+.tab-button:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.tab-button.active {
+    color: #000;
+}
+
+.tab-content {
+    width: 100%;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Custom Sections - Duplicate removed, main definition at line ~398 */
+.custom-section {
+    padding: var(--size-fluid-4) var(--size-fluid-3);
+    margin-bottom: var(--size-fluid-4);
+    background-color: var(--theme-colors-background, #B8B8B8);
+    border-radius: 0;
+}
+
+.custom-section.projects-section,
+.custom-section.about-section {
+    background-color: transparent;
+    padding: var(--size-fluid-4) var(--size-fluid-3);
+}
+
+/* About Section */
+.about-section .about-content {
+    max-width: var(--size-content-3);
+    margin-inline: auto;
+    text-align: center;
+}
+
+.about-section .about-content p {
+    font-size: var(--font-size-fluid-0);
+    line-height: var(--font-lineheight-3);
+    margin-bottom: var(--size-5);
+}
+
+/* Featured Artworks Section */
+.featured-artworks-section .artworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--size-fluid-3);
+}
+
+.artwork-item {
+    background-color: var(--theme-colors-surface-2, #ffffff);
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    box-shadow: var(--shadow-2);
+    transition: var(--transition-2);
+    display: flex;
+    flex-direction: column;
+}
+
+.artwork-item:hover {
+    box-shadow: var(--shadow-4);
+    transform: var(--scale-1);
+}
+
+.artwork-item img {
+    width: 100%;
+    height: 200px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+}
+
+.artwork-item h3 {
+    font-size: var(--font-size-fluid-1);
+    margin: var(--size-4) var(--size-4) var(--size-2);
+    color: var(--theme-colors-text, #000000);
+}
+
+.artwork-item p {
+    font-size: var(--font-size-0);
+    margin: 0 var(--size-4) var(--size-5);
+    flex-grow: 1;
+    /* Allows description to take up available space */
+}
+
+.artwork-item .view-artwork {
+    display: block;
+    text-align: center;
+    padding: var(--size-3);
+    background-color: var(--theme-colors-secondary, #6c757d);
+    color: var(--theme-colors-on-secondary, #ffffff);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition-2);
+    margin-top: auto;
+    /* Pushes button to the bottom */
+}
+
+.artwork-item .view-artwork:hover {
+    background-color: var(--theme-colors-secondary-hover, #5a6268);
+    transform: var(--scale-1);
+}
+
+/* Hide Featured Posts and Collections */
+.featured-posts,
+.featured-collections {
+    display: none;
+}
+
+.posts-grid,
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--size-5, 1.25rem);
+    margin-top: var(--size-7, 2rem);
+}
+
+.post-card,
+.collection-card {
+    background-color: var(--theme-colors-surface-2, #ffffff);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card:hover,
+.collection-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.post-card-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.post-card-image img,
+.collection-card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-card-image img,
+.collection-card:hover .collection-card-image img {
+    transform: scale(1.05);
+}
+
+.post-card-content,
+.collection-card-content {
+    padding: var(--size-4, 1rem);
+    flex-grow: 1;
+}
+
+.post-card-title,
+.collection-card-title {
+    font-size: var(--font-size-1, 1.125rem);
+    margin-bottom: var(--size-2, 0.5rem);
+    font-weight: 700;
+}
+
+.post-card-title a,
+.collection-card-title a {
+    text-decoration: none;
+    color: var(--theme-colors-text, #000000);
+    transition: color 0.2s ease;
+}
+
+.post-card-title a:hover,
+.collection-card-title a:hover {
+    color: var(--theme-colors-primary, #666666);
+}
+
+.post-card-description,
+.collection-card-description {
+    font-size: var(--font-size-0, 1rem);
+    line-height: 1.6;
+    margin-bottom: var(--size-4, 1rem);
+    color: var(--theme-colors-text-light, #666666);
+}
+
+.post-card-meta,
+.collection-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size--1, 0.875rem);
+    color: var(--theme-colors-text-light, #999999);
+}
+
+.collection-tag {
+    display: inline-block;
+    padding: var(--size-1) var(--size-2);
+    background-color: var(--theme-colors-accent, #e0e0e0);
+    border-radius: var(--radius-1);
+    text-decoration: none;
+    color: var(--theme-colors-on-accent, #333333);
+    font-size: var(--font-size--2);
+}
+
+/* Responsive adjustments */
+@media (width < 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        /* Stack sidebar and main content */
+    }
+
+    .left-sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--theme-colors-border, #444444);
+    }
+
+    .main-content {
+        grid-column: 1 / -1;
+    }
+
+    /* Mobile: 1 column grid for projects */
+    .posts-grid,
+    .collections-grid {
+        grid-template-columns: 1fr;
+        gap: var(--size-4, 1rem);
+    }
+}
+
+/* Tablet: 2 columns */
+@media (width >=768px) and (width < 1024px) {
+
+    .posts-grid,
+    .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--size-4, 1rem);
+    }
+
+    /* Responsive tab adjustments for mobile */
+    .tab-buttons {
+        padding: 0 1.5rem;
+        /* Reduce padding on mobile */
+        flex-wrap: wrap;
+        /* Allow wrapping on very small screens */
+        gap: 0.5rem;
+        /* Add small gap if tabs wrap */
+    }
+
+    .tab-button {
+        font-size: 0.875rem;
+        /* Slightly smaller on mobile */
+    }
+}
+
+/* Duplicate tab styling removed - see unified tab styles above at line ~330 */
+
+
+/* Custom Section Spacing */
+.custom-section {
+    padding: var(--size-fluid-5) 0;
+}
+
+/* Section title - duplicate rule removed, see main .section-title above for unified styling */
+.section-title {
+    /* Main definition at line ~421 */
+}
+
+/* ============================================
+   FOOTER SECTION - Part 6
+   ============================================ */
+/* Footer: Compact design matching homepage.png
+   - Tight vertical spacing (reduced margins)
+   - Smaller font sizes throughout
+   - Thinner separator lines (1px instead of 2px)
+   - More compact "MAJA EXPLOSIV" branding (~3rem instead of 5rem)
+*/
+
+.main-column-footer {
+    padding: 2.5rem 0;
+    /* No horizontal padding - footer fills entire right column width */
+    background-color: var(--theme-colors-background, #B8B8B8);
+    /* Background matches page background */
+    color: #000000;
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+    width: 100%;
+    /* Ensure footer fills full width of right column */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.footer-top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    /* Kept minimal */
+    font-size: 0.75rem;
+    /* Reduced from 0.95rem - more compact */
+    font-weight: 400;
+    /* Reduced from 500 - lighter weight */
+    text-transform: uppercase;
+    /* All top row items uppercase */
+    padding: 0 3rem;
+    /* Add back horizontal padding for content spacing */
+}
+
+.footer-location {
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-contact-link {
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+    /* Email should be uppercase */
+}
+
+.footer-contact-link a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-contact-link a:hover {
+    opacity: 0.7;
+}
+
+.footer-warning-icon {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flammable-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.footer-logo-img {
+    width: 48px;
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+}
+
+.footer-separator {
+    border: none;
+    border-top: 1px solid #000000;
+    /* Reduced from 2px to 1px - thinner line */
+    margin: 1rem 0;
+    /* Reduced from 2rem to 1rem - tighter spacing */
+    width: 100%;
+}
+
+.footer-branding {
+    margin: 0;
+    text-align: left;
+    padding: 0 3rem;
+    /* Add horizontal padding for content spacing */
+}
+
+.footer-brand-name {
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
+    font-size: 3rem;
+    /* Reduced from 5rem to 3rem (~48px) - matches design */
+    font-weight: 500;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    /* Ensure uppercase */
+}
+
+.footer-brand-name b {
+    font-weight: 900;
+    /* Make MAJA bolder than EXPLOSIV */
+    -webkit-text-stroke: 0.5px currentColor;
+    text-stroke: 0.5px currentColor;
+    letter-spacing: 0.02em;
+}
+
+.footer-brand-aka {
+    font-size: 1rem;
+    /* Reduced from 1.5rem - more compact */
+    margin: 0.5rem 0 0 0;
+    /* Reduced from 0.75rem - tighter spacing */
+    color: #333;
+    font-weight: 400;
+    text-transform: uppercase;
+    /* Ensure uppercase */
+}
+
+.footer-bottom-nav {
+    margin-top: 0;
+    padding: 0 3rem;
+    /* Add horizontal padding for content spacing */
+}
+
+.footer-bottom-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    /* Spread links across full width like top row */
+}
+
+.footer-bottom-links li {
+    flex: 1;
+}
+
+.footer-bottom-links li:first-child {
+    text-align: left;
+}
+
+.footer-bottom-links li:nth-child(2) {
+    text-align: center;
+}
+
+.footer-bottom-links li:last-child {
+    text-align: right;
+}
+
+.footer-bottom-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 0.85rem;
+    /* Reduced from 1.1rem - more compact */
+    font-weight: 400;
+    /* Reduced from 500 - lighter weight */
+    text-transform: uppercase;
+    /* Ensure uppercase */
+    transition: opacity 0.2s ease;
+}
+
+.footer-bottom-link:hover {
+    opacity: 0.7;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+    .main-column-footer {
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        /* Further reduced for mobile */
+    }
+
+    .footer-top-info {
+        flex-direction: column;
+        gap: 1rem;
+        /* Reduced from 1.5rem */
+        align-items: flex-start;
+    }
+
+    .footer-contact-link {
+        text-align: left;
+    }
+
+    .footer-warning-icon {
+        justify-content: flex-start;
+    }
+
+    .footer-brand-name {
+        font-size: 2rem;
+        /* Reduced from 3rem for mobile */
+    }
+
+    .footer-brand-aka {
+        font-size: 0.85rem;
+        /* Reduced from 1.2rem for mobile */
+    }
+
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 1rem;
+        /* Reduced from 1.25rem */
+    }
+}
+
+/* ============================================
+   PROJECT PAGE LAYOUT
+   Based on design in project_docs/design_screenshots/project.png
+   
+   Design features:
+   - Large, prominent title centered or left-aligned
+   - Full-width hero image as visual focal point
+   - Compact metadata section below image
+   - Clean, minimal layout emphasizing the artwork
+   - Corner decorative image matching homepage design
+   ============================================ */
+
+.project-page {
+    padding: 0;
+    margin: 0;
+    /* Corner decorative image - matches homepage hero section */
+    background-image: url('/assets/images/corner.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto;
+    /* Keep original size */
+    position: relative;
+}
+
+/* Project Header - Title only, large and prominent */
+.project-header {
+    padding: 3rem 4rem 2rem 4rem;
+    text-align: left;
+}
+
+.project-header .project-title {
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+    color: #000;
+    font-family: var(--theme-fonts-heading, 'Geist', 'Rethink Sans', sans-serif);
+}
+
+/* Hero Image - Full-width, prominent display */
+.project-hero-image {
+    width: 100%;
+    margin: 0;
+    padding: 0 4rem;
+}
+
+.project-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Metadata Section - Compact info below the image */
+.project-metadata {
+    padding: 2rem 4rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.metadata-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.metadata-left {
+    flex: 1;
+}
+
+.metadata-label {
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    font-size: 0.85rem;
+}
+
+.metadata-right {
+    text-align: right;
+}
+
+.metadata-year {
+    font-size: 0.85rem;
+    color: #000;
+}
+
+/* Project Content - Description and additional content */
+.project-content {
+    padding: 1rem 4rem 3rem 4rem;
+    max-width: 900px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.project-content p {
+    margin-bottom: 1rem;
+}
+
+/* Media Gallery - Additional project images */
+.project-gallery {
+    padding: 2rem 4rem 4rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    width: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.gallery-caption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .project-header {
+        padding: 2rem 2rem 1.5rem 2rem;
+    }
+
+    .project-header .project-title {
+        font-size: 2.5rem;
+    }
+
+    .project-hero-image {
+        padding: 0 2rem;
+    }
+
+    .project-metadata {
+        padding: 1.5rem 2rem;
+    }
+
+    .project-content {
+        padding: 1rem 2rem 2rem 2rem;
+    }
+
+    .project-gallery {
+        padding: 1.5rem 2rem 3rem 2rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* ============================================
+   CONTACT MODAL PAGE
+   Design reference: project_docs/design_screenshots/contact.png
+   ============================================ */
+
+/* Modal backdrop overlay */
+.contact-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Modal dialog content container */
+.contact-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    max-height: 600px;
+    background-color: var(--theme-colors-background, #C8C8C8);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-top: 1.5rem;
+}
+
+/* Header section with atelier info and location */
+.contact-modal-header {
+    width: 100%;
+    padding: 0 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-atelier {
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+    text-align: left;
+}
+
+.contact-location {
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+    text-align: right;
+}
+
+/* Main content section */
+.contact-modal-body {
+    text-align: center;
+    max-width: 700px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contact message text */
+.contact-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 2rem;
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+}
+
+/* Email link */
+.contact-email {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #000;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+    transition: opacity 0.2s ease;
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+    display: inline-block;
+}
+
+.contact-email:hover {
+    opacity: 0.7;
+}
+
+/* Footer hint */
+.contact-modal-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+}
+
+/* Decorative plant images */
+.contact-image-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 150px;
+    width: auto;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.contact-image-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    height: 50%;
+    width: auto;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content is above images */
+.contact-modal-header,
+.contact-modal-body,
+.contact-modal-footer {
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-modal-content {
+        width: 95%;
+        height: 85vh;
+        max-height: none;
+    }
+    
+    .contact-modal-header {
+        font-size: 0.65rem;
+        padding: 0 1rem;
+    }
+    
+    .contact-message {
+        font-size: 0.95rem;
+    }
+    
+    .contact-email {
+        font-size: 1.5rem;
+    }
+    
+    .contact-modal-footer {
+        font-size: 0.75rem;
+        bottom: 1.5rem;
+    }
+    
+    .contact-image-bottom {
+        height: 120px;
+    }
+    
+    .contact-image-right {
+        height: 40%;
+        opacity: 0.1;
+    }
+}

@@ -1,0 +1,609 @@
+/* Custom CSS for Maja Explosiv Website */
+
+/* Reset Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Layout */
+/* Layout */
+.main-container {
+    display: block;
+    /* Switch to block to rely on explicit positioning */
+    min-height: 100vh;
+}
+
+.left-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh !important;
+    width: 250px;
+    background-color: var(--theme-colors-background, #C8C8C8);
+    padding: 2rem 1.5rem;
+    border-right: 1px solid var(--theme-colors-border, #444444);
+    overflow: hidden !important;
+    z-index: 1000;
+    /* Ensure sidebar is on top if overlap happens, but margin should fix it */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-content {
+    margin-left: 250px;
+    /* Explicitly offset content by sidebar width */
+    padding: 0;
+    width: calc(100% - 250px);
+    /* Ensure accurate width */
+}
+
+/* Typography */
+body {
+    font-family: var(--theme-fonts-body, sans-serif);
+    color: var(--theme-colors-text, #000000);
+    background-color: var(--theme-colors-background, #C8C8C8);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--theme-fonts-heading, sans-serif);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 2rem 0;
+    /* Reduced padding */
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    /* Reduced to ~40px */
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.hero-title .d-block {
+    display: block;
+}
+
+/* ... existing code ... */
+
+.nav-section {
+    margin-bottom: 1.5rem;
+    /* Tighter spacing */
+}
+
+.nav-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 0.25rem 0;
+    color: #000;
+}
+
+.nav-link-header {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-link-header:hover {
+    text-decoration: underline;
+}
+
+.hero-description {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    max-width: 800px;
+    margin-bottom: 3rem;
+    color: #222;
+}
+
+.hero-description p {
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #222;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #000;
+}
+
+.arrow-icon {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.sidebar-header {
+    margin-bottom: 2rem;
+}
+
+.brand-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    color: #000;
+}
+
+.brand-subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin: 0.2rem 0 0 0;
+    color: #000;
+    font-weight: 400;
+}
+
+.nav-menu-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center nav items vertically */
+}
+
+.nav-section {
+    margin-bottom: 2rem;
+}
+
+.nav-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+    color: #000;
+    letter-spacing: 0.05em;
+}
+
+.nav-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-submenu li {
+    margin-bottom: 0.25rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: block;
+    padding: 2px 0;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.sidebar-footer p {
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+
+.nav-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-submenu li {
+    margin-bottom: 0.5rem;
+}
+
+.nav-submenu li a {
+    display: block;
+    padding: 0.5rem 0 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--theme-colors-text, #000000);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.nav-submenu li a:hover {
+    color: var(--theme-colors-primary, #007bff);
+}
+
+.sidebar-nav-footer {
+    margin-top: auto;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-colors-on-primary, #ffffff);
+    text-align: center;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5);
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 1;
+    padding: var(--size-fluid-3);
+    max-width: var(--size-content-2);
+}
+
+.hero-title {
+    font-size: var(--font-size-fluid-3);
+    margin-bottom: var(--size-3);
+    line-height: var(--font-lineheight-0);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-fluid-1);
+    margin-bottom: var(--size-5);
+    opacity: var(--opacity-8);
+}
+
+.hero-description {
+    font-size: var(--font-size-fluid-0);
+    margin-bottom: var(--size-7);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: var(--size-3) var(--size-5);
+    background-color: var(--theme-colors-primary, #007bff);
+    color: var(--theme-colors-on-primary, #ffffff);
+    text-decoration: none;
+    border-radius: var(--radius-2);
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition-2);
+}
+
+.cta-button:hover {
+    background-color: var(--theme-colors-primary-hover, #0056b3);
+    transform: var(--scale-1);
+}
+
+/* Tab Styles */
+.projects-tabs,
+.about-tabs {
+    width: 100%;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: var(--size-3);
+    margin-bottom: var(--size-5);
+    border-bottom: 2px solid var(--theme-colors-border, #ddd);
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: var(--size-2) var(--size-4);
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: var(--font-size-fluid-0);
+    font-weight: var(--font-weight-6);
+    color: var(--theme-colors-text-light, #666);
+    transition: var(--transition-1);
+    margin-bottom: -2px;
+}
+
+.tab-button:hover {
+    color: var(--theme-colors-text, #000);
+}
+
+.tab-button.active {
+    color: var(--theme-colors-primary, #007bff);
+    border-bottom-color: var(--theme-colors-primary, #007bff);
+}
+
+.tab-content {
+    width: 100%;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Custom Sections */
+.custom-section {
+    padding: var(--size-fluid-4) var(--size-fluid-3);
+    margin-bottom: var(--size-fluid-4);
+    background-color: var(--theme-colors-surface-1, #f8f8f8);
+    border-radius: 0;
+}
+
+.custom-section.projects-section,
+.custom-section.about-section {
+    background-color: transparent;
+    padding: var(--size-fluid-4) var(--size-fluid-3);
+}
+
+.section-title {
+    font-size: var(--font-size-fluid-2);
+    text-align: left;
+    margin-bottom: var(--size-fluid-3);
+    color: var(--theme-colors-text, #000000);
+    font-weight: var(--font-weight-bold);
+}
+
+/* About Section */
+.about-section .about-content {
+    max-width: var(--size-content-3);
+    margin-inline: auto;
+    text-align: center;
+}
+
+.about-section .about-content p {
+    font-size: var(--font-size-fluid-0);
+    line-height: var(--font-lineheight-3);
+    margin-bottom: var(--size-5);
+}
+
+/* Featured Artworks Section */
+.featured-artworks-section .artworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--size-fluid-3);
+}
+
+.artwork-item {
+    background-color: var(--theme-colors-surface-2, #ffffff);
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    box-shadow: var(--shadow-2);
+    transition: var(--transition-2);
+    display: flex;
+    flex-direction: column;
+}
+
+.artwork-item:hover {
+    box-shadow: var(--shadow-4);
+    transform: var(--scale-1);
+}
+
+.artwork-item img {
+    width: 100%;
+    height: 200px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+}
+
+.artwork-item h3 {
+    font-size: var(--font-size-fluid-1);
+    margin: var(--size-4) var(--size-4) var(--size-2);
+    color: var(--theme-colors-text, #000000);
+}
+
+.artwork-item p {
+    font-size: var(--font-size-0);
+    margin: 0 var(--size-4) var(--size-5);
+    flex-grow: 1;
+    /* Allows description to take up available space */
+}
+
+.artwork-item .view-artwork {
+    display: block;
+    text-align: center;
+    padding: var(--size-3);
+    background-color: var(--theme-colors-secondary, #6c757d);
+    color: var(--theme-colors-on-secondary, #ffffff);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition-2);
+    margin-top: auto;
+    /* Pushes button to the bottom */
+}
+
+.artwork-item .view-artwork:hover {
+    background-color: var(--theme-colors-secondary-hover, #5a6268);
+    transform: var(--scale-1);
+}
+
+/* Hide Featured Posts and Collections */
+.featured-posts,
+.featured-collections {
+    display: none;
+}
+
+.posts-grid,
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--size-fluid-3);
+}
+
+.post-card,
+.collection-card {
+    background-color: var(--theme-colors-surface-2, #ffffff);
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    box-shadow: var(--shadow-2);
+    transition: var(--transition-2);
+}
+
+.post-card:hover,
+.collection-card:hover {
+    box-shadow: var(--shadow-4);
+    transform: var(--scale-1);
+}
+
+.post-card-image img,
+.collection-card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.post-card-content,
+.collection-card-content {
+    padding: var(--size-4);
+}
+
+.post-card-title,
+.collection-card-title {
+    font-size: var(--font-size-fluid-0);
+    margin-bottom: var(--size-2);
+}
+
+.post-card-title a,
+.collection-card-title a {
+    text-decoration: none;
+    color: var(--theme-colors-text, #000000);
+}
+
+.post-card-description,
+.collection-card-description {
+    font-size: var(--font-size-0);
+    line-height: var(--font-lineheight-2);
+    margin-bottom: var(--size-4);
+}
+
+.post-card-meta,
+.collection-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size--1);
+    color: var(--theme-colors-text-light, #666666);
+}
+
+.collection-tag {
+    display: inline-block;
+    padding: var(--size-1) var(--size-2);
+    background-color: var(--theme-colors-accent, #e0e0e0);
+    border-radius: var(--radius-1);
+    text-decoration: none;
+    color: var(--theme-colors-on-accent, #333333);
+    font-size: var(--font-size--2);
+}
+
+/* Responsive adjustments */
+@media (width < 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        /* Stack sidebar and main content */
+    }
+
+    .left-sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--theme-colors-border, #444444);
+    }
+
+    .main-content {
+        grid-column: 1 / -1;
+    }
+
+    .hero-section {
+        height: 40vh;
+    }
+
+    .hero-title {
+        font-size: var(--font-size-fluid-2);
+    }
+
+}
+
+/* Premium Tab Styling Updates */
+.tab-buttons {
+    justify-content: center;
+    /* Center tabs */
+    border-bottom: 2px solid transparent;
+    /* Remove full line */
+    margin-bottom: var(--size-fluid-4);
+    background-color: transparent;
+}
+
+.tab-button {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: var(--font-size-1);
+    padding: var(--size-2) var(--size-4);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover,
+.tab-button.active {
+    opacity: 1;
+    color: var(--theme-colors-text, #000);
+    border-bottom-color: var(--theme-colors-text, #000);
+}
+
+.tab-pane {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Section Spacing */
+.custom-section {
+    padding: var(--size-fluid-5) 0;
+}
+
+.section-title {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: var(--font-size-fluid-1);
+    margin-bottom: var(--size-fluid-4);
+    opacity: 0.8;
+}
