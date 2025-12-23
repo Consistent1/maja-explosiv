@@ -99,7 +99,7 @@ layout: sidebar-layout.njk
                 <div class="post-collections">
                     {% for collection in postCollections %}
                         {% set collectionData = collections.collectionData | find('name', collection) %}
-                        <a href="/collections/{{ collection | slug }}/" class="collection-tag"
+                        <a href="{{ ('/collections/' + (collection | slug) + '/') | url }}" class="collection-tag"
                            {% if collectionData and collectionData.color %}style="--collection-color: {{ collectionData.color }}"{% endif %}>
                             {{ (collectionData and collectionData.displayName) or (collection | title) }}
                         </a>
@@ -136,7 +136,7 @@ layout: sidebar-layout.njk
                 <ul class="tag-list">
                     {% for tag in tags %}
                         {% if tag != "posts" %}
-                            <li><a href="/tags/{{ tag | slug }}/" class="tag">#{{ tag }}</a></li>
+                            <li><a href="{{ ('/tags/' + (tag | slug) + '/') | url }}" class="tag">#{{ tag }}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>

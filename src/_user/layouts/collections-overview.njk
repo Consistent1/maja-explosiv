@@ -33,8 +33,8 @@ layout: sidebar-layout.njk
                     <article class="collection-overview-card">
                         {% if collectionData and collectionData.featuredImage %}
                             <div class="collection-overview-image">
-                                <a href="/collections/{{ collectionName | slug }}/">
-                                    <img src="{{ collectionData.featuredImage }}" alt="{{ collectionData.displayName or collectionName }}" loading="lazy">
+                                <a href="{{ ('/collections/' + (collectionName | slug) + '/') | url }}">
+                                    <img src="{{ collectionData.featuredImage | url }}" alt="{{ collectionData.displayName or collectionName }}" loading="lazy">
                                 </a>
                                 {% if collectionData.color %}
                                     <div class="collection-color-overlay" style="background-color: {{ collectionData.color }}; opacity: 0.1;"></div>
@@ -45,7 +45,7 @@ layout: sidebar-layout.njk
                         <div class="collection-overview-content">
                             <header class="collection-overview-header">
                                 <h2 class="collection-overview-title">
-                                    <a href="/collections/{{ collectionName | slug }}/" 
+                                    <a href="{{ ('/collections/' + (collectionName | slug) + '/') | url }}" 
                                        {% if collectionData and collectionData.color %}style="color: {{ collectionData.color }}"{% endif %}>
                                         {{ (collectionData and collectionData.displayName) or (collectionName | title) }}
                                     </a>
@@ -55,7 +55,7 @@ layout: sidebar-layout.njk
                                     <span class="post-count">{{ collectionPosts.length }} post{{ 's' if collectionPosts.length != 1 }}</span>
                                     {% if collectionData and collectionData.parentCollection %}
                                         <span class="parent-collection">
-                                            Part of <a href="/collections/{{ collectionData.parentCollection | slug }}/">{{ collectionData.parentCollection | title }}</a>
+                                            Part of <a href="{{ ('/collections/' + (collectionData.parentCollection | slug) + '/') | url }}">{{ collectionData.parentCollection | title }}</a>
                                         </span>
                                     {% endif %}
                                 </div>
@@ -72,7 +72,7 @@ layout: sidebar-layout.njk
                                     <ul class="recent-posts-list">
                                         {% for post in collectionPosts | reverse | limit(3) %}
                                             <li class="recent-post-item">
-                                                <a href="{{ post.url }}" class="recent-post-link">
+                                                <a href="{{ post.url | url }}" class="recent-post-link">
                                                     <span class="recent-post-title">{{ post.data.title }}</span>
                                                     {% if post.data.date %}
                                                         <time class="recent-post-date" datetime="{{ post.data.date | date('YYYY-MM-DD') }}">
@@ -84,7 +84,7 @@ layout: sidebar-layout.njk
                                         {% endfor %}
                                     </ul>
                                     {% if collectionPosts.length > 3 %}
-                                        <a href="/collections/{{ collectionName | slug }}/" class="view-all-posts">
+                                        <a href="{{ ('/collections/' + (collectionName | slug) + '/') | url }}" class="view-all-posts">
                                             View all {{ collectionPosts.length }} posts →
                                         </a>
                                     {% endif %}
@@ -100,7 +100,7 @@ layout: sidebar-layout.njk
                                             {% set subCollectionPosts = allPosts | getPostsByCollection(subCollectionName) %}
                                             {% set subCollectionData = collections.collectionData | find('name', subCollectionName) %}
                                             <li class="sub-collection-item">
-                                                <a href="/collections/{{ subCollectionName | slug }}/" class="sub-collection-link">
+                                                <a href="{{ ('/collections/' + (subCollectionName | slug) + '/') | url }}" class="sub-collection-link">
                                                     <span class="sub-collection-name">
                                                         {{ (subCollectionData and subCollectionData.displayName) or (subCollectionName | title) }}
                                                     </span>
@@ -114,7 +114,7 @@ layout: sidebar-layout.njk
                         </div>
                         
                         <footer class="collection-overview-footer">
-                            <a href="/collections/{{ collectionName | slug }}/" class="collection-link-button"
+                            <a href="{{ ('/collections/' + (collectionName | slug) + '/') | url }}" class="collection-link-button"
                                {% if collectionData and collectionData.color %}style="background-color: {{ collectionData.color }}"{% endif %}>
                                 Explore Collection
                             </a>
@@ -163,14 +163,14 @@ layout: sidebar-layout.njk
                     <div class="featured-collection-card">
                         {% if featuredData and featuredData.featuredImage %}
                             <div class="featured-collection-image">
-                                <a href="/collections/{{ featuredCollection | slug }}/">
-                                    <img src="{{ featuredData.featuredImage }}" alt="{{ featuredData.displayName or featuredCollection }}" loading="lazy">
+                                <a href="{{ ('/collections/' + (featuredCollection | slug) + '/') | url }}">
+                                    <img src="{{ featuredData.featuredImage | url }}" alt="{{ featuredData.displayName or featuredCollection }}" loading="lazy">
                                 </a>
                             </div>
                         {% endif %}
                         <div class="featured-collection-content">
                             <h3 class="featured-collection-title">
-                                <a href="/collections/{{ featuredCollection | slug }}/">
+                                <a href="{{ ('/collections/' + (featuredCollection | slug) + '/') | url }}">
                                     {{ (featuredData and featuredData.displayName) or (featuredCollection | title) }}
                                 </a>
                             </h3>

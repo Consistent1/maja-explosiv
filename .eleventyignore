@@ -2,3 +2,7 @@
 src/_user/layouts/**
 src/_user/includes/**
 
+# Exclude project documentation and temporary files
+project_docs/**
+temp/**
+

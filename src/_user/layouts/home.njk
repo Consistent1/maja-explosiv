@@ -6,7 +6,7 @@ layout: sidebar-layout.njk
     {% if hero %}
         <section class="hero-section">
             {% if hero.backgroundImage %}
-                <div class="hero-background" style="background-image: url('{{ hero.backgroundImage }}');">
+                <div class="hero-background" style="background-image: url('{{ hero.backgroundImage | url }}');">
             {% else %}
                 <div class="hero-background">
             {% endif %}
@@ -26,7 +26,7 @@ layout: sidebar-layout.njk
                     {% endif %}
                     {% if hero.ctaButton %}
                         <div class="hero-cta">
-                            <a href="{{ hero.ctaButton.url }}" class="cta-button">
+                            <a href="{{ hero.ctaButton.url | url }}" class="cta-button">
                                 <span class="arrow-icon">↗</span> {{ hero.ctaButton.text }}
                             </a>
                         </div>
@@ -65,14 +65,14 @@ layout: sidebar-layout.njk
                                                 <article class="post-card" data-year="{{ post.data.date | date('YYYY') if post.data.date else '' }}" data-medium="{{ post.data.medium or '' }}" data-excerpt="{{ (post.data.description or (post.templateContent | excerpt(120))) | safe }}">
                                                     {% if post.data.featuredImage %}
                                                         <div class="post-card-image">
-                                                            <a href="{{ post.url }}">
-                                                                <img src="{{ post.data.featuredImage }}" data-src="{{ post.data.featuredImage }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                                            <a href="{{ post.url | url }}">
+                                                                <img src="{{ post.data.featuredImage | url }}" data-src="{{ post.data.featuredImage | url }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
                                                             </a>
                                                         </div>
                                                     {% endif %}
                                                     <div class="post-card-content">
                                                         <h3 class="post-card-title">
-                                                            <a href="{{ post.url }}">{{ post.data.title }}</a>
+                                                            <a href="{{ post.url | url }}">{{ post.data.title }}</a>
                                                         </h3>
                                                         {% if post.data.description %}
                                                             <p class="post-card-description">{{ post.data.description }}</p>
@@ -123,10 +123,10 @@ layout: sidebar-layout.njk
         </div>
         
         {# Decorative plant image - bottom center #}
-        <img src="/assets/images/contact-image.png" alt="" class="contact-image-bottom" aria-hidden="true">
+        <img src="{{ '/assets/images/contact-image.png' | url }}" alt="" class="contact-image-bottom" aria-hidden="true">
         
         {# Decorative plant image - right side faded #}
-        <img src="/assets/images/contact-image.png" alt="" class="contact-image-right" aria-hidden="true">
+        <img src="{{ '/assets/images/contact-image.png' | url }}" alt="" class="contact-image-right" aria-hidden="true">
     </div>
 </div>
 
