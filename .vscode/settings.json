@@ -1,0 +1,7 @@
+{
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "text": "Be brief and concise in all responses"
+    }
+  ]
+}

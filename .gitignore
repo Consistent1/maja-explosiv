@@ -1,3 +1,4 @@
+/temp
 /_site
 /node_modules
 /package-lock.json
@@ -10,6 +11,7 @@
 /mcp-servers
 /.playwright-mcp
 /old
+/project_docs/design_screenshots
 /temp_screenshots
 .goosehints
 /.clj-kondo/**
