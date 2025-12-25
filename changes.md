@@ -74,6 +74,13 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
     - Premium styling with centered alignment
     - Smooth transitions and opacity effects
     - Active state indicators
+  - **Featured Projects Section:**
+    - Responsive grid layout (auto-fit, minmax 280px)
+    - Grayscale-to-color hover effect using CSS filters
+    - Square aspect ratio (1:1) with `aspect-ratio` property
+    - Overlay with gradient background for project titles
+    - Box shadow and transform effects on hover
+    - Error display styling for build-time validation messages
   - **Responsive Design:**
     - Mobile breakpoint at 768px
     - Sidebar converts to relative positioning on mobile
@@ -114,7 +121,7 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
 - **File:** `src/index.md`
 - **Structure:**
   - Hero section with title "MAJA EXPLOSIV" and artist description
-  - Carousel with multiple slides showing different project categories
+  - Featured projects section showcasing selected works
   - Custom sections for Projects and About with tabbed interfaces
   - Tab content defined inline in front matter
 - **Collections Used:**
@@ -122,6 +129,31 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
   - `installations`
   - `performance`
   - `paintings`
+
+#### Featured Projects Section
+- **File Created:** `src/_user/includes/featured-projects.njk`
+- **Data File:** `src/_user/data/featuredProjects.json`
+- **Purpose:** Display curated selection of featured projects on homepage
+- **Features:**
+  - Data-driven: Projects listed in `featuredProjects.json` control display order
+  - Automatic image resolution: Uses featured image, first image from project, or specified override
+  - Build-time validation: Displays specific error messages if projects or images not found
+  - Two-column masonry layout: Projects distributed into left and right columns (odd/even split)
+  - CSS-based grayscale effect: Images displayed in grayscale (`filter: grayscale(100%)`), transition to color on hover
+  - Project info displayed below images: Title, description, and author shown beneath each project image
+  - Maintains template compatibility: Works with both regular builds and GitHub Pages deployment
+- **CSS Styling:**
+  - Flexbox layout with two columns (`display: flex`, `gap: 2rem`)
+  - Right column offset: `margin-top: 8rem` for staggered masonry effect
+  - Images preserve original aspect ratios (no forced cropping)
+  - Minimal top padding (0.5rem) to position closer to CTA
+  - Smooth grayscale transitions (0.4s) for hover effects
+  - Responsive breakpoints: adapts column layout for mobile screens
+- **Error Handling:**
+  - Validates project exists in collections
+  - Checks for available images (featuredImage, images array, or override)
+  - Displays red error boxes with specific details during development
+  - Logs errors to console for debugging
 
 ### 6. Tab Navigation System
 
@@ -176,6 +208,8 @@ The homepage features two tabbed sections (Projects and About) with interactive 
 - `src/_user/layouts/post.njk`
 - `src/_user/layouts/collection.njk`
 - `src/_user/layouts/collections-overview.njk`
+- `src/_user/includes/featured-projects.njk`
+- `src/_user/data/featuredProjects.json`
 - `changes.md` (this file)
 
 ### Files Modified
@@ -199,6 +233,7 @@ The homepage features two tabbed sections (Projects and About) with interactive 
 - ✅ Responsive design maintained
 - ✅ Project page layout matching design specifications
 - ✅ Premium aesthetic with smooth transitions
+- ✅ Featured projects section with grayscale hover effects
 
 ## Known Issues & Considerations
 

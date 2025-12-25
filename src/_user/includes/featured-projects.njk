@@ -1,0 +1,148 @@
+{# Featured Projects Section #}
+{% set featuredData = featuredProjects %}
+{% if featuredData and featuredData.featured and featuredData.featured.length > 0 %}
+<section class="featured-projects-section">
+  <div class="featured-projects-container">
+    <div class="featured-projects-grid">
+      {# Split projects into two columns #}
+      {% set leftColumn = [] %}
+      {% set rightColumn = [] %}
+      
+      {# Process all projects first to build the arrays #}
+      {% for item in featuredData.featured %}
+        {# Find the project in collections #}
+        {% set projectFound = false %}
+        {% set projectPost = null %}
+        {% set projectImage = null %}
+        {% set errorMessage = null %}
+        
+        {# Search through all collections to find the project #}
+        {% for collectionName in ['sculptures', 'installations', 'performance', 'paintings'] %}
+          {% if not projectFound %}
+            {% for post in collections[collectionName] %}
+              {% set postSlug = post.fileSlug %}
+              {% set postPath = post.inputPath | replace("./src/posts/projects/", "") | replace(".md", "") %}
+              
+              {# Check if this is the project we're looking for #}
+              {% if postPath == item.slug or (collectionName + '/' + postSlug) == item.slug %}
+                {% set projectFound = true %}
+                {% set projectPost = post %}
+                
+                {# Determine which image to use #}
+                {% if item.image %}
+                  {# Use the override image from data file #}
+                  {% set projectImage = item.image %}
+                {% elif post.data.featuredImage %}
+                  {# Use the project's featured image #}
+                  {% set projectImage = post.data.featuredImage %}
+                {% elif post.data.images and post.data.images.length > 0 %}
+                  {# Use the first image from the images array #}
+                  {% set projectImage = post.data.images[0].src %}
+                {% else %}
+                  {# No image available #}
+                  {% set errorMessage = "ERROR: Project '" + item.slug + "' found but has no images. Please add a featuredImage or images array to the project, or specify an image override in featuredProjects.json" %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        
+        {# Distribute projects between columns (odd indexes to left, even to right) #}
+        {% if loop.index0 % 2 == 0 %}
+          {% set _ = leftColumn.push({found: projectFound, post: projectPost, image: projectImage, error: errorMessage, item: item}) %}
+        {% else %}
+          {% set _ = rightColumn.push({found: projectFound, post: projectPost, image: projectImage, error: errorMessage, item: item}) %}
+        {% endif %}
+      {% endfor %}
+      
+      {# Left Column #}
+      <div class="featured-projects-column">
+        {% for project in leftColumn %}
+          {% if project.found %}
+            {% if project.image %}
+              <div class="featured-project-item">
+                <a href="{{ project.post.url | url }}" class="featured-project-link">
+                  <div class="featured-project-image-wrapper">
+                    <img 
+                      src="{{ project.image | url }}" 
+                      alt="{{ project.post.data.title }}"
+                      class="featured-project-image"
+                      loading="lazy"
+                    >
+                  </div>
+                </a>
+                <div class="featured-project-info">
+                  <h3 class="featured-project-title">
+                    <a href="{{ project.post.url | url }}">{{ project.post.data.title }}</a>
+                  </h3>
+                  {% if project.post.data.description %}
+                    <p class="featured-project-description">{{ project.post.data.description }}</p>
+                  {% endif %}
+                  {% if project.post.data.author and project.post.data.author.name %}
+                    <p class="featured-project-author">{{ project.post.data.author.name }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% else %}
+              <div class="featured-project-error" style="background: #ff0000; color: white; padding: 20px; border: 3px solid darkred;">
+                <strong>BUILD ERROR:</strong> {{ project.error }}
+              </div>
+              {{ project.error | log }}
+            {% endif %}
+          {% else %}
+            {% set notFoundError = "ERROR: Featured project '" + project.item.slug + "' not found in any collection. Please check the slug in featuredProjects.json matches the project path (e.g., 'sculptures/project-name')" %}
+            <div class="featured-project-error" style="background: #ff0000; color: white; padding: 20px; border: 3px solid darkred;">
+              <strong>BUILD ERROR:</strong> {{ notFoundError }}
+            </div>
+            {{ notFoundError | log }}
+          {% endif %}
+        {% endfor %}
+      </div>
+      
+      {# Right Column #}
+      <div class="featured-projects-column">
+        {% for project in rightColumn %}
+          {% if project.found %}
+            {% if project.image %}
+              <div class="featured-project-item">
+                <a href="{{ project.post.url | url }}" class="featured-project-link">
+                  <div class="featured-project-image-wrapper">
+                    <img 
+                      src="{{ project.image | url }}" 
+                      alt="{{ project.post.data.title }}"
+                      class="featured-project-image"
+                      loading="lazy"
+                    >
+                  </div>
+                </a>
+                <div class="featured-project-info">
+                  <h3 class="featured-project-title">
+                    <a href="{{ project.post.url | url }}">{{ project.post.data.title }}</a>
+                  </h3>
+                  {% if project.post.data.description %}
+                    <p class="featured-project-description">{{ project.post.data.description }}</p>
+                  {% endif %}
+                  {% if project.post.data.author and project.post.data.author.name %}
+                    <p class="featured-project-author">{{ project.post.data.author.name }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% else %}
+              <div class="featured-project-error" style="background: #ff0000; color: white; padding: 20px; border: 3px solid darkred;">
+                <strong>BUILD ERROR:</strong> {{ project.error }}
+              </div>
+              {{ project.error | log }}
+            {% endif %}
+          {% else %}
+            {% set notFoundError = "ERROR: Featured project '" + project.item.slug + "' not found in any collection. Please check the slug in featuredProjects.json matches the project path (e.g., 'sculptures/project-name')" %}
+            <div class="featured-project-error" style="background: #ff0000; color: white; padding: 20px; border: 3px solid darkred;">
+              <strong>BUILD ERROR:</strong> {{ notFoundError }}
+            </div>
+            {{ notFoundError | log }}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
