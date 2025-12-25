@@ -123,14 +123,49 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
   - `performance`
   - `paintings`
 
-### 6. JavaScript Enhancements
+### 6. Tab Navigation System
 
-The base template's `main.js` already includes:
-- `initTabs()` for tab functionality (supports both ARIA and simple `.tab-buttons` structures)
-- `initProjectPreview()` for project card interactions
-- Sidebar link integration with tab switching
+#### Tab Bar Structure
+The homepage features two tabbed sections (Projects and About) with interactive tab bars (tablists):
 
-No custom JavaScript was added; the existing functionality was leveraged.
+**Projects Section:**
+- **Source:** Dynamically generated in `src/_user/layouts/home.njk`
+- **Tabs:** Sculptures, Installations, Performance, Paintings
+- **Content:** Pulls from Eleventy collections to display project cards
+- **HTML Structure:**
+  ```html
+  <div class="tab-buttons" role="tablist">
+    <button role="tab" aria-selected="true" class="tab-button" data-tab="sculptures">Sculptures</button>
+    <!-- More tabs... -->
+  </div>
+  <div class="tab-content">
+    <div id="sculptures" role="tabpanel" class="tab-pane active">
+      <!-- Project cards from collections.sculptures -->
+    </div>
+  </div>
+  ```
+
+**About Section:**
+- **Source:** Static HTML in `src/index.md` front matter (`customSections.content`)
+- **Tabs:** Bio, Timeline, Press, Links
+- **Content:** Static HTML paragraphs
+- **Structure:** Identical to Projects (same HTML pattern)
+
+#### How Tab Switching Works
+- **JavaScript:** `src/assets/js/main.js` contains `initTabs()` and `activateTab()` functions
+- **ARIA Compliance:** Uses `role="tab"`, `role="tablist"`, and `role="tabpanel"` for accessibility
+- **Visual State:** Managed via both `aria-selected` attribute and `.active` CSS class
+- **Key Fix (Dec 2025):** Updated `activateTab()` to handle elements with both `role="tab"` AND `class="tab-button"`
+  - Changed from `if...else if` to separate `if` statements
+  - Ensures `.active` class is properly added/removed (controls underline styling)
+  - Initializes `.active` class on page load based on `aria-selected="true"`
+- **Keyboard Navigation:** Arrow keys switch between tabs
+- **URL Hash Support:** Tabs can be activated via URL hash (e.g., `#sculptures`)
+
+#### Integration with Sidebar
+- **Left sidebar links** have `data-tab-link` attributes
+- Clicking sidebar "SCULPTURES" link activates the sculptures tab on the homepage
+- JavaScript handles scrolling to the tab section and activating the correct tab
 
 ## Files Added/Modified
 
@@ -148,9 +183,9 @@ No custom JavaScript was added; the existing functionality was leveraged.
 - `src/_user/includes/left-nav.njk` (customized navigation)
 - `.eleventy.js` (passthrough copy fix)
 - `src/index.md` (home page content and structure)
+- `src/assets/js/main.js` (tab switching fix - Dec 2025)
 
 ### Files Reviewed (No Changes)
-- `src/assets/js/main.js` (used existing tab functionality)
 - `src/_user/layouts/base.njk` (reviewed, no changes needed)
 - `src/_user/layouts/sidebar-layout.njk` (reviewed existing structure)
 

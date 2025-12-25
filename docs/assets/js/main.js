@@ -18,6 +18,14 @@ function initTabs() {
     tablists.forEach(list => {
         // support both ARIA tablist (.tablist/.tab) and simple .tab-buttons/.tab-pane structures
         const tabs = Array.from(list.querySelectorAll('[role="tab"], .tab, .tab-button'));
+        
+        // Initialize active class based on aria-selected state
+        tabs.forEach(tab => {
+            if (tab.classList.contains('tab-button') && tab.getAttribute('aria-selected') === 'true') {
+                tab.classList.add('active');
+            }
+        });
+        
         tabs.forEach((tab, idx) => {
             tab.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -80,7 +88,9 @@ function activateTab(tab, tabs) {
         // reset selection for accessible tabs
         if (t.matches('[role="tab"]') || t.classList.contains('tab')) {
             t.setAttribute('aria-selected', 'false');
-        } else if (t.classList.contains('tab-button')) {
+        }
+        // Also handle active class for tab-buttons (can have both role="tab" and class="tab-button")
+        if (t.classList.contains('tab-button')) {
             t.classList.remove('active');
         }
 
@@ -95,7 +105,9 @@ function activateTab(tab, tabs) {
     // activate selected
     if (tab.matches('[role="tab"]') || tab.classList.contains('tab')) {
         tab.setAttribute('aria-selected', 'true');
-    } else if (tab.classList.contains('tab-button')) {
+    }
+    // Also handle active class for tab-buttons (can have both role="tab" and class="tab-button")
+    if (tab.classList.contains('tab-button')) {
         tab.classList.add('active');
     }
 
