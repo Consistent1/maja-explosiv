@@ -57,6 +57,15 @@ function initTabs() {
             const root = targetTab.closest('[role="tablist"], .tablist, .tab-buttons');
             const allTabs = Array.from(root.querySelectorAll('[role="tab"], .tab, .tab-button'));
             activateTab(targetTab, allTabs);
+            
+            // Scroll to the section containing this tab
+            const section = targetTab.closest('.custom-section');
+            if (section) {
+                // Use setTimeout to ensure DOM is fully rendered before scrolling
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
         }
     }
 
@@ -69,13 +78,16 @@ function initTabs() {
             if (targetTab) {
                 // If we are on the home page, prevent default and switch tab
                 if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-                    // e.preventDefault(); // Optional: keep default to update URL hash
+                    e.preventDefault(); // Prevent default navigation to update hash manually
                     const root = targetTab.closest('[role="tablist"], .tablist, .tab-buttons');
                     const allTabs = Array.from(root.querySelectorAll('[role="tab"], .tab, .tab-button'));
                     activateTab(targetTab, allTabs);
                     
-                    // Scroll to the tab section if needed
-                    targetTab.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Scroll to the section container (not the tab button itself)
+                    const section = targetTab.closest('.custom-section');
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
             }
         });
