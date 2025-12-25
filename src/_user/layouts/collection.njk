@@ -9,7 +9,7 @@ layout: sidebar-layout.njk
     {% set collectionData = collections.collectionData | find('name', collectionName) %}
     <header class="collection-header">
         {% if collectionData and collectionData.featuredImage %}
-            <div class="collection-hero" style="background-image: url('{{ collectionData.featuredImage }}');">
+            <div class="collection-hero" style="background-image: url('{{ collectionData.featuredImage | url }}');">
                 <div class="collection-hero-content">
                     <h1 class="collection-title">{{ collectionData.displayName or (collectionName | title) }}</h1>
                     {% if collectionData.description %}

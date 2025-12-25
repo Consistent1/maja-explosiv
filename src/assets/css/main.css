@@ -291,7 +291,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   position: relative;
   overflow: visible;
   /* Try known asset paths for the corner graphic as fallbacks */
-  background-image: url('/assets/images/corner.png');
+  background-image: url('../images/corner.png');
   background-repeat: no-repeat;
   background-position: right top;
 }

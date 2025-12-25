@@ -297,6 +297,10 @@ Slug: "kathe.md" (properly transliterated)
 
 ### Database Storage
 
+TYPO3 uses **two different methods** for storing images in projects:
+
+#### Method 1: Simple Image Field (Legacy)
+
 **Format:** Comma-separated filenames in `tt_content.image` field
 
 Example:
@@ -307,6 +311,32 @@ Example:
 **Image Captions:** Stored in `tt_content.imagecaption` field
 - Newline-separated (one caption per image)
 - May be empty
+
+#### Method 2: DAM Gallery Plugin (Primary Method)
+
+**Plugin:** `rgsmoothgallery_pi1` (stored in `tt_content.list_type`)
+
+**How it works:**
+- Images are stored in DAM (Digital Asset Management) folders
+- Each project references a DAM folder ID via `startingpointdam` in FlexForm XML
+- Example: `<value index="vDEF">14</value>` references DAM folder #14
+- The folder contains all images for that project
+
+**Featured Image Behavior:** ✅ **VERIFIED**
+- **The FIRST image (by `sorting` field in `tx_dam` table) is the featured/preview image**
+- This image displays large on the project page
+- Other images appear as thumbnails in the gallery below
+- Image order determined by:
+  1. `tx_dam.sorting` field (database sort order)
+  2. Filename alphabetical order (files prefixed with `001_`, `002_`, etc.)
+- **Confirmed via:** Live site inspection (maja-explosiv.com) + filesystem analysis
+
+**Gallery Configuration:** (from FlexForm settings)
+- `lightbox`: Enable/disable lightbox popup
+- `showThumbs`: Show thumbnail gallery
+- `showPlay`: Show slideshow play button
+- `thumbHeight`, `thumbWidth`: Thumbnail dimensions (typically 100x100)
+- `externalthumbs`: Enable external thumbnail positioning
 
 ### Filesystem Storage
 

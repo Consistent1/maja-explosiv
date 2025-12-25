@@ -666,29 +666,34 @@ For each template type, migration will follow this pattern:
 
 **Tasks:**
 1. Create image extraction script
-   - Parse `image` field from `extracted-projects.json`
-   - Split comma-separated filenames
-   - Map to filesystem locations
-   - Extract captions from `imagecaption` field
+   - Query DAM tables to get image folder contents by `startingpointdam` ID
+   - For DAM gallery projects: Extract all images from DAM folder
+   - For simple image field projects: Parse `image` field (comma-separated filenames)
+   - Extract captions from `imagecaption` field (if using simple image field)
+   - **Featured Image:** The first image in the DAM folder (or first in comma-separated list)
 
 2. Organize images following asset strategy
    - Create directory structure: `src/assets/images/projects/{category}/{series-slug}/`
-   - Copy images from old backup
+   - Copy images from old backup filesystem
    - Rename following convention: `{series-slug}-{number}.jpg`
+   - Preserve original order (critical for featured image)
 
 3. Update Markdown files with image references
    - Add `images` array to front matter
+   - Add `featuredImage` field pointing to first image
    - Include src and caption for each image
-   - Preserve image order
+   - Preserve image order from DAM folder
 
 4. Verify image display
    - Run development server
    - Check each project's images
+   - Verify featured image displays correctly
    - Fix broken paths
 
 **Acceptance Criteria:**
 - All images copied to new location
 - All images renamed following convention
+- Featured image correctly identified for each project
 - All Markdown files updated with image arrays
 - All images display correctly in development server
 - No broken image links
