@@ -77,7 +77,10 @@ function initTabs() {
             const targetTab = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
             if (targetTab) {
                 // If we are on the home page, prevent default and switch tab
-                if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                // Check for home page by looking at pathname end (works with any path prefix)
+                const pathname = window.location.pathname;
+                const isHomePage = pathname === '/' || pathname.endsWith('/index.html') || pathname.endsWith('/');
+                if (isHomePage) {
                     e.preventDefault(); // Prevent default navigation to update hash manually
                     const root = targetTab.closest('[role="tablist"], .tablist, .tab-buttons');
                     const allTabs = Array.from(root.querySelectorAll('[role="tab"], .tab, .tab-button'));
