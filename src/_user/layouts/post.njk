@@ -35,64 +35,135 @@ layout: sidebar-layout.njk
             <div class="project-hero-image">
                 <img src="{{ displayImage | url }}" alt="{{ featuredImageAlt or title }}" loading="eager">
             </div>
-        
-            {# Metadata Section - Compact info below the image #}
-            <div class="project-metadata">
-                <div class="metadata-row">
-                    <div class="metadata-left">
-                        <div class="metadata-label">Title</div>
-                        <div class="metadata-label">Description</div>
-                        {% if author %}
-                            <div class="metadata-label">Author</div>
-                        {% endif %}
-                    </div>
-                    <div class="metadata-right">
-                        {% if date %}
-                            <div class="metadata-year">{{ date | date('YYYY') }}</div>
-                        {% endif %}
-                    </div>
+        {% endif %}
+
+        {# Two-column layout: Description (left) + First two gallery images (right) #}
+        {% if images and images.length > 1 %}
+            <div class="project-intro-section">
+                {# Left column: Project description #}
+                <div class="project-description-column">
+                    {{ content | safe }}
                 </div>
+                
+                {# Right column: First two gallery images stacked vertically #}
+                <div class="project-intro-images">
+                    {% for i in range(0, 2) %}
+                        {% if images[i] and images[i].src != displayImage %}
+                            <div class="intro-image-item">
+                                {# Determine alt text #}
+                                {% set altText = title %}
+                                {% if images[i].title %}
+                                  {% set altText = images[i].title %}
+                                {% endif %}
+                                {% if images[i].alt %}
+                                  {% set altText = images[i].alt %}
+                                {% endif %}
+                                
+                                <img src="{{ images[i].src | url }}" alt="{{ altText }}" loading="lazy">
+                                
+                                {# Image caption #}
+                                {% set imageTitle = images[i].title %}
+                                {% set imageYear = '' %}
+                                {% if images[i].date %}
+                                  {% set imageYear = images[i].date | date('YYYY') %}
+                                {% elif images[i].year %}
+                                  {% set imageYear = images[i].year %}
+                                {% endif %}
+                                {% set imageDescription = images[i].description %}
+                                {% set imageAuthor = images[i].author %}
+                                {% set projectSlug = page.fileSlug %}
+                                {% set imageIndex = i %}
+                                
+                                {% include "single-project-image-caption.njk" %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            {# Fallback: No images or only one image - show description full-width #}
+            <div class="project-content">
+                {{ content | safe }}
             </div>
         {% endif %}
 
-        {# Project Description - Main content area #}
-        <div class="project-content">
-            {{ content | safe }}
-        </div>
-
-        {# Project Images - Gallery from front matter #}
-        {% if images %}
-            <div class="project-gallery">
-                {% for image in images %}
-                    {# Skip the image if it's being used as the featured image #}
-                    {% if image.src != displayImage %}
-                        <div class="gallery-item">
-                            {# Determine alt text: use image alt, or fallback to image title, or fallback to project title #}
+        {# Third image - Full width (if exists and not used as featured) #}
+        {% if images and images.length > 2 %}
+            {% set thirdImageIndex = 2 %}
+            {# Find the actual 3rd image that's not the featured image #}
+            {% set imageCounter = 0 %}
+            {% for img in images %}
+                {% if img.src != displayImage %}
+                    {% if imageCounter == 2 %}
+                        <div class="project-full-width-image">
+                            {# Determine alt text #}
                             {% set altText = title %}
-                            {% if image.title %}
-                              {% set altText = image.title %}
+                            {% if img.title %}
+                              {% set altText = img.title %}
                             {% endif %}
-                            {% if image.alt %}
-                              {% set altText = image.alt %}
+                            {% if img.alt %}
+                              {% set altText = img.alt %}
                             {% endif %}
                             
-                            <img src="{{ image.src | url }}" alt="{{ altText }}" loading="lazy">
+                            <img src="{{ img.src | url }}" alt="{{ altText }}" loading="lazy">
                             
-                            {# Use single-project-image-caption template with image-specific title/year #}
-                            {% set imageTitle = image.title %}
+                            {# Image caption #}
+                            {% set imageTitle = img.title %}
                             {% set imageYear = '' %}
-                            {% if image.date %}
-                              {% set imageYear = image.date | date('YYYY') %}
-                            {% elif image.year %}
-                              {% set imageYear = image.year %}
+                            {% if img.date %}
+                              {% set imageYear = img.date | date('YYYY') %}
+                            {% elif img.year %}
+                              {% set imageYear = img.year %}
                             {% endif %}
-                            {% set imageDescription = image.description %}
-                            {% set imageAuthor = image.author %}
+                            {% set imageDescription = img.description %}
+                            {% set imageAuthor = img.author %}
                             {% set projectSlug = page.fileSlug %}
                             {% set imageIndex = loop.index0 %}
                             
                             {% include "single-project-image-caption.njk" %}
                         </div>
+                    {% endif %}
+                    {% set imageCounter = imageCounter + 1 %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {# Remaining images - Rows of 2-3 images, top-aligned #}
+        {% if images and images.length > 3 %}
+            <div class="project-gallery-rows">
+                {% set imageCounter = 0 %}
+                {% for img in images %}
+                    {% if img.src != displayImage %}
+                        {% if imageCounter >= 3 %}
+                            <div class="gallery-row-item">
+                                {# Determine alt text #}
+                                {% set altText = title %}
+                                {% if img.title %}
+                                  {% set altText = img.title %}
+                                {% endif %}
+                                {% if img.alt %}
+                                  {% set altText = img.alt %}
+                                {% endif %}
+                                
+                                <img src="{{ img.src | url }}" alt="{{ altText }}" loading="lazy">
+                                
+                                {# Image caption #}
+                                {% set imageTitle = img.title %}
+                                {% set imageYear = '' %}
+                                {% if img.date %}
+                                  {% set imageYear = img.date | date('YYYY') %}
+                                {% elif img.year %}
+                                  {% set imageYear = img.year %}
+                                {% endif %}
+                                {% set imageDescription = img.description %}
+                                {% set imageAuthor = img.author %}
+                                {% set projectSlug = page.fileSlug %}
+                                {% set imageIndex = loop.index0 %}
+                                
+                                {% include "single-project-image-caption.njk" %}
+                            </div>
+                        {% endif %}
+                        {% set imageCounter = imageCounter + 1 %}
                     {% endif %}
                 {% endfor %}
             </div>
@@ -100,9 +171,9 @@ layout: sidebar-layout.njk
 
         {# Media Gallery - Additional project images if available (legacy) #}
         {% if mediaGallery %}
-            <div class="project-gallery">
+            <div class="project-gallery-rows">
                 {% for media in mediaGallery %}
-                    <div class="gallery-item">
+                    <div class="gallery-row-item">
                         <img src="{{ media.url | url }}" alt="{{ media.caption or '' }}" loading="lazy">
                         {% if media.caption %}
                             <p class="gallery-caption">{{ media.caption }}</p>

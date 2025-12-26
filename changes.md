@@ -33,13 +33,18 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
 
 #### Custom Project Page Layout
 - **File Created:** `src/_user/layouts/project.njk`
+- **File Modified:** `src/_user/layouts/post.njk`
 - **Changes:** Dedicated layout for individual project pages featuring:
-  - Clean project header with title and metadata
-  - Featured image display
-  - Project description area
-  - Media gallery grid for additional project images
-  - "Back to Projects" navigation link
-- **Purpose:** Showcase individual artworks with a focused, gallery-style presentation
+  - **Title:** Large, prominent project title at the top
+  - **Featured/Hero Image:** Full-width primary project image
+  - **Two-Column Intro Section:**
+    - Left column: Project description and content (text)
+    - Right column: First two gallery images stacked vertically
+  - **Third Image:** Full-width display (if available)
+  - **Remaining Images:** Grid layout in rows of 2-3 images, top-aligned
+  - **Responsive:** Stacks into single column on mobile devices
+- **Purpose:** Showcase individual artworks following the design specified in `project_docs/design_screenshots/project.png`
+- **Impact:** Creates a focused, gallery-style presentation that emphasizes both the artwork and its description, with a clear visual hierarchy from hero image through supporting images
 
 #### Layout Overrides for Sidebar Consistency
 - **Files Created:** 
@@ -87,6 +92,13 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
     - Title left-aligned, year right-aligned on same line
     - Responsive font sizing for mobile devices
     - Applied consistently across homepage, collection pages, and single project pages
+  - **Project Page Layout Styling:**
+    - Two-column intro section: Description (left) + First 2 images (right, stacked)
+    - CSS Grid layout with equal columns (1fr 1fr) and 3rem gap
+    - Full-width third image section with consistent padding
+    - Gallery rows for remaining images: `repeat(auto-fit, minmax(280px, 1fr))`
+    - Top-aligned images in gallery rows using `align-items: start`
+    - Responsive mobile layout: Stacks all columns vertically below 768px
   - **Responsive Design:**
     - Mobile breakpoint at 768px
     - Sidebar converts to relative positioning on mobile

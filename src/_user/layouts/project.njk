@@ -9,8 +9,10 @@ layout: sidebar-layout.njk
   
   Design features:
   - Large, prominent title at the top
-  - Full-width hero image as the focal point
-  - Compact metadata section below the image (title, description, author, year)
+  - Full-width featured image as the focal point
+  - Two-column layout: description (left) + first two images (right, stacked)
+  - Third image: full-width
+  - Remaining images: rows of 2-3 images, full-width rows, top-aligned
   - Clean, minimal layout focusing on the artwork
 #}
 
@@ -33,40 +35,50 @@ layout: sidebar-layout.njk
         <div class="project-hero-image">
             <img src="{{ displayImage | url }}" alt="{{ featuredImageAlt or title }}" loading="eager">
         </div>
-    
-        {# Metadata Section - Compact info below the image #}
-        <div class="project-metadata">
-            <div class="metadata-row">
-                <div class="metadata-left">
-                    <div class="metadata-label">Title</div>
-                    <div class="metadata-label">Description</div>
-                    {% if author %}
-                        <div class="metadata-label">Author</div>
-                    {% endif %}
-                </div>
-                <div class="metadata-right">
-                    {% if date %}
-                        <div class="metadata-year">{{ date | date('YYYY') }}</div>
-                    {% endif %}
-                </div>
+    {% endif %}
+
+    {# Two-column layout: Description (left) + First two gallery images (right) #}
+    {% if images and images.length > 1 %}
+        <div class="project-intro-section">
+            {# Left column: Project description #}
+            <div class="project-description-column">
+                {{ content | safe }}
             </div>
+            
+            {# Right column: First two gallery images stacked vertically #}
+            <div class="project-intro-images">
+                {% for i in range(0, 2) %}
+                    {% if images[i] %}
+                        <div class="intro-image-item">
+                            <img src="{{ images[i].src | url }}" alt="{{ images[i].alt or title }}" loading="lazy">
+                            {% include "project-image-caption.njk" %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        {# Fallback: No images or only one image - show description full-width #}
+        <div class="project-content">
+            {{ content | safe }}
         </div>
     {% endif %}
 
-    {# Project Description - Main content area #}
-    <div class="project-content">
-        {{ content | safe }}
-    </div>
+    {# Third image - Full width (if exists) #}
+    {% if images and images.length > 2 %}
+        <div class="project-full-width-image">
+            <img src="{{ images[2].src | url }}" alt="{{ images[2].alt or title }}" loading="lazy">
+            {% include "project-image-caption.njk" %}
+        </div>
+    {% endif %}
 
-    {# Media Gallery - Additional project images if available #}
-    {% if mediaGallery %}
-        <div class="project-gallery">
-            {% for media in mediaGallery %}
-                <div class="gallery-item">
-                    <img src="{{ media.url | url }}" alt="{{ media.caption or '' }}" loading="lazy">
-                    {% if media.caption %}
-                        <p class="gallery-caption">{{ media.caption }}</p>
-                    {% endif %}
+    {# Remaining images - Rows of 2-3 images, top-aligned #}
+    {% if images and images.length > 3 %}
+        <div class="project-gallery-rows">
+            {% for i in range(3, images.length) %}
+                <div class="gallery-row-item">
+                    <img src="{{ images[i].src | url }}" alt="{{ images[i].alt or title }}" loading="lazy">
+                    {% include "project-image-caption.njk" %}
                 </div>
             {% endfor %}
         </div>
