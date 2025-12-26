@@ -1224,12 +1224,17 @@ h6 {
    PROJECT PAGE LAYOUT
    Based on design in project_docs/design_screenshots/project.png
    
+   Layout structure:
+   1. Title (large, prominent)
+   2. Featured/hero image (full-width)
+   3. Two-column section: Description (left) + First 2 images (right, stacked)
+   4. Third image (full-width)
+   5. Remaining images (rows of 2-3 images, top-aligned, full-width rows)
+   
    Design features:
-   - Large, prominent title centered or left-aligned
-   - Full-width hero image as visual focal point
-   - Compact metadata section below image
    - Clean, minimal layout emphasizing the artwork
    - Corner decorative image matching homepage design
+   - Grid-based responsive layout
    ============================================ */
 
 .project-page {
@@ -1240,7 +1245,6 @@ h6 {
     background-repeat: no-repeat;
     background-position: right top;
     background-size: auto;
-    /* Keep original size */
     position: relative;
 }
 
@@ -1262,7 +1266,7 @@ h6 {
 /* Hero Image - Full-width, prominent display */
 .project-hero-image {
     width: 100%;
-    margin: 0;
+    margin: 0 0 3rem 0;
     padding: 0 4rem;
 }
 
@@ -1273,39 +1277,84 @@ h6 {
     object-fit: cover;
 }
 
-/* Metadata Section - Compact info below the image */
-.project-metadata {
-    padding: 2rem 4rem;
-    font-size: 0.875rem;
-    color: #666;
+/* Two-column intro section: Description (left) + First 2 images (right) */
+.project-intro-section {
+    padding: 0 4rem 3rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
 }
 
-.metadata-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+/* Left column: Project description text */
+.project-description-column {
+    line-height: 1.6;
+    color: #333;
 }
 
-.metadata-left {
-    flex: 1;
+.project-description-column p {
+    margin-bottom: 1rem;
 }
 
-.metadata-label {
+.project-description-column ul,
+.project-description-column ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.project-description-column li {
     margin-bottom: 0.5rem;
-    text-transform: capitalize;
-    font-size: 0.85rem;
 }
 
-.metadata-right {
-    text-align: right;
+/* Right column: First two images stacked vertically */
+.project-intro-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
 
-.metadata-year {
-    font-size: 0.85rem;
-    color: #000;
+.intro-image-item {
+    width: 100%;
 }
 
-/* Project Content - Description and additional content */
+.intro-image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Third image - Full width */
+.project-full-width-image {
+    padding: 0 4rem 3rem 4rem;
+    width: 100%;
+}
+
+.project-full-width-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Remaining images - Rows of 2-3 images, top-aligned */
+.project-gallery-rows {
+    padding: 0 4rem 4rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    align-items: start; /* Top-align images */
+}
+
+.gallery-row-item {
+    width: 100%;
+}
+
+.gallery-row-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fallback: Full-width content when no images or single image */
 .project-content {
     padding: 1rem 4rem 3rem 4rem;
     max-width: 900px;
@@ -1315,32 +1364,6 @@ h6 {
 
 .project-content p {
     margin-bottom: 1rem;
-}
-
-/* Media Gallery - Additional project images */
-.project-gallery {
-    padding: 2rem 4rem 4rem 4rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.gallery-item {
-    width: 100%;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-}
-
-.gallery-caption {
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-    color: #666;
-    font-style: italic;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -1355,20 +1378,28 @@ h6 {
 
     .project-hero-image {
         padding: 0 2rem;
+        margin-bottom: 2rem;
     }
 
-    .project-metadata {
-        padding: 1.5rem 2rem;
+    /* Stack columns on mobile */
+    .project-intro-section {
+        padding: 0 2rem 2rem 2rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .project-full-width-image {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+    .project-gallery-rows {
+        padding: 0 2rem 3rem 2rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .project-content {
         padding: 1rem 2rem 2rem 2rem;
-    }
-
-    .project-gallery {
-        padding: 1.5rem 2rem 3rem 2rem;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 }
 
@@ -1695,3 +1726,98 @@ h6 {
         margin-top: 0;
     }
 }
+
+/* ============================================
+   PROJECT IMAGE CAPTIONS
+   Used under all project images on homepage, collections, and single project pages
+   ============================================ */
+
+/* 
+  Caption structure:
+  - Top line: Title (left) and Year (right) 
+  - Middle line: Description (left-aligned, optional)
+  - Bottom line: Author (left-aligned, optional)
+*/
+
+.project-image-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    /* Small gap between lines */
+    margin-top: 0.5rem;
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+    color: var(--theme-colors-text, #000000);
+}
+
+/* Top line: Title (left) and Year (right) in a flex container */
+.caption-title-year {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    /* Space between title and year */
+}
+
+.caption-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--theme-colors-text, #000000);
+    text-align: left;
+    flex: 1;
+    /* Allow title to take available space */
+}
+
+.caption-year {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--theme-colors-text, #000000);
+    text-align: right;
+    white-space: nowrap;
+    /* Prevent year from wrapping */
+}
+
+/* Description line (optional) */
+.caption-description {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--theme-colors-text, #000000);
+    text-align: left;
+}
+
+/* Author line (optional) */
+.caption-author {
+    font-size: 0.875rem;
+    color: var(--theme-colors-text-light, #666666);
+    font-style: italic;
+    text-align: left;
+}
+
+/* Ensure captions work well in featured projects section */
+.featured-project-item .project-image-caption {
+    margin-top: 0.75rem;
+}
+
+/* Ensure captions work well in collection grids */
+.post-card .project-image-caption {
+    padding: 0 0.5rem;
+    /* Add small horizontal padding in cards */
+}
+
+/* Ensure captions work well in project gallery */
+.project-gallery .gallery-item .project-image-caption {
+    margin-top: 0.75rem;
+}
+
+/* Responsive adjustments for captions */
+@media (max-width: 768px) {
+    .caption-title,
+    .caption-year {
+        font-size: 0.875rem;
+    }
+
+    .caption-description,
+    .caption-author {
+        font-size: 0.8125rem;
+    }
+}
+
