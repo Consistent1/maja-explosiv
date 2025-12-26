@@ -57,10 +57,31 @@ layout: sidebar-layout.njk
             <div class="project-gallery">
                 {% for image in images %}
                     <div class="gallery-item">
-                        <img src="{{ image.src | url }}" alt="{{ image.alt or title }}" loading="lazy">
-                        {% if image.caption %}
-                            <p class="gallery-caption">{{ image.caption }}</p>
+                        {# Determine alt text: use image alt, or fallback to image title, or fallback to project title #}
+                        {% set altText = title %}
+                        {% if image.title %}
+                          {% set altText = image.title %}
                         {% endif %}
+                        {% if image.alt %}
+                          {% set altText = image.alt %}
+                        {% endif %}
+                        
+                        <img src="{{ image.src | url }}" alt="{{ altText }}" loading="lazy">
+                        
+                        {# Use single-project-image-caption template with image-specific title/year #}
+                        {% set imageTitle = image.title %}
+                        {% set imageYear = '' %}
+                        {% if image.date %}
+                          {% set imageYear = image.date | date('YYYY') %}
+                        {% elif image.year %}
+                          {% set imageYear = image.year %}
+                        {% endif %}
+                        {% set imageDescription = image.description %}
+                        {% set imageAuthor = image.author %}
+                        {% set projectSlug = page.fileSlug %}
+                        {% set imageIndex = loop.index0 %}
+                        
+                        {% include "single-project-image-caption.njk" %}
                     </div>
                 {% endfor %}
             </div>

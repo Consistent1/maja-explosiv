@@ -56,9 +56,9 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
 #### Main CSS File
 - **File:** `src/_user/assets/css/custom.css`
 - **Major Changes:**
-  - **Box Model Reset:** Added `box-sizing: border-box `globally to fix layout issues
+  - **Box Model Reset:** Added `box-sizing: border-box` globally to fix layout issues
   - **Fixed Sidebar Styling:**
-    - Position: fixed, 250px width,100vh height
+    - Position: fixed, 250px width, 100vh height
     - `overflow: hidden !important` to prevent scrollbars
     - Compact spacing (reduced padding, margins, font sizes) to fit content
     - Flexbox layout with `justify-content: space-between` for vertical distribution
@@ -81,6 +81,12 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
     - Overlay with gradient background for project titles
     - Box shadow and transform effects on hover
     - Error display styling for build-time validation messages
+  - **Project Image Captions:**
+    - Standardized caption component for all project images
+    - Three-line layout: Title/Year (top), Description (middle, optional), Author (bottom, optional)
+    - Title left-aligned, year right-aligned on same line
+    - Responsive font sizing for mobile devices
+    - Applied consistently across homepage, collection pages, and single project pages
   - **Responsive Design:**
     - Mobile breakpoint at 768px
     - Sidebar converts to relative positioning on mobile
@@ -155,7 +161,82 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
   - Displays red error boxes with specific details during development
   - Logs errors to console for debugging
 
-### 6. Tab Navigation System
+### 6. Project Image Caption System
+
+#### Overview
+A standardized caption system displays metadata beneath all project images across the site. The system uses reusable Nunjucks templates with consistent styling to show title, year, description, and author information.
+
+#### Implementation Files
+- **Templates:**
+  - `src/_user/includes/project-image-caption.njk` - For homepage and collection pages
+  - `src/_user/includes/single-project-image-caption.njk` - For individual project pages
+- **Styling:** `src/_user/assets/css/custom.css` (Project Image Captions section)
+- **Integration:** Applied in:
+  - `src/_user/includes/featured-projects.njk` - Featured projects on homepage
+  - `src/_user/layouts/home.njk` - Projects tab section
+  - `src/_user/layouts/collection.njk` - Collection listing pages
+  - `src/_user/layouts/post.njk` - Individual project gallery images
+
+#### Caption Structure
+Each caption displays up to three lines of information:
+1. **Top line:** Title (left-aligned) and Year (right-aligned) - both required
+2. **Middle line:** Description (left-aligned) - optional
+3. **Bottom line:** Author (left-aligned, italicized) - optional
+
+#### Data Source Logic
+
+**Homepage and Collection Pages:**
+- **Title:** From project's `title` field
+- **Year:** Extracted from project's `date` field (YYYY format)
+- **Description:** From image's `description` field (if available in images array)
+- **Author:** From image's `author` field (if available in images array)
+
+**Single Project Pages:**
+- **Title:** From individual image's `title` field
+- **Year:** From image's `date` or `year` field
+- **Description:** From image's `description` field
+- **Author:** From image's `author` field
+
+#### Image Metadata Schema
+Each image in a project's `images` array should include:
+```yaml
+images:
+  - src: /path/to/image.jpg
+    title: "Image Title"        # Required
+    date: 2023-08-01            # Required (or use year: 2023)
+    year: 2023                  # Alternative to date
+    description: "Description"  # Optional
+    author: "Author Name"       # Optional
+    alt: "Alt text"             # Optional (defaults to title)
+```
+
+#### Alt Text Fallback Logic
+If `alt` is not provided for an image:
+- On homepage/collections: Falls back to project title
+- On single project pages: Falls back to image title
+
+#### Error Handling
+- **Missing required fields (title/year):** Logged to build console with context (project slug, image index, location)
+- **Build behavior:** Continues without failing; omits missing information from display
+- **Error message format:** `"ERROR: Missing [field] for [context] in project '[slug]' (image #[index])"`
+
+#### CSS Styling Details
+- **Font sizes:** 0.95rem for title/year, 0.875rem for description/author
+- **Layout:** Flexbox with `justify-content: space-between` for title/year alignment
+- **Spacing:** 0.25rem gap between caption lines, 0.5-0.75rem margin above caption
+- **Colors:** 
+  - Title/year: Primary text color (#000000)
+  - Description: Primary text color
+  - Author: Lighter text color (#666666), italicized
+- **Responsive:** Font sizes reduce slightly on mobile (<768px)
+
+#### Grayscale Effect Compatibility
+The caption system preserves the grayscale-to-color hover effect on featured project images:
+- Images use `filter: grayscale(100%)` by default
+- On hover: `filter: grayscale(0%)`
+- Captions remain outside the hover effect scope
+
+### 7. Tab Navigation System
 
 #### Tab Bar Structure
 The homepage features two tabbed sections (Projects and About) with interactive tab bars (tablists):

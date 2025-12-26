@@ -66,12 +66,46 @@ layout: sidebar-layout.njk
                                         <div class="posts-grid">
                                             {% for post in collections[category] %}
                                                 <article class="post-card" data-year="{{ post.data.date | date('YYYY') if post.data.date else '' }}" data-medium="{{ post.data.medium or '' }}" data-excerpt="{{ (post.data.description or (post.templateContent | excerpt(120))) | safe }}">
-                                                    {% if post.data.featuredImage %}
+                                                    {# Determine which image to display: featuredImage or first image from images array #}
+                                                    {% set displayImage = post.data.featuredImage %}
+                                                    {% if not displayImage and post.data.images and post.data.images.length > 0 %}
+                                                        {% set displayImage = post.data.images[0].src %}
+                                                    {% endif %}
+                                                    
+                                                    {% if displayImage %}
                                                         <div class="post-card-image">
                                                             <a href="{{ post.url | url }}">
-                                                                <img src="{{ post.data.featuredImage | url }}" data-src="{{ post.data.featuredImage | url }}" alt="{{ post.data.featuredImageAlt or post.data.title }}" loading="lazy">
+                                                                {# Determine image metadata for caption #}
+                                                                {% set imageData = null %}
+                                                                {% if post.data.images and post.data.images.length > 0 %}
+                                                                  {# Find the image data matching the display image #}
+                                                                  {% for img in post.data.images %}
+                                                                    {% if img.src == displayImage %}
+                                                                      {% set imageData = img %}
+                                                                    {% endif %}
+                                                                  {% endfor %}
+                                                                {% endif %}
+                                                                
+                                                                {# Determine alt text: use image alt, or fallback to post title #}
+                                                                {% set altText = post.data.title %}
+                                                                {% if imageData and imageData.alt %}
+                                                                  {% set altText = imageData.alt %}
+                                                                {% elif post.data.featuredImageAlt %}
+                                                                  {% set altText = post.data.featuredImageAlt %}
+                                                                {% endif %}
+                                                                
+                                                                <img src="{{ displayImage | url }}" data-src="{{ displayImage | url }}" alt="{{ altText }}" loading="lazy">
                                                             </a>
                                                         </div>
+                                                        
+                                                        {# Use project-image-caption template with project title/year and image description/author #}
+                                                        {% set projectTitle = post.data.title %}
+                                                        {% set projectYear = post.data.date | date('YYYY') if post.data.date else '' %}
+                                                        {% set imageDescription = imageData.description if imageData else '' %}
+                                                        {% set imageAuthor = imageData.author if imageData else '' %}
+                                                        {% set projectSlug = post.fileSlug %}
+                                                        {% set context = "projects-tab-" + category %}
+                                                        {% include "project-image-caption.njk" %}
                                                     {% endif %}
                                                     <div class="post-card-content">
                                                         <h3 class="post-card-title">

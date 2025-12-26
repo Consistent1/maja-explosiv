@@ -1,0 +1,53 @@
+{#
+  Project Image Caption Template
+  
+  Used for images on homepage and collection pages.
+  Displays title and year from the PROJECT, description and author from the IMAGE.
+  
+  Required params:
+  - projectTitle: The title of the project (string)
+  - projectYear: The year of the project (string or number)
+  
+  Optional params:
+  - imageDescription: Description of the specific image (string)
+  - imageAuthor: Author/photographer of the image (string)
+  - projectSlug: For error reporting (string)
+  - imageIndex: For error reporting (number)
+  - context: Where this is being used, for error reporting (string, e.g. "featured-projects", "collection")
+#}
+
+{# Validate required parameters and log errors if missing (console only, not displayed) #}
+{% if not projectTitle %}
+  {% set errorMsg = "ERROR: Missing project title for image caption" %}
+  {% if projectSlug %}{% set errorMsg = errorMsg + " in project '" + projectSlug + "'" %}{% endif %}
+  {% if context %}{% set errorMsg = errorMsg + " (" + context + ")" %}{% endif %}
+  {% set _ = errorMsg | log %}
+{% endif %}
+
+{% if not projectYear %}
+  {% set errorMsg = "ERROR: Missing project year for image caption" %}
+  {% if projectSlug %}{% set errorMsg = errorMsg + " in project '" + projectSlug + "'" %}{% endif %}
+  {% if context %}{% set errorMsg = errorMsg + " (" + context + ")" %}{% endif %}
+  {% set _ = errorMsg | log %}
+{% endif %}
+
+{# Render caption - only show lines with available data #}
+<div class="project-image-caption">
+  {# Top line: Title (left) and Year (right) - only shown if no description #}
+  {% if (projectTitle or projectYear) and not imageDescription %}
+  <div class="caption-title-year">
+    {% if projectTitle %}<span class="caption-title">{{ projectTitle }}</span>{% endif %}
+    {% if projectYear %}<span class="caption-year">{{ projectYear }}</span>{% endif %}
+  </div>
+  {% endif %}
+  
+  {# Description line (left-aligned) #}
+  {% if imageDescription %}
+  <div class="caption-description">{{ imageDescription }}</div>
+  {% endif %}
+  
+  {# Bottom line: Author (left-aligned) #}
+  {% if imageAuthor %}
+  <div class="caption-author">{{ imageAuthor }}</div>
+  {% endif %}
+</div>

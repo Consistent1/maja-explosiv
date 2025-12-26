@@ -1,0 +1,52 @@
+{#
+  Single Project Image Caption Template
+  
+  Used for images on individual project pages.
+  Displays title and year from the IMAGE itself, plus description and author.
+  
+  Required params:
+  - imageTitle: The title of this specific image (string)
+  - imageYear: The year this image was taken/created (string or number)
+  
+  Optional params:
+  - imageDescription: Description of the image (string)
+  - imageAuthor: Author/photographer of the image (string)
+  - projectSlug: For error reporting (string)
+  - imageIndex: For error reporting (number)
+#}
+
+{# Validate required parameters and log errors if missing (console only, not displayed) #}
+{% if not imageTitle %}
+  {% set errorMsg = "ERROR: Missing image title for caption" %}
+  {% if projectSlug %}{% set errorMsg = errorMsg + " in project '" + projectSlug + "'" %}{% endif %}
+  {% if imageIndex is defined %}{% set errorMsg = errorMsg + " (image #" + (imageIndex + 1) + ")" %}{% endif %}
+  {% set _ = errorMsg | log %}
+{% endif %}
+
+{% if not imageYear %}
+  {% set errorMsg = "ERROR: Missing image year for caption" %}
+  {% if projectSlug %}{% set errorMsg = errorMsg + " in project '" + projectSlug + "'" %}{% endif %}
+  {% if imageIndex is defined %}{% set errorMsg = errorMsg + " (image #" + (imageIndex + 1) + ")" %}{% endif %}
+  {% set _ = errorMsg | log %}
+{% endif %}
+
+{# Render caption - only show lines with available data #}
+<div class="project-image-caption">
+  {# Top line: Title (left) and Year (right) - only shown if no description #}
+  {% if (imageTitle or imageYear) and not imageDescription %}
+  <div class="caption-title-year">
+    {% if imageTitle %}<span class="caption-title">{{ imageTitle }}</span>{% endif %}
+    {% if imageYear %}<span class="caption-year">{{ imageYear }}</span>{% endif %}
+  </div>
+  {% endif %}
+  
+  {# Description line (left-aligned) #}
+  {% if imageDescription %}
+  <div class="caption-description">{{ imageDescription }}</div>
+  {% endif %}
+  
+  {# Bottom line: Author (left-aligned) #}
+  {% if imageAuthor %}
+  <div class="caption-author">{{ imageAuthor }}</div>
+  {% endif %}
+</div>

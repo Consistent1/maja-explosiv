@@ -63,38 +63,49 @@
               <div class="featured-project-item">
                 <a href="{{ project.post.url | url }}" class="featured-project-link">
                   <div class="featured-project-image-wrapper">
+                    {# Determine image-specific metadata from featuredProjects.json or image array #}
+                    {% set imageData = null %}
+                    {% if project.post.data.images and project.post.data.images.length > 0 %}
+                      {# Find the matching image data if using images array #}
+                      {% for img in project.post.data.images %}
+                        {% if img.src == project.image %}
+                          {% set imageData = img %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                    
+                    {# Determine alt text: use image alt, or fallback to project title #}
+                    {% set altText = project.post.data.title %}
+                    {% if imageData and imageData.alt %}
+                      {% set altText = imageData.alt %}
+                    {% endif %}
+                    
                     <img 
                       src="{{ project.image | url }}" 
-                      alt="{{ project.post.data.title }}"
+                      alt="{{ altText }}"
                       class="featured-project-image"
                       loading="lazy"
                     >
                   </div>
                 </a>
-                <div class="featured-project-info">
-                  <h3 class="featured-project-title">
-                    <a href="{{ project.post.url | url }}">{{ project.post.data.title }}</a>
-                  </h3>
-                  {% if project.post.data.description %}
-                    <p class="featured-project-description">{{ project.post.data.description }}</p>
-                  {% endif %}
-                  {% if project.post.data.author and project.post.data.author.name %}
-                    <p class="featured-project-author">{{ project.post.data.author.name }}</p>
-                  {% endif %}
-                </div>
+                
+                {# Use project-image-caption template with project title/year and image description/author #}
+                {% set projectTitle = project.post.data.title %}
+                {% set projectYear = project.post.data.date | date('YYYY') if project.post.data.date else '' %}
+                {% set imageDescription = imageData.description if imageData else '' %}
+                {% set imageAuthor = imageData.author if imageData else '' %}
+                {% set projectSlug = project.item.slug %}
+                {% set context = "featured-projects" %}
+                {% include "project-image-caption.njk" %}
               </div>
             {% else %}
-              <div class="featured-project-error" style="background: #ff0000; color: white; padding: 20px; border: 3px solid darkred;">
-                <strong>BUILD ERROR:</strong> {{ project.error }}
-              </div>
-              {{ project.error | log }}
+              {# Log error to console but don't display on page #}
+              {% set _ = project.error | log %}
             {% endif %}
           {% else %}
+            {# Log error to console but don't display on page #}
             {% set notFoundError = "ERROR: Featured project '" + project.item.slug + "' not found in any collection. Please check the slug in featuredProjects.json matches the project path (e.g., 'sculptures/project-name')" %}
-            <div class="featured-project-error" style="background: #ff0000; color: white; padding: 20px; border: 3px solid darkred;">
-              <strong>BUILD ERROR:</strong> {{ notFoundError }}
-            </div>
-            {{ notFoundError | log }}
+            {% set _ = notFoundError | log %}
           {% endif %}
         {% endfor %}
       </div>
@@ -107,38 +118,49 @@
               <div class="featured-project-item">
                 <a href="{{ project.post.url | url }}" class="featured-project-link">
                   <div class="featured-project-image-wrapper">
+                    {# Determine image-specific metadata from featuredProjects.json or image array #}
+                    {% set imageData = null %}
+                    {% if project.post.data.images and project.post.data.images.length > 0 %}
+                      {# Find the matching image data if using images array #}
+                      {% for img in project.post.data.images %}
+                        {% if img.src == project.image %}
+                          {% set imageData = img %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                    
+                    {# Determine alt text: use image alt, or fallback to project title #}
+                    {% set altText = project.post.data.title %}
+                    {% if imageData and imageData.alt %}
+                      {% set altText = imageData.alt %}
+                    {% endif %}
+                    
                     <img 
                       src="{{ project.image | url }}" 
-                      alt="{{ project.post.data.title }}"
+                      alt="{{ altText }}"
                       class="featured-project-image"
                       loading="lazy"
                     >
                   </div>
                 </a>
-                <div class="featured-project-info">
-                  <h3 class="featured-project-title">
-                    <a href="{{ project.post.url | url }}">{{ project.post.data.title }}</a>
-                  </h3>
-                  {% if project.post.data.description %}
-                    <p class="featured-project-description">{{ project.post.data.description }}</p>
-                  {% endif %}
-                  {% if project.post.data.author and project.post.data.author.name %}
-                    <p class="featured-project-author">{{ project.post.data.author.name }}</p>
-                  {% endif %}
-                </div>
+                
+                {# Use project-image-caption template with project title/year and image description/author #}
+                {% set projectTitle = project.post.data.title %}
+                {% set projectYear = project.post.data.date | date('YYYY') if project.post.data.date else '' %}
+                {% set imageDescription = imageData.description if imageData else '' %}
+                {% set imageAuthor = imageData.author if imageData else '' %}
+                {% set projectSlug = project.item.slug %}
+                {% set context = "featured-projects" %}
+                {% include "project-image-caption.njk" %}
               </div>
             {% else %}
-              <div class="featured-project-error" style="background: #ff0000; color: white; padding: 20px; border: 3px solid darkred;">
-                <strong>BUILD ERROR:</strong> {{ project.error }}
-              </div>
-              {{ project.error | log }}
+              {# Log error to console but don't display on page #}
+              {% set _ = project.error | log %}
             {% endif %}
           {% else %}
+            {# Log error to console but don't display on page #}
             {% set notFoundError = "ERROR: Featured project '" + project.item.slug + "' not found in any collection. Please check the slug in featuredProjects.json matches the project path (e.g., 'sculptures/project-name')" %}
-            <div class="featured-project-error" style="background: #ff0000; color: white; padding: 20px; border: 3px solid darkred;">
-              <strong>BUILD ERROR:</strong> {{ notFoundError }}
-            </div>
-            {{ notFoundError | log }}
+            {% set _ = notFoundError | log %}
           {% endif %}
         {% endfor %}
       </div>

@@ -1695,3 +1695,98 @@ h6 {
         margin-top: 0;
     }
 }
+
+/* ============================================
+   PROJECT IMAGE CAPTIONS
+   Used under all project images on homepage, collections, and single project pages
+   ============================================ */
+
+/* 
+  Caption structure:
+  - Top line: Title (left) and Year (right) 
+  - Middle line: Description (left-aligned, optional)
+  - Bottom line: Author (left-aligned, optional)
+*/
+
+.project-image-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    /* Small gap between lines */
+    margin-top: 0.5rem;
+    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+    color: var(--theme-colors-text, #000000);
+}
+
+/* Top line: Title (left) and Year (right) in a flex container */
+.caption-title-year {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    /* Space between title and year */
+}
+
+.caption-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--theme-colors-text, #000000);
+    text-align: left;
+    flex: 1;
+    /* Allow title to take available space */
+}
+
+.caption-year {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--theme-colors-text, #000000);
+    text-align: right;
+    white-space: nowrap;
+    /* Prevent year from wrapping */
+}
+
+/* Description line (optional) */
+.caption-description {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--theme-colors-text, #000000);
+    text-align: left;
+}
+
+/* Author line (optional) */
+.caption-author {
+    font-size: 0.875rem;
+    color: var(--theme-colors-text-light, #666666);
+    font-style: italic;
+    text-align: left;
+}
+
+/* Ensure captions work well in featured projects section */
+.featured-project-item .project-image-caption {
+    margin-top: 0.75rem;
+}
+
+/* Ensure captions work well in collection grids */
+.post-card .project-image-caption {
+    padding: 0 0.5rem;
+    /* Add small horizontal padding in cards */
+}
+
+/* Ensure captions work well in project gallery */
+.project-gallery .gallery-item .project-image-caption {
+    margin-top: 0.75rem;
+}
+
+/* Responsive adjustments for captions */
+@media (max-width: 768px) {
+    .caption-title,
+    .caption-year {
+        font-size: 0.875rem;
+    }
+
+    .caption-description,
+    .caption-author {
+        font-size: 0.8125rem;
+    }
+}
+
