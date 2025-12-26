@@ -236,7 +236,73 @@ The caption system preserves the grayscale-to-color hover effect on featured pro
 - On hover: `filter: grayscale(0%)`
 - Captions remain outside the hover effect scope
 
-### 7. Tab Navigation System
+### 7. Featured Image Fallback System
+
+#### Overview
+Project pages automatically display a featured image at the top of the page. If no explicit `featuredImage` is defined in the project's front matter, the system automatically uses the first image from the `images` array as the featured image.
+
+#### Implementation
+- **Files Modified:**
+  - `src/_user/layouts/post.njk` - For project posts (primary)
+  - `src/_user/layouts/project.njk` - For dedicated project template
+  - `src/_user/layouts/collection.njk` - For project cards in collection listings
+  - `src/_user/layouts/home.njk` - Already had this logic implemented
+
+#### Fallback Logic
+```nunjucks
+{% set displayImage = featuredImage %}
+{% if not displayImage and images and images.length > 0 %}
+    {% set displayImage = images[0].src %}
+{% endif %}
+```
+
+#### Duplicate Prevention
+To prevent the featured image from appearing twice (once as hero and again in the gallery), the gallery loop skips any image that matches the `displayImage`:
+
+```nunjucks
+{% for image in images %}
+    {% if image.src != displayImage %}
+        {# Display image in gallery #}
+    {% endif %}
+{% endfor %}
+```
+
+#### Behavior
+1. **Explicit featuredImage:** If `featuredImage` is defined in front matter, it's used as the hero image and excluded from the gallery
+2. **Implicit fallback:** If no `featuredImage` is defined, the first image from the `images` array becomes the featured image and is excluded from the gallery
+3. **No duplication:** The featured image (whether explicit or implicit) appears only at the top of the page, never in the gallery below
+
+#### Example Usage
+
+**With explicit featuredImage:**
+```yaml
+---
+title: "Project Name"
+featuredImage: /assets/images/projects/hero.jpg
+featuredImageAlt: "Hero image alt text"
+images:
+  - src: /assets/images/projects/detail1.jpg
+    alt: "Detail 1"
+  - src: /assets/images/projects/detail2.jpg
+    alt: "Detail 2"
+---
+```
+Result: `hero.jpg` displays as featured image; gallery shows only `detail1.jpg` and `detail2.jpg`
+
+**Without explicit featuredImage:**
+```yaml
+---
+title: "Project Name"
+images:
+  - src: /assets/images/projects/image1.jpg
+    alt: "Main view"
+  - src: /assets/images/projects/image2.jpg
+    alt: "Detail view"
+---
+```
+Result: `image1.jpg` automatically becomes the featured image; gallery shows only `image2.jpg`
+
+### 8. Tab Navigation System
 
 #### Tab Bar Structure
 The homepage features two tabbed sections (Projects and About) with interactive tab bars (tablists):

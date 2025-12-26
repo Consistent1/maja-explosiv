@@ -10,6 +10,8 @@ tags:
   - metalwork
   - Berlin
 layout: post.njk
+featuredImage: /assets/images/projects/sculptures/sisyphos-gate/FullView24.jpg
+featuredImageAlt: "Full view of the Sisyphos Gate"
 images:
   - src: /assets/images/projects/sculptures/sisyphos-gate/DjangoKnoth_Gate_01.jpg
     alt: "Sisyphos Gate front view"

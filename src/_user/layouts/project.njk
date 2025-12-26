@@ -33,25 +33,25 @@ layout: sidebar-layout.njk
         <div class="project-hero-image">
             <img src="{{ displayImage | url }}" alt="{{ featuredImageAlt or title }}" loading="eager">
         </div>
-    {% endif %}
-
-    {# Metadata Section - Compact info below the image #}
-    <div class="project-metadata">
-        <div class="metadata-row">
-            <div class="metadata-left">
-                <div class="metadata-label">Title</div>
-                <div class="metadata-label">Description</div>
-                {% if author %}
-                    <div class="metadata-label">Author</div>
-                {% endif %}
-            </div>
-            <div class="metadata-right">
-                {% if date %}
-                    <div class="metadata-year">{{ date | date('YYYY') }}</div>
-                {% endif %}
+    
+        {# Metadata Section - Compact info below the image #}
+        <div class="project-metadata">
+            <div class="metadata-row">
+                <div class="metadata-left">
+                    <div class="metadata-label">Title</div>
+                    <div class="metadata-label">Description</div>
+                    {% if author %}
+                        <div class="metadata-label">Author</div>
+                    {% endif %}
+                </div>
+                <div class="metadata-right">
+                    {% if date %}
+                        <div class="metadata-year">{{ date | date('YYYY') }}</div>
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 
     {# Project Description - Main content area #}
     <div class="project-content">

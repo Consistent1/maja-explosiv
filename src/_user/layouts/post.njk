@@ -35,25 +35,25 @@ layout: sidebar-layout.njk
             <div class="project-hero-image">
                 <img src="{{ displayImage | url }}" alt="{{ featuredImageAlt or title }}" loading="eager">
             </div>
-        {% endif %}
-
-        {# Metadata Section - Compact info below the image #}
-        <div class="project-metadata">
-            <div class="metadata-row">
-                <div class="metadata-left">
-                    <div class="metadata-label">Title</div>
-                    <div class="metadata-label">Description</div>
-                    {% if author %}
-                        <div class="metadata-label">Author</div>
-                    {% endif %}
-                </div>
-                <div class="metadata-right">
-                    {% if date %}
-                        <div class="metadata-year">{{ date | date('YYYY') }}</div>
-                    {% endif %}
+        
+            {# Metadata Section - Compact info below the image #}
+            <div class="project-metadata">
+                <div class="metadata-row">
+                    <div class="metadata-left">
+                        <div class="metadata-label">Title</div>
+                        <div class="metadata-label">Description</div>
+                        {% if author %}
+                            <div class="metadata-label">Author</div>
+                        {% endif %}
+                    </div>
+                    <div class="metadata-right">
+                        {% if date %}
+                            <div class="metadata-year">{{ date | date('YYYY') }}</div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
 
         {# Project Description - Main content area #}
         <div class="project-content">
@@ -64,33 +64,36 @@ layout: sidebar-layout.njk
         {% if images %}
             <div class="project-gallery">
                 {% for image in images %}
-                    <div class="gallery-item">
-                        {# Determine alt text: use image alt, or fallback to image title, or fallback to project title #}
-                        {% set altText = title %}
-                        {% if image.title %}
-                          {% set altText = image.title %}
-                        {% endif %}
-                        {% if image.alt %}
-                          {% set altText = image.alt %}
-                        {% endif %}
-                        
-                        <img src="{{ image.src | url }}" alt="{{ altText }}" loading="lazy">
-                        
-                        {# Use single-project-image-caption template with image-specific title/year #}
-                        {% set imageTitle = image.title %}
-                        {% set imageYear = '' %}
-                        {% if image.date %}
-                          {% set imageYear = image.date | date('YYYY') %}
-                        {% elif image.year %}
-                          {% set imageYear = image.year %}
-                        {% endif %}
-                        {% set imageDescription = image.description %}
-                        {% set imageAuthor = image.author %}
-                        {% set projectSlug = page.fileSlug %}
-                        {% set imageIndex = loop.index0 %}
-                        
-                        {% include "single-project-image-caption.njk" %}
-                    </div>
+                    {# Skip the image if it's being used as the featured image #}
+                    {% if image.src != displayImage %}
+                        <div class="gallery-item">
+                            {# Determine alt text: use image alt, or fallback to image title, or fallback to project title #}
+                            {% set altText = title %}
+                            {% if image.title %}
+                              {% set altText = image.title %}
+                            {% endif %}
+                            {% if image.alt %}
+                              {% set altText = image.alt %}
+                            {% endif %}
+                            
+                            <img src="{{ image.src | url }}" alt="{{ altText }}" loading="lazy">
+                            
+                            {# Use single-project-image-caption template with image-specific title/year #}
+                            {% set imageTitle = image.title %}
+                            {% set imageYear = '' %}
+                            {% if image.date %}
+                              {% set imageYear = image.date | date('YYYY') %}
+                            {% elif image.year %}
+                              {% set imageYear = image.year %}
+                            {% endif %}
+                            {% set imageDescription = image.description %}
+                            {% set imageAuthor = image.author %}
+                            {% set projectSlug = page.fileSlug %}
+                            {% set imageIndex = loop.index0 %}
+                            
+                            {% include "single-project-image-caption.njk" %}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         {% endif %}
