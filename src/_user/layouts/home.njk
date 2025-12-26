@@ -63,9 +63,19 @@ layout: sidebar-layout.njk
                             <div class="tab-content">
                                 {% for category in ['sculptures', 'installations', 'performance', 'paintings'] %}
                                     <div id="{{ category }}" role="tabpanel" aria-labelledby="tab-{{ category }}" class="tab-pane {% if loop.first %}active{% endif %}" {% if not loop.first %}aria-hidden="true"{% endif %}>
+                                        {# Category description text - aligned left, above images grid #}
+                                        {# Pull description from the collection's markdown file #}
+                                        {% set categoryPage = collections.all | find("fileSlug", category) %}
+                                        {% if categoryPage and categoryPage.data.description %}
+                                            <div class="category-description">
+                                                <p>{{ categoryPage.data.description }}</p>
+                                            </div>
+                                        {% endif %}
+                                        
+                                        {# Projects grid - 3 columns with images and captions #}
                                         <div class="posts-grid">
                                             {% for post in collections[category] %}
-                                                <article class="post-card" data-year="{{ post.data.date | date('YYYY') if post.data.date else '' }}" data-medium="{{ post.data.medium or '' }}" data-excerpt="{{ (post.data.description or (post.templateContent | excerpt(120))) | safe }}">
+                                                <article class="project-item" data-year="{{ post.data.date | date('YYYY') if post.data.date else '' }}" data-medium="{{ post.data.medium or '' }}" data-excerpt="{{ (post.data.description or (post.templateContent | excerpt(120))) | safe }}">
                                                     {# Determine which image to display: featuredImage or first image from images array #}
                                                     {% set displayImage = post.data.featuredImage %}
                                                     {% if not displayImage and post.data.images and post.data.images.length > 0 %}
@@ -73,7 +83,7 @@ layout: sidebar-layout.njk
                                                     {% endif %}
                                                     
                                                     {% if displayImage %}
-                                                        <div class="post-card-image">
+                                                        <div class="project-image">
                                                             <a href="{{ post.url | url }}">
                                                                 {# Determine image metadata for caption #}
                                                                 {% set imageData = null %}
@@ -107,14 +117,6 @@ layout: sidebar-layout.njk
                                                         {% set context = "projects-tab-" + category %}
                                                         {% include "project-image-caption.njk" %}
                                                     {% endif %}
-                                                    <div class="post-card-content">
-                                                        <h3 class="post-card-title">
-                                                            <a href="{{ post.url | url }}">{{ post.data.title }}</a>
-                                                        </h3>
-                                                        {% if post.data.description %}
-                                                            <p class="post-card-description">{{ post.data.description }}</p>
-                                                        {% endif %}
-                                                    </div>
                                                 </article>
                                             {% endfor %}
                                         </div>

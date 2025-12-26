@@ -322,7 +322,15 @@ The homepage features two tabbed sections (Projects and About) with interactive 
 **Projects Section:**
 - **Source:** Dynamically generated in `src/_user/layouts/home.njk`
 - **Tabs:** Sculptures, Installations, Performance, Paintings
-- **Content:** Pulls from Eleventy collections to display project cards
+- **Content:** Pulls from Eleventy collections to display project images with captions
+- **Design (Updated Dec 2025):**
+  - **Category Description:** Each tab displays a description text aligned to the left, above the images grid
+  - **Description Source:** Pulled dynamically from collection markdown files (`src/collections/sculptures.md`, etc.) using frontmatter `description` field
+  - **Layout:** Simple images in 3-column grid (no card styling)
+  - **Column Offset:** Second column starts lower (4rem margin-top) than first and third columns
+  - **Image Display:** Clean images without card backgrounds, shadows, or borders; images maintain their original aspect ratios (not cropped)
+  - **Metadata:** Title and year displayed below each image using project-image-caption template
+  - **Removed:** Card backgrounds, titles beneath captions, and description text (kept only image captions)
 - **HTML Structure:**
   ```html
   <div class="tab-buttons" role="tablist">
@@ -331,10 +339,22 @@ The homepage features two tabbed sections (Projects and About) with interactive 
   </div>
   <div class="tab-content">
     <div id="sculptures" role="tabpanel" class="tab-pane active">
-      <!-- Project cards from collections.sculptures -->
+      <div class="category-description">
+        <p>{{ description from sculptures.md }}</p>
+      </div>
+      <div class="posts-grid">
+        <!-- Project images with captions -->
+      </div>
     </div>
   </div>
   ```
+- **CSS Styling:**
+  - `.category-description`: Left-aligned text (max-width 800px, padding 0 3rem 2rem)
+  - `.posts-grid`: 3-column grid with 2rem gap, padding 0 3rem
+  - `.post-card:nth-child(3n+2)`: 4rem top margin for second column offset
+  - `.post-card`: Transparent background, no shadows or borders (simple image display)
+  - `.post-card-image img`: `object-fit: contain` to preserve aspect ratios (no cropping)
+  - `.post-card-content`, `.post-card-title`, `.post-card-description`: Hidden (display: none)
 
 **About Section:**
 - **Source:** Static HTML in `src/index.md` front matter (`customSections.content`)
