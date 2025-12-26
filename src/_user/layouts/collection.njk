@@ -42,14 +42,20 @@ layout: sidebar-layout.njk
             <div class="posts-grid">
                 {% for post in posts %}
                     <article class="post-card">
-                        {% if post.data.featuredImage %}
+                        {# Determine which image to display: featuredImage or first image from images array #}
+                        {% set displayImage = post.data.featuredImage %}
+                        {% if not displayImage and post.data.images and post.data.images.length > 0 %}
+                            {% set displayImage = post.data.images[0].src %}
+                        {% endif %}
+                        
+                        {% if displayImage %}
                             <a href="{{ post.url | url }}" class="post-card-image-link">
                                 {# Determine image metadata for caption #}
                                 {% set imageData = null %}
                                 {% if post.data.images and post.data.images.length > 0 %}
-                                  {# Find the image data matching featuredImage #}
+                                  {# Find the image data matching display image #}
                                   {% for img in post.data.images %}
-                                    {% if img.src == post.data.featuredImage %}
+                                    {% if img.src == displayImage %}
                                       {% set imageData = img %}
                                     {% endif %}
                                   {% endfor %}
@@ -63,7 +69,7 @@ layout: sidebar-layout.njk
                                   {% set altText = post.data.featuredImageAlt %}
                                 {% endif %}
                                 
-                                <img src="{{ post.data.featuredImage | url }}" alt="{{ altText }}" class="post-card-image">
+                                <img src="{{ displayImage | url }}" alt="{{ altText }}" class="post-card-image">
                             </a>
                             
                             {# Use project-image-caption template with project title/year and image description/author #}

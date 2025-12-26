@@ -21,9 +21,17 @@ layout: sidebar-layout.njk
     </header>
 
     {# Hero Image - Full-width featured image #}
-    {% if featuredImage %}
+    {# Determine which image to display: featuredImage or first image from images array #}
+    {% set displayImage = featuredImage %}
+    {% if not displayImage and images %}
+        {% if images.length > 0 %}
+            {% set displayImage = images[0].src %}
+        {% endif %}
+    {% endif %}
+    
+    {% if displayImage %}
         <div class="project-hero-image">
-            <img src="{{ featuredImage | url }}" alt="{{ featuredImageAlt or title }}" loading="eager">
+            <img src="{{ displayImage | url }}" alt="{{ featuredImageAlt or title }}" loading="eager">
         </div>
     {% endif %}
 
