@@ -521,6 +521,49 @@ h6 {
    ABOUT SECTION
    ============================================ */
 
+/* About intro section with image and text */
+.about-intro {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--size-fluid-4);
+    margin-bottom: var(--size-fluid-4);
+    align-items: center;
+}
+
+.about-intro .about-image {
+    /* Image displayed as-is with no additional styling */
+    /* No padding or margins on the left */
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.about-intro .about-intro-text {
+    /* Text centered horizontally in remaining space and vertically with image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.about-intro .about-intro-text p {
+    font-size: var(--font-size-fluid-1);
+    line-height: var(--font-lineheight-3);
+    margin: 0;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: var(--size-fluid-2);
+    }
+    
+    .about-intro .about-image {
+        margin-inline: auto;
+    }
+}
+
 .about-section .about-content {
     max-width: var(--size-content-3);
     margin-inline: auto;

@@ -99,6 +99,12 @@ The Maja Explosiv website is an artist portfolio site showcasing sculptures, ins
     - Gallery rows for remaining images: `repeat(auto-fit, minmax(280px, 1fr))`
     - Top-aligned images in gallery rows using `align-items: start`
     - Responsive mobile layout: Stacks all columns vertically below 768px
+  - **About Section Intro:**
+    - Grid layout (`display: grid`) with image on left and text on right
+    - Image uses natural dimensions with no additional styling, margins, or padding
+    - Text container uses flexbox to center content both horizontally and vertically
+    - Grid columns: `auto` (image) and `1fr` (text area)
+    - Responsive: Stacks vertically on mobile (below 768px)
   - **Responsive Design:**
     - Mobile breakpoint at 768px
     - Sidebar converts to relative positioning on mobile
@@ -248,7 +254,50 @@ The caption system preserves the grayscale-to-color hover effect on featured pro
 - On hover: `filter: grayscale(0%)`
 - Captions remain outside the hover effect scope
 
-### 7. Featured Image Fallback System
+### 7. About Section Intro
+
+#### Overview
+The About section on the homepage features an introductory section with an image and biographical text positioned above the tabbed content (Bio, Timeline, Press, Links).
+
+#### Implementation
+- **Template Modified:** `src/_user/layouts/home.njk`
+  - Added special handling for the About section (`section.id == 'about'`)
+  - Inserted `.about-intro` container before the tabs
+- **CSS Added:** `src/_user/assets/css/custom.css`
+  - New `.about-intro` styles for grid layout and alignment
+
+#### Structure
+The intro section contains:
+1. **Image:** `src/assets/images/maja.webp` - A portrait photo of Maja Explosiv
+2. **Text:** Biographical information about the artist
+
+#### Layout Details
+- **Grid Layout:**
+  - `display: grid`
+  - `grid-template-columns: auto 1fr` - Image column auto-sizes to content, text takes remaining space
+  - `gap: var(--size-fluid-4)` - Fluid spacing between image and text (48px on desktop)
+  - `align-items: center` - Vertically centers image and text
+- **Image Styling:**
+  - No additional styling applied - displays at natural dimensions (308px × 229px)
+  - `margin: 0` and `padding: 0` - No spacing around the image
+  - Left edge aligns with content area
+- **Text Container:**
+  - `display: flex` with `align-items: center` and `justify-content: center`
+  - Centers text both horizontally and vertically in available space
+  - `text-align: center`
+  - Font size: `var(--font-size-fluid-1)` with `var(--font-lineheight-3)` line height
+
+#### Content
+The biographical text reads:
+> "Maja Explosiv, born Maja Thommen in Pfäffikon, Switzerland in 1973, is a multidisciplinary artist whose extensive physical artwork oeuvre includes sculpture (metal, stone and wood), robotics, kinetic art, illustration and painting."
+
+#### Responsive Behavior
+On mobile devices (below 768px):
+- Grid switches to single column (`grid-template-columns: 1fr`)
+- Gap reduces to `var(--size-fluid-2)`
+- Image is horizontally centered using `margin-inline: auto`
+
+### 8. Featured Image Fallback System
 
 #### Overview
 Project pages automatically display a featured image at the top of the page. If no explicit `featuredImage` is defined in the project's front matter, the system automatically uses the first image from the `images` array as the featured image.
@@ -314,7 +363,7 @@ images:
 ```
 Result: `image1.jpg` automatically becomes the featured image; gallery shows only `image2.jpg`
 
-### 8. Tab Navigation System
+### 9. Tab Navigation System
 
 #### Tab Bar Structure
 The homepage features two tabbed sections (Projects and About) with interactive tab bars (tablists):
