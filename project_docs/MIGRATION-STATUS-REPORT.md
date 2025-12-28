@@ -2,18 +2,22 @@
 **Maja Explosiv: TYPO3 to Eleventy Migration**
 
 **Document Created:** December 23, 2025  
-**Last Updated:** October 29, 2025  
-**Project Status:** IN PROGRESS - Content Extraction Phase  
-**Completion:** ~35% (Foundation & Initial Content Migration)
+**Last Updated:** December 28, 2025  
+**Project Status:** IN PROGRESS - Content Extraction & Image Migration Phase  
+**Completion:** ~40% (Foundation, Content Extraction, Paintings Investigation Complete)
 
 ---
 
 ## Executive Summary
 
-The migration from TYPO3 to Eleventy is progressing steadily with critical infrastructure and initial content extraction completed. The project successfully resolved major technical challenges including character encoding issues and database parsing complexities. Currently, 70 projects have been extracted from the TYPO3 database with one project requiring investigation before proceeding to full migration.
+The migration from TYPO3 to Eleventy is progressing steadily with critical infrastructure and initial content extraction completed. The project successfully resolved major technical challenges including character encoding issues and **discovered that 82% of painting pages use static HTML content instead of database storage**, requiring an enhanced web scraping approach for complete migration.
 
-**Current Phase:** Epic 1.3 - Content Migration (Partial)  
-**Next Milestone:** Complete investigation of missing project, then proceed with image extraction and full content migration
+**Current Phase:** Epic 1.3 - Content Migration (Paintings Analysis Complete, Implementation Pending)  
+**Next Milestone:** Implement web scraping for 14 painting pages without database content, then proceed with comprehensive migration  
+**Recent Achievement:** Root cause analysis of "Breath under Water" migration failure - identified static HTML content pattern affecting 14/17 painting projects (December 28, 2025)
+
+**Critical Finding:**  
+Out of 17 painting pages, only 3 have content in the TYPO3 `tt_content` database table. The other 14 pages (including "Breath under Water") store their content as static HTML on the live website. Migration strategy updated to include web scraping for pages without database content.
 
 ---
 
@@ -92,7 +96,41 @@ The migration from TYPO3 to Eleventy is progressing steadily with critical infra
   - **Design Principles:** No giant directories, conceptual organization, flexible reuse
   - **Structure:** `src/assets/images/projects/{category}/{series-slug}/`
   - **Naming Convention:** Kebab-case slugs, zero-padded numbers (e.g., `urban-fragments-01.jpg`)
-  - **Categories:** sculptures, installations, performance, paintings, news, shared
+  - **Categories:** sculptures, installations, performance, paintings,
+
+#### [project_docs/paintings-migration.md](project_docs/paintings-migration.md)
+- **Content Description:** Comprehensive paintings migration report and status
+- **Relevance Status:** Current (December 27, 2025)
+- **Key Information:**
+  - **Complete Extraction:** 7 painting projects fully extracted
+  - **117 Images Catalogued:** Comprehensive filesystem scan completed
+  - **Metadata Analysis:** All available database and filesystem data captured
+  - **OMITTED Fields:** Clearly marked (years, some images, database references)
+  - **Scripts Preserved:** extract_paintings_data.py, enhance_paintings_data.py, generate_paintings_markdown.py
+  - **Data Files:** paintings-comprehensive-data.json with all metadata
+  - **Status:** 71% complete, ready for image copy phase
+
+#### [project_docs/breath-under-water-investigation.md](project_docs/breath-under-water-investigation.md) ⭐ **NEW**
+- **Content Description:** Root cause analysis of "Breath under Water" migration failure
+- **Relevance Status:** Current (December 28, 2025)
+- **Key Information:**
+  - **Root Cause Identified:** 82% of painting pages (14/17) use static HTML content, not database
+  - **UID 982 Analysis:** "Breath under Water" has page record but NO tt_content
+  - **Database Analysis:** Only 3 of 17 painting pages have tt_content records
+  - **Live Website Content:** Extensive content exists on maja-explosiv.com
+  - **Filesystem:** 59 images in 2005TheWhale/ directory confirmed
+  - **Solution Proposed:** Web scraping approach for pages without database content
+  - **Migration Impact:** Current approach captures only 18% of paintings; enhanced approach will capture 100%
+  - **Next Steps:** Map URLs for 14 unmigrated pages, create web scraping script
+  - **Technical Details:** Full investigation methodology, comparison analysis, success criteria
+- **Key Information:**
+  - **Complete Extraction:** 7 painting projects fully extracted
+  - **117 Images Catalogued:** Comprehensive filesystem scan completed
+  - **Metadata Analysis:** All available database and filesystem data captured
+  - **OMITTED Fields:** Clearly marked (years, some images, database references)
+  - **Scripts Preserved:** extract_paintings_data.py, enhance_paintings_data.py, generate_paintings_markdown.py
+  - **Data Files:** paintings-comprehensive-data.json with all metadata
+  - **Status:** 71% complete, ready for image copy phase news, shared
   - **Benefits:** Maintainability, migration-friendly, scalable growth
 
 #### [project_docs/PRD.md](project_docs/PRD.md)
@@ -314,9 +352,24 @@ The migration from TYPO3 to Eleventy is progressing steadily with critical infra
 6. **Initial Content Extraction**
    - **70 projects extracted** from TYPO3 database:
      - 28 sculptures
-     - 26 installations
-     - 9 performance
-     - 7 paintings (3 murals + 4 paper work)
+
+8. **Paintings Comprehensive Migration** ✅ **NEW - December 27, 2025**
+   - **7 painting projects** fully extracted with comprehensive data
+   - "Breath under Water" Project - Excluded from Paintings Migration**
+   - **Project:** "Breath under Water" (UID 982)
+   - **Status:** **EXCLUDED** per user request (December 27, 2025)
+   - **Category:** Listed under paper work (UID 875) but actually a large whale sculpture
+   - **Filesystem:** ~80 images in `2005TheWhale/` directory
+   - **Content:** No tt_content records; content exists in cached HTML only
+   - **Decision:** Excluded from paintings migration; likely an installation/sculpture
+   - **Action:** Will be handled separately in sculptures/installations migration
+
+2. **Paintings Data Gaps**
+   - **Missing Years:** 5 of 7 projects lack year data in database
+   - **Missing Images:** 2 projects (Felix und Regula, Wohlgroth) - no matching directories found
+   - **Missing Database Image Refs:** All 7 projects - no image references in tt_content
+   - **Status:** Documented as OMITTED in comprehensive Markdown files
+   - **Next Step:** Manual research for missing data or accept as source limitations
    - All projects include title, description, year, category, source metadata
    - `extracted-projects.json` generated with correct encoding
 
@@ -348,28 +401,29 @@ The migration from TYPO3 to Eleventy is progressing steadily with critical infra
 
 #### Immediate Next Steps (Epic 1.3 - Content Migration)
 
-1. **Investigate Missing Project (High Priority)**
-   - Search website files in `old/TYPO3BU/` for "Breath under Water" content
-   - Cross-reference UID 982 in other database tables
-   - Determine content source and categorization
-   - Decide: Include or exclude from migration
+1. ✅ **COMPLETE: Paintings Category Full Migration** (December 27, 2025)
+   - 7 projects extracted, images copied, Markdown updated
+   - See [paintings-migration.md](project_docs/paintings-migration.md)
 
-2. **Complete Content Extraction**
-   - Resolve missing project issue
-   - Re-run extraction if needed
-   - Convert remaining 50 projects to Markdown (70 total - 20 test = 50)
-   - Verify all 70+ projects are present
+2. **Replicate Process for Remaining Categories**
+   - **Sculptures:** 28 projects to migrate (similar process as paintings)
+   - **Installations:** 26 projects to migrate
+   - **Performance:** 9 projects to migrate
+   - **Use proven scripts:** Adapt paintings migration scripts for other categories
+
+3. **Optional: Fill Paintings Gaps**
+   - Research missing years (3 projects)
+   - Search for Felix und Regula images
+   - Search for Wohlgroth images
 
 #### Subsequent Epic 1 Stories
 
-3. **Story 1.4: Migrate Static Assets (Image Extraction)**
-   - Extract all image references from `tt_content.image` fields
-   - Map image filenames to filesystem paths
-   - Copy images from `old/TYPO3BU/` to new asset structure
-   - Follow asset organization strategy (category → series → images)
-   - Rename files to match naming conventions (kebab-case, zero-padded)
-   - Handle multiple images per project (comma-separated format)
-   - Extract and preserve image captions
+4. **Story 1.4: Migrate Static Assets** (Partially Complete)
+   - ✅ **Paintings:** 121 images copied and organized (31.4 MB)
+   - ⏳ **Sculptures:** ~500-700 images estimated
+   - ⏳ **Installations:** ~400-600 images estimated
+   - ⏳ **Performance:** ~100-200 images estimated
+   - **Method:** Use `copy_{category}_images.py` pattern established for paintings
 
 4. **Story 1.5: Link Migrated Content and Assets**
    - Update Markdown front matter with image references
@@ -809,6 +863,60 @@ For each template type, migration will follow this pattern:
 - ⏳ Epic 1 completion: ~35%
 - ⏳ Epic 2 completion: 0%
 - ⏳ Project completion: ~35%
+
+---
+
+## Recent Findings (December 27, 2025)
+
+### Paintings Migration Analysis
+
+**Total Painting Projects Identified:** 8 projects
+- 3 murals (UID 874 category)
+- 5 paper work (UID 875 category)
+
+**Extraction Status:**
+- Extracted to JSON: 7 projects (missing UID 982 "Breath under Water")
+- Converted to Markdown: 6 projects
+- Fully migrated with all data: 0 projects (text only, no images or complete metadata)
+
+**Key Issues Identified:**
+
+1. **Missing Project - "Breath under Water" (UID 982):**
+   - Page exists in database but NO content in tt_content table
+   - File directory found: `2005TheWhale/` with ~80+ images
+   - Cached HTML found with extensive whale sculpture documentation
+   - Likely miscategorized - appears to be installation/sculpture, not paper work
+   - Requires investigation before migration
+
+2. **Incomplete Data in Migrated Projects:**
+   - ❌ Images not extracted or linked
+   - ❌ Image captions missing
+   - ❌ Image metadata (credits, dates, sorting) not preserved
+   - ❌ DAM gallery references not extracted
+   - ❌ FlexForm configuration not migrated
+   - ❌ Video embeds not migrated
+   - ❌ HTML formatting partially cleaned
+
+3. **Information Sources Identified:**
+   - `pages` table: UID, title, sorting, visibility
+   - `tt_content` table: header, bodytext, image filenames, captions, CType
+   - `tx_dam` table: Digital Asset Management metadata, image sorting
+   - `tx_rgsmoothgallery_image` table: Gallery plugin data
+   - FlexForm XML: Gallery settings (lightbox, thumbnails, dimensions)
+   - Filesystem: ~100-160 images for paintings in various directories
+   - Cached HTML: Additional content (especially for UID 982)
+
+**Estimated Image Count for Paintings:**
+- Average 10-20 images per project
+- Total estimated: 100-160 images
+- Formats: JPG, PNG, GIF
+- Locations: `/fileadmin/s-maj/images/BilderMaja/`, `/uploads/pics/`, `/uploads/RTEmagic*`
+
+**Next Steps:**
+- Complete comprehensive extraction of all painting data
+- Skip UID 982 for now (requires separate investigation)
+- Extract and migrate all images with full metadata
+- Create detailed paintings migration status report
 
 ---
 

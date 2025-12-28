@@ -696,41 +696,73 @@ layout: post.njk
 - **Solution:** Double-encoding fix implemented in extraction script
 - See `project_docs/encoding-fix-summary.md` for details
 
-### 2. Missing Project - "Breath under Water" (UID 982) ⚠️ **INVESTIGATION PENDING**
+### 2. Missing Painting Projects - Static HTML Content ✅ **RESOLVED**
 
-**Status:** Work paused, investigation required
+**Status:** Investigation complete (December 28, 2025)
 
 **Problem:**
 - User reported 8 projects in paintings category (3 murals + 5 paper work)
-- Extraction script only found 7 projects
-- Missing project: "Breath under Water" (UID 982)
+- Extraction script only found 3 projects with content
+- 14 out of 17 painting pages have NO tt_content records
+- Including: "Breath under Water" (UID 982)
+
+**Root Cause - DISCOVERED:**
+**82% of painting pages (14/17) use STATIC HTML CONTENT instead of database-stored content.**
+
+The TYPO3 site stores painting content outside the standard `tt_content` table, likely as static HTML files or through an alternative content management method. This was common in older TYPO3 v4.x installations.
 
 **Investigation Results:**
 
-1. **Page exists in database:**
+1. **Database Analysis:**
+   - Found 17 painting pages total in `pages` table
+   - Only 3 have `tt_content` records (UIDs: 866, 999, 1000)
+   - 14 pages have ZERO tt_content records (82% of paintings)
+
+2. **"Breath under Water" (UID 982) Details:**
    - UID: 982, PID: 875 (paper work category)
-   - Title: "Breath under Water"
-   - NOT deleted, NOT hidden
+   - Title: "Breath under Water" 
+   - Status: NOT deleted, NOT hidden
+   - Live URL: `https://www.maja-explosiv.com/content/recent-work/the-whale.html`
+   - Content: Extensive project description visible on live site
+   - Images: 59 images in `2005TheWhale/` directory + 14 in subdirectory
+   - Content Source: NOT in tt_content table
 
-2. **Content missing from tt_content table:**
-   - 0 tt_content records with pid=982
-   - Script correctly skips pages without content
+3. **All Painting Pages Without tt_content:**
+   - UIDs: 918, 919, 920, 921, 922, 923, 982, 1200, 1211, 1330, 1344, 1345, 1398, 1461
 
-3. **Evidence of content existence:**
-   - Found cached HTML page in database
-   - Page contains extensive content about whale sculpture project
-   - Multiple images, detailed description
+4. **Live Website Verification:**
+   - Live site displays full content for all painting pages
+   - Content includes detailed descriptions, collaborator lists, technical details
+   - Images are properly displayed
+   - Navigation includes all pages
 
-4. **Current extraction count:**
-   - Murals: 3 projects ✓
-   - Paper Work: 4 projects (5 pages exist, 1 has no content)
-   - **Total: 7 projects extracted**
+**Solution - WEB SCRAPING APPROACH:**
+Since the live website (maja-explosiv.com) is the source of truth and contains all content, the migration should:
 
-**Next Steps (PENDING):**
-- Cross-reference database with website files (Option D)
-- Investigate other database tables (Option A)
-- Determine if content stored elsewhere
-- Verify correct categorization (whale sculpture vs paper work?)
+1. **For pages WITH tt_content:** Extract from database (current method)
+2. **For pages WITHOUT tt_content:** Scrape from live website
+   - Fetch HTML from maja-explosiv.com
+   - Parse main content area
+   - Extract text, structure, and image references
+   - Convert to Markdown for new site
+
+3. **Match Filesystem Images:**
+   - Link scraped content with filesystem images
+   - Use existing image directory mapping logic
+
+**Impact:**
+- Current migration captures only 3/17 painting projects (18%)
+- Enhanced migration will capture 17/17 painting projects (100%)
+- Ensures content fidelity with live site
+
+**Documentation:**
+See detailed investigation report: [project_docs/breath-under-water-investigation.md](breath-under-water-investigation.md)
+
+**Next Steps:**
+- [ ] Map URLs for all 14 unmigrated painting pages
+- [ ] Create enhanced migration script with web scraping capability
+- [ ] Test on "Breath under Water" project
+- [ ] Run full migration for all 17 painting projects
 
 ### 3. Missing Images
 - Image filenames extracted but files not copied
@@ -757,12 +789,12 @@ layout: post.njk
 
 ### Immediate (When Resuming Work)
 
-1. **Investigate "Breath under Water" (UID 982)** ⭐ **CURRENT PRIORITY**
-   - Cross-reference database with website files (Option D)
-   - Check `old/` directory for actual content files
-   - Investigate other database tables (Option A)
-   - Determine correct category for this project
-   - Decide whether to include in migration
+1. **Complete Paintings Migration with Web Scraping** ⭐ **CURRENT PRIORITY**
+   - Map URLs for 14 painting pages without tt_content
+   - Create enhanced migration script `scripts/extract_paintings_webscrape.py`
+   - Scrape content from live website for pages without database content
+   - Test with "Breath under Water" (UID 982) first
+   - Migrate all 17 painting projects (currently only 3)
 
 ### After Investigation
 

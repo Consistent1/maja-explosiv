@@ -1,0 +1,948 @@
+[
+  {
+    "title": "Murals Europe",
+    "description": "Marc Divo and Maja Explosiv led a team of artists in two seperate work expeditions around \nEurope, from Austria to Check Republic, over Slovenia and Germany to the Netherlands.\n\nIn 1994 and 1995 the changing international artist collective realised murals, facade \nsculptures and bar designs in the culture centres; Arena in Vienna /A, Black Hand and \nLadronka in Prague /CZ, a mural on the squatted highway rest stop Zeleny Dvor in Košice \n/SK, Köpi, KVU and  kleine Haifischbar in Berlin /D and the full facade of Blauwe \nAanslag in The Hague /NL.",
+    "year": "1995",
+    "category": "paintings",
+    "source_page": "murals",
+    "source_uid": 866,
+    "images": [],
+    "filesystem_scan": {
+      "project_directories": [
+        {
+          "directory_name": "1995EurokotAllg",
+          "absolute_path": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg",
+          "images": [
+            {
+              "filename": "Dima.jpg",
+              "size_bytes": 128657,
+              "size_kb": 125.64,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Viech.jpg",
+              "size_bytes": 457444,
+              "size_kb": 446.72,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "boniUbubi.jpg",
+              "size_bytes": 137629,
+              "size_kb": 134.4,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "box.jpg",
+              "size_bytes": 136537,
+              "size_kb": 133.34,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "cleaning.jpg",
+              "size_bytes": 160418,
+              "size_kb": 156.66,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "disco.jpg",
+              "size_bytes": 89775,
+              "size_kb": 87.67,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "dottir.jpg",
+              "size_bytes": 132322,
+              "size_kb": 129.22,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "empty.jpg",
+              "size_bytes": 76255,
+              "size_kb": 74.47,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "escher.jpg",
+              "size_bytes": 1394371,
+              "size_kb": 1361.69,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "geputzt.jpg",
+              "size_bytes": 143249,
+              "size_kb": 139.89,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "hund.jpg",
+              "size_bytes": 112441,
+              "size_kb": 109.81,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "kiosk.jpg",
+              "size_bytes": 188458,
+              "size_kb": 184.04,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "konzi.jpg",
+              "size_bytes": 182638,
+              "size_kb": 178.36,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "konzi2.jpg",
+              "size_bytes": 143733,
+              "size_kb": 140.36,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "kuh.jpg",
+              "size_bytes": 217528,
+              "size_kb": 212.43,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "lesung.jpg",
+              "size_bytes": 149526,
+              "size_kb": 146.02,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "mischpult.jpg",
+              "size_bytes": 168475,
+              "size_kb": 164.53,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "mutter.jpg",
+              "size_bytes": 134005,
+              "size_kb": 130.86,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "mutterEigang.jpg",
+              "size_bytes": 216544,
+              "size_kb": 211.47,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "mutterana.jpg",
+              "size_bytes": 167902,
+              "size_kb": 163.97,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "mutterbau.jpg",
+              "size_bytes": 165615,
+              "size_kb": 161.73,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "novo1.jpg",
+              "size_bytes": 192891,
+              "size_kb": 188.37,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "novo2.jpg",
+              "size_bytes": 65604,
+              "size_kb": 64.07,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "novo3.jpg",
+              "size_bytes": 93720,
+              "size_kb": 91.52,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "novo4.jpg",
+              "size_bytes": 87906,
+              "size_kb": 85.85,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "pastor.jpg",
+              "size_bytes": 192761,
+              "size_kb": 188.24,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "puppe.jpg",
+              "size_bytes": 139993,
+              "size_kb": 136.71,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "robot.jpg",
+              "size_bytes": 150012,
+              "size_kb": 146.5,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "ru1.jpg",
+              "size_bytes": 476086,
+              "size_kb": 464.93,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "ru2.jpg",
+              "size_bytes": 147249,
+              "size_kb": 143.8,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "saeule.jpg",
+              "size_bytes": 490449,
+              "size_kb": 478.95,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "theEnd.jpg",
+              "size_bytes": 159064,
+              "size_kb": 155.34,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "vendetta.jpg",
+              "size_bytes": 130424,
+              "size_kb": 127.37,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "wemean.jpg",
+              "size_bytes": 163800,
+              "size_kb": 159.96,
+              "extension": ".jpg"
+            }
+          ],
+          "total_count": 34,
+          "by_extension": {
+            ".jpg": 34
+          }
+        },
+        {
+          "directory_name": "1995EurokotXiX",
+          "absolute_path": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX",
+          "images": [
+            {
+              "filename": "eisen1.jpg",
+              "size_bytes": 546535,
+              "size_kb": 533.73,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen2.jpg",
+              "size_bytes": 500204,
+              "size_kb": 488.48,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen3.jpg",
+              "size_bytes": 583326,
+              "size_kb": 569.65,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen4.jpg",
+              "size_bytes": 108327,
+              "size_kb": 105.79,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen6.jpg",
+              "size_bytes": 127294,
+              "size_kb": 124.31,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen7.jpg",
+              "size_bytes": 135657,
+              "size_kb": 132.48,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eurokot15.jpg",
+              "size_bytes": 236774,
+              "size_kb": 231.22,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eurokot29_var.jpg",
+              "size_bytes": 160679,
+              "size_kb": 156.91,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eurokot38.jpg",
+              "size_bytes": 187547,
+              "size_kb": 183.15,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eurokot4.jpg",
+              "size_bytes": 143531,
+              "size_kb": 140.17,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eurokot5.jpg",
+              "size_bytes": 131756,
+              "size_kb": 128.67,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eurokot6.jpg",
+              "size_bytes": 176988,
+              "size_kb": 172.84,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eurokot8.jpg",
+              "size_bytes": 196638,
+              "size_kb": 192.03,
+              "extension": ".jpg"
+            }
+          ],
+          "total_count": 13,
+          "by_extension": {
+            ".jpg": 13
+          }
+        }
+      ],
+      "related_uploads": [],
+      "total_images_found": 47
+    },
+    "dam_references": [],
+    "database_images": [],
+    "metadata": {
+      "extraction_date": "2025-12-27",
+      "extraction_method": "enhanced_comprehensive",
+      "status": "PARTIAL"
+    }
+  },
+  {
+    "title": "Felix und Regula",
+    "description": "Large scale mural in the pedestrian underpass Felix und Regula Unterführung, in commission \nby the city of Zurich /CH",
+    "year": null,
+    "category": "paintings",
+    "source_page": "murals",
+    "source_uid": 918,
+    "images": [],
+    "filesystem_scan": {
+      "project_directories": [],
+      "related_uploads": [],
+      "total_images_found": 0
+    },
+    "dam_references": [],
+    "database_images": [],
+    "metadata": {
+      "extraction_date": "2025-12-27",
+      "extraction_method": "enhanced_comprehensive",
+      "status": "PARTIAL"
+    }
+  },
+  {
+    "title": "Wohlgroth",
+    "description": "Complete facade design of the squatted factory in Wohlgroth, \nZurich /CH, turned into seven living houses and a large cultural center.",
+    "year": null,
+    "category": "paintings",
+    "source_page": "murals",
+    "source_uid": 919,
+    "images": [],
+    "filesystem_scan": {
+      "project_directories": [],
+      "related_uploads": [],
+      "total_images_found": 0
+    },
+    "dam_references": [],
+    "database_images": [],
+    "metadata": {
+      "extraction_date": "2025-12-27",
+      "extraction_method": "enhanced_comprehensive",
+      "status": "PARTIAL"
+    }
+  },
+  {
+    "title": "Graphical Work",
+    "description": "An excerpt from her archive of graphical work since 1997.",
+    "year": "1997",
+    "category": "paintings",
+    "source_page": "paper work",
+    "source_uid": 920,
+    "images": [],
+    "filesystem_scan": {
+      "project_directories": [
+        {
+          "directory_name": "1997Bagger",
+          "absolute_path": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Bagger",
+          "images": [
+            {
+              "filename": "baggerthumb.jpg",
+              "size_bytes": 256225,
+              "size_kb": 250.22,
+              "extension": ".jpg"
+            }
+          ],
+          "total_count": 1,
+          "by_extension": {
+            ".jpg": 1
+          }
+        },
+        {
+          "directory_name": "1997Xix",
+          "absolute_path": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix",
+          "images": [
+            {
+              "filename": "Sennhof2.jpg",
+              "size_bytes": 102747,
+              "size_kb": 100.34,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eeisen1.jpg",
+              "size_bytes": 338076,
+              "size_kb": 330.15,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen2.jpg",
+              "size_bytes": 500204,
+              "size_kb": 488.48,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen3.jpg",
+              "size_bytes": 583326,
+              "size_kb": 569.65,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen4.jpg",
+              "size_bytes": 108327,
+              "size_kb": 105.79,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen6.jpg",
+              "size_bytes": 127294,
+              "size_kb": 124.31,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "eisen7.jpg",
+              "size_bytes": 135657,
+              "size_kb": 132.48,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhof5.jpg",
+              "size_bytes": 155393,
+              "size_kb": 151.75,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhof5sw.jpg",
+              "size_bytes": 107231,
+              "size_kb": 104.72,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhof6.jpg",
+              "size_bytes": 173030,
+              "size_kb": 168.97,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhof6s_w.jpg",
+              "size_bytes": 106649,
+              "size_kb": 104.15,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhof7.jpg",
+              "size_bytes": 185915,
+              "size_kb": 181.56,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhof_xix.jpg",
+              "size_bytes": 111611,
+              "size_kb": 109.0,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhofbar1.jpg",
+              "size_bytes": 1017615,
+              "size_kb": 993.76,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhofbar2.jpg",
+              "size_bytes": 435867,
+              "size_kb": 425.65,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "sennhofbartotale.jpg",
+              "size_bytes": 508388,
+              "size_kb": 496.47,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "xixbar55.jpg",
+              "size_bytes": 86346,
+              "size_kb": 84.32,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom10.jpg",
+              "size_bytes": 248063,
+              "size_kb": 242.25,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom2.jpg",
+              "size_bytes": 258232,
+              "size_kb": 252.18,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom3.jpg",
+              "size_bytes": 230009,
+              "size_kb": 224.62,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom4.jpg",
+              "size_bytes": 238244,
+              "size_kb": 232.66,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom5.jpg",
+              "size_bytes": 198184,
+              "size_kb": 193.54,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom6.jpg",
+              "size_bytes": 219787,
+              "size_kb": 214.64,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom7.jpg",
+              "size_bytes": 224746,
+              "size_kb": 219.48,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom8.jpg",
+              "size_bytes": 134991,
+              "size_kb": 131.83,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "zoom9.jpg",
+              "size_bytes": 97941,
+              "size_kb": 95.65,
+              "extension": ".jpg"
+            }
+          ],
+          "total_count": 26,
+          "by_extension": {
+            ".jpg": 26
+          }
+        }
+      ],
+      "related_uploads": [],
+      "total_images_found": 27
+    },
+    "dam_references": [],
+    "database_images": [],
+    "metadata": {
+      "extraction_date": "2025-12-27",
+      "extraction_method": "enhanced_comprehensive",
+      "status": "PARTIAL"
+    }
+  },
+  {
+    "title": "Akwa",
+    "description": "Comic strip for the Roboduck Paperstage on the theme of 'water', Robodock Festival /NL",
+    "year": null,
+    "category": "paintings",
+    "source_page": "paper work",
+    "source_uid": 921,
+    "images": [],
+    "filesystem_scan": {
+      "project_directories": [
+        {
+          "directory_name": "2005Akwa",
+          "absolute_path": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa",
+          "images": [
+            {
+              "filename": "1.page6.jpg",
+              "size_bytes": 189931,
+              "size_kb": 185.48,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "1page.jpg",
+              "size_bytes": 251708,
+              "size_kb": 245.81,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Akwa1.jpg",
+              "size_bytes": 400958,
+              "size_kb": 391.56,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Akwa2.jpg",
+              "size_bytes": 537303,
+              "size_kb": 524.71,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Akwa3.jpg",
+              "size_bytes": 459325,
+              "size_kb": 448.56,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "akwath7.jpg",
+              "size_bytes": 82999,
+              "size_kb": 81.05,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "krebs11.jpg",
+              "size_bytes": 135213,
+              "size_kb": 132.04,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "krebs2_1layer.jpg",
+              "size_bytes": 134984,
+              "size_kb": 131.82,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "krebs31layer.jpg",
+              "size_bytes": 124226,
+              "size_kb": 121.31,
+              "extension": ".jpg"
+            }
+          ],
+          "total_count": 9,
+          "by_extension": {
+            ".jpg": 9
+          }
+        }
+      ],
+      "related_uploads": [
+        {
+          "filename": "RTEmagicP_akwath1.jpg",
+          "size_bytes": 171698,
+          "path": "old/TYPO3BU/_/uploads/RTEmagicP_akwath1.jpg"
+        },
+        {
+          "filename": "RTEmagicC_akwath1.jpg.jpg",
+          "size_bytes": 61122,
+          "path": "old/TYPO3BU/_/uploads/RTEmagicC_akwath1.jpg.jpg"
+        }
+      ],
+      "total_images_found": 9
+    },
+    "dam_references": [],
+    "database_images": [],
+    "metadata": {
+      "extraction_date": "2025-12-27",
+      "extraction_method": "enhanced_comprehensive",
+      "status": "PARTIAL"
+    }
+  },
+  {
+    "title": "Malaga la Vache",
+    "description": "Children's book illustration commissioned by Kaspar Pfenniger, Atelier Stern, Zurich /CH",
+    "year": null,
+    "category": "paintings",
+    "source_page": "paper work",
+    "source_uid": 922,
+    "images": [],
+    "filesystem_scan": {
+      "project_directories": [
+        {
+          "directory_name": "2005Malaga",
+          "absolute_path": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga",
+          "images": [
+            {
+              "filename": "Monalisa.jpg",
+              "size_bytes": 254643,
+              "size_kb": 248.67,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Scetch2.jpg",
+              "size_bytes": 194903,
+              "size_kb": 190.33,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "camping1.jpg",
+              "size_bytes": 259861,
+              "size_kb": 253.77,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "campingcolori.jpg",
+              "size_bytes": 841967,
+              "size_kb": 822.23,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "gDance.jpg",
+              "size_bytes": 226205,
+              "size_kb": 220.9,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "gabriellewillnicht1.jpg",
+              "size_bytes": 297896,
+              "size_kb": 290.91,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "karteParis.jpg",
+              "size_bytes": 233961,
+              "size_kb": 228.48,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "kartePariskl.jpg",
+              "size_bytes": 222864,
+              "size_kb": 217.64,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "logo.jpg",
+              "size_bytes": 259398,
+              "size_kb": 253.32,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "malaga2.jpg",
+              "size_bytes": 355316,
+              "size_kb": 346.99,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "osb1.jpg",
+              "size_bytes": 190678,
+              "size_kb": 186.21,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "osb2.jpg",
+              "size_bytes": 253461,
+              "size_kb": 247.52,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "osb3.jpg",
+              "size_bytes": 145377,
+              "size_kb": 141.97,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "ski2.jpg",
+              "size_bytes": 154865,
+              "size_kb": 151.24,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "ski5.jpg",
+              "size_bytes": 274846,
+              "size_kb": 268.4,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "surf1.jpg",
+              "size_bytes": 312745,
+              "size_kb": 305.42,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "surf3colori.jpg",
+              "size_bytes": 516530,
+              "size_kb": 504.42,
+              "extension": ".jpg"
+            }
+          ],
+          "total_count": 17,
+          "by_extension": {
+            ".jpg": 17
+          }
+        }
+      ],
+      "related_uploads": [
+        {
+          "filename": "RTEmagicC_malagath1.jpg.jpg",
+          "size_bytes": 52980,
+          "path": "old/TYPO3BU/_/uploads/RTEmagicC_malagath1.jpg.jpg"
+        },
+        {
+          "filename": "RTEmagicP_malagath1.jpg",
+          "size_bytes": 179905,
+          "path": "old/TYPO3BU/_/uploads/RTEmagicP_malagath1.jpg"
+        }
+      ],
+      "total_images_found": 17
+    },
+    "dam_references": [],
+    "database_images": [],
+    "metadata": {
+      "extraction_date": "2025-12-27",
+      "extraction_method": "enhanced_comprehensive",
+      "status": "PARTIAL"
+    }
+  },
+  {
+    "title": "Concept Illustration",
+    "description": "A sampling of illustrated conceptual work of Maja Thommens' personal projects and \ncommissioned works.",
+    "year": null,
+    "category": "paintings",
+    "source_page": "paper work",
+    "source_uid": 923,
+    "images": [],
+    "filesystem_scan": {
+      "project_directories": [
+        {
+          "directory_name": "concepts",
+          "absolute_path": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts",
+          "images": [
+            {
+              "filename": "Dc1.jpg",
+              "size_bytes": 424902,
+              "size_kb": 414.94,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Dc2.jpg",
+              "size_bytes": 259025,
+              "size_kb": 252.95,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "ElxtAireals1.jpg",
+              "size_bytes": 536248,
+              "size_kb": 523.68,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "ElxtKokooons.jpg",
+              "size_bytes": 635553,
+              "size_kb": 620.66,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Lampen1.jpg",
+              "size_bytes": 494207,
+              "size_kb": 482.62,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Lampen2.jpg",
+              "size_bytes": 155946,
+              "size_kb": 152.29,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Mantelheizung1.jpg",
+              "size_bytes": 476458,
+              "size_kb": 465.29,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "Mantelheizung2.jpg",
+              "size_bytes": 575391,
+              "size_kb": 561.91,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "elxt.jpg",
+              "size_bytes": 158139,
+              "size_kb": 154.43,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "motasse1.jpg",
+              "size_bytes": 375670,
+              "size_kb": 366.87,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "motasse2.jpg",
+              "size_bytes": 750737,
+              "size_kb": 733.14,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "motasseMoped.jpg",
+              "size_bytes": 670308,
+              "size_kb": 654.6,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "vignanello.jpg",
+              "size_bytes": 642456,
+              "size_kb": 627.4,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "webthanks.jpg",
+              "size_bytes": 188999,
+              "size_kb": 184.57,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "webthanksgr.jpg",
+              "size_bytes": 772537,
+              "size_kb": 754.43,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "webthanksxx.jpg",
+              "size_bytes": 390624,
+              "size_kb": 381.47,
+              "extension": ".jpg"
+            },
+            {
+              "filename": "webthanksxy.jpg",
+              "size_bytes": 325156,
+              "size_kb": 317.54,
+              "extension": ".jpg"
+            }
+          ],
+          "total_count": 17,
+          "by_extension": {
+            ".jpg": 17
+          }
+        }
+      ],
+      "related_uploads": [],
+      "total_images_found": 17
+    },
+    "dam_references": [],
+    "database_images": [],
+    "metadata": {
+      "extraction_date": "2025-12-27",
+      "extraction_method": "enhanced_comprehensive",
+      "status": "PARTIAL"
+    }
+  }
+]

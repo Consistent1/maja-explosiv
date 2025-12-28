@@ -1,0 +1,930 @@
+[
+  {
+    "project": "Murals Europe",
+    "slug": "murals-europe",
+    "target_dir": "src/assets/images/projects/paintings/murals-europe",
+    "images_copied": [
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/Dima.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-001.jpg",
+        "original_name": "Dima.jpg",
+        "new_name": "1995eurokotallg-001.jpg",
+        "size_bytes": 128657
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/Viech.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-002.jpg",
+        "original_name": "Viech.jpg",
+        "new_name": "1995eurokotallg-002.jpg",
+        "size_bytes": 457444
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/boniUbubi.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-003.jpg",
+        "original_name": "boniUbubi.jpg",
+        "new_name": "1995eurokotallg-003.jpg",
+        "size_bytes": 137629
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/box.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-004.jpg",
+        "original_name": "box.jpg",
+        "new_name": "1995eurokotallg-004.jpg",
+        "size_bytes": 136537
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/cleaning.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-005.jpg",
+        "original_name": "cleaning.jpg",
+        "new_name": "1995eurokotallg-005.jpg",
+        "size_bytes": 160418
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/disco.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-006.jpg",
+        "original_name": "disco.jpg",
+        "new_name": "1995eurokotallg-006.jpg",
+        "size_bytes": 89775
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/dottir.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-007.jpg",
+        "original_name": "dottir.jpg",
+        "new_name": "1995eurokotallg-007.jpg",
+        "size_bytes": 132322
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/empty.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-008.jpg",
+        "original_name": "empty.jpg",
+        "new_name": "1995eurokotallg-008.jpg",
+        "size_bytes": 76255
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/escher.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-009.jpg",
+        "original_name": "escher.jpg",
+        "new_name": "1995eurokotallg-009.jpg",
+        "size_bytes": 1394371
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/geputzt.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-010.jpg",
+        "original_name": "geputzt.jpg",
+        "new_name": "1995eurokotallg-010.jpg",
+        "size_bytes": 143249
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/hund.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-011.jpg",
+        "original_name": "hund.jpg",
+        "new_name": "1995eurokotallg-011.jpg",
+        "size_bytes": 112441
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/kiosk.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-012.jpg",
+        "original_name": "kiosk.jpg",
+        "new_name": "1995eurokotallg-012.jpg",
+        "size_bytes": 188458
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/konzi.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-013.jpg",
+        "original_name": "konzi.jpg",
+        "new_name": "1995eurokotallg-013.jpg",
+        "size_bytes": 182638
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/konzi2.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-014.jpg",
+        "original_name": "konzi2.jpg",
+        "new_name": "1995eurokotallg-014.jpg",
+        "size_bytes": 143733
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/kuh.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-015.jpg",
+        "original_name": "kuh.jpg",
+        "new_name": "1995eurokotallg-015.jpg",
+        "size_bytes": 217528
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/lesung.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-016.jpg",
+        "original_name": "lesung.jpg",
+        "new_name": "1995eurokotallg-016.jpg",
+        "size_bytes": 149526
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mischpult.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-017.jpg",
+        "original_name": "mischpult.jpg",
+        "new_name": "1995eurokotallg-017.jpg",
+        "size_bytes": 168475
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutter.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-018.jpg",
+        "original_name": "mutter.jpg",
+        "new_name": "1995eurokotallg-018.jpg",
+        "size_bytes": 134005
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterEigang.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-019.jpg",
+        "original_name": "mutterEigang.jpg",
+        "new_name": "1995eurokotallg-019.jpg",
+        "size_bytes": 216544
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterana.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-020.jpg",
+        "original_name": "mutterana.jpg",
+        "new_name": "1995eurokotallg-020.jpg",
+        "size_bytes": 167902
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterbau.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-021.jpg",
+        "original_name": "mutterbau.jpg",
+        "new_name": "1995eurokotallg-021.jpg",
+        "size_bytes": 165615
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo1.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-022.jpg",
+        "original_name": "novo1.jpg",
+        "new_name": "1995eurokotallg-022.jpg",
+        "size_bytes": 192891
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo2.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-023.jpg",
+        "original_name": "novo2.jpg",
+        "new_name": "1995eurokotallg-023.jpg",
+        "size_bytes": 65604
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo3.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-024.jpg",
+        "original_name": "novo3.jpg",
+        "new_name": "1995eurokotallg-024.jpg",
+        "size_bytes": 93720
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo4.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-025.jpg",
+        "original_name": "novo4.jpg",
+        "new_name": "1995eurokotallg-025.jpg",
+        "size_bytes": 87906
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/pastor.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-026.jpg",
+        "original_name": "pastor.jpg",
+        "new_name": "1995eurokotallg-026.jpg",
+        "size_bytes": 192761
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/puppe.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-027.jpg",
+        "original_name": "puppe.jpg",
+        "new_name": "1995eurokotallg-027.jpg",
+        "size_bytes": 139993
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/robot.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-028.jpg",
+        "original_name": "robot.jpg",
+        "new_name": "1995eurokotallg-028.jpg",
+        "size_bytes": 150012
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/ru1.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-029.jpg",
+        "original_name": "ru1.jpg",
+        "new_name": "1995eurokotallg-029.jpg",
+        "size_bytes": 476086
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/ru2.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-030.jpg",
+        "original_name": "ru2.jpg",
+        "new_name": "1995eurokotallg-030.jpg",
+        "size_bytes": 147249
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/saeule.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-031.jpg",
+        "original_name": "saeule.jpg",
+        "new_name": "1995eurokotallg-031.jpg",
+        "size_bytes": 490449
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/theEnd.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-032.jpg",
+        "original_name": "theEnd.jpg",
+        "new_name": "1995eurokotallg-032.jpg",
+        "size_bytes": 159064
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/vendetta.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-033.jpg",
+        "original_name": "vendetta.jpg",
+        "new_name": "1995eurokotallg-033.jpg",
+        "size_bytes": 130424
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/wemean.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotallg-034.jpg",
+        "original_name": "wemean.jpg",
+        "new_name": "1995eurokotallg-034.jpg",
+        "size_bytes": 163800
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen1.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-001.jpg",
+        "original_name": "eisen1.jpg",
+        "new_name": "1995eurokotxix-001.jpg",
+        "size_bytes": 546535
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen2.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-002.jpg",
+        "original_name": "eisen2.jpg",
+        "new_name": "1995eurokotxix-002.jpg",
+        "size_bytes": 500204
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen3.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-003.jpg",
+        "original_name": "eisen3.jpg",
+        "new_name": "1995eurokotxix-003.jpg",
+        "size_bytes": 583326
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen4.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-004.jpg",
+        "original_name": "eisen4.jpg",
+        "new_name": "1995eurokotxix-004.jpg",
+        "size_bytes": 108327
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen6.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-005.jpg",
+        "original_name": "eisen6.jpg",
+        "new_name": "1995eurokotxix-005.jpg",
+        "size_bytes": 127294
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen7.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-006.jpg",
+        "original_name": "eisen7.jpg",
+        "new_name": "1995eurokotxix-006.jpg",
+        "size_bytes": 135657
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot15.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-007.jpg",
+        "original_name": "eurokot15.jpg",
+        "new_name": "1995eurokotxix-007.jpg",
+        "size_bytes": 236774
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot29_var.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-008.jpg",
+        "original_name": "eurokot29_var.jpg",
+        "new_name": "1995eurokotxix-008.jpg",
+        "size_bytes": 160679
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot38.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-009.jpg",
+        "original_name": "eurokot38.jpg",
+        "new_name": "1995eurokotxix-009.jpg",
+        "size_bytes": 187547
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot4.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-010.jpg",
+        "original_name": "eurokot4.jpg",
+        "new_name": "1995eurokotxix-010.jpg",
+        "size_bytes": 143531
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot5.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-011.jpg",
+        "original_name": "eurokot5.jpg",
+        "new_name": "1995eurokotxix-011.jpg",
+        "size_bytes": 131756
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot6.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-012.jpg",
+        "original_name": "eurokot6.jpg",
+        "new_name": "1995eurokotxix-012.jpg",
+        "size_bytes": 176988
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot8.jpg",
+        "target": "src/assets/images/projects/paintings/murals-europe/1995eurokotxix-013.jpg",
+        "original_name": "eurokot8.jpg",
+        "new_name": "1995eurokotxix-013.jpg",
+        "size_bytes": 196638
+      }
+    ],
+    "uploads_copied": [],
+    "errors": [],
+    "total_copied": 47,
+    "total_size_bytes": 10428737
+  },
+  {
+    "project": "Felix und Regula",
+    "slug": "felix-und-regula",
+    "target_dir": "src/assets/images/projects/paintings/felix-und-regula",
+    "images_copied": [],
+    "uploads_copied": [],
+    "errors": [
+      "No images or uploads found"
+    ],
+    "total_copied": 0,
+    "total_size_bytes": 0
+  },
+  {
+    "project": "Wohlgroth",
+    "slug": "wohlgroth",
+    "target_dir": "src/assets/images/projects/paintings/wohlgroth",
+    "images_copied": [],
+    "uploads_copied": [],
+    "errors": [
+      "No images or uploads found"
+    ],
+    "total_copied": 0,
+    "total_size_bytes": 0
+  },
+  {
+    "project": "Graphical Work",
+    "slug": "graphical-work",
+    "target_dir": "src/assets/images/projects/paintings/graphical-work",
+    "images_copied": [
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Bagger/baggerthumb.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997bagger-001.jpg",
+        "original_name": "baggerthumb.jpg",
+        "new_name": "1997bagger-001.jpg",
+        "size_bytes": 256225
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/Sennhof2.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-001.jpg",
+        "original_name": "Sennhof2.jpg",
+        "new_name": "1997xix-001.jpg",
+        "size_bytes": 102747
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/eeisen1.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-002.jpg",
+        "original_name": "eeisen1.jpg",
+        "new_name": "1997xix-002.jpg",
+        "size_bytes": 338076
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/eisen2.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-003.jpg",
+        "original_name": "eisen2.jpg",
+        "new_name": "1997xix-003.jpg",
+        "size_bytes": 500204
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/eisen3.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-004.jpg",
+        "original_name": "eisen3.jpg",
+        "new_name": "1997xix-004.jpg",
+        "size_bytes": 583326
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/eisen4.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-005.jpg",
+        "original_name": "eisen4.jpg",
+        "new_name": "1997xix-005.jpg",
+        "size_bytes": 108327
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/eisen6.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-006.jpg",
+        "original_name": "eisen6.jpg",
+        "new_name": "1997xix-006.jpg",
+        "size_bytes": 127294
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/eisen7.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-007.jpg",
+        "original_name": "eisen7.jpg",
+        "new_name": "1997xix-007.jpg",
+        "size_bytes": 135657
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhof5.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-008.jpg",
+        "original_name": "sennhof5.jpg",
+        "new_name": "1997xix-008.jpg",
+        "size_bytes": 155393
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhof5sw.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-009.jpg",
+        "original_name": "sennhof5sw.jpg",
+        "new_name": "1997xix-009.jpg",
+        "size_bytes": 107231
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhof6.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-010.jpg",
+        "original_name": "sennhof6.jpg",
+        "new_name": "1997xix-010.jpg",
+        "size_bytes": 173030
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhof6s_w.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-011.jpg",
+        "original_name": "sennhof6s_w.jpg",
+        "new_name": "1997xix-011.jpg",
+        "size_bytes": 106649
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhof7.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-012.jpg",
+        "original_name": "sennhof7.jpg",
+        "new_name": "1997xix-012.jpg",
+        "size_bytes": 185915
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhof_xix.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-013.jpg",
+        "original_name": "sennhof_xix.jpg",
+        "new_name": "1997xix-013.jpg",
+        "size_bytes": 111611
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhofbar1.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-014.jpg",
+        "original_name": "sennhofbar1.jpg",
+        "new_name": "1997xix-014.jpg",
+        "size_bytes": 1017615
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhofbar2.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-015.jpg",
+        "original_name": "sennhofbar2.jpg",
+        "new_name": "1997xix-015.jpg",
+        "size_bytes": 435867
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/sennhofbartotale.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-016.jpg",
+        "original_name": "sennhofbartotale.jpg",
+        "new_name": "1997xix-016.jpg",
+        "size_bytes": 508388
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/xixbar55.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-017.jpg",
+        "original_name": "xixbar55.jpg",
+        "new_name": "1997xix-017.jpg",
+        "size_bytes": 86346
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom10.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-018.jpg",
+        "original_name": "zoom10.jpg",
+        "new_name": "1997xix-018.jpg",
+        "size_bytes": 248063
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom2.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-019.jpg",
+        "original_name": "zoom2.jpg",
+        "new_name": "1997xix-019.jpg",
+        "size_bytes": 258232
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom3.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-020.jpg",
+        "original_name": "zoom3.jpg",
+        "new_name": "1997xix-020.jpg",
+        "size_bytes": 230009
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom4.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-021.jpg",
+        "original_name": "zoom4.jpg",
+        "new_name": "1997xix-021.jpg",
+        "size_bytes": 238244
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom5.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-022.jpg",
+        "original_name": "zoom5.jpg",
+        "new_name": "1997xix-022.jpg",
+        "size_bytes": 198184
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom6.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-023.jpg",
+        "original_name": "zoom6.jpg",
+        "new_name": "1997xix-023.jpg",
+        "size_bytes": 219787
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom7.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-024.jpg",
+        "original_name": "zoom7.jpg",
+        "new_name": "1997xix-024.jpg",
+        "size_bytes": 224746
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom8.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-025.jpg",
+        "original_name": "zoom8.jpg",
+        "new_name": "1997xix-025.jpg",
+        "size_bytes": 134991
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/1997Xix/zoom9.jpg",
+        "target": "src/assets/images/projects/paintings/graphical-work/1997xix-026.jpg",
+        "original_name": "zoom9.jpg",
+        "new_name": "1997xix-026.jpg",
+        "size_bytes": 97941
+      }
+    ],
+    "uploads_copied": [],
+    "errors": [],
+    "total_copied": 27,
+    "total_size_bytes": 6890098
+  },
+  {
+    "project": "Akwa",
+    "slug": "akwa",
+    "target_dir": "src/assets/images/projects/paintings/akwa",
+    "images_copied": [
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/1.page6.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-001.jpg",
+        "original_name": "1.page6.jpg",
+        "new_name": "akwa-001.jpg",
+        "size_bytes": 189931
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/1page.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-002.jpg",
+        "original_name": "1page.jpg",
+        "new_name": "akwa-002.jpg",
+        "size_bytes": 251708
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa1.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-003.jpg",
+        "original_name": "Akwa1.jpg",
+        "new_name": "akwa-003.jpg",
+        "size_bytes": 400958
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa2.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-004.jpg",
+        "original_name": "Akwa2.jpg",
+        "new_name": "akwa-004.jpg",
+        "size_bytes": 537303
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa3.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-005.jpg",
+        "original_name": "Akwa3.jpg",
+        "new_name": "akwa-005.jpg",
+        "size_bytes": 459325
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/akwath7.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-006.jpg",
+        "original_name": "akwath7.jpg",
+        "new_name": "akwa-006.jpg",
+        "size_bytes": 82999
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs11.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-007.jpg",
+        "original_name": "krebs11.jpg",
+        "new_name": "akwa-007.jpg",
+        "size_bytes": 135213
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs2_1layer.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-008.jpg",
+        "original_name": "krebs2_1layer.jpg",
+        "new_name": "akwa-008.jpg",
+        "size_bytes": 134984
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs31layer.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-009.jpg",
+        "original_name": "krebs31layer.jpg",
+        "new_name": "akwa-009.jpg",
+        "size_bytes": 124226
+      }
+    ],
+    "uploads_copied": [
+      {
+        "source": "old/TYPO3BU/_/uploads/RTEmagicP_akwath1.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-upload-010.jpg",
+        "original_name": "RTEmagicP_akwath1.jpg",
+        "new_name": "akwa-upload-010.jpg",
+        "size_bytes": 171698
+      },
+      {
+        "source": "old/TYPO3BU/_/uploads/RTEmagicC_akwath1.jpg.jpg",
+        "target": "src/assets/images/projects/paintings/akwa/akwa-upload-011.jpg",
+        "original_name": "RTEmagicC_akwath1.jpg.jpg",
+        "new_name": "akwa-upload-011.jpg",
+        "size_bytes": 61122
+      }
+    ],
+    "errors": [],
+    "total_copied": 11,
+    "total_size_bytes": 2549467
+  },
+  {
+    "project": "Malaga la Vache",
+    "slug": "malaga-la-vache",
+    "target_dir": "src/assets/images/projects/paintings/malaga-la-vache",
+    "images_copied": [
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/Monalisa.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-001.jpg",
+        "original_name": "Monalisa.jpg",
+        "new_name": "malaga-la-vache-001.jpg",
+        "size_bytes": 254643
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/Scetch2.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-002.jpg",
+        "original_name": "Scetch2.jpg",
+        "new_name": "malaga-la-vache-002.jpg",
+        "size_bytes": 194903
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/camping1.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-003.jpg",
+        "original_name": "camping1.jpg",
+        "new_name": "malaga-la-vache-003.jpg",
+        "size_bytes": 259861
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/campingcolori.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-004.jpg",
+        "original_name": "campingcolori.jpg",
+        "new_name": "malaga-la-vache-004.jpg",
+        "size_bytes": 841967
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/gDance.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-005.jpg",
+        "original_name": "gDance.jpg",
+        "new_name": "malaga-la-vache-005.jpg",
+        "size_bytes": 226205
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/gabriellewillnicht1.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-006.jpg",
+        "original_name": "gabriellewillnicht1.jpg",
+        "new_name": "malaga-la-vache-006.jpg",
+        "size_bytes": 297896
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/karteParis.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-007.jpg",
+        "original_name": "karteParis.jpg",
+        "new_name": "malaga-la-vache-007.jpg",
+        "size_bytes": 233961
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/kartePariskl.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-008.jpg",
+        "original_name": "kartePariskl.jpg",
+        "new_name": "malaga-la-vache-008.jpg",
+        "size_bytes": 222864
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/logo.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-009.jpg",
+        "original_name": "logo.jpg",
+        "new_name": "malaga-la-vache-009.jpg",
+        "size_bytes": 259398
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/malaga2.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-010.jpg",
+        "original_name": "malaga2.jpg",
+        "new_name": "malaga-la-vache-010.jpg",
+        "size_bytes": 355316
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/osb1.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-011.jpg",
+        "original_name": "osb1.jpg",
+        "new_name": "malaga-la-vache-011.jpg",
+        "size_bytes": 190678
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/osb2.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-012.jpg",
+        "original_name": "osb2.jpg",
+        "new_name": "malaga-la-vache-012.jpg",
+        "size_bytes": 253461
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/osb3.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-013.jpg",
+        "original_name": "osb3.jpg",
+        "new_name": "malaga-la-vache-013.jpg",
+        "size_bytes": 145377
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/ski2.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-014.jpg",
+        "original_name": "ski2.jpg",
+        "new_name": "malaga-la-vache-014.jpg",
+        "size_bytes": 154865
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/ski5.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-015.jpg",
+        "original_name": "ski5.jpg",
+        "new_name": "malaga-la-vache-015.jpg",
+        "size_bytes": 274846
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/surf1.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-016.jpg",
+        "original_name": "surf1.jpg",
+        "new_name": "malaga-la-vache-016.jpg",
+        "size_bytes": 312745
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/2005Malaga/surf3colori.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-017.jpg",
+        "original_name": "surf3colori.jpg",
+        "new_name": "malaga-la-vache-017.jpg",
+        "size_bytes": 516530
+      }
+    ],
+    "uploads_copied": [
+      {
+        "source": "old/TYPO3BU/_/uploads/RTEmagicC_malagath1.jpg.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-upload-018.jpg",
+        "original_name": "RTEmagicC_malagath1.jpg.jpg",
+        "new_name": "malaga-la-vache-upload-018.jpg",
+        "size_bytes": 52980
+      },
+      {
+        "source": "old/TYPO3BU/_/uploads/RTEmagicP_malagath1.jpg",
+        "target": "src/assets/images/projects/paintings/malaga-la-vache/malaga-la-vache-upload-019.jpg",
+        "original_name": "RTEmagicP_malagath1.jpg",
+        "new_name": "malaga-la-vache-upload-019.jpg",
+        "size_bytes": 179905
+      }
+    ],
+    "errors": [],
+    "total_copied": 19,
+    "total_size_bytes": 5228401
+  },
+  {
+    "project": "Concept Illustration",
+    "slug": "concept-illustration",
+    "target_dir": "src/assets/images/projects/paintings/concept-illustration",
+    "images_copied": [
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/Dc1.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-001.jpg",
+        "original_name": "Dc1.jpg",
+        "new_name": "concept-illustration-001.jpg",
+        "size_bytes": 424902
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/Dc2.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-002.jpg",
+        "original_name": "Dc2.jpg",
+        "new_name": "concept-illustration-002.jpg",
+        "size_bytes": 259025
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/ElxtAireals1.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-003.jpg",
+        "original_name": "ElxtAireals1.jpg",
+        "new_name": "concept-illustration-003.jpg",
+        "size_bytes": 536248
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/ElxtKokooons.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-004.jpg",
+        "original_name": "ElxtKokooons.jpg",
+        "new_name": "concept-illustration-004.jpg",
+        "size_bytes": 635553
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/Lampen1.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-005.jpg",
+        "original_name": "Lampen1.jpg",
+        "new_name": "concept-illustration-005.jpg",
+        "size_bytes": 494207
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/Lampen2.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-006.jpg",
+        "original_name": "Lampen2.jpg",
+        "new_name": "concept-illustration-006.jpg",
+        "size_bytes": 155946
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/Mantelheizung1.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-007.jpg",
+        "original_name": "Mantelheizung1.jpg",
+        "new_name": "concept-illustration-007.jpg",
+        "size_bytes": 476458
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/Mantelheizung2.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-008.jpg",
+        "original_name": "Mantelheizung2.jpg",
+        "new_name": "concept-illustration-008.jpg",
+        "size_bytes": 575391
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/elxt.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-009.jpg",
+        "original_name": "elxt.jpg",
+        "new_name": "concept-illustration-009.jpg",
+        "size_bytes": 158139
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/motasse1.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-010.jpg",
+        "original_name": "motasse1.jpg",
+        "new_name": "concept-illustration-010.jpg",
+        "size_bytes": 375670
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/motasse2.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-011.jpg",
+        "original_name": "motasse2.jpg",
+        "new_name": "concept-illustration-011.jpg",
+        "size_bytes": 750737
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/motasseMoped.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-012.jpg",
+        "original_name": "motasseMoped.jpg",
+        "new_name": "concept-illustration-012.jpg",
+        "size_bytes": 670308
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/vignanello.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-013.jpg",
+        "original_name": "vignanello.jpg",
+        "new_name": "concept-illustration-013.jpg",
+        "size_bytes": 642456
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/webthanks.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-014.jpg",
+        "original_name": "webthanks.jpg",
+        "new_name": "concept-illustration-014.jpg",
+        "size_bytes": 188999
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/webthanksgr.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-015.jpg",
+        "original_name": "webthanksgr.jpg",
+        "new_name": "concept-illustration-015.jpg",
+        "size_bytes": 772537
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/webthanksxx.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-016.jpg",
+        "original_name": "webthanksxx.jpg",
+        "new_name": "concept-illustration-016.jpg",
+        "size_bytes": 390624
+      },
+      {
+        "source": "old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/concepts/webthanksxy.jpg",
+        "target": "src/assets/images/projects/paintings/concept-illustration/concept-illustration-017.jpg",
+        "original_name": "webthanksxy.jpg",
+        "new_name": "concept-illustration-017.jpg",
+        "size_bytes": 325156
+      }
+    ],
+    "uploads_copied": [],
+    "errors": [],
+    "total_copied": 17,
+    "total_size_bytes": 7832356
+  }
+]

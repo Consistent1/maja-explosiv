@@ -1,4 +1,4 @@
 ---
 title: Installations
-description: Site-specific works that transform spaces through the careful arrangement of materials, light, and sculptural elements. These installations create immersive environments that engage viewers physically and emotionally. Each piece responds to its architectural context while exploring themes of memory, transformation, and the passage of time through thoughtfully composed spatial interventions.
+description: The numerous collaborations with other artists on their projects have always inspired and enriched Maja Thommen’s artistic growth. Especially relevant was her time living in Leipzig, Germany, working as an assistant to robotic artist Jim Whiting, the mastermind behind the workshop/gallery/performance space Bimbo Town. This time served as an incubation period for her later work.
 ---
