@@ -53,17 +53,37 @@ layout: sidebar-layout.njk
                     {% endif %}
                     
                     {% if section.id == 'about' %}
-                        {# About section intro with image and text before tabs #}
+                        {% set bioPage = collections.all | find("fileSlug", "bio") %}
+
+                        {# About section intro with image and text before tabs - pulled from bio.md, not hardcoded #}
                         <div class="about-intro">
                             <img src="{{ '/assets/images/maja.webp' | url }}" alt="Maja Explosiv" class="about-image">
-                            <div class="about-intro-text">
-                                <p>Maja Explosiv, born Maja Thommen in Pfäffikon, Switzerland in 1973, is a multidisciplinary artist whose extensive physical artwork oeuvre includes sculpture (metal, stone and wood), robotics, kinetic art, illustration and painting.</p>
-                            </div>
+                            {% if bioPage and bioPage.data.excerpt %}
+                                <div class="about-intro-text">
+                                    <p>{{ bioPage.data.excerpt }}</p>
+                                </div>
+                            {% endif %}
                         </div>
-                        
-                        {# About tabs section #}
-                        <div class="section-content">
-                            {{ section.content | safe }}
+
+                        {# About tabs - each panel pulled from its src/pages/about/*.md page #}
+                        <div class="about-tabs" aria-labelledby="about-tabs-label">
+                            <div class="tab-buttons" role="tablist" aria-label="About">
+                                <button role="tab" aria-selected="true" aria-controls="bio" id="tab-bio" class="tab-button" data-tab="bio">Bio</button>
+                                <button role="tab" aria-selected="false" aria-controls="timeline" id="tab-timeline" class="tab-button" data-tab="timeline">Timeline</button>
+                                <button role="tab" aria-selected="false" aria-controls="press" id="tab-press" class="tab-button" data-tab="press">Press</button>
+                                <button role="tab" aria-selected="false" aria-controls="links" id="tab-links" class="tab-button" data-tab="links">Links</button>
+                            </div>
+                            <div class="tab-content">
+                                {% for slug in ['bio', 'timeline', 'press', 'links'] %}
+                                    {% set aboutPage = collections.all | find("fileSlug", slug) %}
+                                    <div id="{{ slug }}" role="tabpanel" aria-labelledby="tab-{{ slug }}" class="tab-pane {% if loop.first %}active{% endif %}" {% if not loop.first %}aria-hidden="true"{% endif %}>
+                                        {% if aboutPage and aboutPage.data.excerpt %}
+                                            <p>{{ aboutPage.data.excerpt }}</p>
+                                        {% endif %}
+                                        <a href="{{ aboutPage.url | url }}" class="read-more-link">Read more</a>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     {% elif section.id == 'projects' %}
                         <div class="projects-tabs" aria-labelledby="projects-tabs-label">
