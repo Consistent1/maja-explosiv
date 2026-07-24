@@ -22,59 +22,79 @@ module.exports = {
     "border": "#EBEBEB"         /* Grey/0 - Off White */
   },
   "typography": {
-    /* Exact values read from Figma's Properties panel per text layer,
-       confirmed 2026-07-24 (see project docs for method). All confirmed
-       text uses the "Outfit" font family - the site was previously
-       loading "Geist", which does not appear anywhere in the Figma file.
-       Un-confirmed sizes (h4-h6) are kept as prior approximations. */
+    /* CORRECTED 2026-07-24 (round 2). The first extraction pass read values
+       from the wrong Figma frame - a stale draft, not the canonical one.
+       The owner pointed to the exact right location: big heading "Onepager
+       Solution" -> sub-heading "Updated Components" -> the "Main container"
+       section beneath it. Every value below is re-verified directly from
+       that frame (and, for the sidebar, cross-checked against the
+       Assets/Components library's component marked "In Use").
+
+       Font family corrected: it's Geist everywhere (headings AND body),
+       not Outfit - Outfit doesn't appear to be used anywhere in the
+       correct frame; the prior "Outfit" conclusion came from the wrong
+       location too. */
     "base-size": "16px",
     "line-height": "1.45",
 
-    /* Hero "MAJA EXPLOSIV" wordmark - Outfit 700, uppercase */
-    "hero-title": "140.77px",
-    "hero-title-line-height": "92%",
-    "hero-title-letter-spacing": "-0.03em",
+    /* Hero "MAJA" line - Geist 700 Bold, from Title node in Main container */
+    "hero-title": "85.94px",
+    "hero-title-line-height": "74%",
+    "hero-title-letter-spacing": "-0.02em",
 
-    /* Sidebar/nav logo text - Outfit 700, uppercase (smaller instance of the same style) */
+    /* Hero "EXPLOSIV" line - Geist 500 Medium, from Subtitle node (distinct
+       weight/size from the Title line, not identical as first assumed) */
+    "hero-subtitle": "77.29px",
+    "hero-subtitle-line-height": "74%",
+    "hero-subtitle-letter-spacing": "-0.02em",
+    "hero-subtitle-weight": "500",
+
+    /* Sidebar/nav logo text ("MAJA EXPLOSIV" wordmark, smaller instance) -
+       not re-verified from the correct frame this round; font corrected to
+       Geist for consistency, size/spacing kept as prior approximation */
     "nav-title": "30px",
     "nav-title-line-height": "92%",
     "nav-title-letter-spacing": "-0.03em",
 
-    /* Lead paragraph ("Maja Explosiv is a multidisciplinary artist...") - Outfit 500 */
+    /* Lead paragraph style - not re-verified from the correct frame this
+       round, kept as prior approximation pending re-confirmation */
     "lead": "40px",
     "lead-line-height": "110%",
     "lead-letter-spacing": "-0.025em",
     "lead-weight": "500",
 
-    /* Body / tagline text ("For commissions, collaborations...") - Outfit 400 */
-    "body-size": "32px",
+    /* Body / tagline text ("For commissions, collaborations...") - Geist
+       400 Regular, from Description node in Main container */
+    "body-size": "22.45px",
     "body-line-height": "110%",
     "body-letter-spacing": "-0.025em",
 
-    /* Section eyebrow label ("WHO WE ARE" etc, Figma style "Section title") -
-       Outfit 700, uppercase, wide tracking. Distinct role from a generic h3. */
+    /* Section eyebrow label ("WHO WE ARE" etc) - not re-verified from the
+       correct frame this round, font corrected to Geist for consistency,
+       size/spacing kept as prior approximation */
     "section-title": "29px",
     "section-title-line-height": "140%",
     "section-title-letter-spacing": "0.02em",
 
-    /* Button label ("LETS GET IN TOUCH") - Geist 600, uppercase */
+    /* Button label ("LETS GET IN TOUCH") - Geist 600, uppercase, confirmed
+       both rounds */
     "button-size": "16px",
     "button-line-height": "140%",
 
-    /* Not yet confirmed against Figma - carried over from prior approximation.
-       Per the design owner: treat as a guideline, not pixel-exact - these are
-       reasonable descending steps rather than confirmed Figma values. */
+    /* Not yet confirmed against Figma at all - carried over as prior
+       approximation. Per the design owner: treat as a guideline, not
+       pixel-exact - reasonable descending steps, not confirmed values. */
     "h3": "32px",
     "h4": "26px",
     "h5": "18px",
     "h6": "16px"
   },
   "fonts": {
-    /* Outfit confirmed from Figma for headings, nav, and body text.
-       Geist confirmed from Figma for buttons specifically (not headings -
-       that was the old, wrong assumption this site shipped with before). */
-    "body": "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    "heading": "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+    /* Geist confirmed from the correct Figma frame for headings, body, AND
+       buttons - a single font family throughout, not a heading/button
+       split as previously (wrongly) concluded. Outfit removed. */
+    "body": "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+    "heading": "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
     "button": "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
   },
   "paths": {

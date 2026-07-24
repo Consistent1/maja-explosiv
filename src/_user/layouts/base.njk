@@ -21,11 +21,9 @@
     <meta property="twitter:description" content="{{ description or site.description or 'A flexible 11ty website template' }}">
     {% if image %}<meta property="twitter:image" content="{{ site.url }}{{ image }}">{% endif %}
     
-    <!-- Google Fonts: Outfit (headings/body, confirmed from Figma) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Geist (buttons, confirmed from Figma) -->
+    <!-- Geist - confirmed from Figma as the single font family used
+         throughout (headings, body, and buttons). Outfit removed - it
+         was a conclusion drawn from the wrong Figma frame. -->
     <link href="https://cdn.jsdelivr.net/npm/@vercel/style-guide@latest/fonts/geist/index.css" rel="stylesheet">
 
     <!-- Stylesheets -->
