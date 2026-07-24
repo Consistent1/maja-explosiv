@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initNewsletterForm();
     initContactForm();
     initTabs();
-    initProjectPreview();
 });
 
 // Accessible tabs initialization
@@ -140,47 +139,6 @@ function activateTab(tab, tabs) {
     if (tabId) {
         history.replaceState(null, '', `#${tabId}`);
     }
-}
-
-// Project preview wiring: populate the right-column project-detail when a project card is clicked
-function initProjectPreview() {
-    const postCards = document.querySelectorAll('.post-card, .project-card');
-    const detail = document.getElementById('project-detail');
-    if (!detail) return;
-
-    postCards.forEach(card => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', (e) => {
-            // extract simple fields
-            const title = card.querySelector('.post-card-title a')?.textContent || card.querySelector('.post-card-title')?.textContent || card.querySelector('h3, h2')?.textContent || 'Project';
-            const imgEl = card.querySelector('img');
-            const imgSrc = imgEl ? (imgEl.dataset.src || imgEl.getAttribute('src')) : '/assets/images/placeholder-project.jpg';
-            const excerpt = card.querySelector('.post-card-description')?.textContent || card.querySelector('.post-card-excerpt')?.textContent || '';
-            const link = card.querySelector('a') ? card.querySelector('a').getAttribute('href') : '#';
-
-            // populate detail panel
-            const titleEl = detail.querySelector('.project-title');
-            const yearEl = detail.querySelector('.project-year');
-            const mediumEl = detail.querySelector('.project-medium');
-            const descEl = detail.querySelector('.project-description');
-            const imgWrap = detail.querySelector('.project-image img');
-            const openLink = detail.querySelector('.project-open-link');
-
-            if (titleEl) titleEl.textContent = title;
-            if (descEl) descEl.textContent = excerpt;
-            if (imgWrap) imgWrap.setAttribute('src', imgSrc);
-            if (openLink) openLink.setAttribute('href', link);
-
-            // optional: if the post's frontmatter includes date or medium, read data attributes
-            if (yearEl) yearEl.textContent = card.dataset.year || '';
-            if (mediumEl) mediumEl.textContent = card.dataset.medium || '';
-
-            // bring detail into view on small screens
-            if (window.innerWidth < 900) {
-                detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
 }
 
 // Mobile Menu Toggle

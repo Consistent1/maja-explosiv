@@ -1,0 +1,310 @@
+{
+  "analysis_date": "2025-12-28",
+  "total_galleries": 7,
+  "galleries": [
+    {
+      "uid": "919",
+      "title": "Wohlgroth",
+      "has_gallery": true,
+      "flexform_config": {
+        "mode": "DAM",
+        "startingpointdam": "10",
+        "lightbox": "1",
+        "arrows": "1",
+        "showThumbs": "1",
+        "showPlay": "1",
+        "watermark": "0",
+        "limitImagesDisplayed": "0",
+        "thumbopacity": "1",
+        "infopane": "0",
+        "externalthumbs": "externalthumbs",
+        "externalcontrol": "0",
+        "advancedsettings": "thumbHeight:100,thumbWidth:100,"
+      },
+      "filesystem_images_count": 0,
+      "filesystem_images": [],
+      "dam_startingpoint": "10",
+      "gallery_mode": "DAM"
+    },
+    {
+      "uid": "918",
+      "title": "Felix und Regula",
+      "has_gallery": true,
+      "flexform_config": {
+        "mode": "DAM",
+        "startingpointdam": "18",
+        "lightbox": "1",
+        "arrows": "1",
+        "showThumbs": "1",
+        "showPlay": "1",
+        "watermark": "0",
+        "limitImagesDisplayed": "0",
+        "thumbopacity": "1",
+        "infopane": "0",
+        "externalthumbs": "externalthumbs",
+        "externalcontrol": "0",
+        "advancedsettings": "thumbHeight:100,thumbWidth:100,"
+      },
+      "filesystem_images_count": 0,
+      "filesystem_images": [],
+      "dam_startingpoint": "18",
+      "gallery_mode": "DAM"
+    },
+    {
+      "uid": "866",
+      "title": "Murals Europe",
+      "has_gallery": true,
+      "flexform_config": {
+        "mode": "DAM",
+        "startingpointdam": "12",
+        "lightbox": "1",
+        "arrows": "1",
+        "showThumbs": "1",
+        "showPlay": "1",
+        "watermark": "0",
+        "limitImagesDisplayed": "0",
+        "thumbopacity": "1",
+        "infopane": "0",
+        "externalthumbs": "externalthumbs",
+        "externalcontrol": "0",
+        "advancedsettings": "thumbHeight:100,thumbWidth:100,"
+      },
+      "filesystem_images_count": 0,
+      "filesystem_images": [],
+      "dam_startingpoint": "12",
+      "gallery_mode": "DAM"
+    },
+    {
+      "uid": "920",
+      "title": "Graphical Work",
+      "has_gallery": true,
+      "flexform_config": {
+        "mode": "DAM",
+        "startingpointdam": "18",
+        "lightbox": "1",
+        "arrows": "1",
+        "showThumbs": "1",
+        "showPlay": "1",
+        "watermark": "0",
+        "limitImagesDisplayed": "0",
+        "thumbopacity": "1",
+        "infopane": "0",
+        "externalthumbs": "externalthumbs",
+        "externalcontrol": "0",
+        "advancedsettings": "thumbHeight:100,thumbWidth:100,"
+      },
+      "filesystem_images_count": 0,
+      "filesystem_images": [],
+      "dam_startingpoint": "18",
+      "gallery_mode": "DAM"
+    },
+    {
+      "uid": "921",
+      "title": "Akwa",
+      "has_gallery": true,
+      "flexform_config": {
+        "mode": "DAM",
+        "startingpointdam": "7",
+        "lightbox": "1",
+        "arrows": "1",
+        "showThumbs": "1",
+        "showPlay": "1",
+        "watermark": "0",
+        "limitImagesDisplayed": "0",
+        "thumbopacity": "1",
+        "infopane": "0",
+        "externalthumbs": "externalthumbs",
+        "externalcontrol": "0",
+        "advancedsettings": "thumbHeight:100,thumbWidth:100,"
+      },
+      "filesystem_images_count": 27,
+      "filesystem_images": [
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs11.jpg",
+          "filename": "krebs11.jpg",
+          "size": 135213
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs2_1layer.jpg",
+          "filename": "krebs2_1layer.jpg",
+          "size": 134984
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/1.page6.jpg",
+          "filename": "1.page6.jpg",
+          "size": 189931
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs31layer.jpg",
+          "filename": "krebs31layer.jpg",
+          "size": 124226
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa3.jpg",
+          "filename": "Akwa3.jpg",
+          "size": 459325
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/akwath7.jpg",
+          "filename": "akwath7.jpg",
+          "size": 82999
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa2.jpg",
+          "filename": "Akwa2.jpg",
+          "size": 537303
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/1page.jpg",
+          "filename": "1page.jpg",
+          "size": 251708
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa1.jpg",
+          "filename": "Akwa1.jpg",
+          "size": 400958
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs11.jpg",
+          "filename": "krebs11.jpg",
+          "size": 135213
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs2_1layer.jpg",
+          "filename": "krebs2_1layer.jpg",
+          "size": 134984
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/1.page6.jpg",
+          "filename": "1.page6.jpg",
+          "size": 189931
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs31layer.jpg",
+          "filename": "krebs31layer.jpg",
+          "size": 124226
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa3.jpg",
+          "filename": "Akwa3.jpg",
+          "size": 459325
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/akwath7.jpg",
+          "filename": "akwath7.jpg",
+          "size": 82999
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa2.jpg",
+          "filename": "Akwa2.jpg",
+          "size": 537303
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/1page.jpg",
+          "filename": "1page.jpg",
+          "size": 251708
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa1.jpg",
+          "filename": "Akwa1.jpg",
+          "size": 400958
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs11.jpg",
+          "filename": "krebs11.jpg",
+          "size": 135213
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs2_1layer.jpg",
+          "filename": "krebs2_1layer.jpg",
+          "size": 134984
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/1.page6.jpg",
+          "filename": "1.page6.jpg",
+          "size": 189931
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs31layer.jpg",
+          "filename": "krebs31layer.jpg",
+          "size": 124226
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa3.jpg",
+          "filename": "Akwa3.jpg",
+          "size": 459325
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/akwath7.jpg",
+          "filename": "akwath7.jpg",
+          "size": 82999
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa2.jpg",
+          "filename": "Akwa2.jpg",
+          "size": 537303
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/1page.jpg",
+          "filename": "1page.jpg",
+          "size": 251708
+        },
+        {
+          "path": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa1.jpg",
+          "filename": "Akwa1.jpg",
+          "size": 400958
+        }
+      ],
+      "dam_startingpoint": "7",
+      "gallery_mode": "DAM"
+    },
+    {
+      "uid": "922",
+      "title": "Malaga la Vache",
+      "has_gallery": true,
+      "flexform_config": {
+        "mode": "DAM",
+        "startingpointdam": "15",
+        "lightbox": "1",
+        "arrows": "1",
+        "showThumbs": "1",
+        "showPlay": "1",
+        "watermark": "0",
+        "limitImagesDisplayed": "0",
+        "thumbopacity": "1",
+        "infopane": "0",
+        "externalthumbs": "externalthumbs",
+        "externalcontrol": "0",
+        "advancedsettings": "thumbHeight:100,thumbWidth:100,"
+      },
+      "filesystem_images_count": 0,
+      "filesystem_images": [],
+      "dam_startingpoint": "15",
+      "gallery_mode": "DAM"
+    },
+    {
+      "uid": "923",
+      "title": "Concept Illustration",
+      "has_gallery": true,
+      "flexform_config": {
+        "mode": "DAM",
+        "startingpointdam": "12",
+        "lightbox": "1",
+        "arrows": "1",
+        "showThumbs": "1",
+        "showPlay": "1",
+        "watermark": "0",
+        "limitImagesDisplayed": "0",
+        "thumbopacity": "1",
+        "infopane": "0",
+        "externalthumbs": "externalthumbs",
+        "externalcontrol": "0",
+        "advancedsettings": "thumbHeight:100,thumbWidth:100,"
+      },
+      "filesystem_images_count": 0,
+      "filesystem_images": [],
+      "dam_startingpoint": "12",
+      "gallery_mode": "DAM"
+    }
+  ]
+}

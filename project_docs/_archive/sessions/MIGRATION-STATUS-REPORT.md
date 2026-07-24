@@ -3,8 +3,8 @@
 
 **Document Created:** December 23, 2025  
 **Last Updated:** December 28, 2025  
-**Project Status:** IN PROGRESS - Content Extraction & Image Migration Phase  
-**Completion:** ~40% (Foundation, Content Extraction, Paintings Investigation Complete)
+**Project Status:** IN PROGRESS - Image Gallery Investigation Complete  
+**Completion:** ~45% (Foundation, Content Extraction, DAM/Gallery Analysis Complete)
 
 ---
 
@@ -13,11 +13,13 @@
 The migration from TYPO3 to Eleventy is progressing steadily with critical infrastructure and initial content extraction completed. The project successfully resolved major technical challenges including character encoding issues and **discovered that 82% of painting pages use static HTML content instead of database storage**, requiring an enhanced web scraping approach for complete migration.
 
 **Current Phase:** Epic 1.3 - Content Migration (Paintings Analysis Complete, Implementation Pending)  
-**Next Milestone:** Implement web scraping for 14 painting pages without database content, then proceed with comprehensive migration  
-**Recent Achievement:** Root cause analysis of "Breath under Water" migration failure - identified static HTML content pattern affecting 14/17 painting projects (December 28, 2025)
+**Next Milestone:** Update migration scripts to use DAM-based image filtering, then implement web scraping for pages without database content  
+**Recent Achievement:** Complete analysis of RG Smooth Gallery image system - identified exact images to migrate vs. extra filesystem images (December 28, 2025)
 
-**Critical Finding:**  
-Out of 17 painting pages, only 3 have content in the TYPO3 `tt_content` database table. The other 14 pages (including "Breath under Water") store their content as static HTML on the live website. Migration strategy updated to include web scraping for pages without database content.
+**Critical Findings:**  
+1. **Static HTML Content:** Out of 17 painting pages, only 3 have content in the TYPO3 `tt_content` database table. The other 14 pages store their content as static HTML on the live website.
+2. **Gallery Image Discovery:** RG Smooth Gallery references specific DAM (Digital Asset Management) folders that contain **only 99 images across 6 painting projects**, not the 1,000+ images in the filesystem. Old scripts imported all directory images, resulting in unused images being migrated.
+3. **DAM Architecture:** The `startingpointdam` FlexForm value references DAM folder UIDs that map to specific `fileadmin/s-maj/images/BilderMaja/` subdirectories containing only the displayed images.
 
 ---
 
@@ -43,6 +45,18 @@ Out of 17 painting pages, only 3 have content in the TYPO3 `tt_content` database
   - Missing project investigation (UID 982 "Breath under Water")
   - Detailed "How to Resume Work" section
   - All files modified during session documented
+
+#### [project_docs/session-2025-12-28-dam-investigation.md](project_docs/session-2025-12-28-dam-investigation.md) ⭐ **NEW**
+- **Content Description:** Complete session summary of DAM & Gallery Image Investigation
+- **Relevance Status:** Current (December 28, 2025)
+- **Key Information:**
+  - **Problem:** Old scripts imported ALL directory images (~1,500), including unused ones
+  - **Investigation:** Complete FlexForm and DAM system analysis
+  - **Solution:** Extracted exact 99 image list from DAM configuration
+  - **Impact:** 94% reduction in image migration scope
+  - **Files Created:** 5 scripts, 4 data files, 3 documentation updates
+  - **Status:** Investigation complete, ready for script implementation
+  - **Technical Lessons:** FlexForm parsing, DAM architecture, validation importance
 
 #### [project_docs/typo3-technical-findings.md](project_docs/typo3-technical-findings.md)
 - **Content Description:** Complete technical documentation of TYPO3 database structure and migration findings
@@ -96,7 +110,28 @@ Out of 17 painting pages, only 3 have content in the TYPO3 `tt_content` database
   - **Design Principles:** No giant directories, conceptual organization, flexible reuse
   - **Structure:** `src/assets/images/projects/{category}/{series-slug}/`
   - **Naming Convention:** Kebab-case slugs, zero-padded numbers (e.g., `urban-fragments-01.jpg`)
-  - **Categories:** sculptures, installations, performance, paintings,
+  - **Categories:** sculptures, installations, performance, paintings
+
+#### [project_docs/gallery-images-configured.json](project_docs/gallery-images-configured.json)
+- **Content Description:** Definitive list of images actually displayed in RG Smooth Gallery for each painting project
+- **Relevance Status:** Current (Generated December 28, 2025)
+- **Key Information:**
+  - **6 Projects:** Wohlgroth (10 imgs), Felix und Regula (18 imgs), Murals Europe (12 imgs), Akwa (9 imgs), Malaga la Vache (17 imgs), Graphical Work (33 imgs)
+  - **Total Images:** 99 images to migrate (not ~1,000+ in filesystem)
+  - **Exclusion:** All other filesystem images are NOT displayed on live site
+  - **Source:** Extracted from tx_dam table using DAM folder ID → filesystem path mapping
+
+#### [project_docs/actual-gallery-images.json](project_docs/actual-gallery-images.json)
+- **Content Description:** Intermediate analysis data from gallery investigation
+- **Relevance Status:** Superseded by gallery-images-configured.json
+
+#### [project_docs/gallery-analysis-results.json](project_docs/gallery-analysis-results.json)
+- **Content Description:** FlexForm configuration analysis results
+- **Relevance Status:** Current - reference for gallery settings (lightbox, arrows, thumbnails, etc.)
+
+#### [project_docs/dam-extraction-results.json](project_docs/dam-extraction-results.json)
+- **Content Description:** Raw DAM table extraction with 2,688 file records and 311 category associations
+- **Relevance Status:** Archive - used during investigation phase
 
 #### [project_docs/paintings-migration.md](project_docs/paintings-migration.md)
 - **Content Description:** Comprehensive paintings migration report and status
@@ -123,15 +158,18 @@ Out of 17 painting pages, only 3 have content in the TYPO3 `tt_content` database
   - **Migration Impact:** Current approach captures only 18% of paintings; enhanced approach will capture 100%
   - **Next Steps:** Map URLs for 14 unmigrated pages, create web scraping script
   - **Technical Details:** Full investigation methodology, comparison analysis, success criteria
+
+#### [project_docs/dam-gallery-investigation-summary.md](project_docs/dam-gallery-investigation-summary.md) ⭐ **NEW**
+- **Content Description:** Complete investigation of DAM system and gallery image extraction
+- **Relevance Status:** Current (December 28, 2025)
 - **Key Information:**
-  - **Complete Extraction:** 7 painting projects fully extracted
-  - **117 Images Catalogued:** Comprehensive filesystem scan completed
-  - **Metadata Analysis:** All available database and filesystem data captured
-  - **OMITTED Fields:** Clearly marked (years, some images, database references)
-  - **Scripts Preserved:** extract_paintings_data.py, enhance_paintings_data.py, generate_paintings_markdown.py
-  - **Data Files:** paintings-comprehensive-data.json with all metadata
-  - **Status:** 71% complete, ready for image copy phase news, shared
-  - **Benefits:** Maintainability, migration-friendly, scalable growth
+  - **Problem:** Old scripts imported ALL directory images (~1,500), including unused ones
+  - **Solution:** DAM-based filtering identifies ONLY displayed images (99 total)
+  - **Key Discovery:** RG Smooth Gallery uses `startingpointdam` FlexForm value → DAM folder UID → filesystem path
+  - **DAM Architecture:** Path-based organization (not hierarchical), all images have `parent_id=0`
+  - **Results:** 6 painting projects with exact image lists
+  - **Impact:** 94% reduction in image migration scope (99 vs ~1,500 images)
+  - **Status:** Investigation complete, ready for implementation
 
 #### [project_docs/PRD.md](project_docs/PRD.md)
 - **Content Description:** Product Requirements Document for the website redesign
@@ -213,6 +251,52 @@ Out of 17 painting pages, only 3 have content in the TYPO3 `tt_content` database
   - Identifies category pages by keywords
   - Prints tree structure with UIDs
   - Helped understand TYPO3 organization before extraction
+
+#### [scripts/extract_configured_images_only.py](scripts/extract_configured_images_only.py)
+- **Content Description:** Final solution script for extracting only images actually used in RG Smooth Gallery
+- **Relevance Status:** Current (Created December 28, 2025)
+- **Key Information:**
+  - **Purpose:** Identify ONLY images displayed on live site, exclude extra filesystem images
+  - **Method:** Direct path matching using DAM folder ID → filesystem path mapping
+  - **Results:** 99 images across 6 projects (vs 1,000+ in filesystem)
+  - **Mappings:** Wohlgroth (10), Felix und Regula (18), Murals Europe (12), Akwa (9), Malaga la Vache (17), Graphical Work (33)
+  - **Output:** `gallery-images-configured.json` with complete image lists per project
+  - **Key Finding:** Old scripts imported ALL directory images, this imports only displayed ones
+
+#### [scripts/analyze_gallery_images.py](scripts/analyze_gallery_images.py)
+- **Content Description:** Investigation script for analyzing RG Smooth Gallery configurations
+- **Relevance Status:** Reference (Investigation phase)
+- **Key Information:**
+  - Extracts and parses FlexForm XML from tt_content records
+  - Identifies `startingpointdam` values (DAM folder IDs)
+  - Compares gallery config with filesystem images
+  - Led to discovery of DAM-based image filtering
+
+#### [scripts/extract_dam_images.py](scripts/extract_dam_images.py)
+- **Content Description:** Script for extracting DAM (Digital Asset Management) table data
+- **Relevance Status:** Reference (Investigation phase)
+- **Key Information:**
+  - Attempted to extract tx_dam, tx_dam_mm_cat, tx_dam_cat tables
+  - Found 2,688 DAM file records and 311 category associations
+  - Initial attempt to map DAM categories to images
+  - Superseded by direct path matching approach
+
+#### [scripts/extract_actual_gallery_images.py](scripts/extract_actual_gallery_images.py)
+- **Content Description:** Comprehensive gallery extraction attempt (FlexForm + DAM + paths)
+- **Relevance Status:** Reference (Investigation phase)
+- **Key Information:**
+  - Complex state machine for parsing SQL INSERT statements
+  - Attempted to map DAM UIDs → paths → images automatically
+  - Found 88 galleries with FlexForm configurations
+  - Led to simplified manual mapping approach
+
+#### [scripts/extract_gallery_images_final.py](scripts/extract_gallery_images_final.py)
+- **Content Description:** DAM parent_id relationship extraction attempt
+- **Relevance Status:** Reference (Investigation phase)
+- **Key Information:**
+  - Attempted to extract DAM hierarchy using parent_id column
+  - Discovered all images have parent_id=0 (not hierarchical)
+  - Led to path-based approach instead of parent relationships
 
 ### Database and File Backups
 
