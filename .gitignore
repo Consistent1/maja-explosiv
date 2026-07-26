@@ -17,3 +17,4 @@
 .goosehints
 /.clj-kondo/**
 /.lsp/**
+tasks.md
