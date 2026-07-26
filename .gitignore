@@ -18,3 +18,4 @@
 /.clj-kondo/**
 /.lsp/**
 tasks.md
+REFACTORING_PLAN.md

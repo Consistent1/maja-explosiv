@@ -2,10 +2,10 @@
 // To override these values, create a `src/_user/data/site.js` file
 // and add your custom values there.
 module.exports = {
-  "title": "Explosive Website",
-  "description": "A flexible 11ty website template with collections and static pages",
-  "url": "https://explosive-website.com",
-  "tagline": "Building amazing web experiences",
+  "title": "Explosive Website Template",
+  "description": "Demonstrates and documents the use of the template",
+  "url": "https://github.com/Xpanda-org/explosive-11ty",
+  "tagline": "Build Flexible Websites with minimum hassle.",
   "logo": "/assets/images/logo.png",
   "enableSearch": true,
   "showNewsletter": true,
@@ -13,17 +13,17 @@ module.exports = {
   "socialLinks": [
     {
       "platform": "Twitter",
-      "url": "https://twitter.com/explosive",
+      "url": "",
       "icon": "🐦"
     },
     {
       "platform": "GitHub",
-      "url": "https://github.com/explosive",
+      "url": "https://github.com/Xpanda-org/explosive-11ty",
       "icon": "🐙"
     },
     {
       "platform": "LinkedIn",
-      "url": "https://linkedin.com/company/explosive",
+      "url": "",
       "icon": "💼"
     }
   ],
@@ -50,7 +50,7 @@ module.exports = {
     }
   ],
   "contactInfo": {
-    "email": "hello@explosive-website.com",
+    "email": "hello@example.com",
     "phone": "+1 (555) 123-4567",
     "address": "123 Web Street, Internet City, IC 12345"
   },

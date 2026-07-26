@@ -8,48 +8,47 @@
 > The upstream repository containing the template can be forked from [https://github.com/Xpanda-org/explosive-11ty](https://github.com/Xpanda-org/explosive-11ty).  
 > Changes to the upstream forked template can be fetched without causing merge conflicts.
 
-## 🎯 Overview
+An 11ty (Eleventy) website template which attempts to be customisable and flexible enough for most use cases while providing a reasonable developer experience.
+The template’s collection management and layout systems leverage 11ty to handle complex content structures, Open Props provides theming, and Datastar powers front-end dynamic behaviour.
 
-The Explosive Website Template is designed to handle complex content structures with ease. It supports both static pages and dynamic collections, allowing posts to belong to multiple collections while maintaining clean, organized navigation and consistent presentation.
+## Features
 
-## ✨ Features
-
-### 📄 Static Pages
-- Individual page templates with customizable layouts
+### Static Pages
+- Individual page templates with customisable layouts
 - Support for featured images, table of contents, and related pages
 - Flexible content structure with optional components
-- SEO-optimized with meta tags and social sharing
+- SEO-optimised with meta tags and social sharing
 
-### 📝 Advanced Collections System
+### Advanced Collections System
 - Posts can belong to multiple collections using `postCollections` front matter
 - Dynamic collection pages with automatic post filtering
 - Nested collections support (e.g., tutorials → web-development, design)
-- Rich collection metadata with descriptions, colors, and featured images
+- Rich collection metadata with descriptions, colours, and featured images
 - Cross-referencing between collections and posts
 
-### 🧭 Dynamic Navigation
+### Dynamic Navigation
 - Automatically generated navigation from static pages and collections
 - Mobile-responsive hamburger menu with smooth animations
 - Footer navigation with customizable links
 - Breadcrumb navigation for nested collections
 - Skip links for accessibility
 
-### 🎨 Modern Design System
+### Modern Design System
 - **Open Props integration** for consistent, scalable design tokens
 - Mobile-first responsive design with CSS Grid and Flexbox
-- Comprehensive design system with colors, typography, spacing, and animations
+- Comprehensive design system with colours, typography, spacing, and animations
 - Card-based layouts with hover effects and smooth transitions
-- Typography system with web fonts and optimal readability
+- Typography system with web fonts
 - Built-in normalize.css and button components from Open Props
 
-### 📱 Performance & Accessibility
-- Static site generation for lightning-fast loading
+### Performance & Accessibility
+- Static site generation for fast loading
 - Lazy loading for images and media
 - Semantic HTML structure with ARIA labels
 - Screen reader support and keyboard navigation
-- Optimized asset handling and caching
+- Optimised asset handling and caching
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 14 or higher
@@ -59,7 +58,7 @@ The Explosive Website Template is designed to handle complex content structures 
 
 1. **Clone or download the template**
    ```bash
-   git clone <repository-url> my-explosive-site
+   git clone https://github.com/Xpanda-org/explosive-11ty.git my-explosive-site
    cd my-explosive-site
    ```
 
@@ -77,10 +76,14 @@ The Explosive Website Template is designed to handle complex content structures 
    ```bash
    npm run build
    ```
+   Or **Build for GitHub Pages**
+   ```bash
+   npm run build:github
+   ```
 
 Your site will be available at `http://localhost:8080` during development.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -96,9 +99,9 @@ src/
 │   └── collections-overview.njk  # All collections overview
 ├── _data/              # Site configuration
 │   ├── site.json       # Global site settings
-│   ├── theme.js        # Theme configuration (colors, fonts, paths)
+│   ├── theme.js        # Theme configuration (colours, fonts, paths)
 │   └── collectionData.json  # Collection metadata
-├── _user/              # User customizations (override system)
+├── _user/              # User customisations (override system)
 │   ├── assets/        # Custom CSS, JS, and other assets
 │   ├── data/          # Custom data files (merged with base)
 │   ├── includes/      # Custom includes (override base)
@@ -113,7 +116,7 @@ src/
 └── media/              # Media files for posts
 ```
 
-## 📝 Content Creation
+## Content Creation
 
 ### Creating Posts
 
@@ -159,7 +162,7 @@ Your page content here...
 
 ### Configuring Collections
 
-Edit `src/_data/collectionData.json` to customize collections:
+Edit `src/_data/collectionData.json` to customise collections:
 
 ```json
 {
@@ -174,13 +177,13 @@ Edit `src/_data/collectionData.json` to customize collections:
 }
 ```
 
-## 🎨 Customization Architecture
+## Customization Architecture
 
-This template uses a **User Directory** architecture to ensure that your custom changes do not create merge conflicts when pulling updates from the upstream template. All of your site's specific customizations should be placed in the `src/_user` directory.
+This template uses a **User Directory** architecture to ensure that your custom changes do not create merge conflicts when pulling updates from the upstream template. All of your site's specific customisations should be placed in the `src/_user` directory.
 
 The core template files are designed to be extended and overridden by files in `src/_user`.
 
-### 🔄 Override System Architecture
+### Override System Architecture
 
 The template implements three parallel override systems that work at build time:
 
@@ -195,7 +198,7 @@ All three systems work the same way:
 - Eleventy uses the merged cache directories
 - No source files are ever modified - clean separation!
 
-### 🎨 How to Change Site Colors and Theme
+### How to Change Site Colours and Theme
 
 The template uses a **Data Override System** that automatically merges your custom theme settings with the base theme. You can use either JavaScript (`.js`) or JSON (`.json`) files.
 
@@ -208,7 +211,7 @@ The system uses a **deep merge** strategy at build time:
 3. **Build-time merge** → `.cache/data/` (merged result)
 4. **Eleventy uses** → `.cache/data/` as the data directory
 
-**Merge Behavior:**
+**Merge Behaviour:**
 - **Nested objects** are merged recursively (property-level override)
 - **Arrays** are replaced entirely (not merged)
 - **You only specify what you want to change** - all other values are kept from base
@@ -269,12 +272,12 @@ This confirms your custom theme is being applied.
 ```javascript
 {
   "colors": {
-    "primary": "#333",      // Main brand color
-    "accent": "tomato",     // Accent/highlight color
+    "primary": "#333",      // Main brand colour
+    "accent": "tomato",     // Accent/highlight colour
     "background": "#fff",   // Page background
-    "text": "#333",         // Main text color
-    "text-light": "#666",   // Secondary text color
-    "border": "#ddd"        // Border color
+    "text": "#333",         // Main text colour
+    "text-light": "#666",   // Secondary text colour
+    "border": "#ddd"        // Border colour
   },
   "fonts": {
     "body": "...",          // Body text font stack
@@ -293,16 +296,16 @@ These values are exposed as CSS custom properties:
 - `var(--theme-fonts-body)`
 - etc.
 
-### 📊 How to Override Other Data Files
+### How to Override Other Data Files
 
 The Data Override System tries to stike a balance between ease of use and flexibility.
 **Its main benefits are:**
 
-✅ **No merge conflicts** - User customizations separate from template
-✅ **Partial overrides** - Only specify what you want to change
-✅ **Type support** - Works with `.js` and `.json` files
-✅ **Automatic** - No manual configuration needed
-✅ **Consistent** - Same pattern as layouts/includes override system
+**No merge conflicts** - User customizations separate from template
+**Partial overrides** - Only specify what you want to change
+**Type support** - Works with `.js` and `.json` files
+**Automatic** - No manual configuration needed
+**Consistent** - Same pattern as layouts/includes override system
 
 The Data Override System works for **any** data file, not just `theme.js`:
 
@@ -343,7 +346,7 @@ Access in templates: `{{ myCustomData.setting }}`
 ]
 ```
 
-### 🎨 How to Add Custom CSS
+### How to Add Custom CSS
 
 1. Open `src/_user/assets/css/custom.css`.
 2. Add any new CSS rules or overrides. This stylesheet is loaded after the main template stylesheet.
@@ -386,7 +389,7 @@ All theme values are automatically available as CSS custom properties:
 ```
 
 
-### 🔧 How to Override Layouts
+### How to Override Layouts
 
 This template allows you to override any of the default layouts (e.g., `post.njk`, `base.njk`) without modifying the core template files.
 
@@ -408,14 +411,14 @@ This template allows you to override any of the default layouts (e.g., `post.njk
 {% endblock %}
 ```
 
-### 📦 How to Add Custom Includes
+### How to Add Custom Includes
 
 Create reusable template components in `src/_user/includes/`:
 
 1. Create `src/_user/includes/my-component.njk`
 2. Use it in any template with `{% include "my-component.njk" %}`
 
-### 🎯 How to Modify the Header
+### How to Modify the Header
 
 1. Create `src/_user/includes/my-header.njk`
 2. Extend the base header and override specific blocks
@@ -445,7 +448,7 @@ module.exports = {
 };
 ```
 
-## 🛠 Advanced Features
+## Advanced Features
 
 ### Media Galleries
 
@@ -488,7 +491,7 @@ customSections:
 ---
 ```
 
-## 📊 Built-in Features
+## Built-in Features
 
 - **SEO Optimization**: Meta tags, Open Graph, Twitter Cards
 - **Social Sharing**: Built-in sharing buttons for major platforms
@@ -568,8 +571,8 @@ Each image in the carousel can have the following properties:
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `src` | string | ✅ Yes | Path to the image file |
-| `alt` | string | ✅ Yes | Alternative text for accessibility |
+| `src` | string | Yes | Path to the image file |
+| `alt` | string | Yes | Alternative text for accessibility |
 | `title` | string | No | Title displayed as overlay |
 | `caption` | string | No | Caption text displayed below title |
 | `link` | string | No | URL to navigate to when image is clicked |
@@ -713,7 +716,7 @@ carousels:
 5. **Test keyboard navigation** to ensure accessibility
 6. **Keep captions concise** for better readability
 
-## 🔧 Development
+## Development
 
 ### Available Scripts
 
@@ -745,7 +748,7 @@ eleventyConfig.addCollection("featured", function(collectionApi) {
 });
 ```
 
-## 🚀 Deployment
+## Deployment
 
 The template generates static files in the `_site` directory, making it compatible with any static hosting service:
 
@@ -818,7 +821,7 @@ npm run serve
 
 This ensures your local development environment works correctly while maintaining proper GitHub Pages deployment.
 
-## 📚 Example Content
+## Example Content
 
 The template includes sample content to demonstrate all features:
 
@@ -828,95 +831,88 @@ The template includes sample content to demonstrate all features:
 - **About Page**: Template for company/personal information
 - **Contact Page**: Contact form and information template
 
-## 🤝 Contributing
+## Contributing
 
-This template is designed to be extended and customized. Feel free to:
+This repository does not accept any pull requests or issues, at least for the time being.
 
-- Add new layout templates
-- Create additional filters and shortcodes
-- Enhance the styling and design
-- Add new functionality and features
+## Someday Maybe
 
-## 🔮 Suggested Next Steps
-
-Here are recommended enhancements to further improve the template:
-
-### 🔍 Search & Discovery
+### Search & Discovery
 - [ ] **Full-text search**: Implement client-side search with Lunr.js or Fuse.js
 - [ ] **Advanced filtering**: Add tag-based filtering and sorting options
 - [ ] **Search suggestions**: Auto-complete search with popular queries
 - [ ] **Related content algorithm**: Improve related posts using content similarity
 
-### 📊 Analytics & Performance
+### Analytics & Performance
 - [ ] **Analytics integration**: Add Google Analytics 4 or privacy-focused alternatives
 - [ ] **Performance monitoring**: Implement Core Web Vitals tracking
 - [ ] **Image optimization**: Add responsive images with `@11ty/eleventy-img`
 - [ ] **Bundle optimization**: Implement CSS/JS minification and bundling
 
-### 🎨 Enhanced UI/UX
+### Enhanced UI/UX
 - [ ] **Dark mode toggle**: Add user-controlled theme switching
 - [ ] **Reading progress**: Show reading progress bar for long posts
 - [ ] **Infinite scroll**: Implement pagination with infinite scroll
 - [ ] **Print styles**: Add optimized print CSS for better printing
 
-### 📱 Progressive Web App
+### Progressive Web App
 - [ ] **Service Worker**: Add offline functionality and caching
 - [ ] **Web App Manifest**: Make the site installable as a PWA
 - [ ] **Push notifications**: Implement web push for new content alerts
 - [ ] **Offline reading**: Cache posts for offline access
 
-### 🔐 Content Management
+### Content Management
 - [ ] **CMS integration**: Connect with Netlify CMS, Forestry, or Sanity
 - [ ] **Draft system**: Add draft post functionality with preview
 - [ ] **Content scheduling**: Implement future post publishing
 - [ ] **Multi-author support**: Enhanced author profiles and management
 
-### 🌐 Internationalization
+### Internationalization
 - [ ] **Multi-language support**: Add i18n with language switching
 - [ ] **RTL support**: Right-to-left language compatibility
 - [ ] **Localized URLs**: Language-specific URL structures
 - [ ] **Translation management**: Workflow for content translation
 
-### 📧 Communication Features
+### Communication Features
 - [ ] **Newsletter integration**: Connect with Mailchimp, ConvertKit, or similar
 - [ ] **Comment system**: Add Disqus, Utterances, or custom comments
 - [ ] **Contact form backend**: Integrate with Netlify Forms or Formspree
 - [ ] **Social media integration**: Auto-posting to social platforms
 
-### 🛡️ Security & Privacy
+### Security & Privacy
 - [ ] **Content Security Policy**: Implement CSP headers
 - [ ] **Privacy compliance**: Add GDPR/CCPA compliance features
 - [ ] **Spam protection**: Add reCAPTCHA or similar to forms
 - [ ] **Security headers**: Implement security best practices
 
-### 📈 SEO & Marketing
+### SEO & Marketing
 - [ ] **Advanced SEO**: Add JSON-LD structured data
 - [ ] **Sitemap generation**: Automatic XML sitemap creation
 - [ ] **RSS feeds**: Generate RSS feeds for collections
 - [ ] **Social media cards**: Enhanced Open Graph and Twitter Card support
 
-### 🔧 Developer Experience
+### Developer Experience
 - [ ] **Storybook integration**: Component documentation and testing
 - [ ] **Testing framework**: Add unit and integration tests
 - [ ] **GitHub Actions**: Automated testing and deployment workflows
 - [ ] **Documentation site**: Comprehensive documentation with examples
 
-### 🎯 Content Features
+### Content Features
 - [ ] **Series support**: Multi-part article series with navigation
 - [ ] **Bookmarking**: User bookmarking functionality
 - [ ] **Content ratings**: Star ratings or like/dislike system
 - [ ] **Content recommendations**: AI-powered content suggestions
 
-### 📊 Advanced Analytics
+### Advanced Analytics
 - [ ] **Heatmap tracking**: User interaction heatmaps
 - [ ] **A/B testing**: Built-in A/B testing framework
 - [ ] **Conversion tracking**: Goal and conversion analytics
 - [ ] **User journey mapping**: Track user paths through content
 
-## 📄 License
+## License
 
 This template is open source and available under the MIT License.
 
 ---
 
-**Built with ❤️ using 11ty (Eleventy)**
+**Built using 11ty (Eleventy), Datastar, and Open Props**
