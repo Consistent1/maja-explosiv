@@ -228,22 +228,35 @@ h6 {
 
 /* Part 1.3: Sidebar Footer */
 .sidebar-footer {
-    /* Full-bleed black block at the bottom of the sidebar with the same
-       corner.png brush-stroke graphic used at the top of the hero/project
-       pages, cropped to its right/tail end. Negative offsets cancel out
-       .left-sidebar's own padding so this reaches the sidebar's true edges;
-       .left-sidebar's overflow:hidden clips it. Matches Figma + restores
-       what an older version of this site had. */
+    /* Bottom-of-sidebar block with the same corner.png brush-stroke graphic
+       used at the top of the hero/project pages, cropped to its right/tail
+       end. No black background - corner.png is black ink on transparent,
+       same as everywhere else it's used, so it shows naturally (unInverted)
+       against the sidebar's own background here too. */
     position: absolute;
     bottom: -20px;
     left: -24px;
     right: -24px;
     padding: 1.5rem 1.2rem;
-    background-color: #000000;
+    overflow: hidden;
+}
+
+.sidebar-footer::before {
+    /* Sized to the image's natural footprint (439x72, not a full-inset
+       box) and anchored bottom-right so a 180deg rotation flips it in
+       place around its own center, instead of rotating a giant box and
+       relocating the image to a different corner. */
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 439px;
+    height: 72px;
     background-image: url('../images/corner.png');
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: auto;
+    transform: rotate(180deg);
 }
 
 .sidebar-footer p {

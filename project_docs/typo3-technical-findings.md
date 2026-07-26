@@ -946,7 +946,202 @@ python3 scripts/convert_test_projects.py
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** October 29, 2025  
+**Document Version:** 2.0  
+**Last Updated:** December 28, 2025  
 **Author:** Amelia (Developer Agent)
 
+---
+
+## Appendix D: DAM & RG Smooth Gallery Investigation (December 28, 2025)
+
+### Problem Statement
+
+During migration investigation, discovered that old extraction scripts imported **all images from project directories**, resulting in many unused images being migrated. User requirement: **"Make sure that any images we migrate are actually used inside the old site."**
+
+### TYPO3 DAM (Digital Asset Management) System
+
+**Architecture:**
+- **tx_dam:** Main DAM table with 2,688 file/folder records
+- **tx_dam_cat:** Category table (424 categories)
+- **tx_dam_mm_cat:** Many-to-many relationship table (311 associations)
+
+**Key Finding:** DAM uses **filesystem path-based organization**, not parent_id hierarchies.
+
+```sql
+-- DAM record structure
+INSERT INTO `tx_dam` (
+  `uid`, `pid`, `tstamp`, `crdate`, `cruser_id`, `parent_id`, 
+  ...
+  `file_name`, `file_path`, ...
+) VALUES
+(593, 766, ..., 0, ..., 'WohlgrothOli2.jpg', 'fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/', ...);
+```
+
+**Discovery:** All images have `parent_id=0` (flat structure, not hierarchical).
+
+### RG Smooth Gallery Configuration
+
+**Plugin:** `rgsmoothgallery_pi1` (TYPO3 extension)
+
+**FlexForm Storage:** Configuration stored in `tt_content.pi_flexform` column as XML:
+
+```xml
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="mode">
+                    <value index="vDEF">DAM</value>
+                </field>
+                <field index="startingpointdam">
+                    <value index="vDEF">10</value>
+                </field>
+                ...
+```
+
+**Critical Field:** `startingpointdam` - References DAM folder UID containing images to display
+
+**FlexForm Parsing:** SQL escape sequences (`\n`, `\r`, `\'`) must be converted before XML parsing.
+
+### Image Discovery Process
+
+**Investigation Steps:**
+
+1. **Extract FlexForm configurations** from all gallery pages
+   - Found 88 galleries with `rgsmoothgallery_pi1` plugin
+   - Each has `startingpointdam` value (e.g., 10, 18, 12, 7, 15)
+
+2. **Attempt parent_id mapping** (failed)
+   - Expected: DAM UID 10 would be parent folder, images would have `parent_id=10`
+   - Reality: All images have `parent_id=0`
+
+3. **Discover path-based organization** (successful)
+   - DAM doesn't use hierarchical relationships
+   - Images grouped by `file_path` column value
+   - Gallery displays all images at a specific path
+
+4. **Map DAM folders to paths**
+   - Extract images from tx_dam by path pattern matching
+   - Match gallery `startingpointdam` to filesystem locations
+
+### Final Results: Actual Displayed Images
+
+**Total Images to Migrate:** 99 images across 6 painting projects (not 1,000+ in filesystem)
+
+| Project | Page ID | DAM Folder | Path | Images |
+|---------|---------|------------|------|--------|
+| Wohlgroth | 919 | 10 | `fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/` | 10 |
+| Felix und Regula | 918 | 18 | `fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/` | 18 |
+| Murals Europe | 866 | 12 | `fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/` | 12 |
+| Akwa | 921 | 7 | `fileadmin/s-maj/images/BilderMaja/2005Akwa/` | 9 |
+| Malaga la Vache | 922 | 15 | `fileadmin/s-maj/images/BilderMaja/2005Malaga/` | 17 |
+| Graphical Work | 920 | 18 | `fileadmin/s-maj/images/BilderMaja/` | 33 |
+
+**Example - Wohlgroth Images (10 total):**
+```
+Wohl.jpg
+wohl1.jpg
+wohl2.jpg
+wohl3.jpg
+wohl4.jpg
+wohl5.jpg
+wohl6.jpg
+WohlgrothOli1.jpg
+WohlgrothOli2.jpg
+spritzen3.jpg
+```
+
+### Technical Implementation
+
+**Extraction Pattern:**
+```python
+import re
+
+# Extract images at specific path from SQL dump
+def extract_images_from_dam(sql_content, path):
+    escaped_path = re.escape(path)
+    pattern = rf"'([^']*\.(?:jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF))',\s*'{escaped_path}'"
+    matches = re.findall(pattern, sql_content)
+    return sorted(set(matches))
+```
+
+**FlexForm XML Parsing:**
+```python
+# Convert SQL escape sequences before parsing
+xml_str = xml_str.replace('\\n', '\n').replace('\\r', '\r').replace("\\'", "'")
+
+# Extract startingpointdam value
+import xml.etree.ElementTree as ET
+root = ET.fromstring(xml_str)
+for field in root.findall('.//field[@index="startingpointdam"]'):
+    dam_folder_id = field.find('value').text
+```
+
+### Key Discovery
+
+**Old Script Behavior:**
+```python
+# OLD APPROACH (WRONG): Scans filesystem directories, imports ALL images
+def scan_filesystem_images(project_dir):
+    all_images = glob.glob(f"{project_dir}/**/*.jpg")
+    return all_images  # Returns 100+ images per project
+```
+
+**New Script Behavior:**
+```python
+# NEW APPROACH (CORRECT): Queries DAM system, imports ONLY displayed images
+def extract_configured_images(dam_folder_id):
+    path = map_dam_folder_to_path(dam_folder_id)
+    images = extract_images_from_dam(sql, path)
+    return images  # Returns only 10-30 images per project
+```
+
+### Migration Impact
+
+**Before Discovery:**
+- Would migrate ~1,500 images from filesystem
+- Many unused images included
+- Inflated storage and bandwidth
+
+**After Discovery:**
+- Will migrate exactly 99 images for painting galleries
+- Only images actually displayed on live site
+- Accurate, minimal migration scope
+
+### Files Created
+
+**Scripts:**
+- `scripts/extract_configured_images_only.py` - Final extraction solution
+- `scripts/analyze_gallery_images.py` - FlexForm analysis (investigation)
+- `scripts/extract_dam_images.py` - DAM table extraction (investigation)
+- `scripts/extract_actual_gallery_images.py` - Comprehensive attempt (investigation)
+- `scripts/extract_gallery_images_final.py` - Parent_id approach (investigation)
+
+**Data Files:**
+- `project_docs/gallery-images-configured.json` - **Definitive image list** (99 images)
+- `project_docs/gallery-analysis-results.json` - FlexForm configurations
+- `project_docs/actual-gallery-images.json` - Intermediate analysis data
+- `project_docs/dam-extraction-results.json` - Raw DAM extraction (2,688 records)
+
+### Lessons Learned
+
+1. **Don't Trust Filesystem Structure**
+   - Just because images exist doesn't mean they're used
+   - Always validate against application configuration
+
+2. **Parse Application Configuration**
+   - FlexForm XML contains actual gallery settings
+   - Database is source of truth for what's displayed
+
+3. **DAM Architecture**
+   - TYPO3 DAM uses path-based organization (not hierarchical)
+   - `parent_id` field unused in this implementation
+   - `file_path` is the grouping mechanism
+
+4. **Migration Validation**
+   - Extract 99 images from DAM paths
+   - Compare with filesystem (1,000+ images available)
+   - Migrate ONLY the 99 configured images
+
+---

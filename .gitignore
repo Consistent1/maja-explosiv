@@ -3,6 +3,7 @@
 /node_modules
 /package-lock.json
 /.cache
+/.calva
 /bmad
 /v4-backup
 /.github
