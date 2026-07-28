@@ -417,81 +417,6 @@ h6 {
     }
 }
 
-/* ============================================
-   TAB STYLES - Projects and About Section Tabs
-   Styled to match homepage.png design with clean, minimal aesthetic
-   ============================================ */
-
-.projects-tabs,
-.about-tabs {
-    width: 100%;
-}
-
-.tab-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 0;
-    margin-bottom: var(--size-fluid-4);
-    border-bottom: none;
-    flex-wrap: nowrap;
-    background-color: transparent;
-    width: 100%;
-    padding: 0 3rem;
-    /* Match section title padding */
-}
-
-/* Tab button styling to match homepage.png design:
-   - Simple text links, not buttons
-   - Sentence case for modern look
-   - Evenly distributed across full width
-   - No borders or underlines
-*/
-.tab-button {
-    padding: 0;
-    margin: 0;
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    text-transform: none;
-    letter-spacing: normal;
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
-    color: rgba(0, 0, 0, 0.4);
-    transition: color 0.3s ease;
-    flex: 0 0 auto;
-    text-decoration: none;
-    box-shadow: none;
-}
-
-.tab-button:hover {
-    color: rgba(0, 0, 0, 0.7);
-    text-decoration: none;
-}
-
-.tab-button:focus {
-    outline: none;
-    text-decoration: none;
-}
-
-.tab-button.active {
-    color: #000;
-    /* Full black for active tab */
-}
-
-.tab-content {
-    width: 100%;
-}
-
-.tab-pane {
-    display: none;
-    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.tab-pane.active {
-    display: block;
-}
 
 @keyframes fadeIn {
     from {
@@ -501,23 +426,6 @@ h6 {
     to {
         opacity: 1;
     }
-}
-
-/* ============================================
-   CUSTOM SECTIONS
-   ============================================ */
-
-.custom-section {
-    padding: var(--size-fluid-5) 0;
-}
-
-/* ============================================
-   CUSTOM SECTIONS - Projects and About
-   ============================================ */
-.custom-section.projects-section,
-.custom-section.about-section {
-    background-color: transparent;
-    padding: var(--size-fluid-4) var(--size-fluid-3);
 }
 
 /* Part 4.2 & 5.2: Projects and About Section Titles
@@ -603,56 +511,6 @@ h6 {
     }
 }
 
-.about-section .about-content {
-    max-width: var(--size-content-3);
-    margin-inline: auto;
-    text-align: center;
-}
-
-.about-section .about-content p {
-    font-size: var(--font-size-fluid-0);
-    line-height: var(--font-lineheight-3);
-    margin-bottom: var(--size-5);
-}
-
-/* ============================================
-   GRIDS & CARDS
-   ============================================ */
-
-.featured-artworks-section .artworks-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--size-fluid-3);
-}
-
-.posts-grid,
-.collections-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--size-fluid-3);
-}
-
-.artwork-item {
-    background-color: var(--theme-colors-surface-2, #ffffff);
-    border-radius: var(--radius-3);
-    overflow: hidden;
-    box-shadow: var(--shadow-2);
-    transition: var(--transition-2);
-    display: flex;
-    flex-direction: column;
-}
-
-.artwork-item:hover {
-    box-shadow: var(--shadow-4);
-    transform: var(--scale-1);
-}
-
-.artwork-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
 .artwork-item h3,
 .post-card-title,
 .collection-card-title {
@@ -687,43 +545,6 @@ h6 {
     justify-content: space-between;
     font-size: var(--font-size--1);
     color: var(--theme-colors-text-light, #666666);
-}
-
-.artwork-item .view-artwork {
-    display: block;
-    text-align: center;
-    padding: var(--size-3);
-    background-color: var(--theme-colors-secondary, #6c757d);
-    color: var(--theme-colors-on-secondary, #ffffff);
-    text-decoration: none;
-    font-weight: var(--font-weight-bold);
-    transition: var(--transition-2);
-    margin-top: auto;
-}
-
-.artwork-item .view-artwork:hover {
-    background-color: var(--theme-colors-secondary-hover, #5a6268);
-    transform: var(--scale-1);
-}
-
-.collection-tag {
-    display: inline-block;
-    padding: var(--size-1) var(--size-2);
-    background-color: var(--theme-colors-accent, #e0e0e0);
-    border-radius: var(--radius-1);
-    text-decoration: none;
-    color: var(--theme-colors-on-accent, #333333);
-    font-size: var(--font-size--2);
-}
-
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
-/* Hide Featured Posts and Collections */
-.featured-posts,
-.featured-collections {
-    display: none;
 }
 
 /* ============================================
@@ -765,8 +586,10 @@ h6 {
     margin-bottom: var(--size-5);
     border-bottom: none;
     flex-wrap: nowrap;
+    background-color: transparent;
     width: 100%;
     padding: 0 3rem;
+    /* Match section title padding */
 }
 
 .tab-button {
@@ -827,10 +650,10 @@ h6 {
 
 /* Custom Sections - Duplicate removed, main definition at line ~398 */
 .custom-section {
-    padding: var(--size-fluid-4) var(--size-fluid-3);
     margin-bottom: var(--size-fluid-4);
     background-color: var(--theme-colors-background, #B8B8B8);
     border-radius: 0;
+    padding: var(--size-fluid-5) 0;
 }
 
 .custom-section.projects-section,
@@ -1037,16 +860,11 @@ h6 {
 
 /* Duplicate tab styling removed - see unified tab styles above at line ~330 */
 
-
 /* Custom Section Spacing */
-.custom-section {
-    padding: var(--size-fluid-5) 0;
-}
-
-/* Section title - duplicate rule removed, see main .section-title above for unified styling */
-.section-title {
-    /* Main definition at line ~421 */
-}
+/* `.custom-section` padding and `.section-title` are both defined once, earlier in
+   this file. The stub rules that used to sit here (an empty `.section-title {}` and a
+   second `.custom-section` carrying only `padding`) were leftovers from an earlier
+   de-duplication and have been folded into those definitions. */
 
 /* ============================================
    FOOTER SECTION - Part 6
