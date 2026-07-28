@@ -4,6 +4,9 @@ layout: about-page.njk
 permalink: "/about/links/"
 description: "Friends and related artists"
 excerpt: "Friends and related artists."
+# Figma's Links component opens with this as an overall section heading above the
+# per-category headings; it was missing from the implementation until 2026-07-29.
+linksHeading: "Friends and related artists:"
 linkCategories:
   - heading: "Robotic and mechanical art"
     entries:

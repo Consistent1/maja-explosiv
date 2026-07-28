@@ -165,19 +165,19 @@ The following components are critical for the initial site build. States and var
 
 The complete color palette, including primary, secondary, and semantic colors (for success, error, warnings), is defined in the official Figma design file.
 
-- **Source of Truth:** [Maja Thommen_Website-Redesign on Figma](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/Maja-Thommen_Website-Redesign)
+- **Source of Truth:** [MajaExplosiv_Website Redesign on Figma](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/MajaExplosiv_Website-Redesign)
 
 ### 5.2 Typography
 
 All typography rules, including font families, weights, sizes, and the full type scale for headings and body text, are defined in the official Figma design file.
 
-- **Source of Truth:** [Maja Thommen_Website-Redesign on Figma](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/Maja-Thommen_Website-Redesign)
+- **Source of Truth:** [MajaExplosiv_Website Redesign on Figma](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/MajaExplosiv_Website-Redesign)
 
 ### 5.3 Spacing and Layout
 
 All spacing rules, grid systems, and layout structures are defined in the official Figma design file. This includes margins, padding, and container sizes.
 
-- **Source of Truth:** [Maja Thommen_Website-Redesign on Figma](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/Maja-Thommen_Website-Redesign)
+- **Source of Truth:** [MajaExplosiv_Website Redesign on Figma](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/MajaExplosiv_Website-Redesign)
 
 ---
 
@@ -227,7 +227,7 @@ No key animations or micro-interactions will be defined or implemented in this p
 
 The single source of truth for all high-fidelity designs and wireframes is the official project Figma file, which is managed by the designer.
 
-- **Figma Link:** [Maja Thommen_Website-Redesign](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/Maja-Thommen_Website-Redesign)
+- **Figma Link:** [MajaExplosiv_Website Redesign](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/MajaExplosiv_Website-Redesign)
 
 ### 9.2 Key Screen Layouts
 

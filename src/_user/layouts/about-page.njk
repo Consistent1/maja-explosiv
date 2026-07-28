@@ -1,59 +1,36 @@
 ---
 layout: sidebar-layout.njk
 ---
-{# Layout for the Bio/Timeline/Press/Links page cluster - renders whichever
-   structured content shape the page provides. Bio is plain markdown;
-   Timeline/Press/Links are structured data (see their front matter) since
-   that's what the real content actually is.
+{% from "about-content.njk" import aboutContent %}
 
-   No quick-switcher nav here on purpose: the sidebar already links each of
-   these (as homepage tab anchors), and the site's model is sidebar-fixed /
-   content-switches-in-place via tabs, not page-to-page navigation between
-   sibling pages - these standalone routes exist as direct-linkable/permalink
-   targets, same pattern as individual project pages (which also have no
-   redundant category-switcher of their own). #}
+{# Standalone permalink route for one About section (/about/bio/, /about/timeline/, ...).
+
+   These exist as direct-linkable targets; the primary presentation is the homepage's
+   About tabs, which render exactly the same content through the shared aboutContent
+   macro in about-content.njk - one source of truth for the markup.
+
+   No quick-switcher nav here on purpose: the sidebar already links each of these (as
+   homepage tab anchors), and the site's model is sidebar-fixed / content-switches-in-place
+   via tabs, not page-to-page navigation between sibling pages - same pattern as individual
+   project pages, which also have no redundant category-switcher of their own. #}
 
 <article class="page-content about-subpage">
-    {% if timelineSections %}
-        <div class="page-body about-timeline">
-            {% for section in timelineSections %}
-                <h2 class="about-timeline-heading">{{ section.heading }}</h2>
-                <dl class="about-timeline-list">
-                    {% for entry in section.entries %}
-                        <div class="about-timeline-entry">
-                            <dt class="about-timeline-date">{{ entry.date }}</dt>
-                            <dd class="about-timeline-text">{{ entry.text }}</dd>
-                        </div>
-                    {% endfor %}
-                </dl>
-            {% endfor %}
-        </div>
-    {% elif linkCategories %}
-        <div class="page-body about-links">
-            {% for category in linkCategories %}
-                <h2 class="about-links-heading">{{ category.heading }}</h2>
-                <ul class="about-links-list">
-                    {% for entry in category.entries %}
-                        <li class="about-links-entry">
-                            {% if entry.text %}{{ entry.text }} {% endif %}
-                            <a href="{{ entry.url }}" target="_blank" rel="noopener">{{ entry.name }}</a>{{ entry.suffix }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endfor %}
-        </div>
-    {% elif pressEntries %}
-        <div class="page-body about-press">
-            {% if pressNote %}<p class="about-press-note">{{ pressNote }}</p>{% endif %}
-            <ul class="about-press-list">
-                {% for entry in pressEntries %}
-                    <li class="about-press-entry">{{ entry }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% else %}
-        <div class="page-body">
-            {{ content | safe }}
-        </div>
-    {% endif %}
+    <div class="about-section-shell">
+        {# Bio's opening paragraph lives in `excerpt`, because on the homepage it renders
+           beside the portrait above the tab bar (per Figma, the Bio panel itself starts at
+           paragraph 2). This standalone route has no intro block, so the excerpt is shown
+           here as a lead - otherwise the page would start mid-biography. Only applies to
+           the prose sections; the structured ones use `excerpt` as a summary, not as copy. #}
+        {% if excerpt and not timelineSections and not linkCategories and not pressEntries %}
+            <p class="about-lead">{{ excerpt }}</p>
+        {% endif %}
+
+        {{ aboutContent({
+            timelineSections: timelineSections,
+            linkCategories: linkCategories,
+            linksHeading: linksHeading,
+            pressEntries: pressEntries,
+            pressNote: pressNote
+        }, content) }}
+    </div>
 </article>

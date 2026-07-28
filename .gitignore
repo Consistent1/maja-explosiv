@@ -12,7 +12,7 @@
 /mcp-servers
 /.playwright-mcp
 /old
-/project_docs/design_screenshots
+/project_docs/_archive/design_screenshots
 /temp_screenshots
 .goosehints
 /.clj-kondo/**

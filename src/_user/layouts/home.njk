@@ -1,6 +1,7 @@
 ---
 layout: sidebar-layout.njk
 ---
+{% from "about-content.njk" import aboutContent %}
 
 <div class="home-page">
     {% if hero %}
@@ -65,9 +66,15 @@ layout: sidebar-layout.njk
                             {% endif %}
                         </div>
 
-                        {# About tabs - each panel pulled from its src/pages/about/*.md page #}
-                        <div class="about-tabs" aria-labelledby="about-tabs-label">
-                            <div class="tab-buttons" role="tablist" aria-label="About">
+                        {# About tabs - each panel pulled from its src/pages/about/*.md page.
+                           Per Figma's About Components, each panel renders its section in
+                           FULL here; this is the primary presentation, not a teaser. The
+                           /about/<slug>/ routes are permalink targets rendering the same
+                           markup via the same macro. Tab labels are intentionally hardcoded
+                           (owner decision, 2026-07-28) - a data-driven tab bar is tracked
+                           separately in project_docs/pending-changes.md. #}
+                        <div class="about-tabs about-section-shell" aria-labelledby="about-tabs-label">
+                            <div class="tab-buttons about-tab-buttons" role="tablist" aria-label="About">
                                 <button role="tab" aria-selected="true" aria-controls="bio" id="tab-bio" class="tab-button" data-tab="bio">Bio</button>
                                 <button role="tab" aria-selected="false" aria-controls="timeline" id="tab-timeline" class="tab-button" data-tab="timeline">Timeline</button>
                                 <button role="tab" aria-selected="false" aria-controls="press" id="tab-press" class="tab-button" data-tab="press">Press</button>
@@ -77,10 +84,9 @@ layout: sidebar-layout.njk
                                 {% for slug in ['bio', 'timeline', 'press', 'links'] %}
                                     {% set aboutPage = collections.all | find("fileSlug", slug) %}
                                     <div id="{{ slug }}" role="tabpanel" aria-labelledby="tab-{{ slug }}" class="tab-pane {% if loop.first %}active{% endif %}" {% if not loop.first %}aria-hidden="true"{% endif %}>
-                                        {% if aboutPage and aboutPage.data.excerpt %}
-                                            <p>{{ aboutPage.data.excerpt }}</p>
+                                        {% if aboutPage %}
+                                            {{ aboutContent(aboutPage.data, aboutPage.templateContent) }}
                                         {% endif %}
-                                        <a href="{{ aboutPage.url | url }}" class="read-more-link">Read more</a>
                                     </div>
                                 {% endfor %}
                             </div>

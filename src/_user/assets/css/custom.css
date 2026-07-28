@@ -1863,66 +1863,260 @@ h6 {
 }
 
 /* ============================================
-   About page cluster (Bio/Timeline/Press/Links/Impressum)
+   ABOUT COMPONENTS — Figma-accurate (2026-07-29)
+
+   Source: Assets / Components > About Components >
+   Timeline_Press_Links_Content Container, variants Bio / Timeline /
+   Press Option 2 / Links. Full extracted spec in project_docs/PLAN.md.
+
+   Shared shell for all four sections: 1020px fixed width, 80px gap between the
+   tab bar and the content, 60px bottom padding. Values are rounded to whole
+   pixels per the owner's "close, not pixel-perfect" calibration (e.g. Figma's
+   16.59px year → 17px, 22.66px heading → 23px).
+
+   NOTE: this block is deliberately at the end of the file. The tab rules above
+   (~line 420 and again ~line 755) are duplicated verbatim, and the later copy
+   wins; appending here avoids fighting either. That duplication is pre-existing
+   and out of scope for this change — see project_docs/PLAN.md open items.
    ============================================ */
 
-.about-timeline-heading,
-.about-links-heading {
-    font-family: var(--theme-fonts-heading, 'Outfit', sans-serif);
-    font-size: 1.1rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--theme-colors-primary, #222222);
-    margin: 2.5rem 0 1rem;
+:root {
+    --about-shell-width: 1020px;
+    --about-gap: 80px;
+    --about-text-column: 840px;
+    --about-year-column: 37px;
+    --about-year-gap: 244px;
 }
 
-.about-timeline-heading:first-child,
-.about-links-heading:first-child {
+.about-section-shell {
+    width: 100%;
+    max-width: var(--about-shell-width);
+    padding-bottom: 60px;
+}
+
+/* The base template centres prose inside .content-wrapper:
+     .content-wrapper p, .content-wrapper li, .content-wrapper blockquote {
+         max-inline-size: min(80ch, 100%); margin-inline: auto;
+     }
+   That `margin-inline: auto` centres each <li> inside its list, which pushed the
+   Links and Press entries ~87px right of their own headings. These sections set
+   their own measure (840px for prose, the 1020px shell for the lists), so the
+   inherited centring is cancelled here rather than in the base rule - the base
+   behaviour is still wanted everywhere else. */
+.about-body p,
+.about-body li,
+.about-body dd,
+.about-lead {
+    max-inline-size: none;
+    margin-inline: 0;
+}
+
+.about-body ul,
+.about-body ol,
+.about-body li {
+    padding-left: 0;
+}
+
+/* Tab bar — Geist 400 / 32px / 120% / -4%, spread edge to edge.
+   Active #222222, inactive #8E8E93. No underline, border or background. */
+.about-tabs .tab-buttons.about-tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 var(--about-gap);
+    min-height: 38px;
+    border-bottom: none;
+}
+
+.about-tabs .tab-buttons.about-tab-buttons .tab-button {
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    text-transform: none;
+    color: var(--theme-colors-muted, #8E8E93);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.about-tabs .tab-buttons.about-tab-buttons .tab-button:hover,
+.about-tabs .tab-buttons.about-tab-buttons .tab-button:focus-visible {
+    color: var(--theme-colors-primary, #222222);
+}
+
+.about-tabs .tab-buttons.about-tab-buttons .tab-button.active {
+    color: var(--theme-colors-primary, #222222);
+}
+
+/* Section headings — "A partial chronology of experience", "Schooling",
+   "Friends and related artists:". Geist 23px / 100% / -3%, uppercased in CSS
+   (content stays sentence case), at 60% opacity. */
+.about-section-heading {
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
+    font-size: 1.4375rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--theme-colors-primary, #222222);
+    opacity: 0.6;
+    margin: 3rem 0 1.75rem;
+}
+
+.about-body > .about-section-heading:first-child {
     margin-top: 0;
 }
 
+.about-section-heading--sub {
+    margin-top: 2.5rem;
+}
+
+/* Bio and any other prose section — Geist 26px / 120% / -4% in an 840px column. */
+.about-prose,
+.about-lead {
+    max-width: var(--about-text-column);
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
+    font-size: 1.625rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    color: var(--theme-colors-primary, #222222);
+}
+
+.about-prose p,
+.about-lead {
+    margin: 0 0 1.5em;
+}
+
+.about-prose p:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline — row is year | 244px gap | (title over description).
+   37 + 244 + 739 = 1020 exactly in Figma. */
 .about-timeline-list {
     margin: 0;
 }
 
 .about-timeline-entry {
     display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 1rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--theme-colors-border, #EBEBEB);
+    grid-template-columns: var(--about-year-column) 1fr;
+    column-gap: var(--about-year-gap);
+    align-items: start;
+    margin-bottom: 2rem;
 }
 
-.about-timeline-date {
-    font-weight: 500;
-    color: var(--theme-colors-text-secondary, #525252);
+.about-timeline-year {
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--theme-colors-primary, #222222);
+    white-space: nowrap;
 }
 
-.about-timeline-text {
+.about-timeline-detail {
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.about-timeline-title {
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
     color: var(--theme-colors-primary, #222222);
 }
 
+.about-timeline-description {
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    color: var(--theme-colors-primary, #222222);
+}
+
+/* Links — entry lines with inline underlined anchors.
+   Figma draws these in Rethink Sans; using Geist per owner decision 2026-07-29
+   (logged under open items in project_docs/PLAN.md). Size/leading follow Figma. */
 .about-links-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 1rem;
+    margin: 0;
 }
 
 .about-links-entry {
-    padding: 0.4rem 0;
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
+    font-size: 1.1875rem;
+    font-weight: 400;
+    line-height: 1.68;
+    letter-spacing: -0.02em;
     color: var(--theme-colors-primary, #222222);
 }
 
 .about-links-entry a {
-    color: var(--theme-colors-primary, #222222);
+    color: inherit;
     text-decoration: underline;
-    text-decoration-color: var(--theme-colors-muted, #8E8E93);
+    text-underline-offset: 0.15em;
 }
 
+.about-links-entry a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* Press — description line, then the Responsive Image Gallery (3 columns, 24px
+   gap), then the full text list. The gallery collapses entirely while no
+   clippings are wired up, so it never leaves a gap. */
 .about-press-note {
-    color: var(--theme-colors-text-secondary, #525252);
-    margin-bottom: 1.5rem;
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
+    font-size: 1.0625rem;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--theme-colors-primary, #222222);
+    opacity: 0.6;
+    margin: 0 0 2.5rem;
+}
+
+.about-press-gallery {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.about-press-gallery:empty {
+    display: none;
+    margin: 0;
+}
+
+.about-press-clipping img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.about-press-caption {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
+    font-size: 0.875rem;
+    line-height: 1.3;
+    color: var(--theme-colors-primary, #222222);
+    opacity: 0.6;
 }
 
 .about-press-list {
@@ -1932,15 +2126,57 @@ h6 {
 }
 
 .about-press-entry {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--theme-colors-border, #EBEBEB);
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
+    font-size: 1.1875rem;
+    line-height: 1.68;
+    letter-spacing: -0.02em;
     color: var(--theme-colors-primary, #222222);
 }
 
-@media (max-width: 640px) {
+.about-press-entry a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+/* Responsive — the 1020px shell and the 244px timeline gutter are desktop
+   figures; below that the columns collapse rather than squeeze. */
+@media (max-width: 1100px) {
+    :root {
+        --about-year-gap: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-tabs .tab-buttons.about-tab-buttons {
+        margin-bottom: 2.5rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .about-tabs .tab-buttons.about-tab-buttons .tab-button {
+        font-size: 1.5rem;
+    }
+
+    .about-prose,
+    .about-lead {
+        font-size: 1.25rem;
+    }
+
     .about-timeline-entry {
         grid-template-columns: 1fr;
-        gap: 0.25rem;
+        row-gap: 0.35rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .about-press-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-press-gallery {
+        grid-template-columns: 1fr;
     }
 }
 

@@ -1,0 +1,92 @@
+{# Renders the body of one About section (Bio / Timeline / Press / Links).
+
+   Single source of truth for how these four render. Used by BOTH:
+     - home.njk, inside each About tab panel (the primary presentation - the Figma
+       "About Components" design shows full content in place, not a teaser)
+     - about-page.njk, for the standalone /about/<slug>/ permalink routes
+
+   Call as aboutContent(data, body) where `data` is the page's front matter and
+   `body` is its rendered markdown (pass "" for the structured sections, which
+   carry no markdown body).
+
+   Structure follows the Figma component `Assets / Components > About Components >
+   Timeline_Press_Links_Content Container`. Extracted spec in project_docs/PLAN.md. #}
+
+{% macro aboutContent(data, body) %}
+
+    {% if data.timelineSections %}
+        <div class="about-body about-timeline">
+            {% for section in data.timelineSections %}
+                <h3 class="about-section-heading">{{ section.heading }}</h3>
+                <dl class="about-timeline-list">
+                    {% for entry in section.entries %}
+                        <div class="about-timeline-entry">
+                            <dt class="about-timeline-year">{{ entry.year }}</dt>
+                            <dd class="about-timeline-detail">
+                                {% if entry.title %}<span class="about-timeline-title">{{ entry.title }}</span>{% endif %}
+                                {% if entry.description %}<span class="about-timeline-description">{{ entry.description }}</span>{% endif %}
+                            </dd>
+                        </div>
+                    {% endfor %}
+                </dl>
+            {% endfor %}
+        </div>
+
+    {% elif data.linkCategories %}
+        <div class="about-body about-links">
+            {% if data.linksHeading %}
+                <h3 class="about-section-heading">{{ data.linksHeading }}</h3>
+            {% endif %}
+            {% for category in data.linkCategories %}
+                <h4 class="about-section-heading about-section-heading--sub">{{ category.heading }}</h4>
+                <ul class="about-links-list">
+                    {% for entry in category.entries %}
+                        <li class="about-links-entry">
+                            {%- if entry.text %}{{ entry.text }} {% endif -%}
+                            <a href="{{ entry.url }}" target="_blank" rel="noopener">{{ entry.name }}</a>{{ entry.suffix }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+
+    {% elif data.pressEntries %}
+        <div class="about-body about-press">
+            {% if data.pressNote %}<p class="about-press-note">{{ data.pressNote }}</p>{% endif %}
+
+            {# Figma renders the clippings as a "Responsive Image Gallery" (3 columns,
+               24px gap). Only the entries whose scan has been migrated appear here;
+               the list is empty-safe via `.about-press-gallery:empty` in CSS. #}
+            <ul class="about-press-gallery">
+                {% for entry in data.pressEntries %}
+                    {% if entry.image %}
+                        <li class="about-press-clipping">
+                            <a href="{{ entry.image | url }}" target="_blank" rel="noopener">
+                                <img src="{{ entry.image | url }}" alt="Press clipping: {{ entry.title }}" loading="lazy">
+                            </a>
+                            <span class="about-press-caption">{{ entry.title }}</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+            <ul class="about-press-list">
+                {% for entry in data.pressEntries %}
+                    <li class="about-press-entry">
+                        {% if entry.image %}
+                            <a href="{{ entry.image | url }}" target="_blank" rel="noopener">{{ entry.title }}</a>
+                        {% else %}
+                            {{ entry.title }}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% else %}
+        <div class="about-body about-prose">
+            {{ body | safe }}
+        </div>
+    {% endif %}
+
+{% endmacro %}

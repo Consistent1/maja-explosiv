@@ -15,9 +15,11 @@
 
 ## Design source of truth
 
-Figma file: [Maja Thommen_Website-Redesign](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/Maja-Thommen_Website-Redesign) (owner's personal copy, free plan — exact values will be read via the Design-mode properties panel rather than Dev Mode).
+Figma file: [MajaExplosiv_Website Redesign](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/MajaExplosiv_Website-Redesign) (owner's personal copy, free plan — exact values will be read via the Design-mode properties panel rather than Dev Mode).
 
-Full-page reference exports already captured in `project_docs/design_screenshots/`: homepage, project, bio, timeline, press, contact, links, impressum, sidebar, colors. Use these as the page-by-page checklist for Phase 2.
+> Corrected 2026-07-29: this file was previously recorded here (and in `ux-specification.md`) as "Maja Thommen_Website-Redesign" with a `Maja-Thommen_Website-Redesign` URL slug. The real name is **MajaExplosiv_Website Redesign** (slug `MajaExplosiv_Website-Redesign`); the old URL redirects, but the name was wrong.
+
+**The PNG exports in `project_docs/_archive/design_screenshots/` are retired — do not use them.** They were captured 2025-11/2025-12, predate the 2026-07-24 wrong-frame correction, and carry no record of which frame they came from, so they may show stale drafts. Per the owner (2026-07-28): read Figma directly for anything design-related, taking fresh screenshots as needed, and accept the slowness if it buys any accuracy. Figma is the source of truth for design; the live site is the source of truth for content.
 
 ## Agreed priorities
 
@@ -93,18 +95,69 @@ Work through `design_screenshots/` page by page:
 | Homepage | Structurally close — sidebar, hero, featured grid, tabbed projects, about intro all present. Needs token-accurate styling pass once Phase 1 lands. |
 | Single project | Close — `sisyphos-gate.md` is a working full example (images, layout) matching `project.png` reasonably well. |
 | Bio | **Done.** Real content, transcribed verbatim from the live site (`maja-explosiv.com/info/bio.html`). |
-| Press | **Done.** Real content - full chronological press-mention list (1993-2018), transcribed from the live site. Note: Figma's `press.png` export turned out to be a duplicate of `links.png` (same image, wrong filename) - no usable Figma layout existed for this page, so it's styled to match Bio/Timeline/Links rather than a confirmed mockup. Press clipping images (opened via lightbox on the old site) still need asset migration, same as project images. |
+| Press | **Content done** - full chronological press-mention list (1993-2018), transcribed from the live site. **Layout superseded 2026-07-29:** the earlier claim here that "no usable Figma layout existed" was wrong - it was an artifact of the `press.png` export being a mislabelled duplicate of `links.png`. Reading Figma directly shows a real Press design (description line + 3-column Responsive Image Gallery of the scanned clippings + text list). See the About Components spec below. Clipping images still need asset migration; placeholders in the interim. |
 | Links | **Done.** Real content - full "Friends and Related Artists" directory (8 categories, 50 entries) with real outbound URLs, transcribed from the live site. Figma's text matched the live site verbatim, but had no real hrefs. |
 | Timeline | **Done.** Real content - full career chronology (1993-2024, 85 entries) plus a Schooling section, transcribed from the live site's `/info/bio/bio-chronological.html`. The Figma mockup for this page was unreliable: mostly unfilled placeholder rows, plus at least two entries ("Urban Resilience", "Voices of the Forgotten") that don't exist on the real site and don't match Maja's practice - correctly flagged as suspect before the live-site check confirmed it. |
 | Impressum | Page exists (`/impressum/`), footer link resolves. Content transcribed from the Figma mockup, which is itself marked "...to be continued" - needs real legal review before launch, not something to complete by guessing. Not yet cross-checked against the live site's `datenschutz` page. |
+| Contact | Exists — verify against Figma's Contact frame. |
+| Sidebar / nav | Implemented, verify exact colors/spacing against Figma's sidebar component ("In Use" variant) and the Colors frame once tokens are locked. |
 
 **Key lesson from this pass**: Figma text content is unreliable and inconsistent in quality - sometimes verbatim-real (Links, Bio), sometimes a mix of real and fabricated-sounding entries (Timeline), sometimes just wrong (Press). The live site (`maja-explosiv.com`, a frameset-based TYPO3 site) is the actual source of truth for content per the site owner, and should be checked directly rather than trusting Figma's placeholder text - Figma governs structure/design only. All four About sub-pages plus Timeline are now sourced from the live site, not Figma.
-| Contact | Exists — verify against `contact.png`. |
-| Sidebar / nav | Implemented, verify exact colors/spacing against `sidebar.png` + `colors.png` once tokens are locked. |
 
 **Architecture fix applied (2026-07-24)**: the homepage's About tabs (Bio/Timeline/Press/Links) were hardcoded as a duplicate HTML blob in `src/index.md`'s frontmatter, completely disconnected from `src/pages/about/*.md` (which had their *own*, different placeholder text). Rewired `src/_user/layouts/home.njk` to pull each tab from its real page via `collections.all | find("fileSlug", ...)` plus a new `excerpt` frontmatter field per page - same pattern the Projects tabs already used for collections. One source of truth per piece of content now; page bodies still need real content migrated in.
 
 Also verify: the image carousel (Datastar-based, template feature) actually renders galleries per Figma spec; whether a "news feed" (mentioned in the original PRD/epics, and there's a `src/posts/news/` collection scaffold with one placeholder entry) is still in scope for this design or was dropped — not present in any current `design_screenshots`, needs a decision.
+
+### About Components — extracted spec (2026-07-29)
+
+Read directly from Figma, from the location the owner specified: **`Assets / Components` → the floating text label `About Components` → the frame beneath it, `Timeline_Press_Links_Content Container`** (node `46-901`, 1299 × 12686). A file-wide search for "About Components" returns exactly one hit — a Text layer (node `922-5934`), confirming it is a spatial label, not a container.
+
+The container holds one component with a `Section` variant property. Variants, in vertical order by `Top`:
+
+| Variant | Top | Height | Status |
+|---|---|---|---|
+| `Bio` | 288.7 | 643 | current |
+| `Timeline` | 1260 | 1762 | current |
+| `Old - Press Option 01` | 3216.2 | 2656.8 | **stale — ignore** |
+| `Press Option 2` | 6072.8 | 3924.84 | current |
+| `Links` | 10024.8 | 2561 | current |
+
+Note the staleness convention here is an `Old - ` name prefix, *not* the `In Use` label used for the sidebar variants elsewhere in the file.
+
+**Shell, identical across all four current variants:** vertical flow, fixed **1020px** wide, `Left: 100px`, **80px gap** between tab bar and content, 60px bottom padding.
+
+**Tab bar** (`Title`): horizontal, fill 1020px, height 38px, `justify: space-between`. Labels are sentence case — Bio / Timeline / Press / Links. Geist 400, 32px, 120% line-height, −4% tracking. Active `#222222` (Semantic/Primary Text Color); inactive `#8E8E93` (Semantic/Inactive Element). No underline, no background, no box. Inactive labels carry an `On click → Change to <Section>` interaction — the design models the tabs as a variant swap.
+
+**Bio:** body Geist 400, 26px, 120%, −4%, `#222222`, in an **840px** column inside the 1020px shell. The panel begins at *"Her experience in stage arts…"* — paragraph 1 of the bio is deliberately absent, because it lives in the About intro above the tab bar. Confirmed by the owner 2026-07-28.
+
+**Timeline** — each row is horizontal, fixed 62px tall, with a 244px gap between the year and the text column:
+
+| Column | Typography | Width |
+|---|---|---|
+| Year | Geist 400, 16.59px (→17), 120%, −2%, `#222222` | 37px |
+| Title | Geist 400, 24px, 120%, −4%, `#222222` | 739px |
+| Description | Geist 400, 17px, 100%, −4.5%, `#222222` | 739px |
+
+37 + 244 + 739 = 1020 exactly. Section headings ("A partial chronology of experience", "Schooling"): Geist 400, 22.66px (→23), 100%, −3%, uppercased via CSS, at **60% opacity** on `#222222`.
+
+**Press:** a real design does exist, contrary to the earlier note in this file — the retired `press.png` export was simply a mislabelled duplicate of `links.png`. Structure: tab bar → section description container (horizontal, fill 1020px, 60px gap) → **Responsive Image Gallery** (horizontal, fill 1020px, **24px gap**, 3 columns ≈ 324px each) of the actual scanned clippings → a text list of mentions. The description line reads "The links below open a larger, readable version of each press article in a new tab:".
+
+**Links:** tab bar → an overall `Section title` ("Friends and related artists:", 60% opacity, same style as the Timeline section headings) → per-category headings → entry lines with inline underlined anchors. Matches the existing `linkCategories` data shape (`text` / `name` / `url` / `suffix`).
+
+#### Timeline data format required by the migration
+
+The Figma layout needs three fields per entry. The current `src/pages/about/timeline.md` has two (`date` + one prose blob with the title embedded), and uses month precision where Figma shows year only. **The extraction script should be changed to emit this shape** when the timeline content is migrated for real:
+
+```yaml
+timelineSections:
+  - heading: "A partial chronology of experience"
+    entries:
+      - year: "2024"          # year only — Figma's left column shows no month
+        title: "Die grosse Hafensszene"
+        description: "The 4,5 x 2m metal drawing of the bigger harbor scene, for the dining room of Seminarhaus Kulturkosmos, Lärz, North Germany."
+```
+
+Until then the About work uses a small number of hand-converted entries as mock content, per the owner (2026-07-29): "if you need content in a different format, change some content and use it as mock content. We will change the migration script to meet the desired format in due time." The full 85-entry set stays in its current two-field shape and is **not** to be hand-migrated.
 
 ## Phase 3 — Content & image migration at scale
 
@@ -113,7 +166,8 @@ Current state (verified by running the build, not just reading old status docs):
 - **26 of ~71** TYPO3 projects converted to Markdown: 7/28 sculptures, 6/26 installations, 6/9 performance, 7/8 paintings.
 - Of those, only **paintings and one sculpture (Sisyphos Gate)** have images actually wired into front matter. Installations and performance have **zero** images linked even where the post exists.
 - "Breath under Water" (the previously-missing painting): resolved — it's a whale sculpture miscategorized under paintings in TYPO3. Excluded from paintings; to be migrated later under sculptures/installations.
-- Bio/Press/Links/Timeline need real content sourced from the TYPO3 backup (`old/`, gitignored, 1.6GB) or the live site.
+- Bio/Press/Links/Timeline text content is done (transcribed from the live site). What remains for this cluster is assets and the Timeline field split.
+- **Press clipping scans located (2026-07-29): `old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/presse/`** — 49 files, 47 JPG + 2 PDF (`2007_Alchemy_Bar_-_Wired_A4.pdf`, `2012_Wacken_Scull...pdf`; `2013_Destroy_HIV` exists as both). Filenames are already year-prefixed (`2004_casino1.jpg`, `1993_wohlgrott.jpg`), which maps cleanly onto the entries in `src/pages/about/press.md`. Note the spelling in the backup is `wohlgrott` vs. `Wohlgroth` in the page content. Six have been copied to `src/assets/images/shared/press/` as **placeholders only** — renamed to slug form, unoptimised (3.8 MB for six; the full set will need resizing before it ships). The remaining 43 are part of the bulk asset migration, not of the About work.
 
 Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/extract_typo3_projects.py` etc.) to migrate the remaining ~45 projects and wire up their images the same way paintings were done.
 
@@ -128,6 +182,10 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
 
 ## Open items needing input
 
+**This section is the single list for open questions of this kind.** When something needs the owner's judgement — a design inconsistency, an ambiguous spec, a content decision that can't be settled from Figma or the live site — record it here rather than in a new file or inline in a template comment. Resolved items get struck through with the resolution, not deleted, so the reasoning stays visible.
+
+- [ ] **Links section uses a different font from everything else.** In the current `Links` variant of the About Components container, entry lines are **Rethink Sans** 400, 19.31px, 168% line-height, −2% tracking — while the tab bar, Bio and Timeline are all Geist, and Phase 1 round 3 concluded "Geist everywhere". Each category's entries are a single concatenated text node with link spans inside, which reads like pasted content that kept its own styling rather than a deliberate third font. **Resolved for now (owner, 2026-07-29): use Geist**, and note the inconsistency here in case the designer intended otherwise. Rethink Sans is not loaded by the site and should not be added without a decision.
+- [ ] **`custom.css` has a large block of pre-existing duplicated rules.** Measured 2026-07-29: 217 top-level selectors, 34 declared more than once, and the repeats cluster almost entirely in one contiguous region (lines ~753-955, headed `/* Removed conflicting hero styles */` + `/* Tab Styles */`) that restates the hero / tab / custom-section / about-section / artwork rules from ~380-752. Of the 20 overlapping selectors, **16 have byte-identical bodies** (pure dead weight, safe to delete) and **4 genuinely diverge**, where the later copy silently wins: `.custom-section` (adds a `#B8B8B8` background and different padding), `.main-content` (`grid-column: 1 / -1` vs `margin-left: 0; width: 100%`), `.posts-grid, .collections-grid` (`1fr` vs `repeat(auto-fit, minmax(280px, 1fr))`), and `.tab-pane` (0.3s ease-in vs 0.5s cubic-bezier). Deleting the identical 16 is mechanical and verifiable against a computed-style snapshot; the 4 divergent ones need a decision about which is intended. **Deferred by the owner 2026-07-29** ("forget the larger scope for now, just don't add more mess") — not attempted. Note the About-cluster duplication introduced during the About work was cleaned up at the time and is not part of this.
 - [ ] Figma exact-value extraction — access pending.
 - [ ] News feed: in or out of scope for this redesign?
 - [ ] `docs/` folder (GH Pages build output) currently shows as deleted-but-uncommitted in `git status` — left untouched for now per "forget GH Pages for now."

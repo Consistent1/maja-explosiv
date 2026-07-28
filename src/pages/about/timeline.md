@@ -4,7 +4,92 @@ layout: about-page.njk
 permalink: "/about/timeline/"
 description: "Timeline of exhibitions and milestones"
 excerpt: "A partial chronology of experience, 1993-2024."
+# ---------------------------------------------------------------------------
+# MOCK CONTENT - a converted subset, not the full chronology.
+#
+# Figma's Timeline component is a three-column row: year | title | description.
+# The transcribed live-site content below (`timelineSourceUnmigrated`) has only two
+# fields, with the title embedded in the prose and month-precision dates. Rather than
+# hand-migrating all 85 entries - which the owner explicitly ruled out - a
+# representative subset is converted here so the layout can be built and reviewed.
+#
+# The migration script will emit this shape for the full set in due course; the target
+# format is documented in project_docs/PLAN.md under "Timeline data format required by
+# the migration". Until then this is placeholder content, deliberately partial.
+# ---------------------------------------------------------------------------
 timelineSections:
+  - heading: "A partial chronology of experience"
+    entries:
+      - year: "2024"
+        title: "Die grosse Hafensszene"
+        description: "The 4,5 x 2m metal drawing of the bigger harbor scene, for the dining room of Seminarhaus Kulturkosmos, Larz, North Germany."
+      - year: "2023"
+        title: "Wandskulptur Hinwil"
+        description: "The 8,5 x 3m iron drawing pictures the town of Hinwil. Realized for the local branch of the Raiffeisen Bank in Hinwil."
+      - year: "2022"
+        title: "Das Schiffszimmer"
+        description: "Overall design of a hotel room, including a metal wall picture of a harbor scene, Seminarhaus Kulturkosmos, Larz, North Germany."
+      - year: "2021"
+        title: "Die Blumenwolke"
+        description: "A custom design chandelier from over 280 cutlery flowers for a lofty home in Switzerland."
+      - year: "2020"
+        title: "Die Affenbande"
+        description: "A monkey gang of seven projected to climb over a private residence in Zurich. In September 2022 five monkeys are realized and installed."
+      - year: "2019"
+        title: "Flower Power"
+        description: "Two large flower bouquets, realised from over 1800 pieces of cutlery, commissioned by Monster Ronson's Ichiban Karaoke, Berlin /D."
+      - year: "2019"
+        title: "The Wolf"
+        description: "Life size sculpture of a male wolf, work in commission. Berlin /D."
+      - year: "2018"
+        title: "The Raven and the Crow"
+        description: "Two separate commissions of birds, following the exposition in Switzerland, Berlin /D."
+      - year: "2018"
+        title: "Kunst ist Leben"
+        description: "Solo exhibition, Museum Eva Wipf, Pfaffikon Zurich /CH."
+      - year: "2018"
+        title: "Series of 3 metal portraits"
+        description: "Alberto Giacometti, Kathe Kollwitz and Bernhard Luginbuhl, Berlin /D."
+      - year: "2017"
+        title: "DNA Helixes"
+        description: "Two variations of turning DNA Helixes, for the sculpture garden at the Sisyphos Club, Berlin /D."
+      - year: "2017"
+        title: "Die Weglampen"
+        description: "A path illumination with 15 different lamps for the climbing refuge Kalandraka in Rodellar /E. Built with the metal group XIX in Sennhof /CH."
+      - year: "2017"
+        title: "Tattling Bird"
+        description: "Bird garden sculpture on commission, Berlin /D."
+      - year: "2014"
+        title: "The Lionfish Door"
+        description: "The custom designed garden door was realized in Sennhof /CH."
+  - heading: "Schooling"
+    entries:
+      - year: "1997/1998"
+        title: "SAFAS Switzerland"
+        description: "Schooling to handle and employ explosives, licenses A & B."
+      - year: "1997-2002"
+        title: "Schar Metallbau"
+        description: "Winter months: metal construction, Pfaffikon /CH."
+      - year: "1995"
+        title: "M. Wylenmann"
+        description: "Frame-and-body construction, Oberengstringen /CH."
+      - year: "1994"
+        title: "Arno Holzel"
+        description: "Stone sculpture by mason, Zurich /CH."
+      - year: "1993"
+        title: "University of the Arts"
+        description: "Prep course, Zurich /CH."
+      - year: "1988-1992"
+        title: "Kantonschule Wetzikon"
+        description: "State college of higher educations, Matura Typus D /CH (language degree in German/Spanish/French/English)."
+
+# ---------------------------------------------------------------------------
+# PRESERVED SOURCE - the complete 85-entry chronology transcribed from the live site
+# on 2026-07-24, verbatim, in its original two-field shape. Not rendered by any
+# template. Kept here so the manual transcription is not lost and so the migration has
+# a reference to convert from. Do not hand-edit into the new shape.
+# ---------------------------------------------------------------------------
+timelineSourceUnmigrated:
   - heading: "A partial chronology of experience"
     entries:
       - date: "05-2024"
