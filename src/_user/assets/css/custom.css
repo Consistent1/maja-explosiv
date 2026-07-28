@@ -3,6 +3,11 @@
 /* ============================================
    THEME VARIABLES
    ============================================ */
+/* NOTE: this is not the only :root block. A second one lives in the ABOUT
+   COMPONENTS section near the bottom of this file, holding that section's
+   layout tokens (--about-shell-width, --about-gap, --about-text-column,
+   --about-year-column, --about-year-gap). It is kept there on purpose, beside
+   the rules that consume it, rather than being hoisted up here. */
 :root {
     --theme-colors-background: #B8B8B8;
 }
