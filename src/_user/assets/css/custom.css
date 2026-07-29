@@ -113,20 +113,40 @@ h6 {
    SIDEBAR COMPONENTS
    ============================================ */
 
-/* Part 1.1: Sidebar Header */
+/* The markup wraps the header, nav and footer in a single `.sidebar-nav` div,
+   which had no styles anywhere in the codebase. That made it the sidebar's only
+   flex child, so `.left-sidebar`'s `justify-content: space-between` and
+   `.nav-menu-container`'s `flex: 1` were both inert - the footer simply stacked
+   under the nav instead of sitting at the bottom. Making the wrapper the flex
+   column restores both. */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Part 1.1: Sidebar Header
+   Figma spacing: 80px between the wordmark block and the nav, and 80px between
+   the two nav sections (was 40px for both). */
 .sidebar-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 80px;
     flex-shrink: 0;
 }
 
 .brand-title {
-    font-size: 1.35rem;
-    font-weight: 700;
+    /* Figma draws the wordmark as a Mask group (a vector, not a text layer), so
+       there is no font-size to read off it - only its rendered footprint,
+       188.32 x 27.69px inside the 224px sidebar. Sized here to land on that
+       footprint as live text; see the open items in project_docs/PLAN.md if it
+       should become an exported asset instead. */
+    font-size: 22px;
+    font-weight: 800;
     text-transform: uppercase;
     margin: 0;
-    line-height: 1.1;
-    color: #000;
-    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--theme-colors-primary, #222222);
+    letter-spacing: -0.03em;
 }
 
 .brand-title a {
@@ -135,12 +155,14 @@ h6 {
 }
 
 .brand-subtitle {
-    font-size: 0.8rem;
+    /* Geist 600 / 14px / 162% / -3%, uppercase, #222222. */
+    font-size: 14px;
     text-transform: uppercase;
-    margin: 0.3rem 0 0 0;
-    color: #000;
-    font-weight: 400;
-    letter-spacing: 0.02em;
+    margin: 0.35rem 0 0 0;
+    color: var(--theme-colors-primary, #222222);
+    font-weight: 600;
+    line-height: 1.62;
+    letter-spacing: -0.03em;
 }
 
 /* Part 1.2: Navigation Sections */
@@ -148,7 +170,7 @@ h6 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 80px;
     overflow-y: auto;
     overflow-x: hidden;
     /* Allow scroll if content too tall, but hide scrollbar */
@@ -167,13 +189,19 @@ h6 {
     flex-shrink: 0;
 }
 
+/* Section heading (PROJECTS / ABOUT) - Geist 400 / 28px / 100% / -3%,
+   uppercase, #222222. Note the weight: Figma draws these REGULAR, not bold,
+   and considerably larger than the ~17px bold they were before. The 12px gap
+   below comes from the section's own auto-layout, which spaces the heading and
+   every sub-item equally (28 + 4x18 + 4x12 = 148px, matching Figma's hug). */
 .nav-section-title {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: 400;
     text-transform: uppercase;
-    margin: 0 0 0.4rem 0;
-    color: #000;
-    letter-spacing: 0.05em;
+    margin: 0 0 12px 0;
+    color: var(--theme-colors-primary, #222222);
+    line-height: 1;
+    letter-spacing: -0.03em;
 }
 
 .nav-link-header {
@@ -200,22 +228,33 @@ h6 {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .nav-submenu li {
-    margin-bottom: 0.2rem;
+    /* The base stylesheet puts 8px of padding on every li, which indented the
+       sub-items visibly further than the design. In Figma the sub-item and its
+       section heading share the same left edge - the ~4px that looks like an
+       indent there is just the difference in glyph side bearings. */
+    margin-bottom: 0;
+    padding-left: 0;
 }
 
+/* Sub-item - Geist 400 / 18px / 100% / -3%, uppercase, Grey/700 #373737
+   (deliberately a step lighter than the #222222 headings). */
 .nav-link {
     text-decoration: none !important;
     border-bottom: none !important;
-    color: #000;
+    color: var(--theme-colors-text-secondary, #373737);
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 18px;
+    line-height: 1;
     display: block;
-    padding: 2px 0;
+    padding: 0;
     transition: opacity 0.2s ease;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.03em;
 }
 
 .nav-link:hover {
@@ -231,48 +270,84 @@ h6 {
     text-underline-offset: 2px;
 }
 
-/* Part 1.3: Sidebar Footer */
+/* Part 1.3: Sidebar Footer
+   Rebuilt 2026-07-29 against the Figma sidebar component's `Header` layer
+   (which, despite the name, is the block at the BOTTOM of the sidebar).
+
+   The graphic is NOT corner.png. Figma's fill is an upscaled brush-stroke
+   image whose dense end reads as a solid black block, with the atelier credit
+   sitting on top of it in light grey. corner.png (439x72) is only a thin
+   cropped sliver of that same brush and cannot produce the black block, which
+   is why this corner of the sidebar never matched. The full asset was already
+   in the repo, unreferenced, under a hash filename - renamed to
+   sidebar-brush.png (903x248) and wired up here.
+
+   Figma rotates the block -90deg. In the source image the dense head is at the
+   LEFT with the strokes fanning out to the right; rotating -90deg puts that
+   head at the BOTTOM with the strokes rising, which is what the design shows. */
 .sidebar-footer {
-    /* Bottom-of-sidebar block with the same corner.png brush-stroke graphic
-       used at the top of the hero/project pages, cropped to its right/tail
-       end. No black background - corner.png is black ink on transparent,
-       same as everywhere else it's used, so it shows naturally (unInverted)
-       against the sidebar's own background here too. */
-    position: absolute;
-    bottom: -20px;
-    left: -24px;
-    right: -24px;
-    padding: 1.5rem 1.2rem;
+    position: relative;
+    /* Full-bleed to the sidebar's true edges, cancelling its 20/24 padding. */
+    margin: 0 -24px -20px;
+    height: 124px;
+    padding: 0 24px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .sidebar-footer::before {
-    /* Sized to the image's natural footprint (439x72, not a full-inset
-       box) and anchored bottom-right so a 180deg rotation flips it in
-       place around its own center, instead of rotating a giant box and
-       relocating the image to a different corner. */
+    /* The box is the image at natural size, rotated -90deg about its top-left
+       corner, which is pinned to the footer's bottom-left. Rotating about 0 0
+       maps the box to x[0..248] / y[-903..0], i.e. it rises out of the bottom
+       edge with the dense head resting on it. The footer's overflow:hidden
+       crops it to the visible 124px band, the same way Figma crops the fill. */
     content: '';
     position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 439px;
-    height: 72px;
-    background-image: url('../images/corner.png');
+    left: 0;
+    top: 0;
+    /* After the rotation the element's height becomes the sidebar's width, so
+       it is sized to 230px (a little over the 224px sidebar) rather than the
+       image's natural 248px. The -30px background offset skips the image's
+       ragged top edge, which would otherwise land on the left of the footer
+       and leave the start of "ATELIER" sitting on bare grey instead of black.
+       Figma applies the same idea, offsetting its fill by -29.96px. */
+    width: 948px;
+    height: 230px;
+    background-image: url('../images/sidebar-brush.png');
     background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size: auto;
-    transform: rotate(180deg);
+    /* The source asset is mirror-symmetric about its horizontal centreline -
+       measured, the top half correlates 0.996 with the flipped bottom half, so
+       it is effectively the same brush doubled. Using the whole thing put that
+       mirror line down the middle of the sidebar, so the strokes splayed both
+       ways out of a black centre. Only HALF is used here: the background is
+       scaled to twice the element height (520 rather than 260) and offset by a
+       full half, so a single fan fills the width and every stroke leans the
+       same way. */
+    background-size: 948px 260px;
+    /* Y picks which of the two mirrored halves is used. */
+    background-position: -185px -26px;
+    transform-origin: 0 0;
+    transform: rotate(0deg);
+    pointer-events: none;
 }
 
 .sidebar-footer p {
+    /* Geist 500 / 18px / 119% / -3%, uppercase, #B1B1B1 - light on the black
+       head of the brush. Previously 0.7rem in #EBEBEB, which was both far too
+       small and the wrong grey. */
     margin: 0;
-    line-height: 1.3;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    color: var(--theme-colors-accent, #EBEBEB);
-    letter-spacing: 0.02em;
     position: relative;
     z-index: 1;
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.19;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #B1B1B1;
 }
 
 /* ============================================

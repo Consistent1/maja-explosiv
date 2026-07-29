@@ -100,13 +100,103 @@ Work through `design_screenshots/` page by page:
 | Timeline | **Done.** Real content - full career chronology (1993-2024, 85 entries) plus a Schooling section, transcribed from the live site's `/info/bio/bio-chronological.html`. The Figma mockup for this page was unreliable: mostly unfilled placeholder rows, plus at least two entries ("Urban Resilience", "Voices of the Forgotten") that don't exist on the real site and don't match Maja's practice - correctly flagged as suspect before the live-site check confirmed it. |
 | Impressum | Page exists (`/impressum/`), footer link resolves. Content transcribed from the Figma mockup, which is itself marked "...to be continued" - needs real legal review before launch, not something to complete by guessing. Not yet cross-checked against the live site's `datenschutz` page. |
 | Contact | Exists — verify against Figma's Contact frame. |
-| Sidebar / nav | Implemented, verify exact colors/spacing against Figma's sidebar component ("In Use" variant) and the Colors frame once tokens are locked. |
+| Sidebar / nav | **Done (2026-07-29).** Rebuilt against the `Navigation6 Flip Yellow` variant — see the sidebar spec below. Fixed three latent bugs in the process, including a wrapper div with no styles that had silently disabled the sidebar's whole flex layout. |
 
 **Key lesson from this pass**: Figma text content is unreliable and inconsistent in quality - sometimes verbatim-real (Links, Bio), sometimes a mix of real and fabricated-sounding entries (Timeline), sometimes just wrong (Press). The live site (`maja-explosiv.com`, a frameset-based TYPO3 site) is the actual source of truth for content per the site owner, and should be checked directly rather than trusting Figma's placeholder text - Figma governs structure/design only. All four About sub-pages plus Timeline are now sourced from the live site, not Figma.
 
 **Architecture fix applied (2026-07-24)**: the homepage's About tabs (Bio/Timeline/Press/Links) were hardcoded as a duplicate HTML blob in `src/index.md`'s frontmatter, completely disconnected from `src/pages/about/*.md` (which had their *own*, different placeholder text). Rewired `src/_user/layouts/home.njk` to pull each tab from its real page via `collections.all | find("fileSlug", ...)` plus a new `excerpt` frontmatter field per page - same pattern the Projects tabs already used for collections. One source of truth per piece of content now; page bodies still need real content migrated in.
 
 Also verify: the image carousel (Datastar-based, template feature) actually renders galleries per Figma spec; whether a "news feed" (mentioned in the original PRD/epics, and there's a `src/posts/news/` collection scaffold with one placeholder entry) is still in scope for this design or was dropped — not present in any current `design_screenshots`, needs a decision.
+
+### Sidebar — extracted spec (2026-07-29)
+
+Read from the Figma component `Assets / Components > SideBar Navigation`. It has six
+variants; the current one is **`Navigation6 Flip Yellow`**, identified by the floating
+`In Use` text label sitting directly above it. A file-wide search for "In Use" returns
+7 hits: two `In Use` labels and five `Not In Use`. The other variants (`Tablet`,
+`Mobile`, `Original Logo`, `Navigation5`, `Desktop`) are stale.
+
+Shell (all already correct before this pass): 224px wide, 960px tall, padding 20px
+top/bottom and 24px left/right, background `Grey/Semantic/Background` #B8B8B8, 1.13px
+right border in #222222 (implemented as 1px).
+
+| Element | Figma | Was |
+|---|---|---|
+| Wordmark | Mask group (vector), 188.32 x 27.69 footprint — no font size to read | text, 21.6px/700 |
+| Subtitle | Geist 600, 14.01px, 162%, -3%, uppercase, #222222 | 12.8px, 400, +0.02em, #000 |
+| Logo → nav gap | 80px | 40px |
+| Gap between nav sections | 80px | 40px |
+| Section heading | Geist **400**, 28px, 100%, -3%, uppercase, #222222 | 700, ~17px, +0.05em, #000 |
+| Sub-item | Geist 400, 18px, 100%, -3%, uppercase, **#373737** | ~14.4px, +0.02em, #000 |
+| Gap, heading → items and between items | 12px | ~3px |
+| Footer credit | Geist 500, 18px, 119%, -3%, uppercase, **#B1B1B1** | 0.7rem, #EBEBEB |
+
+The 12px gap checks out arithmetically: 28 + 4x18 + 4x12 = 148px, matching Figma's hug
+for the Projects section; the nav block totals 405px and the implementation now measures
+406px.
+
+**Three latent bugs found while doing this:**
+
+1. **`.sidebar-nav` had no styles anywhere in the codebase.** That wrapper div holds the
+   header, nav and footer, so it was `.left-sidebar`'s only flex child — which made both
+   `.left-sidebar { justify-content: space-between }` and `.nav-menu-container { flex: 1 }`
+   completely inert. The footer stacked directly under the nav instead of sitting at the
+   bottom of the sidebar. Fixed by making the wrapper the flex column.
+2. **The footer graphic was the wrong asset** — see the asset note below.
+3. **A global `li { padding-left: 8px }`** indented the sub-items further than the design.
+   In Figma the sub-item and its section heading share a left edge; the ~4px that looks
+   like an indent there is just glyph side bearing.
+
+#### Sidebar footer brush — asset forensics
+
+Worth recording because it was got wrong twice before and the reasoning is not obvious
+from looking at the files.
+
+- Figma's fill is named `upscale_image [Upscaled].png`. The repo already contained it,
+  unreferenced, under a content-hash filename; renamed to `src/assets/images/sidebar-brush.png`
+  (903x248).
+- **That asset is mirror-symmetric about its horizontal centreline** — measured, its top
+  half correlates **r = +0.996** with its flipped bottom half. It is the same fan doubled.
+  Rotating the whole thing puts that mirror line down the middle of the sidebar, so the
+  strokes splay both ways out of a black centre. That is wrong; the design uses a single
+  fan with every stroke leaning the same way. Use **half** the asset.
+- **`corner.png` (439x72) is precisely that half.** Correlated against the halves of the
+  big asset: vs the top half rotated 180 degrees, r = +0.971 (x profile) / +0.993 (y);
+  vs the bottom half flipped horizontally, r = +0.972 / +0.986. It is also strongly
+  anti-symmetric itself (r = -0.798), confirming it is a single fan rather than a doubled
+  one. So `sidebar-brush.png` is `corner.png`'s fan mirrored and upscaled.
+- Implementation takes the half out of the upscaled asset rather than using `corner.png`
+  directly: covering the sidebar needs a 3.1x upscale from corner.png's 72px edge versus
+  1.8x from the big one. **Settled by measurement** (2026-07-29) in favour of the upscaled
+  asset — see the resolved entry under "Open items needing input" for the numbers.
+- **Final orientation: no rotation at all.** Several rotated variants were tried and all
+  were wrong; the owner identified the correct one. The brush sits horizontally, exactly
+  as the source image is drawn — strokes running left to right, dense end off to the left
+  of the visible band. `transform: rotate(0deg)`, anchored `left: 0; top: 0`.
+- Settled values in `.sidebar-footer::before`:
+
+  ```css
+  background-size: 948px 260px;      /* uniform 1.05x - see the aspect note below */
+  background-position: -185px -26px; /* X picks the crop along the brush, Y the height */
+  transform: rotate(0deg);
+  ```
+
+- **Watch the aspect ratio.** An earlier version used `background-size: 948px 520px`,
+  which is 1.05x horizontally but 2.1x vertically — the brush was stretched exactly 2x,
+  measured as an aspect distortion of 1.997. Any change to `background-size` must keep
+  both axes on the same scale factor. (Note the owner preferred the *look* of the
+  stretched version's thicker black band; the fix was to raise the crop with
+  `background-position` Y rather than to reintroduce the stretch.)
+- Y offset controls how much solid black backs the atelier credit. More negative = higher
+  up the fan = blacker. `-26px` puts solid black behind both lines. The half runs out at
+  about `-136px`; past that you cross the mirror line and the doubled fan reappears.
+- Accepted as close-but-not-identical to Figma by the owner, 2026-07-29.
+- `corner.png` remains correct and untouched for its other uses (hero, project pages),
+  where it is a thin sliver at the top.
+
+**Status: done.** Remaining known gaps, both judged not worth more time for now: the
+brush crop is close to but not identical to Figma, and the wordmark is live text rather
+than the design's vector (see open items).
 
 ### About Components — extracted spec (2026-07-29)
 
@@ -185,6 +275,8 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
 **This section is the single list for open questions of this kind.** When something needs the owner's judgement — a design inconsistency, an ambiguous spec, a content decision that can't be settled from Figma or the live site — record it here rather than in a new file or inline in a template comment. Resolved items get struck through with the resolution, not deleted, so the reasoning stays visible.
 
 - [ ] **Links section uses a different font from everything else.** In the current `Links` variant of the About Components container, entry lines are **Rethink Sans** 400, 19.31px, 168% line-height, −2% tracking — while the tab bar, Bio and Timeline are all Geist, and Phase 1 round 3 concluded "Geist everywhere". Each category's entries are a single concatenated text node with link spans inside, which reads like pasted content that kept its own styling rather than a deliberate third font. **Resolved for now (owner, 2026-07-29): use Geist**, and note the inconsistency here in case the designer intended otherwise. Rethink Sans is not loaded by the site and should not be added without a decision.
+- [x] ~~**Sidebar footer brush: use `corner.png` or half of `sidebar-brush.png`?**~~ **Resolved 2026-07-29 by measurement: use half of `sidebar-brush.png`.** Per pixel at native size `corner.png` is sharper (mean |gradient| 27.5 vs 20.2), but that is just its edges packed into fewer pixels. At the size the sidebar actually renders (903x124) the ranking inverts: the brush half scores 20.2 against 16.9 for `corner.png` Lanczos-upscaled 2.1x, with slightly less halo (7.65% vs 7.87% of pixels neither opaque nor clear). So the upscale is not merely interpolated — it reconstructs edges better than resampling the small asset ourselves. A search of the TYPO3 backup for any third brush asset found nothing (20 hits, all webalizer stats graphs). Remaining and still open: the exact crop behind the credit, tuned by eye via `background-position` in `.sidebar-footer::before` — the owner has said they would rather position this element themselves.
+- [ ] **Sidebar wordmark is a vector in Figma, live text in the build.** Figma draws "MAJA EXPLOSIV" as a Mask group with a 188.32 x 27.69 footprint, so there is no font size to copy; it is currently set as Geist 800/22px to land on roughly that footprint. Decide whether it should stay as text (accessible, selectable, no extra asset) or become an exported SVG matching the design exactly.
 - [ ] **`custom.css` has a large block of pre-existing duplicated rules.** Measured 2026-07-29: 217 top-level selectors, 34 declared more than once, and the repeats cluster almost entirely in one contiguous region (lines ~753-955, headed `/* Removed conflicting hero styles */` + `/* Tab Styles */`) that restates the hero / tab / custom-section / about-section / artwork rules from ~380-752. Of the 20 overlapping selectors, **16 have byte-identical bodies** (pure dead weight, safe to delete) and **4 genuinely diverge**, where the later copy silently wins: `.custom-section` (adds a `#B8B8B8` background and different padding), `.main-content` (`grid-column: 1 / -1` vs `margin-left: 0; width: 100%`), `.posts-grid, .collections-grid` (`1fr` vs `repeat(auto-fit, minmax(280px, 1fr))`), and `.tab-pane` (0.3s ease-in vs 0.5s cubic-bezier). Deleting the identical 16 is mechanical and verifiable against a computed-style snapshot; the 4 divergent ones need a decision about which is intended. **Deferred by the owner 2026-07-29** ("forget the larger scope for now, just don't add more mess") — not attempted. Note the About-cluster duplication introduced during the About work was cleaned up at the time and is not part of this.
 - [ ] Figma exact-value extraction — access pending.
 - [ ] News feed: in or out of scope for this redesign?
