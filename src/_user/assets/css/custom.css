@@ -294,43 +294,57 @@ h6 {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    overflow: hidden;
+    /* Must not clip: the brush is 154px tall against this 124px band and is
+       meant to rise 30px above it. .left-sidebar's overflow:hidden crops it,
+       which is what Figma does too - the fill overflows its Header frame
+       (clipsContent: false) and is cut by the sidebar instead. */
+    overflow: visible;
     flex-shrink: 0;
 }
 
+/* Derived from Figma, not tuned by eye (2026-07-29). The crop was previously
+   guessed because the properties panel does not expose it; the REST API does.
+
+   Node 695:5735 (RECTANGLE "Frame 2147238582 3") inside the In Use sidebar
+   variant 695:5712 carries the visible fill:
+
+       scaleMode: "STRETCH"          <- what the Figma UI calls "Crop"
+       imageRef:  bd3f21a6...        <- byte-identical to sidebar-brush.png
+       imageTransform: [[0.26255646, 0, 0.22443195],
+                        [0,          0.5, -5.04e-08]]
+
+   For a cropped fill that matrix gives the visible window in normalised image
+   space: x from 22.44% to 48.70%, y from 0% to 50%. So the design uses the
+   TOP HALF of the asset - which settles the long-running "use half of it"
+   question, and says which half. The asset is mirror-symmetric about its
+   centreline, so crossing y=50% brings the doubled fan back.
+
+   Converting that window to CSS, for an element W x H showing image fractions
+   (fw, fh) starting at (fx, fy):
+       background-size     = W/fw  x  H/fh   = 295.68/0.26256 x 153.96/0.5
+                           = 1126 x 308
+       background-position = -fx*bgW, -fy*bgH = -253px, 0
+
+   Cross-check: 1126/903 = 1.2470 and 308/248 = 1.2419 - a uniform 1.24x scale,
+   0.45% apart. The decode is self-consistent, and there is no aspect
+   distortion (an earlier hand-tuned version was stretched exactly 2x).
+
+   Box: the rectangle is 295.68 x 153.96 at x=-2.84, bottom flush with the
+   sidebar's 960px bottom edge. It is 154 tall against a 124px footer, so it
+   rises 30px above the credit band - .sidebar-footer therefore must NOT clip;
+   .left-sidebar's own overflow:hidden does the clipping, exactly as Figma
+   clips with the frame rather than the fill. */
 .sidebar-footer::before {
-    /* The box is the image at natural size, rotated -90deg about its top-left
-       corner, which is pinned to the footer's bottom-left. Rotating about 0 0
-       maps the box to x[0..248] / y[-903..0], i.e. it rises out of the bottom
-       edge with the dense head resting on it. The footer's overflow:hidden
-       crops it to the visible 124px band, the same way Figma crops the fill. */
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    /* After the rotation the element's height becomes the sidebar's width, so
-       it is sized to 230px (a little over the 224px sidebar) rather than the
-       image's natural 248px. The -30px background offset skips the image's
-       ragged top edge, which would otherwise land on the left of the footer
-       and leave the start of "ATELIER" sitting on bare grey instead of black.
-       Figma applies the same idea, offsetting its fill by -29.96px. */
-    width: 948px;
-    height: 230px;
+    left: -3px;
+    bottom: 0;
+    width: 296px;
+    height: 154px;
     background-image: url('../images/sidebar-brush.png');
     background-repeat: no-repeat;
-    /* The source asset is mirror-symmetric about its horizontal centreline -
-       measured, the top half correlates 0.996 with the flipped bottom half, so
-       it is effectively the same brush doubled. Using the whole thing put that
-       mirror line down the middle of the sidebar, so the strokes splayed both
-       ways out of a black centre. Only HALF is used here: the background is
-       scaled to twice the element height (520 rather than 260) and offset by a
-       full half, so a single fan fills the width and every stroke leans the
-       same way. */
-    background-size: 948px 260px;
-    /* Y picks which of the two mirrored halves is used. */
-    background-position: -185px -26px;
-    transform-origin: 0 0;
-    transform: rotate(0deg);
+    background-size: 1126px 308px;
+    background-position: -253px 0;
     pointer-events: none;
 }
 

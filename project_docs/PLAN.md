@@ -175,30 +175,65 @@ from looking at the files.
   were wrong; the owner identified the correct one. The brush sits horizontally, exactly
   as the source image is drawn — strokes running left to right, dense end off to the left
   of the visible band. `transform: rotate(0deg)`, anchored `left: 0; top: 0`.
-- Settled values in `.sidebar-footer::before`:
+- **Superseded 2026-07-29 (evening): the crop is no longer guessed.** Everything above
+  this point is the record of how it was reasoned out by measurement; the values below
+  are read straight from Figma and replace the hand-tuned
+  `background-size: 948px 260px / background-position: -185px -26px`.
 
-  ```css
-  background-size: 948px 260px;      /* uniform 1.05x - see the aspect note below */
-  background-position: -185px -26px; /* X picks the crop along the brush, Y the height */
-  transform: rotate(0deg);
-  ```
+#### Sidebar footer brush — derived from the Figma REST API (2026-07-29)
 
-- **Watch the aspect ratio.** An earlier version used `background-size: 948px 520px`,
-  which is 1.05x horizontally but 2.1x vertically — the brush was stretched exactly 2x,
-  measured as an aspect distortion of 1.997. Any change to `background-size` must keep
-  both axes on the same scale factor. (Note the owner preferred the *look* of the
-  stretched version's thicker black band; the fix was to raise the crop with
-  `background-position` Y rather than to reintroduce the stretch.)
-- Y offset controls how much solid black backs the atelier credit. More negative = higher
-  up the fan = blacker. `-26px` puts solid black behind both lines. The half runs out at
-  about `-136px`; past that you cross the mirror line and the doubled fan reappears.
-- Accepted as close-but-not-identical to Figma by the owner, 2026-07-29.
+The crop had been tuned by eye across several sessions because Figma's properties panel
+does not expose it. The REST API does. Node **`695:5735`** (RECTANGLE
+`Frame 2147238582 3`) inside the In Use variant `695:5712` carries the visible fill:
+
+```
+scaleMode: "STRETCH"            <- what the Figma UI calls "Crop"
+imageRef:  bd3f21a62c76e8ac3324d8e27543e5a566dccb83
+imageTransform: [[0.26255646, 0, 0.22443195],
+                 [0,        0.5, -5.04e-08]]
+```
+
+For a cropped fill that matrix is the visible window in normalised image space:
+**x 22.44% → 48.70%, y 0% → 50%.** So the design uses the **top half** of the asset —
+which confirms the earlier "use half of it" conclusion and, for the first time, states
+which half and where the horizontal crop begins.
+
+Box, relative to the 224 x 960 sidebar: **295.68 x 153.96 at x = -2.84, bottom flush**
+with the sidebar's bottom edge. Converted to CSS (element W x H showing image fractions
+fw, fh from fx, fy → `background-size` = W/fw x H/fh, `background-position` = -fx·bgW,
+-fy·bgH):
+
+```css
+left: -3px; bottom: 0; width: 296px; height: 154px;
+background-size: 1126px 308px;
+background-position: -253px 0;
+```
+
+Three checks, none of them by eye:
+
+1. **Asset identity settled by hash.** The `imageRef` downloads byte-identical
+   (same SHA-256) to `src/assets/images/sidebar-brush.png`. The correlation forensics
+   above are now corroboration rather than the only evidence.
+2. **Self-consistent.** 1126/903 = 1.2470 and 308/248 = 1.2419 — a uniform 1.24x scale,
+   0.45% apart, so no aspect distortion. The old warning still stands: any change to
+   `background-size` must keep both axes on one scale factor.
+3. **Silhouette matched against Figma's own rasteriser.** Rendered node `695:5712` at
+   1x via `/v1/images` (a clean 224 x 960 PNG), reproduced what the CSS paints, and
+   compared per-column top edges: **median 0px, p90 1px, r ≈ 0.94.** The handful of
+   outliers move around as the darkness threshold changes — the signature of hairline
+   stroke tips antialiasing differently between two renderers, not a geometric offset.
+
+**`.sidebar-footer` must not clip.** It was `overflow: hidden`, which cuts the brush to
+the 124px credit band. The brush is 154px tall and is meant to rise 30px above it: in
+Figma the fill overflows its `Header` frame (`clipsContent: false`) and is cut by the
+sidebar instead. Now `overflow: visible`, with `.left-sidebar`'s existing
+`overflow: hidden` doing the clipping — same structure as the design.
+
 - `corner.png` remains correct and untouched for its other uses (hero, project pages),
   where it is a thin sliver at the top.
 
-**Status: done.** Remaining known gaps, both judged not worth more time for now: the
-brush crop is close to but not identical to Figma, and the wordmark is live text rather
-than the design's vector (see open items).
+**Status: done.** One known gap remains: the wordmark is live text rather than the
+design's vector (see open items).
 
 ### About Components — extracted spec (2026-07-29)
 
@@ -343,9 +378,10 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
 **This section is the single list for open questions of this kind.** When something needs the owner's judgement — a design inconsistency, an ambiguous spec, a content decision that can't be settled from Figma or the live site — record it here rather than in a new file or inline in a template comment. Resolved items get struck through with the resolution, not deleted, so the reasoning stays visible.
 
 - [ ] **Links section uses a different font from everything else.** In the current `Links` variant of the About Components container, entry lines are **Rethink Sans** 400, 19.31px, 168% line-height, −2% tracking — while the tab bar, Bio and Timeline are all Geist, and Phase 1 round 3 concluded "Geist everywhere". Each category's entries are a single concatenated text node with link spans inside, which reads like pasted content that kept its own styling rather than a deliberate third font. **Resolved for now (owner, 2026-07-29): use Geist**, and note the inconsistency here in case the designer intended otherwise. Rethink Sans is not loaded by the site and should not be added without a decision.
-- [x] ~~**Sidebar footer brush: use `corner.png` or half of `sidebar-brush.png`?**~~ **Resolved 2026-07-29 by measurement: use half of `sidebar-brush.png`.** Per pixel at native size `corner.png` is sharper (mean |gradient| 27.5 vs 20.2), but that is just its edges packed into fewer pixels. At the size the sidebar actually renders (903x124) the ranking inverts: the brush half scores 20.2 against 16.9 for `corner.png` Lanczos-upscaled 2.1x, with slightly less halo (7.65% vs 7.87% of pixels neither opaque nor clear). So the upscale is not merely interpolated — it reconstructs edges better than resampling the small asset ourselves. A search of the TYPO3 backup for any third brush asset found nothing (20 hits, all webalizer stats graphs). Remaining and still open: the exact crop behind the credit, tuned by eye via `background-position` in `.sidebar-footer::before` — the owner has said they would rather position this element themselves.
+- [x] ~~**Sidebar footer brush: use `corner.png` or half of `sidebar-brush.png`?**~~ **Resolved 2026-07-29 by measurement: use half of `sidebar-brush.png`.** Per pixel at native size `corner.png` is sharper (mean |gradient| 27.5 vs 20.2), but that is just its edges packed into fewer pixels. At the size the sidebar actually renders (903x124) the ranking inverts: the brush half scores 20.2 against 16.9 for `corner.png` Lanczos-upscaled 2.1x, with slightly less halo (7.65% vs 7.87% of pixels neither opaque nor clear). So the upscale is not merely interpolated — it reconstructs edges better than resampling the small asset ourselves. A search of the TYPO3 backup for any third brush asset found nothing (20 hits, all webalizer stats graphs). **Fully closed 2026-07-29 (evening):** the `imageRef` on the Figma fill downloads byte-identical to `sidebar-brush.png`, so the asset choice is settled by hash rather than by inference, and the crop that was previously tuned by eye is now read off the fill's `imageTransform` — see the sidebar brush section above.
 - [ ] **Sidebar wordmark is a vector in Figma, live text in the build.** Figma draws "MAJA EXPLOSIV" as a Mask group with a 188.32 x 27.69 footprint, so there is no font size to copy; it is currently set as Geist 800/22px to land on roughly that footprint. Decide whether it should stay as text (accessible, selectable, no extra asset) or become an exported SVG matching the design exactly.
 - [x] ~~**`custom.css` has a large block of pre-existing duplicated rules.**~~ **Done 2026-07-29** (commits `8c09be3`, `88d5ca5`). The file had 217 top-level selectors with 34 declared more than once, the repeats concentrated in one region (~753-955) restating the hero / tab / custom-section / artwork rules from ~380-752. Cleared in three passes, each chosen to be provably cascade-neutral: 12 rules re-declared verbatim later, 41 declarations shadowed by a later rule with the same selector (skipping `!important`), then the 9 rules left empty plus two stubs. The four selectors that looked "divergent" in the initial survey turned out to be complementary fragments — different properties, not conflicting values — so they were folded into single definitions rather than needing a decision. 217 → 197 rules, 2182 → 2000 lines. Only `:root` is still declared twice, deliberately, with a comment at the first pointing to the second. Verified with a full computed-style snapshot (48 properties plus box geometry for every element) across 7 page/viewport combinations, diffed after each pass — all zero changes.
+- [ ] **Sidebar nav and footer have no minimum gap, so they collide on short viewports.** Noticed 2026-07-29 at a 588px-tall viewport: the "TIMELINE" nav item runs into the top of the footer brush. `.left-sidebar` is `height: 100vh` with `justify-content: space-between`, and `.sidebar-nav` is `flex: 1` — so as the viewport shortens, the nav block and the 124px footer are pushed into each other with nothing to stop them. Figma only draws the sidebar at 960px tall, so the design says nothing about what should give first: the nav could scroll, the sections could tighten their 80px gaps, or the footer could shrink. Needs a decision, not a guess. Unrelated to the brush work — it predates it.
 - [ ] **`.section-title` is indented 48px from its own section's content column.** Affects both the "Projects" and "About" headings identically. Figma has them flush with the 1020px column. Not fixed alongside the 2026-07-29 Projects section pass because it is shared, not Projects-specific — fixing only one would reintroduce the asymmetry that pass just removed.
 - [ ] Figma exact-value extraction — access pending.
 - [ ] News feed: in or out of scope for this redesign?
