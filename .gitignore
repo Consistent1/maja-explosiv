@@ -20,3 +20,6 @@
 /.lsp/**
 tasks.md
 REFACTORING_PLAN.md
+
+# Figma API response cache (scripts/figma_audit.py)
+/scripts/.figma-cache
