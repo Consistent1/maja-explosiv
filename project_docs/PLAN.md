@@ -2,7 +2,59 @@
 
 **Status document owner:** this file is the current source of truth for where the project stands and what's next. It supersedes `RESUME-WORK-HERE.md`, `MIGRATION-STATUS-REPORT.md`, and the various session-summary docs, which have been moved to `project_docs/_archive/` (see `_archive/MANIFEST.md`) rather than deleted.
 
-**Last updated:** 2026-07-24
+**Last updated:** 2026-07-29
+
+---
+
+## Resume here (2026-07-29, end of session)
+
+**Read first:** `CLAUDE.md`, then this section, then `project_docs/figma-audit-guide.md`.
+
+**What changed this session.** The project now has a repeatable way to find design
+mismatches instead of looking for them by eye: a Figma REST API token plus
+`scripts/figma_audit.py` and the guide. Applied to the sidebar it found six defects in a
+component this file had marked "done", five of which are fixed and verified numerically.
+
+**The method, in one line:** pull the node's real spec from the API, pull the same shape
+from the rendered DOM, compare numbers — never pixels, never by eye. The guide's §8
+"Traps" is the part that matters; two of those traps produce confidently wrong answers.
+
+**State of play**
+
+| Surface | Tier 1 | Tier 2 | Tier 3 |
+|---|---|---|---|
+| Sidebar | **done** — S1-S4, S6 fixed; S5 height open | not started | not started |
+| Homepage | not started | | |
+| Single project | not started | | |
+| About components | not started | | |
+| Contact overlay | not started | | |
+| Impressum | not started | | |
+
+**Next step:** tier 1 on the homepage (`52:6427`). Breadth before depth — finish tier 1
+everywhere before starting tier 2 anywhere (guide §9).
+
+**Immediately actionable, no decisions needed**
+
+- Scan Project Page (`274:3273`), Contact Overlay (`957:5992`) and Impressum
+  (`612:6400`) for off-palette colours. Blocked only by Figma rate-limiting on the day;
+  batch the ids into one request rather than looping.
+- Visually check the sidebar. Every sidebar fix is verified numerically but was never
+  seen — the preview pane was not displayed, so screenshots timed out.
+
+**Waiting on the owner** — see *Open items needing input*: the off-palette greys, the
+sidebar sub-item colour inconsistency, whether the wordmark becomes an SVG (S5's height
+cannot be matched with live text), and what gives when the sidebar nav and footer collide
+on short viewports.
+
+**Two things that bit hard, so they do not bite again**
+
+1. A text node's `style` in the API is only the *default*. Read naively it reports the
+   sidebar subtitle and footer credit as Rethink Sans; both are actually Geist, overridden
+   per character. That would have been two fabricated findings.
+2. Compare text by **ink extents**, never block boxes. Comparing `.brand-title`'s block
+   width against Figma's hug box overstated S5 by 6px.
+
+---
 
 ---
 
@@ -495,7 +547,12 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
 - [x] ~~**Sidebar footer brush: use `corner.png` or half of `sidebar-brush.png`?**~~ **Resolved 2026-07-29 by measurement: use half of `sidebar-brush.png`.** Per pixel at native size `corner.png` is sharper (mean |gradient| 27.5 vs 20.2), but that is just its edges packed into fewer pixels. At the size the sidebar actually renders (903x124) the ranking inverts: the brush half scores 20.2 against 16.9 for `corner.png` Lanczos-upscaled 2.1x, with slightly less halo (7.65% vs 7.87% of pixels neither opaque nor clear). So the upscale is not merely interpolated — it reconstructs edges better than resampling the small asset ourselves. A search of the TYPO3 backup for any third brush asset found nothing (20 hits, all webalizer stats graphs). **Fully closed 2026-07-29 (evening):** the `imageRef` on the Figma fill downloads byte-identical to `sidebar-brush.png`, so the asset choice is settled by hash rather than by inference, and the crop that was previously tuned by eye is now read off the fill's `imageTransform` — see the sidebar brush section above.
 - [ ] **Sidebar wordmark is a vector in Figma, live text in the build.** Figma draws "MAJA EXPLOSIV" as a Mask group with a 188.32 x 27.69 footprint, so there is no font size to copy; it is currently set as Geist 800/22px to land on roughly that footprint. Decide whether it should stay as text (accessible, selectable, no extra asset) or become an exported SVG matching the design exactly.
 - [x] ~~**`custom.css` has a large block of pre-existing duplicated rules.**~~ **Done 2026-07-29** (commits `8c09be3`, `88d5ca5`). The file had 217 top-level selectors with 34 declared more than once, the repeats concentrated in one region (~753-955) restating the hero / tab / custom-section / artwork rules from ~380-752. Cleared in three passes, each chosen to be provably cascade-neutral: 12 rules re-declared verbatim later, 41 declarations shadowed by a later rule with the same selector (skipping `!important`), then the 9 rules left empty plus two stubs. The four selectors that looked "divergent" in the initial survey turned out to be complementary fragments — different properties, not conflicting values — so they were folded into single definitions rather than needing a decision. 217 → 197 rules, 2182 → 2000 lines. Only `:root` is still declared twice, deliberately, with a comment at the first pointing to the second. Verified with a full computed-style snapshot (48 properties plus box geometry for every element) across 7 page/viewport combinations, diffed after each pass — all zero changes.
-- [ ] **Off-palette greys in the design — which should be snapped?** Per the owner (2026-07-29): a grey used in the design that is not in the Grey collection should generally be changed to the nearest value that is. Scan of four canonical frames (Project Page, Contact Overlay and Impressum still to do — Figma rate-limited): **`#1B1B1B`** on the homepage "LETS GET IN TOUCH" button, fill and label, nearest `#222222` Grey/800 — almost certainly meant to be Grey/800; **`#FFFFFF`** on a homepage `Line 2` vector stroke, nearest `#EBEBEB` Grey/0 — pure white may be deliberate for a hairline; **`#FFCC00`** on a homepage `Vector` stroke — no yellow exists in the palette at all, and the sidebar variant is named "Navigation6 Flip *Yellow*", so an accent may be intended but has no token. Two cases are already resolved and need no decision: `#193AF6` on "$5,200.00 2024" style labels is **mock content**, and `#060501` is the wordmark's **mask source**, whose colour never renders. ~~`#000000`~~ resolved by the same guideline — nearest is `#222222`, which the build already renders.
+- [ ] **Off-palette greys in the design — all of these are the owner's calls, none are mine.** Corrected 2026-07-29: an earlier version of this entry stated a "rule" that off-palette values should be snapped to the nearest listed one, and used it to strike `#000000` off this list. **That rule does not exist.** The owner may choose to snap a value; the agent must not, and must never use snapping as grounds either to change something or to leave it unchanged. Until the owner decides, **the build should render what Figma renders** and the inconsistency stays flagged here. Scan of four canonical frames (Project Page, Contact Overlay and Impressum still to do — Figma rate-limited):
+  - **`#000000`**, 20 uses, unbound to any variable. Includes the **sidebar ABOUT heading** — while its sibling PROJECTS heading is `#222222` bound to Grey/800 — plus the homepage About heading and Projects Gallery card titles. The build currently renders `#222222` for the sidebar heading, i.e. it does *not* match Figma. Not changed, because doing so would make two sibling headings different colours, which is precisely the open question below.
+  - **`#1B1B1B`**, homepage "LETS GET IN TOUCH" button fill and label. Nearest `#222222` Grey/800.
+  - **`#FFFFFF`**, homepage `Line 2` vector stroke. Nearest `#EBEBEB` Grey/0; pure white may be deliberate for a hairline.
+  - **`#FFCC00`**, homepage `Vector` stroke. No yellow exists in the palette at all; the sidebar variant is named "Navigation6 Flip *Yellow*", so an accent may be intended but has no token.
+  - Believed **out of scope rather than decided** — confirm if you disagree: `#193AF6` on "$5,200.00 2024" style labels is mock content (prices do not exist on this site), and `#060501` is the wordmark's mask source, which never renders.
 - [ ] **Sidebar sub-item colours are inconsistent inside Figma itself.** Reading the fills off node `695:5712`: Sculptures `#373737`, Installations `#373737`, Performance `#222222`, Paintings `#222222`; then Bio `#222222`, Timeline `#222222`, Press `#373737`, Links `#373737`, Contact `#222222`. No pattern — not first/last, not alphabetical, not per section — and two of the nine are not bound to a colour variable at all, which reads like hand-editing rather than intent. This file records `#373737` as *the* sub-item colour. Is that right, or is a state (visited/current) being modelled? Blocks finding S1 in the sidebar audit above.
 - [ ] **Sidebar nav and footer have no minimum gap, so they collide on short viewports.** Noticed 2026-07-29 at a 588px-tall viewport: the "TIMELINE" nav item runs into the top of the footer brush. `.left-sidebar` is `height: 100vh` with `justify-content: space-between`, and `.sidebar-nav` is `flex: 1` — so as the viewport shortens, the nav block and the 124px footer are pushed into each other with nothing to stop them. Figma only draws the sidebar at 960px tall, so the design says nothing about what should give first: the nav could scroll, the sections could tighten their 80px gaps, or the footer could shrink. Needs a decision, not a guess. Unrelated to the brush work — it predates it.
 - [ ] **`.section-title` is indented 48px from its own section's content column.** Affects both the "Projects" and "About" headings identically. Figma has them flush with the 1020px column. Not fixed alongside the 2026-07-29 Projects section pass because it is shared, not Projects-specific — fixing only one would reintroduce the asymmetry that pass just removed.

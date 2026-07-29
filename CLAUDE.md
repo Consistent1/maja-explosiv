@@ -35,7 +35,25 @@ Ignore `project_docs/_archive/` unless chasing history. It holds superseded docs
 
 Do not conflate these. Almost every mistake in this project's history came from doing so.
 
-**Figma governs design.** Structure, layout, spacing, typography, colour.
+**Figma governs design — it, and the owner's current instructions, and nothing else.**
+Not the CSS, not this file, not PLAN.md, not any earlier decision however well argued. If
+the design and a recorded conclusion disagree, the design wins and the record gets
+corrected. (Proven the hard way: PLAN.md asserted the sidebar sub-items shared a left edge
+with their headings, and the base stylesheet's 8px indent was deleted on that basis. Figma
+gives each item `paddingLeft: 10`. The doc was wrong and had made the site worse.)
+
+The only carve-outs are common sense: mock/placeholder text and stock imagery are not
+design, and neither are non-rendering helpers like mask sources.
+
+**Where the design is internally inconsistent, render it as Figma has it and raise the
+inconsistency as an open item.** Do *not* normalise it, snap it to a palette, or otherwise
+tidy it up — and never treat such a tidy-up as a reason to change something, or as a reason
+to leave something unchanged. Deciding what to reconcile is the owner's call, always.
+(2026-07-29: an off-palette `#000000` was struck off the owner's open list on the reasoning
+that the nearest palette value was already being rendered. That reasoning was invented and
+was not the owner's instruction.)
+
+Structure, layout, spacing, typography, colour.
 File: [MajaExplosiv_Website Redesign](https://www.figma.com/design/18tst8uq38FlDlaZA5cPCz/MajaExplosiv_Website-Redesign)
 — owner's personal copy, view-only, opened through a real logged-in Chrome session.
 
