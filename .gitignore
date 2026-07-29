@@ -13,6 +13,7 @@
 /.playwright-mcp
 /old
 /project_docs/_archive/design_screenshots
+/project_docs/figma-exports
 /temp_screenshots
 .goosehints
 /.clj-kondo/**

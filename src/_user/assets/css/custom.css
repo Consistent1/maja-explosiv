@@ -653,56 +653,21 @@ h6 {
 
 /* Removed conflicting hero styles */
 
-/* Tab Styles */
+/* Tab Styles
+   The generic `.tab-buttons` / `.tab-button` (+ :hover, :focus, .active) rules that
+   used to sit here were removed 2026-07-29. `.tab-button` appears in exactly two
+   places in the site — the Projects bar and the About bar in home.njk — and both are
+   now styled together by the shared rule near the end of this file, which overrode
+   every declaration these carried. The resets worth keeping (flex, text-decoration,
+   box-shadow, margin) were folded into that rule; see the comment there. */
 .projects-tabs,
 .about-tabs {
     width: 100%;
-}
-
-.tab-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 0;
-    margin-bottom: var(--size-5);
-    border-bottom: none;
-    flex-wrap: nowrap;
-    background-color: transparent;
-    width: 100%;
-    padding: 0 3rem;
-    /* Match section title padding */
-}
-
-.tab-button {
-    padding: 0;
-    margin: 0;
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    text-transform: none;
-    letter-spacing: normal;
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
-    color: rgba(0, 0, 0, 0.4);
-    transition: color 0.3s ease;
-    flex: 0 0 auto;
-    text-decoration: none;
-    box-shadow: none;
-}
-
-.tab-button:hover {
-    color: rgba(0, 0, 0, 0.7);
-    text-decoration: none;
-}
-
-.tab-button:focus {
-    outline: none;
-    text-decoration: none;
-}
-
-.tab-button.active {
-    color: #000;
+    /* Figma puts both sections on the same 1020px column: the Projects Gallery
+       Section's tab bar, description and image grid all run x=100..1119 inside a
+       1220px frame, exactly matching the About container. Measured off
+       project_docs/figma-exports/projects-gallery-section__46-704.png. */
+    max-width: var(--about-shell-width);
 }
 
 .tab-content {
@@ -922,20 +887,9 @@ h6 {
         gap: var(--size-4, 1rem);
     }
 
-    /* Responsive tab adjustments for mobile */
-    .tab-buttons {
-        padding: 0 1.5rem;
-        /* Reduce padding on mobile */
-        flex-wrap: wrap;
-        /* Allow wrapping on very small screens */
-        gap: 0.5rem;
-        /* Add small gap if tabs wrap */
-    }
-
-    .tab-button {
-        font-size: 0.875rem;
-        /* Slightly smaller on mobile */
-    }
+    /* The mobile `.tab-buttons` / `.tab-button` overrides that used to sit here were
+       removed 2026-07-29 along with their desktop counterparts — both bars now take
+       the shared mobile treatment in the About block at the end of this file. */
 }
 
 /* Duplicate tab styling removed - see unified tab styles above at line ~330 */
@@ -1816,8 +1770,15 @@ h6 {
 }
 
 /* Tab bar — Geist 400 / 32px / 120% / -4%, spread edge to edge.
-   Active #222222, inactive #8E8E93. No underline, border or background. */
-.about-tabs .tab-buttons.about-tab-buttons {
+   Active #222222, inactive #8E8E93. No underline, border or background.
+
+   Shared with the Projects (category) tab bar: Figma draws the two identically —
+   same 1020px span, same type, same active/inactive colours — so they are styled
+   from one place rather than restated. Checked against the exports
+   project_docs/figma-exports/about-01-bio__46-901.png and
+   .../projects-gallery-section__46-704.png, where both bars run x=100..1119. */
+.about-tabs .tab-buttons.about-tab-buttons,
+.projects-tabs .tab-buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1828,7 +1789,8 @@ h6 {
     border-bottom: none;
 }
 
-.about-tabs .tab-buttons.about-tab-buttons .tab-button {
+.about-tabs .tab-buttons.about-tab-buttons .tab-button,
+.projects-tabs .tab-buttons .tab-button {
     font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
     font-size: 2rem;
     font-weight: 400;
@@ -1839,17 +1801,54 @@ h6 {
     background: none;
     border: none;
     padding: 0;
+    margin: 0;
     cursor: pointer;
     transition: color 0.2s ease;
+    /* Resets carried over from the generic .tab-button block that used to sit
+       earlier in this file. They are not cosmetic: the base template's
+       main.css gives .tab-button padding and an active/focus border-bottom,
+       and Open Props' :where(button) adds a box-shadow. Without these the
+       labels would grow a shadow and an underline. */
+    flex: 0 0 auto;
+    text-decoration: none;
+    box-shadow: none;
 }
 
 .about-tabs .tab-buttons.about-tab-buttons .tab-button:hover,
-.about-tabs .tab-buttons.about-tab-buttons .tab-button:focus-visible {
+.about-tabs .tab-buttons.about-tab-buttons .tab-button:focus-visible,
+.projects-tabs .tab-buttons .tab-button:hover,
+.projects-tabs .tab-buttons .tab-button:focus-visible {
     color: var(--theme-colors-primary, #222222);
 }
 
-.about-tabs .tab-buttons.about-tab-buttons .tab-button.active {
+.about-tabs .tab-buttons.about-tab-buttons .tab-button.active,
+.projects-tabs .tab-buttons .tab-button.active {
     color: var(--theme-colors-primary, #222222);
+}
+
+/* Rest of the Projects section, on the same grid as About.
+   Figma (projects-gallery-section__46-704.png, measured): tab bar and image grid
+   both x=100..1119 — the 1020px column — and the category description x=101..924,
+   i.e. the same 840px prose measure the Bio panel uses. The 3rem insets these
+   carried were not in the design; they pushed the description and grid 48px right
+   of the tab bar. */
+.projects-tabs .category-description {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: var(--about-text-column);
+}
+
+/* Same base-template trap the About panels hit: `.content-wrapper p` caps prose at
+   min(80ch, 100%) — about 712px — which would hold the description short of its
+   840px column, and `margin-inline: auto` would centre it. */
+.projects-tabs .category-description p {
+    max-inline-size: none;
+    margin-inline: 0;
+}
+
+.projects-tabs .posts-grid {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Section headings — "A partial chronology of experience", "Schooling",
@@ -2046,13 +2045,15 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    .about-tabs .tab-buttons.about-tab-buttons {
+    .about-tabs .tab-buttons.about-tab-buttons,
+    .projects-tabs .tab-buttons {
         margin-bottom: 2.5rem;
         gap: 1rem;
         flex-wrap: wrap;
     }
 
-    .about-tabs .tab-buttons.about-tab-buttons .tab-button {
+    .about-tabs .tab-buttons.about-tab-buttons .tab-button,
+    .projects-tabs .tab-buttons .tab-button {
         font-size: 1.5rem;
     }
 

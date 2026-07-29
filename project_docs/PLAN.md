@@ -21,6 +21,8 @@ Figma file: [MajaExplosiv_Website Redesign](https://www.figma.com/design/18tst8u
 
 **The PNG exports in `project_docs/_archive/design_screenshots/` are retired — do not use them.** They were captured 2025-11/2025-12, predate the 2026-07-24 wrong-frame correction, and carry no record of which frame they came from, so they may show stale drafts. Per the owner (2026-07-28): read Figma directly for anything design-related, taking fresh screenshots as needed, and accept the slowness if it buys any accuracy. Figma is the source of truth for design; the live site is the source of truth for content.
 
+**Replaced 2026-07-29 by `project_docs/figma-exports/`.** A fresh set of 1x PNGs exported straight out of Figma (not screenshots — the owner pointed out Figma's own export is available and cleaner). Every file carries the node id it came from — enough on its own to re-open the source frame (`?node-id=<id>` on the file URL). The folder is gitignored at the owner's instruction, so the exports and their `MANIFEST.md` (which records each frame's exact in-file location and which variants were skipped as stale) are local-only; **re-export rather than assume they are present.** Covers: the whole homepage (`Main container`, 1280×6524), the Landing Section, the Projects Gallery Section, the single Project Page, the four current About Components variants, all six sidebar variants plus the `In Use` one cropped out, the Contact overlay, and the Impressum page. **These are for sanity-checking layout by eye** — exact values still come from Figma's properties panel, not from measuring pixels in a PNG.
+
 ## Agreed priorities
 
 1. **Design/functionality first, content second.** Reasoning: several page templates (Timeline, Impressum) don't exist yet and others (Bio, Press, Links) are placeholders — migrating bulk content before those "slots" exist would mean redoing the work. Build the real templates against Figma first, then pour in content at scale.
@@ -92,7 +94,7 @@ Work through `design_screenshots/` page by page:
 
 | Page | Current state |
 |---|---|
-| Homepage | Structurally close — sidebar, hero, featured grid, tabbed projects, about intro all present. Needs token-accurate styling pass once Phase 1 lands. |
+| Homepage | Structurally close — sidebar, hero, featured grid, tabbed projects, about intro all present. Needs token-accurate styling pass once Phase 1 lands. **Projects tab bar brought in line with the About tab bar, 2026-07-29** — see below. |
 | Single project | Close — `sisyphos-gate.md` is a working full example (images, layout) matching `project.png` reasonably well. |
 | Bio | **Done.** Real content, transcribed verbatim from the live site (`maja-explosiv.com/info/bio.html`). |
 | Press | **Content done** - full chronological press-mention list (1993-2018), transcribed from the live site. **Layout superseded 2026-07-29:** the earlier claim here that "no usable Figma layout existed" was wrong - it was an artifact of the `press.png` export being a mislabelled duplicate of `links.png`. Reading Figma directly shows a real Press design (description line + 3-column Responsive Image Gallery of the scanned clippings + text list). See the About Components spec below. Clipping images still need asset migration; placeholders in the interim. |
@@ -234,6 +236,72 @@ Note the staleness convention here is an `Old - ` name prefix, *not* the `In Use
 
 **Links:** tab bar → an overall `Section title` ("Friends and related artists:", 60% opacity, same style as the Timeline section headings) → per-category headings → entry lines with inline underlined anchors. Matches the existing `linkCategories` data shape (`text` / `name` / `url` / `suffix`).
 
+### Projects (category) tab bar — matched to the About tab bar (2026-07-29)
+
+Figma draws the two bars identically. Confirmed against
+`figma-exports/projects-gallery-section__46-704.png` (node 46:704) and
+`figma-exports/about-01-bio__46-901.png`: in both, the bar runs x=100..1119 — a 1020px
+span — with Geist 400 / 32px / 120% / −4%, sentence-case labels, active `#222222`,
+inactive `#8E8E93`, no underline, border or background.
+
+The Projects bar was 16px, `rgba(0,0,0,.4)` inactive / pure black active, no tracking, and
+padded `0 3rem` inside a 1137px section, so its labels started 48px right of where the
+About labels start.
+
+Done in `custom.css` by **extending the existing About tab-bar selectors** to also match
+`.projects-tabs .tab-buttons`, rather than restating the values — tab typography was
+already declared in three places in that file and a fourth copy would have made the known
+duplication problem worse. Both bars now measure identically in-browser (left 256, width
+1020, 32px, −1.28px tracking, `rgb(34,34,34)` / `rgb(142,142,147)`), and were checked by
+eye as well as by computed style.
+
+The mobile (≤768px) rules now give the Projects tabs the same 1.5rem/wrap treatment as the
+About tabs, replacing their old 0.875rem. Confirmed correct with the owner: there was never
+a reason to think the two bars should diverge on mobile.
+
+**Second pass, same day — the whole Projects section, plus a stale-code sweep.**
+
+Measured off `figma-exports/projects-gallery-section__46-704.png` by scanning for the
+leftmost/rightmost non-background pixel per band (the export has a transparent background,
+so it has to be composited onto white first or everything reads as black):
+
+| Band | Figma extent | Width |
+|---|---|---|
+| Tab bar | x=101…1118 | 1018 |
+| Category description | x=101…924 | 824 |
+| Image grid (sampled at three heights) | x=100…1119 | 1020 |
+
+So the Projects section sits on the same 1020px column as About, with the description on the
+same ~840px prose measure as the Bio panel. The build had `.projects-tabs` at 1057px, the
+description capped at 800px with a 3rem inset, and `.posts-grid` with the same 3rem inset —
+pushing both 48px right of the tab bar. Now: `.projects-tabs, .about-tabs` share
+`max-width: var(--about-shell-width)`, and the description and grid lose their insets.
+Measured after: tab bar 256/1020, description 256/840, grid 256/1020 — matching About's
+256/1020 and 256/840 exactly.
+
+**Stale CSS removed.** `.tab-button` appears in exactly two places in the whole site (the
+two bars in `home.njk`; `main.js` only reads the class, never styles it), so once both bars
+were styled from the shared rule the generic `.tab-buttons` / `.tab-button` / `:hover` /
+`:focus` / `.active` blocks and their `@media (max-width: 768px)` counterparts were fully
+shadowed. Deleted — about 60 lines.
+
+Four declarations in them were **not** cosmetic and were folded into the shared rule first:
+`margin: 0`, `flex: 0 0 auto`, `text-decoration: none`, `box-shadow: none`. Without them the
+base template's `main.css` (`.tab-button` padding, and an active/focus `border-bottom` in
+`--color-primary`) and Open Props' `:where(button)` box-shadow would have surfaced.
+
+Verified the deletion is inert the same way the `custom.css` de-duplication was: a 33-property
+computed-style snapshot plus box geometry for both bars and all eight buttons, taken before
+and diffed after. The only differences were `max-width: 1020px → none` on the bars (the cap
+moved to the parent, widths unchanged) and `gap: 0px → normal` (identical computed value for
+a flex container). Every colour, font, border, shadow, outline and flex value unchanged.
+
+One thing deliberately **not** changed, because it is not Projects-specific: `.section-title`
+carries `padding-left: 48px`, so the "Projects" and "About" headings both sit 48px right of
+their own tab bars. Figma has the heading flush with the column (x≈111 for "Projects" is
+glyph side bearing off 100). Fixing it touches both sections equally — worth doing, but as
+its own change rather than folded into this one. Logged under open items.
+
 #### Timeline data format required by the migration
 
 The Figma layout needs three fields per entry. The current `src/pages/about/timeline.md` has two (`date` + one prose blob with the title embedded), and uses month precision where Figma shows year only. **The extraction script should be changed to emit this shape** when the timeline content is migrated for real:
@@ -278,6 +346,7 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
 - [x] ~~**Sidebar footer brush: use `corner.png` or half of `sidebar-brush.png`?**~~ **Resolved 2026-07-29 by measurement: use half of `sidebar-brush.png`.** Per pixel at native size `corner.png` is sharper (mean |gradient| 27.5 vs 20.2), but that is just its edges packed into fewer pixels. At the size the sidebar actually renders (903x124) the ranking inverts: the brush half scores 20.2 against 16.9 for `corner.png` Lanczos-upscaled 2.1x, with slightly less halo (7.65% vs 7.87% of pixels neither opaque nor clear). So the upscale is not merely interpolated — it reconstructs edges better than resampling the small asset ourselves. A search of the TYPO3 backup for any third brush asset found nothing (20 hits, all webalizer stats graphs). Remaining and still open: the exact crop behind the credit, tuned by eye via `background-position` in `.sidebar-footer::before` — the owner has said they would rather position this element themselves.
 - [ ] **Sidebar wordmark is a vector in Figma, live text in the build.** Figma draws "MAJA EXPLOSIV" as a Mask group with a 188.32 x 27.69 footprint, so there is no font size to copy; it is currently set as Geist 800/22px to land on roughly that footprint. Decide whether it should stay as text (accessible, selectable, no extra asset) or become an exported SVG matching the design exactly.
 - [x] ~~**`custom.css` has a large block of pre-existing duplicated rules.**~~ **Done 2026-07-29** (commits `8c09be3`, `88d5ca5`). The file had 217 top-level selectors with 34 declared more than once, the repeats concentrated in one region (~753-955) restating the hero / tab / custom-section / artwork rules from ~380-752. Cleared in three passes, each chosen to be provably cascade-neutral: 12 rules re-declared verbatim later, 41 declarations shadowed by a later rule with the same selector (skipping `!important`), then the 9 rules left empty plus two stubs. The four selectors that looked "divergent" in the initial survey turned out to be complementary fragments — different properties, not conflicting values — so they were folded into single definitions rather than needing a decision. 217 → 197 rules, 2182 → 2000 lines. Only `:root` is still declared twice, deliberately, with a comment at the first pointing to the second. Verified with a full computed-style snapshot (48 properties plus box geometry for every element) across 7 page/viewport combinations, diffed after each pass — all zero changes.
+- [ ] **`.section-title` is indented 48px from its own section's content column.** Affects both the "Projects" and "About" headings identically. Figma has them flush with the 1020px column. Not fixed alongside the 2026-07-29 Projects section pass because it is shared, not Projects-specific — fixing only one would reintroduce the asymmetry that pass just removed.
 - [ ] Figma exact-value extraction — access pending.
 - [ ] News feed: in or out of scope for this redesign?
 - [ ] `docs/` folder (GH Pages build output) currently shows as deleted-but-uncommitted in `git status` — left untouched for now per "forget GH Pages for now."
