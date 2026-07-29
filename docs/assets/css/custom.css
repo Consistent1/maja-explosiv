@@ -130,17 +130,29 @@ h6 {
    Figma spacing: 80px between the wordmark block and the nav, and 80px between
    the two nav sections (was 40px for both). */
 .sidebar-header {
+    /* Figma's `Logo` frame is layoutSizingVertical: FIXED at 81px while its
+       contents only fill ~50, so the 80px gap below starts from y=101 and the
+       nav begins at y=181. Letting this hug its content instead put the whole
+       nav 30.7px high - every gap was already correct, this height was not. */
+    height: 81px;
     margin-bottom: 80px;
     flex-shrink: 0;
 }
 
 .brand-title {
     /* Figma draws the wordmark as a Mask group (a vector, not a text layer), so
-       there is no font-size to read off it - only its rendered footprint,
-       188.32 x 27.69px inside the 224px sidebar. Sized here to land on that
-       footprint as live text; see the open items in project_docs/PLAN.md if it
-       should become an exported asset instead. */
-    font-size: 22px;
+       there is no font-size to read off it - only its rendered footprint. That
+       footprint is the Mask GROUP's 164 x 19.12, not the 188.32 x 27.69 this
+       file used to record: the latter is `Rectangle 9`, the mask SOURCE, which
+       is clipped by the mask and never renders at that size.
+
+       Sized so the text measures 164px wide. The height cannot also match: the
+       vector's proportions are not Geist 800's (164 x 19.12 is far wider per
+       unit height than the typeface sets), so matching the ink height would
+       push the width past 200. Width is the dominant reading here - it is what
+       spans the 176px content column. Closing the rest needs the exported SVG;
+       see the open items in project_docs/PLAN.md. */
+    font-size: 21.4px;
     font-weight: 800;
     text-transform: uppercase;
     margin: 0;
@@ -234,12 +246,18 @@ h6 {
 }
 
 .nav-submenu li {
-    /* The base stylesheet puts 8px of padding on every li, which indented the
-       sub-items visibly further than the design. In Figma the sub-item and its
-       section heading share the same left edge - the ~4px that looks like an
-       indent there is just the difference in glyph side bearings. */
+    /* Sub-items ARE indented, by 10px. Read off the API 2026-07-29: each
+       `Button sidebar` instance carries paddingLeft: 10, putting its text node
+       at x=34 against the section heading's x=24. Figma has two content left
+       edges in this sidebar; the build previously had one.
+
+       This reverses an earlier conclusion reached by eye, which held that the
+       two shared a left edge and that the apparent indent was glyph side
+       bearing - and which removed the base stylesheet's `li { padding-left: 8px }`
+       on that basis. The original 8px was closer to right than the change that
+       replaced it. */
     margin-bottom: 0;
-    padding-left: 0;
+    padding-left: 10px;
 }
 
 /* Sub-item - Geist 400 / 18px / 100% / -3%, uppercase, Grey/700 #373737
@@ -247,9 +265,13 @@ h6 {
 .nav-link {
     text-decoration: none !important;
     border-bottom: none !important;
-    color: var(--theme-colors-text-secondary, #373737);
+    color: var(--theme-colors-dark-gray, #373737);
     text-transform: uppercase;
     font-size: 18px;
+    /* Declared explicitly: without it main.css's generic
+       `.nav-link { font-weight: var(--font-weight-5) }` (500) silently won and
+       the sub-items rendered a weight the design never asked for. */
+    font-weight: 400;
     line-height: 1;
     display: block;
     padding: 0;
@@ -290,47 +312,66 @@ h6 {
     /* Full-bleed to the sidebar's true edges, cancelling its 20/24 padding. */
     margin: 0 -24px -20px;
     height: 124px;
-    padding: 0 24px 20px;
+    /* Bottom padding is 15px, not the sidebar's 20px, because Figma's text box
+       uses leadingTrim: CAP_HEIGHT - it bottoms out on the BASELINE while a CSS
+       block bottoms out on the line box. The difference is the descent plus
+       half-leading, 4 + 0.71 = 4.71px, which had the credit sitting ~5px high.
+       Measured against a 1x node render: Figma cap-tops are y=906 and y=927. */
+    padding: 0 24px 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    overflow: hidden;
+    /* Must not clip: the brush is 154px tall against this 124px band and is
+       meant to rise 30px above it. .left-sidebar's overflow:hidden crops it,
+       which is what Figma does too - the fill overflows its Header frame
+       (clipsContent: false) and is cut by the sidebar instead. */
+    overflow: visible;
     flex-shrink: 0;
 }
 
+/* Derived from Figma, not tuned by eye (2026-07-29). The crop was previously
+   guessed because the properties panel does not expose it; the REST API does.
+
+   Node 695:5735 (RECTANGLE "Frame 2147238582 3") inside the In Use sidebar
+   variant 695:5712 carries the visible fill:
+
+       scaleMode: "STRETCH"          <- what the Figma UI calls "Crop"
+       imageRef:  bd3f21a6...        <- byte-identical to sidebar-brush.png
+       imageTransform: [[0.26255646, 0, 0.22443195],
+                        [0,          0.5, -5.04e-08]]
+
+   For a cropped fill that matrix gives the visible window in normalised image
+   space: x from 22.44% to 48.70%, y from 0% to 50%. So the design uses the
+   TOP HALF of the asset - which settles the long-running "use half of it"
+   question, and says which half. The asset is mirror-symmetric about its
+   centreline, so crossing y=50% brings the doubled fan back.
+
+   Converting that window to CSS, for an element W x H showing image fractions
+   (fw, fh) starting at (fx, fy):
+       background-size     = W/fw  x  H/fh   = 295.68/0.26256 x 153.96/0.5
+                           = 1126 x 308
+       background-position = -fx*bgW, -fy*bgH = -253px, 0
+
+   Cross-check: 1126/903 = 1.2470 and 308/248 = 1.2419 - a uniform 1.24x scale,
+   0.45% apart. The decode is self-consistent, and there is no aspect
+   distortion (an earlier hand-tuned version was stretched exactly 2x).
+
+   Box: the rectangle is 295.68 x 153.96 at x=-2.84, bottom flush with the
+   sidebar's 960px bottom edge. It is 154 tall against a 124px footer, so it
+   rises 30px above the credit band - .sidebar-footer therefore must NOT clip;
+   .left-sidebar's own overflow:hidden does the clipping, exactly as Figma
+   clips with the frame rather than the fill. */
 .sidebar-footer::before {
-    /* The box is the image at natural size, rotated -90deg about its top-left
-       corner, which is pinned to the footer's bottom-left. Rotating about 0 0
-       maps the box to x[0..248] / y[-903..0], i.e. it rises out of the bottom
-       edge with the dense head resting on it. The footer's overflow:hidden
-       crops it to the visible 124px band, the same way Figma crops the fill. */
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    /* After the rotation the element's height becomes the sidebar's width, so
-       it is sized to 230px (a little over the 224px sidebar) rather than the
-       image's natural 248px. The -30px background offset skips the image's
-       ragged top edge, which would otherwise land on the left of the footer
-       and leave the start of "ATELIER" sitting on bare grey instead of black.
-       Figma applies the same idea, offsetting its fill by -29.96px. */
-    width: 948px;
-    height: 230px;
+    left: -3px;
+    bottom: 0;
+    width: 296px;
+    height: 154px;
     background-image: url('../images/sidebar-brush.png');
     background-repeat: no-repeat;
-    /* The source asset is mirror-symmetric about its horizontal centreline -
-       measured, the top half correlates 0.996 with the flipped bottom half, so
-       it is effectively the same brush doubled. Using the whole thing put that
-       mirror line down the middle of the sidebar, so the strokes splayed both
-       ways out of a black centre. Only HALF is used here: the background is
-       scaled to twice the element height (520 rather than 260) and offset by a
-       full half, so a single fan fills the width and every stroke leans the
-       same way. */
-    background-size: 948px 260px;
-    /* Y picks which of the two mirrored halves is used. */
-    background-position: -185px -26px;
-    transform-origin: 0 0;
-    transform: rotate(0deg);
+    background-size: 1126px 308px;
+    background-position: -253px 0;
     pointer-events: none;
 }
 
@@ -653,56 +694,21 @@ h6 {
 
 /* Removed conflicting hero styles */
 
-/* Tab Styles */
+/* Tab Styles
+   The generic `.tab-buttons` / `.tab-button` (+ :hover, :focus, .active) rules that
+   used to sit here were removed 2026-07-29. `.tab-button` appears in exactly two
+   places in the site — the Projects bar and the About bar in home.njk — and both are
+   now styled together by the shared rule near the end of this file, which overrode
+   every declaration these carried. The resets worth keeping (flex, text-decoration,
+   box-shadow, margin) were folded into that rule; see the comment there. */
 .projects-tabs,
 .about-tabs {
     width: 100%;
-}
-
-.tab-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 0;
-    margin-bottom: var(--size-5);
-    border-bottom: none;
-    flex-wrap: nowrap;
-    background-color: transparent;
-    width: 100%;
-    padding: 0 3rem;
-    /* Match section title padding */
-}
-
-.tab-button {
-    padding: 0;
-    margin: 0;
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    text-transform: none;
-    letter-spacing: normal;
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
-    color: rgba(0, 0, 0, 0.4);
-    transition: color 0.3s ease;
-    flex: 0 0 auto;
-    text-decoration: none;
-    box-shadow: none;
-}
-
-.tab-button:hover {
-    color: rgba(0, 0, 0, 0.7);
-    text-decoration: none;
-}
-
-.tab-button:focus {
-    outline: none;
-    text-decoration: none;
-}
-
-.tab-button.active {
-    color: #000;
+    /* Figma puts both sections on the same 1020px column: the Projects Gallery
+       Section's tab bar, description and image grid all run x=100..1119 inside a
+       1220px frame, exactly matching the About container. Measured off
+       project_docs/figma-exports/projects-gallery-section__46-704.png. */
+    max-width: var(--about-shell-width);
 }
 
 .tab-content {
@@ -922,20 +928,9 @@ h6 {
         gap: var(--size-4, 1rem);
     }
 
-    /* Responsive tab adjustments for mobile */
-    .tab-buttons {
-        padding: 0 1.5rem;
-        /* Reduce padding on mobile */
-        flex-wrap: wrap;
-        /* Allow wrapping on very small screens */
-        gap: 0.5rem;
-        /* Add small gap if tabs wrap */
-    }
-
-    .tab-button {
-        font-size: 0.875rem;
-        /* Slightly smaller on mobile */
-    }
+    /* The mobile `.tab-buttons` / `.tab-button` overrides that used to sit here were
+       removed 2026-07-29 along with their desktop counterparts — both bars now take
+       the shared mobile treatment in the About block at the end of this file. */
 }
 
 /* Duplicate tab styling removed - see unified tab styles above at line ~330 */
@@ -1816,8 +1811,15 @@ h6 {
 }
 
 /* Tab bar — Geist 400 / 32px / 120% / -4%, spread edge to edge.
-   Active #222222, inactive #8E8E93. No underline, border or background. */
-.about-tabs .tab-buttons.about-tab-buttons {
+   Active #222222, inactive #8E8E93. No underline, border or background.
+
+   Shared with the Projects (category) tab bar: Figma draws the two identically —
+   same 1020px span, same type, same active/inactive colours — so they are styled
+   from one place rather than restated. Checked against the exports
+   project_docs/figma-exports/about-01-bio__46-901.png and
+   .../projects-gallery-section__46-704.png, where both bars run x=100..1119. */
+.about-tabs .tab-buttons.about-tab-buttons,
+.projects-tabs .tab-buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1828,7 +1830,8 @@ h6 {
     border-bottom: none;
 }
 
-.about-tabs .tab-buttons.about-tab-buttons .tab-button {
+.about-tabs .tab-buttons.about-tab-buttons .tab-button,
+.projects-tabs .tab-buttons .tab-button {
     font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
     font-size: 2rem;
     font-weight: 400;
@@ -1839,17 +1842,54 @@ h6 {
     background: none;
     border: none;
     padding: 0;
+    margin: 0;
     cursor: pointer;
     transition: color 0.2s ease;
+    /* Resets carried over from the generic .tab-button block that used to sit
+       earlier in this file. They are not cosmetic: the base template's
+       main.css gives .tab-button padding and an active/focus border-bottom,
+       and Open Props' :where(button) adds a box-shadow. Without these the
+       labels would grow a shadow and an underline. */
+    flex: 0 0 auto;
+    text-decoration: none;
+    box-shadow: none;
 }
 
 .about-tabs .tab-buttons.about-tab-buttons .tab-button:hover,
-.about-tabs .tab-buttons.about-tab-buttons .tab-button:focus-visible {
+.about-tabs .tab-buttons.about-tab-buttons .tab-button:focus-visible,
+.projects-tabs .tab-buttons .tab-button:hover,
+.projects-tabs .tab-buttons .tab-button:focus-visible {
     color: var(--theme-colors-primary, #222222);
 }
 
-.about-tabs .tab-buttons.about-tab-buttons .tab-button.active {
+.about-tabs .tab-buttons.about-tab-buttons .tab-button.active,
+.projects-tabs .tab-buttons .tab-button.active {
     color: var(--theme-colors-primary, #222222);
+}
+
+/* Rest of the Projects section, on the same grid as About.
+   Figma (projects-gallery-section__46-704.png, measured): tab bar and image grid
+   both x=100..1119 — the 1020px column — and the category description x=101..924,
+   i.e. the same 840px prose measure the Bio panel uses. The 3rem insets these
+   carried were not in the design; they pushed the description and grid 48px right
+   of the tab bar. */
+.projects-tabs .category-description {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: var(--about-text-column);
+}
+
+/* Same base-template trap the About panels hit: `.content-wrapper p` caps prose at
+   min(80ch, 100%) — about 712px — which would hold the description short of its
+   840px column, and `margin-inline: auto` would centre it. */
+.projects-tabs .category-description p {
+    max-inline-size: none;
+    margin-inline: 0;
+}
+
+.projects-tabs .posts-grid {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Section headings — "A partial chronology of experience", "Schooling",
@@ -2046,13 +2086,15 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    .about-tabs .tab-buttons.about-tab-buttons {
+    .about-tabs .tab-buttons.about-tab-buttons,
+    .projects-tabs .tab-buttons {
         margin-bottom: 2.5rem;
         gap: 1rem;
         flex-wrap: wrap;
     }
 
-    .about-tabs .tab-buttons.about-tab-buttons .tab-button {
+    .about-tabs .tab-buttons.about-tab-buttons .tab-button,
+    .projects-tabs .tab-buttons .tab-button {
         font-size: 1.5rem;
     }
 

@@ -250,34 +250,15 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     and will be updated when you provide exact tokens.)
    ==================================================*/
 
-/* Left-side fixed sidebar (Figma: 252px, #B8B8B8, 1px #222222) */
-.left-sidebar {
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 252px; /* Figma: 252px */
-  height: 100vh;
-  padding: 17.6875px; /* Figma padding */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* header at top, footer at bottom */
-  background: #B8B8B8; /* Figma container bg */
-  border-right: 1px solid #222222; /* Figma border */
-  z-index: var(--layer-4);
-}
-
-/* Make sure main content sits to the right of the fixed sidebar */
-.main-container {
-  display: grid;
-  grid-template-columns: 252px 1fr;
-  min-height: 100vh;
-}
-
-.main-content {
-  /* margin-left: 252px;  Removed in favor of grid */
-  padding-inline: var(--size-6);
-}
+/* The `.left-sidebar` / `.main-container` / `.main-content` rules that used to sit here
+   were removed 2026-07-29. They were Maja-specific styling written into a template file,
+   and every value in them was stale: a 252px sidebar at `position: fixed` with 17.6875px
+   padding, and a matching 252px grid column. 252px was read from the wrong Figma frame
+   and corrected to 224px in 2026-07-24 (round 3); `src/_user/assets/css/custom.css`
+   re-declares all three rules in full, so these only ever won if custom.css lost the
+   cascade — at which point you got a fixed sidebar painted over the content PLUS the grid
+   still reserving a column, i.e. what looks like two sidebars. Verified inert before
+   removal by computed-style snapshot. */
 
 /* Hero adjustments and corner image (top-right) */
 .hero-section {
