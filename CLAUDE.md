@@ -90,6 +90,10 @@ These are the owner's standing instructions. They are not negotiable defaults.
 - **Be brief**, without dropping detail. No emoji without reason.
 - **Surface every decision made**, however small.
 - **Ask in plain text**, not the option-picker UI.
+- **Never create a git branch without explicit permission.** Work and commit on `main`.
+  This repo is solo and its whole history is on `main`; a branch only adds a merge step.
+  The generic "don't commit to the default branch" habit does not apply here — asked for
+  and corrected 2026-07-29, when a commit was put on a branch unprompted.
 - Before a change, be able to state why it helps, what should change, and how you will
   know it did. Verify it actually happened before moving on.
 - Open questions of the "needs the owner's judgement" kind go in **one place**:
