@@ -239,14 +239,17 @@ rendered sidebar at 224 x 960 (viewport 1440 x 960 so `height: 100vh` matches Fi
 960). **Six defects in a component this file had marked "done"** — all of it previously
 signed off by eye. Nothing below is fixed yet.
 
-| # | Finding | Figma | Build |
-|---|---|---|---|
-| S1 | ~~Sub-item colour~~ **fixed** | `#373737` (`VariableID:71:2973`) | was `#525252` |
-| S2 | Sub-item font weight | 400 | 500 |
-| S3 | Sub-item left indent | text at x=34 (`paddingLeft: 10`) | x=24, flush |
-| S4 | Nav block start | y=181 | y=150.27 (−30.7) |
-| S5 | Wordmark footprint | 164 x 19.12 | 175 x 22 |
-| S6 | Footer credit baseline | cap top y=906 | ≈899 (−7, see caveat) |
+**All six are now fixed or resolved — see the verification table at the end of this
+section.** The findings are kept in full because the reasoning matters.
+
+| # | Finding | Figma | Build (before) | Status |
+|---|---|---|---|---|
+| S1 | Sub-item colour | `#373737` (`VariableID:71:2973`) | `#525252` | fixed |
+| S2 | Sub-item font weight | 400 | 500 | fixed |
+| S3 | Sub-item left indent | text at x=34 (`paddingLeft: 10`) | x=24, flush | fixed |
+| S4 | Nav block start | y=181 | y=150.27 (−30.7) | fixed |
+| S5 | Wordmark footprint | 164 x 19.12 | text 169.09 wide | width fixed, **height still open** |
+| S6 | Footer credit baseline | cap top y=906 | 900.9 (−5.1) | fixed |
 
 - **S1 — fixed 2026-07-29.** `.nav-link` read `var(--theme-colors-text-secondary, #373737)`,
   but that token is `#525252` (Grey/600), so the fallback never fired and the rule rendered
@@ -269,14 +272,46 @@ signed off by eye. Nothing below is fixed yet.
   contents only fill 38.44px, so the 80px gap starts from y=101. The build's
   `.sidebar-header` hugs its content (ends at 70.26) before adding `margin-bottom: 80px`,
   landing the nav 30.7px high. This cascades: every nav row below is ~31px out.
-- **S5** — the spec above records the wordmark footprint as 188.32 x 27.69 and the build
-  was sized to land on it. That is `Rectangle 9`, the **mask source**, not the masked
-  result. The wordmark actually renders at the `Mask group`'s 164 x 19.12, so the build is
-  ~7% too large. Bears on the open question of whether to export it as an SVG.
-- **S6 — treat with caution.** Figma's text box uses `leadingTrim: CAP_HEIGHT`, so y=906
-  is the cap top, not a line-box top; CSS has no stable equivalent. A cap-height-aware
-  estimate still puts the build ~6.6px high, but this one wants confirming against a 1x
-  node render before acting.
+- **S5 — smaller than first reported, and only half fixable.** The spec above records the
+  footprint as 188.32 x 27.69 and the build was sized to land on it. That is
+  `Rectangle 9`, the **mask source**, clipped by the mask and never rendered at that size;
+  the wordmark renders at the `Mask group`'s 164 x 19.12. *My first measurement was also
+  wrong*: I compared Figma's hug box against `.brand-title`'s **block** width (175), which
+  is the container, not the text. The text was 169.09 — 5px over, not ~7%. Font size is
+  now 21.4px, giving 164.41.
+  **Still open:** the height cannot also match. 164 x 19.12 is far wider per unit height
+  than Geist 800 sets, so matching the ink height would push the width past 200. Matching
+  width was my judgement, not the design's instruction — closing the gap properly needs
+  the exported SVG. See open items.
+  *Method lesson:* for text, compare **ink extents** (via a `Range`), never block boxes.
+  Same class of error as the `leadingTrim` trap.
+- **S6 — confirmed against a 1x node render.** Figma's text box uses
+  `leadingTrim: CAP_HEIGHT`, so y=906 is the cap top, not a line-box top. Rendering node
+  `695:5712` at 1x and measuring the ink gives cap-tops at **y=906 and y=927**, cap-height
+  13px both sides. The build's cap-tops (from `fontBoundingBoxAscent` + half-leading) were
+  900.9 and 922.3 — **−5.1 and −4.7**, consistent across both lines, so a block offset
+  rather than a leading error. Cause is exact: both sides bottom out at y=940, but Figma's
+  trimmed box ends on the **baseline** while a CSS block ends on its **line box**; the
+  difference is descent + half-leading = 4 + 0.71 = 4.71px. Fixed by taking
+  `.sidebar-footer`'s bottom padding from 20px to 15px.
+
+#### Verification after fixing (2026-07-29)
+
+Measured at viewport 1440 x 960 so `height: 100vh` matches Figma's 960. Text positions
+use ink extents and cap-tops from font metrics, not block boxes.
+
+| Check | Figma | Build after |
+|---|---|---|
+| Sub-item weight / colour | 400 / `#373737` | 400 / `rgb(55,55,55)` |
+| Heading ink x → item ink x | 24 → 34 (indent 10) | 24 → 34 (indent 10) |
+| Logo block | y 20–101, h 81 | y 20–101, h 81 |
+| Nav top / section 2 top | 181 / 409 | 181 / 409 |
+| Wordmark ink width | 164 | 164.41 |
+| Credit cap-tops | 906 / 927 | 905.9 / 927.3 |
+| Shell | 224 x 960 | 224 x 960 |
+
+Not confirmed by eye — the preview pane was not displayed, so screenshots timed out.
+Worth a visual glance next session.
 
 #### Tier 1 re-run with the relations method (2026-07-29, later)
 
@@ -460,6 +495,7 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
 - [x] ~~**Sidebar footer brush: use `corner.png` or half of `sidebar-brush.png`?**~~ **Resolved 2026-07-29 by measurement: use half of `sidebar-brush.png`.** Per pixel at native size `corner.png` is sharper (mean |gradient| 27.5 vs 20.2), but that is just its edges packed into fewer pixels. At the size the sidebar actually renders (903x124) the ranking inverts: the brush half scores 20.2 against 16.9 for `corner.png` Lanczos-upscaled 2.1x, with slightly less halo (7.65% vs 7.87% of pixels neither opaque nor clear). So the upscale is not merely interpolated — it reconstructs edges better than resampling the small asset ourselves. A search of the TYPO3 backup for any third brush asset found nothing (20 hits, all webalizer stats graphs). **Fully closed 2026-07-29 (evening):** the `imageRef` on the Figma fill downloads byte-identical to `sidebar-brush.png`, so the asset choice is settled by hash rather than by inference, and the crop that was previously tuned by eye is now read off the fill's `imageTransform` — see the sidebar brush section above.
 - [ ] **Sidebar wordmark is a vector in Figma, live text in the build.** Figma draws "MAJA EXPLOSIV" as a Mask group with a 188.32 x 27.69 footprint, so there is no font size to copy; it is currently set as Geist 800/22px to land on roughly that footprint. Decide whether it should stay as text (accessible, selectable, no extra asset) or become an exported SVG matching the design exactly.
 - [x] ~~**`custom.css` has a large block of pre-existing duplicated rules.**~~ **Done 2026-07-29** (commits `8c09be3`, `88d5ca5`). The file had 217 top-level selectors with 34 declared more than once, the repeats concentrated in one region (~753-955) restating the hero / tab / custom-section / artwork rules from ~380-752. Cleared in three passes, each chosen to be provably cascade-neutral: 12 rules re-declared verbatim later, 41 declarations shadowed by a later rule with the same selector (skipping `!important`), then the 9 rules left empty plus two stubs. The four selectors that looked "divergent" in the initial survey turned out to be complementary fragments — different properties, not conflicting values — so they were folded into single definitions rather than needing a decision. 217 → 197 rules, 2182 → 2000 lines. Only `:root` is still declared twice, deliberately, with a comment at the first pointing to the second. Verified with a full computed-style snapshot (48 properties plus box geometry for every element) across 7 page/viewport combinations, diffed after each pass — all zero changes.
+- [ ] **Off-palette greys in the design — which should be snapped?** Per the owner (2026-07-29): a grey used in the design that is not in the Grey collection should generally be changed to the nearest value that is. Scan of four canonical frames (Project Page, Contact Overlay and Impressum still to do — Figma rate-limited): **`#1B1B1B`** on the homepage "LETS GET IN TOUCH" button, fill and label, nearest `#222222` Grey/800 — almost certainly meant to be Grey/800; **`#FFFFFF`** on a homepage `Line 2` vector stroke, nearest `#EBEBEB` Grey/0 — pure white may be deliberate for a hairline; **`#FFCC00`** on a homepage `Vector` stroke — no yellow exists in the palette at all, and the sidebar variant is named "Navigation6 Flip *Yellow*", so an accent may be intended but has no token. Two cases are already resolved and need no decision: `#193AF6` on "$5,200.00 2024" style labels is **mock content**, and `#060501` is the wordmark's **mask source**, whose colour never renders. ~~`#000000`~~ resolved by the same guideline — nearest is `#222222`, which the build already renders.
 - [ ] **Sidebar sub-item colours are inconsistent inside Figma itself.** Reading the fills off node `695:5712`: Sculptures `#373737`, Installations `#373737`, Performance `#222222`, Paintings `#222222`; then Bio `#222222`, Timeline `#222222`, Press `#373737`, Links `#373737`, Contact `#222222`. No pattern — not first/last, not alphabetical, not per section — and two of the nine are not bound to a colour variable at all, which reads like hand-editing rather than intent. This file records `#373737` as *the* sub-item colour. Is that right, or is a state (visited/current) being modelled? Blocks finding S1 in the sidebar audit above.
 - [ ] **Sidebar nav and footer have no minimum gap, so they collide on short viewports.** Noticed 2026-07-29 at a 588px-tall viewport: the "TIMELINE" nav item runs into the top of the footer brush. `.left-sidebar` is `height: 100vh` with `justify-content: space-between`, and `.sidebar-nav` is `flex: 1` — so as the viewport shortens, the nav block and the 124px footer are pushed into each other with nothing to stop them. Figma only draws the sidebar at 960px tall, so the design says nothing about what should give first: the nav could scroll, the sections could tighten their 80px gaps, or the footer could shrink. Needs a decision, not a guess. Unrelated to the brush work — it predates it.
 - [ ] **`.section-title` is indented 48px from its own section's content column.** Affects both the "Projects" and "About" headings identically. Figma has them flush with the 1020px column. Not fixed alongside the 2026-07-29 Projects section pass because it is shared, not Projects-specific — fixing only one would reintroduce the asymmetry that pass just removed.
