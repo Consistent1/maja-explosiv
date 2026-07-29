@@ -247,7 +247,7 @@ h6 {
 .nav-link {
     text-decoration: none !important;
     border-bottom: none !important;
-    color: var(--theme-colors-text-secondary, #373737);
+    color: var(--theme-colors-dark-gray, #373737);
     text-transform: uppercase;
     font-size: 18px;
     line-height: 1;

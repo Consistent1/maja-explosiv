@@ -241,17 +241,20 @@ signed off by eye. Nothing below is fixed yet.
 
 | # | Finding | Figma | Build |
 |---|---|---|---|
-| S1 | Sub-item colour | `#373737` (`VariableID:71:2973`) | `#525252` |
+| S1 | ~~Sub-item colour~~ **fixed** | `#373737` (`VariableID:71:2973`) | was `#525252` |
 | S2 | Sub-item font weight | 400 | 500 |
 | S3 | Sub-item left indent | text at x=34 (`paddingLeft: 10`) | x=24, flush |
 | S4 | Nav block start | y=181 | y=150.27 (−30.7) |
 | S5 | Wordmark footprint | 164 x 19.12 | 175 x 22 |
 | S6 | Footer credit baseline | cap top y=906 | ≈899 (−7, see caveat) |
 
-- **S1** — `.nav-link` reads `var(--theme-colors-text-secondary, #373737)`, but that token
-  is `#525252` (Grey/600) in `theme.js`, so the fallback never fires. The rule's own
-  comment claims #373737. Either the token is wrong for this use or the rule should bind
-  to Grey/700.
+- **S1 — fixed 2026-07-29.** `.nav-link` read `var(--theme-colors-text-secondary, #373737)`,
+  but that token is `#525252` (Grey/600), so the fallback never fired and the rule rendered
+  a colour its own comment contradicted. Note `#525252` *is* a real palette colour — this
+  was the wrong token, not an off-palette value. Figma binds sub-items to Grey/700, which
+  has no semantic alias; `theme.js` already carries it as `dark-gray`. Changed to
+  `var(--theme-colors-dark-gray, #373737)`; verified rendering `rgb(55,55,55)`.
+  Per the owner: **respect Figma and the palette, not the existing CSS.**
 - **S2** — `_user`'s `.nav-link` never sets `font-weight`, so the base template's
   `main.css .nav-link { font-weight: var(--font-weight-5) }` (500) wins. A
   base-vs-override boundary leak of exactly the kind Phase 0 is auditing for.
@@ -274,6 +277,34 @@ signed off by eye. Nothing below is fixed yet.
   is the cap top, not a line-box top; CSS has no stable equivalent. A cap-height-aware
   estimate still puts the build ~6.6px high, but this one wants confirming against a 1x
   node render before acting.
+
+#### Tier 1 re-run with the relations method (2026-07-29, later)
+
+Re-ran the sidebar as **tier 1** of the tiered plan in `figma-audit-guide.md` §9 —
+coverage both directions, then *relationships* rather than absolute boxes. Two results
+worth having:
+
+**Coverage is clean.** Of 35 Figma nodes, exactly one has no build counterpart:
+`Rectangle 9`, the wordmark's mask source, which never renders. Nothing in the design is
+missing from the build.
+
+**Two findings restated as broken relationships**, which is a better description than the
+raw deltas the first pass produced:
+
+- **S3 restated — the design has two content left edges, the build has one.** Figma puts
+  22 nodes on x=24 and **9 nav sub-items on x=34**. The build puts all 34 visible elements
+  on x=24. So this is not "a 10px padding is missing" on one item; it is that the
+  heading/sub-item indent relationship does not exist in the build at all.
+- **S4 restated — the gap is right, the block height is wrong.** Every declared gap
+  matches (logo→nav 80, section→section 80, heading→item 12, item pitch 30). What differs
+  is that Figma's `Logo` frame is `layoutSizingVertical: FIXED` at **81px** while its
+  contents occupy only ~50, and the build's `.sidebar-header` hugs its content at
+  **50.3px**. The 30.7px shift is a consequence, not the cause — fix the block height and
+  everything below falls into place without touching any gap.
+
+**Mechanism noted for the collision open item:** `.nav-menu-container` is `flex: 1` and
+stretches to 685.7px, where Figma's equivalent hugs at 405px. That stretch is what lets
+the nav run into the footer as the viewport shortens.
 
 **Verified correct, no action:** 224 x 960 shell, 20/24 padding, 1px border, `#B8B8B8`
 fill; section headings Geist 400/28px/-3%/`#222222`; the 12px gaps and 80px section gap;

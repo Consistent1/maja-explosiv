@@ -247,7 +247,72 @@ colour and in greyscale in different homepage cards; the four sidebar nav items 
 different greys with no apparent pattern; the homepage tab bars overflow their own frame.
 When Figma disagrees with itself, that is bucket 2 — a question, not a fix.
 
-## 9. Verifying a fix
+## 9. Running it in tiers
+
+Do **not** run every class of check on one surface and then move on. Run **tier 1 across
+every surface first**, then tier 2 across every surface, and so on. Breadth before depth:
+tier 1 finds the things that are visibly wrong, and finding them everywhere is worth more
+than finding subtle problems in one place while the rest is unexamined.
+
+### Tier 1 — does it match the design
+
+1. **Coverage, both directions.** Every visible Figma node with no mapping (design
+   elements the build may be missing), and every visible DOM box inside the audited
+   region with no Figma counterpart (things we invented). A diff cannot see absence.
+2. **Relationships, not just boxes.** Shared left edges, shared baselines, equal gaps
+   within a run, equal widths, centring. Report the broken *relationship*, not a raw
+   delta — "sub-items no longer share their heading's indent" beats "x is 10px out", and
+   relationships survive the fact that Figma's placeholder copy wraps differently from
+   real content.
+3. **Typography.** Family, size, weight, line-height, tracking, case — per §8's traps.
+4. **Colour.** Value, palette membership, and *which token* it should be. A colour can be
+   on the palette and still be the wrong one (see the sidebar's S1: `#525252` is a real
+   palette colour, just not the one Figma binds).
+
+### Tier 2 — is it built correctly
+
+5. **Cascade ownership.** For each mapped element, which stylesheet and rule won each
+   design-relevant property. Anything the design specifies but `_user` does not declare is
+   silently supplied by the base template — that is finding S2's whole class, and it
+   doubles as the Phase 0 boundary audit.
+6. **Token provenance.** Every design-relevant literal in `custom.css` should be a
+   `var()`; every `var()` should resolve to a value in the Figma palette; two things bound
+   to the same Figma variable should use the same CSS token. A hardcoded value that
+   happens to match renders identically and passes every other check.
+7. **Design-free invariants.** No overlapping text boxes, no horizontal overflow, nothing
+   clipped, contrast above threshold. These need no mapping and no design, run cheaply at
+   many widths, and catch what Figma is silent about — which is most of the responsive
+   range. The sidebar nav/footer collision was found by accident; this would find it by
+   rule.
+8. **States.** Hover, focus-visible, current/active. Everything else here measures the
+   default state only.
+
+### Tier 3 — does it survive reality
+
+9. **Real content extremes.** Longest actual title, emptiest collection, project with no
+   image. Figma shows four nav items and short titles; the build generates from ~71
+   projects. Design files never show these states, so nothing ever compares them, and they
+   are where layouts actually break.
+10. **Regression baseline.** Commit the extracted spec + comparison output so a later
+    change that silently re-breaks a fixed finding shows up as a diff.
+
+### How much Figma API does this actually need?
+
+Very little, and it does **not** grow with the number of checks.
+
+- One request per surface, cached to disk under `scripts/.figma-cache/`. The design is
+  static between edits, so this is a handful of requests total, once.
+- Batch ids in a single call — `?ids=a,b,c` — rather than looping. Fetching seven large
+  subtrees back to back triggers HTTP 429, and Figma's limit resets over minutes, so
+  serial retries with short backoff do not help.
+- **Tiers 2 and 3 need no API calls at all.** Cascade ownership, token provenance,
+  invariants, content robustness and regression are DOM- and CSS-side, or reuse the
+  cached spec.
+- `render` is the only per-check extra, and only for graphical comparisons.
+
+So the API cost is front-loaded and small. The expensive part is judgement, not requests.
+
+## 10. Verifying a fix
 
 Same discipline as detection.
 

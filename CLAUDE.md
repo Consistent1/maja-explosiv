@@ -117,9 +117,15 @@ src/assets/images/  Site images
 
 - Generic fixes belong **upstream** in `/home/miichael/Code/explosive`, then sync down.
   Maja-specific work belongs in `src/_user/`.
-- `src/_layouts/`, `src/_includes/`, `src/assets/css/main.css` are **base template**
-  files. Editing them directly is a boundary violation; there is a known backlog of these
-  (see PLAN.md Phase 0).
+- `src/_layouts/`, `src/_includes/` are **base template** files. Editing them directly is
+  a boundary violation; there is a known backlog of these (see PLAN.md Phase 0).
+- **`src/assets/css/main.css` is the exception — edit it freely** (owner, 2026-07-29).
+  It is nominally a template file, but this repo's copy has already diverged: upstream is
+  1048 lines and contains no `.left-sidebar` at all, ours is 1276, with ~239 added lines
+  of Maja-specific styling (`.left-sidebar`, `.main-container`, `.hero-*`,
+  `.project-detail`, `.tab-*`, `.posts-grid`). It is out of sync with the template
+  regardless, so treating it as untouchable buys nothing. If editing it improves the site,
+  edit it.
 - **`custom.css` is messy** — a large block of rules is declared two or three times with
   the later copy silently winning. A verified de-duplication pass has been done; what
   remains is logged in PLAN.md. Do not add to the mess; append new sections at the end.
