@@ -26,7 +26,6 @@ carousel.
 | `project_docs/PLAN.md` | **The status document.** Where the project stands, what is next, extracted design specs, and the open-questions list. Start here. |
 | `README.md` | How the template works — collections, layouts, the override system. |
 | `project_docs/pending-changes.md` | Small queued items. |
-| `.goosehints` | Short, still accurate; upstream path and workflow expectations. |
 
 Ignore `project_docs/_archive/` unless chasing history. It holds superseded docs and the
 **retired Figma PNG exports** — see §4.
@@ -117,6 +116,8 @@ These are the owner's standing instructions. They are not negotiable defaults.
 - Open questions of the "needs the owner's judgement" kind go in **one place**:
   `project_docs/PLAN.md` § *Open items needing input*. Resolved items get struck through
   with the resolution, not deleted.
+- **Keep things simple, without sacrificing reliability, adherence to web standards, or
+  ease of use.** The overall bar for the project.
 
 ## 6. Code layout
 
@@ -133,8 +134,9 @@ src/posts/projects/ Project entries by category
 src/assets/images/  Site images
 ```
 
-- Generic fixes belong **upstream** in `/home/miichael/Code/explosive`, then sync down.
-  Maja-specific work belongs in `src/_user/`.
+- Generic fixes belong **upstream**. Make the change in `/home/miichael/Code/explosive`
+  itself, push it, then sync this repo with the updated template — do not patch a template
+  file here and hope it survives the next pull. Maja-specific work belongs in `src/_user/`.
 - `src/_layouts/`, `src/_includes/` are **base template** files. Editing them directly is
   a boundary violation; there is a known backlog of these (see PLAN.md Phase 0).
 - **`src/assets/css/main.css` is the exception — edit it freely** (owner, 2026-07-29).
