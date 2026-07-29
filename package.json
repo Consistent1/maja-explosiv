@@ -9,7 +9,7 @@
     "start": "eleventy --serve",
     "debug": "DEBUG=Eleventy* eleventy",
     "build:github": "ELEVENTY_PATH_PREFIX=/maja-explosiv/ eleventy",
-    "copy:docs": "rm -rf docs && cp -r _site docs",
+    "copy:docs": "rm -rf docs && cp -r _site docs && touch docs/.nojekyll",
     "deploy:github": "npm run build:github && npm run copy:docs"
   },
   "keywords": [
