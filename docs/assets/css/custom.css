@@ -10,6 +10,26 @@
    the rules that consume it, rather than being hoisted up here. */
 :root {
     --theme-colors-background: #B8B8B8;
+
+    /* Homepage layout, read off Figma's `Main container` (52:6427) 2026-07-30.
+       Nearly every gap on that frame is generated from one unit of 79.32px -
+       halves, three-quarters and doubles of it - so it is expressed here as a
+       single token at its rounded value rather than restated per section.
+       Section top paddings are one-offs and are named individually. */
+    --home-rhythm: 80px;         /* Figma 79.32 */
+    --home-rhythm-half: 40px;    /* Figma 39.66 */
+    --home-rhythm-3q: 60px;      /* Figma 59.49 */
+    --home-column-inset: 24px;   /* `Main content Container` padding L/R; was 32 (finding H5) */
+    --home-grid-gap: 24px;       /* image grids, both the landing and category ones */
+    --home-lead-column: 694px;   /* measure of the hero's lead paragraph */
+    --home-section-top-hero: 178px;      /* Landing Section paddingTop 178.47 */
+    --home-section-top-projects: 158px;  /* Projects Gallery paddingTop 158.64 = 2 x rhythm */
+    --home-section-top-about: 174px;     /* About Section paddingTop 174.00 */
+    --home-about-title-gap: 96px;        /* About title -> intro, Figma 96.67 */
+    --home-about-image-width: 345px;     /* About intro image, Figma 345.03 */
+    --home-about-text-column: 524px;     /* About intro text, Figma 524.16 */
+    --footer-row-gap: 25px;              /* Figma Footer itemSpacing / row padding 25.44 */
+    --footer-brand-gap: 15px;            /* wordmark -> "aka" line, Figma 15.47 */
 }
 
 /* ============================================
@@ -217,8 +237,8 @@ h6 {
 }
 
 .nav-link-header {
-    text-decoration: none !important;
-    border-bottom: none !important;
+    text-decoration: none;
+    border-bottom: none;
     color: inherit;
     display: inline-block;
     transition: opacity 0.2s ease;
@@ -226,8 +246,8 @@ h6 {
 
 .nav-link-header:hover {
     opacity: 0.7;
-    text-decoration: none !important;
-    border-bottom: none !important;
+    text-decoration: none;
+    border-bottom: none;
 }
 
 .nav-link-header.active {
@@ -263,8 +283,8 @@ h6 {
 /* Sub-item - Geist 400 / 18px / 100% / -3%, uppercase, Grey/700 #373737
    (deliberately a step lighter than the #222222 headings). */
 .nav-link {
-    text-decoration: none !important;
-    border-bottom: none !important;
+    text-decoration: none;
+    border-bottom: none;
     color: var(--theme-colors-dark-gray, #373737);
     text-transform: uppercase;
     font-size: 18px;
@@ -281,8 +301,8 @@ h6 {
 
 .nav-link:hover {
     opacity: 0.7;
-    text-decoration: none !important;
-    border-bottom: none !important;
+    text-decoration: none;
+    border-bottom: none;
 }
 
 .nav-link.active {
@@ -395,19 +415,22 @@ h6 {
    HERO SECTION - Part 2
    ============================================ */
 
-/* Part 2.4: Hero Overall Layout */
+/* Part 2.4: Hero Overall Layout
+   Figma's `Landing Section` (120:7160) is not a viewport-height band: it hugs
+   its content and holds the text block down with `paddingTop: 178.47`. The
+   `min-height: 100vh` + `align-items: center` this rule used to carry centred
+   the block instead, so its position tracked viewport height and sat ~93px low
+   at 860px tall. Corrected 2026-07-30 (finding H8). */
 .hero-section {
     background-color: var(--theme-colors-background, #B8B8B8);
     /* Matches page background */
-    padding: var(--size-fluid-4) var(--size-fluid-3);
+    padding: var(--home-section-top-hero) var(--home-column-inset) 0;
     width: 100%;
     /* Use full available column width like other sections */
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
-    min-height: 100vh;
-    /* Fill the viewport like other main sections */
     background-image: url('../images/corner.png');
     background-repeat: no-repeat;
     background-position: right top;
@@ -415,24 +438,15 @@ h6 {
     /* Keep original size */
 }
 
+/* Figma's `Main Text` fills the whole 1008px column; the per-paragraph
+   measures below are what actually constrain the text. */
 .hero-content {
-    max-width: 900px;
     width: 100%;
     z-index: 1;
 }
 
-/* Ensure the hero background fills the available content column
-   and uses border-box sizing so padding doesn't shrink the visual area. */
 .hero-background {
-    /* Remove boxed container so hero is flush with page like in Top.png */
-    box-sizing: border-box;
     width: 100%;
-    height: 100%;
-    padding: 0;
-    /* no inner padding */
-    border-radius: 0;
-    border: none;
-    background: transparent;
 }
 
 /* Part 2.1: Hero Title
@@ -447,8 +461,14 @@ h6 {
     text-transform: uppercase;
     color: var(--theme-colors-primary, #222222);
     line-height: var(--theme-typography-hero-title-line-height, 74%);
-    margin-top: 1rem;
-    margin-bottom: 1.75rem;
+    /* The title block is the section's first child in Figma - the 1rem top
+       margin it used to carry pushed the whole hero 16px past the section's
+       178px top padding. The bottom margin is Figma's 79.32 gap less the 9.6px
+       that a CSS line box adds above the caps of the cap-height-trimmed
+       paragraph below it (audit guide §8, `leadingTrim`); measured from Geist's
+       own metrics, not guessed. */
+    margin-top: 0;
+    margin-bottom: 70px;
 }
 
 .hero-title span.d-block {
@@ -460,66 +480,113 @@ h6 {
     font-weight: var(--theme-typography-hero-subtitle-weight, 500);
     letter-spacing: var(--theme-typography-hero-subtitle-letter-spacing, -0.02em);
     line-height: var(--theme-typography-hero-subtitle-line-height, 74%);
+    /* Figma's `Title container` (254:2936) puts a 13.88px gap between the two
+       line boxes; they used to stack flush (finding H9). */
+    margin-top: 13.88px;
 }
 
-/* Part 2.2: Hero Description */
+/* Part 2.2: Hero Description
+   Figma's `Description container` (254:2939) holds two paragraphs with
+   deliberately different styles, not one repeated style: a 31.73px/500 lead in
+   a 694px measure, then the 22.45px/400 body token across the full column, 40
+   apart. Both must be declared on the paragraph itself, not on this wrapper:
+   Open Props' normalize sets a font-size on bare `p`, and a rule that matches
+   the element beats an inherited value whatever its specificity - which is why
+   both paragraphs used to render at 17.6px (finding H3). */
 .hero-description {
     font-family: var(--theme-fonts-body, 'Geist', sans-serif);
-    font-size: var(--theme-typography-body-size, 22.45px);
-    font-weight: 400;
     color: var(--theme-colors-primary, #222222);
-    line-height: var(--theme-typography-body-line-height, 110%);
-    letter-spacing: var(--theme-typography-body-letter-spacing, -0.025em);
-    max-width: 650px;
-    margin-bottom: 40px;
+    margin-bottom: 0;
 }
 
 .hero-description p {
-    margin-bottom: 20px;
+    font-size: var(--theme-typography-body-size, 22.45px);
+    font-weight: 400;
+    line-height: var(--theme-typography-body-line-height, 110%);
+    letter-spacing: var(--theme-typography-body-letter-spacing, -0.025em);
+    /* Figma's 39.66 gap, less the 9.6px below this paragraph's last baseline and
+       the 4.9px above the next one's caps - both boxes are cap-trimmed there. */
+    margin: 0 0 25px;
+    /* The base template caps prose at min(80ch, 100%), which would hold the
+       second paragraph 10px short of the 1008px column. */
+    max-inline-size: none;
+}
+
+.hero-description p:first-child {
+    font-size: var(--theme-typography-lead, 31.73px);
+    font-weight: var(--theme-typography-lead-weight, 500);
+    line-height: var(--theme-typography-lead-line-height, 130%);
+    letter-spacing: var(--theme-typography-lead-letter-spacing, -0.03em);
+    max-width: var(--home-lead-column);
 }
 
 .hero-description p:last-child {
     margin-bottom: 0;
 }
 
-/* Part 2.3: Call-to-Action Button */
+/* Part 2.3: Call-to-Action Button
+   Rebuilt 2026-07-30 to the current design (Figma 388:5771): a 40.65px disc
+   holding a chevron, then the label beside it - no pill, no white text, no
+   radius on the anchor itself. The previous pill matched two sibling Button
+   instances in the same frame that are `visible: false`, i.e. superseded
+   drafts. Its white label was also invisible in the build for an unrelated
+   reason - see the note in main.css where that !important was removed. */
 .hero-cta {
-    margin-top: 40px;
+    /* 39.66 less the 4.9px the paragraph's line box extends below its baseline. */
+    margin-top: 35px;
+    /* Flex, so this wrapper hugs the button instead of adding ~6px of inline
+       leading below it - which the featured grid below then inherited. */
+    display: flex;
+    align-items: flex-start;
 }
 
 .cta-button {
     display: inline-flex;
     align-items: center;
-    background-color: #000000;
-    color: #FFFFFF;
+    gap: var(--theme-typography-cta-icon-gap, 8.12px);
+    color: var(--theme-colors-cta-fill, #1B1B1B);
     text-decoration: none;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-size: var(--theme-typography-button-size, 16px);
-    font-weight: 600;
+    font-family: var(--theme-fonts-button, 'Geist', sans-serif);
+    font-size: var(--theme-typography-button-size, 16.24px);
+    font-weight: var(--theme-typography-button-weight, 500);
+    line-height: var(--theme-typography-button-line-height, 121%);
     text-transform: uppercase;
-    /* Geist confirmed from Figma - button text uses a different family than headings */
-    font-family: var(--theme-fonts-button, 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
-    line-height: var(--theme-typography-button-line-height, 140%);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .cta-button:hover {
-    background-color: #222222;
-    transform: scale(1.02);
-    color: #FFFFFF;
+    color: var(--theme-colors-cta-fill, #1B1B1B);
+    opacity: 0.75;
 }
 
-.cta-button .arrow-icon {
-    margin-right: 8px;
-    font-size: 1.1em;
-    line-height: 1;
+.cta-icon {
+    /* Figma exports the icon as a 30x30 circle; the viewBox does the scaling. */
+    width: var(--theme-typography-cta-icon-size, 40.65px);
+    height: var(--theme-typography-cta-icon-size, 40.65px);
+    flex: 0 0 auto;
 }
 
-/* Responsive Adjustments */
+.cta-icon-disc {
+    fill: var(--theme-colors-cta-fill, #1B1B1B);
+}
+
+.cta-icon-chevron {
+    stroke: var(--theme-colors-cta-chevron, #FFCC00);
+}
+
+/* Responsive Adjustments.
+   The subtitle needs its own step down at each breakpoint: it carries an
+   explicit 77.29px, so scaling only `.hero-title` left "EXPLOSIV" at full
+   desktop size on a phone - 370px of unbreakable word, which forced 35px of
+   horizontal overflow on the whole page at 375px wide. Ratios keep the two
+   lines proportional (77.29/85.94 = 0.9); mobile sizes are not in Figma. */
 @media (max-width: 1024px) {
     .hero-title {
         font-size: 4rem;
+    }
+
+    .hero-title span.d-block:last-child {
+        font-size: 3.6rem;
     }
 }
 
@@ -533,7 +600,15 @@ h6 {
         margin-top: 40px;
     }
 
-    .hero-description {
+    .hero-title span.d-block:last-child {
+        font-size: 2.7rem;
+    }
+
+    .hero-description p:first-child {
+        font-size: 1.5rem;
+    }
+
+    .hero-description p {
         font-size: 1.1rem;
     }
 }
@@ -556,31 +631,50 @@ h6 {
  * - Sentence case for sophistication
  * - No decorative bars (per updated design requirements)
  */
+/* Corrected 2026-07-30 (finding H4). This was 56px/700 with a 48px left pad;
+   Figma draws both headings at ~125px, weight 400, flush with the 1008px
+   content column. The 48px indent was the long-standing open item about
+   `.section-title` sitting right of its own section - both headings are fixed
+   here together, which is why it was left alone last time.
+
+   The two headings are NOT styled identically in Figma and are not normalised
+   here (CLAUDE.md §3): "Projects" is 126.91px / 120% / -4% with a CAP_HEIGHT
+   trim, "About" is 123.74px / 74% / -2% untrimmed. Both are reproduced, and the
+   discrepancy is logged in PLAN.md's open items. A cap-trimmed Figma box is a
+   CSS line-height of the font's cap ratio (Geist ~0.709), so 90/126.91 below is
+   the trim, not a guessed line-height. */
 .section-title {
-    font-family: var(--theme-fonts-heading, 'Geist', 'Rethink Sans', sans-serif);
-    font-size: 3.5rem;
-    /* ~56px - large, prominent heading */
+    font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
     text-align: left;
     text-transform: none;
     /* Allow sentence case from content */
-    letter-spacing: normal;
-    margin-bottom: 2.5rem;
-    margin-top: 3rem;
-    color: var(--theme-colors-text, #000000);
-    font-weight: 700;
-    /* Bold for strong visual hierarchy */
+    color: var(--theme-colors-primary, #222222);
+    font-weight: 400;
     opacity: 1;
-    padding-left: 3rem;
-    /* Consistent left padding for alignment */
+    margin: 0 0 var(--home-rhythm);
+    padding-left: 0;
+}
+
+.projects-section .section-title {
+    font-size: 126.91px;
+    line-height: 0.709;
+    letter-spacing: -0.04em;
+}
+
+.about-section .section-title {
+    font-size: 123.74px;
+    line-height: 0.74;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--home-about-title-gap);
 }
 
 /* Responsive adjustments for section titles */
 @media (max-width: 768px) {
-    .section-title {
+
+    .projects-section .section-title,
+    .about-section .section-title {
         font-size: 2.5rem;
         /* ~40px on mobile */
-        padding-left: 1.5rem;
-        margin-top: 2rem;
         margin-bottom: 1.5rem;
     }
 }
@@ -589,12 +683,15 @@ h6 {
    ABOUT SECTION
    ============================================ */
 
-/* About intro section with image and text */
+/* About intro section with image and text.
+   Figma `Project Link` (91:2985): a 345px image, a 79.32 gap, then a 524px text
+   column with 59.49 of right padding - and 79.32 again below, before the tab
+   bar. The image and both gaps were undersized (finding H7). */
 .about-intro {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--size-fluid-4);
-    margin-bottom: var(--size-fluid-4);
+    grid-template-columns: var(--home-about-image-width) 1fr;
+    gap: var(--home-rhythm);
+    margin-bottom: var(--home-rhythm);
     align-items: center;
 }
 
@@ -604,19 +701,25 @@ h6 {
     margin: 0;
     padding: 0;
     display: block;
+    width: 100%;
 }
 
 .about-intro .about-intro-text {
-    /* Text centered horizontally in remaining space and vertically with image */
+    /* Text centered vertically against the image */
     display: flex;
     align-items: center;
-    justify-content: center;
     text-align: left;
+    padding-right: var(--home-rhythm-3q);
 }
 
+/* Figma `Description` (91:2988): 25.13px / 120% / -4%. Its family reads as
+   Rethink Sans, which the owner has resolved as "use Geist" - see the Links
+   entry in PLAN.md's open items, where this counts as a third instance. */
 .about-intro .about-intro-text p {
-    font-size: var(--font-size-fluid-1);
-    line-height: var(--font-lineheight-3);
+    font-size: 25.13px;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    max-width: var(--home-about-text-column);
     margin: 0;
 }
 
@@ -742,10 +845,22 @@ h6 {
     padding: var(--size-fluid-5) 0;
 }
 
+/* Figma stacks the homepage sections with no gap between them and holds each
+   one down with its own top padding; the side inset is the content container's
+   24px, not the 32px these carried (findings H5, H7). */
 .custom-section.projects-section,
 .custom-section.about-section {
     background-color: transparent;
-    padding: var(--size-fluid-4) var(--size-fluid-3);
+    margin-bottom: 0;
+    padding: 0 var(--home-column-inset);
+}
+
+.custom-section.projects-section {
+    padding-top: var(--home-section-top-projects);
+}
+
+.custom-section.about-section {
+    padding-top: var(--home-section-top-about);
 }
 
 /* About Section */
@@ -834,10 +949,15 @@ h6 {
     max-width: 800px;
 }
 
+/* Figma `Section description` (I52:6457;843:13341): Geist 400 / 25.78px / 120%
+   / -4%. Was 16px/1.6 (finding H6). Declared on the paragraph for the same
+   reason as the hero description - a rule on `p` from Open Props' normalize
+   beats an inherited size. */
 .category-description p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--theme-colors-text, #000000);
+    font-size: 25.78px;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    color: var(--theme-colors-primary, #222222);
     margin: 0;
 }
 
@@ -847,7 +967,7 @@ h6 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-flow: row;
-    gap: 2rem 2rem;
+    gap: var(--home-grid-gap);
     padding: 0 3rem;
     margin-top: 0;
 }
@@ -944,53 +1064,55 @@ h6 {
 /* ============================================
    FOOTER SECTION - Part 6
    ============================================ */
-/* Footer: Compact design matching homepage.png
-   - Tight vertical spacing (reduced margins)
-   - Smaller font sizes throughout
-   - Thinner separator lines (1px instead of 2px)
-   - More compact "MAJA EXPLOSIV" branding (~3rem instead of 5rem)
-*/
+/* Footer, corrected against Figma `Footer` (182:2812) 2026-07-30 - finding H10.
+   The structure was right: three rows, two hairline separators, the logo at the
+   right end of the top row, and the six labels. The values were not - the rows
+   were inset 48px from their own column, the type ran 12px/17.6px against
+   Figma's uniform 16px Geist 500 at -3%, and everything was pure black rather
+   than #222222. The rows sit flush with the 1008px content column, so the inset
+   here is the container's 24px, same as every other section. */
 
 .main-column-footer {
-    padding: 2.5rem 0;
-    /* No horizontal padding - footer fills entire right column width */
+    padding: 0 var(--home-column-inset) var(--home-rhythm-half);
     background-color: var(--theme-colors-background, #B8B8B8);
     /* Background matches page background */
-    color: #000000;
-    font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
+    color: var(--theme-colors-primary, #222222);
+    font-family: var(--theme-fonts-body, 'Geist', sans-serif);
     width: 100%;
-    /* Ensure footer fills full width of right column */
-    margin-left: 0;
-    margin-right: 0;
+    /* Figma stacks the footer straight onto the About section with no gap; the
+       base template's `.site-footer { margin-block-start: var(--size-10) }`
+       (80px) is what put one there. */
+    margin: 0;
+}
+
+/* Geist 500 / 16px / -3%, uppercase - shared by the top row and the bottom
+   utility links, which Figma styles identically. */
+.footer-top-info,
+.footer-bottom-links {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
 }
 
 .footer-top-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    /* Kept minimal */
-    font-size: 0.75rem;
-    /* Reduced from 0.95rem - more compact */
-    font-weight: 400;
-    /* Reduced from 500 - lighter weight */
-    text-transform: uppercase;
-    /* All top row items uppercase */
-    padding: 0 3rem;
-    /* Add back horizontal padding for content spacing */
+    /* Figma bottom-aligns this row against the logo rather than centring it -
+       the two labels' baselines sit on the row's bottom edge, 21px lower than
+       centring put them. */
+    align-items: flex-end;
+    margin-bottom: var(--footer-row-gap);
+    padding: 0;
 }
 
 .footer-location {
     flex: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .footer-contact-link {
     flex: 1;
     text-align: center;
-    text-transform: uppercase;
-    /* Email should be uppercase */
 }
 
 .footer-contact-link a {
@@ -1009,69 +1131,60 @@ h6 {
     justify-content: flex-end;
 }
 
-.flammable-icon {
-    width: 48px;
-    height: 48px;
-}
-
 .footer-logo-img {
-    width: 48px;
+    width: 67px;
+    /* Figma 66.70 x 51.88 */
     height: auto;
     /* Maintain aspect ratio */
     display: block;
 }
 
+/* Figma draws these as a 0.32px stroke on the middle row, i.e. a hairline in
+   #222222 - not a 2px grey rule. */
 .footer-separator {
     border: none;
-    border-top: 1px solid #000000;
-    /* Reduced from 2px to 1px - thinner line */
-    margin: 1rem 0;
-    /* Reduced from 2rem to 1rem - tighter spacing */
+    border-top: 1px solid var(--theme-colors-primary, #222222);
+    color: var(--theme-colors-primary, #222222);
+    margin: var(--footer-row-gap) 0;
     width: 100%;
 }
 
 .footer-branding {
     margin: 0;
     text-align: left;
-    padding: 0 3rem;
-    /* Add horizontal padding for content spacing */
+    padding: 0;
 }
 
+/* "MAJA" is Geist 800 and " EXPLOSIV" Geist 600, both 41.94px - the same
+   weight pairing as the sidebar wordmark. The old `-webkit-text-stroke` fake-bold
+   is gone: Geist ships the real ExtraBold, so faking it only smeared the glyphs. */
 .footer-brand-name {
     font-family: var(--theme-fonts-heading, 'Geist', sans-serif);
-    font-size: 3rem;
-    /* Reduced from 5rem to 3rem (~48px) - matches design */
-    font-weight: 500;
+    font-size: 41.94px;
+    font-weight: 600;
     margin: 0;
-    line-height: 0.9;
-    letter-spacing: -0.02em;
+    line-height: 1;
+    letter-spacing: -0.029em;
     text-transform: uppercase;
-    /* Ensure uppercase */
 }
 
 .footer-brand-name b {
-    font-weight: 900;
-    /* Make MAJA bolder than EXPLOSIV */
-    -webkit-text-stroke: 0.5px currentColor;
-    text-stroke: 0.5px currentColor;
-    letter-spacing: 0.02em;
+    font-weight: 800;
 }
 
 .footer-brand-aka {
-    font-size: 1rem;
-    /* Reduced from 1.5rem - more compact */
-    margin: 0.5rem 0 0 0;
-    /* Reduced from 0.75rem - tighter spacing */
-    color: #333;
-    font-weight: 400;
+    font-size: 24.46px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: var(--footer-brand-gap) 0 0;
+    color: var(--theme-colors-primary, #222222);
     text-transform: uppercase;
-    /* Ensure uppercase */
 }
 
 .footer-bottom-nav {
     margin-top: 0;
-    padding: 0 3rem;
-    /* Add horizontal padding for content spacing */
+    padding: 0;
 }
 
 .footer-bottom-links {
@@ -1100,14 +1213,9 @@ h6 {
 }
 
 .footer-bottom-link {
-    color: #000000;
+    color: inherit;
     text-decoration: none;
-    font-size: 0.85rem;
-    /* Reduced from 1.1rem - more compact */
-    font-weight: 400;
-    /* Reduced from 500 - lighter weight */
-    text-transform: uppercase;
-    /* Ensure uppercase */
+    font: inherit;
     transition: opacity 0.2s ease;
 }
 
@@ -1517,35 +1625,38 @@ h6 {
    FEATURED PROJECTS SECTION
    ============================================ */
 
+/* Figma keeps this grid inside `Landing Section`, 79.32 below the hero text and
+   on the same 1008px column - so the inset matches the hero's and there is no
+   band of padding underneath it; the Projects section's own top padding
+   supplies that gap (findings H5, H7). */
 .featured-projects-section {
     width: 100%;
-    padding: 0.5rem 0 4rem;
+    padding: var(--home-rhythm) var(--home-column-inset) 0;
     background-color: var(--theme-colors-background, #B8B8B8);
     overflow: hidden;
 }
 
 .featured-projects-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-
+    width: 100%;
 }
 
 .featured-projects-grid {
     display: flex;
-    gap: 2rem;
+    gap: var(--home-grid-gap);
     width: 100%;
 }
 
+/* Figma `Image Block`: 41.07 between cards, and the second column offset by
+   61.60 - both were roughly double that (3rem / 8rem). */
 .featured-projects-column {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 41px;
 }
 
 .featured-projects-column:nth-child(2) {
-    margin-top: 8rem;
+    margin-top: 62px;
 }
 
 .featured-project-item {
@@ -1557,7 +1668,8 @@ h6 {
     display: block;
     text-decoration: none;
     color: inherit;
-    margin-bottom: 1rem;
+    /* Figma `Project Card` puts 14px between the image and its caption. */
+    margin-bottom: 14px;
 }
 
 .featured-project-image-wrapper {
@@ -1644,13 +1756,9 @@ h6 {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .featured-projects-section {
-        padding: 0.5rem 0 3rem;
+        padding: 2rem 1rem 0;
     }
-    
-    .featured-projects-container {
-        padding: 0 1rem;
-    }
-    
+
     .featured-projects-grid {
         flex-direction: column;
         gap: 2rem;
@@ -1877,6 +1985,14 @@ h6 {
     padding-left: 0;
     padding-right: 0;
     max-width: var(--about-text-column);
+    /* Figma gives the Projects bar a 59.49 gap below it and another below the
+       description, where the About bar uses 79.32 - so these two are genuinely
+       different and the shared 80px cannot cover both (finding H7). */
+    padding-bottom: var(--home-rhythm-3q);
+}
+
+.projects-tabs .tab-buttons {
+    margin-bottom: var(--home-rhythm-3q);
 }
 
 /* Same base-template trap the About panels hit: `.content-wrapper p` caps prose at
@@ -1890,6 +2006,11 @@ h6 {
 .projects-tabs .posts-grid {
     padding-left: 0;
     padding-right: 0;
+    /* The base template's `.posts-grid { margin-block-end: var(--size-8) }`
+       collapsed out through the section's zero bottom padding and put 48px
+       between the Projects and About sections, which Figma does not have - the
+       About section's own top padding is the whole gap. */
+    margin-bottom: 0;
 }
 
 /* Section headings — "A partial chronology of experience", "Schooling",
@@ -1927,8 +2048,14 @@ h6 {
     color: var(--theme-colors-primary, #222222);
 }
 
+/* `font: inherit` is load-bearing, not tidying: Open Props' normalize sets a
+   font-size on bare `p`, and a rule that matches the element beats an inherited
+   value however specific the inherited one was - so the 26px above never
+   reached the paragraphs and the Bio panel rendered at 17.6px. Same defect as
+   the hero description (finding H3); found here while verifying that fix. */
 .about-prose p,
 .about-lead {
+    font: inherit;
     margin: 0 0 1.5em;
 }
 

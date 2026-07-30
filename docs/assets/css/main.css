@@ -128,22 +128,14 @@ a:focus {
   outline-offset: var(--size-1);
 }
 
-/* Ensure all link variants have transparent backgrounds */
-.content-wrapper a,
-.main-content a,
-p a,
-li a,
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  background-color: transparent !important;
-}
-
-.content-wrapper a:hover,
-.main-content a:hover,
-p a:hover,
-li a:hover,
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-  background-color: transparent !important;
-}
+/* Removed 2026-07-30: two blocks that set `background-color: transparent
+   !important` on every anchor inside .content-wrapper / .main-content / p / li
+   / h1-h6. Their stated purpose ("ensure all link variants have transparent
+   backgrounds") is already served, without !important, by the `a`, `a:hover`
+   and `a:focus` rules directly above. All the !important actually did was make
+   it impossible to style a link as a button in the main column: it beat
+   custom.css's `.cta-button { background-color: ... }`, so the homepage CTA
+   rendered white text on the #B8B8B8 page with no fill. */
 
 /* Accessibility utilities using Open Props */
 .skip-link {
@@ -260,27 +252,15 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
    still reserving a column, i.e. what looks like two sidebars. Verified inert before
    removal by computed-style snapshot. */
 
-/* Hero adjustments and corner image (top-right) */
-.hero-section {
-  padding-block: var(--size-6);
-}
-.hero-background {
-  background: var(--theme-colors-container, #B8B8B8);
-  padding: var(--size-6);
-  border-radius: var(--radius-1);
-  border: 1px solid var(--theme-colors-border, #222222);
-  position: relative;
-  overflow: visible;
-  /* Try known asset paths for the corner graphic as fallbacks */
-  background-image: url('../images/corner.png');
-  background-repeat: no-repeat;
-  background-position: right top;
-}
-
-/* Make the hero content constrained to a readable column like Figma */
-.hero-content {
-  max-inline-size: min(900px, 70vw);
-}
+/* Removed 2026-07-30: `.hero-section`, `.hero-background` and `.hero-content`
+   rules that were Maja-specific hero styling sitting in the base stylesheet -
+   a bordered, rounded, padded box with its own corner.png and a
+   `min(900px, 70vw)` cap on the text column. `custom.css` already declares all
+   three in full, and most of what it declared there existed only to cancel
+   these (`border: none`, `border-radius: 0`, `background: transparent`,
+   `padding: 0`). Same reasoning as the sidebar rules removed just above: the
+   only thing the duplication bought was a visible box if custom.css ever lost
+   the cascade. */
 
 /* Posts / image grid tuned to mimic Figma gallery */
 .posts-grid {
@@ -559,12 +539,13 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   margin-inline: auto;
 }
 
-/* Code block styling to override normalize.css dark backgrounds */
+/* Code block styling to override normalize.css dark backgrounds.
+   No !important needed: every rule in Open Props' normalize is wrapped in
+   :where(), which has zero specificity, so any real selector already wins. */
 pre,
 code {
-  /* Override normalize.css dark background */
-  background-color: var(--gray-1) !important;
-  color: var(--theme-colors-text, var(--gray-8)) !important;
+  background-color: var(--gray-1);
+  color: var(--theme-colors-text, var(--gray-8));
   font-family: var(--font-mono);
   font-size: var(--font-size-2);
   border-radius: var(--radius-2);
@@ -580,13 +561,13 @@ pre {
 code {
   padding: var(--size-1) var(--size-2);
   /* Inline code should have slightly different styling */
-  background-color: var(--gray-2) !important;
+  background-color: var(--gray-2);
 }
 
 /* Code inside pre blocks shouldn't have extra padding */
 pre code {
   padding: 0;
-  background-color: transparent !important;
+  background-color: transparent;
   border: none;
 }
 
@@ -761,10 +742,12 @@ pre code {
   margin-block-end: var(--size-2);
   font-weight: var(--font-weight-5);
   /* Override any normalize.css width constraints */
-  max-inline-size: none !important;
+  max-inline-size: none;
 }
 
-/* Override normalize.css width constraints for specific footer elements */
+/* Override normalize.css width constraints for specific footer elements.
+   Same reasoning as the code blocks above - normalize's :where() rules carry no
+   specificity, so the !important these carried was never doing any work. */
 .footer-title,
 .footer-section-title,
 .social-title,
@@ -777,14 +760,14 @@ pre code {
 .social-link,
 .newsletter-form,
 .contact-info {
-  max-inline-size: none !important;
+  max-inline-size: none;
 }
 
 /* Reasonable width for long text content */
 .footer-description,
 .contact-address,
 .copyright {
-  max-inline-size: min(60ch, 100%) !important;
+  max-inline-size: min(60ch, 100%);
 }
 
 .footer-title {
