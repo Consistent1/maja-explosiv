@@ -182,4 +182,7 @@ Phases are in PLAN.md; the short version:
 - **Homepage, single project** — structurally close, need a token-accurate pass.
 - **Content migration** — ~26 of ~71 projects converted; most lack images. Not started at
   scale.
-- **Deployment** — GitHub Pages and VPS both deferred.
+- **Deployment** — GitHub Pages **live** at <https://consistent1.github.io/maja-explosiv/>
+  (`main`, path `/docs`): `npm run deploy:github`, commit `docs/`, push. Stop the dev server
+  first and rebuild locally after; see `README.md` § *Serving, building and deploying*. VPS
+  still deferred.
