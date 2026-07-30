@@ -19,7 +19,15 @@ module.exports = {
     "container": "#B8B8B8",     /* Grey/200 - Background (page content container) */
     "accent": "#EBEBEB",        /* Grey/0 - Off White */
     "surface": "#EBEBEB",       /* Grey/0 - Off White */
-    "border": "#EBEBEB"         /* Grey/0 - Off White */
+    "border": "#EBEBEB",        /* Grey/0 - Off White */
+
+    /* CTA button, from the redesigned homepage CTA (Figma 388:5771
+       "hover-interaction-3", the visible instance). Both are OFF-PALETTE and
+       bound to no Figma variable - rendered as the design has them per
+       CLAUDE.md §3, with the inconsistency flagged in PLAN.md's open items.
+       Do not "snap" either to a palette value. */
+    "cta-fill": "#1B1B1B",      /* disc fill and label colour; nearest palette value is #222222 */
+    "cta-chevron": "#FFCC00"    /* chevron stroke; the palette has no yellow at all */
   },
   "typography": {
     /* CORRECTED 2026-07-24 (round 2). The first extraction pass read values
@@ -56,11 +64,13 @@ module.exports = {
     "nav-title-line-height": "92%",
     "nav-title-letter-spacing": "-0.03em",
 
-    /* Lead paragraph style - not re-verified from the correct frame this
-       round, kept as prior approximation pending re-confirmation */
-    "lead": "40px",
-    "lead-line-height": "110%",
-    "lead-letter-spacing": "-0.025em",
+    /* Lead paragraph - CONFIRMED 2026-07-30 from the canonical homepage frame,
+       node 254:2943 inside `Description container`. This closes the round-3 gap
+       that had it flagged as "not re-verified": it was carrying 40px/110%/-2.5%
+       from the wrong-frame extraction. */
+    "lead": "31.73px",
+    "lead-line-height": "130%",
+    "lead-letter-spacing": "-0.03em",
     "lead-weight": "500",
 
     /* Body / tagline text ("For commissions, collaborations...") - Geist
@@ -76,10 +86,19 @@ module.exports = {
     "section-title-line-height": "140%",
     "section-title-letter-spacing": "0.02em",
 
-    /* Button label ("LETS GET IN TOUCH") - Geist 600, uppercase, confirmed
-       both rounds */
-    "button-size": "16px",
-    "button-line-height": "140%",
+    /* Button label ("LETS GET IN TOUCH"). The two dark-pill Button instances
+       that gave 16px/600 are `visible: false` in Figma - drafts. The visible
+       CTA (388:5771) sets its label at 16.24px / 500 / 121% / uppercase, and
+       in Inter rather than Geist. Size, weight, case and line-height are taken
+       from it; the family is not - see the Inter entry in PLAN.md's open items. */
+    "button-size": "16.24px",
+    "button-weight": "500",
+    "button-line-height": "121%",
+
+    /* CTA icon: a 40.65px disc with a chevron. Figma 388:5730 exports as a
+       30x30 circle (rx=15), so the geometry is scaled, not redrawn. */
+    "cta-icon-size": "40.65px",
+    "cta-icon-gap": "8.12px",
 
     /* Not yet confirmed against Figma at all - carried over as prior
        approximation. Per the design owner: treat as a guideline, not

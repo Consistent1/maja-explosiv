@@ -160,6 +160,11 @@ Serve via the preview tooling (`.claude/launch.json`, name `maja-explosiv-dev`, 
 never a raw shell command. The browser pane must be **visible** for screenshots to work —
 if they time out, ask the owner to open it.
 
+**Editing anything in `src/_user/layouts/` or `src/_user/includes/` requires restarting the
+dev server.** `.eleventy.js` copies both into `.cache/` at config time, so a running server
+keeps serving the old markup and the change looks like it did nothing. Only
+`src/_user/assets/css/` is a watch target and hot-reloads.
+
 Pre-existing build noise you can ignore: `Missing image title/year for caption` errors for
 `sisyphos-gate`, `murals-europe`, and the paintings collections.
 

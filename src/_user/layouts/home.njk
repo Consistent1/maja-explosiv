@@ -27,8 +27,19 @@ layout: sidebar-layout.njk
                     {% endif %}
                     {% if hero.ctaButton %}
                         <div class="hero-cta">
+                            {# CTA rebuilt 2026-07-30 against the current Figma design
+                               (388:5771 "hover-interaction-3"): a dark disc with a chevron
+                               beside a dark label, not the filled pill it used to be. The
+                               chevron geometry is Figma's own SVG export of 388:5730 (a
+                               30x30 circle, scaled by CSS); colours come from tokens, so
+                               nothing here carries a design value. #}
                             <a href="{{ hero.ctaButton.url | url }}" class="cta-button">
-                                <span class="arrow-icon">↗</span> {{ hero.ctaButton.text }}
+                                <svg class="cta-icon" viewBox="0 0 30 30" aria-hidden="true" focusable="false">
+                                    <circle class="cta-icon-disc" cx="15" cy="15" r="15"/>
+                                    <path class="cta-icon-chevron" d="M13 20.3346L18.3333 15.0013L13 9.66797"
+                                          fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="cta-label">{{ hero.ctaButton.text }}</span>
                             </a>
                         </div>
                     {% endif %}

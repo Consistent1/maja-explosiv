@@ -2,7 +2,42 @@
 
 **Status document owner:** this file is the current source of truth for where the project stands and what's next. It supersedes `RESUME-WORK-HERE.md`, `MIGRATION-STATUS-REPORT.md`, and the various session-summary docs, which have been moved to `project_docs/_archive/` (see `_archive/MANIFEST.md`) rather than deleted.
 
-**Last updated:** 2026-07-29
+**Last updated:** 2026-07-30
+
+---
+
+## Resume here (2026-07-30)
+
+**Homepage tier 1 is done and, apart from two items that need the owner, fixed.** Findings
+H1–H12 and the after-verification table are under Phase 2. The CTA is rebuilt to the current
+design; the column, section headings, hero, category description, all nine gaps and the
+footer are corrected and re-measured; `!important` is gone from both stylesheets.
+
+**Still waiting on the owner** — in *Open items needing input*: the CTA label reads **Inter**
+in Figma and was built in Geist; what the project card caption's 2nd and 3rd rows are for;
+whether the two section headings are meant to be styled differently; and `#FFCC00` still has
+no palette token even though it now renders.
+
+**Sidebar visually checked (2026-07-30)** against
+`figma-exports/sidebar-in-use-variant__46-1107.png` — the check that timed out last session
+because the browser pane was closed. Wordmark, subtitle, both headings with their indented
+sub-items, the footer brush and the credit band all land where the design puts them. No new
+defects by eye; the numeric verification stands.
+
+**Next step:** tier 1 on the single Project Page (`274:3273`), then the About components
+(`46:901`) and the Contact overlay (`957:5992`). Breadth before depth (guide §9). Note that
+About's Bio panel already had one homepage defect (H3) in it — worth expecting more of the
+same class there.
+
+**Two method notes worth keeping:**
+
+- Measure the homepage at a **1295px viewport**. The frame is 1280 and the scrollbar is
+  15px, so measuring at 1280 shifts every x by 15 and narrows the column — enough to invent
+  findings.
+- **Editing a layout or include under `src/_user/` needs the dev server restarted.**
+  `.eleventy.js` copies them into `.cache/layouts/` and `.cache/includes/` at config time,
+  so a running server keeps serving the old markup and it looks as though the change did
+  nothing. CSS under `src/_user/assets/` is a watch target and does hot-reload.
 
 ---
 
@@ -23,8 +58,8 @@ from the rendered DOM, compare numbers — never pixels, never by eye. The guide
 
 | Surface | Tier 1 | Tier 2 | Tier 3 |
 |---|---|---|---|
-| Sidebar | **done** — S1-S4, S6 fixed; S5 height open | not started | not started |
-| Homepage | not started | | |
+| Sidebar | **done** — S1-S4, S6 fixed; S5 height open; checked by eye 2026-07-30 | not started | not started |
+| Homepage | **done 2026-07-30** — H1-H10 fixed; H11, H12 with the owner | not started | not started |
 | Single project | not started | | |
 | About components | not started | | |
 | Contact overlay | not started | | |
@@ -401,6 +436,214 @@ section heights 148 and 177; footer band top at y=836; footer credit Geist 500/1
 **Status:** the sidebar is no longer "done" — see S1-S6. The wordmark-as-vector question
 also remains open.
 
+### Homepage — tier 1 audit (2026-07-30)
+
+Node **`52:6427`** (`Main container`, 1280x860, content overflows to 6524) against the build
+at a **1295px viewport** — chosen so the layout width is exactly 1280 once the 15px
+scrollbar is taken out. Getting that wrong shifts every x by 15px and silently narrows the
+content column, so it is worth stating: **measure the homepage at 1295, not 1280.**
+
+The design's structure, for the record:
+
+```
+52:6427  Main container          1280 x 860 (HORIZ)
+  419:10288  SideBar Navigation   224 wide      <- an instance, scaled ~0.967; do NOT
+  52:6430    Main content Contnr 1056 wide         re-derive sidebar values from it.
+      padding L/R 24, bottom 138.8                 The canonical sidebar is 695:5712.
+    120:7160  Landing Section    1008 @ x=248, padTop 178.47
+    52:6457   Projects Gallery   1008 @ x=248, padTop 158.64
+    120:6835  About Section      1008 @ x=248, padTop 174.00
+    182:2812  Footer             1008 @ x=248, padBottom 38.67
+  419:10287  Header (brush)       554.88 x 87.97 @ x=725  <- built, corner.png top right
+```
+
+Every section fills **1008 at x=248**. One spacing unit, **79.32 (≈80)**, generates nearly
+every gap in the page: 79.32 between blocks, 39.66 = half, 59.49 = 0.75x, 158.64 = 2x,
+96.67 and 174/178 as one-offs. **Coverage is otherwise clean** — no visible Figma node on
+this frame lacks a build counterpart except the two noted under H2 and H12, and the build
+invents nothing (`.hero-background` is a wrapper with no fill; `.home-content` is empty).
+
+| # | Finding | Figma | Build | Bucket |
+|---|---|---|---|---|
+| H1 | **CTA is unreadable** — white text, no fill | (see H2) | `background-color: transparent !important` wins | fix |
+| H2 | CTA structure and colours | 40.6px #1B1B1B disc + #FFCC00 chevron + dark label | black pill, white text, `↗` | owner |
+| H3 | Hero paragraphs lose their token | 31.73/500 then 22.45/400 | both 17.6/400 | fix |
+| H4 | Section headings | Geist 400, ~125px | 56px/700 | fix |
+| H5 | Content column inset | 24px → column 1008 at x=248 | 32px → 992 at x=256 | fix |
+| H6 | Category description | Geist 400, 25.78px | 16px | fix |
+| H7 | Vertical rhythm | one 79.32 unit | ad-hoc 32/40/48/80 | fix |
+| H8 | Hero block placement | anchored 178.47 below section top | centred in `100vh` | fix |
+| H9 | Hero title line gap | 13.88 | 0 | fix |
+| H10 | Footer typography and colour | see table below | ~half of it off | fix |
+| H11 | Fourth font family in the file | CTA label is **Inter 500** | Geist | owner |
+| H12 | Project card caption rows | 3 rows | 1 row | owner |
+
+**H1 — the highest-value finding, and not a Figma one.** `main.css:131-138` sets
+`background-color: transparent !important` on `.content-wrapper a, .main-content a, p a,
+li a, h1..h6 a`. That `!important` beats `custom.css`'s `.cta-button { background-color:
+#000000 }`, so the homepage's primary call to action renders **white text directly on
+`#B8B8B8`** — about 2:1 contrast, effectively invisible. Confirmed by eye as well as by
+computed style. Swept every anchor in `.main-content`: `.cta-button` is the only casualty,
+so the blanket rule can be narrowed or dropped without collateral. This is exactly what
+tier 2's "design-free invariants" check exists to catch, found early by accident.
+
+**H2 — the design's CTA is not a pill at all.** The visible instance is
+`388:5771 hover-interaction-3`: a 40.60px square/disc filled **#1B1B1B** containing a
+white 2.03px line and a **#FFCC00** chevron, an 8.12px gap, then the label at
+**Inter 500, 16.24px**, uppercase, **#1B1B1B**. The two sibling `Button` instances
+(`843:11194`, `343:11918`) *are* dark pills with #EBEBEB Geist 600 text — and both are
+`visible: false`, so they are drafts. This settles part of the off-palette open item:
+#1B1B1B, #FFFFFF and #FFCC00 are all in the **rendered** CTA, not in hidden mock, so they
+cannot be set aside as placeholder. Rebuilding the CTA needs those three decisions first.
+
+**H3 — a token that never reaches the text.** `.hero-description` sets
+`font-size: 22.45px` on the wrapper, but Open Props' normalize (`@import`ed by `main.css`)
+sets a `font-size` on bare `p`. **A matching rule beats inheritance regardless of
+specificity**, so both paragraphs render 17.6px. Same class as sidebar finding S2, and it
+will recur anywhere a token sits on a wrapper around `<p>`. Figma wants two *different*
+paragraphs: para 1 Geist **500 / 31.73px / lh 1.3 / −0.03em** in a 694px measure, para 2
+Geist 400 / 22.45px / lh 1.1 / −0.025em across the full 1008. The gap between them is
+39.66, the build has 20.
+
+**H4 — headings are less than half the design size.** "Projects" is Geist 400,
+**126.91px**, lh 1.2, −0.04em; "About" is Geist 400, **123.74px**, lh 0.74, −0.02em. Both
+render as `.section-title` at 56px/700 with no tracking. Note the design's own two headings
+disagree on line-height and tracking while agreeing on size to within 3px — flagged under
+open items rather than normalised. The existing `padding-left: 48px` open item compounds
+this: with H5 the heading ink starts **56px** right of the design's x=248.
+
+**H5 — one systemic 8px offset, not four separate ones.** In Figma all four sections share
+left edge 248 (`Main content Container` pads 24 inside 1056); in the build all four share
+256 (32px padding). So the relationship is intact and the inset is simply wrong by 8, with
+the column 16px narrow. **This bears on the `--about-shell-width: 1020px` decision of
+2026-07-29**, which was read off the standalone component frames (`46:704` at 1220 wide,
+`46:901` at 1299). Placed on the homepage those same components are 1008 (Projects) and
+1018.25 (About tabs — which therefore overflows its own 1008 section, the artifact already
+noted in the audit guide §8). 1008 vs 1020 is 1.2% and not worth chasing on its own; the
+24-vs-32 inset is.
+
+**H7 — the concrete gap mismatches**, all against the 79.32 unit:
+
+| Gap | Figma | Build |
+|---|---|---|
+| Section heading → tab bar | 79.32 | 40 |
+| Tab bar → category description | 59.49 | 80 |
+| Category description → image grid | 59.49 | 32 |
+| Image grid columns | 23.79 | 32 |
+| Featured (landing) grid columns | 24.0 | 32 |
+| About title → intro | 96.67 | 40 |
+| About intro image → text | 79.32 | 48 |
+| About intro → tab bar | 79.32 | 48 |
+| Featured card image → caption | 14.0 | — |
+
+Also: the About intro image is **345.03 x 260.04** in Figma against 308 x 229 built, and
+its text column **524.16** wide against 621, with a 59.49 right pad the build lacks.
+
+**H8/H9 — the hero.** `.hero-section { min-height: 100vh; align-items: center }` centres
+the text block, so its position tracks viewport height; Figma anchors it with
+`paddingTop: 178.47` and lets the section hug. At an 860px viewport the title lands at
+271.4 against the design's 178.5, and the knock-on is that the featured grid starts ~156px
+low. Within the title, `Title container` has a **13.88** gap between the "MAJA" and
+"EXPLOSIV" line boxes; the build stacks them flush. Everything else about the two title
+lines already matches exactly (85.94/700 and 77.29/500, lh 0.74, −0.02em, #222222) — that
+part of the 2026-07-24 extraction holds up.
+
+**H10 — footer.** The three-row structure, the two separators, the right-hand logo slot and
+all six labels are correct. The values are not:
+
+| Item | Figma | Build |
+|---|---|---|
+| Row-1 text | Geist 500, 16px, −3%, #222222 | 12px/400, #000, +0.6px on the location only |
+| Brand line | "MAJA" Geist **800** + " EXPLOSIV" Geist **600**, 41.94px | 48px/500 with `<b>` at 900 |
+| aka line | Geist 600, 24.46px, #222222 | 16px/400, #333 |
+| Bottom nav | Geist 500, 16px, −3%, #222222 | 17.6px/400, #000 |
+| Separator | 0.32px hairline #222222 | 2px #808080 |
+| Row left edge | 248, flush with the column | 272 (48px inset) |
+| Above / below | 0 above, 138.8 below | 80 above, 40 below |
+
+The brand line's two-run structure is right and worth keeping: **MAJA at 800, EXPLOSIV at
+600** — the same pairing as the sidebar wordmark, which is useful corroboration for the
+open question about turning that wordmark into a vector.
+
+**H12 — the card caption.** Figma's `Project Card` caption frame (59.53 tall, 14 below the
+image) holds **three** rows: title+year, title+year, title+info. The build renders one
+(title+year). The row *labels* are Figma placeholders so the content is not evidence, but
+three rows versus one is structure. Card proportions are close: 492 x 327.52 (1.502) in
+Figma, 480 x 324 (1.481) built.
+
+**Verified correct, no action:** page background `#B8B8B8` on every section; hero title and
+subtitle typography; the tab bars (Geist 400 / 32px / lh 1.2 / −0.04em, #222222 active,
+#8E8E93 inactive) — the 2026-07-29 tab work holds, and the only remaining difference is the
+column offset from H5; the top-right `corner.png` brush; the featured grid's staggered
+second column; the footer's structure and labels; the 3-column category grid.
+
+#### Fixed, and verified after (2026-07-30)
+
+Everything except H11 and H12 is fixed; those two need the owner and are in *Open items*.
+Measured at a 1295px viewport. Text is compared by **cap-top**, from Geist's own metrics,
+wherever Figma trims a box to cap height — comparing those to CSS line boxes is the
+`leadingTrim` trap from the audit guide §8 and would report ~10px errors that are not there.
+
+| Check | Figma | Build after |
+|---|---|---|
+| Content column, all four sections | 1008 at x=248 | 1008 at x=248 |
+| Hero title / subtitle box tops | 178.47 / 256.35 | 178.0 / 255.5 |
+| Hero lead cap-top | 392.67 | 392.3 |
+| Hero body cap-top | 537.32 | 536.3 |
+| CTA box | 209.72 x 40.60 at y=592.45 | 209.3 x 40.6 at y=591.1 |
+| CTA disc / label gap | 40.65 disc, 8.12 gap, label 161 wide | 40.6 / 8.2 / 160.6 |
+| Featured grid top | 712.37 | 711.7 |
+| Projects: section top → heading cap-top | 158.64 | 160.0 |
+| Projects: heading → tab bar | 79.32 | 80.0 |
+| Projects: description → image grid | 59.49 | 60.0 |
+| About: section top → heading box top | 174.00 | 174.0 |
+| About: heading → intro | 96.67 | 96.0 |
+| About: intro image | 345.03 wide at x=248 | 345.0 at x=248 |
+| About: intro text | 25.13px at x=672.35 | 25.13px at x=673.0 |
+| About: intro → tab bar | 79.31 | 80.0 |
+| Section → section gaps | 0 (each section's own top padding) | 0 |
+| Footer rows | flush at x=248, Geist 500/16px/−3%/#222222 | as designed |
+| Footer brand | MAJA 800 + EXPLOSIV 600 at 41.94px | as designed |
+
+**One class of difference is left uncompensated on purpose.** Gaps that run from a
+cap-trimmed Figma box to the next element are implemented at their nominal design value
+rather than adjusted for the ~6px a CSS line box adds below the last baseline. The hero
+chain *is* compensated — its errors were the largest and most visible — so its margins carry
+odd numbers (70 / 25 / 35 instead of 80 / 40 / 40) with the arithmetic in the comments. The
+worst residual elsewhere is the Projects category description at **+6.9px**; everything else
+is under 2px. Compensating every gap would mean a dozen values that drift with font
+metrics, for less than the owner's stated tolerance.
+
+**Three things found while fixing, and fixed:**
+
+1. **The About Bio panel had H3's defect too** — `.about-prose` set 26px on the wrapper, so
+   Open Props' `:where(p,ul,ol,dl,h6){font-size:…}` won on the paragraphs and the Bio text
+   rendered at 17.6px. Confirmed from the normalize source, not inferred. Fixed with
+   `font: inherit` on `.about-prose p`. The other three About panels set type on the
+   elements themselves and were already correct (17 / 19 / 17px as the spec records).
+2. **`main.css` was styling Maja's hero.** `.hero-section`, `.hero-background` and
+   `.hero-content` rules in the base stylesheet drew a bordered, rounded, padded box with
+   its own `corner.png` and capped the text at `min(900px, 70vw)`. Most of what
+   `custom.css`'s `.hero-background` declared existed only to cancel them. Both sides
+   removed; the border became visible the moment the cancelling declarations went, which is
+   how it surfaced.
+3. **A pre-existing mobile overflow.** `.hero-title span:last-child` carries an explicit
+   77.29px and the ≤768px rule only scaled `.hero-title`, so "EXPLOSIV" stayed at desktop
+   size on a phone — 370px of unbreakable word, forcing 35px of horizontal overflow at
+   375px wide. Now steps down at both breakpoints (4rem/3.6rem, 3rem/2.7rem — proportions
+   kept, since mobile is not in Figma). At 375px `scrollWidth` now equals `clientWidth`.
+
+**`!important` swept out of both stylesheets** (owner's instruction, 2026-07-30): 9 in
+`custom.css` and 7 in `main.css`, leaving none in either. The justification is uniform and
+checkable: **every rule in Open Props' normalize is wrapped in `:where()`, which has zero
+specificity**, so any real selector already beats it — verified by reading the shipped
+`normalize.min.css`, not assumed. That covers the `pre`/`code` background and the base
+footer's `max-inline-size` overrides. The sidebar's four
+`text-decoration/border-bottom: none !important` pairs were fighting `main.css`'s
+`.nav-link`, which they outrank simply by loading later at equal specificity; verified inert
+by a computed-style snapshot of all 11 nav links before and after — every value identical.
+The one that was doing real damage is described under H1.
+
 ### About Components — extracted spec (2026-07-29)
 
 Read directly from Figma, from the location the owner specified: **`Assets / Components` → the floating text label `About Components` → the frame beneath it, `Timeline_Press_Links_Content Container`** (node `46-901`, 1299 × 12686). A file-wide search for "About Components" returns exactly one hit — a Text layer (node `922-5934`), confirming it is a spatial label, not a container.
@@ -544,6 +787,10 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
 **This section is the single list for open questions of this kind.** When something needs the owner's judgement — a design inconsistency, an ambiguous spec, a content decision that can't be settled from Figma or the live site — record it here rather than in a new file or inline in a template comment. Resolved items get struck through with the resolution, not deleted, so the reasoning stays visible.
 
 - [ ] **Links section uses a different font from everything else.** In the current `Links` variant of the About Components container, entry lines are **Rethink Sans** 400, 19.31px, 168% line-height, −2% tracking — while the tab bar, Bio and Timeline are all Geist, and Phase 1 round 3 concluded "Geist everywhere". Each category's entries are a single concatenated text node with link spans inside, which reads like pasted content that kept its own styling rather than a deliberate third font. **Resolved for now (owner, 2026-07-29): use Geist**, and note the inconsistency here in case the designer intended otherwise. Rethink Sans is not loaded by the site and should not be added without a decision.
+  - **More instances found 2026-07-30 on the homepage frame**, which supports the "pasted content" reading rather than a deliberate second family: the **About-intro description** (`91:2988`, Rethink Sans 400 / 25.13px) and the footer's **Impressum** label (`I182:2812;52:6471`, 15.47px) — while its siblings Sitemap and search are Geist 500. Note also that the footer brand line's *default* style is Rethink Sans and is then 100% overridden to Geist per character, i.e. the same trap §8 of the audit guide warns about. Assumed covered by the same "use Geist" resolution; say so if not.
+- [ ] **A fourth font family: the homepage CTA label is Inter.** `I388:5771;388:5734` in the visible CTA instance reads **Inter 500, 16.24px**, resolved through the override table so it is not the `style`-block trap. Inter appears nowhere else in the frames read so far, and Phase 1 explicitly retired it as "never a confirmed value, just an old guess". Presumed to be Geist 600 like the hidden pill variants, but that is a guess, not a reading. Blocks the CTA rebuild (H2).
+- [ ] **The two homepage section headings are styled differently in Figma.** "Projects" (`I52:6457;46:707`) is Geist 400 / 126.91px / lh 120% / −4%; "About" (`91:2984`) is Geist 400 / 123.74px / lh 74% / −2%. Same family and weight, sizes 3px apart, but the line-height and tracking differ enough to change how each sits. One token or two? Rendered as Figma has them until decided (guide §7 bucket 2).
+- [ ] **Figma's project card caption has three rows; the build renders one.** The `Project Card` component's caption frame is 59.53 tall and holds title+year, title+year, title+info. The row contents are placeholder, so what the second and third rows are *for* (medium? dimensions? photo credit?) cannot be read off the design — and the build's real data currently carries title, year, description and author. Needs a content decision before the card can be built to the design.
 - [x] ~~**Sidebar footer brush: use `corner.png` or half of `sidebar-brush.png`?**~~ **Resolved 2026-07-29 by measurement: use half of `sidebar-brush.png`.** Per pixel at native size `corner.png` is sharper (mean |gradient| 27.5 vs 20.2), but that is just its edges packed into fewer pixels. At the size the sidebar actually renders (903x124) the ranking inverts: the brush half scores 20.2 against 16.9 for `corner.png` Lanczos-upscaled 2.1x, with slightly less halo (7.65% vs 7.87% of pixels neither opaque nor clear). So the upscale is not merely interpolated — it reconstructs edges better than resampling the small asset ourselves. A search of the TYPO3 backup for any third brush asset found nothing (20 hits, all webalizer stats graphs). **Fully closed 2026-07-29 (evening):** the `imageRef` on the Figma fill downloads byte-identical to `sidebar-brush.png`, so the asset choice is settled by hash rather than by inference, and the crop that was previously tuned by eye is now read off the fill's `imageTransform` — see the sidebar brush section above.
 - [ ] **Sidebar wordmark is a vector in Figma, live text in the build.** Figma draws "MAJA EXPLOSIV" as a Mask group with a 188.32 x 27.69 footprint, so there is no font size to copy; it is currently set as Geist 800/22px to land on roughly that footprint. Decide whether it should stay as text (accessible, selectable, no extra asset) or become an exported SVG matching the design exactly.
 - [x] ~~**`custom.css` has a large block of pre-existing duplicated rules.**~~ **Done 2026-07-29** (commits `8c09be3`, `88d5ca5`). The file had 217 top-level selectors with 34 declared more than once, the repeats concentrated in one region (~753-955) restating the hero / tab / custom-section / artwork rules from ~380-752. Cleared in three passes, each chosen to be provably cascade-neutral: 12 rules re-declared verbatim later, 41 declarations shadowed by a later rule with the same selector (skipping `!important`), then the 9 rules left empty plus two stubs. The four selectors that looked "divergent" in the initial survey turned out to be complementary fragments — different properties, not conflicting values — so they were folded into single definitions rather than needing a decision. 217 → 197 rules, 2182 → 2000 lines. Only `:root` is still declared twice, deliberately, with a comment at the first pointing to the second. Verified with a full computed-style snapshot (48 properties plus box geometry for every element) across 7 page/viewport combinations, diffed after each pass — all zero changes.
@@ -552,10 +799,20 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
   - **`#1B1B1B`**, homepage "LETS GET IN TOUCH" button fill and label. Nearest `#222222` Grey/800.
   - **`#FFFFFF`**, homepage `Line 2` vector stroke. Nearest `#EBEBEB` Grey/0; pure white may be deliberate for a hairline.
   - **`#FFCC00`**, homepage `Vector` stroke. No yellow exists in the palette at all; the sidebar variant is named "Navigation6 Flip *Yellow*", so an accent may be intended but has no token.
+  - **Sharpened 2026-07-30:** those three all belong to **one element** — the visible homepage CTA, `388:5771 hover-interaction-3` (disc fill #1B1B1B, chevron #FFCC00, cross-line #FFFFFF, label #1B1B1B). They are not scattered and they are not in hidden mock: the two dark-pill `Button` alternatives beside it are `visible: false`.
+  - **Two of the three are now rendered, on the owner's instruction to update the CTA to the current design (2026-07-30).** `#1B1B1B` and `#FFCC00` are carried as `--theme-colors-cta-fill` and `--theme-colors-cta-chevron` in `theme.js`, commented as off-palette and unbound. They stay listed here because rendering them is not the same as deciding they belong in the palette — in particular `#FFCC00` is still the only yellow anywhere and has no token of its own. **`#FFFFFF` turned out not to be rendered at all:** it is `Line 2`, a zero-height vector sitting 5px outside the CTA's clip, and Figma's own rasteriser omits it from both the 30x30 and the 210x41 SVG export. It reads as part of a hover animation. Nothing to decide unless the hover state gets built.
   - Believed **out of scope rather than decided** — confirm if you disagree: `#193AF6` on "$5,200.00 2024" style labels is mock content (prices do not exist on this site), and `#060501` is the wordmark's mask source, which never renders.
 - [ ] **Sidebar sub-item colours are inconsistent inside Figma itself.** Reading the fills off node `695:5712`: Sculptures `#373737`, Installations `#373737`, Performance `#222222`, Paintings `#222222`; then Bio `#222222`, Timeline `#222222`, Press `#373737`, Links `#373737`, Contact `#222222`. No pattern — not first/last, not alphabetical, not per section — and two of the nine are not bound to a colour variable at all, which reads like hand-editing rather than intent. This file records `#373737` as *the* sub-item colour. Is that right, or is a state (visited/current) being modelled? Blocks finding S1 in the sidebar audit above.
 - [ ] **Sidebar nav and footer have no minimum gap, so they collide on short viewports.** Noticed 2026-07-29 at a 588px-tall viewport: the "TIMELINE" nav item runs into the top of the footer brush. `.left-sidebar` is `height: 100vh` with `justify-content: space-between`, and `.sidebar-nav` is `flex: 1` — so as the viewport shortens, the nav block and the 124px footer are pushed into each other with nothing to stop them. Figma only draws the sidebar at 960px tall, so the design says nothing about what should give first: the nav could scroll, the sections could tighten their 80px gaps, or the footer could shrink. Needs a decision, not a guess. Unrelated to the brush work — it predates it.
-- [ ] **`.section-title` is indented 48px from its own section's content column.** Affects both the "Projects" and "About" headings identically. Figma has them flush with the 1020px column. Not fixed alongside the 2026-07-29 Projects section pass because it is shared, not Projects-specific — fixing only one would reintroduce the asymmetry that pass just removed.
+- [x] ~~**`.section-title` is indented 48px from its own section's content column.**~~ **Fixed 2026-07-30** as part of finding H4, which had to touch both headings anyway: the 48px `padding-left` is gone and both now sit flush at x=248 with the rest of their section. The asymmetry worry that deferred it does not apply when both change together.
+- [ ] **How exact should gaps be where Figma's box is cap-height-trimmed?** Figma trims many text boxes to cap height (`leadingTrim: CAP_HEIGHT`), so its box ends on the baseline while a CSS line box ends ~6px lower, at the bottom of the descender plus half-leading. A gap implemented at its literal design value therefore renders ~6px larger than drawn, and the error accumulates down a column. **Current state (2026-07-30):** compensated in the homepage hero, where it was largest and most visible — its margins read 70 / 25 / 35 instead of 80 / 40 / 40, with the arithmetic in the CSS comments — and *not* compensated anywhere else, so those gaps carry the nominal design value. Worst residual is the Projects category description at **+6.9px**; every other gap on the homepage is within 2px. The trade-off: compensating everywhere buys exactness but replaces a handful of clean tokens with a dozen derived numbers that drift if the font's metrics change, all for less than the stated "34.95 may as well be 35" tolerance. Three ways to settle it — accept the residual as-is, compensate everywhere, or wait for `text-box-trim` to be safe to rely on (Baseline-newly-available; the audit guide currently rules it out) and let the browser do it exactly. Needs a preference, not a guess; it will come up on every surface still to be audited.
+- [ ] **A share of what the audits keep finding belongs upstream in `explosive`, and is being fixed only here.** Several findings were base-template defects, not Maja ones, and were fixed in this repo's `src/assets/css/main.css` — which CLAUDE.md §6 explicitly permits, since our copy has already diverged from upstream (1048 lines there vs ~1250 here). But the fixes are generic and every site built on the template has the bugs:
+  - the `!important` blanket on anchor backgrounds that made a link impossible to style as a button (finding H1);
+  - `.hero-section` / `.hero-background` / `.hero-content` styling Maja's specific hero from inside the base stylesheet;
+  - seven further `!important`s that only ever fought Open Props' zero-specificity `:where()` rules;
+  - `.content-wrapper p, li { margin-inline: auto }`, which silently centres list items — recorded in this file since 2026-07-24 and still present;
+  - the wider pattern: base rules that set type on bare `p` / `.nav-link` / `.tab-button` and quietly beat a `_user` token (findings S2, H3, and the About Bio panel).
+  **Decision needed:** whether to port these to `Xpanda-org/explosive-11ty` now, or keep banking them here and reconcile in one pass later. Porting now means the two copies diverge less and other sites benefit; banking means not interrupting the audit. Either way it should be a deliberate choice — right now it is simply not happening. Related: Phase 0's base-vs-override boundary audit, which is the same problem from the other direction.
 - [ ] Figma exact-value extraction — access pending.
 - [ ] News feed: in or out of scope for this redesign?
 - [ ] `docs/` folder (GH Pages build output) currently shows as deleted-but-uncommitted in `git status` — left untouched for now per "forget GH Pages for now."

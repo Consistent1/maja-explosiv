@@ -83,6 +83,73 @@ The template’s collection management and layout systems leverage 11ty to handl
 
 Your site will be available at `http://localhost:8080` during development.
 
+## Serving, building and deploying — and how they interfere
+
+The three commands above are **not independent**. They share one output directory and one
+cache, and two of the ways they interact will make a change look like it did nothing. Both
+have cost real debugging time, so they are written down here rather than rediscovered.
+
+### 1. Editing a layout or include does not hot-reload — restart the server
+
+`.eleventy.js` implements the override system (see *Customization Architecture* below) by
+**copying** files into `.cache/` when Eleventy loads its config:
+
+- `src/_layouts/` + `src/_user/layouts/` → `.cache/layouts/`
+- `src/_includes/` + `src/_user/includes/` → `.cache/includes/`
+- `src/_data/` + `src/_user/data/` → `.cache/data/`
+
+Eleventy then builds from `.cache/`. Config runs **once per process**, so a server started
+with `npm run serve` keeps rebuilding from the copies it made at startup. Edit
+`src/_user/layouts/home.njk` and the browser will keep showing the old markup, with no error
+and no warning — the file it is actually reading did not change.
+
+**Restart the dev server after touching anything in `src/_user/layouts/`,
+`src/_user/includes/`, `src/_user/data/`, `src/_layouts/`, `src/_includes/`, `src/_data/`, or
+`.eleventy.js` itself.** Markdown, front matter and CSS *are* watched and do hot-reload —
+`.eleventy.js` registers both `src/assets/css/` and `src/_user/assets/css/` as explicit watch
+targets.
+
+If a change seems to have no effect, check this before debugging the change.
+
+### 2. The GitHub Pages build overwrites `_site` with a differently-linked site
+
+`npm run build:github` sets `ELEVENTY_PATH_PREFIX=/maja-explosiv/`, so **every internal URL
+in the output gains that prefix** — `/assets/css/custom.css` becomes
+`/maja-explosiv/assets/css/custom.css`. That is required for a project Pages site served from
+a subpath, and it is wrong for `http://localhost:8080`, where those URLs 404 and the site
+renders unstyled.
+
+Both builds write to the same `_site`. So:
+
+- **After deploying, rebuild locally** (`npm run build`, or restart `npm run serve`) or you
+  will be looking at the prefixed build on localhost and wondering where the CSS went.
+- **Stop the dev server before deploying.** `npm run deploy:github` does
+  `rm -rf docs && cp -r _site docs`, and a watching server that rebuilds `_site` midway
+  through the copy will put a half-written or unprefixed site into `docs/`.
+
+The deploy sequence, in order:
+
+```bash
+npm run deploy:github     # stop the dev server first
+```
+
+That runs `build:github` then `copy:docs`, which replaces `docs/` and re-creates
+`docs/.nojekyll`. Then commit `docs/` and push — Pages serves `main` at path `/docs`, so the
+push *is* the publish. Then rebuild locally to undo the prefix:
+
+```bash
+npm run build
+```
+
+Checking you got it right: `grep -c '"/maja-explosiv/' docs/index.html` should be non-zero,
+and the same grep against `_site/index.html` should be zero after the local rebuild.
+
+### 3. `docs/` is build output, and it is committed
+
+Unusually for a build directory, `docs/` is **not** gitignored — GitHub Pages needs it in the
+repo. Never hand-edit it; regenerate it. It also currently contains `_includes/` and
+`_layouts/` copies, a passthrough artefact that is harmless but on the cleanup list.
+
 ## Project Structure
 
 ```
