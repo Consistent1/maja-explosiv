@@ -1,0 +1,33 @@
+{
+  "source": "database usr_p51487_2, tt_content",
+  "page_uid": 974,
+  "query": "SELECT uid, CType, deleted, hidden, sorting, REPLACE(TO_BASE64(header),'\\n',''), REPLACE(TO_BASE64(bodytext),'\\n','') FROM tt_content WHERE pid=974 ORDER BY sorting;",
+  "extracted_at": "2026-08-25T13:20:16",
+  "connection_charset": "latin1 (see plan §2.3)",
+  "elements": [
+    {
+      "uid": 1400,
+      "CType": "text",
+      "deleted": 0,
+      "hidden": 1,
+      "sorting": 128,
+      "header": "ON MY OWN BEHALF:",
+      "bodytext_bytes": 136,
+      "bodytext_sha256": "b8d29211c5056933b32a8515cf15d46787777ef98c025125f8ae6b54c948c6d4",
+      "raw_file": "raw/db/tt_content-1400.bodytext.html",
+      "published": false
+    },
+    {
+      "uid": 1399,
+      "CType": "text",
+      "deleted": 0,
+      "hidden": 0,
+      "sorting": 256,
+      "header": "FRIENDS AND RELATED ARTISTS:",
+      "bodytext_bytes": 8441,
+      "bodytext_sha256": "66ac6259f40b7e03cffa1df7a97a7dc0da32f510008f363876c8dba8350c8a83",
+      "raw_file": "raw/db/tt_content-1399.bodytext.html",
+      "published": true
+    }
+  ]
+}

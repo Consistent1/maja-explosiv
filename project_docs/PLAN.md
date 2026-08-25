@@ -780,7 +780,38 @@ Current state (verified by running the build, not just reading old status docs):
 - Bio/Press/Links/Timeline text content is done (transcribed from the live site). What remains for this cluster is assets and the Timeline field split.
 - **Press clipping scans located (2026-07-29): `old/TYPO3BU/_/fileadmin/s-maj/images/BilderMaja/presse/`** — 49 files, 47 JPG + 2 PDF (`2007_Alchemy_Bar_-_Wired_A4.pdf`, `2012_Wacken_Scull...pdf`; `2013_Destroy_HIV` exists as both). Filenames are already year-prefixed (`2004_casino1.jpg`, `1993_wohlgrott.jpg`), which maps cleanly onto the entries in `src/pages/about/press.md`. Note the spelling in the backup is `wohlgrott` vs. `Wohlgroth` in the page content. Six have been copied to `src/assets/images/shared/press/` as **placeholders only** — renamed to slug form, unoptimised (3.8 MB for six; the full set will need resizing before it ships). The remaining 43 are part of the bulk asset migration, not of the About work.
 
-Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/extract_typo3_projects.py` etc.) to migrate the remaining ~45 projects and wire up their images the same way paintings were done.
+### Superseded by the migration plan — approved 2026-08-25
+
+**This phase is now governed by `project_docs/content-migration-plan.md`**, approved by the owner
+on 2026-08-25. Read that document, not this section, before doing any migration work. The
+substance of what changes:
+
+- **The old extraction scripts are not resumed.** This section previously said to "resume the
+  proven extraction scripts (`scripts/extract_typo3_projects.py` etc.)". They wrote straight into
+  `src/` with no census, no denominator and no separation between extraction and verification,
+  which is the specific failure the migration plan exists to fix.
+- **Everything above describing existing content is now placeholder inventory, not progress.**
+  The 26 converted projects, the wired paintings images, and the Bio/Press/Links/Timeline text
+  are **not** a partial migration to be continued — the plan replaces all of it. Note the line
+  above: that text content was *"transcribed from the live site"*, which is precisely what the
+  plan's decision 1 forbids, and why its V10 check was dropped and existing `src/` content is
+  never consulted as a source.
+- **Existing content is quarantined before Stage 1, not kept in place** (owner, 2026-08-25).
+  All 38 Markdown files under `src/pages/` and `src/posts/` are **moved** — never deleted — to
+  `pre-migration-content/` at the repo root, mirroring their original paths. That directory sits
+  outside Eleventy's input dir, so nothing in it builds. The resulting invariant is that
+  `src/pages/` and `src/posts/` contain **only** migration output, checkable from a directory
+  listing. **The site goes substantially empty until the stages fill it, and the owner has
+  accepted that** in exchange for the separation. See §5.1 of the plan.
+- **The "26 of ~71 projects" figure above is wrong — it is 23.** The count included three
+  `placeholder-*.md` category stubs.
+- **Content drift is measured, not feared.** A fresh dump taken 2026-08-25 was compared
+  field-by-field against the January 2025 one: **zero content change across nineteen months**
+  (§2.0). Image drift remains unmeasured.
+
+Facts in this section that remain useful — the press-clipping location and filename convention,
+the "Breath under Water" miscategorisation, the image-wiring state — are kept above as
+reconnaissance. Their *conclusions about what to do next* are superseded.
 
 ## Phase 4 — Verification & cutover
 
@@ -796,6 +827,49 @@ Once Phase 2 templates exist, resume the proven extraction scripts (`scripts/ext
 ## Open items needing input
 
 **This section is the single list for open questions of this kind.** When something needs the owner's judgement — a design inconsistency, an ambiguous spec, a content decision that can't be settled from Figma or the live site — record it here rather than in a new file or inline in a template comment. Resolved items get struck through with the resolution, not deleted, so the reasoning stays visible.
+
+- [ ] **`featuredProjects.json` dangles after the quarantine.** (raised 2026-08-25, needed before
+  the site is presentable again.) `src/_user/data/featuredProjects.json` names four projects by
+  slug — `sculptures/sisyphos-gate`, `installations/blumenwolke`, `sculptures/the-wolf`,
+  `paintings/akwa`. Stage 0b moved those files out, so the build now logs four
+  `ERROR: Featured project ... not found` lines. **The build still completes and writes the
+  site**, so this is not blocking, but it is a real consequence the migration plan did not
+  anticipate: quarantining content breaks *configuration that references content by slug*. It
+  resolves naturally once Stages 6–11 migrate the projects — but the new slugs come from the old
+  site's six categories mapped to the new four, so the four entries will need repointing rather
+  than just reappearing. Whether the homepage should feature these same four is the owner's call.
+
+- [ ] **A hidden Links entry: migrate it or not?** (raised 2026-08-25.) The Links page has a
+  second content element, `tt_content.uid = 1400`, header `ON MY OWN BEHALF:`, containing one
+  entry — Casino Gitano on MySpace. It is `hidden = 1` in TYPO3, so it is unpublished and does
+  not appear on the live site; Stage 1 excluded it on that objective ground and recorded it as
+  `not-migrated`. Its raw bytes are kept at
+  `migrated-content/links/raw/db/tt_content-1400.bodytext.html`. **If it should appear on the new
+  site, say so** — reinstating it is a one-line change. Not urgent.
+
+- [x] ~~**Which database backs `www.maja-explosiv.com` today?**~~ **Resolved 2026-08-25, same
+  day it was raised — it was my error, not a real question.** `db1010.mydbserver.com/usr_p51487_2`
+  is the live database. Stage 1 appeared to find the live site publishing content the database
+  had never seen; in fact the local MySQL was loaded from the **January 2025** dump, and the fresh
+  2026-08-25 dump — which does contain that content — was never loaded. Comparing the two dumps
+  properly (decoding MySQL escapes first) shows **exactly one content value changed across the
+  whole site in nineteen months: `tt_content.uid=1399.bodytext`, the Links page.** Everything else
+  is identical. Detail in the migration plan §2.0a.
+
+- [ ] **Which images move with the quarantine?** (raised 2026-08-25, needed before **Stage 2 —
+  Press**.) §5.1 of the migration plan moves all content Markdown out of `src/` before Stage 1,
+  but `src/assets/images/` is left alone. That directory mixes two things: site chrome the
+  templates require, and placeholder content assets — including the six press clippings recorded
+  in Phase 3 as copied in "as placeholders only", unoptimised at 3.8 MB for six. Separating them
+  needs a file-by-file call. Not urgent: Stage 1 (Links) writes no images. **Needed before Stage
+  2**, which is the first stage that does.
+
+- [ ] **What happens to the four upstream template demo posts?** (raised 2026-08-25.)
+  `welcome-to-explosive-website.md`, `getting-started-with-11ty.md`, `css-grid-layout-guide.md`
+  and `image-carousel-demo.md` come from the `explosive` template, not from TYPO3. No migration
+  stage produces or replaces them, so this is a template decision rather than a migration one:
+  quarantine them, delete them as scaffolding, or keep them. They are quarantined with everything
+  else in the meantime, because the §5.1 invariant admits no exceptions and a move is reversible.
 
 - [ ] **Links section uses a different font from everything else.** In the current `Links` variant of the About Components container, entry lines are **Rethink Sans** 400, 19.31px, 168% line-height, −2% tracking — while the tab bar, Bio and Timeline are all Geist, and Phase 1 round 3 concluded "Geist everywhere". Each category's entries are a single concatenated text node with link spans inside, which reads like pasted content that kept its own styling rather than a deliberate third font. **Resolved for now (owner, 2026-07-29): use Geist**, and note the inconsistency here in case the designer intended otherwise. Rethink Sans is not loaded by the site and should not be added without a decision.
   - **More instances found 2026-07-30 on the homepage frame**, which supports the "pasted content" reading rather than a deliberate second family: the **About-intro description** (`91:2988`, Rethink Sans 400 / 25.13px) and the footer's **Impressum** label (`I182:2812;52:6471`, 15.47px) — while its siblings Sitemap and search are Geist 500. Note also that the footer brand line's *default* style is Rethink Sans and is then 100% overridden to Geist per character, i.e. the same trap §8 of the audit guide warns about. Assumed covered by the same "use Geist" resolution; say so if not.

@@ -1,0 +1,128 @@
+uid	state	live_content_rows	content_type	stage	pagepath	title	shortcut
+860	active	1	structural	0		maja	1043
+861	hidden	0	structural	0	start	start	860
+863	active	1	structural	0	entwurf	entwurf	0
+864	active	0	structural	0		Bio	0
+867	active	3	structural	0	content/recent-work	recent work	0
+868	active	2	structural	0	content/show	show	0
+869	active	2	structural	0	content/2d	painting	0
+870	active	2	structural	0	content/sculptures	sculptures	0
+924	active	4	structural	0	2d/paper-work/the-whale	Breath Under Water	0
+937	active	4	structural	0	content/sculptures/sculptural-work/alchemy-bar	Alchemy Bar	0
+948	hidden	0	structural	0	content/recent-work/recent-sculptures	recent sculptures	0
+950	hidden	0	structural	0		Info	0
+951	active	1	structural	0	info/sitemap	Sitemap	0
+952	active	1	structural	0	info/kontakt	Kontakt	0
+968	active	3	structural	0		design 2	0
+969	active	0	structural	0		design 3	0
+970	active	0	structural	0	entwurf/testmount	testmount	0
+971	active	1	structural	0		suche	0
+972	active	0	structural	0		info	0
+975	hidden	2	structural	0	wop	WOP	0
+976	hidden	0	structural	0		Entwurf1 	0
+977	active	0	structural	0		content	0
+978	active	0	structural	0		FE user maja	0
+979	active	0	structural	0		login	0
+1010	active	0	structural	0		tools	1013
+1012	active	1	structural	0	footer/search	Search	0
+1013	active	2	structural	0	tools/sitemap	Sitemap	0
+1018	active	3	structural	0	home	Home	0
+1041	active	0	structural	0	content/recent-work/recent-installations	Installations	0
+1042	active	0	structural	0	content/recent-work/recent-sculpture	Sculptures	0
+1043	active	3	structural	0	wop/home	Home	0
+1045	hidden	0	structural	0		Bio (Kopie 1)	0
+1049	hidden	4	structural	0		- possibilities - 	0
+1055	hidden	2	structural	0	content/recent-work/sculptures	Sculptures	0
+1075	hidden	4	structural	0		bio timeline	0
+974	active	1	links	1	info/links	links	0
+981	active	4	press	2	info/press	press	0
+1016	active	4	timeline	3	info/bio/bio-chronological	bio timeline	0
+865	active	1	bio	4	info/bio	Bio	0
+973	active	3	contact	5	info/contact	contact	0
+1065	active	2	datenschutz	5	info/datenschutz	Datenschutz	0
+866	active	2	project/murals	6	2d/murals/murals-europe	Murals Europe	0
+918	active	2	project/murals	6	paintings/murals/felix-und-regula	Felix und Regula	0
+919	active	2	project/murals	6	2d/murals/wohlgroth	Wohlgroth	0
+874	active	3	project/murals (container)	6	2d/murals	murals	0
+920	active	2	project/paper-work	7	paintings/paper-work/graphics	Graphical Work	0
+921	active	2	project/paper-work	7	content/2d/paper-work/akwa	Akwa	0
+922	active	2	project/paper-work	7	content/2d/paper-work/malaga-la-vache	Malaga la Vache	0
+923	active	2	project/paper-work	7	paintings/paper-work/concepts	Concept Illustration	0
+982	active	0	project/paper-work	7	content/recent-work/the-whale	Breath under Water	924
+875	active	4	project/paper-work (container)	7	2d/paper-work	paper work	0
+934	active	2	project/event-organisation	8	content/show/event-organisation/dada-festwochen	Dada Festwochen	0
+935	active	3	project/event-organisation	8	content/show/event-organisation/eurokon	Eurokon	0
+936	active	3	project/event-organisation	8	content/show/event-organisation/eurokot	Eurokot	0
+873	active	3	project/event-organisation (container)	8	content/show/event-organisation	event organisation	0
+926	active	6	project/performance	9	content/show/performance/elxt90	Elxt 90	0
+927	active	3	project/performance	9	content/show/performance/free-radicals	Free Radicals	0
+928	active	4	project/performance	9	content/show/performance/bagger	Bagger	0
+932	active	2	project/performance	9	content/show/performance/troy	Trojan Fire	0
+933	active	3	project/performance	9	content/show/performance/casino-gitano	Casino Gitano	0
+1056	active	2	project/performance	9	content/sculptures/sculptural-work/installations/the-sea-monster	The Sea Monster	0
+872	active	4	project/performance (container)	9	content/show/performance	performance	0
+945	active	2	project/collaborations	10	content/sculptures/collaborations/hand-of-man	Hand of Man	0
+946	active	3	project/collaborations	10	content/sculptures/collaborations/wheel-of-power	Wheel of Power	0
+947	active	2	project/collaborations	10	content/sculptures/collaborations/forget-me-not	Forget me Not	0
+994	active	2	project/collaborations	10	content/sculptures/sculptural-work/recent-sculptures/throne	Throne	0
+1031	active	2	project/collaborations	10	content/sculptures/sculptural-work/recent-sculptures/elephant	Elephant	0
+1054	active	3	project/collaborations	10	content/sculptures/sculptural-work/sculptures/destroy-hiv	Destroy HIV	0
+1058	active	2	project/collaborations	10	content/sculptures/sculptural-work/sculptures/gong-trophy	Gong Trophy	0
+1078	active	2	project/collaborations	10	content/sculptures/collaborations/metal-group-xix	Metal Group XIX	0
+878	active	3	project/collaborations (container)	10	sculptures/collaborations	collaborations	0
+938	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/kalandraka	Kalandraka	0
+941	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/mantelheizung	Mantelheizung	0
+942	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/dorfbachschiff	Dorfbachschiff	0
+943	hidden	2	project/sculptural-work	11	content/sculptures/sculptural-work/xix	XIX	0
+949	active	1	project/sculptural-work	11	recent-work/the-alchemy-bar	The Alchemy Bar	0
+953	hidden	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures	recent sculptures	0
+995	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/soldier	Soldier	0
+996	hidden	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/jurabird	Jurabird	0
+997	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/pleitegeier	Pleitegeier	0
+998	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/vulture	Vulture	0
+999	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/lizard	Lizard	0
+1000	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/crows	Crows	0
+1001	hidden	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/bird-couple	Bird Couple	0
+1002	hidden	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/whale	Whale	0
+1003	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/kiss-machine	Kiss Machine	0
+1004	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/xix/17-ton-bar	17 ton  Bar	0
+1005	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/xix/eagle	Eagle	0
+1006	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/xix/torso	Torso	0
+1007	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/xix/nailed-tanks	Nailed Tanks	0
+1008	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/xix/iron-channel	Iron Channel	0
+1014	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/olympic-machine	Olympic Machine	0
+1026	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/nova	Nova	0
+1027	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/car-wreck	Car Wreck	0
+1034	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/duschfass	Duschfass	0
+1035	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/raw-heater-bar	Raw Heater Bar	0
+1036	hidden	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/gazing-starling	Gazing Starling	0
+1037	hidden	0	project/sculptural-work	11		Birds	0
+1038	hidden	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculptures/nagging-couple	Nagging Couple	0
+1039	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculpture	Sculptures	0
+1040	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-installations	Installations	0
+1044	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-installations/odonische-feuer	Odonische Feuer	0
+1046	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculpture/wacken-scull	Wacken Skull	0
+1047	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculpture/wacken-bull	Wacken Bull 	0
+1048	hidden	5	project/sculptural-work	11	content/sculptures/sculptural-work/recent-sculpture/bird-sculptures	Bird Sculptures - test	0
+1050	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/bird-sculptures	The Birds	0
+1051	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/tubebox-railing	Tube Ghosts	0
+1052	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/sisyphos-gate	Sisyphos Gate	0
+1053	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/the-fifth-estate	The Fifth Estate	0
+1057	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/lionfish-door	Lionfish Door	0
+1059	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/installations/apocalyptic-fence	Apocalyptic Fence	0
+1061	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/nova-two	Nova Two	0
+1062	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/bill-parooka	Bill Parooka	0
+1063	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/installations/die-weglampen	Die Weglampen 	0
+1064	active	3	project/sculptural-work	11	content/sculptures/sculptural-work/installations/the-helixes	The Helixes	0
+1067	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/portraits/alberto	Alberto	0
+1068	active	1	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/portraits	Portraits	0
+1069	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/portraits/bernhard	Bernhard	0
+1070	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/portraits/kaethe	Käthe	0
+1071	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/the-wolf	The Wolf	0
+1072	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/flower-power	Flower Power	0
+1073	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/affenbande	Affenbande	0
+1074	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/blumenwolke	Blumenwolke	0
+1076	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/schiffszimmer	Schiffszimmer	0
+1077	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/hinwil	Hinwil	0
+1080	active	2	project/sculptural-work	11	content/sculptures/sculptural-work/sculptures/hafenszene	Hafenszene	0
+877	active	4	project/sculptural-work (container)	11	sculptures/sculptural-work	sculptural work	0

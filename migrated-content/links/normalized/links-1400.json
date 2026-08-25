@@ -1,0 +1,22 @@
+{
+  "source": "tt_content uid 1400 (pid 974)",
+  "categories": [
+    {
+      "heading": "ON MY OWN BEHALF:",
+      "source_line": 1,
+      "entries": [
+        {
+          "source_line": 1,
+          "prefix": "",
+          "name": "Casino Gitano",
+          "url": "http://www.myspace.com/casinogitano",
+          "suffix": " on myspace",
+          "link_params": "http://www.myspace.com/casinogitano - external-link-new-window \"Opens external link in new window\"",
+          "anchor_count": 1,
+          "extra_links": []
+        }
+      ]
+    }
+  ],
+  "anomalies": []
+}
