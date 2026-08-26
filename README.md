@@ -861,7 +861,8 @@ build — a missing alt is an accessibility defect, but it should not stop a dep
 | `loading` / `decoding` | `lazy` / `async` |
 
 **Widths larger than the source are skipped** — the plugin does not upscale raster images.
-A 800px original with the defaults yields 400px and 800px variants, not four. This means a
+Verified against v7.0.0: a 67px source with the default widths generates exactly one
+variant at 67px, not four upscales. An 800px original yields 400px and 800px, not four. This means a
 single width list can serve an archive of small legacy images and a stream of large modern
 ones without special-casing either.
 

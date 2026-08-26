@@ -561,9 +561,18 @@ module.exports = function(eleventyConfig) {
   };
   const imageOptions = Object.assign({}, IMAGE_DEFAULTS, userConfig.images || {});
 
+  // eleventy-img v7+ ships as ESM ("type": "module"), so require() returns a
+  // namespace object and the callable lives on .default. Older CJS releases
+  // export the function directly. Handle both, or the shortcode throws an
+  // unhelpful "Error with Nunjucks shortcode `image`" with no cause attached.
   let EleventyImage = null;
+  let eleventyImageGenerateHTML = null;
   try {
-    EleventyImage = require("@11ty/eleventy-img");
+    const mod = require("@11ty/eleventy-img");
+    EleventyImage = (mod && mod.default) || mod;
+    eleventyImageGenerateHTML = (mod && mod.generateHTML) ||
+                                (EleventyImage && EleventyImage.generateHTML);
+    if (typeof EleventyImage !== "function") EleventyImage = null;
   } catch (err) {
     // Not installed. Intentional and supported -- see the fallback below.
   }
@@ -603,7 +612,7 @@ module.exports = function(eleventyConfig) {
       sharpWebpOptions: { quality: imageOptions.webpQuality }
     });
 
-    return EleventyImage.generateHTML(metadata, {
+    return eleventyImageGenerateHTML(metadata, {
       alt,
       sizes: sizes || imageOptions.sizes,
       loading: imageOptions.loading,
