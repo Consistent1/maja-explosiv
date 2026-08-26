@@ -856,6 +856,91 @@ reconnaissance. Their *conclusions about what to do next* are superseded.
   whole site in nineteen months: `tt_content.uid=1399.bodytext`, the Links page.** Everything else
   is identical. Detail in the migration plan §2.0a.
 
+- [ ] **The site has no favicon.** (raised 2026-08-26.) `src/_user/layouts/base.njk` referenced
+  `/assets/images/favicon.ico`, which has never existed in this repo — a 404 on every page,
+  live today. The reference is now removed rather than pointed at a stand-in: the only logo
+  asset present (`shared/site/logo.svg`) is itself marked *"Placeholder logo SVG. Replace with
+  your branded logo"* — a grey box with text — so generating an icon from it would ship
+  placeholder design, which §3 says is the owner's call, not mine. **Supply a real icon and
+  restore the line in `base.njk`** (the removed markup is left there as a comment).
+  Same applies to `logo.svg` itself, which `site.js` still points at.
+
+- [ ] **Two nav links have never existed: `/sitemap/` and `/search/`.** (raised 2026-08-26.)
+  Broken in the deployed `docs/` too, so they are 404s on the live site right now and predate
+  the migration. Either build the pages or drop the links — not a migration question.
+
+- [ ] **The deleted `sennhof` page looks like a staging page — check it before Stages 6–11.**
+  (raised 2026-08-26.) `pages.uid = 1079`, deleted and hidden, preserved at
+  `migrated-deleted-content/maja/deleted-pages/1079-sennhof/`. Two signals point the same way:
+  its text sits under a heading *"workshop views"* but describes the **Affenbande monkeys**
+  (five sculptures, 2020–2022, Zürich, Galerie Neurotitan) — and its images overlap heavily
+  with other projects: **19 files shared with `hinwil`**, 17 more with `affenbande`,
+  `hafenszene` and `hinwil` together (see `image-archive/DUPLICATES.md`).
+  That combination reads like a working page Maja used to gather material across several
+  projects rather than a project of its own. **Worth her eye before those projects are
+  migrated** — some of its text may be the only surviving description of the Affenbande work,
+  and some of its images may be miscredited if treated as a project in their own right.
+
+- [x] ~~**D5 — the six→four category mapping.**~~ **Substantially resolved 2026-08-26** by the
+  owner's rule: anything that does not fall neatly into a new category goes to a `TBD/` category
+  folder rather than being guessed at. **60 of 75 visible projects map from the source itself** —
+  notably the 46 in `sculptural-work`, which the old site had already split into *Sculptures*
+  (29) and *Installations* (17). **13 go to `TBD/`**: `collaborations` (8, a mode not a medium),
+  `event-organisation` (3, events not artworks), `possibilities` (2, incl. Breath Under Water).
+  `recent-work`'s two entries were checked and excluded — zero content, zero children, zero
+  images, so they are navigation shells rather than projects. Full table in the migration plan, decision 13.
+  Emptying `TBD/` remains an open task, but no longer blocks the project stages.
+
+- [x] ~~**ASK MAJA: should `collaborations` survive as a body of work?**~~ **Withdrawn
+  2026-08-27 — the question was based on a wrong premise of mine.** `collaborations` does not
+  exist on the new site at all; it is not a category and was never going to be. The only
+  question was ever **which new category each project goes to**, and the owner has answered it:
+  the eight collaborations projects go to `sculptures`. Nothing curatorial was at stake.
+
+- [ ] **Ask Maja to confirm the 8 collaborations projects belong under `sculptures`** — she may overrule.
+
+- [ ] **Run a "live page, hidden gallery" census before Stages 6–11** — how many published pages have their gallery switched off, as Metal Group XIX does. The archive's hidden bucket is 145 MB, so this is not a one-off.
+
+- [ ] **Pages that are published while their image gallery is hidden.** (raised 2026-08-27,
+  needed before Stages 6–11.) **Metal Group XIX** (`pages.uid = 1078`) is the known case: the
+  page is live with two text blocks, but its gallery element (`uid 1655`, CType `list`) is
+  `hidden = 1`, so its **50 images do not display on the live site.** Confirmed by fetching
+  `content/sculptures/collaborations/metal-group-xix.html` — text renders, gallery does not.
+
+  The images are safe in `image-archive/hidden/collaborations/metal-group-xix/`. The migration
+  currently follows the live site and gives such a page no gallery, which is faithful. **But 50
+  archived photographs of a project that shows none may simply be a switch Maja forgot was off**
+  — worth asking rather than silently inheriting.
+
+  **This is almost certainly not the only such page** — the hidden bucket of the archive holds
+  145 MB. A census of "live page, hidden gallery" should run before the project stages.
+
+- [ ] **A third image-reference mechanism was missed by the census: images embedded in
+  `bodytext` HTML.** (raised 2026-08-27.) The image census covered `tx_dam_mm_ref` (galleries)
+  and `tt_content.image`, but **not `<img>` tags written directly into rich-text content**.
+  Measured: **70 content elements contain `<img>`, 38 of them live, referencing 163 distinct
+  files — 148 present in the backup.** Many are TYPO3 `uploads/RTEmagicC_*` thumbnails used to
+  build in-page navigation grids (Metal Group XIX has 13 such 160x160 links to other projects),
+  and some belong to `pyrofessor` (`fileadmin/s-pf/`), not Maja.
+
+  Mostly navigation furniture rather than artwork, so probably low value — **but it is unaudited
+  and the archive does not contain them.** Needs a pass before the image census can be called
+  complete.
+
+- [ ] **Three real projects sit outside the old site's six categories.** (raised 2026-08-26,
+  needed before Stage 6.) The migration plan's stage table assumes every project lives under
+  one of the six containers. It does not: **`Breath Under Water` (77 images), `Alchemy Bar`
+  (36) and `Sculptures` (32)** hang off `recent work` (uid 867) and `- possibilities -`
+  (uid 1049). The image archive now files them under `recent-work/` and `possibilities/`, but
+  the **stage table needs 145 images and 3 projects added to it**, and the six→four mapping
+  (D5) has to cover them.
+
+- [ ] **155 image references point at content rows that no longer exist.** (raised 2026-08-26.)
+  `tx_dam_mm_ref` rows whose `uid_foreign` matches no `tt_content` record — dangling references
+  left by deletions that did not clean up the link table. They are skipped by the archive
+  builder and counted as `ref-to-missing-content`. Harmless, but worth knowing before anyone
+  treats the link table's row count as an image census.
+
 - [ ] **Which images move with the quarantine?** (raised 2026-08-25, needed before **Stage 2 —
   Press**.) §5.1 of the migration plan moves all content Markdown out of `src/` before Stage 1,
   but `src/assets/images/` is left alone. That directory mixes two things: site chrome the

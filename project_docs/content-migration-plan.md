@@ -107,6 +107,65 @@ content type by content type, with each type verified before the next one starts
     Affenbande text that **appears nowhere on the live site** — genuinely unpublished content
     that the earlier exclusion would have lost.
 
+### Owner decision, 2026-08-26 — uncertain projects go to `TBD/`
+
+13. **Any project that does not fall neatly into one of the new four categories goes into a
+    category folder called `TBD/`.** Not guessed at, not forced into the nearest fit.
+
+    This unblocks D5 without requiring the whole mapping up front, and it removes the failure
+    that produced the project's most-cited migration error — a whale sculpture filed under
+    paintings by keyword heuristic. **`TBD` is the honest answer where there is no answer**, and
+    a project sitting in it is visible as an open question rather than silently miscategorised.
+
+    **Where the mapping is decided by the source itself:**
+
+    | old container | → new category | visible projects | basis |
+    |---|---|---|---|
+    | `sculptural-work` → *Sculptures* | `sculptures` | **29** | the old site's own sub-container |
+    | `sculptural-work` → *Installations* | `installations` | **17** | same |
+    | `performance` | `performance` | 6 | direct |
+    | `murals` | `paintings` | 3 | painted works |
+    | `paper-work` | `paintings` | 5 | works on paper |
+    | | | **60** | |
+
+    **The 46 in `sculptural-work` need no judgement at all** — the old site already split them
+    into *Sculptures* (29) and *Installations* (17), which is exactly the distinction the new
+    site draws. That was the hardest part of D5 and the source answers it.
+
+    **Where it goes to `TBD/` — 5 visible projects** (was 13; see the collaborations row):
+
+    | old container | projects | why it is not clean |
+    |---|---|---|
+    | ~~`collaborations`~~ | ~~8~~ → **`sculptures/`, 2026-08-27** | Resolved. `collaborations` is not a category on the new site, so the only question was which of the four these belong to. By material they are metal sculptures |
+    | `event-organisation` | 3 — Dada Festwochen, Eurokon, Eurokot | **Events, not artworks.** `performance` is the nearest of the four and still wrong |
+    | `possibilities` | 2 — Breath Under Water, Alchemy Bar | Substantial projects (77 and 36 images) under a hidden container. **Breath Under Water is the whale** that a keyword heuristic previously filed under paintings |
+    | ~~`recent-work`~~ | ~~2 — *Installations*, *Sculptures*~~ | **Excluded 2026-08-26, verified: not projects.** uids 1041/1042 have zero content rows, zero child pages and zero images. Empty navigation containers. They produce no project pages |
+
+    A `TBD` folder is a staging area, not a destination: emptying it is a release condition
+    alongside `unassigned.tsv` (§5.1).
+
+### Owner decision, 2026-08-26 — image conversion is lossless, native size
+
+14. **Site images are produced from the archive by lossless optimisation only. Nothing is
+    resized, including the large ones — they stay at native size** (owner, explicit).
+
+    `jpegtran -optimize -progressive -copy none`: rebuilds the Huffman tables and strips
+    metadata, leaving **mathematically identical pixels**. Verified by decoding source and
+    output to raw RGB and comparing SHA-256.
+
+    **Why not WebP/AVIF, which an earlier draft recommended:** the sources are far better than
+    first assumed. Measured across all 1,007 unique live files — median longest edge **1000px**
+    (not the 799px an unrepresentative 40-file sample suggested), **34% at 1200px+**, max
+    2480px, and **68% carry full 4:4:4 chroma**. These are high-quality JPEGs (q86–99), large
+    because they are good. Any lossy transcode discards something they still have.
+
+    Delivery-format variants (AVIF/WebP via `<picture>`, responsive widths for the 34% above
+    1200px) remain available later and are a **bandwidth** decision, not a quality one — and
+    they will be generated from these preserved originals rather than from a lossy intermediate.
+
+    **`image-archive/` is read-only and is never modified.** Output goes only to
+    `src/assets/images/projects/<category>/<project>/`.
+
 ### Why this split is the right one, not just a constraint
 
 Extracting from the database and verifying against the live site are **independent
@@ -404,12 +463,25 @@ join yields exactly what the old site displayed.
 
 **Two secondary reference paths, noted so they are not forgotten:**
 
-- **`tt_content.image` → `uploads/pics/`.** Ten live elements use it (9 `image`, 1 `textpic`)
-  rather than DAM. Small, but a DAM-only extractor silently drops them — and silence is
-  indistinguishable from "this element had no pictures".
-- **`tx_dam_mm_ref` also carries other `ident` values** — `tx_damttcontent_files` (63),
-  `cfa_mooflow` (8), `and_shadowbox` (6). Only `rgsmoothgallery` has been analysed. Check these
-  before declaring the image census complete.
+- **`tt_content.image` → `uploads/pics/`.** Handled by the archive builder and verified:
+  **26 references, all 26 resolved, none missing.**
+
+  **Correction (2026-08-26):** an earlier note here said "ten live elements (9 `image`, 1
+  `textpic`)". That counted `deleted = 0` only and so **counted hidden elements as live** — the
+  same conflation that inflated the image-reuse figure before it was rechecked. The real
+  breakdown: **10** not deleted, **6** not deleted and not hidden, **6** truly live once the
+  page's own state is considered. Of those 6, **five belong to `pyrofessor`** (`Feuershow für
+  Kids`, `Brennende Badewanne`) and exactly **one is Maja's** — `webthanksxy.jpg` on the contact
+  page (uid 973). Worth handling, but the honest scale is one image, not ten.
+
+- **`tx_dam_mm_ref` carries four `ident` values.** All are now accounted for:
+
+  | ident | refs | status |
+  |---|---|---|
+  | `rgsmoothgallery` | 1,745 | galleries — the main path |
+  | `tx_damttcontent_files` | 63 | resolved into the archive (62 copied) |
+  | `cfa_mooflow` | 8 | resolved into the archive |
+  | `and_shadowbox` | 6 | **all dangling** — every one points at `content_uid = 1145`, which does not exist in `tt_content`. The `tx_dam` records survive but nothing references them. Counted among the 155 `ref-to-missing-content`; nothing is lost |
 
 **Basename collisions: 7.** Across 1,165 referenced images there are 1,158 distinct basenames, so
 seven names are reused in different folders (`DSC02542.JPG`, `lx-i1.jpg`, `lx-i1-2.jpg`,
@@ -465,6 +537,29 @@ backup, never a fetch from the live site. This is the image drift §2.0a flagged
   The one thing still read from `src/` is **format**: which front-matter keys the templates
   consume. That is a property of the templates, not of the content, and it is confirmed by
   reading the layouts in `src/_user/layouts/`, not by trusting any existing content file.
+- **`deleted = 0` does not mean live. Check both flags, at both levels.** TYPO3 hides records
+  in two independent ways — `deleted` (recycle bin) and `hidden` (unpublished) — and applies
+  both to **content elements *and* their pages**. A row can be `deleted = 0` and still be
+  invisible on the site because it is hidden, or because the page it sits on is hidden or
+  deleted. **Every count of "live" content must filter all four**:
+
+  ```sql
+  WHERE c.deleted = 0 AND c.hidden = 0 AND p.deleted = 0 AND p.hidden = 0
+  ```
+
+  **This has produced a wrong number three times in this project**, always in the same
+  direction — too high, and stated confidently:
+
+  | claimed | actual | what was missed |
+  |---|---|---|
+  | 5% of images shared across pages | **2.1%** | a hidden page ("Bird Sculptures - test") supplied 29 of the 54 |
+  | 10 live `tt_content.image` elements | **6** (and only **1** is Maja's) | hidden elements counted as live |
+  | "zero content drift between the dumps" | one row changed | a different error — generalising from 3 sampled rows — but the same habit of asserting an unverified scope |
+
+  The failure mode is not the query, it is reporting a filtered number as if it were the whole
+  picture. **State the filter alongside the figure**, so "1,049 images" is written as
+  "1,049 images on visible pages" and the omission is visible rather than implied.
+
 - **Never assume a capability in either direction.** If a step needs a tool, a network route,
   a credential or a service, **ask.** Do not conclude something is impossible and quietly
   substitute a worse approach; do not conclude something is permitted and proceed. This rule

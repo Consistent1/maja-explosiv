@@ -11,3 +11,9 @@ src/_includes/**
 # Exclude project documentation and temporary files
 project_docs/**
 temp/**
+
+# READMEs that document a content directory are notes for humans, not pages.
+# Without this they are picked up by the src/posts/**/*.md collection glob and
+# rendered as posts.
+src/posts/**/README.md
+src/pages/**/README.md

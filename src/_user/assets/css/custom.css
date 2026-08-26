@@ -388,7 +388,7 @@ h6 {
     bottom: 0;
     width: 296px;
     height: 154px;
-    background-image: url('../images/sidebar-brush.png');
+    background-image: url('../images/shared/site/sidebar-brush.png');
     background-repeat: no-repeat;
     background-size: 1126px 308px;
     background-position: -253px 0;
@@ -431,7 +431,7 @@ h6 {
     justify-content: flex-start;
     align-items: flex-start;
     position: relative;
-    background-image: url('../images/corner.png');
+    background-image: url('../images/shared/site/corner.png');
     background-repeat: no-repeat;
     background-position: right top;
     background-size: auto;
@@ -1283,7 +1283,7 @@ h6 {
     padding: 0;
     margin: 0;
     /* Corner decorative image - matches homepage hero section */
-    background-image: url('../images/corner.png');
+    background-image: url('../images/shared/site/corner.png');
     background-repeat: no-repeat;
     background-position: right top;
     background-size: auto;

@@ -1,0 +1,163 @@
+group	path	bytes	sha256	disposition
+A. chrome, in use	Bildschirmfoto 2025-10-14 um 04.00.59 1.png	2617	4b8b106a61b61e0e	KEEP
+A. chrome, in use	contact-image.png	115499	7a05656c5d6c9f55	KEEP
+A. chrome, in use	corner.png	21742	8e8fc5e8db3915f5	KEEP
+A. chrome, in use	footer-logo.png	30323	42cf9053cfcc6de3	KEEP
+A. chrome, in use	maja.webp	13698	fae505d886583864	KEEP
+A. chrome, in use	shared/general/logo.svg	480	e67e035b9c5b47d0	KEEP
+A. chrome, in use	sidebar-brush.png	159803	18925aed22a95794	KEEP
+B. template demo asset	carousel/gallery/gallery1.svg	605	82441b38f4d129ac	KEEP (template decision)
+B. template demo asset	carousel/gallery/gallery2.svg	626	ada2e000992bd7f3	KEEP (template decision)
+B. template demo asset	carousel/gallery/gallery3.svg	613	9e8c4a3e643f4ee5	KEEP (template decision)
+B. template demo asset	carousel/hero/hero1.svg	703	abc66988abc93f8a	KEEP (template decision)
+B. template demo asset	carousel/hero/hero2.svg	684	94c21e44fe889d4a	KEEP (template decision)
+B. template demo asset	carousel/hero/hero3.svg	692	cc3ce99327755013	KEEP (template decision)
+B. template demo asset	hero/hero-maja-explosiv.jpg	37336	241476998969470a	KEEP (template decision)
+C. placeholder	news/2024/placeholder-news/placeholder.jpg	17992	59f0cc0f758d4655	DELETE (owner: ignore placeholders)
+C. placeholder	projects/installations/placeholder-installation/placeholder.jpg	20031	bb15b5cb2fb07c8c	DELETE (owner: ignore placeholders)
+C. placeholder	projects/performance/placeholder-performance/placeholder.jpg	23727	a0c476c46b75b5c3	DELETE (owner: ignore placeholders)
+C. placeholder	projects/sculptures/placeholder-sculpture/placeholder.jpg	22370	4f70a512bfb2e80a	DELETE (owner: ignore placeholders)
+D. content: press clippings	shared/press/1993-wohlgroth-ta-august.jpg	635035	a0597b2f18cddcfa	DELETE - superseded by Stage 2
+D. content: press clippings	shared/press/1994-felix-und-regula-ta-april.jpg	880253	5e524169677e7945	DELETE - superseded by Stage 2
+D. content: press clippings	shared/press/1999-dorfbachschiff-zo-june.jpg	736749	6c0fc9230b69f40d	DELETE - superseded by Stage 2
+D. content: press clippings	shared/press/2004-casino-gitano-1.jpg	699298	dae889bdc3a77289	DELETE - superseded by Stage 2
+D. content: press clippings	shared/press/2005-free-radicals-glas-istre-july.jpg	508766	8b77bc4d99ebf492	DELETE - superseded by Stage 2
+D. content: press clippings	shared/press/2007-derevo-mannheimer-morgen-july.jpg	440688	51a0a0d08913da52	DELETE - superseded by Stage 2
+E. content: migrated project	projects/paintings/akwa/akwa-001.jpg	189931	2cba89cf41a966cc	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-002.jpg	251708	cf4da79b25d4ad70	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-003.jpg	400958	be202ee9bcd69e81	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-004.jpg	537303	d95e6b85aea609be	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-005.jpg	459325	a8d894ad7e506253	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-006.jpg	82999	495b4dde3429de05	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-007.jpg	135213	9dc503bfd80a62bb	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-008.jpg	134984	1db7301c3b9daeaa	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-009.jpg	124226	ec48088b4685841d	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-upload-010.jpg	171698	8a15dd2ea8e59fc9	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/akwa/akwa-upload-011.jpg	61122	2d7ac9b1d044ca96	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-001.jpg	424902	e8a8ed080e0d691a	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-002.jpg	259025	6ca8cc9923b9484c	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-003.jpg	536248	6a5fb430bf6af4d3	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-004.jpg	635553	1821f0ecf257c751	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-005.jpg	494207	1f62fc0c7938514a	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-006.jpg	155946	3ffb6bf742f94e98	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-007.jpg	476458	b651a81b3a87446e	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-008.jpg	575391	41c54a961d82ce07	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-009.jpg	158139	297024a4678d3bc8	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-010.jpg	375670	1c4385a6784615a1	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-011.jpg	750737	5738afd449e7413c	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-012.jpg	670308	c7b51200ee7d455e	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-013.jpg	642456	cdea51ffb4025f37	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-014.jpg	188999	a5cfc260804062a1	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-015.jpg	772537	4f05dccc91d966d7	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-016.jpg	390624	e0bc4aaf36b489b2	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/concept-illustration/concept-illustration-017.jpg	325156	fdead1b8c0a37db2	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997bagger-001.jpg	256225	46ff0ac374039aaf	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-001.jpg	102747	47dd4a24337f7a20	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-002.jpg	338076	54b70f5b8cc5c90b	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-003.jpg	500204	93b935ea86ed0aa8	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-004.jpg	583326	c070358abeb38605	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-005.jpg	108327	8454e129c7fe74c5	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-006.jpg	127294	3e41da31c3f79c94	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-007.jpg	135657	3cd0214003fc6520	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-008.jpg	155393	d7d5a89bc480c266	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-009.jpg	107231	3d31b1a5223eedcb	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-010.jpg	173030	feeb604348f66d22	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-011.jpg	106649	7d651b6de02d1e66	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-012.jpg	185915	d78fa9416737c3b2	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-013.jpg	111611	1ffe2366675c9416	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-014.jpg	1017615	965cce1f8bf1015a	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-015.jpg	435867	ba844e8eff679439	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-016.jpg	508388	dd082f1c4913e7e3	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-017.jpg	86346	ca28372136a62d84	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-018.jpg	248063	e8e3b011bcdb8a96	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-019.jpg	258232	9e663fa5507576a9	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-020.jpg	230009	6d3029be12d0001e	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-021.jpg	238244	2971790ed43de55f	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-022.jpg	198184	9e36663a471868b6	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-023.jpg	219787	f2451a332a2e59fa	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-024.jpg	224746	f788b5a7a7906924	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-025.jpg	134991	939a793a376ee11b	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/graphical-work/1997xix-026.jpg	97941	b79eea9a0f122a8d	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-001.jpg	254643	bd98e219612434da	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-002.jpg	194903	da0a6b8a3cc5af5e	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-003.jpg	259861	5d4393adbff25284	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-004.jpg	841967	8e02e5cdf5f4acf6	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-005.jpg	226205	537e91860f8b739a	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-006.jpg	297896	80f1c08acbbdaa29	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-007.jpg	233961	ce9f8ba4fdcf1c51	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-008.jpg	222864	603844fb597aa185	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-009.jpg	259398	ef728d04df41b504	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-010.jpg	355316	ffe1deecb14f1b0f	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-011.jpg	190678	b1d2a0164f15e51c	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-012.jpg	253461	50998f2992fcfe0d	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-013.jpg	145377	db18043792fa09a2	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-014.jpg	154865	887f06637c6a2fff	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-015.jpg	274846	36c7a0c812849dc1	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-016.jpg	312745	d0c6ff78c542f3b4	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-017.jpg	516530	91d4c1b15246901d	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-upload-018.jpg	52980	af80abcc6f184099	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/malaga-la-vache/malaga-la-vache-upload-019.jpg	179905	61858bc3ebe2772c	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-001.jpg	128657	ca58d2d15906df70	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-002.jpg	457444	467bc41f455cca8e	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-003.jpg	137629	70c7e70210946199	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-004.jpg	136537	ed025d39599092bd	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-005.jpg	160418	054f851a1499c42d	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-006.jpg	89775	f645dfe6601a99c1	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-007.jpg	132322	dd0f3600cc421511	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-008.jpg	76255	18287c15b7a4a71c	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-009.jpg	1394371	f7cbc2545563cefe	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-010.jpg	143249	af4df628f490edf3	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-011.jpg	112441	2e9cec219627fce1	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-012.jpg	188458	3ee7eebe4f163927	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-013.jpg	182638	a799bca5ae55e3ad	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-014.jpg	143733	0447d16b9862b971	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-015.jpg	217528	5af10a9b6b2d8063	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-016.jpg	149526	f620457ce4f25eff	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-017.jpg	168475	9870a66e5f8bfb6c	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-018.jpg	134005	855568614ee85c0e	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-019.jpg	216544	976e4aa5e8eb6cfe	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-020.jpg	167902	9b05b105fa59a157	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-021.jpg	165615	7cd47dd419d120c0	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-022.jpg	192891	ccc79ee424e52716	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-023.jpg	65604	93acf02ba57281a6	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-024.jpg	93720	d09d55f070ac1e64	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-025.jpg	87906	92eb4ea759a1aa0d	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-026.jpg	192761	d321f8bedbb69482	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-027.jpg	139993	0e7f2c92ea81cf7c	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-028.jpg	150012	3bfcc016c3b1cc4a	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-029.jpg	476086	fc1be73ff229cd14	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-030.jpg	147249	aced57de94289747	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-031.jpg	490449	3b2766f780283f75	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-032.jpg	159064	51cdc853cc3314ee	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-033.jpg	130424	a3eec8297bd5c1b7	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotallg-034.jpg	163800	819ca01aad16cf5a	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-001.jpg	546535	1a481a1232e7b435	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-002.jpg	500204	93b935ea86ed0aa8	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-003.jpg	583326	c070358abeb38605	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-004.jpg	108327	8454e129c7fe74c5	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-005.jpg	127294	3e41da31c3f79c94	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-006.jpg	135657	3cd0214003fc6520	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-007.jpg	236774	591547be4e06e399	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-008.jpg	160679	a96d81a898665670	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-009.jpg	187547	6c4d3c690c5e4dc0	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-010.jpg	143531	221cc3e85507ca61	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-011.jpg	131756	2e6ae73ac55ff92a	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-012.jpg	176988	1def522a438942cc	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/paintings/murals-europe/1995eurokotxix-013.jpg	196638	b272ad91c8cc9375	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/DjangoKnoth_Gate_01.jpg	347098	1d3b5dd8b615369e	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/DjangoKnoth_Gate_03.jpg	373499	816537715bee3d7b	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/DjangoKnoth_Gate_30.jpg	350498	116f8ee07dc2d615	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/DjangoKnoth_Gate_33.jpg	364802	41e93fed4c6950f9	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/DjangoKnoth_Gate_37.jpg	482381	b72b5735270fbb24	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/Duck_gate_1.jpg	290914	4961156516ffafc3	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/Ducks_gate.jpg	237367	b89d07efaef0e187	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/FullView24.jpg	315826	164c36035f44032c	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/IMG_1286.JPG	337509	8bcb2c0b0da0db34	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/_0016160-Bearbeitet.jpg	380170	924f8e01f5494f83	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/sis_Overtrol15-2.JPG	417604	1279443809505e9e	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/sis_Overtrol15-3.JPG	463622	d44d66d1b3394058	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/sis_Overtrol15-4.JPG	327744	fadbc258c63ca0ad	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/sis_Overtrol15-6.JPG	387114	1ae44cae6e690cee	DELETE - superseded by Stages 6-11
+E. content: migrated project	projects/sculptures/sisyphos-gate/sis_Overtrol15-7.JPG	440108	a190a92e13c9fd2a	DELETE - superseded by Stages 6-11
+F. stray at category level	projects/installations/blumenwolke.jpg	20340	e86bee7f0ef7716c	DELETE - duplicate stand-in
+F. stray at category level	projects/sculptures/the-wolf.jpg	20340	e86bee7f0ef7716c	DELETE - duplicate stand-in

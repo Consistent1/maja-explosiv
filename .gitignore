@@ -26,3 +26,14 @@ REFACTORING_PLAN.md
 
 # Figma API response cache (scripts/figma_audit.py)
 /scripts/.figma-cache
+
+# Archive of the original site's image/media files, rebuilt from old/TYPO3BU/ by
+# migrated-content/_tools/build_archive.py. ~400 MB of untouched originals; a
+# deliverable for Maja and the master for producing site images, not site content.
+# Its manifest.tsv IS worth committing -- see image-archive/README.md.
+/image-archive
+
+# Build output for GitHub Pages. No longer tracked: Pages builds via
+# .github/workflows/deploy-pages.yml since 2026-08-26. Tracking it committed a
+# second copy of the whole site and rewrote every file on each deploy.
+/docs

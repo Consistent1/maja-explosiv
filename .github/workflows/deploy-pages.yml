@@ -1,20 +1,22 @@
 # Deploy to GitHub Pages.
 #
-# DISABLED BY DEFAULT. It only runs when you trigger it by hand, so adding the
-# template to a repo never publishes anything unexpectedly. To make it automatic,
-# uncomment the `push:` block below.
+# ENABLED for this site: runs on every push to main, and on demand.
 #
-# Before the first run, in the repository: Settings -> Pages -> Build and
-# deployment -> Source: **GitHub Actions**. Without that the deploy step fails.
+# ONE MANUAL STEP IS REQUIRED BEFORE THE FIRST RUN:
+#   Settings -> Pages -> Build and deployment -> Source: **GitHub Actions**
+# This repo is currently set to "Deploy from a branch: main /docs". Until the
+# source is switched, this workflow builds fine and then FAILS at the deploy
+# step. Switch it, then delete the tracked docs/ directory -- not before, or
+# the live site goes down in the gap.
 #
 # This replaces the older "build into docs/ and commit it" flow. Nothing built
 # is committed, so image bytes are not duplicated in git history on every deploy.
 name: Deploy to GitHub Pages
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
-  # push:
-  #   branches: [main]
 
 # Allow one deploy at a time; don't cancel a run that is mid-publish.
 concurrency:
@@ -32,7 +34,7 @@ jobs:
     # "/<repo>/". For a USER site or a custom domain, use "/".
     uses: ./.github/workflows/build.yml
     with:
-      path-prefix: /explosive-11ty/
+      path-prefix: /maja-explosiv/
 
   deploy:
     needs: build

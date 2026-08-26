@@ -69,7 +69,7 @@ layout: sidebar-layout.njk
 
                         {# About section intro with image and text before tabs - pulled from bio.md, not hardcoded #}
                         <div class="about-intro">
-                            <img src="{{ '/assets/images/maja.webp' | url }}" alt="Maja Explosiv" class="about-image">
+                            <img src="{{ '/assets/images/shared/profile/maja.webp' | url }}" alt="Maja Explosiv" class="about-image">
                             {% if bioPage and bioPage.data.excerpt %}
                                 <div class="about-intro-text">
                                     <p>{{ bioPage.data.excerpt }}</p>
@@ -213,10 +213,10 @@ layout: sidebar-layout.njk
         </div>
         
         {# Decorative plant image - bottom center #}
-        <img src="{{ '/assets/images/contact-image.png' | url }}" alt="" class="contact-image-bottom" aria-hidden="true">
+        <img src="{{ '/assets/images/shared/site/contact-image.png' | url }}" alt="" class="contact-image-bottom" aria-hidden="true">
         
         {# Decorative plant image - right side faded #}
-        <img src="{{ '/assets/images/contact-image.png' | url }}" alt="" class="contact-image-right" aria-hidden="true">
+        <img src="{{ '/assets/images/shared/site/contact-image.png' | url }}" alt="" class="contact-image-right" aria-hidden="true">
     </div>
 </div>
 

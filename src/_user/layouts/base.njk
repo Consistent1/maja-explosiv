@@ -49,7 +49,10 @@
     {% endif %}
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | url }}">
+    {# No favicon yet. The reference here 404'd on every page; the only logo asset
+       in the repo (shared/site/logo.svg) is itself a placeholder, so generating one
+       from it would ship placeholder design. Add a real icon and restore this line.
+       Logged in PLAN.md. #}
     {% endblock %}
 </head>
 <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">

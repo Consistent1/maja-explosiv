@@ -116,6 +116,10 @@ These are the owner's standing instructions. They are not negotiable defaults.
 - Open questions of the "needs the owner's judgement" kind go in **one place**:
   `project_docs/PLAN.md` § *Open items needing input*. Resolved items get struck through
   with the resolution, not deleted.
+- **When counting anything in the TYPO3 database, `deleted = 0` is not enough.** TYPO3 hides
+  records via `deleted` *and* `hidden`, at both content and page level. Filter all four, and
+  **state the filter next to the number** — "1,049 images on visible pages", not "1,049
+  images". This has produced an overstated figure three times; see the migration plan §3.
 - **Keep things simple, without sacrificing reliability, adherence to web standards, or
   ease of use.** The overall bar for the project.
 
@@ -239,7 +243,17 @@ Phases are in PLAN.md; the short version:
     from the current dump**: `SELECT LENGTH(bodytext) FROM tt_content WHERE uid=1399;` must
     return **8441**. If it returns 10340 the January 2025 dump is loaded and every extraction
     will be silently stale — that happened, and passed all eleven local checks.
-- **Deployment** — GitHub Pages **live** at <https://consistent1.github.io/maja-explosiv/>
-  (`main`, path `/docs`): `npm run deploy:github`, commit `docs/`, push. Stop the dev server
-  first and rebuild locally after; see `README.md` § *Serving, building and deploying*. VPS
-  still deferred.
+- **Deployment** — GitHub Pages **live** at <https://consistent1.github.io/maja-explosiv/>.
+  **Mid-transition (2026-08-26):** `.github/workflows/deploy-pages.yml` now builds and
+  publishes via GitHub Actions (`path-prefix: /maja-explosiv/`, runs on push to `main`).
+  Actions is free here because the repo is public.
+  **Two manual steps remain, in this order:**
+  1. **Settings → Pages → Source: `GitHub Actions`** (currently "Deploy from a branch: main
+     /docs"). Until this is flipped the workflow builds and then fails at the deploy step.
+  2. **Only then** stop tracking `docs/` (231 files). Doing it first takes the live site down.
+
+  Why the change: `docs/` is a committed second copy of the whole build, and `copy:docs` does
+  `rm -rf docs && cp -r _site docs`, so every deploy rewrites every file and git grows by the
+  asset payload each time. Already 42 MB duplicated; the image archive would make it ~200 MB.
+  The old flow (`npm run deploy:github`, commit `docs/`, push) still works until step 1 happens.
+  VPS still deferred — `deploy-server.yml` exists upstream, manual-trigger only, unconfigured.
