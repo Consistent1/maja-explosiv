@@ -1,0 +1,54 @@
+# Deploy to GitHub Pages.
+#
+# DISABLED BY DEFAULT. It only runs when you trigger it by hand, so adding the
+# template to a repo never publishes anything unexpectedly. To make it automatic,
+# uncomment the `push:` block below.
+#
+# Before the first run, in the repository: Settings -> Pages -> Build and
+# deployment -> Source: **GitHub Actions**. Without that the deploy step fails.
+#
+# This replaces the older "build into docs/ and commit it" flow. Nothing built
+# is committed, so image bytes are not duplicated in git history on every deploy.
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+# Allow one deploy at a time; don't cancel a run that is mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    # For a PROJECT site (https://<user>.github.io/<repo>/) path-prefix must be
+    # "/<repo>/". For a USER site or a custom domain, use "/".
+    uses: ./.github/workflows/build.yml
+    with:
+      path-prefix: /explosive-11ty/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

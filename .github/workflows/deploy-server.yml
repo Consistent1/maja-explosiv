@@ -1,0 +1,77 @@
+# Deploy to your own server over SSH (rsync).
+#
+# DISABLED BY DEFAULT (manual trigger only). Uncomment `push:` once the four
+# secrets below exist, or it will fail on every push.
+#
+# REQUIRED SECRETS -- see README -> "Deploying to your own server" for
+# step-by-step instructions on creating the key and adding these:
+#   SSH_PRIVATE_KEY   the PRIVATE half of a deploy-only keypair (whole file,
+#                     including the BEGIN/END lines)
+#   SSH_HOST          hostname or IP, e.g. example.com
+#   SSH_USER          the deploy user, e.g. deploy
+#   SSH_TARGET_PATH   absolute web root, e.g. /var/www/example.com/html
+# Optional:
+#   SSH_PORT          defaults to 22
+#   SSH_KNOWN_HOSTS   output of `ssh-keyscan -H your.host`. Strongly recommended:
+#                     without it this workflow trusts the host on first contact.
+name: Deploy to server
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+concurrency:
+  group: deploy-server
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # A server usually serves from a domain root, so "/" is correct here.
+    uses: ./.github/workflows/build.yml
+    with:
+      path-prefix: /
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          if [ -n "${SSH_KNOWN_HOSTS:-}" ]; then
+            printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            echo "::warning::SSH_KNOWN_HOSTS not set - trusting the host on first contact."
+            ssh-keyscan -p "${SSH_PORT:-22}" -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          fi
+          chmod 644 ~/.ssh/known_hosts
+
+      # --delete makes the server match the build exactly, so files removed from
+      # the site are removed from the server too. Everything under the target
+      # path that the build does not produce WILL BE DELETED -- point this at a
+      # directory the site owns outright.
+      - name: Deploy with rsync
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_TARGET_PATH: ${{ secrets.SSH_TARGET_PATH }}
+        run: |
+          set -euo pipefail
+          rsync -az --delete --human-readable \
+            -e "ssh -i ~/.ssh/deploy_key -p ${SSH_PORT:-22} -o StrictHostKeyChecking=yes" \
+            _site/ "$SSH_USER@$SSH_HOST:$SSH_TARGET_PATH/"

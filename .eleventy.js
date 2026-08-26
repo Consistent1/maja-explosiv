@@ -533,6 +533,85 @@ module.exports = function(eleventyConfig) {
     return html;
   });
   
+  // ==========================================================================
+  // RESPONSIVE IMAGES  (optional: requires @11ty/eleventy-img)
+  // ==========================================================================
+  // The plugin is OPTIONAL by design. A site that does not install it still
+  // builds; the `image` shortcode degrades to a plain <img>. This keeps the
+  // template's dependency list minimal -- @11ty/eleventy-img pulls in `sharp`,
+  // a native binary dependency that not every consumer wants in CI.
+  //
+  // Enable it with:   npm install @11ty/eleventy-img
+  // Override the defaults from src/_user/config.js:
+  //
+  //   module.exports = { images: { widths: [400, 800], formats: ["webp"] } };
+  //
+  // See README.md -> "Responsive images".
+
+  const IMAGE_DEFAULTS = {
+    widths: [400, 800, 1200, 1600],
+    formats: ["webp", "jpeg"],   // last entry is the <img> fallback
+    sizes: "100vw",
+    urlPath: "/img/",
+    outputDir: "_site/img/",
+    jpegQuality: 82,
+    webpQuality: 80,
+    decoding: "async",
+    loading: "lazy"
+  };
+  const imageOptions = Object.assign({}, IMAGE_DEFAULTS, userConfig.images || {});
+
+  let EleventyImage = null;
+  try {
+    EleventyImage = require("@11ty/eleventy-img");
+  } catch (err) {
+    // Not installed. Intentional and supported -- see the fallback below.
+  }
+  eleventyConfig.addGlobalData("hasResponsiveImages", () => Boolean(EleventyImage));
+
+  const imgPathPrefix = () => (process.env.ELEVENTY_PATH_PREFIX || "/").replace(/\/$/, "");
+
+  // Resolve a site-absolute src ("/assets/images/x.jpg") to a file on disk.
+  const imageSourcePath = (src) =>
+    src.startsWith("/") ? path.join("src", src) : src;
+
+  const attr = (v) => String(v).replace(/"/g, "&quot;");
+
+  eleventyConfig.addAsyncShortcode("image", async function(src, alt, sizes, className) {
+    if (alt === undefined || alt === null) {
+      // Loud, because a missing alt is an accessibility defect that is invisible
+      // in the rendered page. Not fatal: a broken build helps nobody here.
+      console.warn(`[image] missing alt text for ${src}`);
+      alt = "";
+    }
+    const cls = className ? ` class="${attr(className)}"` : "";
+
+    // --- Fallback: plugin not installed -------------------------------------
+    if (!EleventyImage) {
+      const url = imgPathPrefix() + (src.startsWith("/") ? src : "/" + src);
+      return `<img src="${attr(url)}" alt="${attr(alt)}"${cls}` +
+             ` loading="${imageOptions.loading}" decoding="${imageOptions.decoding}">`;
+    }
+
+    // --- Responsive path ----------------------------------------------------
+    const metadata = await EleventyImage(imageSourcePath(src), {
+      widths: imageOptions.widths,
+      formats: imageOptions.formats,
+      urlPath: imgPathPrefix() + imageOptions.urlPath,
+      outputDir: imageOptions.outputDir,
+      sharpJpegOptions: { quality: imageOptions.jpegQuality },
+      sharpWebpOptions: { quality: imageOptions.webpQuality }
+    });
+
+    return EleventyImage.generateHTML(metadata, {
+      alt,
+      sizes: sizes || imageOptions.sizes,
+      loading: imageOptions.loading,
+      decoding: imageOptions.decoding,
+      ...(className ? { class: className } : {})
+    });
+  });
+
   return {
     dir: {
       input: "src",

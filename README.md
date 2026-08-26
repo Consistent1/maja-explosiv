@@ -815,78 +815,243 @@ eleventyConfig.addCollection("featured", function(collectionApi) {
 });
 ```
 
-## Deployment
+## Responsive images (optional)
 
-The template generates static files in the `_site` directory, making it compatible with any static hosting service:
+The `image` shortcode emits responsive `<picture>` markup via
+[`@11ty/eleventy-img`](https://www.11ty.dev/docs/plugins/image/) — **if the plugin is
+installed**. If it is not, the same shortcode emits a plain `<img>` and the build succeeds
+exactly as before.
 
-### GitHub Pages Deployment
+This is deliberate. `@11ty/eleventy-img` depends on `sharp`, a native binary that not
+every consumer wants in their CI image, so the template offers the capability without
+imposing the dependency.
 
-This template is optimized for GitHub Pages deployment using the docs folder approach:
-
-1. **Configure the repository name** in `package.json`:
-   ```bash
-   # Update the path prefix in package.json build:github script
-   # Replace 'explosive-11ty' with your repository name
-   "build:github": "ELEVENTY_PATH_PREFIX=/your-repo-name/ eleventy"
-   ```
-
-2. **Build and deploy**:
-   ```bash
-   npm run deploy:github
-   ```
-
-3. **Commit and push**:
-   ```bash
-   git add docs/
-   git commit -m "Deploy to GitHub Pages"
-   git push origin main
-   ```
-
-4. **Configure GitHub Pages**:
-   - Go to your repository settings
-   - Navigate to "Pages" section
-   - Set source to "Deploy from a branch"
-   - Select "main" branch and "/docs" folder
-   - Save the settings
-
-Your site will be available at `https://username.github.io/repository-name/`
-
-### Other Deployment Options
-
-- **Netlify**: Connect your Git repository for automatic deployments
-- **Vercel**: Import your project for instant deployment
-- **Traditional Hosting**: Upload the `_site` folder via FTP
-
-### Local Development vs Production
-
-- **Local development**: All paths work from root (`/`)
-- **GitHub Pages**: Paths are automatically prefixed with repository name
-- **Custom domain**: Update `ELEVENTY_PATH_PREFIX` to `/` for root domain deployment
-
-### Important: Local Server After GitHub Build
-
-**Note**: After running `npm run build:github`, your local development server will not work correctly because the `_site` folder contains GitHub Pages paths (e.g., `/repo-name/assets/css/main.css`) instead of local paths (e.g., `/assets/css/main.css`).
-
-**Recommended Development Workflow**:
+### Enabling it
 
 ```bash
-# 1. Develop locally
-npm run serve
-
-# 2. When ready to deploy to GitHub Pages
-npm run deploy:github
-
-# 3. Commit and push to GitHub
-git add docs/
-git commit -m "Deploy to GitHub Pages"
-git push origin main
-
-# 4. To continue local development, rebuild for local paths
-npm run build
-npm run serve
+npm install @11ty/eleventy-img
 ```
 
-This ensures your local development environment works correctly while maintaining proper GitHub Pages deployment.
+That is the whole setup. The shortcode detects the plugin at config time.
+
+### Usage
+
+```njk
+{% image "/assets/images/projects/sculptures/kaethe/kaethe-01.jpg", "Käthe, welded steel portrait" %}
+
+{# with a sizes hint and a class #}
+{% image "/assets/images/hero.jpg", "Studio view", "(min-width: 60rem) 50vw, 100vw", "hero-image" %}
+```
+
+Arguments: `src`, `alt`, `sizes` (optional), `class` (optional). A site-absolute `src`
+(`/assets/...`) resolves against the input directory.
+
+`alt` is required. Omitting it logs a warning and renders `alt=""` rather than failing the
+build — a missing alt is an accessibility defect, but it should not stop a deploy.
+
+### Defaults
+
+| Option | Default |
+|---|---|
+| `widths` | `[400, 800, 1200, 1600]` |
+| `formats` | `["webp", "jpeg"]` — the last is the `<img>` fallback |
+| `sizes` | `"100vw"` |
+| `urlPath` / `outputDir` | `/img/` and `_site/img/` |
+| `jpegQuality` / `webpQuality` | `82` / `80` |
+| `loading` / `decoding` | `lazy` / `async` |
+
+**Widths larger than the source are skipped** — the plugin does not upscale raster images.
+A 800px original with the defaults yields 400px and 800px variants, not four. This means a
+single width list can serve an archive of small legacy images and a stream of large modern
+ones without special-casing either.
+
+`ELEVENTY_PATH_PREFIX` is applied to generated URLs automatically, so images work under a
+project-site prefix without extra configuration.
+
+### Overriding per site
+
+In `src/_user/config.js`:
+
+```js
+module.exports = {
+  images: {
+    widths: [400, 800, 1600, 2400],
+    formats: ["avif", "webp", "jpeg"],
+    webpQuality: 78
+  }
+};
+```
+
+Options merge over the defaults, so specify only what differs.
+
+### When *not* to use it
+
+If a set of images is already at final delivery size — a legacy archive of ~800px
+photographs, say — generating variants adds build time and files for no benefit. Reference
+those with a plain `<img>` and reserve the shortcode for material that has resolution to
+spare.
+
+## Deployment
+
+The build produces static files in `_site/`, so any static host will serve it. The
+recommended route is **GitHub Actions**, with ready-made workflows in
+`.github/workflows/`.
+
+### Why Actions rather than committing `docs/`
+
+Earlier versions of this template built into `docs/` and committed it. That works, but it
+commits **a second copy of every built file** — and because `deploy:github` does
+`rm -rf docs && cp -r _site docs`, every deploy rewrites those files. Git stores each
+rewrite as a new blob, so the repository grows by roughly the size of your assets **on
+every deploy**, even when nothing changed.
+
+For a text-heavy site that is tolerable. For an image-heavy one it is not: a thousand
+photos at ~100 KB is ~100 MB duplicated, then re-committed on each deploy.
+
+Building in Actions publishes the artifact directly. Nothing built is committed.
+
+### Is GitHub Actions free?
+
+**For public repositories, yes** — GitHub's billing documentation states Actions usage is
+free for public repositories using standard GitHub-hosted runners. There is no minute cap
+to manage.
+
+**For private repositories there are limits**, and they matter:
+
+| Plan | Included Actions minutes / month | Pages from a private repo |
+|---|---|---|
+| Free | 2,000 | **Not available** |
+| Pro / Team | 3,000 / 3,000 | Available |
+| Enterprise Cloud | 50,000 | Available |
+
+Two consequences worth knowing before making a repository private:
+
+- **Minutes become finite.** Builds are billed by the minute (rounded up per job), and
+  non-Linux runners are billed at a multiplier — macOS is 10x, Windows 2x. Keep CI on
+  `ubuntu-latest` unless you need otherwise.
+- **GitHub Pages will stop working on a Free plan.** Publishing Pages from a private
+  repository requires Pro or above. A public repo that goes private loses its site until
+  the plan is upgraded or the site is moved elsewhere.
+
+Storage for artifacts is also capped on private repos (500 MB on Free). The build workflow
+here sets `retention-days: 7` to avoid accumulating old artifacts.
+
+### Deploying to GitHub Pages
+
+1. **Repository → Settings → Pages → Build and deployment → Source: `GitHub Actions`.**
+   Without this the deploy step fails; it is the single most common mistake.
+2. Edit `.github/workflows/deploy-pages.yml` and set `path-prefix` to `/<your-repo>/`
+   for a project site, or `/` for a user site or custom domain.
+3. Enable the trigger by uncommenting the `push:` block. It ships **manual-trigger only**
+   so that adopting the template never publishes anything unexpectedly.
+
+### Deploying to your own server
+
+`.github/workflows/deploy-server.yml` builds the site and `rsync`s it over SSH. Also
+manual-trigger only until you enable it.
+
+**`rsync --delete` makes the server match the build exactly.** Anything under the target
+path that the build does not produce **will be deleted**. Point it at a directory the site
+owns outright — not at a home directory or a web root shared with something else.
+
+#### Creating the deploy key
+
+Use a **dedicated keypair**, not your personal SSH key. On your machine:
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/deploy_mysite -N "" -C "github-actions-deploy"
+```
+
+That writes two files. The **public** half goes on the server:
+
+```bash
+ssh-copy-id -i ~/.ssh/deploy_mysite.pub deploy@example.com
+# or append ~/.ssh/deploy_mysite.pub to ~/.ssh/authorized_keys by hand
+```
+
+Then capture the host key so the workflow is not trusting the server blindly:
+
+```bash
+ssh-keyscan -H example.com
+```
+
+#### Adding the secrets
+
+In the repository: **Settings → Secrets and variables → Actions → New repository secret**.
+Add each name exactly as written — they are case-sensitive and the workflow looks them up
+by these names:
+
+| Secret | Value | How to get it |
+|---|---|---|
+| `SSH_PRIVATE_KEY` | The **private** key, whole file | `cat ~/.ssh/deploy_mysite` — include the `-----BEGIN…` and `-----END…` lines and the trailing newline |
+| `SSH_HOST` | `example.com` | your server's hostname or IP |
+| `SSH_USER` | `deploy` | the user the key was installed for |
+| `SSH_TARGET_PATH` | `/var/www/example.com/html` | absolute path to the web root |
+| `SSH_PORT` | `22` | optional, omit for the default |
+| `SSH_KNOWN_HOSTS` | output of `ssh-keyscan -H example.com` | optional but strongly recommended |
+
+**Paste the private key, not the `.pub` file.** Pasting the public key produces an
+authentication failure that reads like a server-side problem. Secrets are write-only —
+GitHub will never show you the value again, so if you are unsure, replace it.
+
+If `SSH_KNOWN_HOSTS` is absent the workflow logs a warning and falls back to
+`ssh-keyscan` at run time, which trusts whatever answers on first contact. Acceptable for
+a hobby box; not for anything that matters.
+
+#### The runner IP range problem
+
+GitHub-hosted runners come from **large, changing IP ranges** covering much of Azure. If
+your server firewalls SSH to an allowlist, you cannot usefully allowlist "GitHub" — the
+published list (`https://api.github.com/meta`, `actions` key) is thousands of prefixes and
+changes without notice. Allowlisting all of it effectively means allowing the internet.
+
+Four ways out, roughly in order of preference:
+
+1. **A self-hosted runner** on your own infrastructure, or on the target server itself.
+   The deploy becomes a local copy and SSH never crosses the internet. Best option when
+   the server is yours. (Never use self-hosted runners on a **public** repo without
+   restricting who can trigger workflows — a fork's pull request could otherwise run code
+   on your machine.)
+2. **A pull model.** The workflow publishes the artifact; the server fetches it on a
+   schedule or via a webhook. No inbound SSH at all, and the firewall stays shut.
+3. **A deploy service that already has an ingress** — Netlify, Vercel, Cloudflare Pages —
+   pointed at the repository. Avoids the problem entirely.
+4. **Accept broad SSH exposure**, but harden it: a key-only account with no shell
+   (`command="rsync --server …"` in `authorized_keys`), `PasswordAuthentication no`, and
+   `fail2ban`. This is the common choice and it is defensible, but it is a real widening
+   of your attack surface and should be a decision rather than a default.
+
+### A note on the lockfile
+
+This template gitignores `package-lock.json`. CI therefore cannot use `npm ci`, which is
+the reproducible install, so the build workflow falls back to `npm install` when no
+lockfile is present. **Committing the lockfile is recommended** for any site you deploy —
+it pins transitive dependencies so a build today matches a build next month.
+
+### Legacy: the `docs/` folder route
+
+Still supported, and reasonable for a site with few assets:
+
+```bash
+npm run deploy:github     # build with the path prefix, copy _site -> docs
+git add docs/ && git commit -m "Deploy" && git push
+```
+
+Then **Settings → Pages → Source: "Deploy from a branch" → `main` / `/docs`.**
+
+Note that after `build:github` the local `_site` contains prefixed paths, so
+`npm run serve` will look broken until you `npm run build` again.
+
+### Other hosts
+
+- **Netlify / Vercel / Cloudflare Pages** — connect the repository; build command
+  `npx eleventy`, publish directory `_site`.
+- **Plain hosting** — upload `_site` by FTP/SFTP.
+
+### Path prefix, in one line
+
+`ELEVENTY_PATH_PREFIX` must match where the site is served from: `/<repo>/` for a GitHub
+project site, `/` for a custom domain, a user site, or a server root.
 
 ## Example Content
 

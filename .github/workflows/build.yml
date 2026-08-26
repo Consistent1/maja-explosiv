@@ -1,0 +1,56 @@
+# Reusable build. Downstream deploy workflows call this, so the build lives in
+# exactly one place and every deploy target gets identical bytes.
+#
+#   jobs:
+#     build:
+#       uses: ./.github/workflows/build.yml
+#       with:
+#         path-prefix: /my-repo-name/
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      path-prefix:
+        description: 'Value for ELEVENTY_PATH_PREFIX. Use "/<repo>/" for project Pages, "/" for a custom domain or a server root.'
+        required: false
+        default: '/'
+        type: string
+      node-version:
+        required: false
+        default: '22'
+        type: string
+      artifact-name:
+        required: false
+        default: 'site'
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: npm
+
+      # `npm ci` needs a committed package-lock.json and is the reproducible
+      # choice. This template gitignores the lockfile, so fall back to
+      # `npm install` rather than failing. See README -> "A note on the lockfile".
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Build
+        env:
+          ELEVENTY_PATH_PREFIX: ${{ inputs.path-prefix }}
+        run: npx eleventy
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: _site
+          retention-days: 7
