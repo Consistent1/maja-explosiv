@@ -152,21 +152,64 @@ src/assets/images/  Site images
 
 ## 7. Running and verifying
 
+**The shell is allowed for this** (owner, 2026-08-25). Build the site, start the dev server,
+fetch pages, drive a browser — run them directly rather than asking. This replaces the earlier
+rule that said to serve only via the preview tooling and never a raw shell command; that rule
+predated the preview tooling being unavailable in some sessions, and it left work blocked with
+no alternative.
+
+Still ask before anything that reaches outside this machine or is hard to undo: pushing,
+deploying, or hitting a third-party service beyond the rate agreed in §7a.
+
 ```bash
-npx eleventy --dryrun      # build check
+node node_modules/.bin/eleventy --dryrun     # build check
+node node_modules/.bin/eleventy              # full build to _site/
+node node_modules/.bin/eleventy --serve --port=8080   # dev server
 ```
 
-Serve via the preview tooling (`.claude/launch.json`, name `maja-explosiv-dev`, port 8080),
-never a raw shell command. The browser pane must be **visible** for screenshots to work —
-if they time out, ask the owner to open it.
+**`npx` and `npm` are not on `PATH` in agent shells** — only `/usr/bin/node` is, and it may be
+the wrong version. Prefix with the nvm path first, or the commands above simply fail with
+`npx: command not found`:
+
+```bash
+export PATH="/home/miichael/.nvm/versions/node/v22.21.1/bin:$PATH"
+```
+
+Run the server with `run_in_background` and poll its log until `Server at http://localhost:8080/`
+appears; then `curl` it to confirm routes actually resolve. The preview tooling
+(`.claude/launch.json`, `maja-explosiv-dev`, port 8080) still works when available — its browser
+pane must be **visible** for screenshots, and if they time out, ask the owner to open it.
+
+### 7a. Fetching the live site
+
+`curl` is approved for `maja-explosiv.com` (owner, 2026-08-25), **sequentially, ~1 request every
+2 seconds, never in parallel.** It is TYPO3 4.2 on shared hosting; a burst can degrade it for
+real visitors or trip flood protection, and the resulting errors read as missing content.
+`migrated-content/_tools/fetch.sh` already enforces this and records raw bytes, headers and a
+fetch timestamp.
+
+Note the site 301-redirects apex → `www` and `http` → `https`; the canonical host is
+`https://www.maja-explosiv.com/`. That is the site's own redirect, not something to "fix".
+
+### 7b. Things that will bite
 
 **Editing anything in `src/_user/layouts/` or `src/_user/includes/` requires restarting the
 dev server.** `.eleventy.js` copies both into `.cache/` at config time, so a running server
 keeps serving the old markup and the change looks like it did nothing. Only
 `src/_user/assets/css/` is a watch target and hot-reloads.
 
-Pre-existing build noise you can ignore: `Missing image title/year for caption` errors for
-`sisyphos-gate`, `murals-europe`, and the paintings collections.
+**Expected build errors right now:** four `Featured project '…' not found in any collection`
+lines. `src/_user/data/featuredProjects.json` names projects by slug that Stage 0b quarantined.
+The build still completes. It resolves when Stages 6–11 migrate the projects, though the
+entries will need repointing rather than just reappearing — the slugs change under the six→four
+category mapping. Logged in PLAN.md.
+
+The old `Missing image title/year for caption` noise for `sisyphos-gate`, `murals-europe` and the
+paintings collections is **gone** — those files are quarantined.
+
+**The site is mostly empty during the migration and that is correct.** One real page
+(`/about/links/`), a homepage whose Bio/Timeline/Press tabs are blank, empty collection pages,
+no featured projects. Do not "fix" it.
 
 **Verify visually, not just by computed style.** A real bug was missed because CSS
 metrics were checked but element positions were not — a base rule
@@ -180,8 +223,22 @@ Phases are in PLAN.md; the short version:
 - **About sections** — done, built against the Figma components.
 - **Sidebar** — done, rebuilt against the `Navigation6 Flip Yellow` variant.
 - **Homepage, single project** — structurally close, need a token-accurate pass.
-- **Content migration** — ~26 of ~71 projects converted; most lack images. Not started at
-  scale.
+- **Content migration** — **underway, and it now governs `src/` content.** Read
+  `project_docs/content-migration-plan.md` (approved 2026-08-25) before touching content.
+  - Stages **0 (census)**, **0b (quarantine)** and **1 (Links)** are done; Stage 1 passes
+    19/19 checks, only V8 (visual comparison) outstanding. Stages 2–14 not started.
+  - **`src/pages/` and `src/posts/` now contain only migration output** — currently one file,
+    `about/links.md`. The 38 pre-existing Markdown files were **moved**, not deleted, to
+    `pre-migration-content/`. The old "~26 of ~71 projects converted" line was wrong twice
+    over: it was 23, not 26, and none of it is a baseline to build on.
+  - Three sibling directories hold content that is deliberately **not built** and each has a
+    README: `pre-migration-content/` (39 files), `migrated-hidden-content/` (TYPO3
+    `hidden=1`), `migrated-deleted-content/` (TYPO3 `deleted=1`, 308 files — of which only 9
+    records are Maja's; the rest belong to other sites that shared the database).
+  - The database is a local MySQL 8 (`usr_p51487_2`, user `maja`), and **it must be loaded
+    from the current dump**: `SELECT LENGTH(bodytext) FROM tt_content WHERE uid=1399;` must
+    return **8441**. If it returns 10340 the January 2025 dump is loaded and every extraction
+    will be silently stale — that happened, and passed all eleven local checks.
 - **Deployment** — GitHub Pages **live** at <https://consistent1.github.io/maja-explosiv/>
   (`main`, path `/docs`): `npm run deploy:github`, commit `docs/`, push. Stop the dev server
   first and rebuild locally after; see `README.md` § *Serving, building and deploying*. VPS

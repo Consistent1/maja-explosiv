@@ -6,7 +6,10 @@
 /.calva
 /bmad
 /v4-backup
-/.github
+# .github holds Copilot chatmodes/prompts that are personal, but workflows must
+# be committed or Actions never runs -- and the failure is silent.
+/.github/*
+!/.github/workflows/
 /.gemini
 /.augment
 /mcp-servers

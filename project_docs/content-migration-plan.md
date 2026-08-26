@@ -294,8 +294,9 @@ owner, and I will ask rather than pick.** Flagged as D7.
 - `tx_realurl_pathcache` (**1,218 rows**) / `tx_realurl_urlencodecache` — map live URLs ↔ page
   UIDs. This is what lets a live-site census be joined to database records rather than guessed
   at by title.
-- `tx_dam` (**2,727 rows**) + `tt_content.pi_flexform` — how galleries actually resolve to image
-  sets. Path-based, not hierarchical; `startingpointdam` in the FlexForm XML is the key.
+- `tx_dam` (**2,727 rows**) + `tx_dam_mm_ref` — how galleries actually resolve to image sets.
+  **Corrected 2026-08-26:** this entry previously said `startingpointdam` in the FlexForm XML was
+  the key. It is not, and it is not used at all — see §2.4.
 - `tt_news` (**164 rows**), `tt_address`, `tx_cal_event`, `tx_veguestbook_entries` — small
   tables that may or may not render on the live site. Stage 0 decides; none are assumed dead.
 
@@ -357,6 +358,84 @@ This is a strictly better position than the earlier one: the silent-fallback fai
 §6/N2 was written to guard against cannot occur, because there is no fallback and no
 transformation. V7 stays as a tripwire — if a mojibake signature ever appears in output, the
 connection is misconfigured, and that must fail loudly rather than degrade.
+
+### 2.4 How galleries resolve to image files — settled 2026-08-26
+
+**Use the DAM link table. Do not match by folder, and do not use `startingpointdam`.**
+
+```
+tx_dam_mm_ref.uid_foreign -> tt_content.uid   (the gallery element)
+tx_dam_mm_ref.uid_local   -> tx_dam.uid       (the image)
+tx_dam.file_path + file_name                  (the file in old/TYPO3BU/_/)
+tt_content.pid -> pages.uid                   (the project page)
+ident = 'rgsmoothgallery'
+```
+
+Note the direction: **`uid_local` is the image and `uid_foreign` is the content element**, which
+is the opposite of what the column names suggest. Joining it backwards returns plausible-looking
+nonsense (1,165 "content elements" and 118 "images") rather than an error.
+
+**~~`startingpointdam` — resolved, and it is vestigial.~~** Earlier notes treated it as the key to
+gallery resolution (§2.2 said "path-based, not hierarchical; `startingpointdam` in the FlexForm
+XML is the key"). **That is wrong.** Its 32 distinct values are small integers that do not
+correspond to `tx_dam_cat` at all — that table has 27 rows and the values run to 50. More
+decisively: of 96 live gallery elements, **94 carry both a `startingpointdam` value and explicit
+DAM file references**, and the 2 without references have values of `''` and `'0'` — empty
+galleries, not galleries depending on the field. **No gallery anywhere resolves through it.** It
+is a leftover backend browse-root setting for the file picker.
+
+**Ordering comes from `tx_dam.sorting`.** `tx_dam_mm_ref.sorting` is **zero on every row** and
+carries no information. `tx_dam.sorting` has 1,165 distinct values. V4 depends on getting this
+right.
+
+**Scale, measured 2026-08-26:**
+
+| | |
+|---|---|
+| image files in `old/TYPO3BU/_/` | **18,336** |
+| referenced by a live gallery | **1,165** (1,132 present on disk) |
+| known to `tx_dam` at all | 2,178 |
+| on disk but never referenced | **16,299** |
+| bytes of the referenced set | **391 MB** |
+
+**89% of the backup is noise** — thumbnails, TYPO3-processed derivatives, and the images of the
+other sites that shared this database (§D8). Copying by folder would drag most of it along; the
+join yields exactly what the old site displayed.
+
+**Two secondary reference paths, noted so they are not forgotten:**
+
+- **`tt_content.image` → `uploads/pics/`.** Ten live elements use it (9 `image`, 1 `textpic`)
+  rather than DAM. Small, but a DAM-only extractor silently drops them — and silence is
+  indistinguishable from "this element had no pictures".
+- **`tx_dam_mm_ref` also carries other `ident` values** — `tx_damttcontent_files` (63),
+  `cfa_mooflow` (8), `and_shadowbox` (6). Only `rgsmoothgallery` has been analysed. Check these
+  before declaring the image census complete.
+
+**Basename collisions: 7.** Across 1,165 referenced images there are 1,158 distinct basenames, so
+seven names are reused in different folders (`DSC02542.JPG`, `lx-i1.jpg`, `lx-i1-2.jpg`,
+`lx-i3.jpg`, `1webHome-2.jpg` …). Too few to constrain the naming scheme, but enough that a flat
+target directory keyed on basename would silently overwrite files. Per-project folders make it
+moot.
+
+**Image reuse across pages — measured, because it determines the directory structure:**
+
+| images used on | count |
+|---|---|
+| exactly 1 page | **1,028 (95%)** |
+| exactly 2 pages | **54 (5%)** |
+| 3 or more pages | **0** |
+
+The 5% is not scattered. It is three recognisable patterns: duplicate/variant pages of one work
+(`Breath Under Water` / `Whale`), **event pages reusing photographs of works that have their own
+project pages** (`Eurokon` → `Nailed Tanks`, `Torso`, `Eagle`; `Eurokot` → `Iron Channel`), and
+test pages. **Per-project folders are therefore the right structure**, with the shared 5%
+referenced from two Markdown files rather than duplicated on disk.
+
+**Source gap in the image set:** 30 of 1,522 live gallery links resolve to files absent from the
+January 2025 backup — **`Käthe` (16 of 16) and `Bernhard` (12 of 12) have no images at all**,
+plus 2 press clippings. Not an encoding problem: the `Käthe_Kollwitz` directory is simply not in
+the backup, only its sibling `Alberto_Giacometti`. Per §6a the remedy is a fresh filesystem
+backup, never a fetch from the live site. This is the image drift §2.0a flagged as unmeasured.
 
 ---
 
