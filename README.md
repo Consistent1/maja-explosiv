@@ -810,9 +810,9 @@ carousels:
 - `npm run serve` - Start development server with live reload
 - `npm run build` - Build for production
 - `npm run debug` - Build with debug information
-- `npm run build:github` - Build for GitHub Pages deployment
-- `npm run copy:docs` - Copy _site contents to docs folder
-- `npm run deploy:github` - Build and prepare for GitHub Pages
+- `npm run build:github` - Build with `ELEVENTY_PATH_PREFIX=/maja-explosiv/`; **legacy route only** — Actions sets the prefix itself
+- `npm run copy:docs` - Replace `docs/` with `_site` and re-create `docs/.nojekyll`; **legacy route only**
+- `npm run deploy:github` - Build and stage `docs/` for the **legacy** branch-served Pages route; not used for deploys (Actions is) — see *3. Going back to the `docs/` route*
 
 ### Adding Custom Filters
 
