@@ -22,7 +22,8 @@ at the end of `project_docs/content-migration-plan.md` — reading list, per-sta
 | 3 | Timeline | **done** — 85 entries, 2 sections, order and text match live; 4 records excluded (unreferenced) |
 | 4 | Bio | **done** — 4 paragraphs, character-identical to live |
 | 5 | Contact + Datenschutz | **done** — 133 of 133 live paragraphs present. No separate Impressum exists; it is on the contact page |
-| 6–14 | Projects, News, Misc | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
+| 6 | Projects — murals | **done** — 3 projects, 40 images, verified 3/3 against live: heading, description, every caption, **and gallery order** |
+| 7–14 | Projects, News, Misc | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
 
 ## Layout
 
@@ -32,6 +33,9 @@ _census/      Stage 0. page-tree.json, url-to-uid.tsv, content-inventory.tsv,
               out-of-scope-roots.tsv, quarantine.tsv
 _tools/       Extraction and verification scripts. db.sh is the only DB entry point.
 links/        Stage 1. SOURCE.md, manifest.json, raw/ → normalized/ → converted/, verification/
+projects/     Stages 6-11. SOURCE.md, raw/db + raw/live, normalized/stage<N>.json,
+              converted/<category>/<slug>.md. One shared pipeline; a stage is a row
+              in _tools/extract_projects.py -> STAGES.
 ```
 
 ## The one thing to know before running anything

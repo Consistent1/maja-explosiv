@@ -51,3 +51,6 @@ REFACTORING_PLAN.md
 # Staging area for files pulled from the live server (the non-ASCII filenames the
 # January 2025 backup dropped). Verified, then folded into old/TYPO3BU/.
 /incoming
+
+# Python bytecode from migrated-content/_tools/
+__pycache__/

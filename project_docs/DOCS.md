@@ -13,7 +13,7 @@ which. **Where two documents disagree, the one marked CURRENT below wins.**
 | doc | what it is |
 |---|---|
 | **`CLAUDE.md`** | Ground rules, working agreements, where the sources of truth are. The session entry point |
-| **`project_docs/PLAN.md`** | Project status, and the **single list of open questions** needing the owner's judgement |
+| **`project_docs/PLAN.md`** | Project status, the **extracted Figma specs** (sidebar, homepage, About components, **Project Page**), and the **single list of open questions** needing the owner's judgement |
 | **`project_docs/DOCS.md`** | This page |
 | `README.md` | How the Eleventy template works — collections, layouts, the `src/_user/` override system |
 

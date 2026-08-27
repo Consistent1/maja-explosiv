@@ -1281,6 +1281,12 @@ meets 41.
 images: [{src, alt, title?, year?}], source_uid, source_page`, plus **`source_category`** per
 decision 10.
 
+**The project page's Figma spec is extracted** — `project_docs/PLAN.md` § *Project Page —
+extracted spec (2026-08-27)*: geometry, type, the caption contract, and the traps hit while
+reading the frame. Read it before changing any project template. Note that
+`figma_audit.py spec` does not flag `visible: false` or `opacity: 0` nodes — cross-check
+against `raw`.
+
 **Confirm the layout before writing.** `src/_user/layouts/project.njk` consumes `title`,
 `content`, `images` (with `.src`), `featuredImage`, `featuredImageAlt`. The quarantined files
 declared `layout: post.njk`. Both layouts exist — check which actually renders projects rather
@@ -1297,6 +1303,13 @@ WHERE c.deleted=0 AND c.hidden=0 AND p.deleted=0 AND p.hidden=0
 
 **State the filter beside the number.** "1,049 images on visible pages", never "1,049 images".
 The query was never the problem — reporting a filtered figure as the whole picture was.
+
+**Gallery order is `tx_dam_mm_ref.sorting_foreign`, not `tx_dam.sorting`.** Ordering by
+`tx_dam.sorting` scrambles every gallery. It survived the first Stage 6 run because *every
+other check passed*: right images, right captions, right count — only the sequence wrong, and
+wrong order does not look broken. **Compare the order against the live page for every stage**
+(`verify_projects.py` does this); presence checks will not catch it. The old gallery emits one
+`<div class="imageElement">` per image in display order, each carrying its DAM description.
 
 **Absence from output ≠ absence of data.** Metal Group XIX looked like it had no images; it has
 50, behind a hidden gallery element. Ask *why* something is missing before saying it is.

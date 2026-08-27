@@ -75,15 +75,22 @@ def category(pid):
         if x in TBD:    return 'TBD'
     return None
 
+# GALLERY ORDER IS r.sorting_foreign -- CORRECTED 2026-08-27.
+# This ordered by d.sorting until Stage 6 compared the result against the live page and
+# found every gallery scrambled. tx_dam_mm_ref.sorting IS zero on all 1745 rows, which is
+# what the earlier note recorded; the wrong conclusion drawn from it was that tx_dam.sorting
+# must therefore be the gallery order. It is the DAM record's own sorting and means nothing
+# here. sorting_foreign is populated on all 1745 rows across 118 galleries, 1..N with no
+# duplicate inside any gallery, and reproduces the live order exactly.
 rows=q("""SELECT c.pid, d.uid, REPLACE(TO_BASE64(d.file_path),'\\n',''),
-                 REPLACE(TO_BASE64(d.file_name),'\\n',''), d.sorting
+                 REPLACE(TO_BASE64(d.file_name),'\\n',''), r.sorting_foreign
           FROM tx_dam_mm_ref r
           JOIN tx_dam d ON d.uid=r.uid_local
           JOIN tt_content c ON c.uid=r.uid_foreign
           JOIN pages p ON p.uid=c.pid
           WHERE r.ident='rgsmoothgallery' AND d.deleted=0
             AND c.deleted=0 AND c.hidden=0 AND p.deleted=0 AND p.hidden=0
-          ORDER BY c.pid, d.sorting, d.uid;""")
+          ORDER BY c.pid, r.sorting_foreign;""")
 
 by_proj=collections.defaultdict(list); seen=set()
 for pid,duid,fp,fn,sort in rows:
@@ -103,6 +110,15 @@ for dp,_,fs in os.walk(ARC):
         arc_index.setdefault(nfc(f), []).append(os.path.join(dp,f))
 
 DRY = '--write' not in sys.argv
+
+# --projects <file>: restrict which files are WRITTEN to the "category/project" lines in
+# <file>. The manifest is still built for every project, so it stays complete and correct
+# regardless. Added 2026-08-27 to resume the gallery-order renumbering after the run was
+# killed 635 of 1006 files in -- without re-encoding the 635 that were already correct.
+ONLY = None
+if '--projects' in sys.argv:
+    ONLY = {l.strip() for l in open(sys.argv[sys.argv.index('--projects')+1]) if l.strip()}
+
 manifest=[]; stats=collections.Counter()
 for (cat, proj, pid), imgs in sorted(by_proj.items()):
     outdir=os.path.join(DEST, cat, proj)
@@ -118,6 +134,8 @@ for (cat, proj, pid), imgs in sorted(by_proj.items()):
                              original=srcrel, target=os.path.relpath(out,ROOT)))
         stats['planned']+=1
         if DRY: continue
+        if ONLY is not None and f"{cat}/{proj}" not in ONLY:
+            stats['skipped-not-in-projects-list']+=1; continue
         os.makedirs(outdir, exist_ok=True)
         if ext in ('.jpg','.jpeg'):
             r=subprocess.run(['jpegtran','-optimize','-progressive','-copy','none',src],

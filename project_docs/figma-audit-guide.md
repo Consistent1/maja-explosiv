@@ -240,6 +240,30 @@ names needs `/v1/files/:key/variables/local`, which is Enterprise-only. Treat th
 stable identity: *same id ⇒ same token*, which is enough to spot two things that should
 share a token but don't.
 
+### `figma_audit.py spec` does not flag invisible nodes
+
+`spec` prints every node it walks, including ones with `visible: false` or `opacity: 0`.
+Neither is marked, so an invisible node reads exactly like a real one.
+
+The Project Page frame (`274:3273`) has 6 hidden nodes and 18 at zero opacity. Two of the
+latter sit inside every image caption — `Info` text on rows 2 and 3 — and were briefly
+reported to the owner as part of the caption design. They render nowhere: Figma's own PNG
+export shows nothing at those coordinates.
+
+**Cross-check anything structural from `spec` against `raw`**, and filter on both
+`visible` and `opacity` before concluding a node is part of the design.
+
+### Node names lie — read `characters`
+
+A text node inside a component instance keeps the **component's default text as its name**
+while rendering entirely different content. The Project Page's four body-text blocks are
+all named `"For more than three decades, our dedicated team has cultivated a legacy of
+excellence in Raleigh and beyond…"` — placeholder copy from whatever the component was
+built from. Their `characters` are the real project description.
+
+Filtering or searching by `name` will therefore both miss real content and match content
+that does not exist. Use `characters` for text, `name` only for structure.
+
 ### The design contradicts itself
 
 Not everything that differs is a build defect. Known cases: the same photo appears in

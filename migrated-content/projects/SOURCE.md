@@ -1,0 +1,136 @@
+# Projects — source and method (Stages 6–11)
+
+Machinery shared by every project stage. Stage 6 (murals) is the proving run; adding a
+stage is one row in `_tools/extract_projects.py` → `STAGES`.
+
+## Where the content comes from
+
+| Piece | Source |
+|---|---|
+| Project list | `pages` rows whose `pid` is the stage's container, `deleted=0 AND hidden=0`, ordered by `sorting` |
+| Title, year | `tt_content.header` of the `text` element — always `"Title, Year"` |
+| Description | `tt_content.bodytext` of the same element |
+| Gallery order | **`tx_dam_mm_ref.sorting_foreign`** — see the warning below |
+| Image captions | `tx_dam.description`; `tx_dam.title` is the project name, `tx_dam.creator` the photographer |
+| Image files | **not resolved here** — joined from `_census/site-images.json` on `(page_uid, dam_uid)` |
+
+`tx_dam_mm_ref.uid_local` is the **image** and `uid_foreign` the **content element**, which is
+backwards from the column names. Joined the other way the query returns plausible nonsense
+rather than an error.
+
+### Gallery order is `tx_dam_mm_ref.sorting_foreign` — corrected 2026-08-27
+
+The first Stage 6 run ordered galleries by `tx_dam.sorting` and **every one came out
+scrambled**. The earlier note that `tx_dam_mm_ref.sorting` is zero on every row is true —
+all 1745 rows — but the conclusion drawn from it, that `tx_dam.sorting` must therefore be
+the gallery order, was never tested. `tx_dam.sorting` is the DAM record's own sorting and
+carries no gallery meaning.
+
+`sorting_foreign` is populated on all **1745 rows across 118 galleries**, runs 1..N, and has
+**no duplicate inside any gallery**. It reproduces the live order exactly.
+
+**Why it survived the first pass:** every other check passed. The right images appeared, each
+with the right caption, in the right count — only the sequence was wrong, and nothing about
+the output looks broken when you read it. It was caught only by comparing the *order* against
+the live page, which `verify_projects.py` now does as a first-class check for every stage.
+`_tools/convert_images.py` had the same defect and was corrected with it; the site's image
+files were renumbered.
+
+**The renumbering run was interrupted** (the machine froze) after 635 of 1006 files. It was
+resumed with a new `--projects <file>` flag, which restricts which files are *written* to the
+`category/project` lines in that file while still building the manifest for every project, so
+`site-images.json` stays complete either way.
+
+Correctness was then established independently of any reasoning about where the run stopped:
+`jpegtran` is lossless, so **every one of the 1006 targets was decoded and hashed against the
+archive source the manifest assigns it — 1006/1006 identical, 0 missing.** A file left holding
+its old-order image would have hashed against a different source and failed. Use this check
+after any future renumbering; do not rely on file timestamps.
+
+Verification is `maja-explosiv.com`, read-only, never an extraction source.
+
+## Decisions
+
+1. **`title` comes from the content header, not the page title.** Page 918 is titled
+   *Felix und Regula*; its heading, and the live page, say *Felix und Regula Unterführung*.
+   The page title still drives the **slug**, so the URL and the image directory agree with
+   `site-images.json`. Both are recorded as `source_page_title` / `source_header`.
+2. **`<br />` is a soft wrap, not a paragraph break.** The descriptions were typed to a fixed
+   column: `"...expeditions around <br />Europe, from Austria..."`. A single `<br />` becomes a
+   space; a doubled one becomes a paragraph break. Treating every `<br />` as a line break —
+   which is what the Stage 5 legal converter does, correctly, for its own source — would
+   shatter each description into six one-line paragraphs.
+3. **Whitespace inside `<b>` moves outside the marker.** The source writes
+   `<b>Zeleny Dvor </b>in`; a literal swap gives `**Zeleny Dvor **in`, which Markdown does not
+   close and renders as visible asterisks.
+4. **Both `postCollections` and `tags` are emitted.** They drive different things —
+   `postCollections` the collection pages, `tags` the featured-projects lookup. The
+   pre-migration files set `tags` only. See *Known defects* below.
+5. **`date` is the first year of the range**, `year` keeps the range as displayed
+   (`year: "1994-1995"`, `date: 1994-01-01`). The pre-migration file used the last year.
+6. **Beyond nine images, the layout repeats.** The Figma project page draws nine cards;
+   Stage 6 alone has projects with 10, 12 and 18. Owner's decision, 2026-08-27: *"if a
+   project has more images, do more of the same."* The row pattern cycles rather than
+   stopping. Spec and geometry: `project_docs/PLAN.md` § *Project Page — extracted spec*.
+7. **Anomalies are recorded, not guessed past.** A project without exactly one `text` element,
+   or with more than one `list`, or with an unexpected CType, lands in `anomalies[]` rather
+   than being silently reduced to `[0]`. Stage 6 produced none.
+
+## Stage 6 — murals (container 874) → `paintings`
+
+| page | slug | year | images | live |
+|---|---|---|---|---|
+| 919 | `wohlgroth` | 1993 | 10 | `2d/murals/wohlgroth` |
+| 918 | `felix-und-regula` | 1994 | 18 | `paintings/murals/felix-und-regula` |
+| 866 | `murals-europe` | 1994-1995 | 12 | `2d/murals/murals-europe` |
+
+**Verified 3/3 against live**: heading text, description text, and **every image caption**
+(10/10, 18/18, 12/12) present in the live HTML.
+
+The `live img refs` figure printed by `verify_projects.py` is lower (8/8/7) and is **not** a
+gap: the old site's smoothgallery loads most thumbnails from JSON after page load, so only the
+first few appear as inline `<img>`. The caption check is the one that proves coverage.
+
+## The original stays intact
+
+Nothing is edited in place and nothing is normalised away. Three layers hold the source
+exactly as the database has it, and each is verifiable:
+
+| layer | what it holds | check |
+|---|---|---|
+| `raw/db/tt_content-<uid>.bodytext.html` | the description's **raw bytes**, straight from `bodytext` | byte-identical to the database (139 / 123 / 642 B for uids 1212 / 1213 / 1214) |
+| `normalized/stage<N>.json` | every DAM field **unmodified** — `title`, `description`, `creator`, `date_cr`, and the original `file_path + file_name` | 40/40 Stage 6 images match the database with 0 alterations |
+| the Markdown front matter | `source_uid`, `source_page_title`, `source_header`, `source_category`, `source_text_uid`, `source_list_uid`, `source_sorting`, and per image `dam_uid` + `original` | every row traceable back to its record |
+
+Derived values are **added beside** the originals, never over them. `title` and `year` are
+parsed out of `source_header`, which is itself kept whole; `alt` falls back through
+`description` → `title` without overwriting either. Any project can be re-derived from the
+database, or audited against it, without re-running the pipeline.
+
+The image files are a fourth layer: `image-archive/` holds the untouched originals and is
+never written to. Every file under `src/assets/images/projects/` was verified **pixel-identical**
+to its archive source — 1006/1006, 0 missing.
+
+## Known defects — NOT introduced by this stage
+
+Both are pre-existing and block the result from being *seen*, not from being *correct*.
+
+1. **Image captions render empty.** `src/_user/layouts/project.njk` includes
+   `project-image-caption.njk` without setting `projectTitle`, `projectYear`,
+   `imageDescription` or `imageAuthor`, so the include logs `ERROR: Missing project title for
+   image caption` and emits an empty `<div>`. 80 such errors for Stage 6's 40 images. The data
+   is present in the front matter; only the hand-off is missing. This is the build noise
+   `CLAUDE.md` §7b recorded as "gone" — it was gone only because the content was quarantined.
+2. **The four collection pages produce 0-byte files.** `src/collections/{paintings,sculptures,
+   installations,performance}.md` carry `title` and `description` but no `layout`,
+   `collectionName` or `permalink`, unlike the template's own `blog.md`. So
+   `/collections/paintings/` is empty regardless of how many projects exist.
+
+## Reproducing
+
+```bash
+python3 migrated-content/_tools/extract_projects.py 6            # DB  -> normalized/stage6.json
+python3 migrated-content/_tools/convert_projects.py 6            # dry run
+python3 migrated-content/_tools/convert_projects.py 6 --write    # -> src/posts/projects/
+python3 migrated-content/_tools/verify_projects.py 6             # against raw/live/
+```

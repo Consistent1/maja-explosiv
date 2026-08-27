@@ -109,3 +109,32 @@ committing.
   referenced by any gallery, deliberately excluded.
 - **Delivery variants** (WebP/AVIF, responsive widths). A later bandwidth decision, to be
   generated from these preserved originals, never from a lossy intermediate.
+
+## Resuming an interrupted run, and verifying it
+
+`convert_images.py --write` re-encodes every image it plans, which at 1006 full-resolution
+files takes ~25 minutes. **Say so before starting it** — it is not a quick command.
+
+If it is interrupted, resume with an explicit list rather than re-running the whole thing:
+
+```bash
+# one "category/project" per line, e.g. sculptures/wheel-of-power
+python3 migrated-content/_tools/convert_images.py --write --projects remaining.txt
+```
+
+`--projects` limits which files are **written**; the manifest is still built for every
+project, so `_census/site-images.json` comes out complete regardless of the filter.
+
+**Then verify by content, never by timestamp.** `jpegtran` is lossless, so each target's
+decoded pixels must be identical to its manifest `archive_source`:
+
+```python
+from PIL import Image; import hashlib, json, os
+m = json.load(open('migrated-content/_census/site-images.json'))
+px = lambda p: hashlib.sha256(Image.open(p).convert('RGB').tobytes()).hexdigest()
+bad = [r for r in m if px(r['target']) != px(r['archive_source'])]
+print(len(m), 'checked;', len(bad), 'mismatched')
+```
+
+This catches the failure that matters — a file left holding the image from a previous
+ordering — because that filename's manifest row now points at a different source.

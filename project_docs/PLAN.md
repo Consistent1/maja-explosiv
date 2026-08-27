@@ -770,6 +770,109 @@ timelineSections:
 
 Until then the About work uses a small number of hand-converted entries as mock content, per the owner (2026-07-29): "if you need content in a different format, change some content and use it as mock content. We will change the migration script to meet the desired format in due time." The full 85-entry set stays in its current two-field shape and is **not** to be hand-migrated.
 
+### Project Page — extracted spec (2026-08-27)
+
+Read from Figma node **`274:3273`**, and the frame was **verified from the canvas**, not
+taken on trust from an export manifest. Two floating labels sit inside the
+`Project Page Desktop` section, each directly above the frame it names:
+
+| label | at x | frame beneath it |
+|---|---|---|
+| `126:7719` **`Old Version Backup`** | 50528 | `120:7255` "About Page", **`opacity: 0.1`** — stale |
+| `609:6209` **`(Updated Reusable) Components`** | 52366 | `274:3273` **`Project Page`**, full opacity — **this one** |
+
+The section sits at x=50184, immediately right of `Main Page - Onepager Version` (the
+homepage, x=46592, w=3339) which carries its own `Onepager Solution` label. This matches
+`CLAUDE.md` §4 and the owner's recollection that the project page lies to the right of the
+homepage design.
+
+#### Geometry
+
+Content column **x=248** — the 224px sidebar plus a 24px gutter — inside a 1056px
+`Main Content Container`. Every image is a `Project Card` instance: image on top, caption
+beneath, stacked vertically **12.31px** apart.
+
+| y | element | width |
+|---|---|---|
+| 185 | Title | 1008 |
+| 375 | hero card, full width | 1001 |
+| 1286 | text column (two paragraphs, 480px) + card to its right | 488 |
+| 1934 | the same pattern again | 488 |
+| 2582 | full-width card | 1001 |
+| 3351 | two cards side by side, 25px gap | 488 |
+| 3999 | three cards, ~20.5px gap | 320 |
+
+Cards are inset 24px from the container's left edge but 31px from its right. Rendered as
+Figma has it; the asymmetry is listed in *Open items*.
+
+#### Type
+
+| element | font | size | line-height | tracking | colour |
+|---|---|---|---|---|---|
+| Project title | Geist 400 | 118.97px | 0.74 | −0.02em | `#222222` |
+| Caption **Title** (left) | Geist 400 | 20.51px | 1.0 | −0.045em | `#222222` |
+| Caption **Year** (right) | Geist 400 | 14.36px | 1.2 | −0.02em | `#525252` |
+| Caption **Description** | Geist 400 | 16.41px | 1.0 | −0.045em | `#525252` |
+| Caption **Author** | Geist 400 | 16.41px | 1.0 | −0.045em | `#525252` |
+
+Caption rows are **10.26px** apart. Every caption node sets `leadingTrim: CAP_HEIGHT`, so
+Figma's box heights (15px, 12px) hug the capitals and have **no stable CSS equivalent** —
+compare by baseline and font metrics, never by box height (audit guide §8).
+
+Per the include's own contract, confirmed by the design: **Title and Year are the
+project's; Description and Author are the image's.**
+
+#### Beyond the ninth image
+
+Figma draws nine cards. Real projects have more — Stage 6 alone has 10, 12 and 18.
+**Owner's decision (2026-08-27): "if a project has more images, do more of the same."**
+The tail pattern therefore repeats rather than terminating: continue cycling the row
+shapes, so image 10 onward keeps producing the same kinds of rows the design ends on.
+
+#### Traps hit while reading this frame
+
+Recorded because each cost time and two of them produced wrong statements to the owner:
+
+- **`figma_audit.py spec` does not flag invisible nodes.** It prints nodes with
+  `visible: false` and `opacity: 0` as if they render. This frame has 6 hidden nodes and
+  18 at zero opacity — including an `Info` text on caption rows 2 and 3 that was briefly
+  reported as part of the caption. **Cross-check anything read from `spec` against `raw`.**
+- **Node names lie; read `characters`.** The four body-text blocks are *named* with the
+  component's default lorem ("For more than three decades, our dedicated team…"). They are
+  visible instances whose actual text is the real copy.
+- **Do not measure the PNG export.** Audit guide §8: Figma exports have a transparent
+  background and `Image.convert('RGB')` turns that black, corrupting edge detection. A
+  content-column measurement taken that way read 252/997 where the API says 248/1001.
+- **Reading the export by eye invented a carousel.** A chevron "seen" at the foot of the
+  three-column row corresponds to no node anywhere in the frame.
+- Trap #1 of the guide — `style` being only the default — was **checked and is clear
+  here**: `characterStyleOverrides` and `styleOverrideTable` are empty on all caption and
+  title nodes, so these values are what actually renders.
+
+#### Can the database supply this?
+
+Measured across all 1,071 images in live galleries, and all 79 project text elements:
+
+| caption field | source | coverage |
+|---|---|---|
+| image Title | `tx_dam.title` | **1071/1071** |
+| image Description | `tx_dam.description` | **1028/1071** |
+| image Author | `tx_dam.creator` | **561/1071** — absent for roughly half |
+| project Title | `tt_content.header` | present, but see below |
+| project **Year** | `tt_content.header` | **only 24 of 79** carry one |
+
+So the captions are buildable, with the Author line simply absent where there is no
+`creator`. **The project Year is the real gap** — most sculpture headers are a bare title
+(`The Throne`, `The Wolf`). It cannot be recovered from `tx_dam.date_cr`: that is the
+photograph's date, not the project's, and it disagrees — Wohlgroth's images date to 1994
+while its header says 1993. Listed in *Open items* as a question for Maja.
+
+Two further findings for the later stages, from the same query: **8 project headers are
+empty**, and several pages carry **more than one `text` element** (page 926 has three,
+1054 and 1064 two) — including video link-lists (`Bagger Videos / Music:`,
+`Elxt 90 Videos:`) which no stage currently handles.
+`extract_projects.py` records these in `anomalies[]` rather than silently taking the first.
+
 ## Phase 3 — Content & image migration at scale
 
 Current state (verified by running the build, not just reading old status docs):
@@ -827,6 +930,63 @@ reconnaissance. Their *conclusions about what to do next* are superseded.
 ## Open items needing input
 
 **This section is the single list for open questions of this kind.** When something needs the owner's judgement — a design inconsistency, an ambiguous spec, a content decision that can't be settled from Figma or the live site — record it here rather than in a new file or inline in a template comment. Resolved items get struck through with the resolution, not deleted, so the reasoning stays visible.
+
+- [ ] **The caption's Year line is styled inconsistently with the other three.** (raised
+  2026-08-27, Figma node `274:3273`, cosmetic but it is a real inconsistency in the design.)
+  Caption Title, Description and Author are all `line-height 1.0` / `letter-spacing
+  −0.045em`. The **Year** alone is `line-height 1.2` / `−0.02em`. Nothing about the layout
+  explains the difference and it does not follow the size change — the project title, at
+  118.97px, also uses −0.02em, so the Year may have inherited from a different text style.
+  **Rendered as Figma has it**, per `CLAUDE.md` §3; not normalised to match its neighbours.
+  Question for the owner: is this intentional, or should the Year match the other three?
+
+- [ ] **Most projects have no year, and the caption design has a slot for one.** (raised
+  2026-08-27, Stage 6; blocks a complete caption from Stage 7 onward.) The Figma caption's
+  top row is `Title` left, `Year` right. The year comes from `tt_content.header`, which is
+  written `"Title, Year"` — but **only 24 of 79 project text elements carry one**. Most
+  sculpture headers are a bare title: `The Throne`, `The Wolf`, `Bill Parooka`. Eight
+  headers are empty entirely. It cannot be derived from `tx_dam.date_cr`: that is the
+  photograph's date, not the project's, and the two disagree — Wohlgroth's images date to
+  1994 while its header says 1993. **This is information the database does not contain.**
+  Either Maja supplies the years, or the Year slot stays empty for ~70% of projects.
+
+- [ ] **Project cards are inset asymmetrically.** (raised 2026-08-27, minor.) Within the
+  1056px `Main Content Container` the 1001px cards sit 24px from the left edge and 31px
+  from the right. Rendered as Figma has it. Likely imprecision rather than intent, but
+  that is the owner's call, not a thing to snap to 24/24.
+
+- [ ] **Project image captions render empty — the layout never passes the data.** (raised
+  2026-08-27, Stage 6, blocks every project page from Stage 6 on.)
+  `src/_user/layouts/project.njk` includes `project-image-caption.njk` three times without
+  setting `projectTitle`, `projectYear`, `imageDescription` or `imageAuthor`. Nunjucks
+  `{% include %}` inherits the parent context, and those names do not exist in it — `title`
+  and `year` do. So the include logs `ERROR: Missing project title for image caption` and
+  emits `<div class="project-image-caption">` containing nothing but whitespace. **80 such
+  errors for Stage 6's 40 images.** The data is all present in the front matter
+  (`images[].title`, `.description`, `.author`, plus the project's `title` and `year`); only
+  the hand-off is missing. This is the build noise `CLAUDE.md` §7b recorded as "gone" — it was
+  gone only because the content was quarantined, and it returns with every migrated project.
+  **The Figma spec is now extracted** — see *Project Page — extracted spec (2026-08-27)* in
+  Phase 2. It settles what the caption shows: `Title` (project) left with `Year` (project)
+  right, then `Description` (image), then `Author` (image). `project-image-caption.njk` and
+  its CSS already implement exactly that structure, so the remaining work is (a) passing the
+  four variables at `project.njk`'s three call sites, (b) giving the hero image a caption,
+  which Figma has and the template omits, and (c) removing the include's
+  `and not imageDescription` guard, which suppresses the title/year row whenever a
+  description exists — Figma shows all three rows together, always.
+  **Every caption value in `custom.css` also differs from Figma** (title 15.2px/500 vs
+  20.51px/400; year the same size as the title instead of smaller and grey; author italic
+  where Figma is not). The type table in the Phase 2 spec has the exact values.
+
+- [ ] **The four collection pages produce 0-byte files.** (raised 2026-08-27, Stage 6.)
+  `src/collections/{paintings,sculptures,installations,performance}.md` carry only `title` and
+  `description` — no `layout`, no `collectionName`, no `permalink` — unlike the template's own
+  `src/collections/blog.md`, which has all three. Eleventy writes an empty file. So
+  `/collections/paintings/` is empty no matter how many projects exist, and Stage 6's three
+  projects are reachable only at their own URLs. Pre-existing since December 2025 and missed
+  because there was no content to reveal it. The fix is four front-matter blocks, but the
+  **permalink and page copy are design decisions** — the existing descriptions are real prose
+  someone wrote, and where they belong on the page is a Figma question.
 
 - [ ] **`featuredProjects.json` dangles after the quarantine.** (raised 2026-08-25, needed before
   the site is presentable again.) `src/_user/data/featuredProjects.json` names four projects by
