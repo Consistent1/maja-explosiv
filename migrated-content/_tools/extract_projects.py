@@ -54,11 +54,27 @@ def split_header(header, page_title):
 
 def run(stage):
     S = STAGES[stage]
-    pages = q(f"""SELECT uid, {B('title')}, sorting FROM pages
-                  WHERE pid={S['container']} AND deleted=0 AND hidden=0 ORDER BY sorting;""")
+    # `shortcut` matters: a TYPO3 page can be an alias that carries no content of its own
+    # and resolves to another page. Page 982 "Breath under Water" is one -- it sits under
+    # paper work, has zero tt_content rows in ANY state, and points at 924, which lives
+    # under a different container. The live site renders it by following the shortcut.
+    # Without reading this column such a page looks like a project with no content.
+    # `kids` catches SUB-CONTAINERS. The old site nests deeper than one level in places:
+    # 877 "sculptural work" splits into 1039 Sculptures / 1040 Installations (known), and
+    # inside 1039, page 1068 "Portraits" is itself a container holding Alberto, Kaethe and
+    # Bernhard while carrying its own intro text and no gallery. A model that treats every
+    # child of a container as a leaf project silently loses those three. Flagged, never
+    # guessed past. (convert_images.py was never affected: it walks ancestors, so image
+    # filing is correct at any depth.)
+    pages = q(f"""SELECT p.uid, {B('p.title')}, p.sorting, p.shortcut,
+                        (SELECT COUNT(*) FROM pages g
+                          WHERE g.pid=p.uid AND g.deleted=0 AND g.hidden=0) AS kids
+                  FROM pages p
+                  WHERE p.pid={S['container']} AND p.deleted=0 AND p.hidden=0
+                  ORDER BY p.sorting;""")
     projects = []
-    for uid, t64, sort in pages:
-        uid = int(uid); ptitle = b(t64)
+    for uid, t64, sort, shortcut, kids in pages:
+        uid = int(uid); ptitle = b(t64); shortcut = int(shortcut or 0); kids = int(kids)
         ces = q(f"""SELECT uid, CType, {B('header')}, {B('bodytext')}, sorting
                     FROM tt_content WHERE pid={uid} AND deleted=0 AND hidden=0
                     ORDER BY sorting;""")
@@ -72,6 +88,8 @@ def run(stage):
         if len(text) != 1: anomalies.append(f'text-elements={len(text)}')
         if len(lists) > 1: anomalies.append(f'list-elements={len(lists)}')
         if other:          anomalies.append('other-ctypes=' + ','.join(c[1] for c in other))
+        if kids:           anomalies.append(f'SUB-CONTAINER: {kids} child page(s) not walked '
+                                            f'by this stage -- they need their own handling')
 
         header = b(text[0][2]) if text else ''
         body   = b(text[0][3]) if text else ''
@@ -101,7 +119,17 @@ def run(stage):
                                    title=b(dt), description=b(dd), creator=b(dc),
                                    date_cr=int(dcr) if dcr not in ('','NULL','0') else None,
                                    original=b(fp)+b(fn)))
+        # Nothing to migrate: no text, no gallery. Record WHY, and where the content
+        # actually lives, so the page is not silently dropped and not double-migrated.
+        skip_reason = None
+        if not text and not images:
+            skip_reason = (f'shortcut to page {shortcut}: no content of its own; the content '
+                           f'belongs to that page and is migrated by whichever stage owns it'
+                           if shortcut else 'no text element and no gallery')
+
         projects.append(dict(page_uid=uid, page_title=ptitle, page_sorting=int(sort),
+                             shortcut=shortcut or None, skip_reason=skip_reason,
+                             child_pages=kids,
                              slug=slug(ptitle), title=title, year=year,
                              header=header, bodytext_html=body,
                              text_uid=int(text[0][0]) if text else None,
@@ -113,6 +141,7 @@ def run(stage):
     print(f"stage {stage}  container {S['container']} ({S['name']}) -> {S['category']}")
     for p in projects:
         flag = ('  ANOMALY: '+'; '.join(p['anomalies'])) if p['anomalies'] else ''
+        if p['skip_reason']: flag = '  SKIP -- ' + p['skip_reason']
         print(f"  {p['page_uid']:>4} {p['slug']:<28} {p['title']!r} year={p['year']} "
               f"body={len(p['bodytext_html']):>4}B imgs={len(p['images']):>3}{flag}")
     print(f"  -> normalized/stage{stage}.json")

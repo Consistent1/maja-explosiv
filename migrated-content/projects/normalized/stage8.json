@@ -1,0 +1,768 @@
+{
+ "stage": 8,
+ "container": 873,
+ "container_name": "event organisation",
+ "category": "TBD",
+ "projects": [
+  {
+   "page_uid": 934,
+   "page_title": "Dada Festwochen",
+   "page_sorting": 96,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "dada-festwochen",
+   "title": "Dada Festwochen",
+   "year": "2003",
+   "header": "Dada Festwochen, 2003",
+   "bodytext_html": "The artistic conception and management of converting an original blacksmithing shop for <br />the arts festival organised by Mark Divo in the vacant paper factory Sihlpapier, Zurich<br /><br /> Among others who performed were: Das Theater der Peinlichkeit /CH/E, Robocross /GB, <br />Bastiaan Maris /NL, The Spamabillies /SCO/I",
+   "text_uid": 1240,
+   "list_uid": 1235,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 969,
+     "gallery_pos": 1,
+     "title": "Robocross vs Theater der Peinlichkeit",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/tuttifruttimigi.jpg"
+    },
+    {
+     "dam_uid": 974,
+     "gallery_pos": 2,
+     "title": "Robocross vs Theater der Peinlichkeit",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer.jpg"
+    },
+    {
+     "dam_uid": 966,
+     "gallery_pos": 3,
+     "title": "Robocross vs Theater der Peinlichkeit",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/jpboxing1.jpg"
+    },
+    {
+     "dam_uid": 964,
+     "gallery_pos": 4,
+     "title": "Robocross vs Theater der Peinlichkeit",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/migituttifrutti2.jpg"
+    },
+    {
+     "dam_uid": 965,
+     "gallery_pos": 5,
+     "title": "Robocross vs Theater der Peinlichkeit",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer2.jpg"
+    },
+    {
+     "dam_uid": 963,
+     "gallery_pos": 6,
+     "title": "Robocross vs Theater der Peinlichkeit",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer3.jpg"
+    },
+    {
+     "dam_uid": 972,
+     "gallery_pos": 7,
+     "title": "Robocross vs Theater der Peinlichkeit",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer1.jpg"
+    },
+    {
+     "dam_uid": 973,
+     "gallery_pos": 8,
+     "title": "Bastiaan Maris, relais box",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/relaisbastian.jpg"
+    },
+    {
+     "dam_uid": 970,
+     "gallery_pos": 9,
+     "title": "painting robot; J.Electrolux, JP and Joel",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Charles Thommen",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/johnnyjpjoel.jpg"
+    },
+    {
+     "dam_uid": 971,
+     "gallery_pos": 10,
+     "title": "Spamabillies",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/andyjp.jpg"
+    },
+    {
+     "dam_uid": 967,
+     "gallery_pos": 11,
+     "title": "Spamabillies",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/johnnyluca.jpg"
+    },
+    {
+     "dam_uid": 968,
+     "gallery_pos": 12,
+     "title": "Spamabillies",
+     "description": "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003",
+     "creator": "Kati Bitzer",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/spamas2.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 935,
+   "page_title": "Eurokon",
+   "page_sorting": 128,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "eurokon",
+   "title": "Eurokon, 2. Symposium für interaktives Recycling",
+   "year": "1996",
+   "header": "Eurokon, 2. Symposium für interaktives Recycling, 1996",
+   "bodytext_html": "Following the success of Eurokot, a second eight-week forum in Russia is organized with <br />cooperation by the Museum of Primitive Arts of Ural and Siberia, the association Environment <br />(state architecture and arts academy of Yekaterinburg), the Siberian Unesco club Krug and <br />the Swiss foundation pro Helvetia.<br /><br />This collective of artists, made up of 16 Western European and 10 Russian artists, met in <br />Yekaterinburg to work in groups with the raw waste material of four different factory areas <br />on site: one tyre production, a rubber factory, a ceramic foundry and a scrap yard. <br />Unfortunately, the physical exposition of the project is only documented by a gallery show in <br />town, as at the time, industrial locations were not accessible to the public.<br />For their next endeavor the group travels to Novosibirsk where an exposition is created with <br />on site paintings, objects and sculptures, which was then shown in the national museum of <br />Siberia.\r\n",
+   "text_uid": 1239,
+   "list_uid": 1236,
+   "anomalies": [
+    "text-elements=2"
+   ],
+   "images": [
+    {
+     "dam_uid": 1305,
+     "gallery_pos": 1,
+     "title": "body",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350823,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetBody.jpg"
+    },
+    {
+     "dam_uid": 1304,
+     "gallery_pos": 2,
+     "title": "exposition in the main hall",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350823,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetExpo.jpg"
+    },
+    {
+     "dam_uid": 1310,
+     "gallery_pos": 3,
+     "title": "performance",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350824,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSowjet.jpg"
+    },
+    {
+     "dam_uid": 1297,
+     "gallery_pos": 4,
+     "title": "mirror",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350822,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSpiegel.jpg"
+    },
+    {
+     "dam_uid": 1340,
+     "gallery_pos": 5,
+     "title": "Nailed Tank",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "",
+     "date_cr": 1238351016,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedtank.jpg"
+    },
+    {
+     "dam_uid": 1339,
+     "gallery_pos": 6,
+     "title": "Nailed Tanks",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "",
+     "date_cr": 1238351016,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedTanks2org.jpg"
+    },
+    {
+     "dam_uid": 1329,
+     "gallery_pos": 7,
+     "title": "Nailed Tanks, overview",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "",
+     "date_cr": 1238351014,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedliegend.jpg"
+    },
+    {
+     "dam_uid": 1321,
+     "gallery_pos": 8,
+     "title": "Machine Performance, torso",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238351013,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/2Torso.jpg"
+    },
+    {
+     "dam_uid": 1333,
+     "gallery_pos": 9,
+     "title": "Machine Performance, torso crushed",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238351015,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/3torso.jpg"
+    },
+    {
+     "dam_uid": 1311,
+     "gallery_pos": 10,
+     "title": "tank",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350824,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ptomet2.jpg"
+    },
+    {
+     "dam_uid": 1302,
+     "gallery_pos": 11,
+     "title": "shadow",
+     "description": "Eurokon, rubber tyre factory, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350822,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/rubberfactory.jpg"
+    },
+    {
+     "dam_uid": 1313,
+     "gallery_pos": 12,
+     "title": "skeleton",
+     "description": "Eurokon, ceramics factory, Yekaterinburg 1996",
+     "creator": "",
+     "date_cr": 1238350825,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ceramic1.jpg"
+    },
+    {
+     "dam_uid": 1300,
+     "gallery_pos": 13,
+     "title": "the smeltery",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350822,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSchmelze.jpg"
+    },
+    {
+     "dam_uid": 1299,
+     "gallery_pos": 14,
+     "title": "the smeltery, worker",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350822,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetArbeiterin.jpg"
+    },
+    {
+     "dam_uid": 1306,
+     "gallery_pos": 15,
+     "title": "lunch break",
+     "description": "Eurokon, ceramics factory, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350823,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/crew1.jpg"
+    },
+    {
+     "dam_uid": 1312,
+     "gallery_pos": 16,
+     "title": "at work",
+     "description": "Eurokon, RTI factory, Yekaterinburg 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350824,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/GummiPaede.jpg"
+    },
+    {
+     "dam_uid": 1307,
+     "gallery_pos": 17,
+     "title": "worker in the main hall",
+     "description": "Eurokon, scrapyard Bto Met, Yekaterinburg 1996",
+     "creator": "",
+     "date_cr": 1238350823,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ptomet1.jpg"
+    },
+    {
+     "dam_uid": 1343,
+     "gallery_pos": 18,
+     "title": "painting workshop",
+     "description": "Eurokon, Novosibirsk 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238352488,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/NovoAtelier.jpg"
+    },
+    {
+     "dam_uid": 1344,
+     "gallery_pos": 19,
+     "title": "exposition",
+     "description": "Eurokon, national museum of Siberia, Novosibirsk 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238352488,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/adler1.jpg"
+    },
+    {
+     "dam_uid": 1309,
+     "gallery_pos": 20,
+     "title": "exposition",
+     "description": "Eurokon, national museum of Siberia, Novosibirsk 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238350824,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novosibirsk1.jpg"
+    },
+    {
+     "dam_uid": 1296,
+     "gallery_pos": 21,
+     "title": "painting",
+     "description": "Eurokon, national museum of Siberia, Novosibirsk 1996",
+     "creator": "",
+     "date_cr": 1238350820,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/paintingNovoSibirsk.jpg"
+    },
+    {
+     "dam_uid": 1308,
+     "gallery_pos": 22,
+     "title": "painting",
+     "description": "Eurokon, national museum of Siberia, Novosibirsk 1996",
+     "creator": "",
+     "date_cr": 1238350824,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novo4.jpg"
+    },
+    {
+     "dam_uid": 1303,
+     "gallery_pos": 23,
+     "title": "object",
+     "description": "Eurokon, national museum of Siberia, Novosibirsk 1996",
+     "creator": "",
+     "date_cr": 1238350823,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novo3.jpg"
+    },
+    {
+     "dam_uid": 1336,
+     "gallery_pos": 24,
+     "title": "Double Headed Eagle ",
+     "description": "Eurokon, national Siberian museum, Novosibirsk 1996",
+     "creator": "Linda Herzog",
+     "date_cr": 1238351016,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/1Eagle.jpg"
+    },
+    {
+     "dam_uid": 1298,
+     "gallery_pos": 25,
+     "title": "vernissage",
+     "description": "Eurokon, national museum of Siberia, Novosibirsk 1996",
+     "creator": "",
+     "date_cr": 1238350822,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/NovoExpo.jpg"
+    },
+    {
+     "dam_uid": 1345,
+     "gallery_pos": 26,
+     "title": "Beresovskij stone quarry, press",
+     "description": "Eurokon, Yekaterinburg 1996",
+     "creator": "",
+     "date_cr": 1238352488,
+     "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/eurokot.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 936,
+   "page_title": "Eurokot",
+   "page_sorting": 384,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "eurokot",
+   "title": "Eurokot, 1. Symposium für interaktives Recycling",
+   "year": "1995",
+   "header": "Eurokot, 1. Symposium für interaktives Recycling, 1995",
+   "bodytext_html": "Partnered with Mark Divo, Maja helped lead the conception, organisation and coordination <br />of this multimedia event.<br />Taking place&nbsp;in the vacant pedestrian underpass Escher-Wyss evolves an overall artwork <br />from large-scale paintings, sculptural objects, sound installations. Most notably, the show <br />was made entirely with recycled material.<br />The project is supported by the government of the city of Zurich, the city waste company <br />and pro Helvetia. (Präsidialabteilung der Stadt Zürich, Abfuhrwesen der Stadt Zürich, <br />pro Helvetia, Kulturaustausch Ost/West)<br />Thirty international artists were invited to manipulate during the three-week build up phase <br />over twenty tons of waist material. <br /><br />The three week opening which followed saw many performances, including: <br />Teatr Novogo Fronta /RU, Kule Geckos /D, Destroy after use /NL, Scum of Toytown /GB, <br />Dottir /DK, the Molecules /USA, Piombo a Tempo /I, Boni and Bubi /CH, Vendetta /CH, <br />We Mean /CH, Luke Slater /GB, Styro /CH and many more.<br />For this rich  cultural program of fine arts, theatre, lectures, performances and music <br />events from techno to punk to rap we received the Swiss music prize of the year for 1995. <br />(Schweizer Rockpreis 1995).\r\n",
+   "text_uid": 1238,
+   "list_uid": 1237,
+   "anomalies": [
+    "text-elements=2"
+   ],
+   "images": [
+    {
+     "dam_uid": 1289,
+     "gallery_pos": 1,
+     "title": "Forumssäule / central pillar",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238260290,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/saeule.jpg"
+    },
+    {
+     "dam_uid": 1266,
+     "gallery_pos": 2,
+     "title": "zentrales Forum, kiosk",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/kiosk.jpg"
+    },
+    {
+     "dam_uid": 1287,
+     "gallery_pos": 3,
+     "title": "Muttermachine / Mother Machine, entrance",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256601,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterEigang.jpg"
+    },
+    {
+     "dam_uid": 1286,
+     "gallery_pos": 4,
+     "title": "Muttermachine / Mother Machine",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256601,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutter.jpg"
+    },
+    {
+     "dam_uid": 1255,
+     "gallery_pos": 5,
+     "title": "Iron Channel, entrance",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256486,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot4.jpg"
+    },
+    {
+     "dam_uid": 1246,
+     "gallery_pos": 6,
+     "title": "Iron Channel, view out",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256484,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot5.jpg"
+    },
+    {
+     "dam_uid": 1254,
+     "gallery_pos": 7,
+     "title": "Iron Channel",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256486,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot38.jpg"
+    },
+    {
+     "dam_uid": 1251,
+     "gallery_pos": 8,
+     "title": "Iron Channel, view in",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256485,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen4.jpg"
+    },
+    {
+     "dam_uid": 1256,
+     "gallery_pos": 9,
+     "title": "Iron Channel, entrance",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256486,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen2.jpg"
+    },
+    {
+     "dam_uid": 1261,
+     "gallery_pos": 10,
+     "title": "Touristik Workshop Russia, the vodka bar",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/ru1.jpg"
+    },
+    {
+     "dam_uid": 1279,
+     "gallery_pos": 11,
+     "title": "Touristik Workshop Russia, the vodka bar",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256599,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/ru2.jpg"
+    },
+    {
+     "dam_uid": 1285,
+     "gallery_pos": 12,
+     "title": "Skulpturenwiese, the biest",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256601,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/Viech.jpg"
+    },
+    {
+     "dam_uid": 1259,
+     "gallery_pos": 13,
+     "title": "Skulpturenwiese, the cow",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256597,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/kuh.jpg"
+    },
+    {
+     "dam_uid": 1264,
+     "gallery_pos": 14,
+     "title": "Forumssäule / central pillar, detail",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/puppe.jpg"
+    },
+    {
+     "dam_uid": 1262,
+     "gallery_pos": 15,
+     "title": "Versuchsfeld 2, tele-vision",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/hund.jpg"
+    },
+    {
+     "dam_uid": 1283,
+     "gallery_pos": 16,
+     "title": "Versuchsfeld 1, the robot",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256601,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/robot.jpg"
+    },
+    {
+     "dam_uid": 1265,
+     "gallery_pos": 17,
+     "title": "Versuchsfeld 1, installation",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/box.jpg"
+    },
+    {
+     "dam_uid": 1280,
+     "gallery_pos": 18,
+     "title": "Versuchsfeld 1, painting",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256600,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/Dima.jpg"
+    },
+    {
+     "dam_uid": 1260,
+     "gallery_pos": 19,
+     "title": "Mother Machine, painting",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256597,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterana.jpg"
+    },
+    {
+     "dam_uid": 1278,
+     "gallery_pos": 20,
+     "title": "Mother Machine, construction",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256599,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterbau.jpg"
+    },
+    {
+     "dam_uid": 1249,
+     "gallery_pos": 21,
+     "title": "Iron Channel, welding",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256485,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot15.jpg"
+    },
+    {
+     "dam_uid": 1263,
+     "gallery_pos": 22,
+     "title": "opening gala with Pastor Leumund Kult",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/pastor.jpg"
+    },
+    {
+     "dam_uid": 1284,
+     "gallery_pos": 23,
+     "title": "opening gala with Pastor Leumund Kult",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256601,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/lesung.jpg"
+    },
+    {
+     "dam_uid": 1277,
+     "gallery_pos": 24,
+     "title": "Dottir /DK, performance",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256599,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/dottir.jpg"
+    },
+    {
+     "dam_uid": 1269,
+     "gallery_pos": 25,
+     "title": "Teatr Novogo Fronta /RU, publicity ",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo1.jpg"
+    },
+    {
+     "dam_uid": 1272,
+     "gallery_pos": 26,
+     "title": "Teatr Novogo Fronta /RU, Vremia Durak",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256599,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo2.jpg"
+    },
+    {
+     "dam_uid": 1281,
+     "gallery_pos": 27,
+     "title": "Teatr Novogo Fronta /RU, Vremia Durak",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256600,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo3.jpg"
+    },
+    {
+     "dam_uid": 1270,
+     "gallery_pos": 28,
+     "title": "Teatr Novogo Fronta /RU, Vremia Durak",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo4.jpg"
+    },
+    {
+     "dam_uid": 1295,
+     "gallery_pos": 29,
+     "title": "Vendetta /CH",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238325154,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/vendetta.jpg"
+    },
+    {
+     "dam_uid": 1290,
+     "gallery_pos": 30,
+     "title": "Mona Lisa Overdrive /CH",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238325150,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/konzi.jpg"
+    },
+    {
+     "dam_uid": 1294,
+     "gallery_pos": 31,
+     "title": "Finger /CH",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238325154,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/konzi2.jpg"
+    },
+    {
+     "dam_uid": 1292,
+     "gallery_pos": 32,
+     "title": "Boni und Bubi, R.A.P. /CH",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238325153,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/boniUbubi.jpg"
+    },
+    {
+     "dam_uid": 1291,
+     "gallery_pos": 33,
+     "title": "We Mean /CH",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238325153,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/wemean.jpg"
+    },
+    {
+     "dam_uid": 1275,
+     "gallery_pos": 34,
+     "title": "zentrales Forum",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256599,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mischpult.jpg"
+    },
+    {
+     "dam_uid": 1276,
+     "gallery_pos": 35,
+     "title": "Saturday night with Luke Slater /UK, Styro 2000 /CH",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256599,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/disco.jpg"
+    },
+    {
+     "dam_uid": 1273,
+     "gallery_pos": 36,
+     "title": "the end",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256599,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/theEnd.jpg"
+    },
+    {
+     "dam_uid": 1274,
+     "gallery_pos": 37,
+     "title": "cleaning",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238256599,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/cleaning.jpg"
+    },
+    {
+     "dam_uid": 1293,
+     "gallery_pos": 38,
+     "title": "cleaned",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238325154,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/geputzt.jpg"
+    },
+    {
+     "dam_uid": 1282,
+     "gallery_pos": 39,
+     "title": "empty again",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "HP Gahlinger",
+     "date_cr": 1238256600,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/empty.jpg"
+    },
+    {
+     "dam_uid": 1267,
+     "gallery_pos": 40,
+     "title": "press echo",
+     "description": "Eurokot, Zurich 1995",
+     "creator": "",
+     "date_cr": 1238256598,
+     "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/escher.jpg"
+    }
+   ]
+  }
+ ]
+}

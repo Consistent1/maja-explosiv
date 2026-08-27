@@ -1,0 +1,567 @@
+{
+ "stage": 7,
+ "container": 875,
+ "container_name": "paper work",
+ "category": "paintings",
+ "projects": [
+  {
+   "page_uid": 923,
+   "page_title": "Concept Illustration",
+   "page_sorting": 256,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "concept-illustration",
+   "title": "Concept Illustration",
+   "year": null,
+   "header": "Concept Illustration",
+   "bodytext_html": "A sampling of illustrated conceptual work of Maja Thommens' personal projects and <br />commissioned works.",
+   "text_uid": 1215,
+   "list_uid": 1209,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 671,
+     "gallery_pos": 1,
+     "title": "Mantelheizung / Coat Heating",
+     "description": "heated seat installation for Christmas market, Berlin /D 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/Mantelheizung1.jpg"
+    },
+    {
+     "dam_uid": 665,
+     "gallery_pos": 2,
+     "title": "Mantelheizung / Coat Heating",
+     "description": "heated seat installation for Christmas market, Berlin /D 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/Mantelheizung2.jpg"
+    },
+    {
+     "dam_uid": 669,
+     "gallery_pos": 3,
+     "title": "Les Motasses",
+     "description": "design of acrobatic moped, Italy 2006",
+     "creator": "",
+     "date_cr": 1136070000,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/motasseMoped.jpg"
+    },
+    {
+     "dam_uid": 670,
+     "gallery_pos": 4,
+     "title": "Les Motasses I/B",
+     "description": "illustration for the new show proposal, Italy 2006",
+     "creator": "",
+     "date_cr": 1136070000,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/motasse1.jpg"
+    },
+    {
+     "dam_uid": 675,
+     "gallery_pos": 5,
+     "title": "Les Motasses",
+     "description": "illustration for the new show proposal, Italy 2006",
+     "creator": "",
+     "date_cr": 1136070000,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/motasse2.jpg"
+    },
+    {
+     "dam_uid": 674,
+     "gallery_pos": 6,
+     "title": "Dolce Corpu",
+     "description": "character and costume design for stilt walking actors, in commission of Zirkus Amalgan, Berlin /D 2005",
+     "creator": "",
+     "date_cr": 1072915200,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/Dc1.jpg"
+    },
+    {
+     "dam_uid": 667,
+     "gallery_pos": 7,
+     "title": "Dolce Corpu",
+     "description": "character and costume design for stilt walking actors, in commission of Zirkus Amalgan, Berlin /D 2005",
+     "creator": "",
+     "date_cr": 1072915200,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/Dc2.jpg"
+    },
+    {
+     "dam_uid": 1439,
+     "gallery_pos": 8,
+     "title": "Elxt 90",
+     "description": "extract of internal show proposals for the new seasons, Berlin /D 2003",
+     "creator": "",
+     "date_cr": 1238701410,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/elxt.jpg"
+    },
+    {
+     "dam_uid": 666,
+     "gallery_pos": 9,
+     "title": "Elxt 90",
+     "description": "extract of internal show proposals for the new seasons, Berlin /D 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/ElxtAireals1.jpg"
+    },
+    {
+     "dam_uid": 668,
+     "gallery_pos": 10,
+     "title": "Elxt 90",
+     "description": "extract of internal show proposals for the new seasons, Berlin /D 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/ElxtKokooons.jpg"
+    },
+    {
+     "dam_uid": 664,
+     "gallery_pos": 11,
+     "title": "lamps",
+     "description": "proposal for illumination, Kulturbrauerei Prenzlauerberg, Berlin /D 2006",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/Lampen1.jpg"
+    },
+    {
+     "dam_uid": 1440,
+     "gallery_pos": 12,
+     "title": "lamps",
+     "description": "proposal for illumination, Kulturbrauerei Prenzlauerberg, Berlin /D 2006",
+     "creator": "",
+     "date_cr": 1238701410,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/Lampen2.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 920,
+   "page_title": "Graphical Work",
+   "page_sorting": 384,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "graphical-work",
+   "title": "graphics, illustration and sketches",
+   "year": null,
+   "header": "graphics, illustration and sketches",
+   "bodytext_html": "An excerpt from her archive of graphical work since 1997.",
+   "text_uid": 1210,
+   "list_uid": 1204,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 620,
+     "gallery_pos": 1,
+     "title": "Pyrobotic Cabaret",
+     "description": "Poster first Free Radical show, Berlin /D 2002",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/Pyrobotic.jpg"
+    },
+    {
+     "dam_uid": 663,
+     "gallery_pos": 2,
+     "title": "dj Yke",
+     "description": "cd cover design, Berlin /D 2004",
+     "creator": "",
+     "date_cr": 1136070000,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/djYke.jpg"
+    },
+    {
+     "dam_uid": 633,
+     "gallery_pos": 3,
+     "title": "Punkroid",
+     "description": "Inspiration for mechanical half mask, Biel /CH 1997",
+     "creator": "",
+     "date_cr": 852073200,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/PUNKROID.jpg"
+    },
+    {
+     "dam_uid": 630,
+     "gallery_pos": 4,
+     "title": "Tekroid",
+     "description": "Inspiration for latex half mask, Biel /CH 1997",
+     "creator": "",
+     "date_cr": 757382400,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/tekroid.jpg"
+    },
+    {
+     "dam_uid": 622,
+     "gallery_pos": 5,
+     "title": "Fly scetch",
+     "description": "Scetches for book cover E.Moreira, Lugano /CH 2002",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/EricoSKIZZE.jpg"
+    },
+    {
+     "dam_uid": 623,
+     "gallery_pos": 6,
+     "title": "Fly",
+     "description": "Book cover for E.Moreira, Lugano /CH 2002",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/ERICO.jpg"
+    },
+    {
+     "dam_uid": 634,
+     "gallery_pos": 7,
+     "title": "Bagger",
+     "description": "Genoa /I 1997",
+     "creator": "",
+     "date_cr": 852073200,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/baggergenua.jpg"
+    },
+    {
+     "dam_uid": 632,
+     "gallery_pos": 8,
+     "title": "Mordgedanken",
+     "description": "Illustration for Bagger record, Biel /CH 2002",
+     "creator": "",
+     "date_cr": 883609200,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/baggerplatte.jpg"
+    },
+    {
+     "dam_uid": 635,
+     "gallery_pos": 9,
+     "title": "Spamabilly vs Bagger",
+     "description": "Zurich /CH 1999",
+     "creator": "",
+     "date_cr": 915145200,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/BaggerRobot.jpg"
+    },
+    {
+     "dam_uid": 629,
+     "gallery_pos": 10,
+     "title": "Beau",
+     "description": "Biel /CH 2001",
+     "creator": "",
+     "date_cr": 978303600,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/beaunew.jpg"
+    },
+    {
+     "dam_uid": 636,
+     "gallery_pos": 11,
+     "title": "Bar",
+     "description": "Study for unrealized comic strip with writer Nik Leuthold, Pfäffikon 1999",
+     "creator": "",
+     "date_cr": 999640800,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/bar2.jpg"
+    },
+    {
+     "dam_uid": 637,
+     "gallery_pos": 12,
+     "title": "Bar ",
+     "description": "Study for unrealized comic strip with writer Nik Leuthold, Arnhem /NL 2001",
+     "creator": "",
+     "date_cr": 999640800,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/bar3.jpg"
+    },
+    {
+     "dam_uid": 639,
+     "gallery_pos": 13,
+     "title": "Dj",
+     "description": "Dj study, Amsterdam /NL 2000",
+     "creator": "",
+     "date_cr": 999640800,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/dj-org-test.jpg"
+    },
+    {
+     "dam_uid": 638,
+     "gallery_pos": 14,
+     "title": "Dj Androgyn",
+     "description": "Amsterdam /NL 2000",
+     "creator": "",
+     "date_cr": 980982000,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/djneugesicht3.jpg"
+    },
+    {
+     "dam_uid": 631,
+     "gallery_pos": 15,
+     "title": "Hanna",
+     "description": "Casino Gitano rehearsal, Berlin /D 2006",
+     "creator": "",
+     "date_cr": 1104534000,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/hannaBday.jpg"
+    },
+    {
+     "dam_uid": 628,
+     "gallery_pos": 16,
+     "title": "Franki",
+     "description": "Casino Gitano rehearsal, Berlin /D 2007",
+     "creator": "",
+     "date_cr": 757382400,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/frankie.jpg"
+    },
+    {
+     "dam_uid": 672,
+     "gallery_pos": 17,
+     "title": "Vignanello",
+     "description": "study comic background, Vignanello /I 2006",
+     "creator": "",
+     "date_cr": 1136070000,
+     "original": "fileadmin/s-maj/images/BilderMaja/concepts/vignanello.jpg"
+    },
+    {
+     "dam_uid": 661,
+     "gallery_pos": 18,
+     "title": "Fire Friends",
+     "description": "logo design, Berlin /D 2005",
+     "creator": "",
+     "date_cr": 1136070000,
+     "original": "fileadmin/s-maj/images/BilderMaja/poster/Firefriends.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 982,
+   "page_title": "Breath under Water",
+   "page_sorting": 448,
+   "shortcut": 924,
+   "skip_reason": "shortcut to page 924: no content of its own; the content belongs to that page and is migrated by whichever stage owns it",
+   "child_pages": 0,
+   "slug": "breath-under-water",
+   "title": "Breath under Water",
+   "year": null,
+   "header": "",
+   "bodytext_html": "",
+   "text_uid": null,
+   "list_uid": null,
+   "anomalies": [
+    "text-elements=0"
+   ],
+   "images": []
+  },
+  {
+   "page_uid": 921,
+   "page_title": "Akwa",
+   "page_sorting": 512,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "akwa",
+   "title": "Akwa",
+   "year": "2005",
+   "header": "Akwa, 2005",
+   "bodytext_html": "Comic strip for the Roboduck Paperstage on the theme of 'water', Robodock Festival /NL",
+   "text_uid": 1208,
+   "list_uid": 1205,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 660,
+     "gallery_pos": 1,
+     "title": "Akwa",
+     "description": "Berlin 2005",
+     "creator": "",
+     "date_cr": 1104534000,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa1.jpg"
+    },
+    {
+     "dam_uid": 658,
+     "gallery_pos": 2,
+     "title": "Akwa",
+     "description": "Berlin 2005",
+     "creator": "",
+     "date_cr": 1104534000,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa2.jpg"
+    },
+    {
+     "dam_uid": 659,
+     "gallery_pos": 3,
+     "title": "Akwa",
+     "description": "Berlin 2005",
+     "creator": "",
+     "date_cr": 1104534000,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa3.jpg"
+    },
+    {
+     "dam_uid": 1551,
+     "gallery_pos": 4,
+     "title": "Akwa, variation",
+     "description": "Berlin 2005",
+     "creator": "",
+     "date_cr": 1239116379,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/1page.jpg"
+    },
+    {
+     "dam_uid": 1553,
+     "gallery_pos": 5,
+     "title": "feared crab",
+     "description": "Berlin 2005",
+     "creator": "",
+     "date_cr": 1239116379,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs11.jpg"
+    },
+    {
+     "dam_uid": 1552,
+     "gallery_pos": 6,
+     "title": "feared crab",
+     "description": "Berlin 2005",
+     "creator": "",
+     "date_cr": 1239116379,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs2_1layer.jpg"
+    },
+    {
+     "dam_uid": 1554,
+     "gallery_pos": 7,
+     "title": "feared crab",
+     "description": "Berlin 2005",
+     "creator": "",
+     "date_cr": 1239116379,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs31layer.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 922,
+   "page_title": "Malaga la Vache",
+   "page_sorting": 768,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "malaga-la-vache",
+   "title": "Malaga la Vache",
+   "year": "2006",
+   "header": "Malaga la Vache, 2006",
+   "bodytext_html": "Children's book illustration commissioned by Kaspar Pfenniger, Atelier Stern, Zurich /CH",
+   "text_uid": 1207,
+   "list_uid": 1206,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 650,
+     "gallery_pos": 1,
+     "title": "Malaga la Vache",
+     "description": "",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/malaga2.jpg"
+    },
+    {
+     "dam_uid": 648,
+     "gallery_pos": 2,
+     "title": "studies",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/Scetch2.jpg"
+    },
+    {
+     "dam_uid": 652,
+     "gallery_pos": 3,
+     "title": "say no to holiday",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/gabriellewillnicht1.jpg"
+    },
+    {
+     "dam_uid": 643,
+     "gallery_pos": 4,
+     "title": "Malaga likes waterski ",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/ski5.jpg"
+    },
+    {
+     "dam_uid": 642,
+     "gallery_pos": 5,
+     "title": "the Adriatic coast is beautyful",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/ski2.jpg"
+    },
+    {
+     "dam_uid": 641,
+     "gallery_pos": 6,
+     "title": "she does not like camping",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/camping1.jpg"
+    },
+    {
+     "dam_uid": 654,
+     "gallery_pos": 7,
+     "title": "she does really not enjoy camping",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/campingcolori.jpg"
+    },
+    {
+     "dam_uid": 651,
+     "gallery_pos": 8,
+     "title": "Gabrielle in Geromes dreams",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/gDance.jpg"
+    },
+    {
+     "dam_uid": 646,
+     "gallery_pos": 9,
+     "title": "Malaga falls in love",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/osb1.jpg"
+    },
+    {
+     "dam_uid": 647,
+     "gallery_pos": 10,
+     "title": "falls in love",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/osb2.jpg"
+    },
+    {
+     "dam_uid": 649,
+     "gallery_pos": 11,
+     "title": "..falls in love",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/osb3.jpg"
+    },
+    {
+     "dam_uid": 657,
+     "gallery_pos": 12,
+     "title": "postcards to Gabrielle",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/karteParis.jpg"
+    },
+    {
+     "dam_uid": 645,
+     "gallery_pos": 13,
+     "title": "she would like to see Mona Lisa",
+     "description": "",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/Monalisa.jpg"
+    },
+    {
+     "dam_uid": 653,
+     "gallery_pos": 14,
+     "title": "windsurfing is difficult",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/surf1.jpg"
+    },
+    {
+     "dam_uid": 655,
+     "gallery_pos": 15,
+     "title": "..but then it works",
+     "description": "Malaga la Vache, Berlin 2006",
+     "creator": "",
+     "date_cr": 1136077200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/surf3colori.jpg"
+    }
+   ]
+  }
+ ]
+}

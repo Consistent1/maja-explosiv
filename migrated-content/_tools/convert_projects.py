@@ -51,8 +51,13 @@ def run(stage, write=False):
         imgs_by[(r['page_uid'], r['dam_uid'])] = r
 
     os.makedirs(f'{OUT}/converted/{cat}', exist_ok=True)
-    report = []
+    report = []; skipped = []
     for p in d['projects']:
+        # A page the extractor marked unmigratable (a shortcut, or simply empty) produces
+        # no Markdown. Writing a title-only file would put an empty project on the site and
+        # hide the fact that its content lives elsewhere.
+        if p.get('skip_reason'):
+            skipped.append((p['slug'], p['page_uid'], p['skip_reason'])); continue
         rows, missing = [], 0
         for im in p['images']:
             m = imgs_by.get((p['page_uid'], im['dam_uid']))
@@ -101,6 +106,9 @@ def run(stage, write=False):
     for slug, n, miss, total in report:
         flag = f'   {miss} GALLERY IMAGE(S) NOT IN site-images.json' if miss else ''
         print(f"  {slug:<28} {n:>3}/{total:<3} images{flag}")
+    for slug, uid, why in skipped:
+        print(f"  {slug:<28} SKIPPED (page {uid}) -- {why}")
+    print(f"  {len(report)} written, {len(skipped)} skipped")
     print(f"  -> converted/{cat}/  " + ("and src/posts/projects/" if write else "[DRY RUN]"))
 
 if __name__ == '__main__':

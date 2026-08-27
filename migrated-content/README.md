@@ -23,7 +23,8 @@ at the end of `project_docs/content-migration-plan.md` — reading list, per-sta
 | 4 | Bio | **done** — 4 paragraphs, character-identical to live |
 | 5 | Contact + Datenschutz | **done** — 133 of 133 live paragraphs present. No separate Impressum exists; it is on the contact page |
 | 6 | Projects — murals | **done** — 3 projects, 40 images, verified 3/3 against live: heading, description, every caption, **and gallery order** |
-| 7–14 | Projects, News, Misc | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
+| 7 | Projects — paper work | **done** — 4 projects, 52 images, verified 5/5 against live. 1 page skipped: 982 is a shortcut to 924, whose content belongs to container 1049 |
+| 8–14 | Projects, News, Misc | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
 
 ## Layout
 

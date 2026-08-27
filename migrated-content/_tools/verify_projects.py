@@ -19,6 +19,9 @@ def run(stage):
     LIVE = f'{OUT}/raw/live'
     rows, fails = [], 0
     for p in d['projects']:
+        if p.get('skip_reason'):
+            rows.append((p['slug'], 'SKIPPED BY DESIGN', '', '', p['skip_reason'][:44]))
+            continue
         f = None
         for cand in (p['slug'], p['slug'].replace('-unterfuehrung','')):
             if os.path.exists(f'{LIVE}/{cand}.html'): f = f'{LIVE}/{cand}.html'; break
@@ -40,8 +43,17 @@ def run(stage):
         # right images with the right captions in the wrong sequence, and passed every
         # other check here. The old gallery emits one <div class="imageElement"> per image,
         # in display order, each carrying its DAM description -- compare the SEQUENCES.
-        live_seq = [norm(m.group(1)) for m in re.finditer(
-            r'<div class="imageElement">\s*<h3>.*?</h3>\s*<p>(.*?)</p>', h, re.S)]
+        # Parse each imageElement INDEPENDENTLY. A paired `<h3>...</h3>\s*<p>(.*?)</p>`
+        # regex silently skips any element that has no <p> -- an image with no DAM
+        # description -- and every later element then compares against the wrong
+        # position, reporting a false ORDER DIFFERS. malaga-la-vache has 15 elements of
+        # which 2 have no <p>; the paired regex found 13 and mismatched from the first.
+        blocks = re.split(r'<div class="imageElement">', h)[1:]
+        live_seq = []
+        for blk in blocks:
+            m = re.match(r'\s*<h3>(.*?)</h3>', blk, re.S)
+            d = re.match(r'\s*<h3>.*?</h3>\s*<p>(.*?)</p>', blk, re.S)
+            live_seq.append(norm(d.group(1)) if d else '')
         ours_seq = [norm(im['description']) for im in p['images']]
         # live captions append "| creator"; ours keep the fields apart
         live_cmp = [x.split('|')[0].strip() for x in live_seq]

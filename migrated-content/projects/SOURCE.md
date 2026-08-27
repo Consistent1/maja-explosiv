@@ -91,6 +91,63 @@ The `live img refs` figure printed by `verify_projects.py` is lower (8/8/7) and 
 gap: the old site's smoothgallery loads most thumbnails from JSON after page load, so only the
 first few appear as inline `<img>`. The caption check is the one that proves coverage.
 
+## Stage 7 — paper work (container 875) → `paintings`
+
+| page | slug | year | images | live |
+|---|---|---|---|---|
+| 923 | `concept-illustration` | — | 12 | `paintings/paper-work/concepts` |
+| 920 | `graphical-work` | — | 18 | `paintings/paper-work/graphics` |
+| 921 | `akwa` | 2005 | 7 | `content/2d/paper-work/akwa` |
+| 922 | `malaga-la-vache` | 2006 | 15 | `content/2d/paper-work/malaga-la-vache` |
+| 982 | *(skipped)* | — | 0 | `content/recent-work/the-whale` |
+
+**Verified 5/5 against live** — heading, description, every caption, and gallery order.
+
+### 982 "Breath under Water" is a shortcut, and is deliberately not migrated here
+
+It sits under paper work but has **zero `tt_content` rows in any state** — not live, not
+hidden, not deleted — and carries `pages.shortcut = 924`. The live site renders it by
+following that shortcut to page **924 "Breath Under Water"**, which holds the real content
+(a 1,399-byte text, a 38-image gallery, and a second text block of video links) and lives
+under container **1049**, not 875.
+
+So the work is real and live, but it belongs to whichever stage owns 1049. Emitting a
+project here would either publish an empty page or migrate the same content twice. The
+extractor now reads `pages.shortcut` and records a `skip_reason`; the converter writes no
+Markdown for such a page and reports it; the verifier reports it as *skipped by design*
+rather than as a missing capture.
+
+Note for that later stage: page 924 has **multiple live text elements** and a **hidden
+39-image gallery** beside its live 38-image one — the "live page, hidden gallery" case.
+
+### Titles: the header is the heading, even when it does not look like one
+
+Page 920's page title is *Graphical Work* but its content header is
+`graphics, illustration and sketches`. **The live site displays the header**, verbatim and
+lowercase, so that is what `title` carries. The page title still drives the slug, so the URL
+and the image directory stay `graphical-work` and agree with `site-images.json`. Both are
+recorded as `source_page_title` and `source_header`.
+
+### Two pipeline bugs this stage exposed
+
+**The verifier's live parser mis-read galleries containing an image with no description.**
+It matched `<h3>…</h3>\s*<p>(.*?)</p>` as a pair, which silently skips any `imageElement`
+lacking a `<p>` and compares everything after it against the wrong position — reporting a
+false `ORDER DIFFERS`. `malaga-la-vache` has 15 elements, 2 without a description; the old
+parser found 13 and mismatched from position 1. It now splits on `<div class="imageElement">`
+and parses each block independently. **Stage 6 passed only because every one of its images
+had a description** — re-verified after the fix, still 3/3.
+
+**Sub-containers were invisible to the extractor.** It treated every child of a container as
+a leaf project. The old site nests deeper in two places: 877 "sculptural work" splits into
+1039 Sculptures / 1040 Installations (known, and handled by the category map), and **inside
+1039, page 1068 "Portraits" is itself a container** holding *Alberto* (22 images), *Käthe*
+(16) and *Bernhard* (12) while carrying its own intro text and no gallery of its own. Stage 11
+would have emitted one project and silently lost three. The extractor now counts child pages
+and raises `SUB-CONTAINER: n child page(s) not walked by this stage`. Stage 7 has none.
+`convert_images.py` was never affected — it resolves a category by walking ancestors, so
+image filing is correct at any depth, and all three portrait directories exist already.
+
 ## The original stays intact
 
 Nothing is edited in place and nothing is normalised away. Three layers hold the source

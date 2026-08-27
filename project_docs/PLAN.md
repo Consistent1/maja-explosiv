@@ -9,12 +9,14 @@
 ## Resume here (2026-08-27)
 
 **Everything that needs your judgement is in one place: § _Open items needing input_, at the
-bottom of this file. 41 open items.** Nothing is filed anywhere else. Where the detail is
+bottom of this file. 44 open items.** Nothing is filed anywhere else. Where the detail is
 too long to sit in that list, the item names the document that holds it — every such document
 is linked from here or from `project_docs/DOCS.md`, which indexes all of them.
 
-**Content migration — Stage 6 (murals) is done.** 3 projects, 40 images, verified 3/3 against
-the live site on heading, description, every caption, **and gallery order**. Stages 7–14 not
+**Content migration — Stages 6 and 7 are done.** Murals (3 projects, 40 images) and paper
+work (4 projects, 52 images), each verified against the live site on heading, description,
+every caption, **and gallery order**. One page was deliberately skipped: 982 "Breath under
+Water" is a TYPO3 shortcut whose content lives under a different container. Stages 8–14 not
 started. Per-stage detail: `migrated-content/README.md`; method and decisions:
 `migrated-content/projects/SOURCE.md`; the remaining brief: the HANDOFF section at the end of
 `project_docs/content-migration-plan.md`.
@@ -1126,6 +1128,27 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   twice, or restart, before concluding a layout change had no effect. **The real fix is
   upstream** in `explosive` — this is generic template infrastructure, not Maja-specific.
 
+- [ ] **A missing project year is logged as a build ERROR, and most projects have none.**
+  (raised 2026-08-27, Stage 7.) `project-image-caption.njk` validates `projectYear` as
+  required and logs `ERROR: Missing project year for image caption` once per image. Stage 7
+  alone adds **30** such lines, from the two projects whose header carries no year; only 24
+  of 79 project headers have one, so by Stage 11 this will be several hundred lines and will
+  bury real errors. The caption itself renders correctly — the year is simply omitted. Either
+  the year stops being treated as required, or Maja supplies the missing years (see the item
+  above). **Not changed unilaterally: it is a template validation rule, and the noise is
+  currently accurate signal.**
+
+- [ ] **Sub-containers nest deeper than the migration model assumes.** (raised 2026-08-27,
+  Stage 7; **live for Stage 11**.) `877 "sculptural work"` splits into `1039 Sculptures` /
+  `1040 Installations` — known. But **inside 1039, `1068 "Portraits"` is itself a container**
+  holding *Alberto* (22 images), *Käthe* (16) and *Bernhard* (12), while carrying its own
+  intro text and no gallery. Treating every child of a container as a leaf project would emit
+  one project and lose three. `extract_projects.py` now flags
+  `SUB-CONTAINER: n child page(s) not walked by this stage`, but **Stage 11 still needs a
+  decision**: does `Portraits` become a page of its own with its intro text, a grouping in the
+  listing, or nothing? Images are already filed correctly — `convert_images.py` resolves
+  categories by walking ancestors, so depth never affected it.
+
 - [ ] **The caption's Year line is styled inconsistently with the other three.** (raised
   2026-08-27, Figma node `274:3273`, cosmetic but it is a real inconsistency in the design.)
   Caption Title, Description and Author are all `line-height 1.0` / `letter-spacing
@@ -1135,7 +1158,18 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   **Rendered as Figma has it**, per `CLAUDE.md` §3; not normalised to match its neighbours.
   Question for the owner: is this intentional, or should the Year match the other three?
 
-- [ ] **Most projects have no year, and the caption design has a slot for one.** (raised
+- [ ] **Page 924 "Breath Under Water" is unmigrated and belongs to no scheduled stage.**
+  (raised 2026-08-27, Stage 7; must be picked up before Stage 14 reconciliation.) Stage 7
+  correctly skipped page **982**, which sits under paper work but is a TYPO3 shortcut with no
+  content of its own (`pages.shortcut = 924`). The live site renders it by following the
+  shortcut. The real content is on page **924**, under container **1049** — a container the
+  stage table maps to `TBD`, so **no stage currently migrates it**. 924 holds a 1,399-byte
+  text, a live 38-image gallery, a hidden 39-image gallery, and a second live text block of
+  video links. Container 1049 also holds **937 "Alchemy Bar"** (4 content elements), which is
+  in the same position. Decide which stage owns 1049, or add one. Detail in
+  `migrated-content/projects/SOURCE.md` § *Stage 7*.
+
+- [ ] **ASK MAJA: what year should each project show? 55 of 79 have none in the database.** (raised
   2026-08-27, Stage 6; blocks a complete caption from Stage 7 onward.) The Figma caption's
   top row is `Title` left, `Year` right. The year comes from `tt_content.header`, which is
   written `"Title, Year"` — but **only 24 of 79 project text elements carry one**. Most
@@ -1144,6 +1178,24 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   photograph's date, not the project's, and the two disagree — Wohlgroth's images date to
   1994 while its header says 1993. **This is information the database does not contain.**
   Either Maja supplies the years, or the Year slot stays empty for ~70% of projects.
+
+  **Confirmed at Stage 7**: `concept-illustration` and `graphical-work` both migrated with an
+  empty year and the caption renders correctly without it — but the slot is visibly blank, and
+  the build logs 30 errors over those two projects alone (see *A missing project year is
+  logged as a build ERROR* above).
+
+  **What Maja needs to be asked, concretely:** for each project with no year in the old site's
+  heading, what year (or range — `1994-1995` is already used) should appear? A list of the
+  affected projects can be produced with:
+
+  ```sql
+  SELECT p.uid, p.title, c.header FROM tt_content c JOIN pages p ON p.uid=c.pid
+  WHERE c.CType='text' AND c.deleted=0 AND c.hidden=0 AND p.deleted=0 AND p.hidden=0
+    AND p.pid IN (874,875,873,872,878,1039,1040)
+    AND c.header NOT REGEXP ',[[:space:]]*[0-9]{4}';
+  ```
+
+  An acceptable answer is also "leave it blank" — the design tolerates it.
 
 - [ ] **Project cards are inset asymmetrically.** (raised 2026-08-27, minor.) Within the
   1056px `Main Content Container` the 1001px cards sit 24px from the left edge and 31px
@@ -1392,6 +1444,10 @@ and **the old photo is deliberately not carried over**. It is preserved at
 - [ ] **Ask Maja to confirm the 8 collaborations projects belong under `sculptures`** — she may overrule.
 
 - [ ] **Run a "live page, hidden gallery" census before Stages 6–11** — how many published pages have their gallery switched off, as Metal Group XIX does. The archive's hidden bucket is 145 MB, so this is not a one-off.
+  **Second confirmed instance, found at Stage 7:** page **924 "Breath Under Water"** has a
+  live 38-image gallery (`tt_content 1216`) *and* a hidden 39-image one (`1496`) beside it.
+  Two instances now, so this is a pattern rather than a one-off. Stages 6 and 7 were
+  unaffected — neither container held such a page.
 
 - [ ] **Pages that are published while their image gallery is hidden.** (raised 2026-08-27,
   needed before Stages 6–11.) **Metal Group XIX** (`pages.uid = 1078`) is the known case: the
