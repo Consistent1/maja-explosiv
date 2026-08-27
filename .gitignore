@@ -1,7 +1,12 @@
 /temp
 /_site
 /node_modules
-/package-lock.json
+# package-lock.json IS committed, so CI installs with `npm ci` (reproducible)
+# and `cache: npm` in .github/workflows/build.yml can be enabled.
+# To go back to ignoring it: uncomment the next line, delete the lockfile, and
+# leave `cache: npm` in that workflow COMMENTED OUT -- it hard-fails without a
+# lockfile. See README -> "A note on the lockfile".
+#/package-lock.json
 /.cache
 /.calva
 /bmad

@@ -1024,10 +1024,38 @@ Four ways out, roughly in order of preference:
 
 ### A note on the lockfile
 
-This template gitignores `package-lock.json`. CI therefore cannot use `npm ci`, which is
-the reproducible install, so the build workflow falls back to `npm install` when no
-lockfile is present. **Committing the lockfile is recommended** for any site you deploy —
-it pins transitive dependencies so a build today matches a build next month.
+**`package-lock.json` is committed by default**, and both configurations are supported.
+The build workflow installs with `npm ci` when a lockfile is present and falls back to
+`npm install` when it is not, so **CI works either way without editing anything**.
+
+| | Lockfile committed (default) | Lockfile gitignored |
+|---|---|---|
+| CI install | `npm ci` — reproducible | `npm install` — resolves fresh each run |
+| Builds pinned? | Yes; a build today matches one next month | No; a patch release upstream can change output |
+| `cache: npm` | Can be enabled | **Must stay off** — it hard-fails |
+| Repo noise | One large file, churns on dependency changes | None |
+
+**Committing it is recommended for any site you actually deploy.** Ignoring it is
+reasonable for a template you only ever fork.
+
+#### Switching between them
+
+*To ignore the lockfile:* uncomment `/package-lock.json` in `.gitignore`,
+`git rm --cached package-lock.json`, and leave `cache: npm` commented out in
+`.github/workflows/build.yml`.
+
+*To commit it (the default):* leave `/package-lock.json` commented out in `.gitignore`
+and `git add package-lock.json`.
+
+#### The `cache: npm` trap
+
+`actions/setup-node`'s `cache: npm` is **commented out** in
+`.github/workflows/build.yml`. This is deliberate: without a lockfile it does not degrade,
+it **fails the job** with `Dependencies lock file is not found` — and it fails at the
+`setup-node` step, *before* the install step's `npm install` fallback can run. Left off,
+the one workflow serves both configurations.
+
+If you keep the lockfile committed, uncomment it. It saves roughly 15–20 seconds a run.
 
 ### Legacy: the `docs/` folder route
 

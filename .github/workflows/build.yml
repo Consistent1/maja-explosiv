@@ -34,11 +34,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
-          cache: npm
+          # Dependency caching -- OFF by default so this workflow runs unchanged
+          # in BOTH lockfile configurations. `cache: npm` hard-fails with
+          # "Dependencies lock file is not found" when package-lock.json is
+          # absent, and it fails HERE, before the install step below gets its
+          # chance to fall back. Uncomment it only if the lockfile is committed
+          # (it is, by default -- see .gitignore). Saves ~15-20s per run.
+          # cache: npm
 
-      # `npm ci` needs a committed package-lock.json and is the reproducible
-      # choice. This template gitignores the lockfile, so fall back to
-      # `npm install` rather than failing. See README -> "A note on the lockfile".
+      # Both lockfile configurations are supported. `npm ci` is the reproducible
+      # install and needs a committed package-lock.json; `npm install` is the
+      # fallback when the lockfile is gitignored. See README -> "A note on the
+      # lockfile" for how to switch.
       - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi
