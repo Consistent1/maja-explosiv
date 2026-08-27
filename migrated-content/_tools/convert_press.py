@@ -35,11 +35,29 @@ def slugname(fn):
 #
 # TO REVERT: delete this table (set it to {}). Entries fall back to PDF-only,
 # the gallery returns to 45, and nothing else changes.
+# Values are paths relative to the backup root (old/TYPO3BU/_/), because the companion
+# does not always sit beside the PDF.
 GALLERY_COMPANION = {
-    # entry links this PDF                  ->  show this JPG in the gallery
-    '2013_Destroy_HIV.pdf':                     '2013_Destroy_HIV.jpg',
-    '20180525ZürcherOberländer2.pdf':          '2018_ZürcherOberländer2.jpg',
-    '20180519ZürcherOberländer.pdf':           '2018_ZürcherOberländer.jpg',
+    # 2018 pair: real clipping JPGs beside the PDFs. Verified against the live gallery's
+    # own DAM titles -- our positions 0 and 1 match live exactly.
+    '20180525ZürcherOberländer2.pdf':
+        ('fileadmin/s-maj/images/BilderMaja/presse/2018_ZürcherOberländer2.jpg',
+         '2018-zuercheroberlaender2.jpg'),
+    '20180519ZürcherOberländer.pdf':
+        ('fileadmin/s-maj/images/BilderMaja/presse/2018_ZürcherOberländer.jpg',
+         '2018-zuercheroberlaender.jpg'),
+
+    # Destroy HIV. CORRECTED 2026-08-27, twice.
+    #   1st attempt: paired with '2013_Destroy_HIV.jpg' on the shared stem -- WRONG. That file
+    #      is a 728x140 banner, a different asset, referenced nowhere on the live press page.
+    #   2nd: removed the pairing, believing the live thumbnail could only be reproduced by
+    #      rasterising the PDF ourselves -- also wrong.
+    # TYPO3 had already rendered it, and the render is IN THE BACKUP:
+    # typo3temp/pics/89d9b1aeec.jpg, 257x345, 51591 bytes -- byte-size identical to the image
+    # the live gallery serves. old/TYPO3BU/ is extraction source E2, so this is a local source,
+    # not a fetch from the live site.
+    '2013_Destroy_HIV.pdf':
+        ('typo3temp/pics/89d9b1aeec.jpg', '2013-destroy-hiv-clipping.jpg'),
 }
 
 WRITE='--write' in sys.argv
@@ -52,20 +70,26 @@ for e in d['entries']:
     comp=GALLERY_COMPANION.get(nfc(fn))
     e['gallery_companion']=None
     if comp:
-        csrc=os.path.join(BU, os.path.dirname(e['file']), comp)
-        if not os.path.exists(csrc):
-            for x in os.listdir(os.path.join(BU, os.path.dirname(e['file']))):
-                if nfc(x)==nfc(comp): csrc=os.path.join(BU,os.path.dirname(e['file']),x); break
+        crel, cname = comp
+        csrc=os.path.join(BU, crel)
+        if not os.path.exists(csrc):                      # NFD/NFC on disk
+            d_,b_=os.path.split(csrc)
+            if os.path.isdir(d_):
+                for x in os.listdir(d_):
+                    if nfc(x)==nfc(b_): csrc=os.path.join(d_,x); break
         if os.path.exists(csrc):
-            cname=slugname(comp)
             e['gallery_companion']=f"/assets/images/shared/press/{cname}"
-            e['gallery_companion_source']=os.path.join(os.path.dirname(e['file']),comp)
+            e['gallery_companion_source']=crel
             if WRITE:
                 os.makedirs(DEST,exist_ok=True)
                 cdst=os.path.join(DEST,cname)
                 r=subprocess.run(['jpegtran','-optimize','-progressive','-copy','none',csrc],capture_output=True)
-                if r.returncode==0 and r.stdout: open(cdst,'wb').write(r.stdout); stats['companion-jpegtran']=stats.get('companion-jpegtran',0)+1
-                else: shutil.copy2(csrc,cdst); stats['companion-copied']=stats.get('companion-copied',0)+1
+                if r.returncode==0 and r.stdout:
+                    open(cdst,'wb').write(r.stdout); stats['companion-jpegtran']=stats.get('companion-jpegtran',0)+1
+                else:
+                    shutil.copy2(csrc,cdst); stats['companion-copied']=stats.get('companion-copied',0)+1
+        else:
+            stats['companion-source-missing']=stats.get('companion-source-missing',0)+1
     if not e['file_exists']:
         stats['missing']+=1; e['target']=None; continue
     if not WRITE: continue

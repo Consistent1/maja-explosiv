@@ -16,7 +16,7 @@ pressEntries:
     source_file: "fileadmin/s-maj/images/BilderMaja/presse/20180519ZürcherOberländer.pdf"
   - title: "Destoy HIV; Schirmherrschaft Frank Walter Steinmeier, Public Marketing, October 2013"
     file: "/assets/images/shared/press/2013-destroy-hiv.pdf"
-    image: "/assets/images/shared/press/2013-destroy-hiv.jpg"
+    image: "/assets/images/shared/press/2013-destroy-hiv-clipping.jpg"
     image_is_companion: true
     source_file: "fileadmin/s-maj/images/BilderMaja/presse/2013_Destroy_HIV.pdf"
   - title: "Wacken Scull; Anwender Bericht Acrystal, Lange Ritter, 2012"

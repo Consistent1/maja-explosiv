@@ -1011,10 +1011,28 @@ and **the old photo is deliberately not carried over**. It is preserved at
   Oberländer* PDFs and only two are used. She may know whether this one was superseded, a
   duplicate, or simply forgotten. Context: `migrated-content/press/GALLERY-COMPANIONS.md`.
 
-- [ ] **ASK MAJA: is the press gallery change OK?** Three PDF-linked press entries now also show
-  a JPG companion, so the gallery matches the old site's 48 images instead of 45. No asset was
-  invented — each PDF already had a JPG counterpart in the same folder. The pairing was **verified against the live gallery's DAM titles** and is correct. Full detail and a one-line revert:
-  **`migrated-content/press/GALLERY-COMPANIONS.md`**.
+- [ ] **ASK MAJA: is the press gallery change OK?** Three entries link a **PDF**, which cannot be
+  an `<img>`, so they would have shown in the list but not the gallery. Each was given a JPG
+  companion so the gallery matches the live site at **48 images**. Nothing is invented — every
+  companion comes from a local source.
+
+  | entry links | gallery shows | where the image comes from |
+  |---|---|---|
+  | `20180525ZürcherOberländer2.pdf` | `2018-zuercheroberlaender2.jpg` | the clipping JPG beside the PDF |
+  | `20180519ZürcherOberländer.pdf` | `2018-zuercheroberlaender.jpg` | the clipping JPG beside the PDF |
+  | **`2013_Destroy_HIV.pdf`** | **`2013-destroy-hiv-clipping.jpg`** | **`typo3temp/pics/89d9b1aeec.jpg`** — TYPO3's own render of the PDF, 257×345, taken from the backup |
+
+  **The Destroy HIV pairing was wrong twice before this.** It was first matched to
+  `2013_Destroy_HIV.jpg` on the shared filename — that file is a **728×140 banner**, a different
+  asset that appears nowhere on the live press page. It was then removed altogether. The correct
+  image is TYPO3's rendered thumbnail, which was in the backup all along.
+
+  Worth Maja's eye: **is the Destroy HIV clipping the right picture**, and are the two 2018
+  pairings right — those were verified against the live gallery's own DAM titles and positions,
+  but a person who knows the material would confirm faster than a filename match.
+
+  Detail: `migrated-content/press/GALLERY-COMPANIONS.md`. All 53 press source files are archived
+  at `image-archive/live/about/press/` with `PROVENANCE.json`.
 
 - [ ] **Ask Maja to confirm the 8 collaborations projects belong under `sculptures`** — she may overrule.
 

@@ -70,43 +70,49 @@ articles for pictures of them. The gallery loop is untouched and still keys on `
 `2013-destroy-hiv.jpg`, `2018-zuercheroberlaender.jpg`, `2018-zuercheroberlaender2.jpg`.
 Press assets went 50 → 53.
 
-## The one inference — CONFIRMED 2026-08-27
+## Destroy HIV — got wrong twice, then fixed
 
-`2013_Destroy_HIV.pdf` → `2013_Destroy_HIV.jpg` was certain (identical stem).
+Worth recording in full, because both errors were confident.
 
-The two 2018 pairings were inferred from a trailing "2", and an earlier version of this document
-said the live gallery offered no way to check because it renders hashed `typo3temp/pics/`
-filenames. **That was wrong.** Each gallery element carries an `<h3>` with the DAM record's
-title, which resolves to a filename via `tx_dam`. The live gallery's first three positions are:
+**Attempt 1.** `2013_Destroy_HIV.pdf` was paired with `2013_Destroy_HIV.jpg` on the strength of
+the shared filename stem, and this document called it *"certain"* while flagging the two 2018
+pairings as the doubtful ones. **Exactly backwards.** `2013_Destroy_HIV.jpg` is **728×140 — a
+wide banner**, a different asset entirely, referenced **nowhere** on the live press page. The
+live gallery shows a **257×345 portrait**. The DAM gallery holds exactly one Destroy record,
+`uid 2645`, and it points at the **PDF**.
 
-```
-0  2018 ZürcherOberländer2
-1  2018 ZürcherOberländer
-2  2013 Destroy HIV
-```
+**Attempt 2.** The pairing was removed, on the reasoning that matching the live thumbnail would
+mean rasterising the PDF ourselves and inventing an asset. Also wrong.
 
-Our gallery renders `2018-zuercheroberlaender2.jpg`, `2018-zuercheroberlaender.jpg`,
-`2013-destroy-hiv.jpg` in those same positions. **The pairing is correct**, not a guess.
+**The fix.** TYPO3 had already rendered that thumbnail, and **the render is in the backup**:
 
-There is also a third 2018 PDF, `20180525ZürcherOberländer_1.pdf` (610 KB), which **no entry
-links and no gallery shows**. Preserved in the archive, left out of the site, matching live.
-
-## A remaining difference: gallery ORDER
-
-The 48 images are the same set, but **21 of 48 sit in a different position** than on the live
-site. Two different orderings of one set:
-
-| | ordered by |
+| | |
 |---|---|
-| live gallery | `tx_dam.sorting` — the DAM element's own sequence |
-| our gallery | the press-entry sequence, since we derive both from `pressEntries` |
+| `old/TYPO3BU/_/typo3temp/pics/89d9b1aeec.jpg` | 257×345, 51,591 bytes |
+| the live gallery's image | 257×345, 51,591 bytes |
 
-The differences are local swaps within a year — `2002_elxt3`/`elxt4`, `2007_Die-Reinpfalz`/
-`Mannheimer-Morgen`, `1996_ru3`/`ru4`. Nothing is missing or extra.
+`old/TYPO3BU/` is extraction source **E2**. Using it is a local source, not a fetch from the live
+site, so decision 1 is not engaged. It ships as
+`/assets/images/shared/press/2013-destroy-hiv-clipping.jpg`; the entry still links the PDF.
 
-Fixing it would mean giving the gallery its own ordering key from `tx_dam.sorting` rather than
-inheriting entry order, which is a change to how the template consumes `pressEntries`.
-**Logged in `PLAN.md` rather than done**, since it is a presentation decision.
+**`typo3temp/pics/` holds 3,766 rendered derivatives.** It is a fourth asset source, unconsidered
+until now, and it is how *any* PDF-backed gallery item gets its thumbnail. Stages 6–11 may hit
+the same case.
+
+**The lesson, since it cost two rounds:** the pairings that were doubted got verified and were
+right; the one asserted as certain was never checked and was wrong.
+
+## Current state
+
+| entry links | gallery shows | source |
+|---|---|---|
+| `20180525ZürcherOberländer2.pdf` | `2018-zuercheroberlaender2.jpg` | clipping JPG beside the PDF |
+| `20180519ZürcherOberländer.pdf` | `2018-zuercheroberlaender.jpg` | clipping JPG beside the PDF |
+| `2013_Destroy_HIV.pdf` | `2013-destroy-hiv-clipping.jpg` | **TYPO3 render from `typo3temp/pics/`** |
+
+Gallery renders **48**, matching the live site exactly. All 53 press source files are in
+`image-archive/live/about/press/` with `PROVENANCE.json` recording each one's original path and
+role.
 
 ## Reverting
 
