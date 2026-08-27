@@ -33,8 +33,16 @@
 
 {# Render caption - only show lines with available data #}
 <div class="project-image-caption">
-  {# Top line: Title (left) and Year (right) - only shown if no description #}
-  {% if (projectTitle or projectYear) and not imageDescription %}
+  {#
+    Top line: Title (left) and Year (right).
+
+    The `and not imageDescription` guard that used to be here suppressed this row whenever
+    an image had a description -- i.e. on essentially every real image. Figma shows all
+    three rows together, always (node 274:3273, Project Card > Frame 2147238709: row 1
+    Title+Year, row 2 Description, row 3 Author). Removed 2026-08-27; see PLAN.md
+    "Project Page -- extracted spec".
+  #}
+  {% if projectTitle or projectYear %}
   <div class="caption-title-year">
     {% if projectTitle %}<span class="caption-title">{{ projectTitle }}</span>{% endif %}
     {% if projectYear %}<span class="caption-year">{{ projectYear }}</span>{% endif %}

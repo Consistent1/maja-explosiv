@@ -22,23 +22,58 @@ layout: sidebar-layout.njk
         <h1 class="project-title">{{ title }}</h1>
     </header>
 
-    {# Hero Image - Full-width featured image #}
-    {# Determine which image to display: featuredImage or first image from images array #}
+    {#
+      Hero image, and the gallery that follows it.
+
+      `galleryImages` is `images` with the hero removed, so the hero is not repeated as
+      the first gallery item. Before 2026-08-27 every project rendered image 1 twice in a
+      row -- and once captions were wired, its caption twice. Figma's hero IS the first
+      card and the next card is the SECOND image (node 274:3273).
+
+      Cases this must survive, all of which render something sensible:
+        no `images` and no `featuredImage`  -> no hero, no gallery, description full width
+        no `images`, explicit featuredImage -> hero only
+        1 image                             -> hero only, gallery empty
+        2 images                            -> hero + 1 gallery image beside the text
+        featuredImage NOT in images[]       -> hero is extra; the whole gallery still shows
+        featuredImage set to images[0].src  -> the normal case; gallery starts at image 2
+      The slice is guarded on images[0].src matching, so an unrecognised featuredImage
+      falls back to showing every gallery image rather than silently dropping one.
+    #}
     {% set displayImage = featuredImage %}
     {% if not displayImage and images %}
         {% if images.length > 0 %}
             {% set displayImage = images[0].src %}
         {% endif %}
     {% endif %}
+    {% set galleryImages = images.slice(1) if (images and images.length and images[0].src == displayImage) else (images or []) %}
     
     {% if displayImage %}
         <div class="project-hero-image">
             <img src="{{ displayImage | url }}" alt="{{ featuredImageAlt or title }}" loading="eager">
+            {#
+              Figma captions the hero card exactly like every other one (274:3273, the
+              first Project Card instance). The template used to omit it. Caption the
+              images[] entry whose src matches what is actually displayed, so a project
+              with an explicit featuredImage outside images[] simply gets no caption
+              rather than a wrong one.
+            #}
+            {% set heroImage = images | find('src', displayImage) %}
+            {% if heroImage %}
+                {% set projectSlug = page.fileSlug %}
+                {% set context = "project-hero" %}
+                {% set imageIndex = 0 %}
+                {% set projectTitle = title %}
+                {% set projectYear = year %}
+                {% set imageDescription = heroImage.description %}
+                {% set imageAuthor = heroImage.author %}
+                {% include "project-image-caption.njk" %}
+            {% endif %}
         </div>
     {% endif %}
 
     {# Two-column layout: Description (left) + First two gallery images (right) #}
-    {% if images and images.length > 1 %}
+    {% if galleryImages.length > 0 %}
         <div class="project-intro-section">
             {# Left column: Project description #}
             <div class="project-description-column">
@@ -48,9 +83,16 @@ layout: sidebar-layout.njk
             {# Right column: First two gallery images stacked vertically #}
             <div class="project-intro-images">
                 {% for i in range(0, 2) %}
-                    {% if images[i] %}
+                    {% if galleryImages[i] %}
                         <div class="intro-image-item">
-                            <img src="{{ images[i].src | url }}" alt="{{ images[i].alt or title }}" loading="lazy">
+                            <img src="{{ galleryImages[i].src | url }}" alt="{{ galleryImages[i].alt or title }}" loading="lazy">
+                            {% set projectSlug = page.fileSlug %}
+                            {% set context = "project-intro" %}
+                            {% set imageIndex = i %}
+                            {% set projectTitle = title %}
+                            {% set projectYear = year %}
+                            {% set imageDescription = galleryImages[i].description %}
+                            {% set imageAuthor = galleryImages[i].author %}
                             {% include "project-image-caption.njk" %}
                         </div>
                     {% endif %}
@@ -65,19 +107,33 @@ layout: sidebar-layout.njk
     {% endif %}
 
     {# Third image - Full width (if exists) #}
-    {% if images and images.length > 2 %}
+    {% if galleryImages.length > 2 %}
         <div class="project-full-width-image">
-            <img src="{{ images[2].src | url }}" alt="{{ images[2].alt or title }}" loading="lazy">
+            <img src="{{ galleryImages[2].src | url }}" alt="{{ galleryImages[2].alt or title }}" loading="lazy">
+            {% set projectSlug = page.fileSlug %}
+            {% set context = "project-full-width" %}
+            {% set imageIndex = 2 %}
+            {% set projectTitle = title %}
+            {% set projectYear = year %}
+            {% set imageDescription = galleryImages[2].description %}
+            {% set imageAuthor = galleryImages[2].author %}
             {% include "project-image-caption.njk" %}
         </div>
     {% endif %}
 
     {# Remaining images - Rows of 2-3 images, top-aligned #}
-    {% if images and images.length > 3 %}
+    {% if galleryImages.length > 3 %}
         <div class="project-gallery-rows">
-            {% for i in range(3, images.length) %}
+            {% for i in range(3, galleryImages.length) %}
                 <div class="gallery-row-item">
-                    <img src="{{ images[i].src | url }}" alt="{{ images[i].alt or title }}" loading="lazy">
+                    <img src="{{ galleryImages[i].src | url }}" alt="{{ galleryImages[i].alt or title }}" loading="lazy">
+                    {% set projectSlug = page.fileSlug %}
+                    {% set context = "project-gallery" %}
+                    {% set imageIndex = i %}
+                    {% set projectTitle = title %}
+                    {% set projectYear = year %}
+                    {% set imageDescription = galleryImages[i].description %}
+                    {% set imageAuthor = galleryImages[i].author %}
                     {% include "project-image-caption.njk" %}
                 </div>
             {% endfor %}

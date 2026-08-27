@@ -2,7 +2,44 @@
 
 **Status document owner:** this file is the current source of truth for where the project stands and what's next. It supersedes `RESUME-WORK-HERE.md`, `MIGRATION-STATUS-REPORT.md`, and the various session-summary docs, which have been moved to `project_docs/_archive/` (see `_archive/MANIFEST.md`) rather than deleted.
 
-**Last updated:** 2026-07-30
+**Last updated:** 2026-08-27
+
+---
+
+## Resume here (2026-08-27)
+
+**Everything that needs your judgement is in one place: § _Open items needing input_, at the
+bottom of this file. 41 open items.** Nothing is filed anywhere else. Where the detail is
+too long to sit in that list, the item names the document that holds it — every such document
+is linked from here or from `project_docs/DOCS.md`, which indexes all of them.
+
+**Content migration — Stage 6 (murals) is done.** 3 projects, 40 images, verified 3/3 against
+the live site on heading, description, every caption, **and gallery order**. Stages 7–14 not
+started. Per-stage detail: `migrated-content/README.md`; method and decisions:
+`migrated-content/projects/SOURCE.md`; the remaining brief: the HANDOFF section at the end of
+`project_docs/content-migration-plan.md`.
+
+**Two bugs found and fixed this session, both of which passed every existing check:**
+
+- **Galleries were in the wrong order.** They order by `tx_dam_mm_ref.sorting_foreign`, not
+  `tx_dam.sorting`. Right images, right captions, right count — only the sequence wrong, which
+  does not look broken. `verify_projects.py` now compares the *order* against the live page for
+  every stage. All 1006 site images were renumbered and re-verified pixel-identical to the
+  archive.
+- **GitHub Actions could never have deployed.** `cache: npm` hard-fails without a committed
+  lockfile, at a step before the fallback could run. Fixed upstream; the lockfile is now
+  committed here.
+
+**The two defects that blocked project pages from *looking* right are fixed** (2026-08-27) —
+empty image captions and 0-byte collection pages. Both were pre-existing, not caused by the
+migration, and invisible until there was content to reveal them. Every changed value is
+recorded with its previous value in Phase 2 § *Project Page & collection pages — build
+corrections*. Fixing the second caught a third problem: the layout would have published the
+template's placeholder copy ("Two-dimensional painted works") over Maja's own prose.
+
+**The Project Page Figma spec is extracted and the frame verified** — Phase 2 § *Project Page —
+extracted spec (2026-08-27)*. Geometry, type, the caption contract, what happens past the ninth
+image, and the traps hit reading it.
 
 ---
 
@@ -390,6 +427,41 @@ section.** The findings are kept in full because the reasoning matters.
   trimmed box ends on the **baseline** while a CSS block ends on its **line box**; the
   difference is descent + half-leading = 4 + 0.71 = 4.71px. Fixed by taking
   `.sidebar-footer`'s bottom padding from 20px to 15px.
+
+#### 5. Hero image was repeated as the first gallery image — fixed
+
+`project.njk` set the hero from `featuredImage` (which the converter fills from `images[0]`)
+and then began the gallery again at `images[0]`. Every project showed image 1 twice in a row,
+and once captions were wired, its caption twice.
+
+Introduced `galleryImages` — `images` with the hero removed — and pointed all three gallery
+sections at it instead of `images`. The slice is **guarded on `images[0].src` matching the
+hero**, so an unrecognised `featuredImage` falls back to showing every gallery image rather
+than silently dropping one. The hero's own caption lookup now uses the null-safe `find`
+filter rather than a loop-scoped `{% set %}`, which Nunjucks does not reliably propagate.
+
+The intro section's threshold also changed from `images.length > 1` to
+`galleryImages.length > 0`: under the old test a project with exactly one gallery image
+rendered **no gallery at all** and that image was never shown.
+
+Verified by building five fixtures covering every shape, since the failure modes here are
+silent:
+
+| case | result |
+|---|---|
+| no `images`, no `featuredImage` | no hero, no gallery, description full width |
+| one image | hero only, gallery empty |
+| two images | hero + 1 gallery image beside the text |
+| `featuredImage` **not** in `images[]` | hero is extra, all gallery images still shown |
+| `images` but no `featuredImage` | hero = image 1, gallery starts at image 2 |
+
+All five render sensibly, none error, none drop an image. Real pages: wohlgroth 10,
+felix-und-regula 18, murals-europe 12 — **no duplicates**. Fixtures were removed after the run.
+
+**A trap worth remembering:** the first measurement after this change still showed the
+duplicate, because `.eleventy.js` copies `src/_user/layouts/` into `.cache/` at config time,
+so the first build after a layout edit can render the previous copy (`CLAUDE.md` §7b). Build
+twice, or restart, before believing a layout change did nothing.
 
 #### Verification after fixing (2026-07-29)
 
@@ -873,6 +945,92 @@ empty**, and several pages carry **more than one `text` element** (page 926 has 
 `Elxt 90 Videos:`) which no stage currently handles.
 `extract_projects.py` records these in `anomalies[]` rather than silently taking the first.
 
+### Project Page & collection pages — build corrections (2026-08-27)
+
+Applied against the spec above. **Every previous value is recorded here**, so any change can
+be reversed or audited without git archaeology. No content was edited: Maja's prose, the
+migration output and the database values are all untouched — only templates and CSS changed.
+
+#### 1. Image captions rendered empty — fixed
+
+`src/_user/layouts/project.njk` included `project-image-caption.njk` at three sites and
+passed it **nothing**. The include reads `projectTitle`, `projectYear`, `imageDescription`,
+`imageAuthor`; Nunjucks `{% include %}` inherits the parent context, and none of those names
+existed in it. Result: `ERROR: Missing project title for image caption` ×40 and
+`... year ...` ×40, and an empty `<div class="project-image-caption">` under every image.
+
+- All **four** call sites now set the four variables (plus `projectSlug`, `context`,
+  `imageIndex`, which the include uses only for error messages).
+- **The hero image gained a caption**, which Figma has and the template omitted. It captions
+  the `images[]` entry whose `src` matches what is displayed, so a project whose
+  `featuredImage` is not in `images[]` gets no caption rather than a wrong one.
+- `project-image-caption.njk`: the guard `{% if (projectTitle or projectYear) and not
+  imageDescription %}` **removed**. It suppressed the title/year row whenever an image had a
+  description — i.e. on essentially every real image. Figma shows all three rows always.
+
+Result: **80 build errors → 0**, 11 captions on `wohlgroth` (hero + 10), 0 empty caption divs.
+
+#### 2. Caption CSS — every value differed from Figma
+
+`src/_user/assets/css/custom.css`. Figma values from node `274:3273`:
+
+| property | was | now (Figma) |
+|---|---|---|
+| `.project-image-caption` `gap` | `0.25rem` (4px) | `0.641rem` (10.26px) |
+| `.project-image-caption` `margin-top` | `0.5rem` (8px) | `0.769rem` (12.31px) |
+| `.caption-title` size / weight | `0.95rem` / `500` | `1.282rem` (20.51px) / `400` |
+| `.caption-title` colour | `#000000` | `#222222` |
+| `.caption-year` size / weight | `0.95rem` / `500` | `0.897rem` (14.36px) / `400` |
+| `.caption-year` colour | `#000000` | `#525252` |
+| `.caption-description` size | `0.875rem` | `1.026rem` (16.41px) |
+| `.caption-description` colour | `#000000` | `#525252` |
+| `.caption-author` size | `0.875rem` | `1.026rem` (16.41px) |
+| `.caption-author` style | **italic** | not italic |
+| `.caption-author` colour | `#666666` | `#525252` |
+| tracking (all four) | none | `-0.045em`, except `.caption-year` `-0.02em` |
+
+The title and year were previously the same size and weight, which inverted the hierarchy —
+Figma's title is 20.51px against a 14.36px year.
+
+**One deliberate deviation, flagged not hidden:** Figma sets `line-height: 1.0` on
+description and author. Those are single-line in the design but wrap in reality, and 1.0
+clips descenders on a wrapped line, so **1.25** is used. Figma's `leadingTrim: CAP_HEIGHT`
+means its boxes have no CSS equivalent anyway (audit guide §8).
+
+#### 3. Collection pages emitted 0-byte files — fixed
+
+`src/collections/{sculptures,installations,performance,paintings}.md` carried only `title`
+and `description`. With no `layout`, Eleventy wrote an empty file, so `/collections/paintings/`
+was blank no matter how much content existed. Added three keys per file — `layout:
+collection.njk`, `collectionName: <name>`, `permalink: /collections/<name>/` — matching the
+template's own `src/collections/blog.md`. **The existing `title` and `description` lines were
+not touched.**
+
+#### 4. …and the fix would have published placeholder copy
+
+`collection.njk` read its heading and blurb from `collectionData.js`, which holds the
+**template's generic strings**. The real prose is in the page files:
+
+| collection | `collectionData.js` (template placeholder) | `src/collections/<name>.md` (Maja's prose) |
+|---|---|---|
+| sculptures | "Three-dimensional sculptural works" | "For Maja, the transformation of materials, primarily through sculpting…" |
+| installations | "Installation art pieces" | "The numerous collaborations with other artists…" |
+| performance | "Performance art documentation" | "Maja Thommen became interested in stage work…" |
+| paintings | "Two-dimensional painted works" | "As long as I can remember, a pen and paintbrush have accompanied my life" |
+
+`src/_user/layouts/collection.njk` now prefers the **page's own** `title`/`description` and
+falls back to `collectionData`. **Neither source was edited** — both still hold exactly what
+they held. `collectionData.js` continues to supply navigation, submenus and colour; it is
+configuration, not copy.
+
+Result: `/collections/paintings/` is **20,424 bytes** listing all three Stage 6 projects,
+under Maja's own blurb. The other three render correctly and are empty pending Stages 7–11.
+
+#### Verification
+
+Full build, 18 files: **only the 4 known `featuredProjects.json` errors remain**. All routes
+200. Stage 6 still verifies 3/3 against live (heading, description, every caption, order).
+
 ## Phase 3 — Content & image migration at scale
 
 Current state (verified by running the build, not just reading old status docs):
@@ -929,7 +1087,44 @@ reconnaissance. Their *conclusions about what to do next* are superseded.
 
 ## Open items needing input
 
-**This section is the single list for open questions of this kind.** When something needs the owner's judgement — a design inconsistency, an ambiguous spec, a content decision that can't be settled from Figma or the live site — record it here rather than in a new file or inline in a template comment. Resolved items get struck through with the resolution, not deleted, so the reasoning stays visible.
+**This section is the single list for open questions of this kind.** Every problem,
+question and design inconsistency across the redesign *and* the content migration is
+recorded here — including ones whose detail lives in another document, which the item
+names. `project_docs/DOCS.md` indexes every document in the repo and marks which are
+current; `migrated-content/_tools/RUNBOOK-images.md` is the procedure for the image
+pipeline. Nothing needing the owner's judgement is filed anywhere else. When something needs the owner's judgement — a design inconsistency, an ambiguous spec, a content decision that can't be settled from Figma or the live site — record it here rather than in a new file or inline in a template comment. Resolved items get struck through with the resolution, not deleted, so the reasoning stays visible.
+
+- [x] ~~**The hero image is a duplicate of the first gallery image, and now carries a
+  duplicate caption.**~~ **FIXED 2026-08-27**, see Phase 2 § *build corrections* §5. Originally: (raised 2026-08-27, visible only since the captions were wired.)
+  `project.njk` sets the hero to `featuredImage`, which the converter fills from `images[0]`,
+  and then the intro section starts again at `images[0]`. So every project shows image 1
+  twice in a row, and since 2026-08-27 with the same caption twice. Figma does not do this:
+  its hero is the first card and the next card is the *second* image. **Fixing it means
+  changing which images each section draws, which is the grid work (Figma spec, Phase 2)
+  rather than the caption work** — so it is left as found. Deciding whether to do the full
+  grid pass is the owner's call.
+
+- [ ] **The project page grid does not match Figma.** (raised 2026-08-27; the captions are
+  now correct, this is the remaining fidelity gap.) Figma (`274:3273`, Phase 2 spec) pairs
+  **one** image with each text block, then a full-width card, then a **two-column** row, then
+  a **three-column** row. `project.njk` stacks **two** images beside the text and puts
+  everything after image 3 into one generic row container. Whether to do the full grid pass
+  is the owner's call; the spec and geometry are extracted and ready.
+
+- [ ] **`collectionData.js` still holds the template's placeholder descriptions.** (raised
+  2026-08-27.) "Three-dimensional sculptural works", "Installation art pieces", "Performance
+  art documentation", "Two-dimensional painted works". They no longer render — `collection.njk`
+  now prefers the page's own front matter, where Maja's real prose lives — but the stale
+  strings remain in the config and will resurface for any collection page lacking a
+  `description`. Delete them, or replace them with the real copy?
+
+- [ ] **A layout edit can silently render the previous version.** (raised 2026-08-27; it cost
+  a wrong measurement this session.) `.eleventy.js` copies `src/_user/layouts/` and
+  `src/_user/includes/` into `.cache/` **at config time**, so the first build *after* editing
+  one of those files can still emit the old markup — the change looks like it did nothing.
+  `CLAUDE.md` §7b records this for the dev server; it applies to one-off builds too. Build
+  twice, or restart, before concluding a layout change had no effect. **The real fix is
+  upstream** in `explosive` — this is generic template infrastructure, not Maja-specific.
 
 - [ ] **The caption's Year line is styled inconsistently with the other three.** (raised
   2026-08-27, Figma node `274:3273`, cosmetic but it is a real inconsistency in the design.)
@@ -955,7 +1150,7 @@ reconnaissance. Their *conclusions about what to do next* are superseded.
   from the right. Rendered as Figma has it. Likely imprecision rather than intent, but
   that is the owner's call, not a thing to snap to 24/24.
 
-- [ ] **Project image captions render empty — the layout never passes the data.** (raised
+- [x] ~~**Project image captions render empty — the layout never passes the data.**~~ **FIXED 2026-08-27** — see Phase 2 § *Project Page & collection pages — build corrections*. 80 build errors → 0. Original raised
   2026-08-27, Stage 6, blocks every project page from Stage 6 on.)
   `src/_user/layouts/project.njk` includes `project-image-caption.njk` three times without
   setting `projectTitle`, `projectYear`, `imageDescription` or `imageAuthor`. Nunjucks
@@ -978,7 +1173,7 @@ reconnaissance. Their *conclusions about what to do next* are superseded.
   20.51px/400; year the same size as the title instead of smaller and grey; author italic
   where Figma is not). The type table in the Phase 2 spec has the exact values.
 
-- [ ] **The four collection pages produce 0-byte files.** (raised 2026-08-27, Stage 6.)
+- [x] ~~**The four collection pages produce 0-byte files.**~~ **FIXED 2026-08-27** — see Phase 2 § *Project Page & collection pages — build corrections*. The fix also caught that the layout would have published template placeholder copy over Maja's prose. Original raised 2026-08-27, Stage 6.)
   `src/collections/{paintings,sculptures,installations,performance}.md` carry only `title` and
   `description` — no `layout`, no `collectionName`, no `permalink` — unlike the template's own
   `src/collections/blog.md`, which has all three. Eleventy writes an empty file. So
@@ -1265,7 +1460,17 @@ and **the old photo is deliberately not carried over**. It is preserved at
   - **More instances found 2026-07-30 on the homepage frame**, which supports the "pasted content" reading rather than a deliberate second family: the **About-intro description** (`91:2988`, Rethink Sans 400 / 25.13px) and the footer's **Impressum** label (`I182:2812;52:6471`, 15.47px) — while its siblings Sitemap and search are Geist 500. Note also that the footer brand line's *default* style is Rethink Sans and is then 100% overridden to Geist per character, i.e. the same trap §8 of the audit guide warns about. Assumed covered by the same "use Geist" resolution; say so if not.
 - [ ] **A fourth font family: the homepage CTA label is Inter.** `I388:5771;388:5734` in the visible CTA instance reads **Inter 500, 16.24px**, resolved through the override table so it is not the `style`-block trap. Inter appears nowhere else in the frames read so far, and Phase 1 explicitly retired it as "never a confirmed value, just an old guess". Presumed to be Geist 600 like the hidden pill variants, but that is a guess, not a reading. Blocks the CTA rebuild (H2).
 - [ ] **The two homepage section headings are styled differently in Figma.** "Projects" (`I52:6457;46:707`) is Geist 400 / 126.91px / lh 120% / −4%; "About" (`91:2984`) is Geist 400 / 123.74px / lh 74% / −2%. Same family and weight, sizes 3px apart, but the line-height and tracking differ enough to change how each sits. One token or two? Rendered as Figma has them until decided (guide §7 bucket 2).
-- [ ] **Figma's project card caption has three rows; the build renders one.** The `Project Card` component's caption frame is 59.53 tall and holds title+year, title+year, title+info. The row contents are placeholder, so what the second and third rows are *for* (medium? dimensions? photo credit?) cannot be read off the design — and the build's real data currently carries title, year, description and author. Needs a content decision before the card can be built to the design.
+- [x] ~~**Figma's project card caption has three rows; the build renders one.** The `Project Card` component's caption frame is 59.53 tall and holds title+year, title+year, title+info. The row contents are placeholder, so what the second and third rows are *for* (medium? dimensions? photo credit?) cannot be read off the design — and the build's real data currently carries title, year, description and author. Needs a content decision before the card can be built to the design.~~
+  **RESOLVED 2026-08-27. No content decision is needed — the rows are Description and Author,
+  and the reading that produced this question was of node *names*, not node *content*.** The
+  three rows' actual `characters` are `Title`/`2025`, `Description`/`Info`, `Author`/`Info`;
+  every node is *named* "Title", "Year" or "Info" regardless of what it renders, which is why
+  they read as "title+year, title+year, title+info". The right-hand cells on rows 2 and 3
+  carry **`opacity: 0`** — deliberately invisible, and absent from Figma's own PNG export. So
+  the caption is: **Title left + Year right, then Description, then Author**, left-aligned,
+  which is exactly what the build's data already carries and what
+  `project-image-caption.njk` was written for. Full spec, including type and geometry, in
+  Phase 2 § *Project Page — extracted spec (2026-08-27)*.
 - [x] ~~**Sidebar footer brush: use `corner.png` or half of `sidebar-brush.png`?**~~ **Resolved 2026-07-29 by measurement: use half of `sidebar-brush.png`.** Per pixel at native size `corner.png` is sharper (mean |gradient| 27.5 vs 20.2), but that is just its edges packed into fewer pixels. At the size the sidebar actually renders (903x124) the ranking inverts: the brush half scores 20.2 against 16.9 for `corner.png` Lanczos-upscaled 2.1x, with slightly less halo (7.65% vs 7.87% of pixels neither opaque nor clear). So the upscale is not merely interpolated — it reconstructs edges better than resampling the small asset ourselves. A search of the TYPO3 backup for any third brush asset found nothing (20 hits, all webalizer stats graphs). **Fully closed 2026-07-29 (evening):** the `imageRef` on the Figma fill downloads byte-identical to `sidebar-brush.png`, so the asset choice is settled by hash rather than by inference, and the crop that was previously tuned by eye is now read off the fill's `imageTransform` — see the sidebar brush section above.
 - [ ] **Sidebar wordmark is a vector in Figma, live text in the build.** Figma draws "MAJA EXPLOSIV" as a Mask group with a 188.32 x 27.69 footprint, so there is no font size to copy; it is currently set as Geist 800/22px to land on roughly that footprint. Decide whether it should stay as text (accessible, selectable, no extra asset) or become an exported SVG matching the design exactly.
 - [x] ~~**`custom.css` has a large block of pre-existing duplicated rules.**~~ **Done 2026-07-29** (commits `8c09be3`, `88d5ca5`). The file had 217 top-level selectors with 34 declared more than once, the repeats concentrated in one region (~753-955) restating the hero / tab / custom-section / artwork rules from ~380-752. Cleared in three passes, each chosen to be provably cascade-neutral: 12 rules re-declared verbatim later, 41 declarations shadowed by a later rule with the same selector (skipping `!important`), then the 9 rules left empty plus two stubs. The four selectors that looked "divergent" in the initial survey turned out to be complementary fragments — different properties, not conflicting values — so they were folded into single definitions rather than needing a decision. 217 → 197 rules, 2182 → 2000 lines. Only `:root` is still declared twice, deliberately, with a comment at the first pointing to the second. Verified with a full computed-style snapshot (48 properties plus box geometry for every element) across 7 page/viewport combinations, diffed after each pass — all zero changes.

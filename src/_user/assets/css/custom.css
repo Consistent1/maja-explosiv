@@ -1781,12 +1781,21 @@ h6 {
   - Bottom line: Author (left-aligned, optional)
 */
 
+/* ---------------------------------------------------------------------------
+   Project image caption -- corrected to Figma 2026-08-27 (node 274:3273,
+   Project Card > Frame 2147238709). Every value below was wrong before; the
+   old values are in PLAN.md "Project Page -- build corrections" so the change
+   is traceable. Figma sets leadingTrim: CAP_HEIGHT on all four text nodes, so
+   its box heights (15px, 12px) hug the capitals and have no CSS equivalent --
+   the gaps here are matched to Figma's spacing, not to its box heights.
+   --------------------------------------------------------------------------- */
 .project-image-caption {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    /* Small gap between lines */
-    margin-top: 0.5rem;
+    /* Figma: 10.26px between caption rows (was 0.25rem/4px) */
+    gap: 0.641rem;
+    /* Figma: 12.31px between image and caption (was 0.5rem/8px) */
+    margin-top: 0.769rem;
     font-family: var(--theme-fonts-body, 'Geist', 'Rethink Sans', sans-serif);
     color: var(--theme-colors-text, #000000);
 }
@@ -1801,18 +1810,27 @@ h6 {
 }
 
 .caption-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--theme-colors-text, #000000);
+    /* Figma: Geist 400, 20.51px, lh 1.0, -0.045em, #222222 (was 0.95rem/500) */
+    font-size: 1.282rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    color: var(--theme-colors-text, #222222);
     text-align: left;
     flex: 1;
     /* Allow title to take available space */
 }
 
 .caption-year {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--theme-colors-text, #000000);
+    /* Figma: Geist 400, 14.36px, lh 1.2, -0.02em, #525252 (was 0.95rem/500, same
+       size as the title, which inverted the hierarchy). The lh/tracking differ
+       from the other three rows -- that is Figma's own inconsistency, rendered as
+       found and raised in PLAN.md rather than normalised. */
+    font-size: 0.897rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--theme-colors-text-light, #525252);
     text-align: right;
     white-space: nowrap;
     /* Prevent year from wrapping */
@@ -1820,17 +1838,26 @@ h6 {
 
 /* Description line (optional) */
 .caption-description {
-    font-size: 0.875rem;
-    line-height: 1.4;
-    color: var(--theme-colors-text, #000000);
+    /* Figma: Geist 400, 16.41px, lh 1.0, -0.045em, #525252 (was 0.875rem, lh 1.4,
+       full text colour). lh 1.0 would clip descenders on a wrapped line, so 1.25
+       is used for multi-line safety -- the only deliberate deviation here. */
+    font-size: 1.026rem;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.045em;
+    color: var(--theme-colors-text-light, #525252);
     text-align: left;
 }
 
 /* Author line (optional) */
 .caption-author {
-    font-size: 0.875rem;
-    color: var(--theme-colors-text-light, #666666);
-    font-style: italic;
+    /* Figma: Geist 400, 16.41px, lh 1.0, -0.045em, #525252 -- and NOT italic
+       (was 0.875rem, italic, #666666) */
+    font-size: 1.026rem;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.045em;
+    color: var(--theme-colors-text-light, #525252);
     text-align: left;
 }
 

@@ -7,21 +7,32 @@ layout: sidebar-layout.njk
     <!-- Collection Header -->
     {% set posts = collections.allPosts | getPostsByCollection(collectionName) %}
     {% set collectionData = collections.collectionData | find('name', collectionName) %}
+    {#
+      The PAGE's own front matter wins over collectionData.js for the visible copy.
+      src/collections/<name>.md carries Maja's real prose ("For Maja, the transformation
+      of materials..."); collectionData.js carries the template's generic placeholders
+      ("Three-dimensional sculptural works"). Reading collectionData first published the
+      placeholder and buried the real text. collectionData.js still supplies navigation,
+      submenus and colour -- it is configuration, not copy.
+      Added 2026-08-27; see PLAN.md "Collection pages -- build corrections".
+    #}
+    {% set collectionHeading = title or collectionData.displayName or (collectionName | title) %}
+    {% set collectionBlurb = description or collectionData.description %}
     <header class="collection-header">
         {% if collectionData and collectionData.featuredImage %}
             <div class="collection-hero" style="background-image: url('{{ collectionData.featuredImage | url }}');">
                 <div class="collection-hero-content">
-                    <h1 class="collection-title">{{ collectionData.displayName or (collectionName | title) }}</h1>
-                    {% if collectionData.description %}
-                        <p class="collection-description">{{ collectionData.description }}</p>
+                    <h1 class="collection-title">{{ collectionHeading }}</h1>
+                    {% if collectionBlurb %}
+                        <p class="collection-description">{{ collectionBlurb }}</p>
                     {% endif %}
                 </div>
             </div>
         {% else %}
             <div class="collection-header-simple">
-                <h1 class="collection-title">{{ collectionData.displayName or (collectionName | title) }}</h1>
-                {% if collectionData.description %}
-                    <p class="collection-description">{{ collectionData.description }}</p>
+                <h1 class="collection-title">{{ collectionHeading }}</h1>
+                {% if collectionBlurb %}
+                    <p class="collection-description">{{ collectionBlurb }}</p>
                 {% endif %}
             </div>
         {% endif %}
