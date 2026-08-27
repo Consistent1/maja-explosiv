@@ -28,6 +28,25 @@ def body_md(h):
     a line break, as the legal converter does, would shatter each description into
     six one-line paragraphs.
     """
+    # Links first, before any tag stripping. TYPO3 writes both its own <link> syntax and
+    # plain <a href>. Stripping tags without this leaves the label and silently loses the
+    # target -- Bagger's note about the videos coming down carries the only pointer to
+    # Maja's YouTube channel, which would have become unlinked text.
+    def _link(m):
+        href, label = m.group(1), re.sub(r'<br\s*/?>', ' ', m.group(2))
+        label = re.sub(r'\s+', ' ', html.unescape(re.sub('<[^>]+>', '', label))).strip()
+        # Where the label IS the bare URL, the old site displays it WITHOUT the scheme
+        # ("t1p.de/maja-explosiv"), even though the database stores the full URL as the
+        # label. That is TYPO3's display convention, and the live site is the source of
+        # truth for how a link reads (owner, 2026-08-27). The href is untouched and is
+        # identical on both sides; only the visible label loses the scheme.
+        # The original label is preserved verbatim in raw/db/ and normalized/.
+        if label and label == href:
+            label = re.sub(r'^[a-z]+://', '', label)
+        return f'[{label}]({href})' if label else href
+    h = re.sub(r'<link\s+([^ >]+)[^>]*>(.*?)</link>', _link, h, flags=re.S)
+    h = re.sub(r'<a\s+[^>]*href="([^"]*)"[^>]*>(.*?)</a>', _link, h, flags=re.S)
+
     h = re.sub(r'<br\s*/?>\s*<br\s*/?>', '\x00', h)          # paragraph break
     h = re.sub(r'<br\s*/?>', ' ', h)                          # soft wrap
     # Emphasis. Whitespace INSIDE the tag must move outside the marker: the source
@@ -39,7 +58,7 @@ def body_md(h):
     paras = []
     for p in h.split('\x00'):
         p = html.unescape(re.sub(r'<[^>]+>', '', p))
-        p = re.sub(r'[ \t]+', ' ', p).strip()
+        p = re.sub(r'\s+', ' ', p).strip()   # paragraph breaks are already split out above
         if p: paras.append(p)
     return '\n\n'.join(paras) + '\n'
 

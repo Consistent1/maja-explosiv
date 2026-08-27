@@ -25,6 +25,7 @@ which. **Where two documents disagree, the one marked CURRENT below wins.**
 | `project_docs/NEXT-SESSION.md` | Onboarding for whoever picks this up next; retires several cautions that are no longer true |
 | `migrated-content/README.md` | Index of the migration output, per-stage status, and the one thing to know before running anything (the database must be loaded from the *current* dump) |
 | `migrated-content/<type>/SOURCE.md` | Per stage: exactly where the content came from, what was done to it, what was excluded and why |
+| **`migrated-content/projects/SOURCE.md`** | **Stages 6–9 (the project stages).** Every decision, every anomaly, every bug the pipeline now guards against. Read before writing any project-stage code |
 | `migrated-content/<type>/verification/report.md` | Per stage: which checks ran, which passed, what gap remains |
 | `migrated-content/<type>/excluded/` | Source records deliberately **not** migrated, with every field preserved — currently `timeline/excluded/excluded-records.json` (4 records) |
 | `migrated-content/<type>/normalized/*.json` | The parsed, source-shaped intermediate for each stage. Useful when a conversion needs re-deriving without re-querying the database |
@@ -79,7 +80,9 @@ overtaken**:
 | `project_docs/figma-audit-guide.md` | The method for finding design mismatches numerically rather than by eye. Its §8 "Traps" is the part that matters |
 | `project_docs/homepage-changes.md` | Homepage audit findings |
 
-Design questions live in `PLAN.md` § *Open items needing input*, mixed in with migration ones.
+Design questions live in `PLAN.md` § *Open items needing input*, mixed in with migration ones —
+that section is **the single list**, and `PLAN.md` § *Resume here* points at it. Extracted Figma
+specs (sidebar, homepage, About components, **Project Page**) live in `PLAN.md` Phase 2.
 
 ---
 

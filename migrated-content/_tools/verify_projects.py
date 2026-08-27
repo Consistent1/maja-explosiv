@@ -39,8 +39,14 @@ def run(stage):
         # silently dropped, which is exactly the failure this stage was at risk of.
         text_blocks = p.get('text_blocks') or ([{'bodytext_html': p['bodytext_html']}]
                                                if p.get('bodytext_html') else [])
-        missing_blocks = [b for b in text_blocks if norm(txt(b['bodytext_html']))
-                          and norm(txt(b['bodytext_html'])) not in norm(live)]
+        # One tolerated difference: where a link's label is the bare URL, the database
+        # stores it with the scheme and the old site displays it without. Strip schemes
+        # from BOTH sides before comparing. This removes only "https://"-style prefixes,
+        # so it cannot hide a difference in wording. See convert_projects.py.
+        def cmpable(x): return re.sub(r'\b[a-z][a-z0-9+.-]*://', '', norm(x))
+        live_cmp_text = cmpable(live)
+        missing_blocks = [b for b in text_blocks if cmpable(txt(b['bodytext_html']))
+                          and cmpable(txt(b['bodytext_html'])) not in live_cmp_text]
         body_ok = not missing_blocks
         # captions: each image description should appear in the page text
         caps = sum(1 for im in p['images'] if im['description'] and norm(im['description']) in norm(live))

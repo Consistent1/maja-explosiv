@@ -9,13 +9,15 @@
 ## Resume here (2026-08-27)
 
 **Everything that needs your judgement is in one place: § _Open items needing input_, at the
-bottom of this file. 47 open items.** Nothing is filed anywhere else. Where the detail is
+bottom of this file. 49 open items.** Nothing is filed anywhere else. Where the detail is
 too long to sit in that list, the item names the document that holds it — every such document
 is linked from here or from `project_docs/DOCS.md`, which indexes all of them.
 
-**Content migration — Stages 6, 7 and 8 are done.** Murals (3 projects, 40 images) and paper
+**Content migration — Stages 6, 7 and 8 are done; Stage 9 is 4 of 6.** Murals (3 projects, 40 images) and paper
 work (4 projects, 52 images) and event organisation (3 projects, 78 images), each verified
-against the live site on heading, every text block, every caption, **and gallery order**. One page was deliberately skipped: 982 "Breath under
+against the live site on heading, every text block, every caption, **and gallery order**.
+Stage 9 (performance) migrated 4 of 6 projects; `casino-gitano` and `elxt-90` are **held**
+pending the video decision — both fully extracted, one line releases them. One page was deliberately skipped: 982 "Breath under
 Water" is a TYPO3 shortcut whose content lives under a different container. Stages 8–14 not
 started. Per-stage detail: `migrated-content/README.md`; method and decisions:
 `migrated-content/projects/SOURCE.md`; the remaining brief: the HANDOFF section at the end of
@@ -1158,6 +1160,15 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   **Rendered as Figma has it**, per `CLAUDE.md` §3; not normalised to match its neighbours.
   Question for the owner: is this intentional, or should the Year match the other three?
 
+- [x] ~~**How should a bare-URL link label read — with or without the scheme?**~~
+  **DECIDED 2026-08-27 by the owner: follow the live site.** The database stores Bagger's
+  link label as `http://t1p.de/maja-explosiv`; the old site displays `t1p.de/maja-explosiv`.
+  The href is identical on both sides — only TYPO3's display convention differs. Where a
+  label **is** its own bare URL the scheme is now dropped. The original label is preserved
+  verbatim in `raw/db/` and `normalized/`, and the verifier strips schemes from both sides
+  before comparing so the tolerance cannot mask a wording difference. The general principle
+  the owner stated: *the live site is the source of truth for links.*
+
 - [x] ~~**Which category does event organisation map to?**~~ **DECIDED 2026-08-27 by the
   owner: `installations`.** Was provisionally `TBD`. Dada Festwochen, Eurokon and Eurokot
   moved, and their **78 image files were relocated** from `TBD/` to `installations/` as a
@@ -1175,6 +1186,25 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   video links. Container 1049 also holds **937 "Alchemy Bar"** (4 content elements), which is
   in the same position. Decide which stage owns 1049, or add one. Detail in
   `migrated-content/projects/SOURCE.md` § *Stage 7*.
+
+- [ ] **ASK MAJA: what should happen to the videos?** (raised 2026-08-27, Stage 9;
+  **blocking 2 projects now and at least 4 more later**.) Six pages carry video as
+  `CType: html` embeds — **926 Elxt 90, 928 Bagger, 933 Casino Gitano, 946 Wheel of Power,
+  1054 Destroy HIV, 1064 The Helixes**. No stage in the plan handles video and **the Figma
+  project page has no video component**, so there is nowhere to put it. Many of the embeds
+  are already `hidden` in TYPO3 — Casino Gitano has 4 hidden embeds, Elxt 90 has 2 live and
+  2 hidden. And on the Bagger page Maja wrote, in her own words, that she **took the videos
+  down under the GDPR** and points at her YouTube channel (`t1p.de/maja-explosiv`) instead.
+  So the likely answer is "link out, do not embed" — but that is hers to give, and it needs
+  a Figma component either way. `casino-gitano` and `elxt-90` are **HELD** until it is
+  answered; both are fully extracted and one line in `STAGES[9]['hold']` releases them.
+
+- [ ] **Page 926 has a second `list` element with no images.** (raised 2026-08-27, Stage 9.)
+  `Elxt 90` carries `tt_content 1220` (`Elxt 90`, 49 images) **and** `1424` (`Bio ShortList`,
+  **0 images**) — a gallery element with an empty gallery. The converter takes `lists[0]` and
+  flags the rest, so nothing is silently chosen, but what `Bio ShortList` is *for* cannot be
+  read off the data. Was it emptied deliberately, or did its images get lost? It is one of
+  the two reasons Elxt 90 is held.
 
 - [ ] **ASK MAJA: how should a project's second text block be presented?** (raised
   2026-08-27, Stage 8; the decision is already implemented one way and is easy to change.)

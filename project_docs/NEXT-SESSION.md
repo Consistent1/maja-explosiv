@@ -142,33 +142,35 @@ Two open items were added to `PLAN.md` on 2026-08-25: **which images move with t
 
 ## 6. What to do first
 
-**Stages 1–5 are complete.** Stages **6–14** remain, and the full brief for all of them —
-project context, the two-repo boundary, reading list, per-stage detail, pitfalls and tips — is
-the **`HANDOFF — the rest of the migration`** section at the end of
-`project_docs/content-migration-plan.md`. **Read that after this file; it supersedes the step
-list below.**
+**Stages 1–8 are complete and Stage 9 is 4 of 6.** Stages **10–14** remain.
 
-The steps below are the original Stage 0/1 sequence, kept for reference:
+1. `CLAUDE.md`, then this file.
+2. **`project_docs/PLAN.md` § _Resume here (2026-08-27)_** — the fastest orientation in the
+   repo, and it points at § *Open items needing input*, the single list of everything needing
+   the owner's judgement (49 items, 16 for Maja).
+3. **The `HANDOFF — the rest of the migration` section at the end of
+   `project_docs/content-migration-plan.md`** — reading list, per-stage brief, pitfalls, and a
+   concrete per-stage checklist. It supersedes the Stage 0/1 step list kept below.
+4. **`migrated-content/projects/SOURCE.md`** — the four completed project stages, with every
+   decision and every trap. The single most useful file for Stages 10–11.
 
-1. Read `CLAUDE.md`, then this file, then `project_docs/content-migration-plan.md` in full.
-2. **Check the database is up** — `mysql -u maja -pmaja usr_p51487_2 -e "SELECT COUNT(*) FROM
-   tt_content;"` should return 546. A socket error just means the service is stopped; **ask the
-   owner to start it**, do not start services yourself.
-3. **Stage 0 — census.** Both censuses and the diff, per §8 of the plan. Live-site fetching is
-   via the in-app browser, sequential, ~1 request / 2 seconds, never parallel.
-4. **Stage 0b — quarantine.** Move all 38 Markdown files under `src/pages/` and `src/posts/` to
-   `pre-migration-content/`, mirroring their paths. Moved, never copied, never deleted (§5.1).
-   The site goes substantially empty at this point; the owner has accepted that.
-5. **Stage 1 — Links**, then **stop and report.** The owner asked for Links only, explicitly,
-   with nothing else migrated after it.
+**Start with Stage 10** (collaborations, 8 projects → `sculptures`). Expect the video question
+immediately: pages 946 and 1054 carry `CType: html` embeds, the same thing holding two Stage 9
+projects. If it is unanswered, hold those two via `STAGES[10]['hold']` and migrate the other
+six — do not invent a video treatment.
 
-## 7. Repo state
+**Three things block progress and are Maja's, not yours:** the video treatment, the missing
+project years (only 24 of 79 headers carry one), and what `1068 Portraits` should be.
 
-At the end of the 2026-08-25 session — **nothing committed, everything in the working tree.**
+## 7. Repo state (2026-08-27)
 
-Modified: `project_docs/content-migration-plan.md` (approved; drift, encoding, quarantine,
-verification scope), `project_docs/PLAN.md` (Phase 3 redirected, two open items added), and this
-file. Added: `old/usr_p51487_2_2026-08--1.sql`, the fresh dump.
+Stages 6–9 are in the working tree, uncommitted at session end. 14 projects and 259 images
+live in `src/`. The project pipeline is `_tools/{extract,convert,verify}_projects.py`; adding a
+stage is one row in `STAGES`.
 
-`migrated-content/` and `pre-migration-content/` **do not exist yet** — Stage 0 and Stage 0b
-create them. No migration code has been written.
+Two template defects found and fixed this session — image captions rendered empty because
+`project.njk` passed the include no data, and the four collection pages emitted 0-byte files.
+Both were pre-existing and invisible until there was content to reveal them. The Figma spec for
+the project page is extracted into `PLAN.md` Phase 2.
+
+The old Stage 0/1 sequence is kept below for reference only.

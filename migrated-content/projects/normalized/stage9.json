@@ -1,0 +1,1834 @@
+{
+ "stage": 9,
+ "container": 872,
+ "container_name": "performance",
+ "category": "performance",
+ "projects": [
+  {
+   "page_uid": 1056,
+   "page_title": "The Sea Monster",
+   "page_sorting": 8,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "the-sea-monster",
+   "title": "The Sea Monster of Te Arai",
+   "year": null,
+   "header": "The Sea Monster of Te Arai",
+   "bodytext_html": "The dragon-like sculpture was realised onsite for the 'Off the Radar' Festival in Te Arai, <br />New Zealand, January 2014.<br /><br />The sculpture, mainly built from recycled car parts, reached an overall length of 17 meters; <br />the main body was built onto two swimming platforms, one for the head and one for the rear <br />part of the body, followed by a little tale fluke. <br /><br />For the night performance the sea monster was manually maneuvered over the lake, where it&nbsp; <br />spit fire, fortified by different water effects like water jets, water shields, and underwater <br />eruptions.<br />The two main platforms were engineered to dive and emerge separately, each based upon three <br />industrial water tanks. The flooding and emptying of each tank could be controlled individually, <br />and so the result was quite a vivid performance.<br /><br />Concept development with Elias Macke and Hannes Jung<br /><br />Realisation together with Herbz aka Rah Creations /AUS, Babu Fuhrer /CH, Fabi Bodmer /CH, <br />Muriel Gutherz /CH, Rebell /CH, Elias Macke /D, and Hannes Jung Irl/D.<br /><br />This project was facilitated thanks to the outstanding support of the Wellsford Towing <br />and Salvage LTD, as well as Freds Metal Recycling.",
+   "text_uid": 1584,
+   "text_uids": [
+    1584
+   ],
+   "text_blocks": [
+    {
+     "uid": 1584,
+     "header": "The Sea Monster of Te Arai",
+     "bodytext_html": "The dragon-like sculpture was realised onsite for the 'Off the Radar' Festival in Te Arai, <br />New Zealand, January 2014.<br /><br />The sculpture, mainly built from recycled car parts, reached an overall length of 17 meters; <br />the main body was built onto two swimming platforms, one for the head and one for the rear <br />part of the body, followed by a little tale fluke. <br /><br />For the night performance the sea monster was manually maneuvered over the lake, where it&nbsp; <br />spit fire, fortified by different water effects like water jets, water shields, and underwater <br />eruptions.<br />The two main platforms were engineered to dive and emerge separately, each based upon three <br />industrial water tanks. The flooding and emptying of each tank could be controlled individually, <br />and so the result was quite a vivid performance.<br /><br />Concept development with Elias Macke and Hannes Jung<br /><br />Realisation together with Herbz aka Rah Creations /AUS, Babu Fuhrer /CH, Fabi Bodmer /CH, <br />Muriel Gutherz /CH, Rebell /CH, Elias Macke /D, and Hannes Jung Irl/D.<br /><br />This project was facilitated thanks to the outstanding support of the Wellsford Towing <br />and Salvage LTD, as well as Freds Metal Recycling.",
+     "sorting": 128
+    }
+   ],
+   "list_uid": 1583,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 2321,
+     "gallery_pos": 1,
+     "title": "Sea Monster, first full test",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524848,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/MonstaTest22_m.jpg"
+    },
+    {
+     "dam_uid": 2319,
+     "gallery_pos": 2,
+     "title": "Sea Monster, water test",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524848,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/MonstaSide22_m.jpg"
+    },
+    {
+     "dam_uid": 2320,
+     "gallery_pos": 3,
+     "title": "Sea Monster, sinking",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524848,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/MonstaSide31_m.jpg"
+    },
+    {
+     "dam_uid": 2323,
+     "gallery_pos": 4,
+     "title": "Show Time",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524892,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/Night3_m.jpg"
+    },
+    {
+     "dam_uid": 2322,
+     "gallery_pos": 5,
+     "title": "Emerging Sea Monster",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524892,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/Night1_m.jpg"
+    },
+    {
+     "dam_uid": 2329,
+     "gallery_pos": 6,
+     "title": "Sea Monster, emerging",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "",
+     "date_cr": 1393684336,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/P1020610.jpg"
+    },
+    {
+     "dam_uid": 2325,
+     "gallery_pos": 7,
+     "title": "Sea Monster, fully sunken",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "Herbz",
+     "date_cr": 1393524895,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/Night9_h.jpg"
+    },
+    {
+     "dam_uid": 2324,
+     "gallery_pos": 8,
+     "title": "Sea Monster, jets and car lights",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "Fabi",
+     "date_cr": 1393524892,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/Night7_f.jpg"
+    },
+    {
+     "dam_uid": 2316,
+     "gallery_pos": 9,
+     "title": "Rear Body, water reflection",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "Herbz",
+     "date_cr": 1393524799,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/Herbs_OTR_177.jpg"
+    },
+    {
+     "dam_uid": 2318,
+     "gallery_pos": 10,
+     "title": "Sea Monster, fully lit",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524848,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/MonstaNachtTest1_m.jpg"
+    },
+    {
+     "dam_uid": 2326,
+     "gallery_pos": 11,
+     "title": "The Lake Dragon",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524895,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/Sea21_m.jpg"
+    },
+    {
+     "dam_uid": 2313,
+     "gallery_pos": 12,
+     "title": "Finished Dragon Head, on shore",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524796,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/56_056_Baustelle_m_247.JPG"
+    },
+    {
+     "dam_uid": 2314,
+     "gallery_pos": 13,
+     "title": "Finished Rear Body, ready to swimm",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524796,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/59_060_Baustelle_m_283.JPG"
+    },
+    {
+     "dam_uid": 2312,
+     "gallery_pos": 14,
+     "title": "Fire Test, in the workshop",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524795,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/45_045_Baustelle_m_207.JPG"
+    },
+    {
+     "dam_uid": 2315,
+     "gallery_pos": 15,
+     "title": "Monster Dragon, under construction",
+     "description": "Off The Radar Festival, Te Arai /NZ",
+     "creator": "M.Thommen",
+     "date_cr": 1393524799,
+     "original": "fileadmin/s-maj/images/BilderMaja/2014Seamonster/Baustelle_m_028.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 933,
+   "page_title": "Casino Gitano",
+   "page_sorting": 16,
+   "shortcut": null,
+   "skip_reason": "HELD -- Casino Gitano: a live \"Casino Gitano Videos:\" text block and 8 hidden elements (4 html video embeds + their captions). Same video question.",
+   "child_pages": 0,
+   "slug": "casino-gitano",
+   "title": "Casino Gitano",
+   "year": "2003-2012",
+   "header": "Casino Gitano, 2003 - 2012",
+   "bodytext_html": "In good old gypsy ways Casino Gitano feed from the vast reservoir of the European Folk-<br />Music tradition without any inhibition, from orthodox flamenco to Tango, Swing, Chansons, <br />or Folklore. <br />The colourful show forms around the tap dancing twin sisters Carmen and Christina Rodriguez, <br />the Spanish singer Ivana Quiles, the French singer Thierry Fantaisie, rounded up by the old <br />Serbian flamenco master Lubi Kimpanov. <br />Further more: Pancho on the guitar, Tonjo Gonzales on the cajon, Pablo Luzanda on the <br />Contrabass, a Swedish and a German violin, Juanita and Charlot, Maja la maja on the recorder, <br />Franco Negro the tuba and the Serbian trumpeter Vedran.",
+   "text_uid": 1232,
+   "text_uids": [
+    1232,
+    1434
+   ],
+   "text_blocks": [
+    {
+     "uid": 1232,
+     "header": "Casino Gitano, 2003 - 2012",
+     "bodytext_html": "In good old gypsy ways Casino Gitano feed from the vast reservoir of the European Folk-<br />Music tradition without any inhibition, from orthodox flamenco to Tango, Swing, Chansons, <br />or Folklore. <br />The colourful show forms around the tap dancing twin sisters Carmen and Christina Rodriguez, <br />the Spanish singer Ivana Quiles, the French singer Thierry Fantaisie, rounded up by the old <br />Serbian flamenco master Lubi Kimpanov. <br />Further more: Pancho on the guitar, Tonjo Gonzales on the cajon, Pablo Luzanda on the <br />Contrabass, a Swedish and a German violin, Juanita and Charlot, Maja la maja on the recorder, <br />Franco Negro the tuba and the Serbian trumpeter Vedran.",
+     "sorting": 128
+    },
+    {
+     "uid": 1434,
+     "header": "Casino Gitano Videos:",
+     "bodytext_html": "Due to the new EU law about data protection, i had to take all the videos down. Until I find a <br />better solution, you can watch the videos of my projects on my YouTube channel: \r\n<span id=\"result\"><a id=\"shortenedurl\" target=\"_blank\" href=\"http://t1p.de/maja-explosiv\">http://t1p.de/maja-explosiv</a>&nbsp;</span> \r\n<br /><span id=\"result\"></span>",
+     "sorting": 640
+    }
+   ],
+   "list_uid": 1231,
+   "anomalies": [
+    "text-elements=2 (all captured and concatenated in sorting order)"
+   ],
+   "images": [
+    {
+     "dam_uid": 1070,
+     "gallery_pos": 1,
+     "title": "the clan",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238597267,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/band_tableau.jpg"
+    },
+    {
+     "dam_uid": 1370,
+     "gallery_pos": 2,
+     "title": "the wind section",
+     "description": "Spannwerk, Berlin 2005",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238508621,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/blaeser.jpg"
+    },
+    {
+     "dam_uid": 1355,
+     "gallery_pos": 3,
+     "title": "tap dancing",
+     "description": "Fusion Festival 2006",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238597219,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/legs.jpg"
+    },
+    {
+     "dam_uid": 1359,
+     "gallery_pos": 4,
+     "title": "Thierry Fantaisie",
+     "description": "Fête de la Musique, Berlin 2008",
+     "creator": "",
+     "date_cr": 1238508619,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/thierry2.jpg"
+    },
+    {
+     "dam_uid": 1061,
+     "gallery_pos": 5,
+     "title": "Carmen y Christina",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943798,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/carmenetcristina.jpg"
+    },
+    {
+     "dam_uid": 1068,
+     "gallery_pos": 6,
+     "title": "El grupo",
+     "description": "Mariannenplatz, Berlin 2005",
+     "creator": "",
+     "date_cr": 1224943798,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/band.jpg"
+    },
+    {
+     "dam_uid": 1364,
+     "gallery_pos": 7,
+     "title": "Esa violina",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238597245,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/hanna2.jpg"
+    },
+    {
+     "dam_uid": 1367,
+     "gallery_pos": 8,
+     "title": "La flauta",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238508620,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/methierry.jpg"
+    },
+    {
+     "dam_uid": 1363,
+     "gallery_pos": 9,
+     "title": "Pancho Gitano",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238508620,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/ulli2.jpg"
+    },
+    {
+     "dam_uid": 1349,
+     "gallery_pos": 10,
+     "title": "El contrabajo Pablo Luzanda",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238597310,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/holgivlu.jpg"
+    },
+    {
+     "dam_uid": 1372,
+     "gallery_pos": 11,
+     "title": "Juanita",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238508621,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/hannaFramed.jpg"
+    },
+    {
+     "dam_uid": 1361,
+     "gallery_pos": 12,
+     "title": "Franko Negro",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238597293,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/franki.jpg"
+    },
+    {
+     "dam_uid": 1360,
+     "gallery_pos": 13,
+     "title": "El padrone J.Electrolux con Ivana",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238508619,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/johnnyIv.jpg"
+    },
+    {
+     "dam_uid": 1348,
+     "gallery_pos": 14,
+     "title": "Neh na neh na",
+     "description": "Fête de la musique, Berlin 2008",
+     "creator": "",
+     "date_cr": 1238508618,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/chorusFR.jpg"
+    },
+    {
+     "dam_uid": 1350,
+     "gallery_pos": 15,
+     "title": "Logo lo leilo",
+     "description": "Spannwerk, Berlin 2005",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238508618,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/maedels_.jpg"
+    },
+    {
+     "dam_uid": 1081,
+     "gallery_pos": 16,
+     "title": "Christina",
+     "description": "Kulturbrauerei, Berlin  2005",
+     "creator": "",
+     "date_cr": 1224943800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/carmendance.jpg"
+    },
+    {
+     "dam_uid": 1352,
+     "gallery_pos": 17,
+     "title": "mais que nada",
+     "description": "Fusion Festival 2006",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238508618,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/maisquenada.jpg"
+    },
+    {
+     "dam_uid": 1365,
+     "gallery_pos": 18,
+     "title": "Concierto",
+     "description": "Robodock Festival 2005",
+     "creator": "",
+     "date_cr": 1238508620,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/robodock.jpg"
+    },
+    {
+     "dam_uid": 1374,
+     "gallery_pos": 19,
+     "title": "bulería, Lubi Kimpanov",
+     "description": "Robodock Festival, Amsterdam 2005",
+     "creator": "",
+     "date_cr": 1238660100,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/lubirdock.jpg"
+    },
+    {
+     "dam_uid": 1371,
+     "gallery_pos": 20,
+     "title": "publico",
+     "description": "Fusion Festival 2006",
+     "creator": "Kati Bitzer",
+     "date_cr": 1238508621,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/publikum.jpg"
+    },
+    {
+     "dam_uid": 1351,
+     "gallery_pos": 21,
+     "title": "accordion",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238508618,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/akkordeon.jpg"
+    },
+    {
+     "dam_uid": 1353,
+     "gallery_pos": 22,
+     "title": "Los guitarreros",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238508619,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/guitareros.jpg"
+    },
+    {
+     "dam_uid": 1073,
+     "gallery_pos": 23,
+     "title": "El padrone J.Electrolux con Ivana",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943799,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/ibana.jpg"
+    },
+    {
+     "dam_uid": 1078,
+     "gallery_pos": 24,
+     "title": "Juanita",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943799,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/anna.jpg"
+    },
+    {
+     "dam_uid": 1062,
+     "gallery_pos": 25,
+     "title": "El cantador",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943798,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/thierry.jpg"
+    },
+    {
+     "dam_uid": 1072,
+     "gallery_pos": 26,
+     "title": "El cajonero",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943799,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/clemi.jpg"
+    },
+    {
+     "dam_uid": 1059,
+     "gallery_pos": 27,
+     "title": "El viejo",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943797,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/loubiportrait.jpg"
+    },
+    {
+     "dam_uid": 1080,
+     "gallery_pos": 28,
+     "title": "tea time",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/carmen_anna.jpg"
+    },
+    {
+     "dam_uid": 1084,
+     "gallery_pos": 29,
+     "title": "Sancho Gitano, la guitarra",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/olii.jpg"
+    },
+    {
+     "dam_uid": 1066,
+     "gallery_pos": 30,
+     "title": "Franco Negro, el Tubista",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943798,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/franky.jpg"
+    },
+    {
+     "dam_uid": 1357,
+     "gallery_pos": 31,
+     "title": "preparation",
+     "description": "Eschschloraque, Berlin 2006",
+     "creator": "",
+     "date_cr": 1238508619,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/ivSchminken.jpg"
+    },
+    {
+     "dam_uid": 1347,
+     "gallery_pos": 32,
+     "title": "Los padrones",
+     "description": "Turnhalle, Bern 2009",
+     "creator": "",
+     "date_cr": 1238508618,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/thierryHolger.jpg"
+    },
+    {
+     "dam_uid": 1346,
+     "gallery_pos": 33,
+     "title": "breakfast, Vedran y Pablo Luzanda",
+     "description": "Freienhagen 2006",
+     "creator": "",
+     "date_cr": 1238508617,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/vedholger.jpg"
+    },
+    {
+     "dam_uid": 1358,
+     "gallery_pos": 34,
+     "title": "backstage",
+     "description": "Turnhalle Bern 2009",
+     "creator": "",
+     "date_cr": 1238508619,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/backstage.jpg"
+    },
+    {
+     "dam_uid": 1366,
+     "gallery_pos": 35,
+     "title": "Los Gitanos en Russia",
+     "description": "Moscow 2005",
+     "creator": "",
+     "date_cr": 1238508620,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/ullithierryholger.jpg"
+    },
+    {
+     "dam_uid": 1354,
+     "gallery_pos": 36,
+     "title": "Franko Negro y Juanita on Red Square",
+     "description": "Moscow 2005",
+     "creator": "",
+     "date_cr": 1238508619,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/frankiHanna.jpg"
+    },
+    {
+     "dam_uid": 1067,
+     "gallery_pos": 37,
+     "title": "Franko Negro",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1224943798,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/frankypolice.jpg"
+    },
+    {
+     "dam_uid": 1369,
+     "gallery_pos": 38,
+     "title": "pieds",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238508621,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/pieds.jpg"
+    },
+    {
+     "dam_uid": 1373,
+     "gallery_pos": 39,
+     "title": "the clan",
+     "description": "from the Casino Gitano family album",
+     "creator": "",
+     "date_cr": 1238658132,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003CasinoGitano/theclan2.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 932,
+   "page_title": "Trojan Fire",
+   "page_sorting": 20,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "trojan-fire",
+   "title": "Trojan Fire",
+   "year": "2004",
+   "header": "Trojan Fire, 2004",
+   "bodytext_html": "The conception and realization of the Trojan fire dishes for the European<br />film premiere of 'Troy', together with Hannes Jung, Eddie Egal and Udo Luckow. <br />Shown at the Sonycenter and Kronprinzen Palais, Berlin /D",
+   "text_uid": 1230,
+   "text_uids": [
+    1230
+   ],
+   "text_blocks": [
+    {
+     "uid": 1230,
+     "header": "Trojan Fire, 2004",
+     "bodytext_html": "The conception and realization of the Trojan fire dishes for the European<br />film premiere of 'Troy', together with Hannes Jung, Eddie Egal and Udo Luckow. <br />Shown at the Sonycenter and Kronprinzen Palais, Berlin /D",
+     "sorting": 128
+    }
+   ],
+   "list_uid": 1229,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 978,
+     "gallery_pos": 1,
+     "title": "Trojan horse",
+     "description": "Troy, European film premiere, Sonycenter Berlin 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2004Troy/Pferd2.jpg"
+    },
+    {
+     "dam_uid": 979,
+     "gallery_pos": 2,
+     "title": "red carpet",
+     "description": "Troy, European film premiere, Sonycenter Berlin 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2004Troy/Roter_Teppich2.jpg"
+    },
+    {
+     "dam_uid": 977,
+     "gallery_pos": 3,
+     "title": "Trojan horse",
+     "description": "Troy, European film premiere, Sonycenter Berlin 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2004Troy/Pferd1.jpg"
+    },
+    {
+     "dam_uid": 975,
+     "gallery_pos": 4,
+     "title": "Troyan horse",
+     "description": "Troy, European film premiere, Sonycenter Berlin 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2004Troy/Pferd_sw.jpg"
+    },
+    {
+     "dam_uid": 982,
+     "gallery_pos": 5,
+     "title": "fans",
+     "description": "Troy, European film premiere, Sonycenter Berlin 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2004Troy/Flamme2.jpg"
+    },
+    {
+     "dam_uid": 980,
+     "gallery_pos": 6,
+     "title": "fans",
+     "description": "Troy, European film premiere, Sonycenter Berlin 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2004Troy/Flamme1.jpg"
+    },
+    {
+     "dam_uid": 976,
+     "gallery_pos": 7,
+     "title": "flame ",
+     "description": "Troy, European film premiere, Sonycenter Berlin 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2004Troy/Flamme3.jpg"
+    },
+    {
+     "dam_uid": 981,
+     "gallery_pos": 8,
+     "title": "red carpet",
+     "description": "Troy, European film premiere, Sonycenter Berlin 2004",
+     "creator": "",
+     "date_cr": 1072911600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2004Troy/Braddy_mit_Feuer_.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 927,
+   "page_title": "Free Radicals",
+   "page_sorting": 24,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "free-radicals",
+   "title": "Free Radicals",
+   "year": "2002-2004",
+   "header": "Free Radicals, 2002-2004",
+   "bodytext_html": "Maja has worked extensively with the pyro-acoustic cabaret Free Radicals, a fusion of Berlin<br /> based artists with different stage approaches including musicians, puppeteers, pyrotechnists,<br /> acrobats and robotic engineers. \r\nIn the years 2002 till 2004, shows have been performed in various exciting settings. <br />Including, but not limited to:&nbsp; Spannwerk, Berlin /D, Robodock Festival, Amsterdam /NL, <br />Robodock Festival, Rotterdam /NL, International Theatre Festival PUF, Pula /HR.<br /><br />",
+   "text_uid": 1226,
+   "text_uids": [
+    1226,
+    1465
+   ],
+   "text_blocks": [
+    {
+     "uid": 1226,
+     "header": "Free Radicals, 2002-2004",
+     "bodytext_html": "Maja has worked extensively with the pyro-acoustic cabaret Free Radicals, a fusion of Berlin<br /> based artists with different stage approaches including musicians, puppeteers, pyrotechnists,<br /> acrobats and robotic engineers. \r\nIn the years 2002 till 2004, shows have been performed in various exciting settings. <br />Including, but not limited to:&nbsp; Spannwerk, Berlin /D, Robodock Festival, Amsterdam /NL, <br />Robodock Festival, Rotterdam /NL, International Theatre Festival PUF, Pula /HR.<br /><br />",
+     "sorting": 128
+    },
+    {
+     "uid": 1465,
+     "header": "",
+     "bodytext_html": "Performer over the years: <br />Bastiaan Maris /NL, Eddie Egal /D, Florian Schwarz /D, Kain Karawahn /D, Frank Barnes /GB,<br />Sarah Wright /GB, Jeffrey Funt /USA, Ivana Quiles /E, Miles &amp; Zai van Dorssen /AUS, Line /D, <br />Hanna Alter /SWE, Bill Earwalker /GB, Kai Ernst /D, Stevie /D",
+     "sorting": 512
+    }
+   ],
+   "list_uid": 1221,
+   "anomalies": [
+    "text-elements=2 (all captured and concatenated in sorting order)"
+   ],
+   "images": [
+    {
+     "dam_uid": 752,
+     "gallery_pos": 1,
+     "title": "Kain Karawahns fire curtain ",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_003.jpg"
+    },
+    {
+     "dam_uid": 765,
+     "gallery_pos": 2,
+     "title": "Kain Karawahns fire curtain ",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_004.jpg"
+    },
+    {
+     "dam_uid": 757,
+     "gallery_pos": 3,
+     "title": "Kain Karawahns fire curtain ",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_005.jpg"
+    },
+    {
+     "dam_uid": 766,
+     "gallery_pos": 4,
+     "title": "Mr. B's bottle ghost",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_034.jpg"
+    },
+    {
+     "dam_uid": 753,
+     "gallery_pos": 5,
+     "title": "bottle ghost",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_032.jpg"
+    },
+    {
+     "dam_uid": 751,
+     "gallery_pos": 6,
+     "title": "bottle ghost",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_035.jpg"
+    },
+    {
+     "dam_uid": 758,
+     "gallery_pos": 7,
+     "title": "triangulum",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_042.jpg"
+    },
+    {
+     "dam_uid": 754,
+     "gallery_pos": 8,
+     "title": "green fire",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_029.jpg"
+    },
+    {
+     "dam_uid": 762,
+     "gallery_pos": 9,
+     "title": "Florian Schwarz",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_016.jpg"
+    },
+    {
+     "dam_uid": 755,
+     "gallery_pos": 10,
+     "title": "Mister B / topless dancer",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_048.jpg"
+    },
+    {
+     "dam_uid": 761,
+     "gallery_pos": 11,
+     "title": "flamethrowers",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_012.jpg"
+    },
+    {
+     "dam_uid": 760,
+     "gallery_pos": 12,
+     "title": "Ivanapropana",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_066.jpg"
+    },
+    {
+     "dam_uid": 759,
+     "gallery_pos": 13,
+     "title": "the band",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_078.jpg"
+    },
+    {
+     "dam_uid": 764,
+     "gallery_pos": 14,
+     "title": "110%",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_086.jpg"
+    },
+    {
+     "dam_uid": 756,
+     "gallery_pos": 15,
+     "title": "110%",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_089.jpg"
+    },
+    {
+     "dam_uid": 763,
+     "gallery_pos": 16,
+     "title": "applause",
+     "description": "110%, Spannwerk, Berlin 2002",
+     "creator": "John Masters",
+     "date_cr": 1009846800,
+     "original": "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_098.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 926,
+   "page_title": "Elxt 90",
+   "page_sorting": 48,
+   "shortcut": null,
+   "skip_reason": "HELD -- Elxt 90: 2 list elements (one is \"Bio ShortList\" with 0 images), 4 text blocks and 2 live html video embeds, plus 6 hidden elements. Video content has no home in the plan and no Figma component.",
+   "child_pages": 0,
+   "slug": "elxt-90",
+   "title": "Elxt 90",
+   "year": "1999-2003",
+   "header": "Elxt 90, 1999-2003",
+   "bodytext_html": "Maja Thommen was a founding member of Elxt 90, which consisted of a core group <br />of four Swiss girls. At that time the project was called Misfire and the show centred around <br />a six meter rotating wheel from which physical stunts and pyrotechnic feats were performed.<br />Misfire’s debut performance took place at Jim Whiting’s Bimbo Town in Leipzig, Germany.<br /><br />After a chance meeting with fire artists from Berlin’s Büro für brenzlige Angelegenheiten <br />in 2000, the two groups combined their talents and the show began it's next chapter and <br />was brought into a new realm of possibilities with their fire feats.<br /><br />From 2001 till 2003, Elxt 90’s dynamic circus project, grand-scale fire and acrobatic show <br />grew continuously bigger, more international and professional. The final shows featured <br />nearly 20 performance artists, painters, musicians, and technicians.<br /><br />During this time Elxt 90 became a full-time project for M. Thommen as she was tasked with <br />organisation, fundraising and an annual two-month preparation period for the show's new <br />concepts and acts.",
+   "text_uid": 1225,
+   "text_uids": [
+    1225,
+    1423,
+    1425,
+    1421
+   ],
+   "text_blocks": [
+    {
+     "uid": 1225,
+     "header": "Elxt 90, 1999-2003",
+     "bodytext_html": "Maja Thommen was a founding member of Elxt 90, which consisted of a core group <br />of four Swiss girls. At that time the project was called Misfire and the show centred around <br />a six meter rotating wheel from which physical stunts and pyrotechnic feats were performed.<br />Misfire’s debut performance took place at Jim Whiting’s Bimbo Town in Leipzig, Germany.<br /><br />After a chance meeting with fire artists from Berlin’s Büro für brenzlige Angelegenheiten <br />in 2000, the two groups combined their talents and the show began it's next chapter and <br />was brought into a new realm of possibilities with their fire feats.<br /><br />From 2001 till 2003, Elxt 90’s dynamic circus project, grand-scale fire and acrobatic show <br />grew continuously bigger, more international and professional. The final shows featured <br />nearly 20 performance artists, painters, musicians, and technicians.<br /><br />During this time Elxt 90 became a full-time project for M. Thommen as she was tasked with <br />organisation, fundraising and an annual two-month preparation period for the show's new <br />concepts and acts.",
+     "sorting": 128
+    },
+    {
+     "uid": 1423,
+     "header": "",
+     "bodytext_html": "More than eighty shows have been performed all over Europe during the yearly four-month <br />summer tours, including:",
+     "sorting": 482
+    },
+    {
+     "uid": 1425,
+     "header": "",
+     "bodytext_html": "Elxt 90 crew members over the years: <br />Vera Fabbri /CH, Babu Fuhrer /CH, Fafa Fierz /CH, Mike Tucker /GB; Johnnie Electrolux /SCO, <br />Erico Moreira /BRA, Marc Move /E, Grex Portmann /CH, Fancy Nancy /F, Titi Bonetti /F, <br />Dragon Dom /F, Sisou /F, Loran /F, Catcha Rush /CH, Omri /CH, Joshua /USA, Alessia /I, <br />Ivana Quiles /E, Eddie Egal /D, Logo Lard /D, Nicu /CH, Muriel Gutherz /CH, Moon /CH, <br />Karin /CH, Atelier Stern /CH",
+     "sorting": 492
+    },
+    {
+     "uid": 1421,
+     "header": "Elxt 90 Videos:",
+     "bodytext_html": "Due to the new EU law about data protection, i had to take all the videos down. Until I find a <br />better solution, you can watch the videos of my projects on my YouTube channel: \r\n<span id=\"result\"><a href=\"http://t1p.de/maja-explosiv\" target=\"_blank\" id=\"shortenedurl\">http://t1p.de/maja-explosiv</a>&nbsp;</span> ",
+     "sorting": 640
+    }
+   ],
+   "list_uid": 1220,
+   "anomalies": [
+    "text-elements=4 (all captured and concatenated in sorting order)",
+    "list-elements=2",
+    "other-ctypes=html,html"
+   ],
+   "images": [
+    {
+     "dam_uid": 1721,
+     "gallery_pos": 1,
+     "title": "Spamazilla with big egg",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633446,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spama_lugano1.jpg"
+    },
+    {
+     "dam_uid": 1688,
+     "gallery_pos": 2,
+     "title": "Spamazilla wakes the X-tions",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633440,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spama_lugano2.jpg"
+    },
+    {
+     "dam_uid": 1693,
+     "gallery_pos": 3,
+     "title": "Spamzilla wakes the big egg",
+     "description": "Elxt 90 in Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633441,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_lugano1.jpg"
+    },
+    {
+     "dam_uid": 1730,
+     "gallery_pos": 4,
+     "title": "small egg",
+     "description": "Elxt 90, Ehrismann Hof, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239634928,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/sisou_egg_zurich.jpg"
+    },
+    {
+     "dam_uid": 1691,
+     "gallery_pos": 5,
+     "title": "X-tions ",
+     "description": "Elxt 90, Bergamo /I 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633440,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/bergamoxtions4.jpg"
+    },
+    {
+     "dam_uid": 1715,
+     "gallery_pos": 6,
+     "title": "X-tions",
+     "description": "Elxt 90, Bergamo /I 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633446,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_bergamo2.jpg"
+    },
+    {
+     "dam_uid": 1729,
+     "gallery_pos": 7,
+     "title": "X-tions",
+     "description": "Elxt 90, La Valette /F 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633448,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/xtions_lavalette.jpg"
+    },
+    {
+     "dam_uid": 1686,
+     "gallery_pos": 8,
+     "title": "Spaceship, Transformers landing",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633440,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spaceship_lugano2.jpg"
+    },
+    {
+     "dam_uid": 1723,
+     "gallery_pos": 9,
+     "title": "Transformers landing",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633447,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spaceship_lugano3.jpg"
+    },
+    {
+     "dam_uid": 1724,
+     "gallery_pos": 10,
+     "title": "Joe B",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633447,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spaceship_lugano5.jpg"
+    },
+    {
+     "dam_uid": 1699,
+     "gallery_pos": 11,
+     "title": "Transformer",
+     "description": "Elxt 90, Ehrismann Hof, Zurich /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633442,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/robot_zurich.jpg"
+    },
+    {
+     "dam_uid": 1696,
+     "gallery_pos": 12,
+     "title": "Transformers march",
+     "description": "Elxt 90, Torre Maura, Rome /I 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633441,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/robots_roma.jpg"
+    },
+    {
+     "dam_uid": 1685,
+     "gallery_pos": 13,
+     "title": "Joe B on scout",
+     "description": "Elxt 90, Ehrismann Hof, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633440,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/joeb_zurich.jpg"
+    },
+    {
+     "dam_uid": 1716,
+     "gallery_pos": 14,
+     "title": "loosing energy",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633446,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spaceship_lugano4.jpg"
+    },
+    {
+     "dam_uid": 1698,
+     "gallery_pos": 15,
+     "title": "X-Tions hunt",
+     "description": "Elxt 90, Bergamo /I 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633442,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/xtions_bergamo3.jpg"
+    },
+    {
+     "dam_uid": 1712,
+     "gallery_pos": 16,
+     "title": "green belts",
+     "description": "Elxt 90 in Ehrismann Hof, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633445,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_xtions_zurich.jpg"
+    },
+    {
+     "dam_uid": 1725,
+     "gallery_pos": 17,
+     "title": "confetti explosion",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633448,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/confetti_lugano.jpg"
+    },
+    {
+     "dam_uid": 1689,
+     "gallery_pos": 18,
+     "title": "Transformers dance",
+     "description": "Elxt 90, Ehrismann Hof, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633440,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/ehof-robot5.jpg"
+    },
+    {
+     "dam_uid": 1706,
+     "gallery_pos": 19,
+     "title": "wheel ignition",
+     "description": "Elxt 90, Robodock Festival, Amsterdam /NL 2000",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633443,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_ignition2.jpg"
+    },
+    {
+     "dam_uid": 1717,
+     "gallery_pos": 20,
+     "title": "wheel ignition",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633446,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/ignition_lugano.jpg"
+    },
+    {
+     "dam_uid": 1714,
+     "gallery_pos": 21,
+     "title": "wheel ignition",
+     "description": "Elxt 90, Robodock Festival, Amsterdam /NL 2001",
+     "creator": "Ch. Thommen",
+     "date_cr": 1239633445,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/haendekl.jpg"
+    },
+    {
+     "dam_uid": 1718,
+     "gallery_pos": 22,
+     "title": "wheel ignition",
+     "description": "Elxt 90, Robodock Festival, Amsterdam /NL 2000",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633446,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_ignition1.jpg"
+    },
+    {
+     "dam_uid": 1705,
+     "gallery_pos": 23,
+     "title": "running in burning wheel",
+     "description": "XT 90, Ateneu de Nou Barris, Barcelona /E 2000",
+     "creator": "",
+     "date_cr": 1239633443,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/ichbarna.jpg"
+    },
+    {
+     "dam_uid": 1702,
+     "gallery_pos": 24,
+     "title": "wheel stunt",
+     "description": "Elxt 90, Schrottbar Festival, Biel /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633443,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_nicu_biel2.jpg"
+    },
+    {
+     "dam_uid": 1726,
+     "gallery_pos": 25,
+     "title": "red cross",
+     "description": "Elxt 90, Schrottbar Festival, Biel /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633448,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/redcross_biel.jpg"
+    },
+    {
+     "dam_uid": 1684,
+     "gallery_pos": 26,
+     "title": "red cross",
+     "description": "Elxt 90, Torre Maura, Rome /I 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633439,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/redcross_roma2.jpg"
+    },
+    {
+     "dam_uid": 1690,
+     "gallery_pos": 27,
+     "title": "X-tion with fire",
+     "description": "Elxt 90, Ehrismann Hof, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633440,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/sisou_fackeln_zurich.jpg"
+    },
+    {
+     "dam_uid": 1707,
+     "gallery_pos": 28,
+     "title": "Mr. Logo Lard",
+     "description": "Elxt 90, Robodock Festival, Amsterdam /NL 2000",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633444,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/logo_kreuzberg.jpg"
+    },
+    {
+     "dam_uid": 1700,
+     "gallery_pos": 29,
+     "title": "fire breathing",
+     "description": "Elxt 90, Robodock Festival, Amsterdam /NL 2000",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633442,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/erico_nicu_adm2.jpg"
+    },
+    {
+     "dam_uid": 1692,
+     "gallery_pos": 30,
+     "title": "Spamazilla with X-tion",
+     "description": "Elxt 90, Ehrismann Hof, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633441,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spama_zurich1.jpg"
+    },
+    {
+     "dam_uid": 1681,
+     "gallery_pos": 31,
+     "title": "fight wagon",
+     "description": "Elxt 90, Schrottbar Festival, Biel /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633438,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/moon_biel_2_.jpg"
+    },
+    {
+     "dam_uid": 1704,
+     "gallery_pos": 32,
+     "title": "fire",
+     "description": "Elxt 90, Zoom Festival, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633443,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/flames_zoom.jpg"
+    },
+    {
+     "dam_uid": 1687,
+     "gallery_pos": 33,
+     "title": "fireman costume",
+     "description": "Elxt 90, Schrottbar Festival, Biel /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633440,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/firejacket_babu.jpg"
+    },
+    {
+     "dam_uid": 1711,
+     "gallery_pos": 34,
+     "title": "motorbike stunt",
+     "description": "Elxt 90, Schrottbar Festival, Biel /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633444,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/feuerwand.jpg"
+    },
+    {
+     "dam_uid": 1703,
+     "gallery_pos": 35,
+     "title": "fire breathing",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633443,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/erico_lugano.jpg"
+    },
+    {
+     "dam_uid": 1713,
+     "gallery_pos": 36,
+     "title": "fire",
+     "description": "Elxt 90 in Trashland, Lausanne 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633445,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/nancy_wheel_lozan.jpg"
+    },
+    {
+     "dam_uid": 1708,
+     "gallery_pos": 37,
+     "title": "Joe B fights Spamazilla",
+     "description": "Elxt 90, Torre Maura, Rome /I 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633444,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spama_joeb_roma.jpg"
+    },
+    {
+     "dam_uid": 1683,
+     "gallery_pos": 38,
+     "title": "Spamazilla",
+     "description": "Elxt 90, Ehrismann Hof, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633439,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spama_zurich2.jpg"
+    },
+    {
+     "dam_uid": 1709,
+     "gallery_pos": 39,
+     "title": "fire",
+     "description": "Elxt 90, Ehrismann Hof, Zurich /CH 2001",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633444,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/spama_ehof.jpg"
+    },
+    {
+     "dam_uid": 1682,
+     "gallery_pos": 40,
+     "title": "fire",
+     "description": "XT 90, Bethaniendamm, Berlin /D 2000",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633439,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_kreuzberg1.jpg"
+    },
+    {
+     "dam_uid": 1695,
+     "gallery_pos": 41,
+     "title": "the wheel",
+     "description": "Misfire, New Years Teknival, Aix en Provence /F 2000",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633441,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_teknival2000_1.jpg"
+    },
+    {
+     "dam_uid": 1719,
+     "gallery_pos": 42,
+     "title": "wheel stunt",
+     "description": "Misfire, New Years Teknival, Aix en Provence /F 2000",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633446,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/wheel_teknival2000_2.jpg"
+    },
+    {
+     "dam_uid": 1697,
+     "gallery_pos": 43,
+     "title": "fire",
+     "description": "Elxt 90, Molino, Lugano /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633441,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/totale_lugano.jpg"
+    },
+    {
+     "dam_uid": 1728,
+     "gallery_pos": 44,
+     "title": "helmets",
+     "description": "Elxt 90, Torre Maura, Rome /I 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633448,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/helmets_roma.jpg"
+    },
+    {
+     "dam_uid": 1701,
+     "gallery_pos": 45,
+     "title": "exploding helmet",
+     "description": "Elxt 90, Trashland, Lausanne 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633442,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/helmet_marc_lozan.jpg"
+    },
+    {
+     "dam_uid": 1680,
+     "gallery_pos": 46,
+     "title": "end bang",
+     "description": "Elxt 90, Trashland, Lausanne 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633437,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/erico_lozan_explosion1.jpg"
+    },
+    {
+     "dam_uid": 1722,
+     "gallery_pos": 47,
+     "title": "end bang",
+     "description": "Elxt 90, Trashland, Lausanne /CH 2002",
+     "creator": "Kati Bitzer",
+     "date_cr": 1239633447,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/erico_lozan_explosion2.jpg"
+    },
+    {
+     "dam_uid": 1727,
+     "gallery_pos": 48,
+     "title": "X-tions",
+     "description": "Elxt 90 ",
+     "creator": "Margot Wallard",
+     "date_cr": 1239633448,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/mar_xtions1.jpg"
+    },
+    {
+     "dam_uid": 1710,
+     "gallery_pos": 49,
+     "title": "X-tions",
+     "description": "Elxt 90 ",
+     "creator": "Margot Wallard",
+     "date_cr": 1239633444,
+     "original": "fileadmin/s-maj/images/BilderMaja/2000Elxt90/mar_xtions2.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 928,
+   "page_title": "Bagger",
+   "page_sorting": 304,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "bagger",
+   "title": "Bagger",
+   "year": "1997-2001",
+   "header": "Bagger, 1997-2001",
+   "bodytext_html": "Bagger was a combative stage show formed around the noise art performance of <br />a live crust-core punk band. This decidedly non- commercial project combined music, <br />theatre, acrobatics and fire art. The shows elaborate costumes and set pieces made <br />from tyres, rubber, and scrap metal were constructed entirely of recycled waste materials. <br />The Parisien video collective Fist Fuck Productions provided additional visuals by way of<br />Super 8 projections.<br /><br />During the four years that Bagger was together, they toured extensively throughout <br />Europe including shows in Germany, the Netherlands, Belgium, Switzerland, Italy, Croatia, <br />Slovenia, Greece and Sweden.<br /><br />The Swiss photographer Kati Bitzer made a documentary book about the Bagger tours. <br />The following images are extracts from her work.",
+   "text_uid": 1223,
+   "text_uids": [
+    1223,
+    1453,
+    1641
+   ],
+   "text_blocks": [
+    {
+     "uid": 1223,
+     "header": "Bagger, 1997-2001",
+     "bodytext_html": "Bagger was a combative stage show formed around the noise art performance of <br />a live crust-core punk band. This decidedly non- commercial project combined music, <br />theatre, acrobatics and fire art. The shows elaborate costumes and set pieces made <br />from tyres, rubber, and scrap metal were constructed entirely of recycled waste materials. <br />The Parisien video collective Fist Fuck Productions provided additional visuals by way of<br />Super 8 projections.<br /><br />During the four years that Bagger was together, they toured extensively throughout <br />Europe including shows in Germany, the Netherlands, Belgium, Switzerland, Italy, Croatia, <br />Slovenia, Greece and Sweden.<br /><br />The Swiss photographer Kati Bitzer made a documentary book about the Bagger tours. <br />The following images are extracts from her work.",
+     "sorting": 128
+    },
+    {
+     "uid": 1453,
+     "header": "",
+     "bodytext_html": "Bagger includes: Fafa, Luis, Nicu, Bänz, Dömi, Vera Fabbri, Babu Fuhrer, Mike Tucker, <br />Azu Fabbri, Muncho, Vale, Maja, Anet, Angelino, Boco, Hänu, Tutti, Papst and Selma.",
+     "sorting": 1024
+    },
+    {
+     "uid": 1641,
+     "header": "Bagger Videos / Music:",
+     "bodytext_html": "Due to the new EU law about data protection, i had to take all the videos down. Until I find a <br />better solution, you can watch the videos of my projects on my YouTube channel: \r\n<span id=\"result\"><a href=\"http://t1p.de/maja-explosiv\" target=\"_blank\" id=\"shortenedurl\">http://t1p.de/maja-explosiv</a>&nbsp;</span> ",
+     "sorting": 1280
+    }
+   ],
+   "list_uid": 1222,
+   "anomalies": [
+    "text-elements=3 (all captured and concatenated in sorting order)"
+   ],
+   "images": [
+    {
+     "dam_uid": 699,
+     "gallery_pos": 1,
+     "title": "the material and the crew",
+     "description": "Metelkova, Ljubljana /SLO",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/gruppenbild_def.tif_copy.jpg"
+    },
+    {
+     "dam_uid": 695,
+     "gallery_pos": 2,
+     "title": "the boss",
+     "description": "Bar Offen, Zurich /CH",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860425,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/munchozureich.jpg"
+    },
+    {
+     "dam_uid": 724,
+     "gallery_pos": 3,
+     "title": "fire circle ",
+     "description": "Villa Amalia, Athens /GR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860428,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/azufeuerkreis.jpg"
+    },
+    {
+     "dam_uid": 709,
+     "gallery_pos": 4,
+     "title": "singer",
+     "description": "Torre Maura, Rome /i",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860427,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/fafarom.jpg"
+    },
+    {
+     "dam_uid": 703,
+     "gallery_pos": 5,
+     "title": "devil",
+     "description": "Cascina, Milan /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/luismilano.jpg"
+    },
+    {
+     "dam_uid": 722,
+     "gallery_pos": 6,
+     "title": "net",
+     "description": "Torre Maura, Rome /i",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860428,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/azuromhoch.jpg"
+    },
+    {
+     "dam_uid": 706,
+     "gallery_pos": 7,
+     "title": "net",
+     "description": "Torre Maura, Rome /i",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860427,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/babunetzrom.jpg"
+    },
+    {
+     "dam_uid": 713,
+     "gallery_pos": 8,
+     "title": "net",
+     "description": "Cascina, Milan /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860427,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/netzmilano.jpg"
+    },
+    {
+     "dam_uid": 705,
+     "gallery_pos": 9,
+     "title": "sound check",
+     "description": "Mochvara, Zagreb /HR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/soundcheck1.jpg"
+    },
+    {
+     "dam_uid": 704,
+     "gallery_pos": 10,
+     "title": "singer",
+     "description": "Torre Maura, Rome /i",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/luisrom.jpg"
+    },
+    {
+     "dam_uid": 696,
+     "gallery_pos": 11,
+     "title": "bone",
+     "description": "Torre Maura, Rome /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/baburom.jpg"
+    },
+    {
+     "dam_uid": 710,
+     "gallery_pos": 12,
+     "title": "Dog",
+     "description": "Pforzheim /D",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860427,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/majapforzheim.jpg"
+    },
+    {
+     "dam_uid": 712,
+     "gallery_pos": 13,
+     "title": "two dogs",
+     "description": "TNT, Naples /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860427,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/azuverafire2.jpg"
+    },
+    {
+     "dam_uid": 716,
+     "gallery_pos": 14,
+     "title": "four dogs",
+     "description": "TNT, Naples /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860428,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/vierhunde.jpg"
+    },
+    {
+     "dam_uid": 750,
+     "gallery_pos": 15,
+     "title": "torture",
+     "description": "Zorro Festival, Leipzig /D",
+     "creator": "Kati Bitzer",
+     "date_cr": 883609200,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/bagger1.jpg"
+    },
+    {
+     "dam_uid": 698,
+     "gallery_pos": 16,
+     "title": "torture",
+     "description": "squat party, Liège /B",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/folter1.jpg"
+    },
+    {
+     "dam_uid": 719,
+     "gallery_pos": 17,
+     "title": "torture",
+     "description": "squat party, Liège /B",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860428,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/folter2.jpg"
+    },
+    {
+     "dam_uid": 720,
+     "gallery_pos": 18,
+     "title": "fire man",
+     "description": "squat, Patras /GR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860428,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/feuermann.jpg"
+    },
+    {
+     "dam_uid": 718,
+     "gallery_pos": 19,
+     "title": "electro shock",
+     "description": "Metelkova,  Ljubljana /SLO",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860428,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/elektroschock.jpg"
+    },
+    {
+     "dam_uid": 701,
+     "gallery_pos": 20,
+     "title": "acrobatics",
+     "description": "Cascina, Turin /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/akrotorino.jpg"
+    },
+    {
+     "dam_uid": 694,
+     "gallery_pos": 21,
+     "title": "inferno",
+     "description": "Cascina, Turin /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860425,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/munchofire.jpg"
+    },
+    {
+     "dam_uid": 707,
+     "gallery_pos": 22,
+     "title": "public",
+     "description": "squat, Split /HR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860427,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/splittotale2.jpg"
+    },
+    {
+     "dam_uid": 700,
+     "gallery_pos": 23,
+     "title": "after show",
+     "description": "Villa Amalia, Athens /GR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/aftershow2.jpg"
+    },
+    {
+     "dam_uid": 714,
+     "gallery_pos": 24,
+     "title": "after show",
+     "description": "Villa Amalia, Athens /GR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860427,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/aftershow1.jpg"
+    },
+    {
+     "dam_uid": 717,
+     "gallery_pos": 25,
+     "title": "public after show",
+     "description": "Cascina, Milan /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860428,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/idiotmilano.jpg"
+    },
+    {
+     "dam_uid": 711,
+     "gallery_pos": 26,
+     "title": "Fist Fuck Production",
+     "description": "Metelkova, Ljubljana /HR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860427,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/fflubjiana.jpg"
+    },
+    {
+     "dam_uid": 702,
+     "gallery_pos": 27,
+     "title": "build up",
+     "description": "Cascina, Turin /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/aufbautorino3.jpg"
+    },
+    {
+     "dam_uid": 697,
+     "gallery_pos": 28,
+     "title": "preparation",
+     "description": "Mochvara, Zagreb /HR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220860426,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/veraschminkt.jpg"
+    },
+    {
+     "dam_uid": 747,
+     "gallery_pos": 29,
+     "title": "puddle",
+     "description": "Brindisi /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861592,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/brindisilache.jpg"
+    },
+    {
+     "dam_uid": 727,
+     "gallery_pos": 30,
+     "title": "waiting for the organizer",
+     "description": "Patras /GR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861589,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/fafamike.jpg"
+    },
+    {
+     "dam_uid": 738,
+     "gallery_pos": 31,
+     "title": "pulled over",
+     "description": "highway, Italy",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861591,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/polizia.jpg"
+    },
+    {
+     "dam_uid": 725,
+     "gallery_pos": 32,
+     "title": "driving",
+     "description": "",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861589,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/imtruck2.jpg"
+    },
+    {
+     "dam_uid": 745,
+     "gallery_pos": 33,
+     "title": "small roads ",
+     "description": "Split /HR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861591,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/spliteswirdeng.jpg"
+    },
+    {
+     "dam_uid": 729,
+     "gallery_pos": 34,
+     "title": "breakdown",
+     "description": "Greek mountains",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861589,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/panne.jpg"
+    },
+    {
+     "dam_uid": 740,
+     "gallery_pos": 35,
+     "title": "stairway showroom",
+     "description": "squat, Split /HR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861591,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/splitselma.jpg"
+    },
+    {
+     "dam_uid": 728,
+     "gallery_pos": 36,
+     "title": "fixing these brakes",
+     "description": "Metelkova, Ljubljana /HR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861589,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/pannelubjiana.jpg"
+    },
+    {
+     "dam_uid": 731,
+     "gallery_pos": 37,
+     "title": "window",
+     "description": "on the road",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861590,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/valeselma.jpg"
+    },
+    {
+     "dam_uid": 734,
+     "gallery_pos": 38,
+     "title": "Ice Cream",
+     "description": "Brindisi /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861590,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/brindisigelati.jpg"
+    },
+    {
+     "dam_uid": 746,
+     "gallery_pos": 39,
+     "title": "reunion",
+     "description": "squat, Patras /GR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861591,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/sitzungpatras.jpg"
+    },
+    {
+     "dam_uid": 739,
+     "gallery_pos": 40,
+     "title": "waiting for the boat",
+     "description": "Ancona /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861591,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/anconaselma.jpg"
+    },
+    {
+     "dam_uid": 730,
+     "gallery_pos": 41,
+     "title": "on the boat to Patras",
+     "description": "",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861589,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/swimmingpool.jpg"
+    },
+    {
+     "dam_uid": 749,
+     "gallery_pos": 42,
+     "title": "arrival",
+     "description": "Split /HR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1031436000,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/ankunftsplit.jpg"
+    },
+    {
+     "dam_uid": 748,
+     "gallery_pos": 43,
+     "title": "supermarket",
+     "description": "Italy",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861592,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/supermarket.jpg"
+    },
+    {
+     "dam_uid": 743,
+     "gallery_pos": 44,
+     "title": "shopping",
+     "description": "Cascina, Turin /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861591,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/tuttiperoni.jpg"
+    },
+    {
+     "dam_uid": 726,
+     "gallery_pos": 45,
+     "title": "lunch break",
+     "description": "",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861589,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/mangiare.jpg"
+    },
+    {
+     "dam_uid": 735,
+     "gallery_pos": 46,
+     "title": "sleeping",
+     "description": "on the road",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861590,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/unterbl_hendenb_umen.jpg"
+    },
+    {
+     "dam_uid": 741,
+     "gallery_pos": 47,
+     "title": "tag",
+     "description": "Ljubljana /SLO",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861591,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/taglubjiana.jpg"
+    },
+    {
+     "dam_uid": 744,
+     "gallery_pos": 48,
+     "title": "tag",
+     "description": "Cascina, Turin /I",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861591,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/tagtorino.jpg"
+    },
+    {
+     "dam_uid": 736,
+     "gallery_pos": 49,
+     "title": "tag",
+     "description": "squat, Patras /GR",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861590,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/tagpatras.jpg"
+    },
+    {
+     "dam_uid": 732,
+     "gallery_pos": 50,
+     "title": "tag",
+     "description": "TNT, Naples /I ",
+     "creator": "Kati Bitzer",
+     "date_cr": 1220861590,
+     "original": "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/tagnapoli.jpg"
+    }
+   ]
+  }
+ ]
+}

@@ -218,6 +218,69 @@ That is loud rather than silent, but worth knowing: **check `*.headers` for a 30
 concluding a page is gone.** The `.html` suffixed, `content/`-prefixed form is the one that
 serves.
 
+## Stage 9 — performance (container 872) → `performance` — **PARTIAL, 4 of 6**
+
+| page | slug | year | images | text blocks | |
+|---|---|---|---|---|---|
+| 1056 | `the-sea-monster` | — | 15 | 1 | done |
+| 932 | `trojan-fire` | 2004 | 8 | 1 | done |
+| 927 | `free-radicals` | 2002-2004 | 16 | 2 | done |
+| 928 | `bagger` | 1997-2001 | 50 | 3 | done |
+| 933 | `casino-gitano` | 2003-2012 | 39 | — | **HELD** |
+| 926 | `elxt-90` | 1999-2003 | 49 | — | **HELD** |
+
+**Verified 6/6 against live** (4 migrated + 2 correctly reported as held).
+
+### Two projects are HELD, not skipped
+
+Owner's decision, 2026-08-27: migrate what can be migrated, hold what needs a decision.
+`STAGES[9]['hold']` names each page and the reason. **A held page is still extracted** and
+still appears in `normalized/stage9.json` with all its content — only the Markdown is
+withheld. Delete the entry to migrate it; nothing else changes.
+
+| page | why held |
+|---|---|
+| 926 Elxt 90 | 4 text blocks, **2 `list` elements** (the second is `Bio ShortList` with **0 images** — a gallery element with no gallery), **2 live `html` video embeds**, and 6 hidden elements |
+| 933 Casino Gitano | a live `Casino Gitano Videos:` text block and **8 hidden elements** — 4 `html` video embeds plus their captions |
+
+### The unresolved question behind both: video
+
+Six pages across the old site carry video content as `CType: html` embeds (926, 928, 933,
+946, 1054, 1064). **No stage in the plan handles video, and the Figma project page has no
+video component**, so there is nowhere to put it even once extracted. The extractor reports
+these as `other-ctypes=html` and does not migrate them.
+
+Note the wrinkle: Bagger's video block is **not** an embed — it is a `text` element in which
+Maja explains that she took the videos down under GDPR and links her YouTube channel. That
+migrated normally, and is the first real test of the headed-block rule.
+
+### Links, and following the live site
+
+Bagger's note contains the only link in the project content so far, and it exposed two gaps.
+
+**`body_md` had no link handling at all.** It stripped tags, which would have left the label
+as unlinked text and lost the target entirely. It now converts both TYPO3's `<link>` syntax
+and plain `<a href>` to Markdown links, before any tag stripping.
+
+**The label follows the live site, not the database.** The database stores the label as the
+full URL, `http://t1p.de/maja-explosiv`; the old site displays it **without the scheme**,
+`t1p.de/maja-explosiv`. The href is byte-identical on both sides — only the visible label
+differs, and it differs because of TYPO3's own display convention. Per the owner
+(2026-08-27), *the live site is the source of truth for how a link reads*, so where a
+label **is** its own bare URL the scheme is dropped. The original label is preserved verbatim
+in `raw/db/` and `normalized/`. `verify_projects.py` strips URL schemes from both sides
+before comparing — a tolerance narrow enough that it cannot mask a difference in wording.
+
+(The live page actually emits a *nested* `<a>` inside `<a>` here — a TYPO3 link-parsing bug.
+Not reproduced.)
+
+### Page 1056's live path is under `installations`, not performance
+
+`url-to-uid.tsv` gives `content/sculptures/sculptural-work/installations/the-sea-monster`,
+while the page tree has it under container 872 (performance). realurl records historical
+paths, so this is where the page **used to** live. The page tree is authoritative for
+category; the stale path still serves and is what was fetched for verification.
+
 ## The original stays intact
 
 Nothing is edited in place and nothing is normalised away. Three layers hold the source

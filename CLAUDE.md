@@ -230,8 +230,13 @@ Phases are in PLAN.md; the short version:
 - **Homepage, single project** — structurally close, need a token-accurate pass.
 - **Content migration** — **underway, and it now governs `src/` content.** Read
   `project_docs/content-migration-plan.md` (approved 2026-08-25) before touching content.
-  - Stages **0 (census)**, **0b (quarantine)** and **1 (Links)** are done; Stage 1 passes
-    19/19 checks, only V8 (visual comparison) outstanding. Stages 2–14 not started.
+  - **Stages 0–8 are done and Stage 9 is 4 of 6.** 14 projects and 259 images live in `src/`.
+    The project pipeline is `migrated-content/_tools/{extract,convert,verify}_projects.py`;
+    adding a stage is one row in `STAGES`. Per-stage decisions and traps:
+    **`migrated-content/projects/SOURCE.md`**. Stages 10–14 remain — see the `HANDOFF`
+    section at the end of the migration plan.
+  - **Two projects are HELD, not skipped** (`casino-gitano`, `elxt-90`) pending Maja's answer
+    on video. Held pages are fully extracted; one line in `STAGES[n]['hold']` releases them.
   - **`src/pages/` and `src/posts/` now contain only migration output** — currently one file,
     `about/links.md`. The 38 pre-existing Markdown files were **moved**, not deleted, to
     `pre-migration-content/`. The old "~26 of ~71 projects converted" line was wrong twice

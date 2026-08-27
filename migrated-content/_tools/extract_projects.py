@@ -21,7 +21,15 @@ STAGES = {
     6:  dict(container=874, category='paintings',    name='murals'),
     7:  dict(container=875, category='paintings',    name='paper work'),
     8:  dict(container=873, category='installations', name='event organisation'),
-    9:  dict(container=872, category='performance',  name='performance'),
+    # HOLD: pages deliberately not migrated yet, with the reason. They are still extracted
+    # and still appear in normalized/, so nothing is lost -- the converter writes no Markdown
+    # for them. Remove the entry to migrate. (owner, 2026-08-27)
+    9:  dict(container=872, category='performance',  name='performance',
+            hold={926: 'Elxt 90: 2 list elements (one is "Bio ShortList" with 0 images), '
+                       '4 text blocks and 2 live html video embeds, plus 6 hidden elements. '
+                       'Video content has no home in the plan and no Figma component.',
+                  933: 'Casino Gitano: a live "Casino Gitano Videos:" text block and 8 hidden '
+                       'elements (4 html video embeds + their captions). Same video question.'}),
     10: dict(container=878, category='sculptures',   name='collaborations'),
     # 11 (sculptural work) splits across two sub-containers and is handled there.
 }
@@ -136,7 +144,10 @@ def run(stage):
         # Nothing to migrate: no text, no gallery. Record WHY, and where the content
         # actually lives, so the page is not silently dropped and not double-migrated.
         skip_reason = None
-        if not text and not images:
+        held = (S.get('hold') or {}).get(uid)
+        if held:
+            skip_reason = 'HELD -- ' + held
+        elif not text and not images:
             skip_reason = (f'shortcut to page {shortcut}: no content of its own; the content '
                            f'belongs to that page and is migrated by whichever stage owns it'
                            if shortcut else 'no text element and no gallery')

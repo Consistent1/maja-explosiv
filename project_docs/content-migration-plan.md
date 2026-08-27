@@ -1217,12 +1217,14 @@ confidently wrong.
 | 1 | `CLAUDE.md` | Ground rules. §3 sources of truth, §5 working agreements, §6 code layout, §7 running things |
 | 2 | `project_docs/DOCS.md` | **Index of every document, and which are superseded.** Several old docs carry wrong counts; one recommends web-scraping that is now disproved |
 | 3 | **this plan, in full** | §2.0a drift, §2.3 encoding, §2.4 gallery resolution, §3 ground rules, §5.1 quarantine, §6 verification, decisions 1–14 |
-| 4 | `project_docs/PLAN.md` § *Open items* | 39 open items, **11 questions for Maja**. Several bear on projects |
+| 4 | `project_docs/PLAN.md` § *Open items* | **49 open items, 16 for Maja.** The single list — nothing needing judgement is filed elsewhere. Its *Resume here (2026-08-27)* header is the fastest orientation in the repo |
+| 4b | `project_docs/PLAN.md` § *Project Page — extracted spec (2026-08-27)* | The Figma spec for the page you are populating: geometry, type, the caption contract, and the traps hit reading it |
+| 4c | **`migrated-content/projects/SOURCE.md`** | **The four completed project stages** — every decision, every anomaly, every bug the pipeline now guards against. The single most useful file for stages 10–11 |
 | 5 | `migrated-content/README.md` | Per-stage status; the database warning |
 | 6 | `migrated-content/links/SOURCE.md` | The cleanest worked example of a completed stage |
 | 7 | `migrated-content/timeline/SOURCE.md` | What to do when the source shape is not what the plan assumed |
 | 8 | `migrated-content/legal/SOURCE.md` | Handling exclusions and documenting what is deliberately left out |
-| 9 | `migrated-content/_tools/RUNBOOK-images.md` | Image pipeline, NFC/NFD, proving losslessness |
+| 9 | `migrated-content/_tools/RUNBOOK-images.md` | Image pipeline, NFC/NFD, proving losslessness, **and the resume flag** — a full re-encode is ~25 minutes and must be announced first |
 | 10 | `image-archive/RECOVERED-2026-08-27.md` | The NFC/NFD trap. **Read before writing any path comparison** |
 | 11 | `src/posts/projects/TBD/README.md` | The six→four category mapping and what is unresolved |
 | 12 | `image-archive/README.md` + `DUPLICATES.md` | What the archive holds; the 236 duplicated files |
@@ -1230,6 +1232,10 @@ confidently wrong.
 
 Skim `migrated-content/press/GALLERY-COMPANIONS.md` and `GALLERY-ORDER.md`: short, and they show
 the expected standard for documenting a deliberate deviation.
+
+Also read `project_docs/figma-audit-guide.md` §8 **before touching Figma at all**. Its traps are
+the difference between reading the design and inventing it — two of them were added on
+2026-08-27 after both bit in the same session.
 
 ## H3. Where things stand
 
@@ -1241,40 +1247,91 @@ the expected standard for documenting a deliberate deviation.
 | 3 Timeline | done — 85 entries; it was `tt_news`, not prose |
 | 4 Bio | done — character-identical to live |
 | 5 Contact + Datenschutz | done — 133/133 paragraphs |
-| **6–14** | **yours** |
+| 6 Murals → `paintings` | **done** — 3 projects, 40 images, 3/3 vs live |
+| 7 Paper work → `paintings` | **done** — 4 projects, 52 images, 5/5 vs live. 1 page skipped (shortcut) |
+| 8 Event organisation → `installations` | **done** — 3 projects, 78 images, 3/3 vs live |
+| 9 Performance → `performance` | **4 of 6** — 89 images, 6/6 vs live. 2 projects **HELD** on the video question |
+| **10–14** | **yours** |
 
-**Every project image is already migrated.** 1,006 files, losslessly optimised, native size:
+14 projects and 259 images are live in `src/`. Detail per stage, with every decision and every
+trap, is in **`migrated-content/projects/SOURCE.md`** — read it before writing code.
 
-| target category | projects | images |
-|---|---|---|
-| sculptures | 33 | 416 |
-| installations | 14 | 169 |
-| performance | 6 | 177 |
-| paintings | 7 | 92 |
-| `TBD/` | 5 | 152 |
+**Every project image is already migrated.** 1,006 files, losslessly optimised, native size.
+Stages 10–11 write the **Markdown that references them**. Do not re-run the image pipeline
+unless something is genuinely missing — a full `--write` re-encodes all 1,006 files and takes
+~25 minutes. See `_tools/RUNBOOK-images.md` for the resume flag and the verification.
 
-Stages 6–11 write the **Markdown that references them**. Do not re-run the image pipeline unless
-something is genuinely missing.
+### The tools, and what each one now guarantees
+
+```bash
+python3 migrated-content/_tools/extract_projects.py <stage>          # DB  -> normalized/stage<N>.json
+python3 migrated-content/_tools/convert_projects.py <stage>          # dry run
+python3 migrated-content/_tools/convert_projects.py <stage> --write  # -> src/posts/projects/
+python3 migrated-content/_tools/verify_projects.py <stage>           # against raw/live/
+```
+
+Adding a stage is one row in `extract_projects.py` → `STAGES`. The pipeline already handles,
+because each was a real failure first:
+
+- **Gallery order** — `tx_dam_mm_ref.sorting_foreign`, never `tx_dam.sorting`.
+- **Multiple `text` elements** — all captured in `sorting` order and concatenated; a later
+  block with a non-empty header becomes an `##` heading.
+- **Shortcut pages** — `pages.shortcut` read; no Markdown written; reason recorded.
+- **Sub-containers** — child pages counted and flagged, never walked past silently.
+- **Held pages** — `STAGES[n]['hold']` withholds Markdown while keeping full extraction.
+- **Links** — TYPO3 `<link>` and `<a href>` become Markdown links; a bare-URL label drops its
+  scheme to match the live site.
+- **Anomalies** — recorded in `anomalies[]`, never guessed past.
+
+`verify_projects.py` checks heading, **every** text block, every caption, **and gallery order**
+against the live page. Three of those four checks exist because a bug slipped through the
+others.
 
 ## H4. The remaining stages
 
-All project stages share one shape: each project page has a `text` element (the description) and
-a `list` element (the DAM gallery, no bodytext — images resolve via `tx_dam_mm_ref`).
+The **common** shape is one `text` element (the description) plus one `list` element (the DAM
+gallery, no bodytext — images resolve via `tx_dam_mm_ref`). **Treat that as the common case,
+not the rule.** Stages 7–9 each found a page that breaks it, and every break was silent until
+something checked for it.
 
-| stage | old container | projects | → new category |
-|---|---|---|---|
-| **6** | murals | **3** — Wohlgroth (919), Felix und Regula (918), Murals Europe (866) | `paintings` |
-| 7 | paper work | 5 | `paintings` |
-| 8 | event organisation | 3 | **`TBD/`** |
-| 9 | performance | 6 | `performance` |
-| 10 | collaborations | 8 | `sculptures` (owner, 2026-08-27) |
-| 11 | sculptural work | 41 visible under *Sculptures* / *Installations* | `sculptures` / `installations` — **the old site already made this split; do not re-derive it** |
-| 12 | News | **likely moot** — `tt_news` turned out to be the timeline, migrated at Stage 3. Confirm, then strike or re-scope |
-| 13 | Misc | whatever Stage 0 could not classify |
-| 14 | Global reconciliation | `unassigned.tsv` = 0; every ledger passes; `TBD/` emptied |
+| stage | old container | projects | → new category | state |
+|---|---|---|---|---|
+| 6 | murals | 3 | `paintings` | **done** |
+| 7 | paper work | 5 (4 + 1 shortcut) | `paintings` | **done** |
+| 8 | event organisation | 3 | `installations` (owner, 2026-08-27) | **done** |
+| 9 | performance | 6 | `performance` | **4 of 6**, 2 held |
+| **10** | collaborations | **8** | `sculptures` (owner, 2026-08-27) | yours |
+| **11** | sculptural work | **41** under *Sculptures* (25) / *Installations* (16) | `sculptures` / `installations` — **the old site already made this split; do not re-derive it** | yours |
+| 12 | News | **likely moot** — `tt_news` turned out to be the timeline, migrated at Stage 3. Confirm, then strike or re-scope | yours |
+| 13 | Misc | whatever Stage 0 could not classify, plus container **1049** (below) | yours |
+| 14 | Global reconciliation | `unassigned.tsv` = 0; every ledger passes; `TBD/` emptied | yours |
 
-Stage 6 is deliberately small — three projects — so the project machinery is proven before it
-meets 41.
+### Start with Stage 10, and expect the video question immediately
+
+Two of collaborations' eight — **946 Wheel of Power** and **1054 Destroy HIV** — carry
+`CType: html` video embeds, the same thing that holds two Stage 9 projects. If the owner has
+not answered by then, **hold those two and migrate the other six**; the mechanism is one entry
+in `STAGES[10]['hold']` and it keeps full extraction. Do not invent a video treatment.
+
+### Stage 11 is the one that needs care
+
+41 projects, and the only stage with **sub-containers**. `877 sculptural work` splits into
+`1039 Sculptures` and `1040 Installations` — already in the `STAGES` model. But **inside 1039,
+page `1068 Portraits` is itself a container**, holding *Alberto* (22 images), *Käthe* (16) and
+*Bernhard* (12), while carrying its own intro text and **no gallery of its own**. A model that
+treats every child of a container as a leaf project emits one project and loses three.
+`extract_projects.py` now raises `SUB-CONTAINER: n child page(s) not walked by this stage`, so
+you will be told — but **what to do about it is undecided** and is an open item: does
+`Portraits` become a page with its intro text, a grouping in the listing, or nothing?
+Their images are already filed correctly under `sculptures/`.
+
+### Container 1049 belongs to no stage, and holds real content
+
+`TBD/` now contains only container **1049 "possibilities"**: **924 Breath Under Water** (a
+1,399-byte text, a live 38-image gallery, a hidden 39-image gallery, and a video text block)
+and **937 Alchemy Bar** (4 content elements). Page 982 under paper work is a TYPO3 *shortcut*
+to 924 and was correctly skipped at Stage 7 — but that means **nothing currently migrates
+924's content**. Decide which stage owns 1049, or add one, before Stage 14 reconciliation.
 
 **Output shape** (§7 of this plan): `src/posts/projects/<category>/<slug>.md` with
 `title, date, year, category, tags[], layout, featuredImage, featuredImageAlt,
@@ -1346,6 +1403,55 @@ to restart it; do not start services yourself.
 copies them into `.cache/` at config time, so a running server serves stale markup and the change
 looks inert.
 
+### Added 2026-08-27 — every one of these was a real failure this session
+
+**Presence is not order.** Ordering a gallery by `tx_dam.sorting` produced the right images
+with the right captions in the wrong sequence, and passed every other check. Wrong order does
+not look broken. `verify_projects.py` now compares sequences; keep it that way.
+
+**A page can be a shortcut.** `pages.shortcut` points at another page and the page itself has
+zero `tt_content` rows. The live site renders it by following the shortcut. Without reading
+that column it looks like a project with no content.
+
+**A page can carry more than one live `text` element, and the extras are real.** Eurokot's
+second block is 26 named artists; Eurokon's is 22. Taking `text[0]` drops them silently, and a
+verifier that only checks block 0 reports `body OK` while they are missing. Both bugs existed.
+
+**A page can carry more than one `list` element.** Page 926 has a second one, `Bio ShortList`,
+with **zero images**.
+
+**Containers nest deeper than two levels.** See Stage 11 above.
+
+**Node/element names lie — read the content.** In the database and in Figma alike. Page 920's
+header is `graphics, illustration and sketches` while its page title is *Graphical Work*, and
+the live site displays the header. Figma text nodes are *named* with the component's default
+lorem while rendering something else entirely.
+
+**Not every gallery image has a description.** A regex that pairs `<h3>…</h3>` with `<p>…</p>`
+silently skips those elements and shifts every later comparison, reporting a false
+`ORDER DIFFERS`. Parse each `<div class="imageElement">` independently. `malaga-la-vache` has
+15 elements and 2 without descriptions.
+
+**Live URLs may 301, and `fetch.sh` does not follow redirects.** `show/event-organisation/eurokot`
+redirects to `content/show/event-organisation/eurokot.html`; the first fetch recorded **0 bytes**
+and every check failed at once. Check `*.headers` before concluding a page is gone. `url-to-uid.tsv`
+holds several historical paths per page and some are stale — page 1056's says `installations`
+while the page tree says performance. **The page tree is authoritative for category; the live
+site is authoritative for what a page displays, including how a link reads.**
+
+**A layout edit can render the previous version.** `.eleventy.js` copies `src/_user/layouts/`
+and `includes/` into `.cache/` at config time, so the first build after editing one can emit the
+old markup — the change looks like it did nothing. Build twice, or restart. This cost a wrong
+measurement.
+
+**Do not re-run the whole image pipeline for a change that alters no pixels.** Moving a category
+is a `git mv` plus a manifest rebuild with an empty `--projects` list. A full `--write`
+re-encodes 1,006 files, takes ~25 minutes, and was interrupted by a machine freeze once already.
+Verify afterwards by hashing decoded pixels against `archive_source`, never by file timestamps.
+
+**Announce anything that touches hundreds of files before starting it.** Owner's instruction,
+2026-08-27, after a 1,006-file re-encode was kicked off unannounced.
+
 ## H6. Tips
 
 - **`migrated-content/_tools/db.sh` is the only way to reach the database.** Charset `latin1`
@@ -1365,7 +1471,26 @@ looks inert.
 
 ## H7. Open questions that touch the remaining stages
 
-Do not resolve these yourself — they are in `PLAN.md`, and several are Maja's:
+Do not resolve these yourself — they are in `PLAN.md` § *Open items needing input*, which is
+**the single list**: 49 items, 16 of them prefixed `ASK MAJA:`. Read that section before
+starting, not after.
+
+**The three that will block you soonest:**
+
+1. **Video.** Six pages carry `CType: html` embeds — 926, 928, 933, 946, 1054, 1064. No stage
+   handles video and **Figma has no video component**. It already holds two Stage 9 projects
+   and will hit Stage 10 immediately (946, 1054). Maja's own note on the Bagger page says she
+   took the videos down under GDPR and points at her YouTube channel, so "link out, do not
+   embed" is the likely answer — but do not assume it.
+2. **Project years.** Only **24 of 79** project headers carry one, so ~70% of caption Year
+   slots are empty, and the build logs one `ERROR: Missing project year` per image — 45 lines
+   already, several hundred by Stage 11. It is not derivable: `tx_dam.date_cr` is the
+   photograph's date and disagrees with the project's. Maja must supply them, or the slot stays
+   blank and the validation should stop treating it as an error.
+3. **`1068 Portraits`** — the sub-container inside Sculptures. Page of its own, grouping, or
+   nothing? Blocks part of Stage 11.
+
+Also open:
 
 - **`TBD/` holds 13 projects** with no settled category, including `Breath Under Water` — the
   whale a keyword heuristic once filed under paintings. Stages 8 and 13 touch it.
@@ -1378,6 +1503,16 @@ Do not resolve these yourself — they are in `PLAN.md`, and several are Maja's:
 - **163 images embedded in `bodytext` HTML** are unaudited and not in the archive.
 - **28 of 1,006 project images were recovered late** from the live server; Käthe and Bernhard had
   none until 2026-08-27.
+- **Container 1049 belongs to no stage** — 924 Breath Under Water and 937 Alchemy Bar. See H4.
+- **Page 926's second `list`**, `Bio ShortList`, has zero images. Deliberate, or lost?
+- **The project page grid does not match Figma** — captions are correct as of 2026-08-27, but
+  the layout still stacks two images beside the text where Figma pairs one, and uses a generic
+  row container where Figma has a two-column then a three-column row. The spec is extracted
+  (`PLAN.md` § *Project Page — extracted spec*); doing the pass is the owner's call.
+- **How a second text block should read** — currently concatenated as prose, but Eurokot's and
+  Eurokon's are *credits lists* and Figma has no component for one.
+- **Long headings as titles** — *"Eurokon, 2. Symposium für interaktives Recycling"* is what the
+  live site displays and what is rendered; keep, or shorten with a separate subtitle?
 
 ## H8. What "done" looks like, per stage
 
@@ -1392,5 +1527,31 @@ Do not resolve these yourself — they are in `PLAN.md`, and several are Maja's:
 `git commit` unless asked.
 
 **When the source does not match what this plan assumed — say so and correct the plan.** That has
-happened in three of the five completed stages, and the corrections are the most valuable thing
-in this document.
+happened in **seven of the nine** stages worked so far, and the corrections are the most valuable
+thing in this document.
+
+### The concrete checklist, per stage
+
+```bash
+python3 migrated-content/_tools/extract_projects.py <n>          # read the ANOMALY lines
+python3 migrated-content/_tools/convert_projects.py <n>          # dry run; read the SKIPPED lines
+migrated-content/_tools/fetch.sh <live-url> migrated-content/projects/raw/live/<slug>.html
+python3 migrated-content/_tools/verify_projects.py <n>           # must be n/n
+python3 migrated-content/_tools/convert_projects.py <n> --write
+node node_modules/.bin/eleventy                                  # twice, see the .cache trap
+```
+
+Then, before reporting:
+
+- Every `ANOMALY` line either handled or written down as an open item. **Never left unexplained.**
+- `verify_projects.py` at n/n, including **order**.
+- `migrated-content/projects/SOURCE.md` extended with a section for the stage: what was
+  migrated, what was skipped or held **and why**, every decision taken, every trap hit.
+- `migrated-content/README.md` status table updated.
+- New questions added to `PLAN.md` § *Open items*, `ASK MAJA:`-prefixed if they are hers.
+- Raw bytes for every text element in `raw/db/`, verifiable byte-identical to the database.
+- Build clean apart from the known `featuredProjects.json` and `Missing project year` lines.
+
+**The standing bar the owner has set:** document what you did and why, keep the original
+available, make loose ends findable from `PLAN.md`, and never make a decision *and* act on it in
+the same motion — surface it first.
