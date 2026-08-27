@@ -13,6 +13,7 @@ source_page_title: "Wohlgroth"
 source_header: "Wohlgroth, 1993"
 source_category: "murals"
 source_text_uid: 1212
+source_text_uids: "1212"
 source_list_uid: 1203
 source_sorting: 64
 images:

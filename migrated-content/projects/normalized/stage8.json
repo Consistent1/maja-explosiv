@@ -2,7 +2,7 @@
  "stage": 8,
  "container": 873,
  "container_name": "event organisation",
- "category": "TBD",
+ "category": "installations",
  "projects": [
   {
    "page_uid": 934,
@@ -17,6 +17,17 @@
    "header": "Dada Festwochen, 2003",
    "bodytext_html": "The artistic conception and management of converting an original blacksmithing shop for <br />the arts festival organised by Mark Divo in the vacant paper factory Sihlpapier, Zurich<br /><br /> Among others who performed were: Das Theater der Peinlichkeit /CH/E, Robocross /GB, <br />Bastiaan Maris /NL, The Spamabillies /SCO/I",
    "text_uid": 1240,
+   "text_uids": [
+    1240
+   ],
+   "text_blocks": [
+    {
+     "uid": 1240,
+     "header": "Dada Festwochen, 2003",
+     "bodytext_html": "The artistic conception and management of converting an original blacksmithing shop for <br />the arts festival organised by Mark Divo in the vacant paper factory Sihlpapier, Zurich<br /><br /> Among others who performed were: Das Theater der Peinlichkeit /CH/E, Robocross /GB, <br />Bastiaan Maris /NL, The Spamabillies /SCO/I",
+     "sorting": 128
+    }
+   ],
    "list_uid": 1235,
    "anomalies": [],
    "images": [
@@ -143,9 +154,27 @@
    "header": "Eurokon, 2. Symposium für interaktives Recycling, 1996",
    "bodytext_html": "Following the success of Eurokot, a second eight-week forum in Russia is organized with <br />cooperation by the Museum of Primitive Arts of Ural and Siberia, the association Environment <br />(state architecture and arts academy of Yekaterinburg), the Siberian Unesco club Krug and <br />the Swiss foundation pro Helvetia.<br /><br />This collective of artists, made up of 16 Western European and 10 Russian artists, met in <br />Yekaterinburg to work in groups with the raw waste material of four different factory areas <br />on site: one tyre production, a rubber factory, a ceramic foundry and a scrap yard. <br />Unfortunately, the physical exposition of the project is only documented by a gallery show in <br />town, as at the time, industrial locations were not accessible to the public.<br />For their next endeavor the group travels to Novosibirsk where an exposition is created with <br />on site paintings, objects and sculptures, which was then shown in the national museum of <br />Siberia.\r\n",
    "text_uid": 1239,
+   "text_uids": [
+    1239,
+    1459
+   ],
+   "text_blocks": [
+    {
+     "uid": 1239,
+     "header": "Eurokon, 2. Symposium für interaktives Recycling, 1996",
+     "bodytext_html": "Following the success of Eurokot, a second eight-week forum in Russia is organized with <br />cooperation by the Museum of Primitive Arts of Ural and Siberia, the association Environment <br />(state architecture and arts academy of Yekaterinburg), the Siberian Unesco club Krug and <br />the Swiss foundation pro Helvetia.<br /><br />This collective of artists, made up of 16 Western European and 10 Russian artists, met in <br />Yekaterinburg to work in groups with the raw waste material of four different factory areas <br />on site: one tyre production, a rubber factory, a ceramic foundry and a scrap yard. <br />Unfortunately, the physical exposition of the project is only documented by a gallery show in <br />town, as at the time, industrial locations were not accessible to the public.<br />For their next endeavor the group travels to Novosibirsk where an exposition is created with <br />on site paintings, objects and sculptures, which was then shown in the national museum of <br />Siberia.\r\n",
+     "sorting": 128
+    },
+    {
+     "uid": 1459,
+     "header": "",
+     "bodytext_html": "Artists East: <br />Alexander Glistrin /RU, Oleg Elovoi /RU, Dima Bulnygin /RU, Slava Mizin /RU\r\nArtists West: <br />Mark Divo /LUX, Grex Portmann /CH, Mike Tucker /GB, Lenny Lee /GB, Isa Karpf /CH,<br />Michael Schmacke /D, Anne Bennike /DK, Anja Kleidt /D, Patrick Blöchlinger /CH, <br />Guido Vanderbuilt /NL, Dominik Suter /CH, Fafa Fierz /CH, Luis Wäschle /CH, <br />Mirsen Merklenbach /D, Oktavio Gonzales /E, Michael Hiltbrunner /CH, <br />Linda Herzog /CH, Maja Thommen /CH<br />",
+     "sorting": 512
+    }
+   ],
    "list_uid": 1236,
    "anomalies": [
-    "text-elements=2"
+    "text-elements=2 (all captured and concatenated in sorting order)"
    ],
    "images": [
     {
@@ -397,9 +426,27 @@
    "header": "Eurokot, 1. Symposium für interaktives Recycling, 1995",
    "bodytext_html": "Partnered with Mark Divo, Maja helped lead the conception, organisation and coordination <br />of this multimedia event.<br />Taking place&nbsp;in the vacant pedestrian underpass Escher-Wyss evolves an overall artwork <br />from large-scale paintings, sculptural objects, sound installations. Most notably, the show <br />was made entirely with recycled material.<br />The project is supported by the government of the city of Zurich, the city waste company <br />and pro Helvetia. (Präsidialabteilung der Stadt Zürich, Abfuhrwesen der Stadt Zürich, <br />pro Helvetia, Kulturaustausch Ost/West)<br />Thirty international artists were invited to manipulate during the three-week build up phase <br />over twenty tons of waist material. <br /><br />The three week opening which followed saw many performances, including: <br />Teatr Novogo Fronta /RU, Kule Geckos /D, Destroy after use /NL, Scum of Toytown /GB, <br />Dottir /DK, the Molecules /USA, Piombo a Tempo /I, Boni and Bubi /CH, Vendetta /CH, <br />We Mean /CH, Luke Slater /GB, Styro /CH and many more.<br />For this rich  cultural program of fine arts, theatre, lectures, performances and music <br />events from techno to punk to rap we received the Swiss music prize of the year for 1995. <br />(Schweizer Rockpreis 1995).\r\n",
    "text_uid": 1238,
+   "text_uids": [
+    1238,
+    1458
+   ],
+   "text_blocks": [
+    {
+     "uid": 1238,
+     "header": "Eurokot, 1. Symposium für interaktives Recycling, 1995",
+     "bodytext_html": "Partnered with Mark Divo, Maja helped lead the conception, organisation and coordination <br />of this multimedia event.<br />Taking place&nbsp;in the vacant pedestrian underpass Escher-Wyss evolves an overall artwork <br />from large-scale paintings, sculptural objects, sound installations. Most notably, the show <br />was made entirely with recycled material.<br />The project is supported by the government of the city of Zurich, the city waste company <br />and pro Helvetia. (Präsidialabteilung der Stadt Zürich, Abfuhrwesen der Stadt Zürich, <br />pro Helvetia, Kulturaustausch Ost/West)<br />Thirty international artists were invited to manipulate during the three-week build up phase <br />over twenty tons of waist material. <br /><br />The three week opening which followed saw many performances, including: <br />Teatr Novogo Fronta /RU, Kule Geckos /D, Destroy after use /NL, Scum of Toytown /GB, <br />Dottir /DK, the Molecules /USA, Piombo a Tempo /I, Boni and Bubi /CH, Vendetta /CH, <br />We Mean /CH, Luke Slater /GB, Styro /CH and many more.<br />For this rich  cultural program of fine arts, theatre, lectures, performances and music <br />events from techno to punk to rap we received the Swiss music prize of the year for 1995. <br />(Schweizer Rockpreis 1995).\r\n",
+     "sorting": 128
+    },
+    {
+     "uid": 1458,
+     "header": "",
+     "bodytext_html": "Invited artists: <br />Michael Feeling /D, Ingo Giezendanner /CH, Grex Portmann /CH, Felix Maspoli /CH, <br />Mike Tucker /GB, Lenny Lee /GB, Michael Schmacke /D Edith Oberholz /CH, <br />Anne Bennike /DK, Stine Brinlow /DK, Sabine Hauser /CH, Alexandr Glistrin /RU, <br />Oleg Elovoi /RU, Dima Bulnigyn /RU, Slava Mizin /RU, Isa Karpf /CH, Anja Kleidt /D, <br />Lukas Keller /CH, Antonio Pate /CH, Patrick Blöchlinger /CH, Johann Vestre /NOR, <br />Guido Vanderbuilt /NL, Eva von Wartburg /CH, Theresa Pereira /P, Marcel Kühne /CH, <br />Petra Wild /CH",
+     "sorting": 512
+    }
+   ],
    "list_uid": 1237,
    "anomalies": [
-    "text-elements=2"
+    "text-elements=2 (all captured and concatenated in sorting order)"
    ],
    "images": [
     {

@@ -83,6 +83,7 @@ def run(stage, write=False):
               f'source_header: {y(p["header"])}',
               f'source_category: {y(d["container_name"])}',
               f'source_text_uid: {p["text_uid"]}',
+              f'source_text_uids: {y(",".join(str(u) for u in (p.get("text_uids") or [])))}',
               f'source_list_uid: {p["list_uid"]}',
               f'source_sorting: {p["page_sorting"]}']
         if rows: L.append('images:')
@@ -94,7 +95,21 @@ def run(stage, write=False):
             if im['creator']:     L.append(f'    author: {y(im["creator"])}')
             L.append(f'    dam_uid: {im["dam_uid"]}')
             L.append(f'    original: {y(im["original"])}')
-        L += ['---', '', body_md(p['bodytext_html'])]
+        # Body = every text element, in `sorting` order, not just the first. A continuation
+        # block with an empty header is joined as further paragraphs; one that carries its
+        # own header gets that header as an h2, because on the old site it reads as a
+        # sub-section ("Elxt 90 Videos:"). The first block's header is the project's
+        # "Title, Year" line and is NOT repeated in the body -- it is already the page title.
+        blocks = p.get('text_blocks') or ([{'uid': p.get('text_uid'), 'header': p.get('header',''),
+                                            'bodytext_html': p['bodytext_html']}]
+                                          if p['bodytext_html'] else [])
+        parts = []
+        for n, blk in enumerate(blocks):
+            if n and blk['header'].strip():
+                parts.append('## ' + html.unescape(re.sub('<[^>]+>', '', blk['header'])).strip())
+            md_block = body_md(blk['bodytext_html']).strip()
+            if md_block: parts.append(md_block)
+        L += ['---', '', '\n\n'.join(parts) + ('\n' if parts else '')]
         md = '\n'.join(L)
         open(f'{OUT}/converted/{cat}/{p["slug"]}.md', 'w').write(md)
         if write:

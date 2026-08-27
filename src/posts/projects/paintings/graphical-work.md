@@ -13,6 +13,7 @@ source_page_title: "Graphical Work"
 source_header: "graphics, illustration and sketches"
 source_category: "paper work"
 source_text_uid: 1210
+source_text_uids: "1210"
 source_list_uid: 1204
 source_sorting: 384
 images:

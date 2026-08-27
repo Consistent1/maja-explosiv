@@ -8,12 +8,26 @@
    "page_uid": 919,
    "page_title": "Wohlgroth",
    "page_sorting": 64,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
    "slug": "wohlgroth",
    "title": "Wohlgroth",
    "year": "1993",
    "header": "Wohlgroth, 1993",
    "bodytext_html": "Complete facade design of the squatted factory in Wohlgroth, <br />Zurich /CH, turned into seven living houses and a large cultural center.",
    "text_uid": 1212,
+   "text_uids": [
+    1212
+   ],
+   "text_blocks": [
+    {
+     "uid": 1212,
+     "header": "Wohlgroth, 1993",
+     "bodytext_html": "Complete facade design of the squatted factory in Wohlgroth, <br />Zurich /CH, turned into seven living houses and a large cultural center.",
+     "sorting": 128
+    }
+   ],
    "list_uid": 1203,
    "anomalies": [],
    "images": [
@@ -113,12 +127,26 @@
    "page_uid": 918,
    "page_title": "Felix und Regula",
    "page_sorting": 128,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
    "slug": "felix-und-regula",
    "title": "Felix und Regula Unterführung",
    "year": "1994",
    "header": "Felix und Regula Unterführung, 1994",
    "bodytext_html": "Large scale mural in the pedestrian underpass Felix und Regula Unterführung, in commission <br />by the city of Zurich /CH",
    "text_uid": 1213,
+   "text_uids": [
+    1213
+   ],
+   "text_blocks": [
+    {
+     "uid": 1213,
+     "header": "Felix und Regula Unterführung, 1994",
+     "bodytext_html": "Large scale mural in the pedestrian underpass Felix und Regula Unterführung, in commission <br />by the city of Zurich /CH",
+     "sorting": 128
+    }
+   ],
    "list_uid": 1202,
    "anomalies": [],
    "images": [
@@ -290,12 +318,26 @@
    "page_uid": 866,
    "page_title": "Murals Europe",
    "page_sorting": 392,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
    "slug": "murals-europe",
    "title": "Murals Europe",
    "year": "1994-1995",
    "header": "Murals Europe, 1994-1995",
    "bodytext_html": "Marc Divo and Maja Explosiv led a team of artists in two seperate work expeditions around <br />Europe, from Austria to Check Republic, over Slovenia and Germany to the Netherlands.<br /><br />In 1994 and 1995 the changing international artist collective realised murals, facade <br />sculptures and bar designs in the culture centres; <b>Arena</b> in Vienna /A, <b>Black Hand</b> and <br /><b>Ladronka</b> in Prague /CZ, a mural on the squatted highway rest stop <b>Zeleny Dvor </b>in Košice <br />/SK, <b>Köpi</b>, <b>KVU</b> and  <b>kleine Haifischbar </b>in Berlin /D and the full facade of <b>Blauwe <br />Aanslag</b> in The Hague /NL.",
    "text_uid": 1214,
+   "text_uids": [
+    1214
+   ],
+   "text_blocks": [
+    {
+     "uid": 1214,
+     "header": "Murals Europe, 1994-1995",
+     "bodytext_html": "Marc Divo and Maja Explosiv led a team of artists in two seperate work expeditions around <br />Europe, from Austria to Check Republic, over Slovenia and Germany to the Netherlands.<br /><br />In 1994 and 1995 the changing international artist collective realised murals, facade <br />sculptures and bar designs in the culture centres; <b>Arena</b> in Vienna /A, <b>Black Hand</b> and <br /><b>Ladronka</b> in Prague /CZ, a mural on the squatted highway rest stop <b>Zeleny Dvor </b>in Košice <br />/SK, <b>Köpi</b>, <b>KVU</b> and  <b>kleine Haifischbar </b>in Berlin /D and the full facade of <b>Blauwe <br />Aanslag</b> in The Hague /NL.",
+     "sorting": 128
+    }
+   ],
    "list_uid": 1199,
    "anomalies": [],
    "images": [

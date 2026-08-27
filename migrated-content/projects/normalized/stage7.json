@@ -17,6 +17,17 @@
    "header": "Concept Illustration",
    "bodytext_html": "A sampling of illustrated conceptual work of Maja Thommens' personal projects and <br />commissioned works.",
    "text_uid": 1215,
+   "text_uids": [
+    1215
+   ],
+   "text_blocks": [
+    {
+     "uid": 1215,
+     "header": "Concept Illustration",
+     "bodytext_html": "A sampling of illustrated conceptual work of Maja Thommens' personal projects and <br />commissioned works.",
+     "sorting": 128
+    }
+   ],
    "list_uid": 1209,
    "anomalies": [],
    "images": [
@@ -143,6 +154,17 @@
    "header": "graphics, illustration and sketches",
    "bodytext_html": "An excerpt from her archive of graphical work since 1997.",
    "text_uid": 1210,
+   "text_uids": [
+    1210
+   ],
+   "text_blocks": [
+    {
+     "uid": 1210,
+     "header": "graphics, illustration and sketches",
+     "bodytext_html": "An excerpt from her archive of graphical work since 1997.",
+     "sorting": 128
+    }
+   ],
    "list_uid": 1204,
    "anomalies": [],
    "images": [
@@ -323,6 +345,8 @@
    "header": "",
    "bodytext_html": "",
    "text_uid": null,
+   "text_uids": [],
+   "text_blocks": [],
    "list_uid": null,
    "anomalies": [
     "text-elements=0"
@@ -342,6 +366,17 @@
    "header": "Akwa, 2005",
    "bodytext_html": "Comic strip for the Roboduck Paperstage on the theme of 'water', Robodock Festival /NL",
    "text_uid": 1208,
+   "text_uids": [
+    1208
+   ],
+   "text_blocks": [
+    {
+     "uid": 1208,
+     "header": "Akwa, 2005",
+     "bodytext_html": "Comic strip for the Roboduck Paperstage on the theme of 'water', Robodock Festival /NL",
+     "sorting": 128
+    }
+   ],
    "list_uid": 1205,
    "anomalies": [],
    "images": [
@@ -423,6 +458,17 @@
    "header": "Malaga la Vache, 2006",
    "bodytext_html": "Children's book illustration commissioned by Kaspar Pfenniger, Atelier Stern, Zurich /CH",
    "text_uid": 1207,
+   "text_uids": [
+    1207
+   ],
+   "text_blocks": [
+    {
+     "uid": 1207,
+     "header": "Malaga la Vache, 2006",
+     "bodytext_html": "Children's book illustration commissioned by Kaspar Pfenniger, Atelier Stern, Zurich /CH",
+     "sorting": 128
+    }
+   ],
    "list_uid": 1206,
    "anomalies": [],
    "images": [

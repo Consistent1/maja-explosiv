@@ -13,6 +13,7 @@ source_page_title: "Felix und Regula"
 source_header: "Felix und Regula Unterführung, 1994"
 source_category: "murals"
 source_text_uid: 1213
+source_text_uids: "1213"
 source_list_uid: 1202
 source_sorting: 128
 images:

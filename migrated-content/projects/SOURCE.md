@@ -148,6 +148,76 @@ and raises `SUB-CONTAINER: n child page(s) not walked by this stage`. Stage 7 ha
 `convert_images.py` was never affected — it resolves a category by walking ancestors, so
 image filing is correct at any depth, and all three portrait directories exist already.
 
+## Stage 8 — event organisation (container 873) → `installations`
+
+| page | slug | year | images | text blocks |
+|---|---|---|---|---|
+| 934 | `dada-festwochen` | 2003 | 12 | 1 |
+| 935 | `eurokon` | 1996 | 26 | **2** |
+| 936 | `eurokot` | 1995 | 40 | **2** |
+
+**Verified 3/3 against live** — heading, *every* text block, every caption, and gallery order.
+
+### Category: `installations`, not `TBD`
+
+Owner's decision, 2026-08-27. The stage table and `convert_images.py` both changed, and the
+**78 image files moved** from `src/assets/images/projects/TBD/` to `installations/`.
+
+The move was done as a **rename, not a re-encode**: `git mv` on the three directories, then
+`convert_images.py --write --projects <empty list>` to rebuild the manifest while writing no
+image files. Re-running the pipeline properly would have re-encoded 1006 images for a change
+that alters no pixels. Verified afterwards: 1006/1006 manifest targets present on disk, and
+all 78 moved files **pixel-identical** to their archive source.
+
+`TBD/` now holds only container 1049 — `breath-under-water` (page 924) and `alchemy-bar`
+(page 937), neither of which any stage currently owns. See PLAN.md.
+
+### Multiple text elements are concatenated, not dropped
+
+**This is the decision most likely to need revisiting, so it is spelled out.**
+
+A project can carry more than one live `text` element. Eurokot and Eurokon each carry two,
+and the second is not incidental:
+
+| page | 2nd block | content |
+|---|---|---|
+| 936 Eurokot | uid **1458** | `Invited artists:` — 26 artists with nationalities |
+| 935 Eurokon | uid **1459** | `Artists East:` / `Artists West:` — 22 artists |
+
+Both are on the live page, and both are Maja's collaborators by name. The previous extractor
+took `text[0]` and would have **silently dropped them**.
+
+Now: **every live `text` element is captured in `sorting` order**, and the body is their
+concatenation. The first block's `header` is the project's `"Title, Year"` line and is not
+repeated in the body — it is already the page title. A *later* block whose header is
+non-empty gets that header rendered as an `##` heading, because on the old site it reads as a
+sub-section; page 926 (`Elxt 90`, Stage 9) has `Elxt 90 Videos:` in exactly that shape.
+Blocks 1458 and 1459 have empty headers, so they join as further paragraphs.
+
+Traceability: `source_text_uids` in the front matter lists **every** contributing uid
+(`"1238,1458"`), `source_text_uid` keeps the first for compatibility, `normalized/stage8.json`
+holds each block with its own uid, header, bodytext and sorting, and **every block's raw bytes
+are written to `raw/db/tt_content-<uid>.bodytext.html`**.
+
+Stages 6 and 7 were re-extracted and re-converted so all stages carry the new fields.
+
+### The verifier only checked the first block — fixed
+
+`body_ok` compared `bodytext_html` (block 0) against the live page. It would have reported
+`body OK` for Eurokot while the 26-artist list was missing from the output. It now checks
+**every** block and reports the count (`body OK (2 blk)`). A shadowed local (`blocks`, reused
+by the gallery-order check) initially made it print image counts instead — renamed to
+`img_blocks`.
+
+### Live URLs need the redirect followed
+
+`url-to-uid.tsv` holds several historical paths per page. `show/event-organisation/eurokot`
+returns **301** to `content/show/event-organisation/eurokot.html`, and `fetch.sh` does not
+follow redirects, so the first fetch recorded **0 bytes** and every check failed at once.
+That is loud rather than silent, but worth knowing: **check `*.headers` for a 301 before
+concluding a page is gone.** The `.html` suffixed, `content/`-prefixed form is the one that
+serves.
+
 ## The original stays intact
 
 Nothing is edited in place and nothing is normalised away. Three layers hold the source

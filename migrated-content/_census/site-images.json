@@ -740,786 +740,6 @@
   "target": "src/assets/images/projects/TBD/breath-under-water/breath-under-water-38.jpg"
  },
  {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 969,
-  "seq": 1,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/tuttifruttimigi.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/tuttifruttimigi.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-01.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 974,
-  "seq": 2,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/toplessdancer.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-02.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 966,
-  "seq": 3,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/jpboxing1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/jpboxing1.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-03.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 964,
-  "seq": 4,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/migituttifrutti2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/migituttifrutti2.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-04.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 965,
-  "seq": 5,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/toplessdancer2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer2.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-05.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 963,
-  "seq": 6,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/toplessdancer3.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer3.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-06.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 972,
-  "seq": 7,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/toplessdancer1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer1.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-07.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 973,
-  "seq": 8,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/relaisbastian.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/relaisbastian.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-08.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 970,
-  "seq": 9,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/johnnyjpjoel.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/johnnyjpjoel.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-09.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 971,
-  "seq": 10,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/andyjp.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/andyjp.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-10.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 967,
-  "seq": 11,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/johnnyluca.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/johnnyluca.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-11.jpg"
- },
- {
-  "category": "TBD",
-  "project": "dada-festwochen",
-  "page_uid": 934,
-  "dam_uid": 968,
-  "seq": 12,
-  "archive_source": "image-archive/live/event-organisation/dada-festwochen/spamas2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/spamas2.jpg",
-  "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-12.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1305,
-  "seq": 1,
-  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetBody.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetBody.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-01.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1304,
-  "seq": 2,
-  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetExpo.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetExpo.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-02.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1310,
-  "seq": 3,
-  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetSowjet.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSowjet.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-03.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1297,
-  "seq": 4,
-  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetSpiegel.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSpiegel.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-04.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1340,
-  "seq": 5,
-  "archive_source": "image-archive/live/event-organisation/eurokon/nailedtank.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedtank.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-05.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1339,
-  "seq": 6,
-  "archive_source": "image-archive/live/event-organisation/eurokon/nailedTanks2org.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedTanks2org.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-06.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1329,
-  "seq": 7,
-  "archive_source": "image-archive/live/event-organisation/eurokon/nailedliegend.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedliegend.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-07.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1321,
-  "seq": 8,
-  "archive_source": "image-archive/live/event-organisation/eurokon/2Torso.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/2Torso.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-08.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1333,
-  "seq": 9,
-  "archive_source": "image-archive/live/event-organisation/eurokon/3torso.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/3torso.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-09.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1311,
-  "seq": 10,
-  "archive_source": "image-archive/live/event-organisation/eurokon/ptomet2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ptomet2.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-10.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1302,
-  "seq": 11,
-  "archive_source": "image-archive/live/event-organisation/eurokon/rubberfactory.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/rubberfactory.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-11.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1313,
-  "seq": 12,
-  "archive_source": "image-archive/live/event-organisation/eurokon/ceramic1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ceramic1.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-12.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1300,
-  "seq": 13,
-  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetSchmelze.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSchmelze.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-13.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1299,
-  "seq": 14,
-  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetArbeiterin.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetArbeiterin.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-14.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1306,
-  "seq": 15,
-  "archive_source": "image-archive/live/event-organisation/eurokon/crew1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/crew1.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-15.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1312,
-  "seq": 16,
-  "archive_source": "image-archive/live/event-organisation/eurokon/GummiPaede.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/GummiPaede.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-16.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1307,
-  "seq": 17,
-  "archive_source": "image-archive/live/event-organisation/eurokon/ptomet1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ptomet1.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-17.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1343,
-  "seq": 18,
-  "archive_source": "image-archive/live/event-organisation/eurokon/NovoAtelier.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/NovoAtelier.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-18.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1344,
-  "seq": 19,
-  "archive_source": "image-archive/live/event-organisation/eurokon/adler1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/adler1.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-19.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1309,
-  "seq": 20,
-  "archive_source": "image-archive/live/event-organisation/eurokon/novosibirsk1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novosibirsk1.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-20.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1296,
-  "seq": 21,
-  "archive_source": "image-archive/live/event-organisation/eurokon/paintingNovoSibirsk.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/paintingNovoSibirsk.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-21.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1308,
-  "seq": 22,
-  "archive_source": "image-archive/live/event-organisation/eurokon/novo4.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novo4.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-22.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1303,
-  "seq": 23,
-  "archive_source": "image-archive/live/event-organisation/eurokon/novo3.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novo3.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-23.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1336,
-  "seq": 24,
-  "archive_source": "image-archive/live/event-organisation/eurokon/1Eagle.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/1Eagle.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-24.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1298,
-  "seq": 25,
-  "archive_source": "image-archive/live/event-organisation/eurokon/NovoExpo.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/NovoExpo.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-25.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokon",
-  "page_uid": 935,
-  "dam_uid": 1345,
-  "seq": 26,
-  "archive_source": "image-archive/live/event-organisation/eurokon/eurokot.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/eurokot.jpg",
-  "target": "src/assets/images/projects/TBD/eurokon/eurokon-26.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1289,
-  "seq": 1,
-  "archive_source": "image-archive/live/event-organisation/eurokot/saeule.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/saeule.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-01.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1266,
-  "seq": 2,
-  "archive_source": "image-archive/live/event-organisation/eurokot/kiosk.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/kiosk.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-02.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1287,
-  "seq": 3,
-  "archive_source": "image-archive/live/event-organisation/eurokot/mutterEigang.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterEigang.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-03.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1286,
-  "seq": 4,
-  "archive_source": "image-archive/live/event-organisation/eurokot/mutter.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutter.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-04.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1255,
-  "seq": 5,
-  "archive_source": "image-archive/live/event-organisation/eurokot/eurokot4.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot4.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-05.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1246,
-  "seq": 6,
-  "archive_source": "image-archive/live/event-organisation/eurokot/eurokot5.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot5.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-06.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1254,
-  "seq": 7,
-  "archive_source": "image-archive/live/event-organisation/eurokot/eurokot38.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot38.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-07.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1251,
-  "seq": 8,
-  "archive_source": "image-archive/live/event-organisation/eurokot/eisen4.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen4.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-08.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1256,
-  "seq": 9,
-  "archive_source": "image-archive/live/event-organisation/eurokot/eisen2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen2.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-09.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1261,
-  "seq": 10,
-  "archive_source": "image-archive/live/event-organisation/eurokot/ru1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/ru1.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-10.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1279,
-  "seq": 11,
-  "archive_source": "image-archive/live/event-organisation/eurokot/ru2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/ru2.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-11.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1285,
-  "seq": 12,
-  "archive_source": "image-archive/live/event-organisation/eurokot/Viech.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/Viech.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-12.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1259,
-  "seq": 13,
-  "archive_source": "image-archive/live/event-organisation/eurokot/kuh.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/kuh.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-13.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1264,
-  "seq": 14,
-  "archive_source": "image-archive/live/event-organisation/eurokot/puppe.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/puppe.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-14.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1262,
-  "seq": 15,
-  "archive_source": "image-archive/live/event-organisation/eurokot/hund.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/hund.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-15.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1283,
-  "seq": 16,
-  "archive_source": "image-archive/live/event-organisation/eurokot/robot.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/robot.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-16.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1265,
-  "seq": 17,
-  "archive_source": "image-archive/live/event-organisation/eurokot/box.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/box.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-17.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1280,
-  "seq": 18,
-  "archive_source": "image-archive/live/event-organisation/eurokot/Dima.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/Dima.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-18.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1260,
-  "seq": 19,
-  "archive_source": "image-archive/live/event-organisation/eurokot/mutterana.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterana.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-19.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1278,
-  "seq": 20,
-  "archive_source": "image-archive/live/event-organisation/eurokot/mutterbau.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterbau.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-20.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1249,
-  "seq": 21,
-  "archive_source": "image-archive/live/event-organisation/eurokot/eurokot15.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot15.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-21.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1263,
-  "seq": 22,
-  "archive_source": "image-archive/live/event-organisation/eurokot/pastor.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/pastor.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-22.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1284,
-  "seq": 23,
-  "archive_source": "image-archive/live/event-organisation/eurokot/lesung.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/lesung.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-23.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1277,
-  "seq": 24,
-  "archive_source": "image-archive/live/event-organisation/eurokot/dottir.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/dottir.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-24.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1269,
-  "seq": 25,
-  "archive_source": "image-archive/live/event-organisation/eurokot/novo1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo1.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-25.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1272,
-  "seq": 26,
-  "archive_source": "image-archive/live/event-organisation/eurokot/novo2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo2.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-26.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1281,
-  "seq": 27,
-  "archive_source": "image-archive/live/event-organisation/eurokon/novo3.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo3.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-27.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1270,
-  "seq": 28,
-  "archive_source": "image-archive/live/event-organisation/eurokon/novo4.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo4.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-28.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1295,
-  "seq": 29,
-  "archive_source": "image-archive/live/event-organisation/eurokot/vendetta.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/vendetta.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-29.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1290,
-  "seq": 30,
-  "archive_source": "image-archive/live/event-organisation/eurokot/konzi.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/konzi.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-30.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1294,
-  "seq": 31,
-  "archive_source": "image-archive/live/event-organisation/eurokot/konzi2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/konzi2.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-31.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1292,
-  "seq": 32,
-  "archive_source": "image-archive/live/event-organisation/eurokot/boniUbubi.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/boniUbubi.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-32.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1291,
-  "seq": 33,
-  "archive_source": "image-archive/live/event-organisation/eurokot/wemean.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/wemean.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-33.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1275,
-  "seq": 34,
-  "archive_source": "image-archive/live/event-organisation/eurokot/mischpult.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mischpult.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-34.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1276,
-  "seq": 35,
-  "archive_source": "image-archive/live/event-organisation/eurokot/disco.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/disco.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-35.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1273,
-  "seq": 36,
-  "archive_source": "image-archive/live/event-organisation/eurokot/theEnd.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/theEnd.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-36.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1274,
-  "seq": 37,
-  "archive_source": "image-archive/live/event-organisation/eurokot/cleaning.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/cleaning.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-37.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1293,
-  "seq": 38,
-  "archive_source": "image-archive/live/event-organisation/eurokot/geputzt.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/geputzt.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-38.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1282,
-  "seq": 39,
-  "archive_source": "image-archive/live/event-organisation/eurokot/empty.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/empty.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-39.jpg"
- },
- {
-  "category": "TBD",
-  "project": "eurokot",
-  "page_uid": 936,
-  "dam_uid": 1267,
-  "seq": 40,
-  "archive_source": "image-archive/live/event-organisation/eurokot/escher.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/escher.jpg",
-  "target": "src/assets/images/projects/TBD/eurokot/eurokot-40.jpg"
- },
- {
   "category": "installations",
   "project": "17-ton-bar",
   "page_uid": 1004,
@@ -1891,6 +1111,126 @@
  },
  {
   "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 969,
+  "seq": 1,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/tuttifruttimigi.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/tuttifruttimigi.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-01.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 974,
+  "seq": 2,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/toplessdancer.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-02.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 966,
+  "seq": 3,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/jpboxing1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/jpboxing1.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-03.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 964,
+  "seq": 4,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/migituttifrutti2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/migituttifrutti2.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-04.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 965,
+  "seq": 5,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/toplessdancer2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer2.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-05.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 963,
+  "seq": 6,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/toplessdancer3.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer3.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-06.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 972,
+  "seq": 7,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/toplessdancer1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer1.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-07.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 973,
+  "seq": 8,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/relaisbastian.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/relaisbastian.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-08.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 970,
+  "seq": 9,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/johnnyjpjoel.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/johnnyjpjoel.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-09.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 971,
+  "seq": 10,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/andyjp.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/andyjp.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-10.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 967,
+  "seq": 11,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/johnnyluca.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/johnnyluca.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-11.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "dada-festwochen",
+  "page_uid": 934,
+  "dam_uid": 968,
+  "seq": 12,
+  "archive_source": "image-archive/live/event-organisation/dada-festwochen/spamas2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/spamas2.jpg",
+  "target": "src/assets/images/projects/installations/dada-festwochen/dada-festwochen-12.jpg"
+ },
+ {
+  "category": "installations",
   "project": "die-weglampen",
   "page_uid": 1063,
   "dam_uid": 2469,
@@ -2248,6 +1588,666 @@
   "archive_source": "image-archive/live/sculptural-work/duschfass/CIMG1255.jpg",
   "original": "fileadmin/s-maj/images/BilderMaja/2010duschfass/CIMG1255.jpg",
   "target": "src/assets/images/projects/installations/duschfass/duschfass-13.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1305,
+  "seq": 1,
+  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetBody.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetBody.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-01.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1304,
+  "seq": 2,
+  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetExpo.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetExpo.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-02.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1310,
+  "seq": 3,
+  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetSowjet.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSowjet.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-03.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1297,
+  "seq": 4,
+  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetSpiegel.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSpiegel.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-04.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1340,
+  "seq": 5,
+  "archive_source": "image-archive/live/event-organisation/eurokon/nailedtank.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedtank.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-05.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1339,
+  "seq": 6,
+  "archive_source": "image-archive/live/event-organisation/eurokon/nailedTanks2org.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedTanks2org.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-06.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1329,
+  "seq": 7,
+  "archive_source": "image-archive/live/event-organisation/eurokon/nailedliegend.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/nailedliegend.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-07.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1321,
+  "seq": 8,
+  "archive_source": "image-archive/live/event-organisation/eurokon/2Torso.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/2Torso.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-08.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1333,
+  "seq": 9,
+  "archive_source": "image-archive/live/event-organisation/eurokon/3torso.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/3torso.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-09.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1311,
+  "seq": 10,
+  "archive_source": "image-archive/live/event-organisation/eurokon/ptomet2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ptomet2.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-10.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1302,
+  "seq": 11,
+  "archive_source": "image-archive/live/event-organisation/eurokon/rubberfactory.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/rubberfactory.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-11.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1313,
+  "seq": 12,
+  "archive_source": "image-archive/live/event-organisation/eurokon/ceramic1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ceramic1.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-12.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1300,
+  "seq": 13,
+  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetSchmelze.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetSchmelze.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-13.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1299,
+  "seq": 14,
+  "archive_source": "image-archive/live/event-organisation/eurokon/btoMetArbeiterin.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/btoMetArbeiterin.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-14.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1306,
+  "seq": 15,
+  "archive_source": "image-archive/live/event-organisation/eurokon/crew1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/crew1.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-15.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1312,
+  "seq": 16,
+  "archive_source": "image-archive/live/event-organisation/eurokon/GummiPaede.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/GummiPaede.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-16.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1307,
+  "seq": 17,
+  "archive_source": "image-archive/live/event-organisation/eurokon/ptomet1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/ptomet1.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-17.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1343,
+  "seq": 18,
+  "archive_source": "image-archive/live/event-organisation/eurokon/NovoAtelier.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/NovoAtelier.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-18.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1344,
+  "seq": 19,
+  "archive_source": "image-archive/live/event-organisation/eurokon/adler1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/adler1.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-19.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1309,
+  "seq": 20,
+  "archive_source": "image-archive/live/event-organisation/eurokon/novosibirsk1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novosibirsk1.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-20.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1296,
+  "seq": 21,
+  "archive_source": "image-archive/live/event-organisation/eurokon/paintingNovoSibirsk.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/paintingNovoSibirsk.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-21.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1308,
+  "seq": 22,
+  "archive_source": "image-archive/live/event-organisation/eurokon/novo4.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novo4.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-22.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1303,
+  "seq": 23,
+  "archive_source": "image-archive/live/event-organisation/eurokon/novo3.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/novo3.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-23.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1336,
+  "seq": 24,
+  "archive_source": "image-archive/live/event-organisation/eurokon/1Eagle.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonXiX/1Eagle.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-24.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1298,
+  "seq": 25,
+  "archive_source": "image-archive/live/event-organisation/eurokon/NovoExpo.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/NovoExpo.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-25.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokon",
+  "page_uid": 935,
+  "dam_uid": 1345,
+  "seq": 26,
+  "archive_source": "image-archive/live/event-organisation/eurokon/eurokot.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1996EurokonAllg/eurokot.jpg",
+  "target": "src/assets/images/projects/installations/eurokon/eurokon-26.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1289,
+  "seq": 1,
+  "archive_source": "image-archive/live/event-organisation/eurokot/saeule.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/saeule.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-01.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1266,
+  "seq": 2,
+  "archive_source": "image-archive/live/event-organisation/eurokot/kiosk.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/kiosk.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-02.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1287,
+  "seq": 3,
+  "archive_source": "image-archive/live/event-organisation/eurokot/mutterEigang.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterEigang.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-03.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1286,
+  "seq": 4,
+  "archive_source": "image-archive/live/event-organisation/eurokot/mutter.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutter.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-04.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1255,
+  "seq": 5,
+  "archive_source": "image-archive/live/event-organisation/eurokot/eurokot4.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot4.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-05.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1246,
+  "seq": 6,
+  "archive_source": "image-archive/live/event-organisation/eurokot/eurokot5.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot5.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-06.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1254,
+  "seq": 7,
+  "archive_source": "image-archive/live/event-organisation/eurokot/eurokot38.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot38.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-07.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1251,
+  "seq": 8,
+  "archive_source": "image-archive/live/event-organisation/eurokot/eisen4.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen4.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-08.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1256,
+  "seq": 9,
+  "archive_source": "image-archive/live/event-organisation/eurokot/eisen2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eisen2.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-09.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1261,
+  "seq": 10,
+  "archive_source": "image-archive/live/event-organisation/eurokot/ru1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/ru1.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-10.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1279,
+  "seq": 11,
+  "archive_source": "image-archive/live/event-organisation/eurokot/ru2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/ru2.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-11.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1285,
+  "seq": 12,
+  "archive_source": "image-archive/live/event-organisation/eurokot/Viech.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/Viech.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-12.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1259,
+  "seq": 13,
+  "archive_source": "image-archive/live/event-organisation/eurokot/kuh.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/kuh.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-13.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1264,
+  "seq": 14,
+  "archive_source": "image-archive/live/event-organisation/eurokot/puppe.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/puppe.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-14.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1262,
+  "seq": 15,
+  "archive_source": "image-archive/live/event-organisation/eurokot/hund.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/hund.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-15.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1283,
+  "seq": 16,
+  "archive_source": "image-archive/live/event-organisation/eurokot/robot.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/robot.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-16.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1265,
+  "seq": 17,
+  "archive_source": "image-archive/live/event-organisation/eurokot/box.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/box.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-17.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1280,
+  "seq": 18,
+  "archive_source": "image-archive/live/event-organisation/eurokot/Dima.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/Dima.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-18.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1260,
+  "seq": 19,
+  "archive_source": "image-archive/live/event-organisation/eurokot/mutterana.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterana.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-19.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1278,
+  "seq": 20,
+  "archive_source": "image-archive/live/event-organisation/eurokot/mutterbau.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mutterbau.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-20.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1249,
+  "seq": 21,
+  "archive_source": "image-archive/live/event-organisation/eurokot/eurokot15.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot15.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-21.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1263,
+  "seq": 22,
+  "archive_source": "image-archive/live/event-organisation/eurokot/pastor.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/pastor.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-22.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1284,
+  "seq": 23,
+  "archive_source": "image-archive/live/event-organisation/eurokot/lesung.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/lesung.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-23.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1277,
+  "seq": 24,
+  "archive_source": "image-archive/live/event-organisation/eurokot/dottir.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/dottir.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-24.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1269,
+  "seq": 25,
+  "archive_source": "image-archive/live/event-organisation/eurokot/novo1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo1.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-25.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1272,
+  "seq": 26,
+  "archive_source": "image-archive/live/event-organisation/eurokot/novo2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo2.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-26.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1281,
+  "seq": 27,
+  "archive_source": "image-archive/live/event-organisation/eurokon/novo3.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo3.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-27.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1270,
+  "seq": 28,
+  "archive_source": "image-archive/live/event-organisation/eurokon/novo4.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/novo4.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-28.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1295,
+  "seq": 29,
+  "archive_source": "image-archive/live/event-organisation/eurokot/vendetta.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/vendetta.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-29.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1290,
+  "seq": 30,
+  "archive_source": "image-archive/live/event-organisation/eurokot/konzi.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/konzi.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-30.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1294,
+  "seq": 31,
+  "archive_source": "image-archive/live/event-organisation/eurokot/konzi2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/konzi2.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-31.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1292,
+  "seq": 32,
+  "archive_source": "image-archive/live/event-organisation/eurokot/boniUbubi.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/boniUbubi.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-32.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1291,
+  "seq": 33,
+  "archive_source": "image-archive/live/event-organisation/eurokot/wemean.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/wemean.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-33.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1275,
+  "seq": 34,
+  "archive_source": "image-archive/live/event-organisation/eurokot/mischpult.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/mischpult.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-34.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1276,
+  "seq": 35,
+  "archive_source": "image-archive/live/event-organisation/eurokot/disco.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/disco.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-35.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1273,
+  "seq": 36,
+  "archive_source": "image-archive/live/event-organisation/eurokot/theEnd.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/theEnd.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-36.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1274,
+  "seq": 37,
+  "archive_source": "image-archive/live/event-organisation/eurokot/cleaning.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/cleaning.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-37.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1293,
+  "seq": 38,
+  "archive_source": "image-archive/live/event-organisation/eurokot/geputzt.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/geputzt.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-38.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1282,
+  "seq": 39,
+  "archive_source": "image-archive/live/event-organisation/eurokot/empty.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/empty.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-39.jpg"
+ },
+ {
+  "category": "installations",
+  "project": "eurokot",
+  "page_uid": 936,
+  "dam_uid": 1267,
+  "seq": 40,
+  "archive_source": "image-archive/live/event-organisation/eurokot/escher.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotAllg/escher.jpg",
+  "target": "src/assets/images/projects/installations/eurokot/eurokot-40.jpg"
  },
  {
   "category": "installations",

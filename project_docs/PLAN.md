@@ -9,13 +9,13 @@
 ## Resume here (2026-08-27)
 
 **Everything that needs your judgement is in one place: § _Open items needing input_, at the
-bottom of this file. 44 open items.** Nothing is filed anywhere else. Where the detail is
+bottom of this file. 47 open items.** Nothing is filed anywhere else. Where the detail is
 too long to sit in that list, the item names the document that holds it — every such document
 is linked from here or from `project_docs/DOCS.md`, which indexes all of them.
 
-**Content migration — Stages 6 and 7 are done.** Murals (3 projects, 40 images) and paper
-work (4 projects, 52 images), each verified against the live site on heading, description,
-every caption, **and gallery order**. One page was deliberately skipped: 982 "Breath under
+**Content migration — Stages 6, 7 and 8 are done.** Murals (3 projects, 40 images) and paper
+work (4 projects, 52 images) and event organisation (3 projects, 78 images), each verified
+against the live site on heading, every text block, every caption, **and gallery order**. One page was deliberately skipped: 982 "Breath under
 Water" is a TYPO3 shortcut whose content lives under a different container. Stages 8–14 not
 started. Per-stage detail: `migrated-content/README.md`; method and decisions:
 `migrated-content/projects/SOURCE.md`; the remaining brief: the HANDOFF section at the end of
@@ -1158,6 +1158,13 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   **Rendered as Figma has it**, per `CLAUDE.md` §3; not normalised to match its neighbours.
   Question for the owner: is this intentional, or should the Year match the other three?
 
+- [x] ~~**Which category does event organisation map to?**~~ **DECIDED 2026-08-27 by the
+  owner: `installations`.** Was provisionally `TBD`. Dada Festwochen, Eurokon and Eurokot
+  moved, and their **78 image files were relocated** from `TBD/` to `installations/` as a
+  rename with no re-encoding — verified pixel-identical afterwards. `TBD/` now holds only
+  container 1049 (see the item below). Reversing this is a directory move plus a manifest
+  rebuild; the procedure is in `migrated-content/projects/SOURCE.md` § *Stage 8*.
+
 - [ ] **Page 924 "Breath Under Water" is unmigrated and belongs to no scheduled stage.**
   (raised 2026-08-27, Stage 7; must be picked up before Stage 14 reconciliation.) Stage 7
   correctly skipped page **982**, which sits under paper work but is a TYPO3 shortcut with no
@@ -1168,6 +1175,36 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   video links. Container 1049 also holds **937 "Alchemy Bar"** (4 content elements), which is
   in the same position. Decide which stage owns 1049, or add one. Detail in
   `migrated-content/projects/SOURCE.md` § *Stage 7*.
+
+- [ ] **ASK MAJA: how should a project's second text block be presented?** (raised
+  2026-08-27, Stage 8; the decision is already implemented one way and is easy to change.)
+  Some projects carry more than one text element on the old site. Eurokot's second block is
+  `Invited artists:` — 26 names with nationalities; Eurokon's is `Artists East:` /
+  `Artists West:` — 22 names. **Currently they are concatenated into the body as further
+  paragraphs**, which is how the old site stacks them. But they are a *credits list*, not
+  prose, and the Figma project page has no component for one. Should they be a plain
+  paragraph (as now), a visually distinct credits block, or a separate section with a
+  heading? Nothing is lost either way — every block's uid is in `source_text_uids` and its
+  raw bytes are in `migrated-content/projects/raw/db/`.
+
+- [ ] **ASK MAJA: are the long headings right as project titles?** (raised 2026-08-27,
+  Stage 8.) `title` comes from the old site's content header, which for these reads
+  *"Eurokon, 2. Symposium für interaktives Recycling"* and *"Eurokot, 1. Symposium für
+  interaktives Recycling"*. That is what the live site displays, so it is rendered verbatim —
+  but as a page title against a 118.97px Figma heading it is very long. Keep as is, or
+  shorten to `Eurokon` / `Eurokot` with the subtitle carried separately? Same question for
+  page 920, whose heading is the lowercase phrase *"graphics, illustration and sketches"*
+  while its page title is *Graphical Work*. The page title always drives the slug, so URLs
+  are unaffected either way.
+
+- [ ] **Projects with more than one text element need a rule for headed blocks.** (raised
+  2026-08-27, Stage 8; live from Stage 9.) Where a later text block has a **non-empty**
+  header it is rendered as an `##` heading. That is untested against real data — Stage 8's
+  extra blocks both have empty headers. Page **926 `Elxt 90`** (Stage 9) has **eight** content
+  elements including `Elxt 90 Videos:`, and pages 928, 933, 946, 1054, 1064 carry similar
+  video link-lists. **Video content has no home in the current plan at all** — no stage
+  handles it and the Figma project page has no video component. Needs a decision before
+  Stage 9.
 
 - [ ] **ASK MAJA: what year should each project show? 55 of 79 have none in the database.** (raised
   2026-08-27, Stage 6; blocks a complete caption from Stage 7 onward.) The Figma caption's

@@ -20,7 +20,7 @@ OUT  = os.path.join(os.path.dirname(__file__), '..', 'projects')
 STAGES = {
     6:  dict(container=874, category='paintings',    name='murals'),
     7:  dict(container=875, category='paintings',    name='paper work'),
-    8:  dict(container=873, category='TBD',          name='event organisation'),
+    8:  dict(container=873, category='installations', name='event organisation'),
     9:  dict(container=872, category='performance',  name='performance'),
     10: dict(container=878, category='sculptures',   name='collaborations'),
     # 11 (sculptural work) splits across two sub-containers and is handled there.
@@ -85,18 +85,32 @@ def run(stage):
         # this stage assumes. Record it rather than guessing -- silently taking [0]
         # is how content goes missing.
         anomalies = []
-        if len(text) != 1: anomalies.append(f'text-elements={len(text)}')
+        if len(text) == 0: anomalies.append('text-elements=0')
+        elif len(text) > 1: anomalies.append(f'text-elements={len(text)} '
+                                             f'(all captured and concatenated in sorting order)')
         if len(lists) > 1: anomalies.append(f'list-elements={len(lists)}')
         if other:          anomalies.append('other-ctypes=' + ','.join(c[1] for c in other))
         if kids:           anomalies.append(f'SUB-CONTAINER: {kids} child page(s) not walked '
                                             f'by this stage -- they need their own handling')
 
-        header = b(text[0][2]) if text else ''
-        body   = b(text[0][3]) if text else ''
+        # A project can carry MORE THAN ONE live text element, and the extra ones are real
+        # content, not noise: Eurokot's second block (uid 1458) is the list of 26 invited
+        # artists, Eurokon's (1459) the East/West artist lists. Taking text[0] and moving on
+        # would silently drop them. All blocks are captured in `sorting` order; the FIRST
+        # supplies the header (the "Title, Year" line), the rest are continuation blocks.
+        # A later block with a non-empty header keeps it -- page 926 has "Elxt 90 Videos:".
+        # Every block's raw bytes are written to raw/db/ so the original stays available.
+        text_blocks = []
+        for tid, _ct, thdr, tbody, tsort in text:
+            hdr, bdy = b(thdr), b(tbody)
+            text_blocks.append(dict(uid=int(tid), header=hdr, bodytext_html=bdy,
+                                    sorting=int(tsort)))
+            open(f"{OUT}/raw/db/tt_content-{tid}.bodytext.html",'w',
+                 encoding='utf-8').write(bdy)
+
+        header = text_blocks[0]['header'] if text_blocks else ''
+        body   = text_blocks[0]['bodytext_html'] if text_blocks else ''
         title, year = split_header(header, ptitle)
-        if text:
-            open(f"{OUT}/raw/db/tt_content-{text[0][0]}.bodytext.html",'w',
-                 encoding='utf-8').write(body)
 
         images = []
         if lists:
@@ -133,6 +147,8 @@ def run(stage):
                              slug=slug(ptitle), title=title, year=year,
                              header=header, bodytext_html=body,
                              text_uid=int(text[0][0]) if text else None,
+                             text_uids=[t['uid'] for t in text_blocks],
+                             text_blocks=text_blocks,
                              list_uid=int(lists[0][0]) if lists else None,
                              anomalies=anomalies, images=images))
     d = dict(stage=stage, container=S['container'], container_name=S['name'],

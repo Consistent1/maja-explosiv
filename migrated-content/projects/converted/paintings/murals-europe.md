@@ -13,6 +13,7 @@ source_page_title: "Murals Europe"
 source_header: "Murals Europe, 1994-1995"
 source_category: "murals"
 source_text_uid: 1214
+source_text_uids: "1214"
 source_list_uid: 1199
 source_sorting: 392
 images:

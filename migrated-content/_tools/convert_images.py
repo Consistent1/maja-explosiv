@@ -59,11 +59,16 @@ def anc(u):
 # decision 13
 SUB   = {1039:'sculptures', 1040:'installations'}          # sculptural-work sub-containers
 DIRECT= {872:'performance', 874:'paintings', 875:'paintings',
+         # event organisation -> installations (owner, 2026-08-27). Was TBD. These are
+         # Eurokot/Eurokon/Dada Festwochen -- symposia and festivals Maja organised, whose
+         # documentation is installation work. Reversing this is a directory move plus a
+         # manifest rebuild; see PLAN.md "Stage 8".
+         873:'installations',
          # collaborations -> sculptures (owner, 2026-08-27). By material these are metal
          # sculptures. Provisional: whether 'collaborations' should survive as a body of
          # work is still Maja's call (PLAN.md), and reversing this is a directory move.
          878:'sculptures'}
-TBD   = {873:'TBD', 1049:'TBD'}                            # event-organisation, possibilities
+TBD   = {1049:'TBD'}   # "possibilities" -- still unassigned: 924 Breath Under Water, 937 Alchemy Bar
 SKIP  = {1041, 1042}                                       # recent-work: verified empty, not projects
 CONTAINERS = set(SUB)|set(DIRECT)|set(TBD)|{877,867}
 

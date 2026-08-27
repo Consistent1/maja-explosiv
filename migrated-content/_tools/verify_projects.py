@@ -32,8 +32,16 @@ def run(stage):
 
         # heading: the live page prints "Title, Year" exactly as tt_content.header
         head_ok = norm(p['header']) in norm(live)
-        # description: compare word-for-word, tags and wrapping removed
-        body_ok = norm(txt(p['bodytext_html'])) in norm(live)
+        # description: compare word-for-word, tags and wrapping removed.
+        # EVERY text block, not just the first -- a project can carry more than one live
+        # text element and the extras are real content (Eurokot's 26 invited artists,
+        # Eurokon's East/West lists). Checking only block 0 would pass while the rest were
+        # silently dropped, which is exactly the failure this stage was at risk of.
+        text_blocks = p.get('text_blocks') or ([{'bodytext_html': p['bodytext_html']}]
+                                               if p.get('bodytext_html') else [])
+        missing_blocks = [b for b in text_blocks if norm(txt(b['bodytext_html']))
+                          and norm(txt(b['bodytext_html'])) not in norm(live)]
+        body_ok = not missing_blocks
         # captions: each image description should appear in the page text
         caps = sum(1 for im in p['images'] if im['description'] and norm(im['description']) in norm(live))
         cap_total = sum(1 for im in p['images'] if im['description'])
@@ -48,9 +56,9 @@ def run(stage):
         # description -- and every later element then compares against the wrong
         # position, reporting a false ORDER DIFFERS. malaga-la-vache has 15 elements of
         # which 2 have no <p>; the paired regex found 13 and mismatched from the first.
-        blocks = re.split(r'<div class="imageElement">', h)[1:]
+        img_blocks = re.split(r'<div class="imageElement">', h)[1:]
         live_seq = []
-        for blk in blocks:
+        for blk in img_blocks:
             m = re.match(r'\s*<h3>(.*?)</h3>', blk, re.S)
             d = re.match(r'\s*<h3>.*?</h3>\s*<p>(.*?)</p>', blk, re.S)
             live_seq.append(norm(d.group(1)) if d else '')
@@ -64,7 +72,8 @@ def run(stage):
         if not ok: fails += 1
         rows.append((p['slug'],
                      'header OK' if head_ok else 'HEADER MISMATCH',
-                     'body OK'   if body_ok else 'BODY MISMATCH',
+                     (f'body OK ({len(text_blocks)} blk)' if body_ok
+                      else f'BODY MISMATCH {len(missing_blocks)}/{len(text_blocks)}'),
                      f'captions {caps}/{cap_total}',
                      'order OK' if order_ok else
                      (f'ORDER DIFFERS at {first_diff}' if first_diff

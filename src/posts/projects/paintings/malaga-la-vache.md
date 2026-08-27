@@ -13,6 +13,7 @@ source_page_title: "Malaga la Vache"
 source_header: "Malaga la Vache, 2006"
 source_category: "paper work"
 source_text_uid: 1207
+source_text_uids: "1207"
 source_list_uid: 1206
 source_sorting: 768
 images:
