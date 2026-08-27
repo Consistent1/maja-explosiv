@@ -21,11 +21,13 @@ which. **Where two documents disagree, the one marked CURRENT below wins.**
 
 | doc | what it is |
 |---|---|
-| **`project_docs/content-migration-plan.md`** | **The governing document.** Approved 2026-08-25. Sources, verification standard, stage order, and the numbered owner decisions (1–14). Read before touching content |
+| **`project_docs/content-migration-plan.md`** | **The governing document.** Approved 2026-08-25. Sources, verification standard, stage order, and the numbered owner decisions (1–14). Read before touching content. **Its final section, `HANDOFF — the rest of the migration`, is the entry point for Stages 6–14**: project context, the two-repo boundary, reading list, per-stage brief, pitfalls, tips |
 | `project_docs/NEXT-SESSION.md` | Onboarding for whoever picks this up next; retires several cautions that are no longer true |
 | `migrated-content/README.md` | Index of the migration output, per-stage status, and the one thing to know before running anything (the database must be loaded from the *current* dump) |
 | `migrated-content/<type>/SOURCE.md` | Per stage: exactly where the content came from, what was done to it, what was excluded and why |
 | `migrated-content/<type>/verification/report.md` | Per stage: which checks ran, which passed, what gap remains |
+| `migrated-content/<type>/excluded/` | Source records deliberately **not** migrated, with every field preserved — currently `timeline/excluded/excluded-records.json` (4 records) |
+| `migrated-content/<type>/normalized/*.json` | The parsed, source-shaped intermediate for each stage. Useful when a conversion needs re-deriving without re-querying the database |
 | `migrated-content/press/GALLERY-COMPANIONS.md` | A deliberate deviation and how to undo it: three PDF entries carry a JPG companion so the gallery matches the old site |
 | `migrated-content/press/GALLERY-ORDER.md` | Why the press gallery's image order differs from the live site in 21 of 48 positions, and what matching it would take |
 | **`migrated-content/_tools/RUNBOOK-images.md`** | **How to actually run the image pipeline**, what to do when a new backup arrives, and how to prove a conversion was lossless |
@@ -49,6 +51,9 @@ Each has a README explaining what it holds and why it is not part of the site:
 |---|---|
 | `image-archive/README.md` | What the archive is, how it is organised, what "original form" means |
 | `image-archive/DUPLICATES.md` | The 236 files that appear in more than one place, and where |
+| `image-archive/live/about/portraits/README.md` | 6 portraits of Maja reachable only through body text, not DAM — including the Bio portrait at 5× the resolution the old site used |
+| `image-archive/live/about/timeline-excluded/README.md` | 4 timeline records (`Elxt 90`, 2000–2003) that are live in the database but selected by no plugin, so invisible on the old site. Every field preserved in `excluded-records.json` beside it |
+| `image-archive/live/uncategorised/README.md`, `image-archive/hidden/uncategorised/README.md` | Why those folders exist: site furniture and design drafts (`entwurf`, `design 2`, `show`, two draft homepages), not artwork |
 | **`image-archive/RECOVERED-2026-08-27.md`** | The 34 files recovered from the live server, **and the NFC/NFD filename trap** — read this before writing anything that matches database paths against disk |
 | `old/TYPO3BU/AUGMENTED.md` | Records that the "January 2025 backup" is no longer purely that: 36 recovered files were merged in |
 

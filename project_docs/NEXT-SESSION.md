@@ -142,6 +142,14 @@ Two open items were added to `PLAN.md` on 2026-08-25: **which images move with t
 
 ## 6. What to do first
 
+**Stages 1–5 are complete.** Stages **6–14** remain, and the full brief for all of them —
+project context, the two-repo boundary, reading list, per-stage detail, pitfalls and tips — is
+the **`HANDOFF — the rest of the migration`** section at the end of
+`project_docs/content-migration-plan.md`. **Read that after this file; it supersedes the step
+list below.**
+
+The steps below are the original Stage 0/1 sequence, kept for reference:
+
 1. Read `CLAUDE.md`, then this file, then `project_docs/content-migration-plan.md` in full.
 2. **Check the database is up** — `mysql -u maja -pmaja usr_p51487_2 -e "SELECT COUNT(*) FROM
    tt_content;"` should return 546. A socket error just means the service is stopped; **ask the

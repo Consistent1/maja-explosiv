@@ -1175,3 +1175,209 @@ Nothing outstanding. D6 waits until Stage 5, D7 until Stage 6.
 **Next: Stage 0 (census), Stage 0b (quarantine), then Stage 1 (Links) — then stop and
 report**, per the owner's instruction that Links runs alone with nothing migrated after it. I
 commit nothing; everything is left in the working tree.
+
+---
+
+# HANDOFF — the rest of the migration
+
+**Written 2026-08-27, at the end of the session that completed Stages 1–5.**
+You own **Stages 6 through 14**. Read §H2 first, then this plan in full, then begin.
+
+## H1. The project, in one page
+
+**Maja Thommen / Maja Explosiv** is a Berlin artist — sculpture, installation, performance,
+painting. This is a redesign migrating off a TYPO3 4.2 site.
+
+**Two repositories, and the boundary matters.**
+
+| | |
+|---|---|
+| `maja-explosiv` (here) | Maja's site. Fork of the template. Maja-specific work lives in **`src/_user/`** |
+| `explosive` at `/home/miichael/Code/explosive` | The generic 11ty template, `Xpanda-org/explosive-11ty`. Same owner. `upstream` remote |
+
+**Generic fixes go upstream, then sync back** — do not patch a template file here and hope it
+survives. Three commits were made upstream this month: the base layouts no longer render as
+pages, optional `@11ty/eleventy-img`, and GitHub Actions workflows. The override system
+(`src/_user/layouts`, `includes`, `data`, `assets/css`) is the whole point of the fork; respect
+it. **`src/assets/css/main.css` is the one exception — edit it freely** (owner, 2026-07-29).
+
+**Design comes from Figma; content comes from the old site.** Never mix them. Figma's text is
+placeholder and is frequently invented.
+
+**Deployment** is mid-transition: GitHub Actions builds and publishes Pages; `docs/` is no longer
+tracked. Actions is free because the repo is public.
+
+## H2. Required reading, in this order
+
+**Do not skip to the code.** Several of these exist because an earlier session got something
+confidently wrong.
+
+| # | file | why |
+|---|---|---|
+| 1 | `CLAUDE.md` | Ground rules. §3 sources of truth, §5 working agreements, §6 code layout, §7 running things |
+| 2 | `project_docs/DOCS.md` | **Index of every document, and which are superseded.** Several old docs carry wrong counts; one recommends web-scraping that is now disproved |
+| 3 | **this plan, in full** | §2.0a drift, §2.3 encoding, §2.4 gallery resolution, §3 ground rules, §5.1 quarantine, §6 verification, decisions 1–14 |
+| 4 | `project_docs/PLAN.md` § *Open items* | 39 open items, **11 questions for Maja**. Several bear on projects |
+| 5 | `migrated-content/README.md` | Per-stage status; the database warning |
+| 6 | `migrated-content/links/SOURCE.md` | The cleanest worked example of a completed stage |
+| 7 | `migrated-content/timeline/SOURCE.md` | What to do when the source shape is not what the plan assumed |
+| 8 | `migrated-content/legal/SOURCE.md` | Handling exclusions and documenting what is deliberately left out |
+| 9 | `migrated-content/_tools/RUNBOOK-images.md` | Image pipeline, NFC/NFD, proving losslessness |
+| 10 | `image-archive/RECOVERED-2026-08-27.md` | The NFC/NFD trap. **Read before writing any path comparison** |
+| 11 | `src/posts/projects/TBD/README.md` | The six→four category mapping and what is unresolved |
+| 12 | `image-archive/README.md` + `DUPLICATES.md` | What the archive holds; the 236 duplicated files |
+| 13 | `README.md` (repo root) | How the template works — collections, layouts, the override system |
+
+Skim `migrated-content/press/GALLERY-COMPANIONS.md` and `GALLERY-ORDER.md`: short, and they show
+the expected standard for documenting a deliberate deviation.
+
+## H3. Where things stand
+
+| stage | state |
+|---|---|
+| 0 Census · 0b Quarantine | done |
+| 1 Links | done, 19/19 |
+| 2 Press | done — 50 entries, 53 assets, gallery matches live at 48 |
+| 3 Timeline | done — 85 entries; it was `tt_news`, not prose |
+| 4 Bio | done — character-identical to live |
+| 5 Contact + Datenschutz | done — 133/133 paragraphs |
+| **6–14** | **yours** |
+
+**Every project image is already migrated.** 1,006 files, losslessly optimised, native size:
+
+| target category | projects | images |
+|---|---|---|
+| sculptures | 33 | 416 |
+| installations | 14 | 169 |
+| performance | 6 | 177 |
+| paintings | 7 | 92 |
+| `TBD/` | 5 | 152 |
+
+Stages 6–11 write the **Markdown that references them**. Do not re-run the image pipeline unless
+something is genuinely missing.
+
+## H4. The remaining stages
+
+All project stages share one shape: each project page has a `text` element (the description) and
+a `list` element (the DAM gallery, no bodytext — images resolve via `tx_dam_mm_ref`).
+
+| stage | old container | projects | → new category |
+|---|---|---|---|
+| **6** | murals | **3** — Wohlgroth (919), Felix und Regula (918), Murals Europe (866) | `paintings` |
+| 7 | paper work | 5 | `paintings` |
+| 8 | event organisation | 3 | **`TBD/`** |
+| 9 | performance | 6 | `performance` |
+| 10 | collaborations | 8 | `sculptures` (owner, 2026-08-27) |
+| 11 | sculptural work | 41 visible under *Sculptures* / *Installations* | `sculptures` / `installations` — **the old site already made this split; do not re-derive it** |
+| 12 | News | **likely moot** — `tt_news` turned out to be the timeline, migrated at Stage 3. Confirm, then strike or re-scope |
+| 13 | Misc | whatever Stage 0 could not classify |
+| 14 | Global reconciliation | `unassigned.tsv` = 0; every ledger passes; `TBD/` emptied |
+
+Stage 6 is deliberately small — three projects — so the project machinery is proven before it
+meets 41.
+
+**Output shape** (§7 of this plan): `src/posts/projects/<category>/<slug>.md` with
+`title, date, year, category, tags[], layout, featuredImage, featuredImageAlt,
+images: [{src, alt, title?, year?}], source_uid, source_page`, plus **`source_category`** per
+decision 10.
+
+**Confirm the layout before writing.** `src/_user/layouts/project.njk` consumes `title`,
+`content`, `images` (with `.src`), `featuredImage`, `featuredImageAlt`. The quarantined files
+declared `layout: post.njk`. Both layouts exist — check which actually renders projects rather
+than copying the old value.
+
+## H5. Pitfalls — each of these has already cost time
+
+**`deleted = 0` does not mean live.** TYPO3 hides via `deleted` *and* `hidden`, at **content and
+page level**. Filter all four. This produced a wrong number three times:
+
+```sql
+WHERE c.deleted=0 AND c.hidden=0 AND p.deleted=0 AND p.hidden=0
+```
+
+**State the filter beside the number.** "1,049 images on visible pages", never "1,049 images".
+The query was never the problem — reporting a filtered figure as the whole picture was.
+
+**Absence from output ≠ absence of data.** Metal Group XIX looked like it had no images; it has
+50, behind a hidden gallery element. Ask *why* something is missing before saying it is.
+
+**Never generalise from a sample without saying so.** "Zero content drift" came from inspecting
+3 rows of 546, and was wrong.
+
+**NFC vs NFD.** The server stores decomposed umlauts, the database composed. Normalise to NFC
+before **any** path comparison, and **before** transliterating — otherwise `Käthe` slugs to
+`kathe` rather than `kaethe`.
+
+**`tx_dam_mm_ref` joins backwards from what the names suggest.** `uid_local` is the **image**,
+`uid_foreign` is the **content element**. Joined wrongly it returns plausible nonsense, not an
+error.
+
+**`tx_dam.sorting` orders galleries.** `tx_dam_mm_ref.sorting` is zero on every row.
+
+**Verify structure, not only text.** The press page passed paragraph-level checks while bold text
+rendered as `<h2>` and a link label split across a paragraph break. Read the output.
+
+**`DOCS.md` indexes per-stage files by pattern, not by path.** Rows like
+`migrated-content/<type>/SOURCE.md` cover every stage. A path-exact check will report your new
+stage's `SOURCE.md` and `verification/report.md` as unindexed — they are not. Only add a row for
+something the patterns do not already cover.
+
+**The database must be loaded from the CURRENT dump.**
+`SELECT LENGTH(bodytext) FROM tt_content WHERE uid=1399;` → **8441**. 10340 means the January
+dump is loaded and every extraction is silently stale.
+
+**The MySQL service is `start`ed, not `enable`d** — it does not survive a reboot. Ask the owner
+to restart it; do not start services yourself.
+
+**Editing `src/_user/layouts/` or `includes/` requires restarting the dev server.** `.eleventy.js`
+copies them into `.cache/` at config time, so a running server serves stale markup and the change
+looks inert.
+
+## H6. Tips
+
+- **`migrated-content/_tools/db.sh` is the only way to reach the database.** Charset `latin1`
+  (required, §2.3), fails loudly. Do not hand-roll a `mysql` call.
+- **Text fields travel base64:** `REPLACE(TO_BASE64(col),'\n','')`. Batch mode escapes newlines
+  as a literal `\n`, and `n` is a valid base64 character, so an unstripped value decodes to
+  garbage.
+- **Bulk passes run in the background.** ~1,000 jpegtran calls once made VS Code unresponsive.
+- **Fetch the live site only with `migrated-content/_tools/fetch.sh`** — sequential, 2s apart,
+  records headers and a timestamp. Never in parallel.
+- **The live gallery markup names its images.** Each `<div class="imageElement"><h3>` carries the
+  DAM title, resolvable to a filename via `tx_dam` — useful for verifying order. The `<img src>`
+  values are hashed `typo3temp` paths and tell you nothing.
+- **Reuse the existing tools.** `extract_links.py`, `normalize_press.py`, `convert_timeline.py`,
+  `convert_legal.py` are short and all follow the same E→N→C→I→V shape.
+- **Expect 4 build errors** from `featuredProjects.json` until Stages 6–11 land.
+
+## H7. Open questions that touch the remaining stages
+
+Do not resolve these yourself — they are in `PLAN.md`, and several are Maja's:
+
+- **`TBD/` holds 13 projects** with no settled category, including `Breath Under Water` — the
+  whale a keyword heuristic once filed under paintings. Stages 8 and 13 touch it.
+- **Hidden galleries on live pages.** Metal Group XIX publishes text with 50 images hidden. A
+  *"live page, hidden gallery"* census should run **before Stage 11**.
+- **`featuredProjects.json` dangles** — its four slugs were quarantined at Stage 0b and need
+  repointing, not just reappearing, because the category mapping changed them.
+- **The `sennhof` staging page** shares 19 images with `hinwil` and holds Affenbande text. Check
+  before Stage 11.
+- **163 images embedded in `bodytext` HTML** are unaudited and not in the archive.
+- **28 of 1,006 project images were recovered late** from the live server; Käthe and Bernhard had
+  none until 2026-08-27.
+
+## H8. What "done" looks like, per stage
+
+1. `migrated-content/<type>/` following `raw/` → `normalized/` → `converted/`, with `SOURCE.md`
+   and `verification/report.md`.
+2. Files in `src/posts/projects/<category>/`, each referencing images that exist on disk.
+3. Verified against the live pages: counts, image order, text fidelity.
+4. A ledger row for every source item.
+5. **Stop and report after each stage.** Do not roll on to the next.
+
+**Commits are the owner's.** Leave everything in the working tree; never run `git add` or
+`git commit` unless asked.
+
+**When the source does not match what this plan assumed — say so and correct the plan.** That has
+happened in three of the five completed stages, and the corrections are the most valuable thing
+in this document.

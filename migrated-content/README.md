@@ -6,6 +6,11 @@ Isolated, reproducible output of the TYPO3 → Eleventy content migration
 **Never hand-edited.** If output is wrong the extractor is fixed and the stage re-run. Content
 enters `src/` only by copy; the artefact here stays authoritative.
 
+## Start here
+
+Stages 1–5 are done. For everything that remains, read **`HANDOFF — the rest of the migration`**
+at the end of `project_docs/content-migration-plan.md` — reading list, per-stage brief, pitfalls.
+
 ## Status
 
 | Stage | Type | Status |
@@ -14,7 +19,10 @@ enters `src/` only by copy; the artefact here stays authoritative.
 | 0b | Quarantine | **done** — 38 files moved to `pre-migration-content/` |
 | 1 | Links | **PASSED 19/19** (11 local + 8 live). V8 visual comparison outstanding |
 | 2 | Press | **passed with a recorded gap** — 50 entries, 48 assets; 2 files missing from backup (umlaut paths) |
-| 3–14 | Timeline, Bio, legal, Projects, News, Misc | not started |
+| 3 | Timeline | **done** — 85 entries, 2 sections, order and text match live; 4 records excluded (unreferenced) |
+| 4 | Bio | **done** — 4 paragraphs, character-identical to live |
+| 5 | Contact + Datenschutz | **done** — 133 of 133 live paragraphs present. No separate Impressum exists; it is on the contact page |
+| 6–14 | Projects, News, Misc | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
 
 ## Layout
 

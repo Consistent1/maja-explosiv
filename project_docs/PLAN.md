@@ -909,6 +909,93 @@ reconnaissance. Their *conclusions about what to do next* are superseded.
   so PDFs link as they do on the old site. The gallery still keys on `image` alone, correctly —
   a PDF is not an `<img>`. Linked entries 45 → 48.
 
+- [ ] **ASK MAJA: the timeline now shows titles the old site never displayed.** The old page
+  rendered only a date label and a paragraph — its template (`NewsBio.tmpl`) never output the
+  `title` field, although every record has one. The new design has a dedicated title slot, so
+  all 85 entries now show a title above their text. For 32 entries the paragraph also opens with
+  a bold name, and **in 16 of those the two differ** — title *Bimbo Town* above text starting
+  *Jim Whiting*; title *Wheel of Power* above *Derevo*. Both facts are true (the work and the
+  collaborator) but they now read as two lines. Owner accepted the duplication pending her view.
+  **Detail: `migrated-content/timeline/SOURCE.md`.**
+
+- [ ] **ASK MAJA: should 4 excluded timeline records appear on the new site?** Four live
+  `tt_news` records on page 864 sit in **category 27**, which neither timeline plugin selects —
+  so they are invisible on the live site and were not migrated. All four are titled **Elxt 90**,
+  covering 2000, 2001, 2002 and 2003. Authored and then left uncategorised, which may have been
+  deliberate or an oversight. Every field preserved at
+  `migrated-content/timeline/excluded/excluded-records.json`, copied to
+  **`image-archive/live/about/timeline-excluded/`** with a README.
+
+- [x] ~~**The site's configured email address is a placeholder and is wrong.**~~ **Corrected
+  2026-08-27.** `src/_user/data/site.js` now carries `m-e@maja-explosiv.com` and
+  `0049 (0)30 505 970 27`, from `tt_content 1311` and confirmed against the live site. It
+  previously had `info@maja-explosiv.com` (commented as a placeholder) and an empty phone. The
+  build no longer references the placeholder anywhere.
+
+- [ ] **ASK MAJA: three hidden elements on the old contact page — do any belong on the new one?**
+  All three are recorded in full in `migrated-content/legal/SOURCE.md`:
+  - **An abandoned contact form** (`tt_content 1279`, "Anfrage"). Its content is the mail-form
+    extension's **own shipped example text**, never configured. The new site has no contact form
+    — should it?
+  - **A hidden image**, `kartePariskl.jpg` (707×785) — reads as *Karte Paris klein*. Archived at
+    `image-archive/hidden/about/contact/kartePariskl.jpg`.
+  - **An empty text element** (`tt_content 1477`) — created, never filled. Nothing to migrate.
+
+- [ ] **ASK MAJA: is the studio address on the contact page current?**
+  `ATELIER / MAAS & THOMMEN / 10997 BERLIN` comes from the Figma design and is hardcoded in
+  `contact.njk`. It appears **nowhere in the migrated source**, so the migration has no way to
+  verify it — it is the one piece of contact information that cannot be checked against the old
+  site. Everything else on the page (phone, email) migrated verbatim and matches.
+
+**Recorded difference, no action needed:** the *"Webdesign and Realisation: Werner Trunk,
+Oppelnerstr. 9, 10997 Berlin, Ust Id DE 190483520, wtweb.com"* credit appears on the old contact
+page and is **deliberately not carried to the new site** (owner, 2026-08-27). Documented verbatim
+in `migrated-content/legal/SOURCE.md`, raw bytes kept. It was the only postal address in the
+entire migrated source — and it is the web designer's, not Maja's.
+
+**Recorded difference, no action needed:** the old contact page showed a photograph,
+`webthanksxy.jpg` (1876×1916, `tt_content 1478`). The new design uses its own imagery instead
+and **the old photo is deliberately not carried over**. It is preserved at
+`image-archive/live/about/contact/webthanksxy.jpg`. Noted in
+`migrated-content/legal/SOURCE.md`.
+
+
+- [ ] **ASK MAJA: is the Datenschutzerklärung current, and should the Impressum stay inside the
+  contact page?** The privacy policy migrated **verbatim** — 24,834 characters of German GDPR
+  text, 31 sections — because legal text is transcribed and not edited. **Its provenance and date
+  are unknown and nobody has reviewed it.** Separately, Maja has **no separate Impressum page**:
+  the obligation is discharged by two blocks on the contact page headed `Impressum:` (her contact
+  details, and a web-design credit for Werner Trunk with a Ust-Id). Both are legal-compliance
+  questions rather than migration ones. Detail: `migrated-content/legal/SOURCE.md`.
+
+- [ ] **ASK MAJA: is the Bio text right, and is the phrasing what she wants?** The bio migrated
+  **verbatim from the database and is character-identical to the live site** (1,084 chars), so
+  nothing was introduced — but it has not been revisited in years and several things stand out:
+
+  - *"oeuvre includes, sculpture (metal, stone and wood) robotics, kinetic art, illustration and
+    painting"* — stray comma after "includes", missing one after "wood".
+  - *"Elxt90"* — written `Elxt 90` everywhere else on the site.
+  - Third person throughout, shifting between "Maja Explosiv", "Maja", "Maja Thommen" and
+    "M. Thommen".
+  - *"where she has resided since 2004"* — still accurate?
+  - The first paragraph becomes the **`excerpt`** shown beside the portrait on the About intro,
+    so it now carries more weight than it did on the old site. Worth her reading it as a
+    standalone opening rather than as paragraph one of four.
+
+  **Also: the old page embeds a portrait** (`uploads/RTEmagicC_ichsw.jpg.jpg`) that is *not* the
+  photograph the new design uses (`shared/profile/maja.webp`). Which should it be?
+
+  Full detail, including the paragraph split and how line breaks were handled:
+  **`migrated-content/bio/SOURCE.md`**.
+
+- [ ] **ASK MAJA: two timeline entries show `Since 2020` / `Since 2007` instead of a bare year,
+  and they wrap.** Entries sort by timestamp, matching the live site, but the displayed year now
+  comes from the source label. **`since 2020:` carries a 2022 timestamp**, so a bare "2020" would
+  sit between 2023 and 2022 and read as a sorting fault. Rendering `Since 2020` makes the
+  position explain itself — but **the year column is 37px, so it wraps to two lines** and those
+  rows are taller than the rest. Alternatives: widen the column, sort by displayed year rather
+  than timestamp, or accept the wrap. Detail in `migrated-content/timeline/SOURCE.md`.
+
 - [ ] **ASK MAJA: what order should the press gallery use?** The new site's gallery holds the
   same 48 images as the old one but **21 of 48 sit in a different position**. Nothing is missing,
   extra or duplicated. The old page built its gallery and its link list as two independent

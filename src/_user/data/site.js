@@ -33,9 +33,12 @@ module.exports = {
   "footerLinks": [],
   "footerBottomLinks": [],
   "contactInfo": {
-    "email": "info@maja-explosiv.com", // Placeholder - update with actual email
-    "phone": "", // To be populated if needed
-    "address": "" // Not applicable for artist portfolio
+    // Corrected 2026-08-27 from the migrated source (tt_content 1311, pid 973) and
+    // confirmed against the live site. The previous values were placeholders:
+    // email was "info@maja-explosiv.com" and phone was empty.
+    "email": "m-e@maja-explosiv.com",
+    "phone": "0049 (0)30 505 970 27",
+    "address": "" // no postal address is published in the source
   },
   "copyrightText": "© 2024 Maja Thommen. All rights reserved."
 }
