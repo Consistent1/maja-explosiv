@@ -897,6 +897,38 @@ reconnaissance. Their *conclusions about what to do next* are superseded.
   question was ever **which new category each project goes to**, and the owner has answered it:
   the eight collaborations projects go to `sculptures`. Nothing curatorial was at stake.
 
+- [ ] **ASK MAJA: misspellings in the press entries — correct them or keep them verbatim?**
+  The old site's press list contains **"Destoy HIV"** (Destroy), **"Anouncment"**
+  (Announcement) and **"Wacken Scull"** (Skull). Migrated **verbatim**, per the rule that
+  content is transcribed not edited. There is also a name inconsistency: the clipping files say
+  `wohlgrott` while the page text says **Wohlgroth**. Her call whether these are fixed on the
+  new site.
+
+- [x] ~~**Press: 3 PDF clippings render without a link.**~~ **Fixed 2026-08-27** in
+  `src/_user/includes/about-content.njk`: the list loop now uses `entry.image or entry.file`,
+  so PDFs link as they do on the old site. The gallery still keys on `image` alone, correctly —
+  a PDF is not an `<img>`. Linked entries 45 → 48.
+
+- [ ] **ASK MAJA: what order should the press gallery use?** The new site's gallery holds the
+  same 48 images as the old one but **21 of 48 sit in a different position**. Nothing is missing,
+  extra or duplicated. The old page built its gallery and its link list as two independent
+  elements ordered differently; the new page builds both from one list, so the gallery inherits
+  the list's order. Options: reproduce the old gallery's sequence, order by date, or keep the
+  current list order. Worth knowing the old order may be nothing more than upload sequence.
+  **Full detail and a position-by-position comparison: `migrated-content/press/GALLERY-ORDER.md`.**
+
+- [ ] **ASK MAJA: should the third 2018 press PDF appear on the site?**
+  `20180525ZürcherOberländer_1.pdf` (610 KB) exists in the media library and is preserved in the
+  archive, but **no press entry links it and the gallery does not show it** — so it is invisible
+  on the old site too, and the migration keeps it that way. There are three 2018 *Zürcher
+  Oberländer* PDFs and only two are used. She may know whether this one was superseded, a
+  duplicate, or simply forgotten. Context: `migrated-content/press/GALLERY-COMPANIONS.md`.
+
+- [ ] **ASK MAJA: is the press gallery change OK?** Three PDF-linked press entries now also show
+  a JPG companion, so the gallery matches the old site's 48 images instead of 45. No asset was
+  invented — each PDF already had a JPG counterpart in the same folder. The pairing was **verified against the live gallery's DAM titles** and is correct. Full detail and a one-line revert:
+  **`migrated-content/press/GALLERY-COMPANIONS.md`**.
+
 - [ ] **Ask Maja to confirm the 8 collaborations projects belong under `sculptures`** — she may overrule.
 
 - [ ] **Run a "live page, hidden gallery" census before Stages 6–11** — how many published pages have their gallery switched off, as Metal Group XIX does. The archive's hidden bucket is 145 MB, so this is not a one-off.
@@ -914,6 +946,14 @@ reconnaissance. Their *conclusions about what to do next* are superseded.
 
   **This is almost certainly not the only such page** — the hidden bucket of the archive holds
   145 MB. A census of "live page, hidden gallery" should run before the project stages.
+
+- [ ] **Two `pyrofessor` files were left behind in the 2026-08-27 recovery.**
+  `fileadmin/s-pf/images/Show/domäne_mandelbrenner.jpg` and `domäne_trompete_big.jpg` — the only
+  non-ASCII-path files in the database that are **not Maja's**. They belong to the other site
+  sharing this TYPO3 install (D8), so they were deliberately not retrieved and not archived.
+  36 of 38 such files were recovered; these are the 2. **No action needed unless `pyrofessor`
+  content ever comes into scope** — recorded so the 36/38 gap is explained rather than looking
+  like an oversight.
 
 - [ ] **A third image-reference mechanism was missed by the census: images embedded in
   `bodytext` HTML.** (raised 2026-08-27.) The image census covered `tx_dam_mm_ref` (galleries)

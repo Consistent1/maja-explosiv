@@ -23,6 +23,7 @@ carousel.
 
 | File | Why |
 |---|---|
+| **`project_docs/DOCS.md`** | **Index of every document in the repo**, which are current and which are superseded. Start here if you are unsure where something is recorded. |
 | `project_docs/PLAN.md` | **The status document.** Where the project stands, what is next, extracted design specs, and the open-questions list. Start here. |
 | `README.md` | How the template works — collections, layouts, the override system. |
 | `project_docs/pending-changes.md` | Small queued items. |

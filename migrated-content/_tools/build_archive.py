@@ -7,7 +7,7 @@ unmodified, to hand to Maja and to use as the master for producing site images.
 Includes files referenced by hidden and deleted content, bucketed separately,
 mirroring the migrated-hidden-content / migrated-deleted-content convention.
 """
-import base64, hashlib, json, os, re, shutil, subprocess, sys, collections, datetime
+import base64, hashlib, json, os, re, shutil, subprocess, sys, collections, datetime, unicodedata
 
 DB = os.path.join(os.path.dirname(__file__), 'db.sh')
 ROOT = os.path.join(os.path.dirname(__file__), '..', '..')
@@ -20,8 +20,32 @@ def q(sql):
     return [l.split('\t') for l in r.stdout.decode('utf-8').split('\n') if l != '']
 
 def b64(v): return '' if v in ('', 'NULL') else base64.b64decode(v).decode('utf-8')
+
+# --- filename handling -------------------------------------------------------
+# The live server stores umlauts in NFD (decomposed: u + combining diaeresis);
+# TYPO3's database stores NFC (single codepoint). They look identical and compare
+# unequal, so every path comparison must normalise to NFC first. Without this,
+# recovered files look missing -- indistinguishable from actually being gone.
+# See image-archive/RECOVERED-2026-08-27.md.
+def nfc(s):
+    return unicodedata.normalize('NFC', s or '')
+
+# German transliteration, matching the convention the source filenames already use
+# (KaetheKollwitz1_s.jpg, BernhardLuginbuehl_1_s.jpg). Without it "Kaethe" slugged
+# to "k-the" -- the umlaut dropped rather than transliterated.
+_TR = {'ä':'ae','ö':'oe','ü':'ue','ß':'ss','Ä':'Ae','Ö':'Oe','Ü':'Ue',
+       'é':'e','è':'e','ê':'e','à':'a','á':'a','â':'a','ç':'c','ñ':'n'}
+
+def _translit(s):
+    # NFC FIRST: _TR maps composed characters (U+00E4). NFD input is 'a' + combining
+    # diaeresis, which the map misses -- NFKD then drops the mark and 'Kaethe'
+    # becomes 'kathe' instead of 'kaethe'.
+    s = unicodedata.normalize('NFC', s or '')
+    s = ''.join(_TR.get(c, c) for c in s)
+    return unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode()
+
 def slug(s, n=48):
-    s = re.sub(r'[^a-zA-Z0-9]+', '-', (s or '').strip()).strip('-').lower()
+    s = re.sub(r'[^a-zA-Z0-9]+', '-', _translit((s or '').strip())).strip('-').lower()
     return s[:n] or 'untitled'
 
 # ---- page tree, for category ancestry -------------------------------------

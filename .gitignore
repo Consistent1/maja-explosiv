@@ -37,3 +37,7 @@ REFACTORING_PLAN.md
 # .github/workflows/deploy-pages.yml since 2026-08-26. Tracking it committed a
 # second copy of the whole site and rewrote every file on each deploy.
 /docs
+
+# Staging area for files pulled from the live server (the non-ASCII filenames the
+# January 2025 backup dropped). Verified, then folded into old/TYPO3BU/.
+/incoming

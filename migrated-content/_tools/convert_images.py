@@ -8,7 +8,7 @@ smaller file, metadata stripped. Nothing is resized or re-encoded.
 Category mapping per migration plan decision 13; anything undecided -> TBD/.
 Live bucket only -- hidden and deleted images stay in their own stores.
 """
-import base64, collections, hashlib, json, os, re, subprocess, sys
+import base64, collections, hashlib, json, os, re, subprocess, sys, unicodedata
 
 DB   = os.path.join(os.path.dirname(__file__), 'db.sh')
 ROOT = os.path.join(os.path.dirname(__file__), '..', '..')
@@ -21,8 +21,33 @@ def q(sql):
     return [l.split('\t') for l in r.stdout.decode('utf-8').split('\n') if l]
 
 def b(v): return '' if v in ('','NULL') else base64.b64decode(v).decode('utf-8')
+
+# --- filename handling -------------------------------------------------------
+# The live server stores umlauts in NFD (decomposed: u + combining diaeresis);
+# TYPO3's database stores NFC (single codepoint). They look identical and compare
+# unequal, so every path comparison must normalise to NFC first. Without this,
+# recovered files look missing -- indistinguishable from actually being gone.
+# See image-archive/RECOVERED-2026-08-27.md.
+def nfc(s):
+    return unicodedata.normalize('NFC', s or '')
+
+# German transliteration, matching the convention the source filenames already use
+# (KaetheKollwitz1_s.jpg, BernhardLuginbuehl_1_s.jpg). Without it "Kaethe" slugged
+# to "k-the" -- the umlaut dropped rather than transliterated.
+_TR = {'ä':'ae','ö':'oe','ü':'ue','ß':'ss','Ä':'Ae','Ö':'Oe','Ü':'Ue',
+       'é':'e','è':'e','ê':'e','à':'a','á':'a','â':'a','ç':'c','ñ':'n'}
+
+def _translit(s):
+    # NFC FIRST: _TR maps composed characters (U+00E4). NFD input is 'a' + combining
+    # diaeresis, which the map misses -- NFKD then drops the mark and 'Kaethe'
+    # becomes 'kathe' instead of 'kaethe'.
+    s = unicodedata.normalize('NFC', s or '')
+    s = ''.join(_TR.get(c, c) for c in s)
+    return unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode()
+
 def slug(s,n=48):
-    s=re.sub(r'[^a-zA-Z0-9]+','-',(s or '').strip()).strip('-').lower(); return s[:n] or 'untitled'
+    s=re.sub(r'[^a-zA-Z0-9]+','-',_translit((s or '').strip())).strip('-').lower()
+    return s[:n] or 'untitled'
 
 P={int(u):(int(p), b(t), int(d), int(h))
    for u,p,t,d,h in q("SELECT uid,pid,REPLACE(TO_BASE64(title),'\\n',''),deleted,hidden FROM pages;")}
@@ -75,7 +100,7 @@ for pid,duid,fp,fn,sort in rows:
 arc_index={}
 for dp,_,fs in os.walk(ARC):
     for f in fs:
-        arc_index.setdefault(f, []).append(os.path.join(dp,f))
+        arc_index.setdefault(nfc(f), []).append(os.path.join(dp,f))
 
 DRY = '--write' not in sys.argv
 manifest=[]; stats=collections.Counter()
@@ -83,7 +108,7 @@ for (cat, proj, pid), imgs in sorted(by_proj.items()):
     outdir=os.path.join(DEST, cat, proj)
     for n,(sort,duid,srcrel) in enumerate(sorted(imgs), 1):
         base=os.path.basename(srcrel)
-        cands=[p for p in arc_index.get(base,[]) if '/live/' in p]
+        cands=[p for p in arc_index.get(nfc(base),[]) if '/live/' in p]
         if not cands: stats['source-not-in-archive']+=1; continue
         src=cands[0]
         ext=os.path.splitext(base)[1].lower()

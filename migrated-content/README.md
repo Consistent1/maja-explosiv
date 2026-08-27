@@ -13,7 +13,8 @@ enters `src/` only by copy; the artefact here stays authoritative.
 | 0 | Census | **done** — source side. Whole-site live census still to run |
 | 0b | Quarantine | **done** — 38 files moved to `pre-migration-content/` |
 | 1 | Links | **PASSED 19/19** (11 local + 8 live). V8 visual comparison outstanding |
-| 2–14 | Press, Timeline, Bio, legal, Projects, News, Misc | not started |
+| 2 | Press | **passed with a recorded gap** — 50 entries, 48 assets; 2 files missing from backup (umlaut paths) |
+| 3–14 | Timeline, Bio, legal, Projects, News, Misc | not started |
 
 ## Layout
 

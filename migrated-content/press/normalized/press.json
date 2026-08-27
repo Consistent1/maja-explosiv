@@ -1,0 +1,460 @@
+{
+  "source": "tt_content 1452 (entries) + 1456 (note), pid 981",
+  "note": "The links below open a bigger and readable version of each press article in a new tab:",
+  "entries": [
+    {
+      "title": "Solo Exhibition, Kunst ist Leben; Big Article, Zürcher Oberländer Mai 2018",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/20180525ZürcherOberländer2.pdf",
+      "file_exists": true,
+      "is_pdf": true,
+      "target_name": "20180525zuercheroberlaender2.pdf",
+      "target": "/assets/images/shared/press/20180525zuercheroberlaender2.pdf",
+      "gallery_companion": "/assets/images/shared/press/2018-zuercheroberlaender2.jpg",
+      "gallery_companion_source": "fileadmin/s-maj/images/BilderMaja/presse/2018_ZürcherOberländer2.jpg"
+    },
+    {
+      "title": "Solo Exhibition, Kunst ist Leben; Anouncment, Zürcher Oberländer Mai 2018",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/20180519ZürcherOberländer.pdf",
+      "file_exists": true,
+      "is_pdf": true,
+      "target_name": "20180519zuercheroberlaender.pdf",
+      "target": "/assets/images/shared/press/20180519zuercheroberlaender.pdf",
+      "gallery_companion": "/assets/images/shared/press/2018-zuercheroberlaender.jpg",
+      "gallery_companion_source": "fileadmin/s-maj/images/BilderMaja/presse/2018_ZürcherOberländer.jpg"
+    },
+    {
+      "title": "Destoy HIV; Schirmherrschaft Frank Walter Steinmeier, Public Marketing, October 2013",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2013_Destroy_HIV.pdf",
+      "file_exists": true,
+      "is_pdf": true,
+      "target_name": "2013-destroy-hiv.pdf",
+      "target": "/assets/images/shared/press/2013-destroy-hiv.pdf",
+      "gallery_companion": "/assets/images/shared/press/2013-destroy-hiv.jpg",
+      "gallery_companion_source": "fileadmin/s-maj/images/BilderMaja/presse/2013_Destroy_HIV.jpg"
+    },
+    {
+      "title": "Wacken Scull; Anwender Bericht Acrystal, Lange Ritter, 2012",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2012_Wacken_Scull_aus_Acrystal_--_Lange_Ritter_GmbH.pdf",
+      "file_exists": true,
+      "is_pdf": true,
+      "target_name": "2012-wacken-scull-aus-acrystal-lange-ritter-gmbh.pdf",
+      "target": "/assets/images/shared/press/2012-wacken-scull-aus-acrystal-lange-ritter-gmbh.pdf",
+      "gallery_companion": null
+    },
+    {
+      "title": "The Alchemy Bar; Wired Magazine, October 2007",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2007_Alchemy_Bar_-_Wired_A4.pdf",
+      "file_exists": true,
+      "is_pdf": true,
+      "target_name": "2007-alchemy-bar-wired-a4.pdf",
+      "target": "/assets/images/shared/press/2007-alchemy-bar-wired-a4.pdf",
+      "gallery_companion": null
+    },
+    {
+      "title": "Derevo, Wheel of Power; Mannheim, Mannheimer-Morgen, July 2007",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2007_Mannheimer-Morgen.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2007-mannheimer-morgen.jpg",
+      "target": "/assets/images/shared/press/2007-mannheimer-morgen.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Derevo, Wheel of Power; Mannheim, Rein-Neckar-Zeitung, July 2007",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2007_Rein-Neckar-Zeitung.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2007-rein-neckar-zeitung.jpg",
+      "target": "/assets/images/shared/press/2007-rein-neckar-zeitung.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Derevo, Wheel of Power; Mannheim, Die-Reinpfalz, July 2007",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2007_Die-Reinpfalz.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2007-die-reinpfalz.jpg",
+      "target": "/assets/images/shared/press/2007-die-reinpfalz.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "The Alchemy Bar, part 1; Amsterdam, Recycling International, October 2006",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2006_Rdock1.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2006-rdock1.jpg",
+      "target": "/assets/images/shared/press/2006-rdock1.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "The Alchemy Bar, part 2; Amsterdam, Recycling International, October 2006",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2006_Rdock2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2006-rdock2.jpg",
+      "target": "/assets/images/shared/press/2006-rdock2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "The Alchemy Bar, part 3; Amsterdam, Recycling International, October 2006",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2006_rdock3.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2006-rdock3.jpg",
+      "target": "/assets/images/shared/press/2006-rdock3.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Free Radicals; Pula, Glas Istre, July 2005",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2005_freeRadicalPula.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2005-freeradicalpula.jpg",
+      "target": "/assets/images/shared/press/2005-freeradicalpula.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Casino Gitano 1; Press voices, 2004",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2004_casino1.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2004-casino1.jpg",
+      "target": "/assets/images/shared/press/2004-casino1.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Casino Gitano 2; Press voices, 2004",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2004_casino2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2004-casino2.jpg",
+      "target": "/assets/images/shared/press/2004-casino2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Casino Gitano 3; Press voices, 2004",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2004_casino3.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2004-casino3.jpg",
+      "target": "/assets/images/shared/press/2004-casino3.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Dada Festwochen; Zurich, NZZ, February 2003",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2003_sihlpapier.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2003-sihlpapier.jpg",
+      "target": "/assets/images/shared/press/2003-sihlpapier.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Elxt 90; Terrassa, August 2003",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2003_Elxt5.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2003-elxt5.jpg",
+      "target": "/assets/images/shared/press/2003-elxt5.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Elxt 90; Salamanca, La Gazeta, July 2003",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2002_elxt4.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2002-elxt4.jpg",
+      "target": "/assets/images/shared/press/2002-elxt4.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Elxt 90; Lugano, June 2002",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2002_elxt3.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2002-elxt3.jpg",
+      "target": "/assets/images/shared/press/2002-elxt3.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Elxt 90; Winterthur, TA, August 2001",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2001_Elxt2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2001-elxt2.jpg",
+      "target": "/assets/images/shared/press/2001-elxt2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Elxt 90; Zurich, TA, June 2000",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/2001_ELXT1.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "2001-elxt1.jpg",
+      "target": "/assets/images/shared/press/2001-elxt1.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Inauguration Dorfbachschiff; Pfäffikon, ZO, June 1999",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1999_pfae1.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1999-pfae1.jpg",
+      "target": "/assets/images/shared/press/1999-pfae1.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Dorfbachschiff; Pfäffikon, June 1999",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1999_pfae3.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1999-pfae3.jpg",
+      "target": "/assets/images/shared/press/1999-pfae3.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Dorfbachschiff; Pfäffikon, Pfäffikerin, June 1999",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1999_pfae2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1999-pfae2.jpg",
+      "target": "/assets/images/shared/press/1999-pfae2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Bimbo Town; Leipzig, Bild, March 1998",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1998_bimbotown2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1998-bimbotown2.jpg",
+      "target": "/assets/images/shared/press/1998-bimbotown2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Bimbo Town; Leipzig, November 1997",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1998_Leipzig_bimbotown.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1998-leipzig-bimbotown.jpg",
+      "target": "/assets/images/shared/press/1998-leipzig-bimbotown.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Yekaterinburg, July 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/ru6.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "ru6.jpg",
+      "target": "/assets/images/shared/press/ru6.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Yekaterinburg, July 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1996_ru4.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1996-ru4.jpg",
+      "target": "/assets/images/shared/press/1996-ru4.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Yekaterinburg, July 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1996_ru1.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1996-ru1.jpg",
+      "target": "/assets/images/shared/press/1996-ru1.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Yekaterinburg, July 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1996_ru3.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1996-ru3.jpg",
+      "target": "/assets/images/shared/press/1996-ru3.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Yekaterinburg, July 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1996_ru7.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1996-ru7.jpg",
+      "target": "/assets/images/shared/press/1996-ru7.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Press conference, Yekaterinburg, July 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1996_ru2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1996-ru2.jpg",
+      "target": "/assets/images/shared/press/1996-ru2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Translations Russian press, Yekaterinburg / Novosibirsk, July 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1996_ru-ubersetzungen.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1996-ru-ubersetzungen.jpg",
+      "target": "/assets/images/shared/press/1996-ru-ubersetzungen.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Press statement, Yekaterinburg, May 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1996_ru-presseerklarung.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1996-ru-presseerklarung.jpg",
+      "target": "/assets/images/shared/press/1996-ru-presseerklarung.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokon; Artists invitation, Novosibirsk, May 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1996_rueinladung.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1996-rueinladung.jpg",
+      "target": "/assets/images/shared/press/1996-rueinladung.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokot Rockpreis, award winner 1995; Zurich, NZZ, March 1996",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_Rock-preis.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-rock-preis.jpg",
+      "target": "/assets/images/shared/press/1995-rock-preis.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokot; Zurich, TA, September 1995",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_ew1.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-ew1.jpg",
+      "target": "/assets/images/shared/press/1995-ew1.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokot; Zurich, TA, August 1995",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_ew5.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-ew5.jpg",
+      "target": "/assets/images/shared/press/1995-ew5.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokot; Zurich, Zürcher Studentin, September 1995",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_ew6.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-ew6.jpg",
+      "target": "/assets/images/shared/press/1995-ew6.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokot; Zurich, Fabrik Zeitung, September 1995",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_ew4.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-ew4.jpg",
+      "target": "/assets/images/shared/press/1995-ew4.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokot; Zurich, Forecast, November 1995",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_ew7.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-ew7.jpg",
+      "target": "/assets/images/shared/press/1995-ew7.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Eurokot; Zurich, Navisate, September 1995",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995ew3.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995ew3.jpg",
+      "target": "/assets/images/shared/press/1995ew3.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Blauwe Aanslag; The Hague, July 1995",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_denhaag2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-denhaag2.jpg",
+      "target": "/assets/images/shared/press/1995-denhaag2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Wohlgroth; Zurich, Weltwoche, April 1995",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_ew2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-ew2.jpg",
+      "target": "/assets/images/shared/press/1995-ew2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Ladronka; Prague, September 1994",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1994_prag.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1994-prag.jpg",
+      "target": "/assets/images/shared/press/1994-prag.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Felix und Regula Unterführung; Zurich, TA, May 1994",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1995_felix_regula3.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1995-felix-regula3.jpg",
+      "target": "/assets/images/shared/press/1995-felix-regula3.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Felix und Regula Unterführung; Zurich, TA, April 1994",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/felix_regula2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "felix-regula2.jpg",
+      "target": "/assets/images/shared/press/felix-regula2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Felix und Regula Unterführung; Zurich, TA, April 1994",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1994_felix_regula.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1994-felix-regula.jpg",
+      "target": "/assets/images/shared/press/1994-felix-regula.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Wohlgroth; Zurich, TA, August 1993",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1993_wohlgrott2.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1993-wohlgrott2.jpg",
+      "target": "/assets/images/shared/press/1993-wohlgrott2.jpg",
+      "gallery_companion": null
+    },
+    {
+      "title": "Wohlgroth; Zurich, TA, October 1993",
+      "file": "fileadmin/s-maj/images/BilderMaja/presse/1993_wohlgrott.jpg",
+      "file_exists": true,
+      "is_pdf": false,
+      "target_name": "1993-wohlgrott.jpg",
+      "target": "/assets/images/shared/press/1993-wohlgrott.jpg",
+      "gallery_companion": null
+    }
+  ],
+  "anomalies": []
+}

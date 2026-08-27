@@ -73,8 +73,14 @@
             <ul class="about-press-list">
                 {% for entry in data.pressEntries %}
                     <li class="about-press-entry">
-                        {% if entry.image %}
-                            <a href="{{ entry.image | url }}" target="_blank" rel="noopener">{{ entry.title }}</a>
+                        {# `file` carries clippings that are PDFs. `file` WINS over `image`:
+                           a PDF-linked entry may also carry a JPG companion so it can appear
+                           in the gallery above, but the link must still go to the PDF, which
+                           is what the old site links. Reversing this precedence silently
+                           swaps 3 downloads for their preview images. #}
+                        {% set target = entry.file or entry.image %}
+                        {% if target %}
+                            <a href="{{ target | url }}" target="_blank" rel="noopener">{{ entry.title }}</a>
                         {% else %}
                             {{ entry.title }}
                         {% endif %}

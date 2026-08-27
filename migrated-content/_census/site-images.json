@@ -860,186 +860,6 @@
   "target": "src/assets/images/projects/TBD/dada-festwochen/dada-festwochen-12.jpg"
  },
  {
-  "category": "sculptures",
-  "project": "destroy-hiv",
-  "page_uid": 1054,
-  "dam_uid": 2311,
-  "seq": 1,
-  "archive_source": "image-archive/live/collaborations/destroy-hiv/Debris2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Debris2.jpg",
-  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-01.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "destroy-hiv",
-  "page_uid": 1054,
-  "dam_uid": 2309,
-  "seq": 2,
-  "archive_source": "image-archive/live/collaborations/destroy-hiv/Schutzengel_total.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_total.jpg",
-  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-02.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "destroy-hiv",
-  "page_uid": 1054,
-  "dam_uid": 2308,
-  "seq": 3,
-  "archive_source": "image-archive/live/collaborations/destroy-hiv/Schutzengel_Fluegel4.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_Fluegel4.jpg",
-  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-03.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "destroy-hiv",
-  "page_uid": 1054,
-  "dam_uid": 2304,
-  "seq": 4,
-  "archive_source": "image-archive/live/collaborations/destroy-hiv/Schutzengel_Fluegel1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_Fluegel1.jpg",
-  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-04.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "destroy-hiv",
-  "page_uid": 1054,
-  "dam_uid": 2303,
-  "seq": 5,
-  "archive_source": "image-archive/live/collaborations/destroy-hiv/HIV_jungs.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/HIV_jungs.jpg",
-  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-05.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "destroy-hiv",
-  "page_uid": 1054,
-  "dam_uid": 2302,
-  "seq": 6,
-  "archive_source": "image-archive/live/collaborations/destroy-hiv/HIV_destroy33.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/HIV_destroy33.jpg",
-  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-06.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "destroy-hiv",
-  "page_uid": 1054,
-  "dam_uid": 2296,
-  "seq": 7,
-  "archive_source": "image-archive/live/collaborations/destroy-hiv/1422512_726948264000746_1114160109_n.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/1422512_726948264000746_1114160109_n.jpg",
-  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-07.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "destroy-hiv",
-  "page_uid": 1054,
-  "dam_uid": 2294,
-  "seq": 8,
-  "archive_source": "image-archive/live/collaborations/destroy-hiv/379679_726045454091027_1293523986_n.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/379679_726045454091027_1293523986_n.jpg",
-  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-08.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2018,
-  "seq": 1,
-  "archive_source": "image-archive/live/collaborations/elephant/Elefphant_on_stage.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elefphant_on_stage.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-01.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2017,
-  "seq": 2,
-  "archive_source": "image-archive/live/collaborations/elephant/Elephants_Head_in_workshop.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephants_Head_in_workshop.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-02.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2014,
-  "seq": 3,
-  "archive_source": "image-archive/live/collaborations/elephant/Elephant_in_workshop.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_in_workshop.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-03.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2012,
-  "seq": 4,
-  "archive_source": "image-archive/live/collaborations/elephant/Elephant_side_view.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_side_view.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-04.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2010,
-  "seq": 5,
-  "archive_source": "image-archive/live/collaborations/elephant/Elephants_Head_close_up.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephants_Head_close_up.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-05.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2009,
-  "seq": 6,
-  "archive_source": "image-archive/live/collaborations/elephant/parts_and_roof.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/parts_and_roof.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-06.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2008,
-  "seq": 7,
-  "archive_source": "image-archive/live/collaborations/elephant/Elephant_inside.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_inside.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-07.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2004,
-  "seq": 8,
-  "archive_source": "image-archive/live/collaborations/elephant/Elephant_staged.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_staged.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-08.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2003,
-  "seq": 9,
-  "archive_source": "image-archive/live/collaborations/elephant/musicians_roof.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/musicians_roof.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-09.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "elephant",
-  "page_uid": 1031,
-  "dam_uid": 2002,
-  "seq": 10,
-  "archive_source": "image-archive/live/collaborations/elephant/model.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/model.jpg",
-  "target": "src/assets/images/projects/sculptures/elephant/elephant-10.jpg"
- },
- {
   "category": "TBD",
   "project": "eurokon",
   "page_uid": 935,
@@ -1698,766 +1518,6 @@
   "archive_source": "image-archive/live/event-organisation/eurokot/eurokot5.jpg",
   "original": "fileadmin/s-maj/images/BilderMaja/1995EurokotXiX/eurokot5.jpg",
   "target": "src/assets/images/projects/TBD/eurokot/eurokot-40.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 1378,
-  "seq": 1,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/forgetmenot.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/forgetmenot.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-01.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 813,
-  "seq": 2,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/lindy1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/lindy1.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-02.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 812,
-  "seq": 3,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/tinshow06.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow06.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-03.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 811,
-  "seq": 4,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/tinshow01.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow01.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-04.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 809,
-  "seq": 5,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/Puppets.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/Puppets.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-05.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 808,
-  "seq": 6,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/3puppetrehearsal06.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/3puppetrehearsal06.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-06.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 807,
-  "seq": 7,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/tinshow10.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow10.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-07.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 806,
-  "seq": 8,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/tinshow02.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow02.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-08.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 805,
-  "seq": 9,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/horse.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/horse.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-09.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "forget-me-not",
-  "page_uid": 947,
-  "dam_uid": 804,
-  "seq": 10,
-  "archive_source": "image-archive/live/collaborations/forget-me-not/3puppetrehearsal07.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/3puppetrehearsal07.jpg",
-  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-10.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "gong-trophy",
-  "page_uid": 1058,
-  "dam_uid": 2370,
-  "seq": 1,
-  "archive_source": "image-archive/live/collaborations/gong-trophy/url.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/url.jpg",
-  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-01.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "gong-trophy",
-  "page_uid": 1058,
-  "dam_uid": 2369,
-  "seq": 2,
-  "archive_source": "image-archive/live/collaborations/gong-trophy/red-bull-kumite-tournoi-champion-bonchan.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/red-bull-kumite-tournoi-champion-bonchan.jpg",
-  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-02.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "gong-trophy",
-  "page_uid": 1058,
-  "dam_uid": 2368,
-  "seq": 3,
-  "archive_source": "image-archive/live/collaborations/gong-trophy/Bonchan1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/Bonchan1.jpg",
-  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-03.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "gong-trophy",
-  "page_uid": 1058,
-  "dam_uid": 2367,
-  "seq": 4,
-  "archive_source": "image-archive/live/collaborations/gong-trophy/bonchan-red-bull-kumite-tournoi-vainqueur.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/bonchan-red-bull-kumite-tournoi-vainqueur.jpg",
-  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-04.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "gong-trophy",
-  "page_uid": 1058,
-  "dam_uid": 2366,
-  "seq": 5,
-  "archive_source": "image-archive/live/collaborations/gong-trophy/IMG_0059.JPG",
-  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0059.JPG",
-  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-05.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "gong-trophy",
-  "page_uid": 1058,
-  "dam_uid": 2364,
-  "seq": 6,
-  "archive_source": "image-archive/live/collaborations/gong-trophy/IMG_0055.JPG",
-  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0055.JPG",
-  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-06.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "gong-trophy",
-  "page_uid": 1058,
-  "dam_uid": 2362,
-  "seq": 7,
-  "archive_source": "image-archive/live/collaborations/gong-trophy/IMG_0042.JPG",
-  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0042.JPG",
-  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-07.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "gong-trophy",
-  "page_uid": 1058,
-  "dam_uid": 2357,
-  "seq": 8,
-  "archive_source": "image-archive/live/collaborations/gong-trophy/gong_engrave01.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/gong_engrave01.jpg",
-  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-08.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1754,
-  "seq": 1,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/orgn1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/orgn1.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-01.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1753,
-  "seq": 2,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/car10.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car10.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-02.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1752,
-  "seq": 3,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/controling.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/controling.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-03.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1751,
-  "seq": 4,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/car3.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car3.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-04.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1750,
-  "seq": 5,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/car7.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car7.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-05.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1749,
-  "seq": 6,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/controler.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/controler.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-06.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1748,
-  "seq": 7,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/hinworkshop.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/hinworkshop.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-07.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1747,
-  "seq": 8,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/car4.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car4.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-08.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1746,
-  "seq": 9,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/oergn3.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/oergn3.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-09.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1745,
-  "seq": 10,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/car9.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car9.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-10.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1744,
-  "seq": 11,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/1car1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/1car1.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-11.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "hand-of-man",
-  "page_uid": 945,
-  "dam_uid": 1743,
-  "seq": 12,
-  "archive_source": "image-archive/live/collaborations/hand-of-man/orgn2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/orgn2.jpg",
-  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-12.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "throne",
-  "page_uid": 994,
-  "dam_uid": 2065,
-  "seq": 1,
-  "archive_source": "image-archive/live/collaborations/throne/Morte_Babbo_9073__Federica_Borgato.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/Morte_Babbo_9073__Federica_Borgato.jpg",
-  "target": "src/assets/images/projects/sculptures/throne/throne-01.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "throne",
-  "page_uid": 994,
-  "dam_uid": 1569,
-  "seq": 2,
-  "archive_source": "image-archive/live/collaborations/throne/IMG_1416.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1416.jpg",
-  "target": "src/assets/images/projects/sculptures/throne/throne-02.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "throne",
-  "page_uid": 994,
-  "dam_uid": 1568,
-  "seq": 3,
-  "archive_source": "image-archive/live/collaborations/throne/IMG_1423.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1423.jpg",
-  "target": "src/assets/images/projects/sculptures/throne/throne-03.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "throne",
-  "page_uid": 994,
-  "dam_uid": 1565,
-  "seq": 4,
-  "archive_source": "image-archive/live/collaborations/throne/IMG_1402.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1402.jpg",
-  "target": "src/assets/images/projects/sculptures/throne/throne-04.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "throne",
-  "page_uid": 994,
-  "dam_uid": 1564,
-  "seq": 5,
-  "archive_source": "image-archive/live/collaborations/throne/IMG_1412.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1412.jpg",
-  "target": "src/assets/images/projects/sculptures/throne/throne-05.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "throne",
-  "page_uid": 994,
-  "dam_uid": 1563,
-  "seq": 6,
-  "archive_source": "image-archive/live/collaborations/throne/IMG_1392-1.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1392-1.jpg",
-  "target": "src/assets/images/projects/sculptures/throne/throne-06.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1397,
-  "seq": 1,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/IMG_1078.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1078.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-01.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1396,
-  "seq": 2,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/IMG_1069.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1069.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-02.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1395,
-  "seq": 3,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag-performance-013-cr.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag-performance-013-cr.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-03.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1394,
-  "seq": 4,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere-066.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-066.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-04.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1393,
-  "seq": 5,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere-115.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-115.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-05.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1392,
-  "seq": 6,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/saturday-28-juli-025-crop.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/saturday-28-juli-025-crop.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-06.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1391,
-  "seq": 7,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/sundayevening-377-bew.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/sundayevening-377-bew.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-07.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1389,
-  "seq": 8,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/thursday-034.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday-034.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-08.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1388,
-  "seq": 9,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/21-june-01-_111_.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-june-01-_111_.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-09.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1387,
-  "seq": 10,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere-086.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-086.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-10.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1386,
-  "seq": 11,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/21-juni-2007-_260_.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-juni-2007-_260_.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-11.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1385,
-  "seq": 12,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere-060.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-060.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-12.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1384,
-  "seq": 13,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/22-june-_224_.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/22-june-_224_.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-13.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1383,
-  "seq": 14,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/saturday-28-juli-068-crop-2.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/saturday-28-juli-068-crop-2.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-14.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1382,
-  "seq": 15,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/IMG_0736.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_0736.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-15.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1381,
-  "seq": 16,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/21-juni-2007-_129_.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-juni-2007-_129_.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-16.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1380,
-  "seq": 17,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/23-juni-_2_-338.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/23-juni-_2_-338.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-17.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1379,
-  "seq": 18,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/IMG_1066.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1066.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-18.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1126,
-  "seq": 19,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/fridayevening_682.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/fridayevening_682.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-19.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1125,
-  "seq": 20,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/thursday_563.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday_563.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-20.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1124,
-  "seq": 21,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/21_juni_2007__26_.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21_juni_2007__26_.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-21.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1123,
-  "seq": 22,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_1108.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1108.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-22.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1121,
-  "seq": 23,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_278.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_278.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-23.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1120,
-  "seq": 24,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_222.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_222.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-24.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1119,
-  "seq": 25,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_291.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_291.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-25.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1118,
-  "seq": 26,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/23_juni__12_.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/23_juni__12_.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-26.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1117,
-  "seq": 27,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/31_july__42_.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/31_july__42_.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-27.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1116,
-  "seq": 28,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/22_june_07_069.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/22_june_07_069.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-28.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1114,
-  "seq": 29,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere_023.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere_023.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-29.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1113,
-  "seq": 30,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_1071.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1071.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-30.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1112,
-  "seq": 31,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/thursday_512.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday_512.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-31.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1111,
-  "seq": 32,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_188.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_188.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-32.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1110,
-  "seq": 33,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/20_june_07__134_.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/20_june_07__134_.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-33.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1108,
-  "seq": 34,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/luca.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/luca.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-34.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1107,
-  "seq": 35,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_187.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_187.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-35.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1105,
-  "seq": 36,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_1072.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1072.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-36.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1103,
-  "seq": 37,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_231.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_231.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-37.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1102,
-  "seq": 38,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere_037.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere_037.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-38.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1101,
-  "seq": 39,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_1118.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1118.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-39.jpg"
- },
- {
-  "category": "sculptures",
-  "project": "wheel-of-power",
-  "page_uid": 946,
-  "dam_uid": 1100,
-  "seq": 40,
-  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_0900.jpg",
-  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_0900.jpg",
-  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-40.jpg"
  },
  {
   "category": "installations",
@@ -7291,6 +6351,126 @@
  },
  {
   "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2552,
+  "seq": 1,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/IMG_9807_l_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/IMG_9807_l_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2551,
+  "seq": 2,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/IMG_9802_lh_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/IMG_9802_lh_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2550,
+  "seq": 3,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/IMG_5062_s.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/IMG_5062_s.JPG",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2549,
+  "seq": 4,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/IMG_5061_s.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/IMG_5061_s.JPG",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2548,
+  "seq": 5,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/IMG_5052_s.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/IMG_5052_s.JPG",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2547,
+  "seq": 6,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/BernhardLuginbuehl_CloseUp_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/BernhardLuginbuehl_CloseUp_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-06.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2546,
+  "seq": 7,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/BernhardLuginbuehl_back_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/BernhardLuginbuehl_back_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2545,
+  "seq": 8,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/BernhardLuginbuehl_2_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/BernhardLuginbuehl_2_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-08.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2544,
+  "seq": 9,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/BernhardLuginbuehl_3_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/BernhardLuginbuehl_3_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-09.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2543,
+  "seq": 10,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/BernhardLuginbuehl_1_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/BernhardLuginbuehl_1_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-10.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2542,
+  "seq": 11,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/Bernhard_U1_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/Bernhard_U1_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-11.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "bernhard",
+  "page_uid": 1069,
+  "dam_uid": 2541,
+  "seq": 12,
+  "archive_source": "image-archive/live/sculptural-work/bernhard/20180317_190351_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/Bernhard_Luginb\u00fchl/20180317_190351_s.jpg",
+  "target": "src/assets/images/projects/sculptures/bernhard/bernhard-12.jpg"
+ },
+ {
+  "category": "sculptures",
   "project": "bill-parooka",
   "page_uid": 1062,
   "dam_uid": 2466,
@@ -7741,6 +6921,86 @@
  },
  {
   "category": "sculptures",
+  "project": "destroy-hiv",
+  "page_uid": 1054,
+  "dam_uid": 2311,
+  "seq": 1,
+  "archive_source": "image-archive/live/collaborations/destroy-hiv/Debris2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Debris2.jpg",
+  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "destroy-hiv",
+  "page_uid": 1054,
+  "dam_uid": 2309,
+  "seq": 2,
+  "archive_source": "image-archive/live/collaborations/destroy-hiv/Schutzengel_total.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_total.jpg",
+  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "destroy-hiv",
+  "page_uid": 1054,
+  "dam_uid": 2308,
+  "seq": 3,
+  "archive_source": "image-archive/live/collaborations/destroy-hiv/Schutzengel_Fluegel4.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_Fluegel4.jpg",
+  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "destroy-hiv",
+  "page_uid": 1054,
+  "dam_uid": 2304,
+  "seq": 4,
+  "archive_source": "image-archive/live/collaborations/destroy-hiv/Schutzengel_Fluegel1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_Fluegel1.jpg",
+  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "destroy-hiv",
+  "page_uid": 1054,
+  "dam_uid": 2303,
+  "seq": 5,
+  "archive_source": "image-archive/live/collaborations/destroy-hiv/HIV_jungs.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/HIV_jungs.jpg",
+  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "destroy-hiv",
+  "page_uid": 1054,
+  "dam_uid": 2302,
+  "seq": 6,
+  "archive_source": "image-archive/live/collaborations/destroy-hiv/HIV_destroy33.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/HIV_destroy33.jpg",
+  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-06.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "destroy-hiv",
+  "page_uid": 1054,
+  "dam_uid": 2296,
+  "seq": 7,
+  "archive_source": "image-archive/live/collaborations/destroy-hiv/1422512_726948264000746_1114160109_n.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/1422512_726948264000746_1114160109_n.jpg",
+  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "destroy-hiv",
+  "page_uid": 1054,
+  "dam_uid": 2294,
+  "seq": 8,
+  "archive_source": "image-archive/live/collaborations/destroy-hiv/379679_726045454091027_1293523986_n.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/379679_726045454091027_1293523986_n.jpg",
+  "target": "src/assets/images/projects/sculptures/destroy-hiv/destroy-hiv-08.jpg"
+ },
+ {
+  "category": "sculptures",
   "project": "dorfbachschiff",
   "page_uid": 942,
   "dam_uid": 1377,
@@ -7881,6 +7141,106 @@
  },
  {
   "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2018,
+  "seq": 1,
+  "archive_source": "image-archive/live/collaborations/elephant/Elefphant_on_stage.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elefphant_on_stage.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2017,
+  "seq": 2,
+  "archive_source": "image-archive/live/collaborations/elephant/Elephants_Head_in_workshop.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephants_Head_in_workshop.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2014,
+  "seq": 3,
+  "archive_source": "image-archive/live/collaborations/elephant/Elephant_in_workshop.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_in_workshop.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2012,
+  "seq": 4,
+  "archive_source": "image-archive/live/collaborations/elephant/Elephant_side_view.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_side_view.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2010,
+  "seq": 5,
+  "archive_source": "image-archive/live/collaborations/elephant/Elephants_Head_close_up.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephants_Head_close_up.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2009,
+  "seq": 6,
+  "archive_source": "image-archive/live/collaborations/elephant/parts_and_roof.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/parts_and_roof.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-06.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2008,
+  "seq": 7,
+  "archive_source": "image-archive/live/collaborations/elephant/Elephant_inside.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_inside.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2004,
+  "seq": 8,
+  "archive_source": "image-archive/live/collaborations/elephant/Elephant_staged.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_staged.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-08.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2003,
+  "seq": 9,
+  "archive_source": "image-archive/live/collaborations/elephant/musicians_roof.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/musicians_roof.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-09.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "elephant",
+  "page_uid": 1031,
+  "dam_uid": 2002,
+  "seq": 10,
+  "archive_source": "image-archive/live/collaborations/elephant/model.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/model.jpg",
+  "target": "src/assets/images/projects/sculptures/elephant/elephant-10.jpg"
+ },
+ {
+  "category": "sculptures",
   "project": "flower-power",
   "page_uid": 1072,
   "dam_uid": 2608,
@@ -8001,6 +7361,186 @@
  },
  {
   "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 1378,
+  "seq": 1,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/forgetmenot.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/forgetmenot.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 813,
+  "seq": 2,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/lindy1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/lindy1.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 812,
+  "seq": 3,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/tinshow06.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow06.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 811,
+  "seq": 4,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/tinshow01.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow01.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 809,
+  "seq": 5,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/Puppets.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/Puppets.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 808,
+  "seq": 6,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/3puppetrehearsal06.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/3puppetrehearsal06.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-06.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 807,
+  "seq": 7,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/tinshow10.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow10.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 806,
+  "seq": 8,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/tinshow02.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow02.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-08.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 805,
+  "seq": 9,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/horse.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/horse.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-09.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "forget-me-not",
+  "page_uid": 947,
+  "dam_uid": 804,
+  "seq": 10,
+  "archive_source": "image-archive/live/collaborations/forget-me-not/3puppetrehearsal07.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/3puppetrehearsal07.jpg",
+  "target": "src/assets/images/projects/sculptures/forget-me-not/forget-me-not-10.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "gong-trophy",
+  "page_uid": 1058,
+  "dam_uid": 2370,
+  "seq": 1,
+  "archive_source": "image-archive/live/collaborations/gong-trophy/url.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/url.jpg",
+  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "gong-trophy",
+  "page_uid": 1058,
+  "dam_uid": 2369,
+  "seq": 2,
+  "archive_source": "image-archive/live/collaborations/gong-trophy/red-bull-kumite-tournoi-champion-bonchan.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/red-bull-kumite-tournoi-champion-bonchan.jpg",
+  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "gong-trophy",
+  "page_uid": 1058,
+  "dam_uid": 2368,
+  "seq": 3,
+  "archive_source": "image-archive/live/collaborations/gong-trophy/Bonchan1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/Bonchan1.jpg",
+  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "gong-trophy",
+  "page_uid": 1058,
+  "dam_uid": 2367,
+  "seq": 4,
+  "archive_source": "image-archive/live/collaborations/gong-trophy/bonchan-red-bull-kumite-tournoi-vainqueur.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/bonchan-red-bull-kumite-tournoi-vainqueur.jpg",
+  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "gong-trophy",
+  "page_uid": 1058,
+  "dam_uid": 2366,
+  "seq": 5,
+  "archive_source": "image-archive/live/collaborations/gong-trophy/IMG_0059.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0059.JPG",
+  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "gong-trophy",
+  "page_uid": 1058,
+  "dam_uid": 2364,
+  "seq": 6,
+  "archive_source": "image-archive/live/collaborations/gong-trophy/IMG_0055.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0055.JPG",
+  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-06.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "gong-trophy",
+  "page_uid": 1058,
+  "dam_uid": 2362,
+  "seq": 7,
+  "archive_source": "image-archive/live/collaborations/gong-trophy/IMG_0042.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0042.JPG",
+  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "gong-trophy",
+  "page_uid": 1058,
+  "dam_uid": 2357,
+  "seq": 8,
+  "archive_source": "image-archive/live/collaborations/gong-trophy/gong_engrave01.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/gong_engrave01.jpg",
+  "target": "src/assets/images/projects/sculptures/gong-trophy/gong-trophy-08.jpg"
+ },
+ {
+  "category": "sculptures",
   "project": "hafenszene",
   "page_uid": 1080,
   "dam_uid": 2778,
@@ -8068,6 +7608,126 @@
   "archive_source": "image-archive/live/sculptural-work/hafenszene/Hafensszene_s_-1.JPG",
   "original": "fileadmin/s-maj/images/BilderMaja/2024_Hafensszene/Hafensszene_s_-1.JPG",
   "target": "src/assets/images/projects/sculptures/hafenszene/hafenszene-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1754,
+  "seq": 1,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/orgn1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/orgn1.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1753,
+  "seq": 2,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/car10.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car10.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1752,
+  "seq": 3,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/controling.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/controling.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1751,
+  "seq": 4,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/car3.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car3.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1750,
+  "seq": 5,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/car7.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car7.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1749,
+  "seq": 6,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/controler.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/controler.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-06.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1748,
+  "seq": 7,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/hinworkshop.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/hinworkshop.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1747,
+  "seq": 8,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/car4.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car4.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-08.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1746,
+  "seq": 9,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/oergn3.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/oergn3.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-09.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1745,
+  "seq": 10,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/car9.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car9.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-10.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1744,
+  "seq": 11,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/1car1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/1car1.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-11.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "hand-of-man",
+  "page_uid": 945,
+  "dam_uid": 1743,
+  "seq": 12,
+  "archive_source": "image-archive/live/collaborations/hand-of-man/orgn2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/orgn2.jpg",
+  "target": "src/assets/images/projects/sculptures/hand-of-man/hand-of-man-12.jpg"
  },
  {
   "category": "sculptures",
@@ -8258,6 +7918,166 @@
   "archive_source": "image-archive/live/sculptural-work/hinwil/Hinwil-01.jpeg",
   "original": "fileadmin/s-maj/images/BilderMaja/2023Hinwil/Hinwil-01.jpeg",
   "target": "src/assets/images/projects/sculptures/hinwil/hinwil-19.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2570,
+  "seq": 1,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/KaetheKollwitz1_cut_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/KaetheKollwitz1_cut_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2569,
+  "seq": 2,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/Kaethe_U1_n_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/Kaethe_U1_n_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2568,
+  "seq": 3,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/KaetheKollwitz5_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/KaetheKollwitz5_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2567,
+  "seq": 4,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/KaetheKollwitz3_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/KaetheKollwitz3_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2566,
+  "seq": 5,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/KaetheKollwitz4_n_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/KaetheKollwitz4_n_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2565,
+  "seq": 6,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/KaetheKollwitz2_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/KaetheKollwitz2_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-06.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2563,
+  "seq": 7,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/Kaethe_U3_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/Kaethe_U3_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2562,
+  "seq": 8,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_9832_n_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_9832_n_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-08.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2560,
+  "seq": 9,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_9830_n_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_9830_n_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-09.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2559,
+  "seq": 10,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_9829_n_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_9829_n_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-10.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2558,
+  "seq": 11,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_9785_n_s.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_9785_n_s.jpg",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-11.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2557,
+  "seq": 12,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_4890_s.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_4890_s.JPG",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-12.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2556,
+  "seq": 13,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_4884_s.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_4884_s.JPG",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-13.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2555,
+  "seq": 14,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_4856_s.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_4856_s.JPG",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-14.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2554,
+  "seq": 15,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_4851_s.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_4851_s.JPG",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-15.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "kaethe",
+  "page_uid": 1070,
+  "dam_uid": 2553,
+  "seq": 16,
+  "archive_source": "image-archive/live/sculptural-work/kaethe/IMG_4850_s.JPG",
+  "original": "fileadmin/s-maj/images/BilderMaja/2018_Portrait/K\u00e4the_Kollwitz/IMG_4850_s.JPG",
+  "target": "src/assets/images/projects/sculptures/kaethe/kaethe-16.jpg"
  },
  {
   "category": "sculptures",
@@ -9271,6 +9091,66 @@
  },
  {
   "category": "sculptures",
+  "project": "throne",
+  "page_uid": 994,
+  "dam_uid": 2065,
+  "seq": 1,
+  "archive_source": "image-archive/live/collaborations/throne/Morte_Babbo_9073__Federica_Borgato.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/Morte_Babbo_9073__Federica_Borgato.jpg",
+  "target": "src/assets/images/projects/sculptures/throne/throne-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "throne",
+  "page_uid": 994,
+  "dam_uid": 1569,
+  "seq": 2,
+  "archive_source": "image-archive/live/collaborations/throne/IMG_1416.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1416.jpg",
+  "target": "src/assets/images/projects/sculptures/throne/throne-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "throne",
+  "page_uid": 994,
+  "dam_uid": 1568,
+  "seq": 3,
+  "archive_source": "image-archive/live/collaborations/throne/IMG_1423.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1423.jpg",
+  "target": "src/assets/images/projects/sculptures/throne/throne-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "throne",
+  "page_uid": 994,
+  "dam_uid": 1565,
+  "seq": 4,
+  "archive_source": "image-archive/live/collaborations/throne/IMG_1402.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1402.jpg",
+  "target": "src/assets/images/projects/sculptures/throne/throne-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "throne",
+  "page_uid": 994,
+  "dam_uid": 1564,
+  "seq": 5,
+  "archive_source": "image-archive/live/collaborations/throne/IMG_1412.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1412.jpg",
+  "target": "src/assets/images/projects/sculptures/throne/throne-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "throne",
+  "page_uid": 994,
+  "dam_uid": 1563,
+  "seq": 6,
+  "archive_source": "image-archive/live/collaborations/throne/IMG_1392-1.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1392-1.jpg",
+  "target": "src/assets/images/projects/sculptures/throne/throne-06.jpg"
+ },
+ {
+  "category": "sculptures",
   "project": "tube-ghosts",
   "page_uid": 1051,
   "dam_uid": 2262,
@@ -9778,5 +9658,405 @@
   "archive_source": "image-archive/live/sculptural-work/wacken-skull/final_surface.jpg",
   "original": "fileadmin/s-maj/images/BilderMaja/2012WackenScull/final_surface.jpg",
   "target": "src/assets/images/projects/sculptures/wacken-skull/wacken-skull-12.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1397,
+  "seq": 1,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/IMG_1078.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1078.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-01.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1396,
+  "seq": 2,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/IMG_1069.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1069.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-02.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1395,
+  "seq": 3,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag-performance-013-cr.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag-performance-013-cr.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-03.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1394,
+  "seq": 4,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere-066.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-066.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-04.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1393,
+  "seq": 5,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere-115.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-115.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-05.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1392,
+  "seq": 6,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/saturday-28-juli-025-crop.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/saturday-28-juli-025-crop.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-06.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1391,
+  "seq": 7,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/sundayevening-377-bew.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/sundayevening-377-bew.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-07.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1389,
+  "seq": 8,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/thursday-034.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday-034.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-08.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1388,
+  "seq": 9,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/21-june-01-_111_.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-june-01-_111_.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-09.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1387,
+  "seq": 10,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere-086.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-086.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-10.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1386,
+  "seq": 11,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/21-juni-2007-_260_.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-juni-2007-_260_.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-11.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1385,
+  "seq": 12,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere-060.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-060.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-12.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1384,
+  "seq": 13,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/22-june-_224_.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/22-june-_224_.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-13.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1383,
+  "seq": 14,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/saturday-28-juli-068-crop-2.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/saturday-28-juli-068-crop-2.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-14.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1382,
+  "seq": 15,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/IMG_0736.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_0736.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-15.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1381,
+  "seq": 16,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/21-juni-2007-_129_.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-juni-2007-_129_.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-16.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1380,
+  "seq": 17,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/23-juni-_2_-338.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/23-juni-_2_-338.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-17.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1379,
+  "seq": 18,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/IMG_1066.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1066.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-18.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1126,
+  "seq": 19,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/fridayevening_682.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/fridayevening_682.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-19.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1125,
+  "seq": 20,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/thursday_563.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday_563.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-20.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1124,
+  "seq": 21,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/21_juni_2007__26_.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21_juni_2007__26_.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-21.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1123,
+  "seq": 22,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_1108.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1108.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-22.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1121,
+  "seq": 23,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_278.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_278.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-23.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1120,
+  "seq": 24,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_222.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_222.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-24.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1119,
+  "seq": 25,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_291.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_291.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-25.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1118,
+  "seq": 26,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/23_juni__12_.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/23_juni__12_.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-26.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1117,
+  "seq": 27,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/31_july__42_.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/31_july__42_.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-27.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1116,
+  "seq": 28,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/22_june_07_069.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/22_june_07_069.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-28.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1114,
+  "seq": 29,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere_023.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere_023.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-29.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1113,
+  "seq": 30,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_1071.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1071.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-30.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1112,
+  "seq": 31,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/thursday_512.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday_512.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-31.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1111,
+  "seq": 32,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_188.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_188.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-32.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1110,
+  "seq": 33,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/20_june_07__134_.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/20_june_07__134_.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-33.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1108,
+  "seq": 34,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/luca.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/luca.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-34.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1107,
+  "seq": 35,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_187.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_187.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-35.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1105,
+  "seq": 36,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_1072.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1072.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-36.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1103,
+  "seq": 37,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/zaterdag_performance_231.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_231.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-37.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1102,
+  "seq": 38,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/premiere_037.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere_037.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-38.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1101,
+  "seq": 39,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_1118.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1118.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-39.jpg"
+ },
+ {
+  "category": "sculptures",
+  "project": "wheel-of-power",
+  "page_uid": 946,
+  "dam_uid": 1100,
+  "seq": 40,
+  "archive_source": "image-archive/live/collaborations/wheel-of-power/img_0900.jpg",
+  "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_0900.jpg",
+  "target": "src/assets/images/projects/sculptures/wheel-of-power/wheel-of-power-40.jpg"
  }
 ]

@@ -163,6 +163,10 @@ content type by content type, with each type verified before the next one starts
     1200px) remain available later and are a **bandwidth** decision, not a quality one — and
     they will be generated from these preserved originals rather than from a lossy intermediate.
 
+    **Procedure:** `migrated-content/_tools/RUNBOOK-images.md` — the order of operations, what
+    to run when a fresh backup arrives, how to verify losslessness, and the baseline numbers to
+    compare a re-run against.
+
     **`image-archive/` is read-only and is never modified.** Output goes only to
     `src/assets/images/projects/<category>/<project>/`.
 
@@ -502,6 +506,17 @@ The 5% is not scattered. It is three recognisable patterns: duplicate/variant pa
 project pages** (`Eurokon` → `Nailed Tanks`, `Torso`, `Eagle`; `Eurokot` → `Iron Channel`), and
 test pages. **Per-project folders are therefore the right structure**, with the shared 5%
 referenced from two Markdown files rather than duplicated on disk.
+
+**Filenames: the server is NFD, the database is NFC** *(added 2026-08-27)*. Umlauts are stored
+decomposed on disk (`u` + combining diaeresis) and composed in `tx_dam` (single codepoint).
+They render identically and compare unequal, so **every path comparison normalises to NFC
+first**. Without it, present files report as missing — a failure indistinguishable from them
+actually being absent, which is what makes it dangerous.
+
+The same applies to slugs: normalise to NFC **before** transliterating, or NFD input slips past
+the transliteration table and `Käthe` slugs to `kathe` instead of `kaethe`, putting one project
+in two folders. Fixed in all four image tools; see
+`migrated-content/_tools/RUNBOOK-images.md` and `image-archive/RECOVERED-2026-08-27.md`.
 
 **Source gap in the image set:** 30 of 1,522 live gallery links resolve to files absent from the
 January 2025 backup — **`Käthe` (16 of 16) and `Bernhard` (12 of 12) have no images at all**,
