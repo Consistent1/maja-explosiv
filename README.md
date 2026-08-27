@@ -111,44 +111,60 @@ targets.
 
 If a change seems to have no effect, check this before debugging the change.
 
-### 2. The GitHub Pages build overwrites `_site` with a differently-linked site
+### 2. Deploying is `git push`, and nothing else
 
-`npm run build:github` sets `ELEVENTY_PATH_PREFIX=/maja-explosiv/`, so **every internal URL
-in the output gains that prefix** — `/assets/css/custom.css` becomes
-`/maja-explosiv/assets/css/custom.css`. That is required for a project Pages site served from
-a subpath, and it is wrong for `http://localhost:8080`, where those URLs 404 and the site
-renders unstyled.
+Since 2026-08-26 the site is built and published by **GitHub Actions** —
+`.github/workflows/deploy-pages.yml`, `path-prefix: /maja-explosiv/`, triggered by any push
+to `main`. Settings → Pages → Source is set to **GitHub Actions**, and `docs/` is gitignored
+and untracked. Nothing is built locally for a deploy and nothing built is committed.
 
-Both builds write to the same `_site`. So:
+Two consequences:
 
-- **After deploying, rebuild locally** (`npm run build`, or restart `npm run serve`) or you
-  will be looking at the prefixed build on localhost and wondering where the CSS went.
-- **Stop the dev server before deploying.** `npm run deploy:github` does
-  `rm -rf docs && cp -r _site docs`, and a watching server that rebuilds `_site` midway
-  through the copy will put a half-written or unprefixed site into `docs/`.
+- **The local `_site` cannot reach the live site.** Actions builds its own copy from a clean
+  checkout, so a stale or wrongly-prefixed local build is harmless.
+- **`package-lock.json` is committed** and CI installs with `npm ci`. Change a dependency and
+  you must commit the updated lockfile, or the build installs the old tree. See *A note on the
+  lockfile* further down for the `cache: npm` trap that sits next to this.
 
-The deploy sequence, in order:
+### 3. Going back to the `docs/` route
 
-```bash
-npm run deploy:github     # stop the dev server first
-```
+**The `docs/` route is retired, not removed.** `build:github`, `copy:docs` and `deploy:github`
+are all still in `package.json` and are kept deliberately — a fallback for the day Actions is
+unavailable, out of minutes, or broken. Do not delete them.
 
-That runs `build:github` then `copy:docs`, which replaces `docs/` and re-creates
-`docs/.nojekyll`. Then commit `docs/` and push — Pages serves `main` at path `/docs`, so the
-push *is* the publish. Then rebuild locally to undo the prefix:
+Switching back takes three steps, and **all three are required**; doing fewer leaves Pages
+serving whichever source it was last pointed at:
 
-```bash
-npm run build
-```
+1. **Un-ignore `docs/`** — comment out the `/docs` line in `.gitignore`.
+2. **Build and commit it** (stop the dev server first — see below):
+   ```bash
+   npm run deploy:github
+   git add docs/ && git commit -m "Deploy" && git push
+   ```
+3. **Settings → Pages → Source: "Deploy from a branch" → `main` / `/docs`.**
 
-Checking you got it right: `grep -c '"/maja-explosiv/' docs/index.html` should be non-zero,
-and the same grep against `_site/index.html` should be zero after the local rebuild.
+To switch forward again, reverse all three: re-ignore `/docs`, `git rm -r --cached docs`, and
+set Source back to **GitHub Actions**. Order matters in one direction only — never remove the
+current source before the new one is live, or the site goes down in the gap.
 
-### 3. `docs/` is build output, and it is committed
+#### Why the local build interferes, and only on this route
 
-Unusually for a build directory, `docs/` is **not** gitignored — GitHub Pages needs it in the
-repo. Never hand-edit it; regenerate it. It also currently contains `_includes/` and
-`_layouts/` copies, a passthrough artefact that is harmless but on the cleanup list.
+`npm run build:github` sets `ELEVENTY_PATH_PREFIX=/maja-explosiv/`, so **every internal URL in
+the output gains that prefix** — `/assets/css/custom.css` becomes
+`/maja-explosiv/assets/css/custom.css`. That is right for a project Pages site on a subpath and
+wrong for `http://localhost:8080`, where those URLs 404 and the site renders unstyled. Both
+builds write to the same `_site`, so:
+
+- **Stop the dev server before deploying.** `copy:docs` does
+  `rm -rf docs && cp -r _site docs && touch docs/.nojekyll`, and a watching server that rebuilds
+  `_site` midway through the copy puts a half-written or unprefixed site into `docs/`.
+- **Rebuild locally afterwards** (`npm run build`) or you will be looking at the prefixed build
+  on localhost and wondering where the CSS went.
+
+Checking you got it right: `grep -c '"/maja-explosiv/' docs/index.html` should be non-zero, and
+the same grep against `_site/index.html` should be zero after the local rebuild.
+
+None of this applies to the Actions route, which builds in CI and never touches your `_site`.
 
 ## Project Structure
 
@@ -1059,17 +1075,9 @@ If you keep the lockfile committed, uncomment it. It saves roughly 15–20 secon
 
 ### Legacy: the `docs/` folder route
 
-Still supported, and reasonable for a site with few assets:
-
-```bash
-npm run deploy:github     # build with the path prefix, copy _site -> docs
-git add docs/ && git commit -m "Deploy" && git push
-```
-
-Then **Settings → Pages → Source: "Deploy from a branch" → `main` / `/docs`.**
-
-Note that after `build:github` the local `_site` contains prefixed paths, so
-`npm run serve` will look broken until you `npm run build` again.
+**This site does not use it** — see *3. Going back to the `docs/` route* near the top of this
+file for the full switch-back procedure, which is the fork-specific version of what the
+template documents generically. The scripts are retained on purpose; do not delete them.
 
 ### Other hosts
 

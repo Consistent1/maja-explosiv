@@ -244,17 +244,26 @@ Phases are in PLAN.md; the short version:
     from the current dump**: `SELECT LENGTH(bodytext) FROM tt_content WHERE uid=1399;` must
     return **8441**. If it returns 10340 the January 2025 dump is loaded and every extraction
     will be silently stale — that happened, and passed all eleven local checks.
-- **Deployment** — GitHub Pages **live** at <https://consistent1.github.io/maja-explosiv/>.
-  **Mid-transition (2026-08-26):** `.github/workflows/deploy-pages.yml` now builds and
-  publishes via GitHub Actions (`path-prefix: /maja-explosiv/`, runs on push to `main`).
-  Actions is free here because the repo is public.
-  **Two manual steps remain, in this order:**
-  1. **Settings → Pages → Source: `GitHub Actions`** (currently "Deploy from a branch: main
-     /docs"). Until this is flipped the workflow builds and then fails at the deploy step.
-  2. **Only then** stop tracking `docs/` (231 files). Doing it first takes the live site down.
+- **Deployment** — GitHub Pages **live** at <https://consistent1.github.io/maja-explosiv/>,
+  built and published by **GitHub Actions** (`.github/workflows/deploy-pages.yml`,
+  `path-prefix: /maja-explosiv/`, on every push to `main`). Free here because the repo is public.
+  **The transition is complete (2026-08-27):** Pages Source is `GitHub Actions`, `docs/` is
+  gitignored and untracked, and `package-lock.json` is now committed so CI can `npm ci`.
+  **Pushing to `main` is the deploy.** Do not build into `docs/` and do not commit `_site`.
 
-  Why the change: `docs/` is a committed second copy of the whole build, and `copy:docs` does
-  `rm -rf docs && cp -r _site docs`, so every deploy rewrites every file and git grows by the
-  asset payload each time. Already 42 MB duplicated; the image archive would make it ~200 MB.
-  The old flow (`npm run deploy:github`, commit `docs/`, push) still works until step 1 happens.
+  Why the change: `docs/` was a committed second copy of the whole build, and `copy:docs` does
+  `rm -rf docs && cp -r _site docs`, so every deploy rewrote every file and git grew by the
+  asset payload each time. Already 42 MB duplicated; the image archive would have made it ~200 MB.
+
+  **The `docs/` route is retired, not removed** — `build:github`, `copy:docs` and `deploy:github`
+  stay in `package.json` on purpose, as a fallback if Actions is unavailable. Do not delete them.
+  Going back takes three steps and needs all three: un-ignore `/docs`, `npm run deploy:github` +
+  commit `docs/`, then flip Settings → Pages → Source to "Deploy from a branch: main /docs".
+  README §3 *Going back to the `docs/` route* has the full procedure. **Never remove the current
+  Pages source before the replacement is live** — the gap takes the site down.
+
+  **`cache: npm` is commented out in `build.yml` on purpose.** It hard-fails the job when no
+  lockfile is present, and it fails before the install step's `npm install` fallback can run.
+  Uncomment only while the lockfile stays committed. README *A note on the lockfile* covers both
+  configurations.
   VPS still deferred — `deploy-server.yml` exists upstream, manual-trigger only, unconfigured.

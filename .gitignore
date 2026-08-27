@@ -41,6 +41,11 @@ REFACTORING_PLAN.md
 # Build output for GitHub Pages. No longer tracked: Pages builds via
 # .github/workflows/deploy-pages.yml since 2026-08-26. Tracking it committed a
 # second copy of the whole site and rewrote every file on each deploy.
+# The docs/ route is RETIRED, NOT REMOVED -- build:github / copy:docs /
+# deploy:github stay in package.json as a fallback. To go back: comment the
+# next line out, `npm run deploy:github`, commit docs/, THEN set
+# Settings -> Pages -> Source to "Deploy from a branch: main /docs".
+# See README -> "3. Going back to the `docs/` route".
 /docs
 
 # Staging area for files pulled from the live server (the non-ASCII filenames the
