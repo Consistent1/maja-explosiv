@@ -158,6 +158,10 @@ builds write to the same `_site`, so:
 - **Stop the dev server before deploying.** `copy:docs` does
   `rm -rf docs && cp -r _site docs && touch docs/.nojekyll`, and a watching server that rebuilds
   `_site` midway through the copy puts a half-written or unprefixed site into `docs/`.
+- **`docs/.nojekyll` matters only on this route.** Branch-served Pages runs the output through
+  Jekyll unless that file sits in the **published** directory — `docs/`, not the repo root — and
+  Jekyll drops paths beginning with `_` or `.`. The Actions route never runs Jekyll at all, so
+  the file is inert there. The `.nojekyll` at the repo root is not the one being read either way.
 - **Rebuild locally afterwards** (`npm run build`) or you will be looking at the prefixed build
   on localhost and wondering where the CSS went.
 
