@@ -1418,8 +1418,18 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   the hand-off is missing. This is the build noise `CLAUDE.md` §7b recorded as "gone" — it was
   gone only because the content was quarantined, and it returns with every migrated project.
   **The Figma spec is now extracted** — see *Project Page — extracted spec (2026-08-27)* in
-  Phase 2. It settles what the caption shows: `Title` (project) left with `Year` (project)
-  right, then `Description` (image), then `Author` (image). `project-image-caption.njk` and
+  Phase 2. It settles the caption's STRUCTURE: `Title` left with `Year` right, then
+  `Description`, then `Author`.
+
+  **Correction, 2026-09-09 — "Title (project)" was wrong.** This line used to read `Title`
+  *(project)*, and `project.njk` implemented it, so every photograph on a project page carried
+  the same title. **The old site prints the IMAGE's own title** in that row — *"Wandskulptur
+  Hinwil, full view"*, *"... test hanging"* — and per `CLAUDE.md` §3 the live site governs
+  content while Figma governs design. Figma can only show placeholder text in that slot, and
+  placeholder text is explicitly not design, so it never settled *which field* fills it; that
+  was inferred. `Title` on a project page is the **image** title, falling back to the project
+  title. On a card (homepage, collection, featured) it stays the **project** title, because
+  there one image stands for the whole project. `project-image-caption.njk` and
   its CSS already implement exactly that structure, so the remaining work is (a) passing the
   four variables at `project.njk`'s three call sites, (b) giving the hero image a caption,
   which Figma has and the template omits, and (c) removing the include's

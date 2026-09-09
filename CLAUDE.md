@@ -170,7 +170,13 @@ deploying, or hitting a third-party service beyond the rate agreed in §7a.
 node node_modules/.bin/eleventy --dryrun     # build check
 node node_modules/.bin/eleventy              # full build to _site/
 node node_modules/.bin/eleventy --serve --port=8080   # dev server
+
+python3 migrated-content/_tools/verify_rendered.py   # built site vs migrated data
 ```
+
+**After any change to a layout, include or the migration, run `verify_rendered.py`.** A build
+that succeeds proves nothing about whether the content reached the page — that is exactly how
+the caption fault survived three weeks of passing checks.
 
 **`npx` and `npm` are not on `PATH` in agent shells** — only `/usr/bin/node` is, and it may be
 the wrong version. Prefix with the nvm path first, or the commands above simply fail with
@@ -261,6 +267,14 @@ Phases are in PLAN.md; the short version:
     Three guards now catch it (extractor `RTE-PAYLOAD` anomaly, `body_md` raises, verifier
     embedded-`<img>` + empty-block checks). **Stage 11 hits this four more times, larger.**
     Never conclude "no gallery" from `imgs=0` alone — check the bodytext.
+  - **Verifying the DATA is not verifying the SITE.** `verify_projects.py` compares the
+    migration against the live page and passed every stage for three weeks while project pages
+    rendered the *project* title under every photograph instead of each image's own. Reported as
+    "the migration truncated captions" — most DAM titles are `"<project>, <view>"`, so it read as
+    a cut at the comma. Nothing was truncated; all 796 titles were in the front matter and the
+    template never asked for them. **Run `python3 migrated-content/_tools/verify_rendered.py`
+    after a build**: it asserts every migrated value reaches the built page, or is listed in its
+    `NOT_RENDERED` table with a reason. Covers projects and the About pages.
   - **A TYPO3 page can render ANOTHER page's content: `pages.content_from_pid`.** Page 949 sets
     it to 937 — its own content is hidden, so it read as near-empty while the live site served a
     full 36-image project. Nothing in the pipeline read the column until Stage 11, and it was

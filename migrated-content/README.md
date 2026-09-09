@@ -34,6 +34,13 @@ at the end of `project_docs/content-migration-plan.md` — reading list, per-sta
 ## Layout
 
 ```
+_tools/verify_rendered.py
+              Whole-site check: every value the migration writes into front matter must
+              appear in the BUILT page, or be listed in its NOT_RENDERED table with a
+              reason. Run after a build. Added 2026-09-09, after project captions rendered
+              the project title under every image for three weeks while every other check
+              passed -- the data was right, the page was not.
+
 _census/      Stage 0. page-tree.json, url-to-uid.tsv, content-inventory.tsv,
               coverage-map.tsv, pages-without-content.tsv, image-census-db.tsv,
               out-of-scope-roots.tsv, quarantine.tsv

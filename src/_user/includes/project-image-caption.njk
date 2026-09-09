@@ -1,14 +1,31 @@
 {#
   Project Image Caption Template
   
-  Used for images on homepage and collection pages.
-  Displays title and year from the PROJECT, description and author from the IMAGE.
-  
+  Used for image captions everywhere: project pages, homepage, collection pages.
+
+  The TITLE row shows `imageTitle` when the caller supplies one, and falls back to
+  `projectTitle`. That distinction is the whole point of the parameter:
+
+    - On a PROJECT PAGE every image is its own photograph and carries its own DAM title
+      ("Wandskulptur Hinwil, full view" / "... test hanging"). The old site prints exactly
+      that, per image, in the caption's <h3>.
+    - On a CARD (homepage, collection, featured) one image stands for the whole project,
+      so the PROJECT title is what identifies it. Those callers pass no imageTitle.
+
+  Until 2026-09-09 every caller passed only projectTitle, so a project page repeated one
+  title under all its photographs -- "Die grosse Hafenszene" seven times where the live
+  site names each view. Because most DAM titles are "<project>, <view>", the result read
+  as a caption TRUNCATED AT THE COMMA: 109 of 727 differ from the project title by exactly
+  a punctuation mark plus a suffix. It was reported as truncated captions, and the effect
+  is the same, but nothing was ever truncated -- the migration had every title in the front
+  matter (796 of 796 images) and the template never asked for it.
+
   Required params:
-  - projectTitle: The title of the project (string)
+  - projectTitle: The title of the project (string) -- the fallback for the title row
   - projectYear: The year of the project (string or number)
-  
+
   Optional params:
+  - imageTitle: The title of THIS image (string). Wins over projectTitle when present.
   - imageDescription: Description of the specific image (string)
   - imageAuthor: Author/photographer of the image (string)
   - projectSlug: For error reporting (string)
@@ -16,8 +33,11 @@
   - context: Where this is being used, for error reporting (string, e.g. "featured-projects", "collection")
 #}
 
+{# The title actually rendered: the image's own when given, else the project's. #}
+{% set captionTitle = imageTitle or projectTitle %}
+
 {# Validate required parameters and log errors if missing (console only, not displayed) #}
-{% if not projectTitle %}
+{% if not captionTitle %}
   {% set errorMsg = "ERROR: Missing project title for image caption" %}
   {% if projectSlug %}{% set errorMsg = errorMsg + " in project '" + projectSlug + "'" %}{% endif %}
   {% if context %}{% set errorMsg = errorMsg + " (" + context + ")" %}{% endif %}
@@ -42,9 +62,9 @@
     Title+Year, row 2 Description, row 3 Author). Removed 2026-08-27; see PLAN.md
     "Project Page -- extracted spec".
   #}
-  {% if projectTitle or projectYear %}
+  {% if captionTitle or projectYear %}
   <div class="caption-title-year">
-    {% if projectTitle %}<span class="caption-title">{{ projectTitle }}</span>{% endif %}
+    {% if captionTitle %}<span class="caption-title">{{ captionTitle }}</span>{% endif %}
     {% if projectYear %}<span class="caption-year">{{ projectYear }}</span>{% endif %}
   </div>
   {% endif %}

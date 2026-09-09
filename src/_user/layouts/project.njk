@@ -64,6 +64,7 @@ layout: sidebar-layout.njk
                 {% set context = "project-hero" %}
                 {% set imageIndex = 0 %}
                 {% set projectTitle = title %}
+                {% set imageTitle = heroImage.title %}
                 {% set projectYear = year %}
                 {% set imageDescription = heroImage.description %}
                 {% set imageAuthor = heroImage.author %}
@@ -90,6 +91,7 @@ layout: sidebar-layout.njk
                             {% set context = "project-intro" %}
                             {% set imageIndex = i %}
                             {% set projectTitle = title %}
+                            {% set imageTitle = galleryImages[i].title %}
                             {% set projectYear = year %}
                             {% set imageDescription = galleryImages[i].description %}
                             {% set imageAuthor = galleryImages[i].author %}
@@ -114,6 +116,7 @@ layout: sidebar-layout.njk
             {% set context = "project-full-width" %}
             {% set imageIndex = 2 %}
             {% set projectTitle = title %}
+            {% set imageTitle = galleryImages[2].title %}
             {% set projectYear = year %}
             {% set imageDescription = galleryImages[2].description %}
             {% set imageAuthor = galleryImages[2].author %}
@@ -131,6 +134,7 @@ layout: sidebar-layout.njk
                     {% set context = "project-gallery" %}
                     {% set imageIndex = i %}
                     {% set projectTitle = title %}
+                    {% set imageTitle = galleryImages[i].title %}
                     {% set projectYear = year %}
                     {% set imageDescription = galleryImages[i].description %}
                     {% set imageAuthor = galleryImages[i].author %}

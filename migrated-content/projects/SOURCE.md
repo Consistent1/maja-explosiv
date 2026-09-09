@@ -530,6 +530,87 @@ Alberto (22 images), Käthe (16), Bernhard (12) — are ordinary projects and mi
 **What the Portraits page itself becomes is still open** and is why 1068 is held: a page of its
 own, a grouping in the listing, or nothing.
 
+## Reported as "the migration truncated captions" — it was the template, 2026-09-09
+
+The owner saw project-page captions that looked cut off at a comma. **Nothing was truncated,
+and the migration was not at fault** — but the effect was real and it affected 727 of 796
+images, i.e. nearly every photograph on the site.
+
+**What was happening.** `project.njk` passed the **project's** title into every image caption:
+
+```njk
+{% set projectTitle = title %}      {# the PROJECT's title, for every image #}
+```
+
+so a project page printed one title under all its photographs. The old site prints each
+image's **own** DAM title in that row. Because most DAM titles are `"<project>, <view>"`, the
+result read exactly like a caption cut at the first comma:
+
+| we rendered | the old site shows |
+|---|---|
+| `Wandskulptur Hinwil` | `Wandskulptur Hinwil, full view` |
+| `Wandskulptur Hinwil` | `Wandskulptur Hinwil, test hanging` |
+| `Die grosse Hafenszene` | `Harbor Scene, birds flying` |
+
+**109 of the 727 differ from the project title by exactly a punctuation mark plus a suffix** —
+which is why it presented as a punctuation bug. The remaining 618 differ outright.
+
+**The data was never lost.** Checked end to end before changing anything:
+
+| link in the chain | result |
+|---|---|
+| database → `normalized/*.json` | **784/784 images byte-identical** on title, description, creator |
+| normalized → front matter | 796/796; two trailing-whitespace differences, nothing else |
+| front matter → rendered HTML | **771/771 descriptions verbatim**; the include has no truncate filter |
+
+All 796 images had their title sitting in the front matter the whole time. The template never
+asked for it.
+
+**The fix.** `project-image-caption.njk` takes an optional `imageTitle` that wins over
+`projectTitle`, and `project.njk` passes it at all four call sites. The distinction is
+deliberate and is why this is a parameter rather than a swap:
+
+- **project page** → the image's own title. Each photograph is a different view.
+- **card** (homepage, collection, featured) → the project title. There one image stands for
+  the whole project, so those callers pass no `imageTitle` and the fallback applies.
+
+Note there was already a `single-project-image-caption.njk` documented as *"title and year from
+the IMAGE... used for images on individual project pages"* — the right idea, wired to the wrong
+layout (`post.njk`), while `project.njk` used the other include. It still carries the
+`and not imageDescription` guard that was removed from the shared include on 2026-08-27, so it
+was not adopted; the shared include was corrected instead.
+
+**A recorded conclusion was wrong and has been corrected.** `PLAN.md` stated the Figma spec
+*"settles what the caption shows: `Title` (project)"*. Figma settles the caption's **structure**;
+it can only show placeholder text in the slot, and placeholder text is explicitly not design
+(`CLAUDE.md` §3), so it never settled *which field* fills it — that was inferred. The live site
+governs content, and it prints the image title.
+
+### The real defect was in what we verify, not in what we migrate
+
+`verify_projects.py` compares `normalized/*.json` against the **live page** and passed every
+stage while the site rendered the wrong thing. It proves the migration captured the content. It
+says nothing about whether the site shows it:
+
+```
+DB -> normalized      [checked, all along]
+   -> front matter    [checked, all along]
+   -> RENDERED PAGE   [NOT CHECKED]   <- three weeks of wrong captions lived here
+```
+
+**`_tools/verify_rendered.py` closes that gap.** Run after a build, it asserts that every value
+the migration puts in front matter is findable in the built page — or is named in its
+`NOT_RENDERED` table with a reason, so "the site does not show this" is always a recorded
+decision rather than an oversight. It covers the About pages too, whose content is front-matter
+*data structures* and so can fail the same way invisibly.
+
+Current state: **59/59 projects, 2020 values**, plus links (116 text + 50 link targets), press
+(51 + 53) and timeline (257) — all rendering.
+
+Regression-tested the way the other guards were: deleting the four `imageTitle` lines makes it
+fail loudly on every project (`hinwil 19 MISSING`, `affenbande 23 MISSING`, …), so the original
+bug could not recur unnoticed.
+
 ## "A column named like content that holds a number" — audited 2026-09-09
 
 The same mistake turned up twice in one day: **`tx_dam.category`** and **`tt_news.category`** are
