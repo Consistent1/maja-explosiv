@@ -28,6 +28,7 @@ on:
       - 'migrated-hidden-content/**'
       - 'migrated-deleted-content/**'
       - 'pre-migration-content/**'
+      - 'scripts/**'
   workflow_dispatch:
 
 # Allow one deploy at a time; don't cancel a run that is mid-publish.
