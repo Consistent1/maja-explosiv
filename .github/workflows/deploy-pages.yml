@@ -16,6 +16,18 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    # Nothing outside src/ is built (see .eleventy.js dir.input), so a push that
+    # touches only docs or the un-built migration directories cannot change the
+    # published site. Skip the deploy for those. A mixed push still deploys.
+    paths-ignore:
+      - 'README.md'
+      - 'CLAUDE.md'
+      - 'changes.md'
+      - 'project_docs/**'
+      - 'migrated-content/**'
+      - 'migrated-hidden-content/**'
+      - 'migrated-deleted-content/**'
+      - 'pre-migration-content/**'
   workflow_dispatch:
 
 # Allow one deploy at a time; don't cancel a run that is mid-publish.
