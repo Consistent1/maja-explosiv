@@ -205,6 +205,8 @@ src/
 
 ## Content Creation
 
+Markdown content files use kebab-case names (e.g. `my-post-title.md`).
+
 ### Creating Posts
 
 Create a new Markdown file in `src/posts/`:
@@ -813,6 +815,16 @@ carousels:
 - `npm run build:github` - Build with `ELEVENTY_PATH_PREFIX=/maja-explosiv/`; **legacy route only** — Actions sets the prefix itself
 - `npm run copy:docs` - Replace `docs/` with `_site` and re-create `docs/.nojekyll`; **legacy route only**
 - `npm run deploy:github` - Build and stage `docs/` for the **legacy** branch-served Pages route; not used for deploys (Actions is) — see *3. Going back to the `docs/` route*
+
+### Templating
+
+Layouts (`src/_layouts/`, `src/_user/layouts/`) and includes (`src/_includes/`,
+`src/_user/includes/`) are written in **Nunjucks**; content is Markdown.
+
+### Testing
+
+There is no test framework. Verification is manual: `npm run serve` and check the
+page in a browser.
 
 ### Adding Custom Filters
 
