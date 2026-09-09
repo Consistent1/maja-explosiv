@@ -22,6 +22,8 @@ images:
     title: "Robocross vs Theater der Peinlichkeit"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 969
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/tuttifruttimigi.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-02.jpg"
@@ -29,6 +31,8 @@ images:
     title: "Robocross vs Theater der Peinlichkeit"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 974
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-03.jpg"
@@ -36,6 +40,8 @@ images:
     title: "Robocross vs Theater der Peinlichkeit"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 966
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/jpboxing1.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-04.jpg"
@@ -43,6 +49,8 @@ images:
     title: "Robocross vs Theater der Peinlichkeit"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 964
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/migituttifrutti2.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-05.jpg"
@@ -50,6 +58,8 @@ images:
     title: "Robocross vs Theater der Peinlichkeit"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 965
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer2.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-06.jpg"
@@ -57,6 +67,8 @@ images:
     title: "Robocross vs Theater der Peinlichkeit"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 963
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer3.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-07.jpg"
@@ -64,6 +76,8 @@ images:
     title: "Robocross vs Theater der Peinlichkeit"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 972
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/toplessdancer1.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-08.jpg"
@@ -71,6 +85,8 @@ images:
     title: "Bastiaan Maris, relais box"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 973
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/relaisbastian.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-09.jpg"
@@ -78,6 +94,8 @@ images:
     title: "painting robot; J.Electrolux, JP and Joel"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Charles Thommen"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 970
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/johnnyjpjoel.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-10.jpg"
@@ -85,6 +103,8 @@ images:
     title: "Spamabillies"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 971
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/andyjp.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-11.jpg"
@@ -92,6 +112,8 @@ images:
     title: "Spamabillies"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 967
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/johnnyluca.jpg"
   - src: "/assets/images/projects/installations/dada-festwochen/dada-festwochen-12.jpg"
@@ -99,6 +121,8 @@ images:
     title: "Spamabillies"
     description: "Schlosserei, Dada Festwochen, Sihlpapier Fabrik Zurich, 2003"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zürich"
     dam_uid: 968
     original: "fileadmin/s-maj/images/BilderMaja/2003Sihlpapier/spamas2.jpg"
 ---

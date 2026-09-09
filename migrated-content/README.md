@@ -27,7 +27,8 @@ at the end of `project_docs/content-migration-plan.md` — reading list, per-sta
 | 8 | Projects — event organisation | **done** — 3 projects, 78 images, verified 3/3 against live. Category changed TBD → `installations` (owner). First stage with multi-block text |
 | 9 | Projects — performance | **PARTIAL, 4 of 6** — 89 images, verified 6/6 against live. `casino-gitano` and `elxt-90` HELD pending the video decision |
 | 10 | Projects — collaborations | **PARTIAL, 5 of 8** — 46 images, verified 8/8 against live. `wheel-of-power` and `destroy-hiv` HELD on video; `metal-group-xix` HELD on a 12-thumbnail RTE index table that `body_md` corrupted — see SOURCE.md § *Stage 10*, and the three guards added because of it |
-| 11–14 | Projects, News, Misc | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
+| 11 | Projects — sculptural work | **40 of 44** — 491 images, verified 44/44 against live. Three sub-stages (`11a` 1039→sculptures, `11b` 1040→installations, `11c` 1068 Portraits→sculptures). Held: 1064 The Helixes (video), 1050 The Birds + 1068 Portraits (RTE payload). Skipped by design: 949, which renders page 937's content via `content_from_pid` |
+| 12–14 | News, Misc, reconciliation | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
 
 ## Layout
 
@@ -39,7 +40,9 @@ _tools/       Extraction and verification scripts. db.sh is the only DB entry po
 links/        Stage 1. SOURCE.md, manifest.json, raw/ → normalized/ → converted/, verification/
 projects/     Stages 6-11. SOURCE.md, raw/db + raw/live, normalized/stage<N>.json,
               converted/<category>/<slug>.md. One shared pipeline; a stage is a row
-              in _tools/extract_projects.py -> STAGES.
+              in _tools/extract_projects.py -> STAGES. Stage keys are STRINGS: stage 11
+              is three rows (11a/11b/11c) because container 877 splits into two
+              sub-containers with different categories, one of which nests a third.
 ```
 
 ## The one thing to know before running anything

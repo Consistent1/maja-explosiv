@@ -1323,7 +1323,17 @@ them; what actually needed holding is a **live** headed `text` block of video li
 (uids **1446** `Wheel of Power videos:` and **1572** `Videos`). Casino Gitano's shape exactly.
 Full detail: `migrated-content/projects/SOURCE.md` § *Stage 10*.
 
-### Stage 11 is the one that needs care
+### ~~Stage 11 is the one that needs care~~ — **Stage 11 is done, 40 of 44 (2026-09-09).**
+
+Three sub-stages: `11a` 1039 Sculptures → `sculptures` (23 projects, 272 images), `11b` 1040
+Installations → `installations` (14, 169), `11c` 1068 Portraits → `sculptures` (3, 50).
+**Verified 44/44 against live.** Held: 1064 The Helixes (video), 1050 The Birds and 1068
+Portraits (RTE payload). Skipped by design: 949 The Alchemy Bar, which renders page 937's
+content via `content_from_pid` — a mechanism nothing in the pipeline read until this stage.
+Three checks were found faulty doing it; `migrated-content/projects/SOURCE.md` § *Stage 11* has
+all of it. **Start with Stage 13 (Misc), and re-scope Stage 12.**
+
+The brief below is kept for the record.
 
 **Two blockers, not one.** Besides the sub-container question below, **four Stage 11 pages carry
 RTE thumbnail-index tables** — 1039 Sculptures (25 images, 24 internal links), 1040 Installations

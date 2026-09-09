@@ -22,6 +22,8 @@ images:
     title: "the material and the crew"
     description: "Metelkova, Ljubljana /SLO"
     author: "Kati Bitzer"
+    loc_country: "SVN"
+    loc_city: "Ljubljana"
     dam_uid: 699
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/gruppenbild_def.tif_copy.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-02.jpg"
@@ -29,6 +31,8 @@ images:
     title: "the boss"
     description: "Bar Offen, Zurich /CH"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Zuerich"
     dam_uid: 695
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/munchozureich.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-03.jpg"
@@ -36,6 +40,7 @@ images:
     title: "fire circle "
     description: "Villa Amalia, Athens /GR"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 724
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/azufeuerkreis.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-04.jpg"
@@ -43,6 +48,8 @@ images:
     title: "singer"
     description: "Torre Maura, Rome /i"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Roma"
     dam_uid: 709
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/fafarom.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-05.jpg"
@@ -50,6 +57,8 @@ images:
     title: "devil"
     description: "Cascina, Milan /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Milano"
     dam_uid: 703
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/luismilano.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-06.jpg"
@@ -57,6 +66,8 @@ images:
     title: "net"
     description: "Torre Maura, Rome /i"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Roma"
     dam_uid: 722
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/azuromhoch.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-07.jpg"
@@ -64,6 +75,8 @@ images:
     title: "net"
     description: "Torre Maura, Rome /i"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Roma"
     dam_uid: 706
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/babunetzrom.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-08.jpg"
@@ -71,6 +84,8 @@ images:
     title: "net"
     description: "Cascina, Milan /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Milano"
     dam_uid: 713
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/netzmilano.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-09.jpg"
@@ -78,6 +93,8 @@ images:
     title: "sound check"
     description: "Mochvara, Zagreb /HR"
     author: "Kati Bitzer"
+    loc_country: "CHE"
+    loc_city: "Bremgarten"
     dam_uid: 705
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/soundcheck1.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-10.jpg"
@@ -85,6 +102,8 @@ images:
     title: "singer"
     description: "Torre Maura, Rome /i"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Roma"
     dam_uid: 704
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/luisrom.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-11.jpg"
@@ -92,6 +111,8 @@ images:
     title: "bone"
     description: "Torre Maura, Rome /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Roma"
     dam_uid: 696
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/baburom.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-12.jpg"
@@ -99,6 +120,8 @@ images:
     title: "Dog"
     description: "Pforzheim /D"
     author: "Kati Bitzer"
+    loc_country: "DEU"
+    loc_city: "Pforzheim"
     dam_uid: 710
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/majapforzheim.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-13.jpg"
@@ -106,6 +129,8 @@ images:
     title: "two dogs"
     description: "TNT, Naples /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Athen"
     dam_uid: 712
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/azuverafire2.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-14.jpg"
@@ -113,6 +138,8 @@ images:
     title: "four dogs"
     description: "TNT, Naples /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Napoli"
     dam_uid: 716
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/vierhunde.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-15.jpg"
@@ -120,6 +147,8 @@ images:
     title: "torture"
     description: "Zorro Festival, Leipzig /D"
     author: "Kati Bitzer"
+    loc_country: "DEU"
+    loc_city: "Leipzig"
     dam_uid: 750
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/bagger1.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-16.jpg"
@@ -134,6 +163,8 @@ images:
     title: "torture"
     description: "squat party, Liège /B"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Liège"
     dam_uid: 719
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/folter2.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-18.jpg"
@@ -141,6 +172,8 @@ images:
     title: "fire man"
     description: "squat, Patras /GR"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Athen"
     dam_uid: 720
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/feuermann.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-19.jpg"
@@ -148,6 +181,8 @@ images:
     title: "electro shock"
     description: "Metelkova,  Ljubljana /SLO"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Zuerich"
     dam_uid: 718
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/elektroschock.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-20.jpg"
@@ -155,6 +190,8 @@ images:
     title: "acrobatics"
     description: "Cascina, Turin /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Torino"
     dam_uid: 701
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/akrotorino.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-21.jpg"
@@ -169,6 +206,8 @@ images:
     title: "public"
     description: "squat, Split /HR"
     author: "Kati Bitzer"
+    loc_country: "HRV"
+    loc_city: "Split"
     dam_uid: 707
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/splittotale2.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-23.jpg"
@@ -176,6 +215,7 @@ images:
     title: "after show"
     description: "Villa Amalia, Athens /GR"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 700
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/aftershow2.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-24.jpg"
@@ -183,6 +223,8 @@ images:
     title: "after show"
     description: "Villa Amalia, Athens /GR"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Napoli"
     dam_uid: 714
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/aftershow1.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-25.jpg"
@@ -190,6 +232,8 @@ images:
     title: "public after show"
     description: "Cascina, Milan /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Milano"
     dam_uid: 717
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/idiotmilano.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-26.jpg"
@@ -197,6 +241,8 @@ images:
     title: "Fist Fuck Production"
     description: "Metelkova, Ljubljana /HR"
     author: "Kati Bitzer"
+    loc_country: "SVN"
+    loc_city: "Ljubljana"
     dam_uid: 711
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/fflubjiana.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-27.jpg"
@@ -204,6 +250,8 @@ images:
     title: "build up"
     description: "Cascina, Turin /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Torino"
     dam_uid: 702
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerShow/aufbautorino3.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-28.jpg"
@@ -218,6 +266,7 @@ images:
     title: "puddle"
     description: "Brindisi /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 747
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/brindisilache.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-30.jpg"
@@ -225,6 +274,7 @@ images:
     title: "waiting for the organizer"
     description: "Patras /GR"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 727
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/fafamike.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-31.jpg"
@@ -232,12 +282,14 @@ images:
     title: "pulled over"
     description: "highway, Italy"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 738
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/polizia.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-32.jpg"
     alt: "driving"
     title: "driving"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 725
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/imtruck2.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-33.jpg"
@@ -245,6 +297,7 @@ images:
     title: "small roads "
     description: "Split /HR"
     author: "Kati Bitzer"
+    loc_country: "GRC"
     dam_uid: 745
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/spliteswirdeng.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-34.jpg"
@@ -252,6 +305,7 @@ images:
     title: "breakdown"
     description: "Greek mountains"
     author: "Kati Bitzer"
+    loc_country: "GRC"
     dam_uid: 729
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/panne.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-35.jpg"
@@ -259,6 +313,7 @@ images:
     title: "stairway showroom"
     description: "squat, Split /HR"
     author: "Kati Bitzer"
+    loc_country: "HRV"
     dam_uid: 740
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/splitselma.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-36.jpg"
@@ -266,6 +321,8 @@ images:
     title: "fixing these brakes"
     description: "Metelkova, Ljubljana /HR"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Ljubljana"
     dam_uid: 728
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/pannelubjiana.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-37.jpg"
@@ -273,6 +330,7 @@ images:
     title: "window"
     description: "on the road"
     author: "Kati Bitzer"
+    loc_country: "GRC"
     dam_uid: 731
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/valeselma.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-38.jpg"
@@ -280,6 +338,7 @@ images:
     title: "Ice Cream"
     description: "Brindisi /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 734
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/brindisigelati.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-39.jpg"
@@ -287,6 +346,7 @@ images:
     title: "reunion"
     description: "squat, Patras /GR"
     author: "Kati Bitzer"
+    loc_country: "GRC"
     dam_uid: 746
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/sitzungpatras.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-40.jpg"
@@ -294,12 +354,14 @@ images:
     title: "waiting for the boat"
     description: "Ancona /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 739
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/anconaselma.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-41.jpg"
     alt: "on the boat to Patras"
     title: "on the boat to Patras"
     author: "Kati Bitzer"
+    loc_country: "GRC"
     dam_uid: 730
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/swimmingpool.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-42.jpg"
@@ -307,6 +369,8 @@ images:
     title: "arrival"
     description: "Split /HR"
     author: "Kati Bitzer"
+    loc_country: "HRV"
+    loc_city: "Split"
     dam_uid: 749
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/ankunftsplit.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-43.jpg"
@@ -314,6 +378,8 @@ images:
     title: "supermarket"
     description: "Italy"
     author: "Kati Bitzer"
+    loc_country: "ITA"
+    loc_city: "Napoli"
     dam_uid: 748
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/supermarket.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-44.jpg"
@@ -321,12 +387,14 @@ images:
     title: "shopping"
     description: "Cascina, Turin /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 743
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/tuttiperoni.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-45.jpg"
     alt: "lunch break"
     title: "lunch break"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 726
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/mangiare.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-46.jpg"
@@ -334,6 +402,7 @@ images:
     title: "sleeping"
     description: "on the road"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 735
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/unterbl_hendenb_umen.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-47.jpg"
@@ -341,6 +410,7 @@ images:
     title: "tag"
     description: "Ljubljana /SLO"
     author: "Kati Bitzer"
+    loc_country: "SVN"
     dam_uid: 741
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/taglubjiana.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-48.jpg"
@@ -348,6 +418,7 @@ images:
     title: "tag"
     description: "Cascina, Turin /I"
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 744
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/tagtorino.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-49.jpg"
@@ -355,6 +426,7 @@ images:
     title: "tag"
     description: "squat, Patras /GR"
     author: "Kati Bitzer"
+    loc_country: "GRC"
     dam_uid: 736
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/tagpatras.jpg"
   - src: "/assets/images/projects/performance/bagger/bagger-50.jpg"
@@ -362,6 +434,7 @@ images:
     title: "tag"
     description: "TNT, Naples /I "
     author: "Kati Bitzer"
+    loc_country: "ITA"
     dam_uid: 732
     original: "fileadmin/s-maj/images/BilderMaja/1997Bagger/BaggerReise/tagnapoli.jpg"
 ---

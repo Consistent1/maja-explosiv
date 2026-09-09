@@ -203,19 +203,21 @@ dev server.** `.eleventy.js` copies both into `.cache/` at config time, so a run
 keeps serving the old markup and the change looks like it did nothing. Only
 `src/_user/assets/css/` is a watch target and hot-reloads.
 
-**Expected build errors right now** (recounted 2026-09-09, after Stage 10):
+**Expected build errors right now** (recounted 2026-09-09, after Stage 11):
 
-- **three** `Featured project '…' not found in any collection` lines — `sisyphos-gate`,
-  `the-wolf`, `blumenwolke`. `src/_user/data/featuredProjects.json` names projects by slug that
-  Stage 0b quarantined; the fourth, `paintings/akwa`, now resolves because Stage 7 migrated it.
-  The build still completes. The rest resolve as Stages 11–14 land, though the entries will need
-  repointing rather than just reappearing — the slugs change under the six→four category
-  mapping. Logged in PLAN.md.
-- **69** `ERROR: Missing project year for image caption` lines. Most old headers carry no year;
-  this is the project-years open item, not a template fault, and it grows with every stage.
+**One class only: 476 × `ERROR: Missing project year for image caption`** (69 before Stage 11).
+Most old headers carry no year, so the caption's Year slot is empty; this is the project-years
+open item in PLAN.md, not a template fault, and it grows with every stage. Nothing else is
+expected — a clean build prints this and nothing more.
 
-The old `Missing image title/year for caption` noise for `sisyphos-gate`, `murals-europe` and the
-paintings collections is **gone** — those files are quarantined.
+**The `Featured project '…' not found in any collection` errors are gone** (all four, owner fixed
+the last one 2026-09-09 by repointing `blumenwolke` to `sculptures/`). If one reappears, it means
+a stage moved a project between categories under the six→four mapping — repoint the slug in
+`src/_user/data/featuredProjects.json`, do not remove the entry.
+
+The old `Missing image title/year for caption` noise is **gone**, but no longer for the reason
+recorded here: `sisyphos-gate` and `murals-europe` are **migrated now, not quarantined**. It went
+away when the caption hand-off in `project.njk` was fixed.
 
 **The site is no longer mostly empty, and the two defects that hid the migrated content are
 fixed** (verified 2026-09-09): image captions render in full, and the four collection pages
@@ -237,16 +239,19 @@ Phases are in PLAN.md; the short version:
 - **Homepage, single project** — structurally close, need a token-accurate pass.
 - **Content migration** — **underway, and it now governs `src/` content.** Read
   `project_docs/content-migration-plan.md` (approved 2026-08-25) before touching content.
-  - **Stages 0–8 are done; Stage 9 is 4 of 6 and Stage 10 is 5 of 8.** 19 projects and 305
-    images live in `src/`.
+  - **Stages 0–11 are done, three of them partial** (9: 4 of 6, 10: 5 of 8, 11: 40 of 44).
+    **59 projects and 796 images live in `src/`** — the site has real content now.
+    **Stage keys are strings**: stage 11 is `11a`/`11b`/`11c`, because container 877 splits into
+    two sub-containers with different categories and one nests a third.
     The project pipeline is `migrated-content/_tools/{extract,convert,verify}_projects.py`;
     adding a stage is one row in `STAGES`. Per-stage decisions and traps:
-    **`migrated-content/projects/SOURCE.md`**. Stages 11–14 remain — see the `HANDOFF`
+    **`migrated-content/projects/SOURCE.md`**. Stages 12–14 remain — see the `HANDOFF`
     section at the end of the migration plan.
-  - **Five projects are HELD, not skipped.** Four (`casino-gitano`, `elxt-90`, `wheel-of-power`,
-    `destroy-hiv`) pending Maja's answer on video; `metal-group-xix` pending a decision on RTE
-    thumbnail-index tables. Held pages are fully extracted; one line in `STAGES[n]['hold']`
-    releases each.
+  - **Eight projects are HELD, not skipped.** Five (`casino-gitano`, `elxt-90`,
+    `wheel-of-power`, `destroy-hiv`, `the-helixes`) pending Maja's answer on video; three
+    (`metal-group-xix`, `the-birds`, `portraits`) pending a decision on RTE payload. Held pages
+    are fully extracted; one line in `STAGES[n]['hold']` releases each. A ninth,
+    `the-alchemy-bar`, is skipped by design — see `content_from_pid` below.
   - **`body_md` cannot represent images, tables, or image-wrapped links, and used to lose them
     silently.** It corrupted `metal-group-xix` — 12 thumbnails and 12 internal links became the
     run-on string `107710731063…` — while the extractor, the caption check and the body check
@@ -254,6 +259,19 @@ Phases are in PLAN.md; the short version:
     Three guards now catch it (extractor `RTE-PAYLOAD` anomaly, `body_md` raises, verifier
     embedded-`<img>` + empty-block checks). **Stage 11 hits this four more times, larger.**
     Never conclude "no gallery" from `imgs=0` alone — check the bodytext.
+  - **A TYPO3 page can render ANOTHER page's content: `pages.content_from_pid`.** Page 949 sets
+    it to 937 — its own content is hidden, so it read as near-empty while the live site served a
+    full 36-image project. Nothing in the pipeline read the column until Stage 11, and it was
+    caught only because the live capture was 29 kB against ~18 kB for its siblings. Three
+    mechanisms now have to be checked before calling a page empty: `shortcut`, `content_from_pid`,
+    and child pages (sub-containers). The extractor reads all three.
+  - **Metadata that never renders is still content and still migrates** (owner, 2026-09-09).
+    The DAM record was being read for five fields out of a dozen; `loc_country` (170 images),
+    `loc_city` (147), `dam_categories` (71), `caption` (16), `loc_desc` (16) and `copyright` (7)
+    were all being dropped, across **every** project stage. Fixed and re-run. Two traps if you
+    touch this: `tx_dam.loc_country` stores `'0'` for unset, and `tx_dam.category` is a *count*,
+    not a category — the real ones are the `tx_dam_mm_cat` → `tx_dam_cat` join. Do not decide a
+    field is unnecessary because the old site does not print it.
   - **`src/pages/` and `src/posts/` now contain only migration output** — currently one file,
     `about/links.md`. The 38 pre-existing Markdown files were **moved**, not deleted, to
     `pre-migration-content/`. The old "~26 of ~71 projects converted" line was wrong twice

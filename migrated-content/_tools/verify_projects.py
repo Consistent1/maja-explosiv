@@ -83,26 +83,56 @@ def run(stage):
         # description -- and every later element then compares against the wrong
         # position, reporting a false ORDER DIFFERS. malaga-la-vache has 15 elements of
         # which 2 have no <p>; the paired regex found 13 and mismatched from the first.
+        # Compare the caption as the live site actually builds it, field by field:
+        #     <h3> = tx_dam.title      <p> = description [+ " | " + creator]
+        # and nothing else. The earlier version compared the DESCRIPTION alone, recovered
+        # with `x.split('|')[0]`, which broke in two ways found at Stage 11:
+        #   - `flower-power` descriptions contain a literal "||" ("Close Up Bouquet Nr. 1
+        #     || Berlin, October 2019"). Splitting on the first "|" truncated the live side
+        #     to "Close Up Bouquet Nr. 1" and reported a false ORDER DIFFERS on a page that
+        #     was correct.
+        #   - `hafenszene` has SEVEN images and not one description: both sequences were
+        #     ['', '', ...] and `order OK` meant nothing at all. Its <h3> titles are
+        #     distinct ("Harbor Scene, full view" / "... dining room"), so including the
+        #     title makes the check real. Same vacuous-pass shape as the body check.
         img_blocks = re.split(r'<div class="imageElement">', h)[1:]
         live_seq = []
         for blk in img_blocks:
-            m = re.match(r'\s*<h3>(.*?)</h3>', blk, re.S)
-            d = re.match(r'\s*<h3>.*?</h3>\s*<p>(.*?)</p>', blk, re.S)
-            live_seq.append(norm(d.group(1)) if d else '')
-        ours_seq = [norm(im['description']) for im in p['images']]
-        # live captions append "| creator"; ours keep the fields apart
-        live_cmp = [x.split('|')[0].strip() for x in live_seq]
+            m = re.match(r'\s*<h3>(.*?)</h3>(?:\s*<p>(.*?)</p>)?', blk, re.S)
+            live_seq.append((norm(txt(m.group(1))) if m else '',
+                             norm(txt(m.group(2))) if (m and m.group(2)) else ''))
+        def caption(im):
+            # Reproduce the old site's <p> EXACTLY: description, then each credit field
+            # that is set, joined by " | ". Two details matter and both caused a false
+            # ORDER DIFFERS before they were understood:
+            #   - `copyright` is a second credit and is printed after `creator`
+            #     ("Berlin 2008 | Maja Thommen | Erico Moreira", page 995).
+            #   - the separator is printed even when the DESCRIPTION is empty, so bagger's
+            #     image 32 renders as "| Kati Bitzer". Stripping that leading "|" to tidy
+            #     the string makes a correct page fail.
+            parts = [norm(im['description'])]
+            for f in ('creator', 'copyright'):
+                if norm(im.get(f)): parts.append(norm(im[f]))
+            return (norm(im['title']), norm(' | '.join(parts)) if len(parts) > 1
+                                       else parts[0])
+        ours_seq = [caption(im) for im in p['images']]
+        live_cmp = live_seq
         order_ok = len(live_cmp) == len(ours_seq) and live_cmp == ours_seq
         first_diff = next((i+1 for i,(a,b) in enumerate(zip(live_cmp, ours_seq)) if a != b), None)
+        # If every live caption is blank there is nothing to order by, and "order OK" would
+        # be the same empty-needle pass that let page 1078 through. Say so instead.
+        order_blind = bool(live_cmp) and not any(a or b for a, b in live_cmp)
 
-        ok = head_ok and body_ok and caps == cap_total and order_ok and not embedded
+        ok = (head_ok and body_ok and caps == cap_total and order_ok
+              and not embedded and not order_blind)
         if not ok: fails += 1
         rows.append((p['slug'],
                      'header OK' if head_ok else 'HEADER MISMATCH',
                      (f'body OK ({len(text_blocks)} blk)' if body_ok
                       else f'BODY MISMATCH {len(missing_blocks)}/{len(text_blocks)}'),
                      f'captions {caps}/{cap_total}',
-                     ('order OK' if order_ok else
+                     ('ORDER UNVERIFIABLE (no captions at all)' if order_blind else
+                      'order OK' if order_ok else
                       (f'ORDER DIFFERS at {first_diff}' if first_diff
                        else f'ORDER len {len(live_cmp)} vs {len(ours_seq)}'))
                      + (f'  <== {len(embedded)} EMBEDDED IMG not in any gallery'
@@ -115,4 +145,4 @@ def run(stage):
     return fails
 
 if __name__ == '__main__':
-    sys.exit(1 if run(int(sys.argv[1]) if len(sys.argv)>1 else 6) else 0)
+    sys.exit(1 if run(sys.argv[1] if len(sys.argv)>1 else '6') else 0)

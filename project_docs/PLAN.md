@@ -6,23 +6,71 @@
 
 ---
 
-## Resume here (2026-09-09)
+## Resume here (2026-09-09, later)
 
 **Everything that needs your judgement is in one place: § _Open items needing input_, at the
-bottom of this file. 54 open items, 16 of them `ASK MAJA:`.** (The count read 49; it was
+bottom of this file. 56 open items, 16 of them `ASK MAJA:`.** (The count read 49; it was
 already stale by three, and Stage 10 added one — recounted 2026-09-09.) Nothing is filed
 anywhere else. Where the detail is
 too long to sit in that list, the item names the document that holds it — every such document
 is linked from here or from `project_docs/DOCS.md`, which indexes all of them.
 
-**Content migration — Stages 6, 7 and 8 are done; Stages 9 and 10 are partial.** Murals
+**Content migration — Stage 11 is in, and the site now has real content: 59 projects, 796
+images.** Sculptural work (container 877) split into three sub-stages — `11a` 1039 Sculptures →
+`sculptures` (23 projects), `11b` 1040 Installations → `installations` (14), `11c` 1068 Portraits
+→ `sculptures` (3) — for **40 of 44 pages and 491 images, verified 44/44 against live**. Stage
+keys are strings now, because 877's sub-containers map to different categories. Collection pages:
+sculptures 31, installations 17, paintings 7, performance 4.
+
+**Three pipeline faults were found doing it, all of the same family as the Stage 10 one — checks
+that agreed with each other because they shared a blind spot:**
+
+1. **`pages.content_from_pid` was never read.** Page **949 The Alchemy Bar** renders page 937's
+   content; its own is hidden. It looked near-empty while the live site served a full 36-image
+   project. Caught only because its live capture came back 29 kB against ~18 kB for its siblings.
+   Now a first-class skip, like `shortcut`. Five pages site-wide use it; 949 was the only one
+   nothing caught.
+2. **Most of the DAM record was never read.** Found as `copyright` — a second credit the live
+   site prints after `creator`; page 995 Soldier renders `Berlin 2008 | Maja Thommen | Erico
+   Moreira` and we emitted only `Maja Thommen`. On your instruction that metadata which never
+   renders is still content, the rest of `tx_dam` was audited and the loss was far wider and
+   **spanned every project stage**: `loc_country` (170 images), `loc_city` (147),
+   `dam_categories` (71 — *2D*, *poster*, *concept illustration*, *current work*),
+   `caption` (16), `loc_desc` (16), `copyright` (7). **15 projects across Stages 6–11** were
+   affected; all stages were re-run and **427 values are now in `src/`**. My first pass had
+   recorded leaving `caption`/`publisher` unread as a deliberate decision — that was wrong, and
+   `SOURCE.md` now says so. Stages 1–5 and the timeline were checked for the same gap: none.
+3. **The gallery order check was comparing descriptions alone, via `split('|')[0]`** — which
+   truncated any description containing `||` (failing `flower-power`, a correct page), proved
+   nothing at all on a project with no descriptions (`hafenszene`, 7 images, `order OK` was
+   vacuous), and hid both the missing `copyright` and the site's habit of printing the separator
+   even when the description is empty. It now reconstructs the live caption exactly and compares
+   `(title, caption)` tuples; an all-blank gallery reports `ORDER UNVERIFIABLE`.
+
+All eight stages were re-run under the stricter checks: **8/8, 73 pages, all match live.**
+
+**Two prerequisites were flagged for "before Stages 6–11" and the stages ran without them.**
+The "live page, hidden gallery" census has now been run (2026-09-09) and is recorded in its open
+item below. Nothing migrated is wrong because of it — hidden elements are never walked — but it
+found that **Affenbande, Hinwil and Hafenszene each carry the same hidden 28-image
+`Workshop Impressions` gallery** beside their live one, and that this is almost certainly the
+live-side counterpart of the deleted `sennhof` staging page. Eight live pages have a hidden
+gallery in all; three of them are now migrated.
+
+**~~One line of config is now wrong~~ — fixed by the owner, 2026-09-09.** Stage 11 moved
+Blumenwolke to `sculptures/` under the six→four mapping and `featuredProjects.json` was repointed
+to match; `sisyphos-gate` and `the-wolf` resolved on their own. **All four featured projects now
+resolve, and the build's only remaining error class is the 476 missing project years.**
+
+**Content migration — Stages 6, 7 and 8 are done; Stages 9, 10 and 11 are partial.** Murals
 (3 projects, 40 images), paper work (4 projects, 52 images) and event organisation (3 projects,
 78 images), each verified against the live site on heading, every text block, every caption,
-**and gallery order**. Stage 9 (performance) migrated 4 of 6; Stage 10 (collaborations, added
-2026-09-09) migrated **5 of 8, 46 images, verified 8/8 against live**. Five projects are
-**held** across the two stages: `casino-gitano`, `elxt-90`, `wheel-of-power` and `destroy-hiv`
-on the unanswered video question, and `metal-group-xix` on RTE thumbnail-index tables (below).
-All are fully extracted; one line each releases them.
+**and gallery order**. Stage 9 (performance) migrated 4 of 6, Stage 10 (collaborations) 5 of 8, Stage
+11 (sculptural work) 40 of 44. **Eight projects are held** across the three: `casino-gitano`,
+`elxt-90`, `wheel-of-power`, `destroy-hiv` and `the-helixes` on the unanswered video question;
+`metal-group-xix`, `the-birds` and `portraits` on RTE payload. All are fully extracted; one line
+each releases them. A ninth, `the-alchemy-bar`, is **skipped by design** — it renders another
+page's content.
 
 **A silent data-loss bug was found and fixed — by you looking at the live page, not by any
 check.** `metal-group-xix` was migrated and reported as verified. Its second text block is a
@@ -33,7 +81,8 @@ all three only understand DAM gallery markup and plain text. Three guards now ex
 layers, each regression-tested; the corrupted file is deleted and the page is held. Full account:
 `migrated-content/projects/SOURCE.md` § *Stage 10*. **Stage 11 hits the same shape four more
 times and larger** — 1039 (25 images), 1040 (21), 1050 (11), 1068 (2). One page was deliberately skipped: 982 "Breath under Water" is a TYPO3 shortcut whose
-content lives under a different container. **Stages 11–14 not started.** Per-stage detail:
+content lives under a different container. **Stages 12–14 not started**, and 12 (News) is
+likely moot. Per-stage detail:
 `migrated-content/README.md`; method and decisions: `migrated-content/projects/SOURCE.md`; the
 remaining brief: the HANDOFF section at the end of `project_docs/content-migration-plan.md`.
 
@@ -1207,6 +1256,14 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   in the same position. Decide which stage owns 1049, or add one. Detail in
   `migrated-content/projects/SOURCE.md` § *Stage 7*.
 
+  **This item grew at Stage 11 and now blocks a second page.** Page **949 "The Alchemy Bar"**,
+  under container 1040 Installations, sets `pages.content_from_pid = 937` — it **renders 937's
+  content**, and its own text and gallery are hidden. So the live site serves a full 36-image
+  project at a URL that belongs to Stage 11, while the content itself sits in the unowned
+  container 1049. 949 is skipped by design and **whatever resolves 1049 resolves it too**; if
+  1049's content is migrated under a different slug, 949's live URL needs to point there.
+  Same relationship 982 has to 924. See `SOURCE.md` § *Stage 11*.
+
 - [ ] **ASK MAJA: what should happen to the videos?** (raised 2026-08-27, Stage 9;
   **blocking 2 projects now and at least 4 more later**.) Six pages carry video as
   `CType: html` embeds — **926 Elxt 90, 928 Bagger, 933 Casino Gitano, 946 Wheel of Power,
@@ -1218,11 +1275,16 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   So the likely answer is "link out, do not embed" — but that is hers to give, and it needs
   a Figma component either way. **Four projects are now HELD** on this one question:
   `casino-gitano` and `elxt-90` (`STAGES[9]['hold']`), and — added 2026-09-09 at Stage 10 —
-  `wheel-of-power` and `destroy-hiv` (`STAGES[10]['hold']`). All four are fully extracted and
-  one line each releases them. Stage 10's two take the same shape as Casino Gitano: a **live**
-  headed text block of video links (uids 1446, 1572) beside **hidden** `html` embeds. The
-  hidden embeds were never at risk — only that live block is withheld. `1064 The Helixes`
-  remains ahead, in Stage 11.
+  `wheel-of-power` and `destroy-hiv` (`STAGES[10]['hold']`), and `the-helixes`
+  (`STAGES['11b']['hold']`, added 2026-09-09 — a live `Videos` block, uid 1616, plus 6 hidden
+  embeds). **That is all six video pages accounted for**: 928 Bagger migrated (its note is
+  plain text), and 949 The Alchemy Bar turned out to render another page's content entirely.
+  All five held pages are fully extracted and one line each releases them.
+
+  **They are all one shape**, confirmed across three stages: a **live** headed text block of
+  video links (uids 1446, 1572, 1616) beside **hidden** `html` embeds. The hidden embeds were
+  never at risk — the extractor walks live rows only — so what is actually withheld in every
+  case is that one live block. Answering the question releases all five at once.
 
 - [ ] **How should an RTE thumbnail-index table be represented?** (raised 2026-09-09,
   Stage 10; **holding 1 project now and blocking 4 more in Stage 11**.) Several pages carry, in
@@ -1235,12 +1297,27 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   `body_md` cannot represent any of it and, until 2026-09-09, **destroyed it silently** — see
   the *Resume here* note above. It now refuses, so these pages fail loudly instead.
 
+  **Stage 11 confirmed two of these and showed they are not all one problem.** `1050 The Birds`
+  is held, but it is **not** an index of links: it is a **multi-work page** — several distinct
+  bird sculptures, each a bold title, a description and a table of two captioned photos. And
+  `1068 Portraits` carries only 2 illustrative images in its intro. So there are at least three
+  shapes here — cross-link index (1078), multi-work page (1050), illustrated intro (1068) — and
+  a single answer may not fit all three. 1039 and 1040 are container pages and are a fourth.
+
   **The decision needed:** is this navigation (a related-projects strip, which the site's own
   collection pages arguably already provide), or is it content (a gallery that happens to link
   out)? There is no Figma component for either. Until it is answered, every page carrying one
   is held. Note the images themselves are **`uploads/RTEmagicC_*`** — TYPO3's RTE copies, a
   different store from the DAM originals in `image-archive/`, so they are not yet in the
   archive's coverage.
+
+- [ ] **What does the `Portraits` page itself become?** (raised 2026-08-27 as a Stage 11
+  unknown; **half-resolved 2026-09-09**.) Its three children — Alberto (22 images), Käthe (16),
+  Bernhard (12) — are ordinary projects and **are now migrated**, as sub-stage `11c` into
+  `sculptures`, agreeing with where `convert_images.py` had already filed their image files. So
+  nothing is lost either way. What remains open is only page **1068 itself**: it carries a real
+  intro text naming the three artists, plus 2 RTE images and no gallery. Page of its own,
+  grouping in the listing, or nothing? It is held until you say.
 
 - [ ] **`metal-group-xix` also has no DAM gallery at all.** (raised 2026-09-09, Stage 10.)
   Separately from the table above: its `list` element (uid 1655) is `hidden = 1`, so even once
@@ -1401,8 +1478,9 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   Broken in the deployed `docs/` too, so they are 404s on the live site right now and predate
   the migration. Either build the pages or drop the links — not a migration question.
 
-- [ ] **The deleted `sennhof` page looks like a staging page — check it before Stages 6–11.**
-  (raised 2026-08-26.) `pages.uid = 1079`, deleted and hidden, preserved at
+- [ ] **The deleted `sennhof` page looks like a staging page.** (raised 2026-08-26 as
+  "check before Stages 6–11"; **those stages have now run without it** — see the hidden-gallery
+  census above, which lands on the same three pages and strongly supports the reading below.) `pages.uid = 1079`, deleted and hidden, preserved at
   `migrated-deleted-content/maja/deleted-pages/1079-sennhof/`. Two signals point the same way:
   its text sits under a heading *"workshop views"* but describes the **Affenbande monkeys**
   (five sculptures, 2020–2022, Zürich, Galerie Neurotitan) — and its images overlap heavily
@@ -1568,14 +1646,98 @@ and **the old photo is deliberately not carried over**. It is preserved at
 
 - [ ] **Ask Maja to confirm the 8 collaborations projects belong under `sculptures`** — she may overrule.
 
-- [ ] **Run a "live page, hidden gallery" census before Stages 6–11** — how many published pages have their gallery switched off, as Metal Group XIX does. The archive's hidden bucket is 145 MB, so this is not a one-off.
-  **Second confirmed instance, found at Stage 7:** page **924 "Breath Under Water"** has a
-  live 38-image gallery (`tt_content 1216`) *and* a hidden 39-image one (`1496`) beside it.
-  Two instances now, so this is a pattern rather than a one-off. Stages 6 and 7 were
-  unaffected — neither container held such a page.
+- [ ] **CHECK ON THE LIVE SITE: are these 12 galleries actually hidden, and is nothing shown
+  in their place?** (raised 2026-09-09 at your request, after Stage 11.)
+
+  **Why this is not a formality.** `hidden = 1` in the database does **not** mean the live page
+  shows nothing. Page **949 The Alchemy Bar** has its gallery hidden and **still serves 36
+  images** — TYPO3's `pages.content_from_pid` makes it render page 937's content instead. That
+  was found by accident, because its live capture came back 8 kB larger than its siblings.
+  There may be other mechanisms doing the same thing, so the question for each row below is not
+  "is the element hidden" (the database already answers that) but **"what does the page actually
+  display, and where did it come from?"**
+
+  Every hidden `list` element on a **live** page — 12 elements, 10 pages:
+
+  | # | page | container | element | header | imgs | live gallery beside it | live page shows | status |
+  |---|---|---|---|---|---|---|---|---|
+  | 1 | 1078 Metal Group XIX | 878 | 1655 | `Metal Group XIX` | **50** | none | **0** | ✅ checked — hidden confirmed |
+  | 2 | 924 Breath Under Water | 1049 | 1496 | `The Whale (Kopie 1)` | **39** | yes, 38 | **38** | ✅ checked — live one only |
+  | 3 | **949 The Alchemy Bar** | 1040 | 1267 | `the Alchemy Bar` | **35** | none | **36** | ❌ **MISMATCH — renders page 937 via `content_from_pid`** |
+  | 4 | 1039 Sculptures | 877 | 1507 | `recent sculptures` | **31** | none | — | ⬜ **not checked** |
+  | 5 | 1040 Installations | 877 | 1513 | `recent sculptures` | **31** | none | — | ⬜ **not checked** |
+  | 6 | 1073 Affenbande | 1039 | 1648 | `Workshop Impressions` | **28** | yes, 23 | **23** | ✅ checked — live one only |
+  | 7 | 1077 Hinwil | 1039 | 1650 | `Workshop Impressions` | **28** | yes, 19 | **19** | ✅ checked — live one only |
+  | 8 | 1080 Hafenszene | 1039 | 1661 | `Workshop Impressions` | **28** | yes, 7 | **7** | ✅ checked — live one only |
+  | 9 | 1039 Sculptures | 877 | 1505 | `recent sculptures` | 1 | none | — | ⬜ **not checked** |
+  | 10 | 1040 Installations | 877 | 1511 | `recent sculptures` | 1 | none | — | ⬜ **not checked** |
+  | 11 | 869 painting | 977 | 1397 | `Bio short list` | **0** | none | — | ⬜ not checked (empty — nothing to show) |
+  | 12 | 973 contact | 972 | 1279 | `Anfrage` | **0** | none | — | ⬜ not checked (empty — nothing to show) |
+
+  **Six are already verified** against live captures held in
+  `migrated-content/projects/raw/live/` — the count in *live page shows* is `<div
+  class="imageElement">` blocks on the fetched page. Five match the database exactly; 949 does
+  not.
+
+  **The four that matter and are unchecked are rows 4, 5, 9 and 10** — the container pages
+  `1039 Sculptures` and `1040 Installations`, each carrying two hidden `recent sculptures`
+  galleries (31 + 1 images). They deserve care for a specific reason: **pages 1041 and 1042
+  under container 867 `recent work` set `content_from_pid` to 1040 and 1039**, so they mirror
+  exactly these two pages. That is the same mechanism that caught us out on 949, pointed at the
+  same content. Rows 11 and 12 hold no images at all, so nothing can be displayed in their
+  place; they are listed only for completeness.
+
+  **What to look at.** For each unchecked row, open the live URL and count the gallery images.
+  If the page shows a gallery it should not have, the question becomes where it came from —
+  check `pages.content_from_pid` and `pages.shortcut` first. **Nothing migrated depends on the
+  answer** (hidden elements are never walked, so no hidden image has been published), but a
+  page displaying content the database says is hidden means the extractor's model of that page
+  is wrong, and that is how content goes missing in the stages still to come.
+
+  I can fetch the four remaining pages and fill in the column — say the word; it is 4 requests
+  at the agreed 1-per-2-seconds.
+
+  Related: the `Workshop Impressions` finding in the census item below (rows 6–8 are the same
+  gallery, attached to three pages and hidden on all three), and the container-1049 item, which
+  now owns row 3.
+
+- [ ] **~~Run a "live page, hidden gallery" census before Stages 6–11~~ — census RUN
+  2026-09-09, but AFTER those stages, not before.** The stages went ahead without it; this
+  records what it would have said. Nothing migrated is wrong as a result — hidden elements are
+  never walked — but the decisions below were taken without this in view.
+
+  **Every live page with a hidden `list` element, with the images behind it:**
+
+  | page | container | hidden imgs | live gallery? |
+  |---|---|---|---|
+  | 1078 Metal Group XIX | 878 | 50 | no — held |
+  | 924 Breath Under Water | 1049 | 39 | yes (38) |
+  | 949 The Alchemy Bar | 1040 | 35 | no — renders 937's instead |
+  | 1039 Sculptures / 1040 Installations | 877 | 32 each | container pages |
+  | **1073 Affenbande** | 1039 | **28** | **yes (23) — MIGRATED** |
+  | **1077 Hinwil** | 1039 | **28** | **yes (19) — MIGRATED** |
+  | **1080 Hafenszene** | 1039 | **28** | **yes (7) — MIGRATED** |
+  | 869 painting, 973 contact | — | 0 | empty `list` elements |
+
+  **The finding: those three 28-image galleries are the SAME gallery.** Each is a hidden
+  `list` element headed **`Workshop Impressions`** (uids 1648, 1650, 1661), and the DAM uid
+  lists are **identical across all three** — 2612…2742, from `2020_Affenhorde/`. So one
+  workshop set was attached to three project pages and switched off on all three.
+
+  **This merges with the `sennhof` item below**, which independently found that the deleted
+  page 1079 sits under a heading *"workshop views"* and shares 19 files with `hinwil` and 17
+  with `affenbande`/`hafenszene`. Same material, same three pages. Whatever `sennhof` was,
+  `Workshop Impressions` is its live-side counterpart.
+
+  **What is needed:** is `Workshop Impressions` a gallery Maja meant to publish (one set, shown
+  on each of the three projects it documents), or working material deliberately switched off?
+  Nothing was assumed — the three projects migrated with their live galleries only, which is
+  faithful to the live site.
 
 - [ ] **Pages that are published while their image gallery is hidden.** (raised 2026-08-27,
-  needed before Stages 6–11.) **Metal Group XIX** (`pages.uid = 1078`) is the known case: the
+  "needed before Stages 6–11" — **the stages ran first; the census is now done, above, and
+  found eight such pages, three of them already migrated**.) **Metal Group XIX**
+  (`pages.uid = 1078`) is the known case: the
   page is live with two text blocks, but its gallery element (`uid 1655`, CType `list`) is
   `hidden = 1`, so its **50 images do not display on the live site.** Confirmed by fetching
   `content/sculptures/collaborations/metal-group-xix.html` — text renders, gallery does not.

@@ -1,5 +1,5 @@
 {
- "stage": 7,
+ "stage": "7",
  "container": 875,
  "container_name": "paper work",
  "category": "paintings",
@@ -9,6 +9,7 @@
    "page_title": "Concept Illustration",
    "page_sorting": 256,
    "shortcut": null,
+   "content_from_pid": null,
    "skip_reason": null,
    "child_pages": 0,
    "slug": "concept-illustration",
@@ -37,6 +38,17 @@
      "title": "Mantelheizung / Coat Heating",
      "description": "heated seat installation for Christmas market, Berlin /D 2004",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1072911600,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/Mantelheizung1.jpg"
     },
@@ -46,6 +58,17 @@
      "title": "Mantelheizung / Coat Heating",
      "description": "heated seat installation for Christmas market, Berlin /D 2004",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1072911600,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/Mantelheizung2.jpg"
     },
@@ -55,6 +78,17 @@
      "title": "Les Motasses",
      "description": "design of acrobatic moped, Italy 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "ITA",
+     "loc_city": "Roma",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136070000,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/motasseMoped.jpg"
     },
@@ -64,6 +98,17 @@
      "title": "Les Motasses I/B",
      "description": "illustration for the new show proposal, Italy 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "ITA",
+     "loc_city": "Roma",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136070000,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/motasse1.jpg"
     },
@@ -73,6 +118,17 @@
      "title": "Les Motasses",
      "description": "illustration for the new show proposal, Italy 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "ITA",
+     "loc_city": "Roma",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136070000,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/motasse2.jpg"
     },
@@ -82,6 +138,17 @@
      "title": "Dolce Corpu",
      "description": "character and costume design for stilt walking actors, in commission of Zirkus Amalgan, Berlin /D 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1072915200,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/Dc1.jpg"
     },
@@ -91,6 +158,17 @@
      "title": "Dolce Corpu",
      "description": "character and costume design for stilt walking actors, in commission of Zirkus Amalgan, Berlin /D 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1072915200,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/Dc2.jpg"
     },
@@ -100,6 +178,14 @@
      "title": "Elxt 90",
      "description": "extract of internal show proposals for the new seasons, Berlin /D 2003",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1238701410,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/elxt.jpg"
     },
@@ -109,6 +195,17 @@
      "title": "Elxt 90",
      "description": "extract of internal show proposals for the new seasons, Berlin /D 2003",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1041375600,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/ElxtAireals1.jpg"
     },
@@ -118,6 +215,17 @@
      "title": "Elxt 90",
      "description": "extract of internal show proposals for the new seasons, Berlin /D 2003",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1041375600,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/ElxtKokooons.jpg"
     },
@@ -127,6 +235,17 @@
      "title": "lamps",
      "description": "proposal for illumination, Kulturbrauerei Prenzlauerberg, Berlin /D 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1072911600,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/Lampen1.jpg"
     },
@@ -136,6 +255,14 @@
      "title": "lamps",
      "description": "proposal for illumination, Kulturbrauerei Prenzlauerberg, Berlin /D 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1238701410,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/Lampen2.jpg"
     }
@@ -146,6 +273,7 @@
    "page_title": "Graphical Work",
    "page_sorting": 384,
    "shortcut": null,
+   "content_from_pid": null,
    "skip_reason": null,
    "child_pages": 0,
    "slug": "graphical-work",
@@ -174,6 +302,17 @@
      "title": "Pyrobotic Cabaret",
      "description": "Poster first Free Radical show, Berlin /D 2002",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 1041375600,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/Pyrobotic.jpg"
     },
@@ -183,6 +322,17 @@
      "title": "dj Yke",
      "description": "cd cover design, Berlin /D 2004",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 1136070000,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/djYke.jpg"
     },
@@ -192,6 +342,17 @@
      "title": "Punkroid",
      "description": "Inspiration for mechanical half mask, Biel /CH 1997",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Biel",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 852073200,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/PUNKROID.jpg"
     },
@@ -201,6 +362,17 @@
      "title": "Tekroid",
      "description": "Inspiration for latex half mask, Biel /CH 1997",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Biel",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757382400,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/tekroid.jpg"
     },
@@ -210,6 +382,17 @@
      "title": "Fly scetch",
      "description": "Scetches for book cover E.Moreira, Lugano /CH 2002",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Barcelona",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 1041375600,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/EricoSKIZZE.jpg"
     },
@@ -219,6 +402,17 @@
      "title": "Fly",
      "description": "Book cover for E.Moreira, Lugano /CH 2002",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Barcelona",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 1041375600,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/ERICO.jpg"
     },
@@ -228,6 +422,17 @@
      "title": "Bagger",
      "description": "Genoa /I 1997",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Genova",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 852073200,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/baggergenua.jpg"
     },
@@ -237,6 +442,17 @@
      "title": "Mordgedanken",
      "description": "Illustration for Bagger record, Biel /CH 2002",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Leipzig",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 883609200,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/baggerplatte.jpg"
     },
@@ -246,6 +462,17 @@
      "title": "Spamabilly vs Bagger",
      "description": "Zurich /CH 1999",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Zuerich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 915145200,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/BaggerRobot.jpg"
     },
@@ -255,6 +482,17 @@
      "title": "Beau",
      "description": "Biel /CH 2001",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Barcelona",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 978303600,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/beaunew.jpg"
     },
@@ -264,6 +502,14 @@
      "title": "Bar",
      "description": "Study for unrealized comic strip with writer Nik Leuthold, Pfäffikon 1999",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Zuerich",
+     "dam_categories": [],
      "date_cr": 999640800,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/bar2.jpg"
     },
@@ -273,6 +519,14 @@
      "title": "Bar ",
      "description": "Study for unrealized comic strip with writer Nik Leuthold, Arnhem /NL 2001",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 999640800,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/bar3.jpg"
     },
@@ -282,6 +536,14 @@
      "title": "Dj",
      "description": "Dj study, Amsterdam /NL 2000",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Amsterdam",
+     "dam_categories": [],
      "date_cr": 999640800,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/dj-org-test.jpg"
     },
@@ -291,6 +553,14 @@
      "title": "Dj Androgyn",
      "description": "Amsterdam /NL 2000",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Amsterdam",
+     "dam_categories": [],
      "date_cr": 980982000,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/djneugesicht3.jpg"
     },
@@ -300,6 +570,17 @@
      "title": "Hanna",
      "description": "Casino Gitano rehearsal, Berlin /D 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 1104534000,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/hannaBday.jpg"
     },
@@ -309,6 +590,17 @@
      "title": "Franki",
      "description": "Casino Gitano rehearsal, Berlin /D 2007",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757382400,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/frankie.jpg"
     },
@@ -318,6 +610,17 @@
      "title": "Vignanello",
      "description": "study comic background, Vignanello /I 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "ITA",
+     "loc_city": "Vignanello",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136070000,
      "original": "fileadmin/s-maj/images/BilderMaja/concepts/vignanello.jpg"
     },
@@ -327,6 +630,17 @@
      "title": "Fire Friends",
      "description": "logo design, Berlin /D 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 1136070000,
      "original": "fileadmin/s-maj/images/BilderMaja/poster/Firefriends.jpg"
     }
@@ -337,7 +651,8 @@
    "page_title": "Breath under Water",
    "page_sorting": 448,
    "shortcut": 924,
-   "skip_reason": "shortcut to page 924: no content of its own; the content belongs to that page and is migrated by whichever stage owns it",
+   "content_from_pid": 924,
+   "skip_reason": "content_from_pid=924: this page RENDERS PAGE 924's content, not its own. Whatever it holds locally is not what the live site shows. The content belongs to page 924 and is migrated by whichever stage owns it.",
    "child_pages": 0,
    "slug": "breath-under-water",
    "title": "Breath under Water",
@@ -358,6 +673,7 @@
    "page_title": "Akwa",
    "page_sorting": 512,
    "shortcut": null,
+   "content_from_pid": null,
    "skip_reason": null,
    "child_pages": 0,
    "slug": "akwa",
@@ -386,6 +702,17 @@
      "title": "Akwa",
      "description": "Berlin 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1104534000,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa1.jpg"
     },
@@ -395,6 +722,17 @@
      "title": "Akwa",
      "description": "Berlin 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1104534000,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa2.jpg"
     },
@@ -404,6 +742,17 @@
      "title": "Akwa",
      "description": "Berlin 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1104534000,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa3.jpg"
     },
@@ -413,6 +762,14 @@
      "title": "Akwa, variation",
      "description": "Berlin 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1239116379,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/1page.jpg"
     },
@@ -422,6 +779,14 @@
      "title": "feared crab",
      "description": "Berlin 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1239116379,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs11.jpg"
     },
@@ -431,6 +796,14 @@
      "title": "feared crab",
      "description": "Berlin 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1239116379,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs2_1layer.jpg"
     },
@@ -440,6 +813,14 @@
      "title": "feared crab",
      "description": "Berlin 2005",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1239116379,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Akwa/krebs31layer.jpg"
     }
@@ -450,6 +831,7 @@
    "page_title": "Malaga la Vache",
    "page_sorting": 768,
    "shortcut": null,
+   "content_from_pid": null,
    "skip_reason": null,
    "child_pages": 0,
    "slug": "malaga-la-vache",
@@ -478,6 +860,17 @@
      "title": "Malaga la Vache",
      "description": "",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/malaga2.jpg"
     },
@@ -487,6 +880,17 @@
      "title": "studies",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/Scetch2.jpg"
     },
@@ -496,6 +900,17 @@
      "title": "say no to holiday",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/gabriellewillnicht1.jpg"
     },
@@ -505,6 +920,17 @@
      "title": "Malaga likes waterski ",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/ski5.jpg"
     },
@@ -514,6 +940,17 @@
      "title": "the Adriatic coast is beautyful",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/ski2.jpg"
     },
@@ -523,6 +960,17 @@
      "title": "she does not like camping",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/camping1.jpg"
     },
@@ -532,6 +980,17 @@
      "title": "she does really not enjoy camping",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/campingcolori.jpg"
     },
@@ -541,6 +1000,17 @@
      "title": "Gabrielle in Geromes dreams",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/gDance.jpg"
     },
@@ -550,6 +1020,17 @@
      "title": "Malaga falls in love",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/osb1.jpg"
     },
@@ -559,6 +1040,17 @@
      "title": "falls in love",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/osb2.jpg"
     },
@@ -568,6 +1060,17 @@
      "title": "..falls in love",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/osb3.jpg"
     },
@@ -577,6 +1080,17 @@
      "title": "postcards to Gabrielle",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/karteParis.jpg"
     },
@@ -586,6 +1100,17 @@
      "title": "she would like to see Mona Lisa",
      "description": "",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/Monalisa.jpg"
     },
@@ -595,6 +1120,17 @@
      "title": "windsurfing is difficult",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/surf1.jpg"
     },
@@ -604,6 +1140,17 @@
      "title": "..but then it works",
      "description": "Malaga la Vache, Berlin 2006",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "concept illustration"
+     ],
      "date_cr": 1136077200,
      "original": "fileadmin/s-maj/images/BilderMaja/2005Malaga/surf3colori.jpg"
     }

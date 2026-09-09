@@ -21,18 +21,27 @@ images:
     alt: "Beisel facade, Vienna /A 1994"
     title: "Arena"
     description: "Beisel facade, Vienna /A 1994"
+    loc_country: "AUT"
+    loc_city: "Wien"
+    dam_categories: ["2D", "poster"]
     dam_uid: 614
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/arenaWien.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-02.jpg"
     alt: "Entrance concert room, Prague /CZ 1994"
     title: "Ladronka"
     description: "Entrance concert room, Prague /CZ 1994"
+    loc_country: "CZE"
+    loc_city: "Prag"
+    dam_categories: ["2D", "poster"]
     dam_uid: 609
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/Ladronka.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-03.jpg"
     alt: "Bar installation, Prague /CZ 1994"
     title: "Ladronka"
     description: "Bar installation, Prague /CZ 1994"
+    loc_country: "CZE"
+    loc_city: "Prag"
+    dam_categories: ["2D", "poster"]
     dam_uid: 610
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/Ladronka2.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-04.jpg"
@@ -41,54 +50,81 @@ images:
     title: "Black Hand "
     description: "Cafe, Kavkova, detail, Prague /CZ 1994
 "
+    loc_country: "CZE"
+    loc_city: "Prag"
+    dam_categories: ["2D", "poster"]
     dam_uid: 615
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KavkovaPrag.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-05.jpg"
     alt: "Cafe, Kavkova, Prague /CZ 1994"
     title: "Black Hand"
     description: "Cafe, Kavkova, Prague /CZ 1994"
+    loc_country: "CZE"
+    loc_city: "Prag"
+    dam_categories: ["2D", "poster"]
     dam_uid: 613
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KavkovaPrag2.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-06.jpg"
     alt: "Squatted motorrest, Košice /SK 1994"
     title: "Zeleny Dvor"
     description: "Squatted motorrest, Košice /SK 1994"
+    loc_country: "SVK"
+    loc_city: "Kosice"
+    dam_categories: ["2D", "poster"]
     dam_uid: 618
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/ZelenyDvor.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-07.jpg"
     alt: "Concert hall, Berlin /D 1994"
     title: "Koepi"
     description: "Concert hall, Berlin /D 1994"
+    loc_country: "DEU"
+    loc_city: "Berlin"
+    dam_categories: ["2D", "poster"]
     dam_uid: 616
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KoepiBerlin.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-08.jpg"
     alt: "Kirche von Unten, KvU, detail, Berlin /D 1995"
     title: "KvU"
     description: "Kirche von Unten, KvU, detail, Berlin /D 1995"
+    loc_country: "DEU"
+    loc_city: "Berlin"
+    dam_categories: ["2D", "poster"]
     dam_uid: 617
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/Kvu2.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-09.jpg"
     alt: "Kirche von Unten, detail, Berlin /D 1995"
     title: "KvU"
     description: "Kirche von Unten, detail, Berlin /D 1995"
+    loc_country: "DEU"
+    loc_city: "Berlin"
+    dam_categories: ["2D", "poster"]
     dam_uid: 612
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KvuBerlin.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-10.jpg"
     alt: "Scharni, Berlin /D 1995"
     title: "Kleine Haifischbar"
     description: "Scharni, Berlin /D 1995"
+    loc_country: "DEU"
+    loc_city: "Berlin"
+    dam_categories: ["2D", "poster"]
     dam_uid: 611
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KleineaHaifischBarBerlin.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-11.jpg"
     alt: "Full facade, The Hague /NL 1995"
     title: "Blauwe Aanslag"
     description: "Full facade, The Hague /NL 1995"
+    loc_country: "NLD"
+    loc_city: "Den Haag"
+    dam_categories: ["2D", "poster"]
     dam_uid: 608
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/blaueAanslagDenHaag2.jpg"
   - src: "/assets/images/projects/paintings/murals-europe/murals-europe-12.jpg"
     alt: "Press, The Hague /NL 1995"
     title: "Blauwe Aanslag"
     description: "Press, The Hague /NL 1995"
+    loc_country: "NLD"
+    loc_city: "Den Haag"
+    dam_categories: ["2D", "poster"]
     dam_uid: 607
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/blaueAanslagDenHaag.jpg"
 ---

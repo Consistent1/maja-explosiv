@@ -400,6 +400,136 @@ eight returned `HTTP/2 200` on first request — no 301 chase needed this time.
 is proven by the order check instead, which compares full sequences: 8 live `imageElement`s
 against 8 of ours, identical. Same situation as `malaga-la-vache` in Stage 7.
 
+## Stage 11 — sculptural work (container 877) — **40 of 44**
+
+877 carries no projects of its own. It splits into two sub-containers that map to **different
+categories**, and one of those nests a third. A stage is one container and one category
+everywhere else in this pipeline, so **11 is three rows, not one** — and stage keys became
+strings to allow it (`extract_projects.py 11a`). Existing `stage6.json`…`stage10.json`
+filenames are unchanged.
+
+| sub-stage | container | category | pages | migrated | held / skipped |
+|---|---|---|---|---|---|
+| `11a` | 1039 Sculptures | `sculptures` | 25 | **23**, 272 images | 1068 Portraits, 1050 The Birds |
+| `11b` | 1040 Installations | `installations` | 16 | **14**, 169 images | 1064 The Helixes, 949 The Alchemy Bar |
+| `11c` | 1068 Portraits | `sculptures` | 3 | **3**, 50 images | — |
+
+**Verified 44/44 against live** — heading, every text block, every caption *including both
+credit fields*, and gallery order. 491 images, every one resolving 1:1 from
+`site-images.json`; no image file was written.
+
+### Held: video, and RTE payload — the two classes already known
+
+| page | class | why |
+|---|---|---|
+| 1064 The Helixes | video | live `Videos` text block (uid 1616) + 6 hidden `html` embeds. Same shape as Destroy HIV |
+| 1050 The Birds | RTE payload | text uid 1557 is a **multi-work page**: 11 RTE images in 5 tables, each a photo pair captioned under a bold work title. Not one project, and not a DAM gallery |
+| 1068 Portraits | RTE payload + sub-container | its own intro text carries 2 RTE images and no gallery, *and* it is the container for 11c |
+
+Note 1050 is a different animal from `metal-group-xix`: no links, no index — it is several
+distinct sculptures sharing one page. Whatever is decided for one may not fit the other.
+
+### 949 The Alchemy Bar — `content_from_pid`, a THIRD structural mechanism
+
+Not held: **skipped by design**, and it exposed a gap that had been open since Stage 6.
+
+`pages.content_from_pid = 937` means page 949 **renders page 937's content instead of its
+own**. Its own description and gallery are `hidden = 1` and its only live element is the GDPR
+video note, so to the extractor it looked like a near-empty page — while the live site serves a
+full **36-image project**, page 937's, which lives under container **1049**, a container no
+stage owns.
+
+Caught only because the live capture came back **29 kB against ~18 kB for its siblings**. Nothing
+in the pipeline read the column.
+
+Site-wide, five live pages set `content_from_pid`: 733 (other site), 1041 and 1042 (the
+`recent work` mirrors of 1040/1039), **982 Breath under Water**, and **949**. 982 also sets
+`shortcut`, which is why Stage 7 caught it; **949 sets only this column, and nothing saw it.**
+The extractor now reads it and skips such a page with the source page named — checked *before*
+the empty test, because such a page can carry live elements of its own and so never looks empty.
+
+### The DAM record was being read for five fields out of a dozen — **fixed across all stages**
+
+Found as `copyright`, then widened on the owner's instruction (2026-09-09): *information that
+doesn't render live and exists only as metadata should also be migrated.* **Rendering is not the
+test.** The first pass here judged `caption` and `publisher` unnecessary because the old site
+does not print them, and recorded that as a deliberate decision. That was the wrong call and it
+is corrected below.
+
+`copyright` was the way in: the live caption is `description | creator | copyright`, page **995
+Soldier** renders `Berlin 2008 | Maja Thommen | Erico Moreira`, and reading `creator` alone lost
+the co-credit. Auditing the rest of `tx_dam` then showed the loss was much wider, and **spread
+across every project stage, not just this one**:
+
+| field | images on migrated projects | note |
+|---|---|---|
+| `loc_country` | **170** | ISO-3166 alpha-3. Unset is the literal string `'0'`, not `''` |
+| `loc_city` | **147** | |
+| `dam_categories` | **71** | resolved join `tx_dam_mm_cat` → `tx_dam_cat`: *2D*, *poster*, *concept illustration*, *current work*, *1.Mai* |
+| `caption` | 16 | a venue — `Spannwerk`, on Free Radicals' 16 images |
+| `loc_desc` | 16 | `Rodellar`, `les Prés d'Orvin`, `Tacheles Freifläche` |
+| `copyright` | 7 | |
+
+**15 projects across Stages 6–11 were affected** — akwa, bagger, concept-illustration,
+dada-festwochen, dorfbachschiff, felix-und-regula, forget-me-not, free-radicals, graphical-work,
+malaga-la-vache, murals-europe, soldier, trojan-fire, vulture, wohlgroth. All stages were
+re-extracted and re-converted; **427 values now in `src/`**.
+
+Deliberately not taken, and why: `alt_text`, `abstract`, `language`, `pages`, `instructions`,
+`file_creator`, `file_orig_loc_desc`, `meta` and `ident` are **empty on all 2312 records**;
+`date_mod` is a bookkeeping timestamp; and **`tx_dam.category` is a *count* of assigned
+categories, not a category** — reading it would put `0`, `1` or `2` in the front matter. The
+real categories are the `tx_dam_mm_cat` join.
+
+Two traps in the data itself, both of which produced wrong output before being caught:
+
+- **`loc_country` stores `'0'` for unset.** Untreated, 619 images acquire a country of `"0"`.
+- **`q()` renders SQL `NULL` as the string `'NULL'`** — the same trap `b()` already guards. The
+  categories subquery returns `NULL` for an uncategorised image, so every one of them briefly
+  acquired a category called `NULL`. Caught on the first run.
+
+Field names in the front matter are the **DAM column names verbatim**, so a value is always
+traceable to its source. `author` is the single rename and predates this; it carries the joined
+`creator | copyright` form the live site prints, with `copyright` emitted separately beside it so
+the field is never available only in joined form. `dam_categories` is a resolved join and so has
+a name of its own.
+
+**The other stages were checked for the same class of gap and have none.** Stages 1–5 read
+`tt_content`, and `subheader`, `image`, `imagecaption`, `header_link`, `altText`, `titleText`,
+`longdescURL`, `records` and `pi_flexform` are all empty on every element they use. Stage 3
+reads `tt_news` and already captures **all 33 columns** per entry in `all_fields`.
+
+### The order check was comparing the wrong thing, and passed two pages it should not have
+
+`ORDER DIFFERS at 1` on `flower-power` was the first Stage 11 failure, and it was the *check*
+that was wrong. Three faults, all in one line — `live_cmp = [x.split('|')[0].strip() …]`:
+
+1. **A description containing `||` was truncated.** `flower-power`'s captions read
+   `Close Up Bouquet Nr. 1 || Berlin, October 2019`. Splitting on the first `|` cut the live
+   side down to `Close Up Bouquet Nr. 1` and failed a page that was correct.
+2. **Comparing descriptions alone made the check vacuous where there are none.**
+   `hafenszene` has **7 images and not one description** — both sequences were `['', '', …]`
+   and `order OK` proved nothing. Its `<h3>` titles are distinct, so including the title makes
+   the check real. Same empty-needle shape as the body check that let page 1078 through.
+3. **It hid the missing `copyright`**, and a second convention: where the description is empty
+   but a credit exists, the old site still prints the separator — bagger's image 32 renders as
+   `| Kati Bitzer`. "Tidying" that leading `|` away fails a correct page.
+
+The check now reconstructs the live `<p>` exactly — `description`, then each credit field that
+is set, joined by `" | "` — and compares `(title, caption)` tuples. A page whose live captions
+are *all* blank now reports **`ORDER UNVERIFIABLE (no captions at all)`** rather than `order OK`.
+
+All eight stages were re-extracted, re-converted and re-verified under it: **8/8 stages,
+73 pages, all match live.**
+
+### Sub-containers: `1068 Portraits` resolved as `11c`
+
+The `SUB-CONTAINER` anomaly added at Stage 7 fired exactly as intended. Its three children —
+Alberto (22 images), Käthe (16), Bernhard (12) — are ordinary projects and migrate cleanly as
+`11c` into `sculptures`, agreeing with where `convert_images.py` had already filed their files.
+**What the Portraits page itself becomes is still open** and is why 1068 is held: a page of its
+own, a grouping in the listing, or nothing.
+
 ## The original stays intact
 
 Nothing is edited in place and nothing is normalised away. Three layers hold the source

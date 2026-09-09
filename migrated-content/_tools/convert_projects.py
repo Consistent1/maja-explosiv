@@ -127,7 +127,25 @@ def run(stage, write=False):
             L.append(f'    alt: {y(im["description"] or im["title"] or p["title"])}')
             if im['title']:       L.append(f'    title: {y(im["title"])}')
             if im['description']: L.append(f'    description: {y(im["description"])}')
-            if im['creator']:     L.append(f'    author: {y(im["creator"])}')
+            # The live site prints both credit fields, creator then copyright, joined
+            # by " | " -- and the live site is the source of truth for how a caption
+            # reads (owner, 2026-08-27). `author` therefore carries the joined form; the
+            # two fields stay separate in normalized/ and `copyright` is emitted beside
+            # it so nothing is only available in joined form.
+            credit = ' | '.join(x for x in (im['creator'], im.get('copyright')) if x)
+            if credit:            L.append(f'    author: {y(credit)}')
+            # Every remaining populated DAM field, whether or not the old site printed it.
+            # Metadata that exists only in the database is still content and still migrates
+            # (owner, 2026-09-09) -- 15 projects across Stages 6-11 carry some. Names are
+            # the DAM column names verbatim so a value is always traceable to its source;
+            # `author` is the one rename, and it predates this. `dam_categories` is a
+            # resolved join (tx_dam_mm_cat -> tx_dam_cat), hence a name of its own.
+            for f in ('copyright', 'caption', 'publisher', 'keywords',
+                      'loc_desc', 'loc_country', 'loc_city'):
+                if im.get(f):     L.append(f'    {f}: {y(im[f])}')
+            if im.get('dam_categories'):
+                L.append('    dam_categories: [' +
+                         ', '.join(y(c) for c in im['dam_categories']) + ']')
             L.append(f'    dam_uid: {im["dam_uid"]}')
             L.append(f'    original: {y(im["original"])}')
         # Body = every text element, in `sorting` order, not just the first. A continuation
@@ -162,4 +180,4 @@ def run(stage, write=False):
     print(f"  -> converted/{cat}/  " + ("and src/posts/projects/" if write else "[DRY RUN]"))
 
 if __name__ == '__main__':
-    run(int(sys.argv[1]) if len(sys.argv) > 1 else 6, '--write' in sys.argv)
+    run(sys.argv[1] if len(sys.argv) > 1 else '6', '--write' in sys.argv)

@@ -1,5 +1,5 @@
 {
- "stage": 6,
+ "stage": "6",
  "container": 874,
  "container_name": "murals",
  "category": "paintings",
@@ -9,6 +9,7 @@
    "page_title": "Wohlgroth",
    "page_sorting": 64,
    "shortcut": null,
+   "content_from_pid": null,
    "skip_reason": null,
    "child_pages": 0,
    "slug": "wohlgroth",
@@ -37,6 +38,17 @@
      "title": "Wohlgroth",
      "description": "Klingenstrasse, Zurich /CH 1993",
      "creator": "Oli Knoth",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/WohlgrothOli1.jpg"
     },
@@ -46,6 +58,17 @@
      "title": "Wohlgroth",
      "description": "Josephstrasse, Zurich /CH 1993",
      "creator": "Oli Knoth",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/WohlgrothOli2.jpg"
     },
@@ -55,6 +78,17 @@
      "title": "Wohlgroth",
      "description": "Eckhaus, Klingenstrasse, Zurich /CH 1993",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/Wohl.jpg"
     },
@@ -64,6 +98,17 @@
      "title": "Wohlgroth",
      "description": "Kreis 5, Eckhaus Josephstrasse, Zurich /CH 1993",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/wohl1.jpg"
     },
@@ -73,6 +118,17 @@
      "title": "Wohlgroth",
      "description": "Kreis 5, Eckhaus Josephstrasse, Zurich /CH 1993",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/spritzen3.jpg"
     },
@@ -82,6 +138,17 @@
      "title": "Wohlgroth",
      "description": "Mouth, Josef, Zurich /CH 1993",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/wohl2.jpg"
     },
@@ -91,6 +158,17 @@
      "title": "Wohlgroth",
      "description": "Tigerhead, Jussuf, Zurich /CH 1993",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/wohl5.jpg"
     },
@@ -100,6 +178,17 @@
      "title": "Wohlgroth",
      "description": "Satans Kochnische, Jussuf, Zurich /CH 1993",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/wohl6.jpg"
     },
@@ -109,6 +198,17 @@
      "title": "Wohlgroth",
      "description": "Satans Kochnische, bar room, Zurich /CH 1993",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/wohl4.jpg"
     },
@@ -118,6 +218,17 @@
      "title": "Wohlgroth",
      "description": "Man, Fleischchaes, Zurich /CH 1993",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1993Wohlgroth/wohl3.jpg"
     }
@@ -128,6 +239,7 @@
    "page_title": "Felix und Regula",
    "page_sorting": 128,
    "shortcut": null,
+   "content_from_pid": null,
    "skip_reason": null,
    "child_pages": 0,
    "slug": "felix-und-regula",
@@ -156,6 +268,17 @@
      "title": "Felix und Regula Unterführung",
      "description": "Zurich /CH 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix1.jpg"
     },
@@ -165,6 +288,17 @@
      "title": "Felix und Regula Unterführung",
      "description": "Zurich 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix2.jpg"
     },
@@ -174,6 +308,17 @@
      "title": "Felix und Regula Unterführung",
      "description": "Zurich  /CH 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix3.jpg"
     },
@@ -183,6 +328,17 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, Zurich /CH 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix12.jpg"
     },
@@ -192,6 +348,17 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, Zurich /CH 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix13.jpg"
     },
@@ -201,6 +368,17 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, Zurich /CH 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix5.jpg"
     },
@@ -210,6 +388,17 @@
      "title": "Felix und Regula Unterführung",
      "description": "TA, Zurich /CH 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CHE",
+     "loc_city": "Zürich",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix_nix.jpg"
     },
@@ -219,6 +408,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247246,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f12.jpg"
     },
@@ -228,6 +425,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247245,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f11.jpg"
     },
@@ -237,6 +442,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247247,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f1.jpg"
     },
@@ -246,6 +459,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247247,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f2.jpg"
     },
@@ -255,6 +476,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247246,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f3.jpg"
     },
@@ -264,6 +493,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "detail, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247245,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f4.jpg"
     },
@@ -273,6 +510,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "exit east, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247245,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f5.jpg"
     },
@@ -282,6 +527,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247245,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f6.jpg"
     },
@@ -291,6 +544,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247245,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f7.jpg"
     },
@@ -300,6 +561,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "exit west, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247245,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f8.jpg"
     },
@@ -309,6 +578,14 @@
      "title": "Felix und Regula Unterführung",
      "description": "exit west, 15 years later, Zurich /CH 2009",
      "creator": "Ch. Thommen",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "",
+     "loc_city": "",
+     "dam_categories": [],
      "date_cr": 1242247245,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/f9.jpg"
     }
@@ -319,6 +596,7 @@
    "page_title": "Murals Europe",
    "page_sorting": 392,
    "shortcut": null,
+   "content_from_pid": null,
    "skip_reason": null,
    "child_pages": 0,
    "slug": "murals-europe",
@@ -347,6 +625,17 @@
      "title": "Arena",
      "description": "Beisel facade, Vienna /A 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "AUT",
+     "loc_city": "Wien",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/arenaWien.jpg"
     },
@@ -356,6 +645,17 @@
      "title": "Ladronka",
      "description": "Entrance concert room, Prague /CZ 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CZE",
+     "loc_city": "Prag",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/Ladronka.jpg"
     },
@@ -365,6 +665,17 @@
      "title": "Ladronka",
      "description": "Bar installation, Prague /CZ 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CZE",
+     "loc_city": "Prag",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/Ladronka2.jpg"
     },
@@ -374,6 +685,17 @@
      "title": "Black Hand ",
      "description": "Cafe, Kavkova, detail, Prague /CZ 1994\r\n",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CZE",
+     "loc_city": "Prag",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KavkovaPrag.jpg"
     },
@@ -383,6 +705,17 @@
      "title": "Black Hand",
      "description": "Cafe, Kavkova, Prague /CZ 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "CZE",
+     "loc_city": "Prag",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KavkovaPrag2.jpg"
     },
@@ -392,6 +725,17 @@
      "title": "Zeleny Dvor",
      "description": "Squatted motorrest, Košice /SK 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "SVK",
+     "loc_city": "Kosice",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/ZelenyDvor.jpg"
     },
@@ -401,6 +745,17 @@
      "title": "Koepi",
      "description": "Concert hall, Berlin /D 1994",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KoepiBerlin.jpg"
     },
@@ -410,6 +765,17 @@
      "title": "KvU",
      "description": "Kirche von Unten, KvU, detail, Berlin /D 1995",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/Kvu2.jpg"
     },
@@ -419,6 +785,17 @@
      "title": "KvU",
      "description": "Kirche von Unten, detail, Berlin /D 1995",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KvuBerlin.jpg"
     },
@@ -428,6 +805,17 @@
      "title": "Kleine Haifischbar",
      "description": "Scharni, Berlin /D 1995",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "DEU",
+     "loc_city": "Berlin",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/KleineaHaifischBarBerlin.jpg"
     },
@@ -437,6 +825,17 @@
      "title": "Blauwe Aanslag",
      "description": "Full facade, The Hague /NL 1995",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "NLD",
+     "loc_city": "Den Haag",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/blaueAanslagDenHaag2.jpg"
     },
@@ -446,6 +845,17 @@
      "title": "Blauwe Aanslag",
      "description": "Press, The Hague /NL 1995",
      "creator": "",
+     "copyright": "",
+     "caption": "",
+     "publisher": "",
+     "keywords": "",
+     "loc_desc": "",
+     "loc_country": "NLD",
+     "loc_city": "Den Haag",
+     "dam_categories": [
+      "2D",
+      "poster"
+     ],
      "date_cr": 757386000,
      "original": "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/199495MuralsTravel/blaueAanslagDenHaag.jpg"
     }

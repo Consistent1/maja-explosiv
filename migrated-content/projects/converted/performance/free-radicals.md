@@ -22,6 +22,9 @@ images:
     title: "Kain Karawahns fire curtain "
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 752
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_003.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-02.jpg"
@@ -29,6 +32,9 @@ images:
     title: "Kain Karawahns fire curtain "
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 765
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_004.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-03.jpg"
@@ -36,6 +42,9 @@ images:
     title: "Kain Karawahns fire curtain "
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 757
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_005.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-04.jpg"
@@ -43,6 +52,9 @@ images:
     title: "Mr. B's bottle ghost"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 766
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_034.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-05.jpg"
@@ -50,6 +62,9 @@ images:
     title: "bottle ghost"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 753
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_032.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-06.jpg"
@@ -57,6 +72,9 @@ images:
     title: "bottle ghost"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 751
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_035.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-07.jpg"
@@ -64,6 +82,9 @@ images:
     title: "triangulum"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 758
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_042.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-08.jpg"
@@ -71,6 +92,9 @@ images:
     title: "green fire"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 754
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_029.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-09.jpg"
@@ -78,6 +102,9 @@ images:
     title: "Florian Schwarz"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 762
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_016.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-10.jpg"
@@ -85,6 +112,9 @@ images:
     title: "Mister B / topless dancer"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 755
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_048.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-11.jpg"
@@ -92,6 +122,9 @@ images:
     title: "flamethrowers"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 761
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_012.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-12.jpg"
@@ -99,6 +132,9 @@ images:
     title: "Ivanapropana"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 760
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_066.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-13.jpg"
@@ -106,6 +142,9 @@ images:
     title: "the band"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 759
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_078.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-14.jpg"
@@ -113,6 +152,9 @@ images:
     title: "110%"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 764
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_086.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-15.jpg"
@@ -120,6 +162,9 @@ images:
     title: "110%"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 756
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_089.jpg"
   - src: "/assets/images/projects/performance/free-radicals/free-radicals-16.jpg"
@@ -127,6 +172,9 @@ images:
     title: "applause"
     description: "110%, Spannwerk, Berlin 2002"
     author: "John Masters"
+    caption: "Spannwerk"
+    loc_country: "DEU"
+    loc_city: "berlin"
     dam_uid: 763
     original: "fileadmin/s-maj/images/BilderMaja/2002FreeRSpannwerk/Free_Radicals.spannwerk.26.10.2002_098.jpg"
 ---

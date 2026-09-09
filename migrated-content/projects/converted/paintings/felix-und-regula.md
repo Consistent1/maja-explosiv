@@ -21,42 +21,63 @@ images:
     alt: "Zurich /CH 1994"
     title: "Felix und Regula Unterführung"
     description: "Zurich /CH 1994"
+    loc_country: "CHE"
+    loc_city: "Zürich"
+    dam_categories: ["2D", "poster"]
     dam_uid: 599
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix1.jpg"
   - src: "/assets/images/projects/paintings/felix-und-regula/felix-und-regula-02.jpg"
     alt: "Zurich 1994"
     title: "Felix und Regula Unterführung"
     description: "Zurich 1994"
+    loc_country: "CHE"
+    loc_city: "Zürich"
+    dam_categories: ["2D", "poster"]
     dam_uid: 605
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix2.jpg"
   - src: "/assets/images/projects/paintings/felix-und-regula/felix-und-regula-03.jpg"
     alt: "Zurich  /CH 1994"
     title: "Felix und Regula Unterführung"
     description: "Zurich  /CH 1994"
+    loc_country: "CHE"
+    loc_city: "Zürich"
+    dam_categories: ["2D", "poster"]
     dam_uid: 601
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix3.jpg"
   - src: "/assets/images/projects/paintings/felix-und-regula/felix-und-regula-04.jpg"
     alt: "detail, Zurich /CH 1994"
     title: "Felix und Regula Unterführung"
     description: "detail, Zurich /CH 1994"
+    loc_country: "CHE"
+    loc_city: "Zürich"
+    dam_categories: ["2D", "poster"]
     dam_uid: 600
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix12.jpg"
   - src: "/assets/images/projects/paintings/felix-und-regula/felix-und-regula-05.jpg"
     alt: "detail, Zurich /CH 1994"
     title: "Felix und Regula Unterführung"
     description: "detail, Zurich /CH 1994"
+    loc_country: "CHE"
+    loc_city: "Zürich"
+    dam_categories: ["2D", "poster"]
     dam_uid: 602
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix13.jpg"
   - src: "/assets/images/projects/paintings/felix-und-regula/felix-und-regula-06.jpg"
     alt: "detail, Zurich /CH 1994"
     title: "Felix und Regula Unterführung"
     description: "detail, Zurich /CH 1994"
+    loc_country: "CHE"
+    loc_city: "Zürich"
+    dam_categories: ["2D", "poster"]
     dam_uid: 604
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix5.jpg"
   - src: "/assets/images/projects/paintings/felix-und-regula/felix-und-regula-07.jpg"
     alt: "TA, Zurich /CH 1994"
     title: "Felix und Regula Unterführung"
     description: "TA, Zurich /CH 1994"
+    loc_country: "CHE"
+    loc_city: "Zürich"
+    dam_categories: ["2D", "poster"]
     dam_uid: 603
     original: "fileadmin/s-maj/images/BilderMaja/1994muralsFassaden/1994FelixRegula/felix_nix.jpg"
   - src: "/assets/images/projects/paintings/felix-und-regula/felix-und-regula-08.jpg"

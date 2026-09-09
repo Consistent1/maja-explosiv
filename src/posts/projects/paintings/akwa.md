@@ -21,18 +21,27 @@ images:
     alt: "Berlin 2005"
     title: "Akwa"
     description: "Berlin 2005"
+    loc_country: "DEU"
+    loc_city: "Berlin"
+    dam_categories: ["2D", "concept illustration"]
     dam_uid: 660
     original: "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa1.jpg"
   - src: "/assets/images/projects/paintings/akwa/akwa-02.jpg"
     alt: "Berlin 2005"
     title: "Akwa"
     description: "Berlin 2005"
+    loc_country: "DEU"
+    loc_city: "Berlin"
+    dam_categories: ["2D", "concept illustration"]
     dam_uid: 658
     original: "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa2.jpg"
   - src: "/assets/images/projects/paintings/akwa/akwa-03.jpg"
     alt: "Berlin 2005"
     title: "Akwa"
     description: "Berlin 2005"
+    loc_country: "DEU"
+    loc_city: "Berlin"
+    dam_categories: ["2D", "concept illustration"]
     dam_uid: 659
     original: "fileadmin/s-maj/images/BilderMaja/2005Akwa/Akwa3.jpg"
   - src: "/assets/images/projects/paintings/akwa/akwa-04.jpg"
