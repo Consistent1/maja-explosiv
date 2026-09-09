@@ -530,6 +530,48 @@ Alberto (22 images), Käthe (16), Bernhard (12) — are ordinary projects and mi
 **What the Portraits page itself becomes is still open** and is why 1068 is held: a page of its
 own, a grouping in the listing, or nothing.
 
+## "A column named like content that holds a number" — audited 2026-09-09
+
+The same mistake turned up twice in one day: **`tx_dam.category`** and **`tt_news.category`** are
+both `int`, and both hold a *count of assigned categories* (1, 2 or 3), not a category. Read as
+content they yield `0`/`1`/`2` and look meaningful. The real categories are join tables —
+`tx_dam_mm_cat` → `tx_dam_cat`, and `tt_news_cat_mm` → `tt_news_cat`.
+
+**It never reached the output**, and that was checked rather than assumed:
+
+- **Every column the tools read as text is genuinely a text type.** The 14 columns passed through
+  `B()` — `bodytext, caption, copyright, creator, description, file_name, file_path, header,
+  keywords, loc_city, loc_country, loc_desc, publisher, title` — are all `text`/`varchar`/
+  `tinytext`/`char`. Neither `category` column is read at all.
+- **No migrated file carries a count in a content slot.** Sweeping all of `src/posts/` and
+  `src/pages/`, every bare-number value is either a real `year` or a deliberate `source_*_uid`,
+  and there are **no digit-run bodies** — the `107710731063…` signature from page 1078 is gone.
+- The two occurrences were caught before emitting: `tx_dam.category` while widening the DAM
+  metadata capture, `tt_news.category` in a *documentation* sentence about Stage 12 that no code
+  depended on. Both are corrected in place.
+
+**The inverse was checked at the same time** — content-bearing columns that nobody reads — and is
+also clean. On the 69 live pages and 147 live `text`/`list` elements the project stages migrate:
+`pages.keywords`, `description`, `abstract`, `author`, `subtitle`, `nav_title`, `media` and
+`tt_content.subheader`, `header_link`, `imagecaption`, `image`, `altText`, `titleText` are **empty
+on every row**. The only populated one is `tt_content.spaceBefore` (71 elements), a layout value
+in pixels, correctly ignored.
+
+**Columns to be careful with if you extend any extractor** — numeric, but named as though they
+carry content:
+
+| table | column | what it really is |
+|---|---|---|
+| `tx_dam` | `category` | count of assigned categories |
+| `tx_dam` | `media_type`, `file_status`, `file_usage`, `fe_group` | enums / flags |
+| `tt_news` | `category` | count of assigned categories |
+| `tt_news` | `type` | enum |
+| `tt_content` | `layout`, `sectionIndex`, `section_frame` | display flags |
+| `pages` | `doktype`, `urltype`, `shortcut_mode`, `layout`, `fe_login_mode` | enums — but `doktype` and `shortcut_mode` matter structurally, see `content_from_pid` above |
+
+The rule that catches all of it: **check the column's SQL type before treating a value as text**,
+and where a name suggests a taxonomy, look for the `_mm_` join table before believing the column.
+
 ## The original stays intact
 
 Nothing is edited in place and nothing is normalised away. Three layers hold the source

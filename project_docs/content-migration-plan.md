@@ -979,7 +979,7 @@ Stage 0 is mandatory and blocks everything. Then, by increasing complexity:
 | 9 | Projects — performance | 6 | |
 | 10 | Projects — collaborations | 8 | |
 | 11 | Projects — sculptural work | ~46 | Largest; deliberately last |
-| 12 | News | TBD Stage 0 | Only if it renders live |
+| 12 | News | TBD Stage 0 | ~~Only if it renders live~~ — **STRUCK 2026-09-09: `tt_news` is the timeline (Stage 3), there is no news feed** |
 | 13 | Misc | TBD Stage 0 | Whatever Stage 0 could not classify |
 | 14 | Global reconciliation | — | `unassigned.tsv` = 0; all ledgers pass |
 
@@ -1302,7 +1302,7 @@ something checked for it.
 | 9 | performance | 6 | `performance` | **4 of 6**, 2 held |
 | **10** | collaborations | **8** | `sculptures` (owner, 2026-08-27) | yours |
 | **11** | sculptural work | **41** under *Sculptures* (25) / *Installations* (16) | `sculptures` / `installations` — **the old site already made this split; do not re-derive it** | yours |
-| 12 | News | **likely moot** — `tt_news` turned out to be the timeline, migrated at Stage 3. Confirm, then strike or re-scope | yours |
+| 12 | News | ~~likely moot~~ — **CONFIRMED MOOT and STRUCK, 2026-09-09.** `tt_news` *is* the timeline, migrated at Stage 3. There is no news feed. Evidence below | done |
 | 13 | Misc | whatever Stage 0 could not classify, plus container **1049** (below) | yours |
 | 14 | Global reconciliation | `unassigned.tsv` = 0; every ledger passes; `TBD/` emptied | yours |
 
@@ -1331,7 +1331,55 @@ Installations → `installations` (14, 169), `11c` 1068 Portraits → `sculpture
 Portraits (RTE payload). Skipped by design: 949 The Alchemy Bar, which renders page 937's
 content via `content_from_pid` — a mechanism nothing in the pipeline read until this stage.
 Three checks were found faulty doing it; `migrated-content/projects/SOURCE.md` § *Stage 11* has
-all of it. **Start with Stage 13 (Misc), and re-scope Stage 12.**
+all of it. **Stage 12 is struck (below). Start with Stage 13 (Misc).**
+
+### Stage 12 (News) is struck — `tt_news` and the timeline are the same content
+
+Checked 2026-09-09 on the owner's instruction; nothing was migrated.
+
+`tt_news` holds **164 rows in all states**, and only one real store:
+
+| pid | what it is | live rows | status |
+|---|---|---|---|
+| **864** | sysfolder **`Bio`** | **89** | **Stage 3 migrated 85 of these as the timeline**; 4 excluded (below) |
+| 1045 | sysfolder **`Bio (Kopie 1)`** — a **`hidden = 1`** copy of 864, same parent (972) | 54 | **not content.** No plugin references it |
+| 822 | another site | 1 | out of scope |
+
+**Read the categories from `tt_news_cat_mm`, not `tt_news.category`.** That column is a **count**
+of assigned categories — it holds 1, 2 or 3 — exactly the same trap as `tx_dam.category`. Taken
+as a category it says nothing and looks like it says something.
+
+The real categories on 864, and what happened to each:
+
+| cat | name | rows | migrated |
+|---|---|---|---|
+| 23 | Sculptures | 36 | yes |
+| 21 | Event Organisation | 16 | yes |
+| 20 | Performance | 12 | yes |
+| **28** | **`news`** | **9** | **yes — all 9 are timeline entries** |
+| 24 | Collaborations | 7 | yes |
+| 26 | Ausbildung | 6 | yes |
+| 22 | Murals | 4 | yes |
+| **27** | **Elxt 90** | **4** | **no — the 4 excluded records** (uids 118–121), which no timeline plugin selects |
+| 25 | Paper work | 3 | yes |
+| 40 | Aktuell | 2 | yes |
+| 39 | other | 2 | yes |
+| 17 | Auftritt | 1 | yes |
+
+**There is a category literally called `news`, and it is not a news feed** — all 9 of its records
+(uids 190, 195, 205, 211, 212, 217, 219, 221, 222) are already in the timeline's 85. `Aktuell`
+("current") is likewise 2 ordinary timeline entries. Do not re-open Stage 12 on the strength of
+those names.
+
+**1045 is a backup copy, not a second feed.** 45 of its 54 live rows are byte-identical to rows
+on 864 (title *and* bodytext); the remaining 9 — *Casino Gitano*, *The Whale*, *Bimbo Town*,
+*Forget Me Not*, *Wheel of Power*, *the throne*, *Raw Heater Bar*, *Odonische Feuer*, *Nova 2* —
+**all share their titles with rows on 864** and differ only in body text, i.e. they are older
+drafts of entries that already migrated. Nothing on 1045 is unique.
+
+So there is no news content anywhere on the site, and Stage 12 has nothing to do. Stage 14's
+reconciliation should account for `tt_news` as *fully owned by Stage 3*. The only `tt_news` rows
+not migrated remain the 4 `Elxt 90` records, already logged as their own open item.
 
 The brief below is kept for the record.
 

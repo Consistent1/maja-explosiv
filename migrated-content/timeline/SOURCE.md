@@ -92,3 +92,33 @@ for consistency.
 **Cost:** the year column is **37px** and `Since 2020` will not fit — it wraps to two lines, so
 those two rows are taller than the rest. Accepted, and flagged for Maja: the alternatives are to
 widen the column, sort by displayed year instead of timestamp, or accept the wrap.
+
+## `tt_news` is entirely this stage's — Stage 12 (News) struck, 2026-09-09
+
+The plan carried a separate **Stage 12 (News)** on the assumption that `tt_news` might hold a
+news feed beside the timeline. Checked on the owner's instruction; it does not. Nothing was
+migrated by that check.
+
+`tt_news` holds 164 rows in all states, across three pids:
+
+| pid | what it is | live rows | |
+|---|---|---|---|
+| **864** | sysfolder **`Bio`** | **89** | **this stage** — 85 migrated, 4 excluded as unreferenced (above) |
+| 1045 | **`Bio (Kopie 1)`**, `hidden = 1`, same parent (972) | 54 | a backup copy; **no plugin references it** |
+| 822 | another site | 1 | out of scope |
+
+**Two traps if you re-check this.** `tt_news.category` is a **count** of assigned categories
+(1, 2 or 3), not a category — same shape as `tx_dam.category`; the real ones are
+`tt_news_cat_mm` → `tt_news_cat`. And among those there **is a category named `news`**, with 9
+records (uids 190, 195, 205, 211, 212, 217, 219, 221, 222) — **all nine are already timeline
+entries here.** `Aktuell` ("current", 2 records) likewise. Neither is a news feed; do not
+re-open Stage 12 on the strength of the names. The only uncategorised-by-plugin rows remain the
+4 `Elxt 90` records in category 27, excluded above.
+
+**Page 1045 is a copy, not a second feed.** 45 of its 54 live rows are byte-identical to rows on
+864 — title *and* bodytext. The other 9 (*Casino Gitano*, *The Whale*, *Bimbo Town*,
+*Forget Me Not*, *Wheel of Power*, *the throne*, *Raw Heater Bar*, *Odonische Feuer*, *Nova 2*)
+**all share their titles with rows on 864** and differ only in body text: older drafts of
+entries that already migrated here. Nothing on 1045 is unique.
+
+So this stage owns all of `tt_news`, and Stage 14's reconciliation should record it that way.

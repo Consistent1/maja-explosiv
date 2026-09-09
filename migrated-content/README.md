@@ -28,7 +28,8 @@ at the end of `project_docs/content-migration-plan.md` — reading list, per-sta
 | 9 | Projects — performance | **PARTIAL, 4 of 6** — 89 images, verified 6/6 against live. `casino-gitano` and `elxt-90` HELD pending the video decision |
 | 10 | Projects — collaborations | **PARTIAL, 5 of 8** — 46 images, verified 8/8 against live. `wheel-of-power` and `destroy-hiv` HELD on video; `metal-group-xix` HELD on a 12-thumbnail RTE index table that `body_md` corrupted — see SOURCE.md § *Stage 10*, and the three guards added because of it |
 | 11 | Projects — sculptural work | **40 of 44** — 491 images, verified 44/44 against live. Three sub-stages (`11a` 1039→sculptures, `11b` 1040→installations, `11c` 1068 Portraits→sculptures). Held: 1064 The Helixes (video), 1050 The Birds + 1068 Portraits (RTE payload). Skipped by design: 949, which renders page 937's content via `content_from_pid` |
-| 12–14 | News, Misc, reconciliation | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
+| 12 | News | **STRUCK 2026-09-09** — confirmed moot. `tt_news` *is* the timeline; Stage 3 owns all of it. The only other store, pid 1045, is a hidden copy of the Bio sysfolder with nothing unique in it |
+| 13–14 | Misc, reconciliation | not started. 13 includes container **1049**, which no stage owns |
 
 ## Layout
 

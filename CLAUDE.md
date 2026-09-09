@@ -245,7 +245,9 @@ Phases are in PLAN.md; the short version:
     two sub-containers with different categories and one nests a third.
     The project pipeline is `migrated-content/_tools/{extract,convert,verify}_projects.py`;
     adding a stage is one row in `STAGES`. Per-stage decisions and traps:
-    **`migrated-content/projects/SOURCE.md`**. Stages 12–14 remain — see the `HANDOFF`
+    **`migrated-content/projects/SOURCE.md`**. **Stage 12 (News) is struck** — `tt_news` is the
+    timeline, Stage 3 owns all of it (checked 2026-09-09). Only **13 (Misc, incl. container
+    1049) and 14 (reconciliation)** remain — see the `HANDOFF`
     section at the end of the migration plan.
   - **Eight projects are HELD, not skipped.** Five (`casino-gitano`, `elxt-90`,
     `wheel-of-power`, `destroy-hiv`, `the-helixes`) pending Maja's answer on video; three
