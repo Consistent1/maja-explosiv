@@ -43,7 +43,17 @@ def body_md(h):
         # The original label is preserved verbatim in raw/db/ and normalized/.
         if label and label == href:
             label = re.sub(r'^[a-z]+://', '', label)
-        return f'[{label}]({href})' if label else href
+        # An EMPTY label means the link wrapped something that is not text -- in practice
+        # an <img>. Falling through to the bare href here is what corrupted page 1078:
+        # twelve thumbnail links became the run-on string "107710731063..." (their TYPO3
+        # page uids), and every check downstream still passed. There is no correct silent
+        # answer, so refuse. The extractor flags the same condition as RTE-PAYLOAD.
+        if not label:
+            raise ValueError(
+                f'link with no text label (target {href!r}) -- the link wraps non-text '
+                f'content, almost certainly an <img>. body_md has no representation for '
+                f'it and MUST NOT emit the bare target as text. Hold the page.')
+        return f'[{label}]({href})'
     h = re.sub(r'<link\s+([^ >]+)[^>]*>(.*?)</link>', _link, h, flags=re.S)
     h = re.sub(r'<a\s+[^>]*href="([^"]*)"[^>]*>(.*?)</a>', _link, h, flags=re.S)
 
@@ -55,6 +65,12 @@ def body_md(h):
     h = re.sub(r'<(b|strong)>(\s*)(.*?)(\s*)</\1>',
                lambda m: m.group(2) + '**' + m.group(3) + '**' + m.group(4), h, flags=re.S)
     h = re.sub(r'</?(b|strong)>', '**', h)                    # unbalanced leftovers
+    # Images and tables have no Markdown equivalent that survives this stripper, and
+    # dropping them silently is exactly the Stage 10 failure. Refuse instead.
+    if re.search(r'<img\b', h, re.I) or re.search(r'<table\b', h, re.I):
+        raise ValueError(
+            'bodytext contains <img> or <table>; body_md would strip them and lose the '
+            'content. Hold the page and decide how it should be represented.')
     paras = []
     for p in h.split('\x00'):
         p = html.unescape(re.sub(r'<[^>]+>', '', p))

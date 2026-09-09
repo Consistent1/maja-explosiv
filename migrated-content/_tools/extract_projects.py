@@ -30,7 +30,18 @@ STAGES = {
                        'Video content has no home in the plan and no Figma component.',
                   933: 'Casino Gitano: a live "Casino Gitano Videos:" text block and 8 hidden '
                        'elements (4 html video embeds + their captions). Same video question.'}),
-    10: dict(container=878, category='sculptures',   name='collaborations'),
+    10: dict(container=878, category='sculptures',   name='collaborations',
+            hold={1078: 'Metal Group XIX: text uid 1654 is a 4-column TABLE of 12 thumbnail '
+                        'images, each an internal link to another project -- a hand-built '
+                        'index, not a DAM gallery. body_md strips it and there is no Figma '
+                        'component for it. Migrated at Stage 10 and CORRUPTED before this '
+                        'hold was added; see SOURCE.md.',
+                  946: 'Wheel of Power: a live "Wheel of Power videos:" text block (uid 1446) '
+                       'plus 2 hidden html video embeds and 2 hidden captions. Same video '
+                       'question as stage 9.',
+                  1054: 'Destroy HIV: a live "Videos" text block (uid 1572) plus 6 hidden html '
+                        'video embeds, each captioned "Zerstoere HIV - Tag 1..6". Same video '
+                        'question as stage 9.'}),
     # 11 (sculptural work) splits across two sub-containers and is handled there.
 }
 
@@ -100,6 +111,33 @@ def run(stage):
         if other:          anomalies.append('other-ctypes=' + ','.join(c[1] for c in other))
         if kids:           anomalies.append(f'SUB-CONTAINER: {kids} child page(s) not walked '
                                             f'by this stage -- they need their own handling')
+        # RTE PAYLOAD. A `text` element's bodytext can carry markup this pipeline has no
+        # model for -- images, tables, and links wrapping an image rather than a label.
+        # Page 1078 "Metal Group XIX" is 12 thumbnails in a 4-column table, each an
+        # internal link to another project: a hand-built index, not a DAM gallery.
+        #
+        # It was migrated at Stage 10 and came out CORRUPTED, and nothing caught it:
+        #   - the gallery count reads tx_dam_mm_ref only, so it said `imgs=0`;
+        #   - the live check counts <div class="imageElement"> only, so it said 0/0 too;
+        #   - body_md strips tags, and a <link> around an <img> has no text label, so it
+        #     fell through to the bare href -- emitting the twelve page uids as the run-on
+        #     string "107710731063...". The verifier's body check then PASSED, because it
+        #     strips tags from both sides and an empty needle is trivially a substring.
+        # Three independent checks agreed on a page whose entire second block was gone.
+        # Detect it at the SOURCE, where it is exact, rather than inferring it downstream.
+        for c in text:
+            bt = b(c[3])          # c[3] is base64 out of the query -- decode it
+            n_img = len(re.findall(r'<img\b', bt, re.I))
+            n_tbl = len(re.findall(r'<table\b', bt, re.I))
+            # a link whose content has no text once tags are stripped -- an image link
+            n_imglink = sum(1 for m in re.finditer(
+                r'<(?:link\s[^>]*|a\s[^>]*)>(.*?)</(?:link|a)>', bt, re.S | re.I)
+                if not re.sub(r'<[^>]+>', '', m.group(1)).strip())
+            if n_img or n_tbl or n_imglink:
+                anomalies.append(
+                    f'RTE-PAYLOAD in text uid {c[0]}: {n_img} img, {n_tbl} table, '
+                    f'{n_imglink} image-link -- body_md CANNOT represent this, and will '
+                    f'silently drop it. Do not migrate this page without a decision.')
 
         # A project can carry MORE THAN ONE live text element, and the extra ones are real
         # content, not noise: Eurokot's second block (uid 1458) is the list of 26 invited

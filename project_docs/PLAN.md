@@ -6,22 +6,42 @@
 
 ---
 
-## Resume here (2026-08-27)
+## Resume here (2026-09-09)
 
 **Everything that needs your judgement is in one place: § _Open items needing input_, at the
-bottom of this file. 49 open items.** Nothing is filed anywhere else. Where the detail is
+bottom of this file. 54 open items, 16 of them `ASK MAJA:`.** (The count read 49; it was
+already stale by three, and Stage 10 added one — recounted 2026-09-09.) Nothing is filed
+anywhere else. Where the detail is
 too long to sit in that list, the item names the document that holds it — every such document
 is linked from here or from `project_docs/DOCS.md`, which indexes all of them.
 
-**Content migration — Stages 6, 7 and 8 are done; Stage 9 is 4 of 6.** Murals (3 projects, 40 images) and paper
-work (4 projects, 52 images) and event organisation (3 projects, 78 images), each verified
-against the live site on heading, every text block, every caption, **and gallery order**.
-Stage 9 (performance) migrated 4 of 6 projects; `casino-gitano` and `elxt-90` are **held**
-pending the video decision — both fully extracted, one line releases them. One page was deliberately skipped: 982 "Breath under
-Water" is a TYPO3 shortcut whose content lives under a different container. Stages 8–14 not
-started. Per-stage detail: `migrated-content/README.md`; method and decisions:
-`migrated-content/projects/SOURCE.md`; the remaining brief: the HANDOFF section at the end of
-`project_docs/content-migration-plan.md`.
+**Content migration — Stages 6, 7 and 8 are done; Stages 9 and 10 are partial.** Murals
+(3 projects, 40 images), paper work (4 projects, 52 images) and event organisation (3 projects,
+78 images), each verified against the live site on heading, every text block, every caption,
+**and gallery order**. Stage 9 (performance) migrated 4 of 6; Stage 10 (collaborations, added
+2026-09-09) migrated **5 of 8, 46 images, verified 8/8 against live**. Five projects are
+**held** across the two stages: `casino-gitano`, `elxt-90`, `wheel-of-power` and `destroy-hiv`
+on the unanswered video question, and `metal-group-xix` on RTE thumbnail-index tables (below).
+All are fully extracted; one line each releases them.
+
+**A silent data-loss bug was found and fixed — by you looking at the live page, not by any
+check.** `metal-group-xix` was migrated and reported as verified. Its second text block is a
+table of **12 thumbnails, each an internal link to another project**; `body_md` strips markup,
+so it published the twelve link *targets* as the run-on string `107710731063…` and dropped
+every image and link. The extractor, the caption check and the body check all passed it, because
+all three only understand DAM gallery markup and plain text. Three guards now exist at three
+layers, each regression-tested; the corrupted file is deleted and the page is held. Full account:
+`migrated-content/projects/SOURCE.md` § *Stage 10*. **Stage 11 hits the same shape four more
+times and larger** — 1039 (25 images), 1040 (21), 1050 (11), 1068 (2). One page was deliberately skipped: 982 "Breath under Water" is a TYPO3 shortcut whose
+content lives under a different container. **Stages 11–14 not started.** Per-stage detail:
+`migrated-content/README.md`; method and decisions: `migrated-content/projects/SOURCE.md`; the
+remaining brief: the HANDOFF section at the end of `project_docs/content-migration-plan.md`.
+
+**Two defects logged against the project pages have since been fixed** (verified 2026-09-09):
+image captions render in full, and the four collection pages build — `/collections/sculptures/`
+lists all six new projects. `SOURCE.md` § *Known defects* is corrected. The one remaining piece
+of that build noise is **69 × `ERROR: Missing project year`**, which is the project-years item
+below, not a template defect.
 
 **Two bugs found and fixed this session, both of which passed every existing check:**
 
@@ -1196,8 +1216,37 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   2 hidden. And on the Bagger page Maja wrote, in her own words, that she **took the videos
   down under the GDPR** and points at her YouTube channel (`t1p.de/maja-explosiv`) instead.
   So the likely answer is "link out, do not embed" — but that is hers to give, and it needs
-  a Figma component either way. `casino-gitano` and `elxt-90` are **HELD** until it is
-  answered; both are fully extracted and one line in `STAGES[9]['hold']` releases them.
+  a Figma component either way. **Four projects are now HELD** on this one question:
+  `casino-gitano` and `elxt-90` (`STAGES[9]['hold']`), and — added 2026-09-09 at Stage 10 —
+  `wheel-of-power` and `destroy-hiv` (`STAGES[10]['hold']`). All four are fully extracted and
+  one line each releases them. Stage 10's two take the same shape as Casino Gitano: a **live**
+  headed text block of video links (uids 1446, 1572) beside **hidden** `html` embeds. The
+  hidden embeds were never at risk — only that live block is withheld. `1064 The Helixes`
+  remains ahead, in Stage 11.
+
+- [ ] **How should an RTE thumbnail-index table be represented?** (raised 2026-09-09,
+  Stage 10; **holding 1 project now and blocking 4 more in Stage 11**.) Several pages carry, in
+  a `text` element's RTE markup rather than in a DAM gallery, a **table of thumbnails where
+  each image is an internal link to another project** — a hand-built index. Page **1078
+  `Metal Group XIX`** is 12 of them in a 4-column table; **1039 Sculptures** has 25 images /
+  24 links, **1040 Installations** 21 / 21, **1050 The Birds** 11 images in 5 tables, **1068
+  Portraits** 2. The category container pages (860–878) carry them too.
+
+  `body_md` cannot represent any of it and, until 2026-09-09, **destroyed it silently** — see
+  the *Resume here* note above. It now refuses, so these pages fail loudly instead.
+
+  **The decision needed:** is this navigation (a related-projects strip, which the site's own
+  collection pages arguably already provide), or is it content (a gallery that happens to link
+  out)? There is no Figma component for either. Until it is answered, every page carrying one
+  is held. Note the images themselves are **`uploads/RTEmagicC_*`** — TYPO3's RTE copies, a
+  different store from the DAM originals in `image-archive/`, so they are not yet in the
+  archive's coverage.
+
+- [ ] **`metal-group-xix` also has no DAM gallery at all.** (raised 2026-09-09, Stage 10.)
+  Separately from the table above: its `list` element (uid 1655) is `hidden = 1`, so even once
+  the index question is settled the project has no conventional gallery — the Figma project page
+  is built around a nine-card grid with no text-only variant. Was the gallery hidden
+  deliberately, or should those images be recovered from `hidden/`? Nothing was guessed.
 
 - [ ] **Page 926 has a second `list` element with no images.** (raised 2026-08-27, Stage 9.)
   `Elxt 90` carries `tt_content 1220` (`Elxt 90`, 49 images) **and** `1424` (`Bio ShortList`,
@@ -1250,6 +1299,15 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   empty year and the caption renders correctly without it — but the slot is visibly blank, and
   the build logs 30 errors over those two projects alone (see *A missing project year is
   logged as a build ERROR* above).
+
+  **Stage 10 adds a variant of the same question.** Four of its six migrated projects have no
+  year, and page **1078 `Metal Group XIX`** has one the parser cannot use: its header reads
+  `Metal group XIX, since 1995`. `_HDR` matches `Title, YYYY`, so *"since 1995"* does not
+  parse, `year` stays empty, and the **whole string becomes the title** — which is exactly
+  what the live page prints as its heading. That is correct per decision 1 and was
+  deliberately not "fixed": widening the regex to swallow `since` would start guessing at
+  prose. **Maja's call:** should this read title `Metal group XIX` with year `since 1995`, or
+  stay as the live site has it?
 
   **What Maja needs to be asked, concretely:** for each project with no year in the old site's
   heading, what year (or range — `1994-1995` is already used) should appear? A list of the

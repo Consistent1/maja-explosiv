@@ -281,6 +281,125 @@ while the page tree has it under container 872 (performance). realurl records hi
 paths, so this is where the page **used to** live. The page tree is authoritative for
 category; the stale path still serves and is what was fetched for verification.
 
+## Stage 10 — collaborations (container 878) → `sculptures` — **PARTIAL, 5 of 8**
+
+| page | slug | title | year | images | text blocks | |
+|---|---|---|---|---|---|---|
+| 1058 | `gong-trophy` | The Gong Trophies | — | 8 | 1 | done |
+| 1031 | `elephant` | Elephants Head | — | 10 | 1 | done |
+| 994 | `throne` | The Throne | — | 6 | 1 | done |
+| 945 | `hand-of-man` | Hand of Man | 2007 | 12 | 1 | done |
+| 947 | `forget-me-not` | Forget Me Not | 2003 | 10 | 1 | done |
+| 1078 | `metal-group-xix` | Metal group XIX, since 1995 | — | **0 DAM + 12 RTE** | 2 | **HELD** |
+| 1054 | `destroy-hiv` | Destroy HIV | — | 8 | — | **HELD** |
+| 946 | `wheel-of-power` | Derevo, Wheel of Power | 2007 | 40 | — | **HELD** |
+
+**Verified 8/8 against live** (5 migrated + 3 correctly reported as held) — heading, every text
+block, every caption, and gallery order. 46 image references, all present on disk; no image
+file was written, because `convert_images.py` walks ancestors and had already filed them.
+
+### The two HELD pages are the same video question, in the same shape
+
+`STAGES[10]['hold']` names each. Both carry a **live** text block of video links plus **hidden**
+`html` embeds:
+
+| page | live video block | hidden |
+|---|---|---|
+| 946 Wheel of Power | uid **1446** `Wheel of Power videos:` (318 B) | 2 `html` embeds (1448, 1468) + 2 captions (1447, 1467) |
+| 1054 Destroy HIV | uid **1572** `Videos` (287 B) | 6 `html` embeds (1566–1571), captioned `Zerstöre HIV - Tag 1`–`6` |
+
+This is Casino Gitano's shape exactly. The hidden embeds were never at risk — the extractor
+walks live rows only. What is withheld is the **live** headed block, which the headed-block rule
+would otherwise render as an `##` sub-section of bare video links with no component behind them.
+
+Note that both pages migrate *cleanly* apart from that block — Wheel of Power is the largest
+gallery in the stage at 40 images. One line out of `STAGES[10]['hold']` releases each.
+
+### 1078 Metal Group XIX — migrated CORRUPTED, then held. Read this one.
+
+**This page was reported as "no gallery, and that is correct". It was not correct**, and the
+way it passed is the most useful thing in this file.
+
+Its DAM `list` element (uid 1655) really is `hidden = 1`, so there is no smoothgallery. But its
+second `text` element (uid **1654**, 2156 B) is a **4-column HTML table of 12 thumbnail images,
+each wrapped in an internal `<link>` to another project** — Bächtel, Affenbande, Weglampen,
+Lionfish Door, ELXT 90, Bagger, Dorfbachschiff, 17 Ton Bar, Iron Eagle, Torso, Nailed Tanks,
+Iron Channel. A hand-built index of the group's work, sitting in RTE markup.
+
+`body_md` strips tags. `<link 1077 - internal-link "…">` wrapping an `<img>` has **no text
+label**, so `_link` fell through to `return … href` and emitted the *target page uid* as bare
+text. The published page ended with:
+
+```
+107710731063105792692894210041005100610071008
+```
+
+— twelve uids run together, and the twelve images and twelve links gone.
+
+**Three independent checks all passed on it**, which is why this is worth spelling out:
+
+| check | what it looks at | why it missed |
+|---|---|---|
+| extractor `imgs=` | `tx_dam_mm_ref` | RTE images are not DAM records → `imgs=0` |
+| verifier captions/order | `<div class="imageElement">` | RTE images are not in that markup → `0/0`, `order OK` |
+| verifier `body_ok` | block text ∈ live text | the block strips to **nothing**, and an empty needle is trivially a substring → `body OK (2 blk)` |
+
+Every check agreed, and every check was asking the wrong question. Caught only by the owner
+looking at the live page.
+
+**Three guards were added, at three different layers, and each was regression-tested by
+lifting the hold and confirming it fires:**
+
+1. **`extract_projects.py` — `RTE-PAYLOAD` anomaly.** Counts `<img>`, `<table>` and
+   text-less `<link>`/`<a>` in each block's *decoded* bodytext. Source-side and exact.
+   (First cut read `c[3]` straight from the query and silently found nothing — that column is
+   base64. It needs `b(c[3])`.)
+2. **`convert_projects.py` — `body_md` now raises** rather than degrading: an empty link label
+   is a `ValueError`, and so is any `<img>`/`<table>` in bodytext. There is no correct silent
+   answer, so it refuses.
+3. **`verify_projects.py` — two new live-side checks.** Any `<img>` that is not page chrome and
+   carries neither `class="full"` nor `class="thumbnail"` is embedded content and fails the
+   page; and a text block that strips to no text is now a failure rather than a skip.
+   Tested across all 23 captured live pages: **12 hits on 1078, zero elsewhere** — the gallery
+   `<img>`s are all class-tagged, so there are no false positives.
+
+**Scope of the damage: one page.** Re-running the `RTE-PAYLOAD` check over Stages 6–10 finds
+1078 and nothing else. The corrupted Markdown was deleted and the page is now in
+`STAGES[10]['hold']`.
+
+**Ahead in Stage 11, the same shape, larger:** live text blocks with embedded thumbnail tables
+on **1039 Sculptures (25 img, 24 links)**, **1040 Installations (21 img, 21 links)**,
+**1050 The Birds (11 img, 5 tables)** and **1068 Portraits (2 img)**. The category *container*
+pages (860–878) carry them too. None of these can go through `body_md` as it stands — they will
+now fail loudly instead of corrupting.
+
+**What it should become is undecided and is the owner's call** — an index of internal links has
+no Figma component. Logged in PLAN.md.
+
+### The header carries a year the parser cannot use, and is left alone
+
+(This one is about 1078 too, and still stands — it is a separate issue from the table above.)
+
+Page 1078's header is `Metal group XIX, since 1995`. `_HDR` matches `Title, YYYY`; *"since 1995"*
+does not match, so `year` stays null and the **whole string becomes the title** — which is what
+the live page prints as its heading, verbatim. Correct by decision 1, and deliberately not
+"fixed": widening the regex to swallow `since` would start guessing at prose. It is one more
+row for the project-years open item, not a parser bug.
+
+### Four of the eight live under `sculptural-work/`, not `collaborations/`
+
+`url-to-uid.tsv` gives 994, 1031, 1054 and 1058 paths under
+`content/sculptures/sculptural-work/…` while the page tree has all eight under container 878.
+Same realurl-history effect as page 1056 in Stage 9: **the page tree is authoritative for
+category**, the stale paths still serve, and those are the URLs fetched for verification. All
+eight returned `HTTP/2 200` on first request — no 301 chase needed this time.
+
+### `gong-trophy` reports `captions 7/7` on 8 images — not a gap
+
+`cap_total` counts only images that *have* a DAM description; one of the eight has none. Coverage
+is proven by the order check instead, which compares full sequences: 8 live `imageElement`s
+against 8 of ours, identical. Same situation as `malaga-la-vache` in Stage 7.
+
 ## The original stays intact
 
 Nothing is edited in place and nothing is normalised away. Three layers hold the source
@@ -303,18 +422,17 @@ to its archive source — 1006/1006, 0 missing.
 
 ## Known defects — NOT introduced by this stage
 
-Both are pre-existing and block the result from being *seen*, not from being *correct*.
+Pre-existing; they block the result from being *seen*, not from being *correct*.
 
-1. **Image captions render empty.** `src/_user/layouts/project.njk` includes
-   `project-image-caption.njk` without setting `projectTitle`, `projectYear`,
-   `imageDescription` or `imageAuthor`, so the include logs `ERROR: Missing project title for
-   image caption` and emits an empty `<div>`. 80 such errors for Stage 6's 40 images. The data
-   is present in the front matter; only the hand-off is missing. This is the build noise
-   `CLAUDE.md` §7b recorded as "gone" — it was gone only because the content was quarantined.
-2. **The four collection pages produce 0-byte files.** `src/collections/{paintings,sculptures,
-   installations,performance}.md` carry `title` and `description` but no `layout`,
-   `collectionName` or `permalink`, unlike the template's own `blog.md`. So
-   `/collections/paintings/` is empty regardless of how many projects exist.
+1. ~~**Image captions render empty.**~~ **Fixed** — verified 2026-09-09 at Stage 10.
+   `src/_user/layouts/project.njk` now sets `projectTitle`, `projectYear`,
+   `imageDescription` and `imageAuthor` at all four include sites, and rendered pages carry
+   full captions (`The Gong Trophies / Berlin, March 2015 / Uri Moss`). What remains of that
+   build noise is **69 × `ERROR: Missing project year`**, which is the project-years open item
+   — most headers carry no year — and not a hand-off defect.
+2. ~~**The four collection pages produce 0-byte files.**~~ **Fixed** — verified 2026-09-09 at
+   Stage 10. `/collections/sculptures/` builds to 27.8 kB and lists all six of this stage's
+   projects; the other three build likewise.
 
 ## Reproducing
 
@@ -324,3 +442,21 @@ python3 migrated-content/_tools/convert_projects.py 6            # dry run
 python3 migrated-content/_tools/convert_projects.py 6 --write    # -> src/posts/projects/
 python3 migrated-content/_tools/verify_projects.py 6             # against raw/live/
 ```
+
+
+The live pages `verify_projects.py` reads must be fetched first, one per project, through the
+rate-limited fetcher — **never in parallel** (CLAUDE.md §7a):
+
+```bash
+bash migrated-content/_tools/fetch.sh \
+  https://www.maja-explosiv.com/content/sculptures/collaborations/hand-of-man.html \
+  migrated-content/projects/raw/live/hand-of-man.html
+```
+
+The path comes from `_census/url-to-uid.tsv` and is **not** derivable from the page tree — four
+of Stage 10's eight live under `sculptural-work/`, not `collaborations/`. Check `*.headers` for
+a 301 before concluding a page is gone.
+
+The database must be running and must be the current dump — `SELECT LENGTH(bodytext) FROM
+tt_content WHERE uid=1399;` must return **8441**. It is a system service and needs
+`sudo systemctl start mysql`, which an agent shell cannot do; ask the owner.

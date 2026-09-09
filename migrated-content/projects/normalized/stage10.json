@@ -1,0 +1,1113 @@
+{
+ "stage": 10,
+ "container": 878,
+ "container_name": "collaborations",
+ "category": "sculptures",
+ "projects": [
+  {
+   "page_uid": 1078,
+   "page_title": "Metal Group XIX",
+   "page_sorting": 1,
+   "shortcut": null,
+   "skip_reason": "HELD -- Metal Group XIX: text uid 1654 is a 4-column TABLE of 12 thumbnail images, each an internal link to another project -- a hand-built index, not a DAM gallery. body_md strips it and there is no Figma component for it. Migrated at Stage 10 and CORRUPTED before this hold was added; see SOURCE.md.",
+   "child_pages": 0,
+   "slug": "metal-group-xix",
+   "title": "Metal group XIX, since 1995",
+   "year": null,
+   "header": "Metal group XIX, since 1995",
+   "bodytext_html": "The metal design group XIX forms around the steel workers Grex Portmann /CH, Mike Tucker /GB,<br />Remo Lauper /CH, Felix Maspoli /I and Maja Thommen.<br /><br />After founding in 1995, several large group installations and art projects were realized from the groups <br />base on the amazing metal farm in Sennhof /CH.<br />Standing out was the year 1996 when XIX took part in the second symposium for recycling, Eurokon, <br />in Russia. The two week stay on the metal recycling factory Bto Met in Ekaterinburg was an overwhelming <br />experience. The raw material and the ancient means by which to manipulate metal on scrap yards in Russia <br />was highly inspiring.\r\nEver since, the XIX members have cooperated on many art projects. Consequently, Sennhof, the metal farm<br />in Switzerland, served and still serves as a base and a hub, and so continues to facilitate and inspire creations.",
+   "text_uid": 1656,
+   "text_uids": [
+    1656,
+    1654
+   ],
+   "text_blocks": [
+    {
+     "uid": 1656,
+     "header": "Metal group XIX, since 1995",
+     "bodytext_html": "The metal design group XIX forms around the steel workers Grex Portmann /CH, Mike Tucker /GB,<br />Remo Lauper /CH, Felix Maspoli /I and Maja Thommen.<br /><br />After founding in 1995, several large group installations and art projects were realized from the groups <br />base on the amazing metal farm in Sennhof /CH.<br />Standing out was the year 1996 when XIX took part in the second symposium for recycling, Eurokon, <br />in Russia. The two week stay on the metal recycling factory Bto Met in Ekaterinburg was an overwhelming <br />experience. The raw material and the ancient means by which to manipulate metal on scrap yards in Russia <br />was highly inspiring.\r\nEver since, the XIX members have cooperated on many art projects. Consequently, Sennhof, the metal farm<br />in Switzerland, served and still serves as a base and a hub, and so continues to facilitate and inspire creations.",
+     "sorting": 64
+    },
+    {
+     "uid": 1654,
+     "header": "",
+     "bodytext_html": "<table><thead><tr><th scope=\"col\"><link 1077 - internal-link \"Wandskulptur Hinwil, Hinwil 2023\"><img src=\"uploads/RTEmagicC_Bachtel2_03.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></th><th scope=\"col\"><link 1073 - internal-link \"Aussentreppe mit Affenbande, Zürich 2020\"><img src=\"uploads/RTEmagicC_Affenbande1.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></th><th scope=\"col\"><link 1063 - internal-link \"Weglampen, Sennhof 2015\"><img src=\"uploads/RTEmagicC_Weglampe2_02.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></th><th><link 1057 - internal-link \"Lionfish Door, Pfäffikon 2014\"><img src=\"uploads/RTEmagicC_Lion8_01.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></th></tr></thead><tbody><tr><td rowspan=\"1\"><link 926 - internal-link \"ELXT 90, 2000 - 2003\"><img src=\"uploads/RTEmagicC_elxt2th_01.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></td><td rowspan=\"1\"><link 928 - internal-link \"Bagger, 1997 - 2001\"><img src=\"uploads/RTEmagicC_baggerth2_01.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></td><td rowspan=\"1\"><link 942 - internal-link \"Dorfbachschiff, Pfäffikon 1999\"><img src=\"uploads/RTEmagicC_dorfbach1_03.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></td><td rowspan=\"1\"><link 1004 - internal-link \"17 Ton Bar, Sennhof 1997\"><img src=\"uploads/RTEmagicC_xixbar1_04.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></td></tr><tr><td rowspan=\"1\"><link 1005 - internal-link \"Iron Eagle, Novosibirsk 1996\"><img src=\"uploads/RTEmagicC_eagleth_03.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></td><td rowspan=\"1\"><link 1006 - internal-link \"Torso, Ekaterinburg 1996\"><img src=\"uploads/RTEmagicC_machineth_03.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></td><td rowspan=\"1\"><link 1007 - internal-link \"Nailed Tanks, Ekaterinburg 1996\"><img src=\"uploads/RTEmagicC_xixna3_02.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></td><td><link 1008 - internal-link \"Iron Channel, Zürich 1995\"><img src=\"uploads/RTEmagicC_channelth_03.jpg.jpg\" width=\"160\" height=\"160\" alt=\"\" /></link></td></tr><tr><td rowspan=\"1\"></td><td rowspan=\"1\"></td><td rowspan=\"1\"></td><td rowspan=\"1\"></td></tr></tbody></table>",
+     "sorting": 256
+    }
+   ],
+   "list_uid": null,
+   "anomalies": [
+    "text-elements=2 (all captured and concatenated in sorting order)",
+    "RTE-PAYLOAD in text uid 1654: 12 img, 1 table, 12 image-link -- body_md CANNOT represent this, and will silently drop it. Do not migrate this page without a decision."
+   ],
+   "images": []
+  },
+  {
+   "page_uid": 1058,
+   "page_title": "Gong Trophy",
+   "page_sorting": 2,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "gong-trophy",
+   "title": "The Gong Trophies",
+   "year": null,
+   "header": "The Gong Trophies",
+   "bodytext_html": "Two gongs designed as trophies for the grand  and the vice champion of the e-sport<br />competition Kumite, held by Red Bull in Paris\r\n<br />Design by Cyril Fernandez<br />Realization with Uri Moss, in cooperation with Acid Witch Produxions and Charly,<br />Berlin, March 2015",
+   "text_uid": 1589,
+   "text_uids": [
+    1589
+   ],
+   "text_blocks": [
+    {
+     "uid": 1589,
+     "header": "The Gong Trophies",
+     "bodytext_html": "Two gongs designed as trophies for the grand  and the vice champion of the e-sport<br />competition Kumite, held by Red Bull in Paris\r\n<br />Design by Cyril Fernandez<br />Realization with Uri Moss, in cooperation with Acid Witch Produxions and Charly,<br />Berlin, March 2015",
+     "sorting": 128
+    }
+   ],
+   "list_uid": 1588,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 2364,
+     "gallery_pos": 1,
+     "title": "Vice and Grand Champion Trophy",
+     "description": "Berlin, March 2015",
+     "creator": "Uri Moss",
+     "date_cr": 1431064871,
+     "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0055.JPG"
+    },
+    {
+     "dam_uid": 2362,
+     "gallery_pos": 2,
+     "title": "Grand Champion Trophy",
+     "description": "Berlin, March 2015",
+     "creator": "Uri Moss",
+     "date_cr": 1431064871,
+     "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0042.JPG"
+    },
+    {
+     "dam_uid": 2366,
+     "gallery_pos": 3,
+     "title": "Finished gong trophies",
+     "description": "Berlin, March 2015",
+     "creator": "Uri Moss",
+     "date_cr": 1431064874,
+     "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/IMG_0059.JPG"
+    },
+    {
+     "dam_uid": 2357,
+     "gallery_pos": 4,
+     "title": "Design study",
+     "description": "France, February 2015",
+     "creator": "Cyril Fernandez",
+     "date_cr": 1431064821,
+     "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/gong_engrave01.jpg"
+    },
+    {
+     "dam_uid": 2367,
+     "gallery_pos": 5,
+     "title": "Award ceremony, Salle Wagram, Paris",
+     "description": "Paris, March 2015",
+     "creator": "Katya Mokolo / Red Bull Content Pool",
+     "date_cr": 1431064985,
+     "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/bonchan-red-bull-kumite-tournoi-vainqueur.jpg"
+    },
+    {
+     "dam_uid": 2368,
+     "gallery_pos": 6,
+     "title": "Grand Champion Bonchan",
+     "description": "Paris, March 2015",
+     "creator": "Katya Mokolo / Red Bull Content Pool",
+     "date_cr": 1431064985,
+     "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/Bonchan1.jpg"
+    },
+    {
+     "dam_uid": 2369,
+     "gallery_pos": 7,
+     "title": "Award ceremony, champion Bonchan",
+     "description": "Paris, March 2015",
+     "creator": "Katya Mokolo / Red Bull Content Pool",
+     "date_cr": 1431064986,
+     "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/red-bull-kumite-tournoi-champion-bonchan.jpg"
+    },
+    {
+     "dam_uid": 2370,
+     "gallery_pos": 8,
+     "title": "Fan Collage, Grand Champion Bonchan",
+     "description": "",
+     "creator": "",
+     "date_cr": 1431064986,
+     "original": "fileadmin/s-maj/images/BilderMaja/2015GongTrophy/url.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 1054,
+   "page_title": "Destroy HIV",
+   "page_sorting": 4,
+   "shortcut": null,
+   "skip_reason": "HELD -- Destroy HIV: a live \"Videos\" text block (uid 1572) plus 6 hidden html video embeds, each captioned \"Zerstoere HIV - Tag 1..6\". Same video question as stage 9.",
+   "child_pages": 0,
+   "slug": "destroy-hiv",
+   "title": "Destroy HIV",
+   "year": null,
+   "header": "Destroy HIV",
+   "bodytext_html": "During the action time of one week, a 3x6 m HIV writing was destroyed, while an <br />angel-like figure grew out of the debris.<br /><br />The campaign 'Zerstöre HIV' was initiated for the World AIDS Day 2013.<br />It was entirely designed to be presented to, and interactively controlled by the <br />audience on social media. \r\nConcept by Jugend gegen Aids and Deepblue Networks, Hamburg<br />Realisation with Horst Steel /D, KAI /D and Uri Moss /IL, November 2013, Alte Münze, <br />Berlin /D",
+   "text_uid": 1565,
+   "text_uids": [
+    1565,
+    1572
+   ],
+   "text_blocks": [
+    {
+     "uid": 1565,
+     "header": "Destroy HIV",
+     "bodytext_html": "During the action time of one week, a 3x6 m HIV writing was destroyed, while an <br />angel-like figure grew out of the debris.<br /><br />The campaign 'Zerstöre HIV' was initiated for the World AIDS Day 2013.<br />It was entirely designed to be presented to, and interactively controlled by the <br />audience on social media. \r\nConcept by Jugend gegen Aids and Deepblue Networks, Hamburg<br />Realisation with Horst Steel /D, KAI /D and Uri Moss /IL, November 2013, Alte Münze, <br />Berlin /D",
+     "sorting": 128
+    },
+    {
+     "uid": 1572,
+     "header": "Videos",
+     "bodytext_html": "Due to the new EU law, it might be cheaper for me, if you watch videos of my projects on my <br />YouTube channel: <span id=\"result\"><a id=\"shortenedurl\" target=\"_blank\" href=\"http://t1p.de/maja-explosiv\">http://t1p.de/maja-explosiv</a>&nbsp;</span> \r\nI will work on it as soon as I can!",
+     "sorting": 384
+    }
+   ],
+   "list_uid": 1564,
+   "anomalies": [
+    "text-elements=2 (all captured and concatenated in sorting order)"
+   ],
+   "images": [
+    {
+     "dam_uid": 2294,
+     "gallery_pos": 1,
+     "title": "Campaign Poster, Day 1",
+     "description": "Alte Münze Berlin, November 2013",
+     "creator": "",
+     "date_cr": 1386675200,
+     "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/379679_726045454091027_1293523986_n.jpg"
+    },
+    {
+     "dam_uid": 2296,
+     "gallery_pos": 2,
+     "title": "Campaign Poster, Day 2",
+     "description": "Alte Münze Berlin, November 2013",
+     "creator": "",
+     "date_cr": 1386675202,
+     "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/1422512_726948264000746_1114160109_n.jpg"
+    },
+    {
+     "dam_uid": 2304,
+     "gallery_pos": 3,
+     "title": "Angel Wings",
+     "description": "Alte Münze Berlin, November 2013",
+     "creator": "",
+     "date_cr": 1386675297,
+     "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_Fluegel1.jpg"
+    },
+    {
+     "dam_uid": 2309,
+     "gallery_pos": 4,
+     "title": "The Guardian Angel",
+     "description": "Alte Münze Berlin, November 2013",
+     "creator": "",
+     "date_cr": 1386675312,
+     "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_total.jpg"
+    },
+    {
+     "dam_uid": 2311,
+     "gallery_pos": 5,
+     "title": "Cutting up the HIV",
+     "description": "Alte Münze Berlin, November 2013",
+     "creator": "",
+     "date_cr": 1386688291,
+     "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Debris2.jpg"
+    },
+    {
+     "dam_uid": 2302,
+     "gallery_pos": 6,
+     "title": "HIV, last Debris",
+     "description": "Alte Münze Berlin, November 2013",
+     "creator": "",
+     "date_cr": 1386675240,
+     "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/HIV_destroy33.jpg"
+    },
+    {
+     "dam_uid": 2308,
+     "gallery_pos": 7,
+     "title": "Working on the Angel Wings",
+     "description": "Alte Münze Berlin, November 2013",
+     "creator": "",
+     "date_cr": 1386675299,
+     "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/Schutzengel_Fluegel4.jpg"
+    },
+    {
+     "dam_uid": 2303,
+     "gallery_pos": 8,
+     "title": "HIV, Horst and Kai",
+     "description": "Alte Münze Berlin, November 2013",
+     "creator": "",
+     "date_cr": 1386675240,
+     "original": "fileadmin/s-maj/images/BilderMaja/2013Schutzengel/HIV_jungs.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 1031,
+   "page_title": "Elephant",
+   "page_sorting": 6,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "elephant",
+   "title": "Elephants Head",
+   "year": null,
+   "header": "Elephants Head",
+   "bodytext_html": "Realization of the 8 meter elephants head for the for the large scale Bollywood show India, the follower of<br />Afrika-Afrika, together with Tom Stelt /NL, Ymar Degroot /NL and Martin Cypritch /SK, commissioned by<br />Prime Time Entertainment, Mainz /D, November 2009\r\nThe sculpture is made from 16 pieces, weighs less then 120 kg  and is designed to be built on stage for the <br />gran finale of the show.",
+   "text_uid": 1494,
+   "text_uids": [
+    1494
+   ],
+   "text_blocks": [
+    {
+     "uid": 1494,
+     "header": "Elephants Head",
+     "bodytext_html": "Realization of the 8 meter elephants head for the for the large scale Bollywood show India, the follower of<br />Afrika-Afrika, together with Tom Stelt /NL, Ymar Degroot /NL and Martin Cypritch /SK, commissioned by<br />Prime Time Entertainment, Mainz /D, November 2009\r\nThe sculpture is made from 16 pieces, weighs less then 120 kg  and is designed to be built on stage for the <br />gran finale of the show.",
+     "sorting": 128
+    }
+   ],
+   "list_uid": 1493,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 2014,
+     "gallery_pos": 1,
+     "title": "Elephant in workshop",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975429,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_in_workshop.jpg"
+    },
+    {
+     "dam_uid": 2010,
+     "gallery_pos": 2,
+     "title": "Elephants Head close up",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975428,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephants_Head_close_up.jpg"
+    },
+    {
+     "dam_uid": 2008,
+     "gallery_pos": 3,
+     "title": "Elephant inside",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975425,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_inside.jpg"
+    },
+    {
+     "dam_uid": 2004,
+     "gallery_pos": 4,
+     "title": "Elephant staged",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975424,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_staged.jpg"
+    },
+    {
+     "dam_uid": 2018,
+     "gallery_pos": 5,
+     "title": "Elephant on stage",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260979785,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elefphant_on_stage.jpg"
+    },
+    {
+     "dam_uid": 2003,
+     "gallery_pos": 6,
+     "title": "musicians roof",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975424,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/musicians_roof.jpg"
+    },
+    {
+     "dam_uid": 2009,
+     "gallery_pos": 7,
+     "title": "parts and roof",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975428,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/parts_and_roof.jpg"
+    },
+    {
+     "dam_uid": 2017,
+     "gallery_pos": 8,
+     "title": "Elephants Head in workshop",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975430,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephants_Head_in_workshop.jpg"
+    },
+    {
+     "dam_uid": 2012,
+     "gallery_pos": 9,
+     "title": "Elephant side view",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975428,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/Elephant_side_view.jpg"
+    },
+    {
+     "dam_uid": 2002,
+     "gallery_pos": 10,
+     "title": "model",
+     "description": "India, travel to the land of mystery and wonders, Mainz 2009",
+     "creator": "",
+     "date_cr": 1260975424,
+     "original": "fileadmin/s-maj/images/BilderMaja/2009elefant/model.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 994,
+   "page_title": "Throne",
+   "page_sorting": 8,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "throne",
+   "title": "The Throne",
+   "year": null,
+   "header": "The Throne",
+   "bodytext_html": "Realisation of the packable chair for the new spectacle 'La Morte di Babbo Natale' <br />of Tony Clifton Circus /I, les Atelier Frappaz, Villeneuve /F, November 2008",
+   "text_uid": 1357,
+   "text_uids": [
+    1357
+   ],
+   "text_blocks": [
+    {
+     "uid": 1357,
+     "header": "The Throne",
+     "bodytext_html": "Realisation of the packable chair for the new spectacle 'La Morte di Babbo Natale' <br />of Tony Clifton Circus /I, les Atelier Frappaz, Villeneuve /F, November 2008",
+     "sorting": 128
+    }
+   ],
+   "list_uid": 1356,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 2065,
+     "gallery_pos": 1,
+     "title": "Show Time, spectator getting a real horse for Christmas",
+     "description": "La Morte de Babbo Natale, Tony Clifton Circus",
+     "creator": "Frederica Borgato",
+     "date_cr": 1273916483,
+     "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/Morte_Babbo_9073__Federica_Borgato.jpg"
+    },
+    {
+     "dam_uid": 1564,
+     "gallery_pos": 2,
+     "title": "The Throne",
+     "description": "Chair for Babbo Natale, Tony Clifton Circus,  Villeneuve /F 2008",
+     "creator": "",
+     "date_cr": 1239202758,
+     "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1412.jpg"
+    },
+    {
+     "dam_uid": 1569,
+     "gallery_pos": 3,
+     "title": "The Throne",
+     "description": "Chair for Babbo Natale, Tony Clifton Circus,  Villeneuve /F 2008",
+     "creator": "",
+     "date_cr": 1239202760,
+     "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1416.jpg"
+    },
+    {
+     "dam_uid": 1565,
+     "gallery_pos": 4,
+     "title": "The Throne, half way mounted",
+     "description": "Chair for Babbo Natale, Tony Clifton Circus,  Villeneuve /F 2008",
+     "creator": "",
+     "date_cr": 1239202758,
+     "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1402.jpg"
+    },
+    {
+     "dam_uid": 1568,
+     "gallery_pos": 5,
+     "title": "The base of the Throne",
+     "description": "Chair for Babbo Natale, Tony Clifton Circus,  Villeneuve /F 2008",
+     "creator": "",
+     "date_cr": 1239202759,
+     "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1423.jpg"
+    },
+    {
+     "dam_uid": 1563,
+     "gallery_pos": 6,
+     "title": "The Throne, work in progress",
+     "description": "Chair for Babbo Natale, Tony Clifton Circus,  Villeneuve /F 2008",
+     "creator": "",
+     "date_cr": 1239202758,
+     "original": "fileadmin/s-maj/images/BilderMaja/2008tcc/IMG_1392-1.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 945,
+   "page_title": "Hand of Man",
+   "page_sorting": 12,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "hand-of-man",
+   "title": "Hand of Man",
+   "year": "2007",
+   "header": "Hand of Man, 2007",
+   "bodytext_html": "Invited by Robochrist Industries /USA, Maja Thommen assisted in the building of this large <br />scale sculpture which was constructed in only three weeks for the 10th Robodock Festival, 2007. <br />For the premiere of this incredible machine, the 'Hand' crushed a minivan.",
+   "text_uid": 1264,
+   "text_uids": [
+    1264
+   ],
+   "text_blocks": [
+    {
+     "uid": 1264,
+     "header": "Hand of Man, 2007",
+     "bodytext_html": "Invited by Robochrist Industries /USA, Maja Thommen assisted in the building of this large <br />scale sculpture which was constructed in only three weeks for the 10th Robodock Festival, 2007. <br />For the premiere of this incredible machine, the 'Hand' crushed a minivan.",
+     "sorting": 128
+    }
+   ],
+   "list_uid": 1252,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 1744,
+     "gallery_pos": 1,
+     "title": "Hand of Man, crushing car",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946255,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/1car1.jpg"
+    },
+    {
+     "dam_uid": 1751,
+     "gallery_pos": 2,
+     "title": "Hand of Man, crushing car",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946256,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car3.jpg"
+    },
+    {
+     "dam_uid": 1747,
+     "gallery_pos": 3,
+     "title": "Hand of Man, crushing car",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946256,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car4.jpg"
+    },
+    {
+     "dam_uid": 1745,
+     "gallery_pos": 4,
+     "title": "Hand of Man, crushing car",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946256,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car9.jpg"
+    },
+    {
+     "dam_uid": 1750,
+     "gallery_pos": 5,
+     "title": "Hand of Man, crushing car",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946256,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car7.jpg"
+    },
+    {
+     "dam_uid": 1753,
+     "gallery_pos": 6,
+     "title": "Hand of Man, crushing car",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946257,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/car10.jpg"
+    },
+    {
+     "dam_uid": 1754,
+     "gallery_pos": 7,
+     "title": "Hand of Man, playing with organ",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946257,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/orgn1.jpg"
+    },
+    {
+     "dam_uid": 1743,
+     "gallery_pos": 8,
+     "title": "Hand of Man, playing with organ",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946254,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/orgn2.jpg"
+    },
+    {
+     "dam_uid": 1746,
+     "gallery_pos": 9,
+     "title": "Hand of Man, playing with organ",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946256,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/oergn3.jpg"
+    },
+    {
+     "dam_uid": 1752,
+     "gallery_pos": 10,
+     "title": "Hand of Man, controls",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946257,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/controling.jpg"
+    },
+    {
+     "dam_uid": 1749,
+     "gallery_pos": 11,
+     "title": "Hand of Man, the controler",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946256,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/controler.jpg"
+    },
+    {
+     "dam_uid": 1748,
+     "gallery_pos": 12,
+     "title": "Hand of Man, in workshop",
+     "description": "Robochrist Industries /USA, Robodock Festival, Amsterdam /NL 2007",
+     "creator": "Snyder Speed",
+     "date_cr": 1239946256,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007 handofman/hinworkshop.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 946,
+   "page_title": "Wheel of Power",
+   "page_sorting": 32,
+   "shortcut": null,
+   "skip_reason": "HELD -- Wheel of Power: a live \"Wheel of Power videos:\" text block (uid 1446) plus 2 hidden html video embeds and 2 hidden captions. Same video question as stage 9.",
+   "child_pages": 0,
+   "slug": "wheel-of-power",
+   "title": "Derevo, Wheel of Power",
+   "year": "2007",
+   "header": "Derevo, Wheel of Power, 2007",
+   "bodytext_html": "For the 400th anniversary of the city of Mannheim, Theatrical masters Derevo /RU produced <br />a full evening of spectacular with AKHE theatre from St. Petersburg and a collaboration of <br />installation artist called Robodock Crew based around Tom van der Stelt /NL. <br /><br />For their part, the Robodock Crew designed and animated the outdoor space of an abandoned <br />railway station with bars, sculptures, machines and various fire performances.\r\nThe Robodock crew was: Tom van der Stelt /NL, Daan /NL, Doyle /USA, Jens Schendel a.k.a. <br />Horst Steel /D, Luca Minotti /CH, Martin Cypritch /CZ, Marco Collabucci /I, Wout Rockx /NL, <br />Ymar /NL, Rael /NL, Maja Explosiv /CH",
+   "text_uid": 1263,
+   "text_uids": [
+    1263,
+    1446
+   ],
+   "text_blocks": [
+    {
+     "uid": 1263,
+     "header": "Derevo, Wheel of Power, 2007",
+     "bodytext_html": "For the 400th anniversary of the city of Mannheim, Theatrical masters Derevo /RU produced <br />a full evening of spectacular with AKHE theatre from St. Petersburg and a collaboration of <br />installation artist called Robodock Crew based around Tom van der Stelt /NL. <br /><br />For their part, the Robodock Crew designed and animated the outdoor space of an abandoned <br />railway station with bars, sculptures, machines and various fire performances.\r\nThe Robodock crew was: Tom van der Stelt /NL, Daan /NL, Doyle /USA, Jens Schendel a.k.a. <br />Horst Steel /D, Luca Minotti /CH, Martin Cypritch /CZ, Marco Collabucci /I, Wout Rockx /NL, <br />Ymar /NL, Rael /NL, Maja Explosiv /CH",
+     "sorting": 128
+    },
+    {
+     "uid": 1446,
+     "header": "Wheel of Power videos:",
+     "bodytext_html": "Due to the new EU law about data protection, i had to take all the videos down. Until I find a <br />better solution, you can watch the videos of my projects on my YouTube channel: \r\n<span id=\"result\"><a href=\"http://t1p.de/maja-explosiv\" target=\"_blank\" id=\"shortenedurl\">http://t1p.de/maja-explosiv</a>&nbsp;</span> ",
+     "sorting": 148
+    }
+   ],
+   "list_uid": 1253,
+   "anomalies": [
+    "text-elements=2 (all captured and concatenated in sorting order)"
+   ],
+   "images": [
+    {
+     "dam_uid": 1124,
+     "gallery_pos": 1,
+     "title": "the queen",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559186,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21_juni_2007__26_.jpg"
+    },
+    {
+     "dam_uid": 1110,
+     "gallery_pos": 2,
+     "title": "birds",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559184,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/20_june_07__134_.jpg"
+    },
+    {
+     "dam_uid": 1118,
+     "gallery_pos": 3,
+     "title": "lizard",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559185,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/23_juni__12_.jpg"
+    },
+    {
+     "dam_uid": 1116,
+     "gallery_pos": 4,
+     "title": "rhino",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559185,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/22_june_07_069.jpg"
+    },
+    {
+     "dam_uid": 1382,
+     "gallery_pos": 5,
+     "title": "workshop",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Luca Minotti",
+     "date_cr": 1238683564,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_0736.jpg"
+    },
+    {
+     "dam_uid": 1117,
+     "gallery_pos": 6,
+     "title": "container bar",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559185,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/31_july__42_.jpg"
+    },
+    {
+     "dam_uid": 1113,
+     "gallery_pos": 7,
+     "title": "container bar, metal blocks after oxigene performance",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Luca Minotti",
+     "date_cr": 1225559185,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1071.jpg"
+    },
+    {
+     "dam_uid": 1102,
+     "gallery_pos": 8,
+     "title": "swing, opening hours",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559183,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere_037.jpg"
+    },
+    {
+     "dam_uid": 1114,
+     "gallery_pos": 9,
+     "title": "sailor, opening hours",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559185,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere_023.jpg"
+    },
+    {
+     "dam_uid": 1394,
+     "gallery_pos": 10,
+     "title": "the king, opening hours",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683566,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-066.jpg"
+    },
+    {
+     "dam_uid": 1379,
+     "gallery_pos": 11,
+     "title": "karrots, opening hours",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Luca Minotti",
+     "date_cr": 1238683563,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1066.jpg"
+    },
+    {
+     "dam_uid": 1389,
+     "gallery_pos": 12,
+     "title": "opening hours",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683565,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday-034.jpg"
+    },
+    {
+     "dam_uid": 1385,
+     "gallery_pos": 13,
+     "title": "opening hours",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683565,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-060.jpg"
+    },
+    {
+     "dam_uid": 1387,
+     "gallery_pos": 14,
+     "title": "opening hours",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683565,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-086.jpg"
+    },
+    {
+     "dam_uid": 1396,
+     "gallery_pos": 15,
+     "title": "spinning chairs",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Luca Minotti",
+     "date_cr": 1238683566,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1069.jpg"
+    },
+    {
+     "dam_uid": 1105,
+     "gallery_pos": 16,
+     "title": "merry-go-round",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Luca Minotti",
+     "date_cr": 1225559184,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1072.jpg"
+    },
+    {
+     "dam_uid": 1125,
+     "gallery_pos": 17,
+     "title": "drunken boat",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559186,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday_563.jpg"
+    },
+    {
+     "dam_uid": 1103,
+     "gallery_pos": 18,
+     "title": "water ski",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559184,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_231.jpg"
+    },
+    {
+     "dam_uid": 1120,
+     "gallery_pos": 19,
+     "title": "sailor on drunken boat",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559186,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_222.jpg"
+    },
+    {
+     "dam_uid": 1111,
+     "gallery_pos": 20,
+     "title": "getting in position",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559185,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_188.jpg"
+    },
+    {
+     "dam_uid": 1107,
+     "gallery_pos": 21,
+     "title": "kissing",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559184,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_187.jpg"
+    },
+    {
+     "dam_uid": 1112,
+     "gallery_pos": 22,
+     "title": "The Kiss Machine",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559185,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/thursday_512.jpg"
+    },
+    {
+     "dam_uid": 1393,
+     "gallery_pos": 23,
+     "title": "Derevo, Elegy",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683566,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/premiere-115.jpg"
+    },
+    {
+     "dam_uid": 1392,
+     "gallery_pos": 24,
+     "title": "Derevo, Elegy",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683566,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/saturday-28-juli-025-crop.jpg"
+    },
+    {
+     "dam_uid": 1383,
+     "gallery_pos": 25,
+     "title": "Derevo, Elegy",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683565,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/saturday-28-juli-068-crop-2.jpg"
+    },
+    {
+     "dam_uid": 1384,
+     "gallery_pos": 26,
+     "title": "Derevo, Elegy",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683565,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/22-june-_224_.jpg"
+    },
+    {
+     "dam_uid": 1397,
+     "gallery_pos": 27,
+     "title": "Derevo, Elegy",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Luca Minotti",
+     "date_cr": 1238683566,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/IMG_1078.jpg"
+    },
+    {
+     "dam_uid": 1386,
+     "gallery_pos": 28,
+     "title": "Derevo, Elegy",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683565,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-juni-2007-_260_.jpg"
+    },
+    {
+     "dam_uid": 1381,
+     "gallery_pos": 29,
+     "title": "Derevo, Elegy",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683564,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-juni-2007-_129_.jpg"
+    },
+    {
+     "dam_uid": 1395,
+     "gallery_pos": 30,
+     "title": "Derevo, Elegy",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683566,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag-performance-013-cr.jpg"
+    },
+    {
+     "dam_uid": 1380,
+     "gallery_pos": 31,
+     "title": "Akhe passage",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683564,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/23-juni-_2_-338.jpg"
+    },
+    {
+     "dam_uid": 1388,
+     "gallery_pos": 32,
+     "title": "Akhe passage",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683565,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/21-june-01-_111_.jpg"
+    },
+    {
+     "dam_uid": 1119,
+     "gallery_pos": 33,
+     "title": "The Olympic Machine, up",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559185,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_291.jpg"
+    },
+    {
+     "dam_uid": 1121,
+     "gallery_pos": 34,
+     "title": "The Olympic Machine, down",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559186,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/zaterdag_performance_278.jpg"
+    },
+    {
+     "dam_uid": 1391,
+     "gallery_pos": 35,
+     "title": "Olympic performance, Derevo",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1238683565,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/sundayevening-377-bew.jpg"
+    },
+    {
+     "dam_uid": 1123,
+     "gallery_pos": 36,
+     "title": "steam globe",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Luca Minotti",
+     "date_cr": 1225559186,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1108.jpg"
+    },
+    {
+     "dam_uid": 1100,
+     "gallery_pos": 37,
+     "title": "flamethrower test",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559183,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_0900.jpg"
+    },
+    {
+     "dam_uid": 1108,
+     "gallery_pos": 38,
+     "title": "rehearsal, liquid metal performance",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Elena",
+     "date_cr": 1225559184,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/luca.jpg"
+    },
+    {
+     "dam_uid": 1126,
+     "gallery_pos": 39,
+     "title": "liquid metal vulkano",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559186,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/fridayevening_682.jpg"
+    },
+    {
+     "dam_uid": 1101,
+     "gallery_pos": 40,
+     "title": "time machine on train bar",
+     "description": "Wheel of Power, Mannheim 2007",
+     "creator": "Nicole van Hasselt",
+     "date_cr": 1225559183,
+     "original": "fileadmin/s-maj/images/BilderMaja/2007WheelOfPower/img_1118.jpg"
+    }
+   ]
+  },
+  {
+   "page_uid": 947,
+   "page_title": "Forget me Not",
+   "page_sorting": 288,
+   "shortcut": null,
+   "skip_reason": null,
+   "child_pages": 0,
+   "slug": "forget-me-not",
+   "title": "Forget Me Not",
+   "year": "2003",
+   "header": "Forget Me Not, 2003",
+   "bodytext_html": "Puppet Circus for the theatre piece Forget Me Not from and with Paka the incredible and <br />Sarah Wright, Albany Theatre, London. <br />Realization of the wood marionettes and the circus stage with Milou Veling, Sarah and <br />Lindy Wright in Little Angel Theatre, ‘Home of British Puppetry’, London /GB",
+   "text_uid": 1262,
+   "text_uids": [
+    1262
+   ],
+   "text_blocks": [
+    {
+     "uid": 1262,
+     "header": "Forget Me Not, 2003",
+     "bodytext_html": "Puppet Circus for the theatre piece Forget Me Not from and with Paka the incredible and <br />Sarah Wright, Albany Theatre, London. <br />Realization of the wood marionettes and the circus stage with Milou Veling, Sarah and <br />Lindy Wright in Little Angel Theatre, ‘Home of British Puppetry’, London /GB",
+     "sorting": 128
+    }
+   ],
+   "list_uid": 1254,
+   "anomalies": [],
+   "images": [
+    {
+     "dam_uid": 811,
+     "gallery_pos": 1,
+     "title": "circus tent",
+     "description": "Forget me Not, Albany Theater, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow01.jpg"
+    },
+    {
+     "dam_uid": 806,
+     "gallery_pos": 2,
+     "title": "circus tent, glowing",
+     "description": "Forget me Not, Albany Theater, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow02.jpg"
+    },
+    {
+     "dam_uid": 812,
+     "gallery_pos": 3,
+     "title": "show time",
+     "description": "Forget me Not, Albany Theater, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow06.jpg"
+    },
+    {
+     "dam_uid": 807,
+     "gallery_pos": 4,
+     "title": "horse acrobatics",
+     "description": "Forget me Not, Little Angel, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/tinshow10.jpg"
+    },
+    {
+     "dam_uid": 808,
+     "gallery_pos": 5,
+     "title": "rehearsal, horse training",
+     "description": "Forget me Not, Little Angel, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/3puppetrehearsal06.jpg"
+    },
+    {
+     "dam_uid": 804,
+     "gallery_pos": 6,
+     "title": "horses, rehearsal",
+     "description": "Forget me Not, Little Angel, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/3puppetrehearsal07.jpg"
+    },
+    {
+     "dam_uid": 809,
+     "gallery_pos": 7,
+     "title": "workshop",
+     "description": "Forget me Not, Little Angel, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/Puppets.jpg"
+    },
+    {
+     "dam_uid": 805,
+     "gallery_pos": 8,
+     "title": "workshop, horse",
+     "description": "Forget me Not, Albany Theater, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/horse.jpg"
+    },
+    {
+     "dam_uid": 1378,
+     "gallery_pos": 9,
+     "title": "forgetmenot",
+     "description": "Forget Me Not, Little Angel, London 2003",
+     "creator": "",
+     "date_cr": 1238677251,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/forgetmenot.jpg"
+    },
+    {
+     "dam_uid": 813,
+     "gallery_pos": 10,
+     "title": "workshop, puppet",
+     "description": "Forget me Not, Little Angel, London 2003",
+     "creator": "",
+     "date_cr": 1041375600,
+     "original": "fileadmin/s-maj/images/BilderMaja/2003ForgetMeNot/lindy1.jpg"
+    }
+   ]
+  }
+ ]
+}

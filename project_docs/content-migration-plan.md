@@ -1306,14 +1306,31 @@ something checked for it.
 | 13 | Misc | whatever Stage 0 could not classify, plus container **1049** (below) | yours |
 | 14 | Global reconciliation | `unassigned.tsv` = 0; every ledger passes; `TBD/` emptied | yours |
 
-### Start with Stage 10, and expect the video question immediately
+### ~~Start with Stage 10~~ — **Stage 10 is done, 5 of 8 (2026-09-09). Start with Stage 11.**
 
-Two of collaborations' eight — **946 Wheel of Power** and **1054 Destroy HIV** — carry
-`CType: html` video embeds, the same thing that holds two Stage 9 projects. If the owner has
-not answered by then, **hold those two and migrate the other six**; the mechanism is one entry
-in `STAGES[10]['hold']` and it keeps full extraction. Do not invent a video treatment.
+Two of collaborations' eight — **946 Wheel of Power** and **1054 Destroy HIV** — carry video,
+and both were **held** via `STAGES[10]['hold']` on the owner's instruction to hold the
+video-related projects. A third, **1078 Metal Group XIX**, was migrated, **came out corrupted,
+and is now held too** — it carries a 12-thumbnail index table in RTE markup that `body_md`
+silently destroyed while all three verification checks passed. **Read
+`migrated-content/projects/SOURCE.md` § *Stage 10* before Stage 11: four Stage 11 pages have
+the same shape and three new guards now stop them.** The other five migrated and verified 8/8
+against live.
+
+One correction to the brief above: the video content on those two pages is not only
+`CType: html`. The `html` embeds are all **hidden** in TYPO3, so the extractor never touched
+them; what actually needed holding is a **live** headed `text` block of video links on each
+(uids **1446** `Wheel of Power videos:` and **1572** `Videos`). Casino Gitano's shape exactly.
+Full detail: `migrated-content/projects/SOURCE.md` § *Stage 10*.
 
 ### Stage 11 is the one that needs care
+
+**Two blockers, not one.** Besides the sub-container question below, **four Stage 11 pages carry
+RTE thumbnail-index tables** — 1039 Sculptures (25 images, 24 internal links), 1040 Installations
+(21/21), 1050 The Birds (11 images in 5 tables), 1068 Portraits (2). This is what corrupted
+`metal-group-xix` at Stage 10. `body_md` now raises rather than dropping them, so they will stop
+the stage instead of publishing garbage — but **what they should become is an open item, not
+something to invent.** See PLAN.md and `SOURCE.md` § *Stage 10*.
 
 41 projects, and the only stage with **sub-containers**. `877 sculptural work` splits into
 `1039 Sculptures` and `1040 Installations` — already in the `STAGES` model. But **inside 1039,

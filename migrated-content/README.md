@@ -26,7 +26,8 @@ at the end of `project_docs/content-migration-plan.md` — reading list, per-sta
 | 7 | Projects — paper work | **done** — 4 projects, 52 images, verified 5/5 against live. 1 page skipped: 982 is a shortcut to 924, whose content belongs to container 1049 |
 | 8 | Projects — event organisation | **done** — 3 projects, 78 images, verified 3/3 against live. Category changed TBD → `installations` (owner). First stage with multi-block text |
 | 9 | Projects — performance | **PARTIAL, 4 of 6** — 89 images, verified 6/6 against live. `casino-gitano` and `elxt-90` HELD pending the video decision |
-| 10–14 | Projects, News, Misc | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
+| 10 | Projects — collaborations | **PARTIAL, 5 of 8** — 46 images, verified 8/8 against live. `wheel-of-power` and `destroy-hiv` HELD on video; `metal-group-xix` HELD on a 12-thumbnail RTE index table that `body_md` corrupted — see SOURCE.md § *Stage 10*, and the three guards added because of it |
+| 11–14 | Projects, News, Misc | not started. **Stage 12 (News) is likely moot** — `tt_news` turned out to be the timeline, not a news feed |
 
 ## Layout
 

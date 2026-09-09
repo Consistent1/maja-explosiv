@@ -45,9 +45,30 @@ def run(stage):
         # so it cannot hide a difference in wording. See convert_projects.py.
         def cmpable(x): return re.sub(r'\b[a-z][a-z0-9+.-]*://', '', norm(x))
         live_cmp_text = cmpable(live)
+        # `and cmpable(...)` skips a block that strips to nothing -- which is precisely how
+        # page 1078 passed. Its second block is a TABLE OF 12 THUMBNAIL LINKS: no text at
+        # all, so it was skipped here, while body_md had already turned it into the run-on
+        # uid string "107710731063...". An empty needle is trivially a substring, so the
+        # check reported `body OK (2 blk)` over content that was entirely gone.
+        # A block with no text is now a FAILURE, not a pass: it means the block's content
+        # is carried by markup this comparison cannot see.
+        empty_blocks = [b for b in text_blocks if not cmpable(txt(b['bodytext_html']))]
         missing_blocks = [b for b in text_blocks if cmpable(txt(b['bodytext_html']))
                           and cmpable(txt(b['bodytext_html'])) not in live_cmp_text]
-        body_ok = not missing_blocks
+        body_ok = not missing_blocks and not empty_blocks
+
+        # EMBEDDED IMAGES. The gallery checks below read <div class="imageElement"> only --
+        # the DAM smoothgallery -- so an image placed straight into a text element's RTE
+        # markup is invisible to every other check on this page. Page 1078 has twelve of
+        # them and reported `0/0 images  order OK`.
+        # Gallery <img>s always carry class="full" or class="thumbnail"; page chrome is a
+        # fixed short list. Anything else is embedded content that no stage handles.
+        # This is a live-side heuristic and deliberately a SECOND opinion -- the exact test
+        # is extract_projects.py's RTE-PAYLOAD check, which reads the bodytext itself.
+        embedded = [t for t in re.findall(r'<img\b[^>]*>', h, re.I)
+                    if not re.search(r'class="(full|thumbnail)"', t, re.I)
+                    and not re.search(r'(fileadmin/s-maj/images/page/|clear\.gif|'
+                                      r'RTEmagicC_flame4)', t, re.I)]
         # captions: each image description should appear in the page text
         caps = sum(1 for im in p['images'] if im['description'] and norm(im['description']) in norm(live))
         cap_total = sum(1 for im in p['images'] if im['description'])
@@ -74,16 +95,20 @@ def run(stage):
         order_ok = len(live_cmp) == len(ours_seq) and live_cmp == ours_seq
         first_diff = next((i+1 for i,(a,b) in enumerate(zip(live_cmp, ours_seq)) if a != b), None)
 
-        ok = head_ok and body_ok and caps == cap_total and order_ok
+        ok = head_ok and body_ok and caps == cap_total and order_ok and not embedded
         if not ok: fails += 1
         rows.append((p['slug'],
                      'header OK' if head_ok else 'HEADER MISMATCH',
                      (f'body OK ({len(text_blocks)} blk)' if body_ok
                       else f'BODY MISMATCH {len(missing_blocks)}/{len(text_blocks)}'),
                      f'captions {caps}/{cap_total}',
-                     'order OK' if order_ok else
-                     (f'ORDER DIFFERS at {first_diff}' if first_diff
-                      else f'ORDER len {len(live_cmp)} vs {len(ours_seq)}')))
+                     ('order OK' if order_ok else
+                      (f'ORDER DIFFERS at {first_diff}' if first_diff
+                       else f'ORDER len {len(live_cmp)} vs {len(ours_seq)}'))
+                     + (f'  <== {len(embedded)} EMBEDDED IMG not in any gallery'
+                        if embedded else '')
+                     + ('  <== %d TEXT BLOCK(S) WITH NO TEXT' % len(empty_blocks)
+                        if empty_blocks else '')))
     w = max(len(r[0]) for r in rows)
     for r in rows: print(f"  {r[0]:<{w}}  {r[1]:<16} {r[2]:<14} {r[3]:<16} {r[4]}")
     print(f"\n  {len(rows)-fails}/{len(rows)} projects match live")

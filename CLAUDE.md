@@ -203,18 +203,25 @@ dev server.** `.eleventy.js` copies both into `.cache/` at config time, so a run
 keeps serving the old markup and the change looks like it did nothing. Only
 `src/_user/assets/css/` is a watch target and hot-reloads.
 
-**Expected build errors right now:** four `Featured project '…' not found in any collection`
-lines. `src/_user/data/featuredProjects.json` names projects by slug that Stage 0b quarantined.
-The build still completes. It resolves when Stages 6–11 migrate the projects, though the
-entries will need repointing rather than just reappearing — the slugs change under the six→four
-category mapping. Logged in PLAN.md.
+**Expected build errors right now** (recounted 2026-09-09, after Stage 10):
+
+- **three** `Featured project '…' not found in any collection` lines — `sisyphos-gate`,
+  `the-wolf`, `blumenwolke`. `src/_user/data/featuredProjects.json` names projects by slug that
+  Stage 0b quarantined; the fourth, `paintings/akwa`, now resolves because Stage 7 migrated it.
+  The build still completes. The rest resolve as Stages 11–14 land, though the entries will need
+  repointing rather than just reappearing — the slugs change under the six→four category
+  mapping. Logged in PLAN.md.
+- **69** `ERROR: Missing project year for image caption` lines. Most old headers carry no year;
+  this is the project-years open item, not a template fault, and it grows with every stage.
 
 The old `Missing image title/year for caption` noise for `sisyphos-gate`, `murals-europe` and the
 paintings collections is **gone** — those files are quarantined.
 
-**The site is mostly empty during the migration and that is correct.** One real page
-(`/about/links/`), a homepage whose Bio/Timeline/Press tabs are blank, empty collection pages,
-no featured projects. Do not "fix" it.
+**The site is no longer mostly empty, and the two defects that hid the migrated content are
+fixed** (verified 2026-09-09): image captions render in full, and the four collection pages
+build — `/collections/sculptures/` lists all six Stage 10 projects. Still expected to be sparse:
+the homepage's Bio/Timeline/Press tabs are blank and no featured project resolves. Do not
+"fix" those.
 
 **Verify visually, not just by computed style.** A real bug was missed because CSS
 metrics were checked but element positions were not — a base rule
@@ -230,13 +237,23 @@ Phases are in PLAN.md; the short version:
 - **Homepage, single project** — structurally close, need a token-accurate pass.
 - **Content migration** — **underway, and it now governs `src/` content.** Read
   `project_docs/content-migration-plan.md` (approved 2026-08-25) before touching content.
-  - **Stages 0–8 are done and Stage 9 is 4 of 6.** 14 projects and 259 images live in `src/`.
+  - **Stages 0–8 are done; Stage 9 is 4 of 6 and Stage 10 is 5 of 8.** 19 projects and 305
+    images live in `src/`.
     The project pipeline is `migrated-content/_tools/{extract,convert,verify}_projects.py`;
     adding a stage is one row in `STAGES`. Per-stage decisions and traps:
-    **`migrated-content/projects/SOURCE.md`**. Stages 10–14 remain — see the `HANDOFF`
+    **`migrated-content/projects/SOURCE.md`**. Stages 11–14 remain — see the `HANDOFF`
     section at the end of the migration plan.
-  - **Two projects are HELD, not skipped** (`casino-gitano`, `elxt-90`) pending Maja's answer
-    on video. Held pages are fully extracted; one line in `STAGES[n]['hold']` releases them.
+  - **Five projects are HELD, not skipped.** Four (`casino-gitano`, `elxt-90`, `wheel-of-power`,
+    `destroy-hiv`) pending Maja's answer on video; `metal-group-xix` pending a decision on RTE
+    thumbnail-index tables. Held pages are fully extracted; one line in `STAGES[n]['hold']`
+    releases each.
+  - **`body_md` cannot represent images, tables, or image-wrapped links, and used to lose them
+    silently.** It corrupted `metal-group-xix` — 12 thumbnails and 12 internal links became the
+    run-on string `107710731063…` — while the extractor, the caption check and the body check
+    all passed, because all three only understand DAM smoothgallery markup and plain text.
+    Three guards now catch it (extractor `RTE-PAYLOAD` anomaly, `body_md` raises, verifier
+    embedded-`<img>` + empty-block checks). **Stage 11 hits this four more times, larger.**
+    Never conclude "no gallery" from `imgs=0` alone — check the bodytext.
   - **`src/pages/` and `src/posts/` now contain only migration output** — currently one file,
     `about/links.md`. The 38 pre-existing Markdown files were **moved**, not deleted, to
     `pre-migration-content/`. The old "~26 of ~71 projects converted" line was wrong twice
