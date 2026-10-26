@@ -285,7 +285,7 @@ timelineSections:
         source_datetime: "2012-05-13T11:09:00Z"
         source_categories: "23"
         source_category_names: "Sculptures"
-        source_bodytext_html: "<link 1046 - internal-link \"Wacken Scull\"><b></b></link>Design and realization of the <link 1046 - internal-link \"Wacken Scull\"><b>Wacken Skull</b></link>, the new Vip-entrance for the Wacken <br />Open Air /D"
+        source_bodytext_html: "<link 1046 - internal-link \"Wacken Skull\"><b></b></link>Design and realization of the <link 1046 - internal-link \"Wacken Skull\"><b>Wacken Skull</b></link>, the new Vip-entrance for the Wacken <br />Open Air /D"
       - year: "2012"
         title: "Robo Field - Fusion Festival"
         description: "Concept and artistic management, Robo Field - Fusion Festival, Lärz /D"

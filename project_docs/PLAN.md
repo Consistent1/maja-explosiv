@@ -2,15 +2,38 @@
 
 **Status document owner:** this file is the current source of truth for where the project stands and what's next. It supersedes `RESUME-WORK-HERE.md`, `MIGRATION-STATUS-REPORT.md`, and the various session-summary docs, which have been moved to `project_docs/_archive/` (see `_archive/MANIFEST.md`) rather than deleted.
 
-**Last updated:** 2026-08-27
+**Last updated:** 2026-10-26
 
 ---
+
+## Resume here (2026-10-26)
+
+**A review of the open questions for Maja, answered by the owner. No migration stage was run.**
+Thirteen items were resolved (56 → 43 open), struck through with the answer in § _Open items needing input_;
+**three remain for Maja** (the four excluded Elxt 90 timeline records, the `Since 2020` /
+`Since 2007` wrap, and which portrait the Bio uses).
+
+Changes to the site:
+- **Spelling corrected** — Destroy, Announcement, Skull, Wohlgroth (press, timeline) and
+  Susan's (Flower Power) — in text and published file names, via `SPELLING` tables in the
+  converters. See CLAUDE.md §8 before touching spelling.
+- **Studio name** is `ATELIER / THOMMEN & MOSS / 10997 BERLIN` (was `MAAS & THOMMEN`, from Figma),
+  in all four templates that hardcode it.
+
+**New to-dos in `project_docs/pending-changes.md`** — the owner's next work list: video embedding
+(releases the five held projects), short page titles in the homepage tabs, the homepage "1900"
+year bug, newest-first ordering in the tabs, project names linking to their projects, removing
+the Press page list (read the warning there — it is the only route to the PDFs), and correcting
+the misspelled provenance paths after the migration.
+
+**Migration status is unchanged from the section below:** Stages 13 and 14 remain.
 
 ## Resume here (2026-09-09, later)
 
 **Everything that needs your judgement is in one place: § _Open items needing input_, at the
-bottom of this file. 56 open items, 16 of them `ASK MAJA:`.** (The count read 49; it was
-already stale by three, and Stage 10 added one — recounted 2026-09-09.) Nothing is filed
+bottom of this file. 43 open items, 3 of them `ASK MAJA:`.** (The count read 49; it was
+already stale by three, and Stage 10 added one — recounted 2026-09-09; press misspellings,
+second text block, press gallery order, studio address and ten more resolved 2026-10-26.) Nothing is filed
 anywhere else. Where the detail is
 too long to sit in that list, the item names the document that holds it — every such document
 is linked from here or from `project_docs/DOCS.md`, which indexes all of them.
@@ -1266,7 +1289,9 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   1049's content is migrated under a different slug, 949's live URL needs to point there.
   Same relationship 982 has to 924. See `SOURCE.md` § *Stage 11*.
 
-- [ ] **ASK MAJA: what should happen to the videos?** (raised 2026-08-27, Stage 9;
+- [x] ~~**ASK MAJA: what should happen to the videos?**~~ **Resolved 2026-10-26 (owner): video will be embedded where a
+  project needs it — now a to-do in `pending-changes.md`. The five held projects stay held
+  until then.** Originally: (raised 2026-08-27, Stage 9;
   **blocking 2 projects now and at least 4 more later**.) Six pages carry video as
   `CType: html` embeds — **926 Elxt 90, 928 Bagger, 933 Casino Gitano, 946 Wheel of Power,
   1054 Destroy HIV, 1064 The Helixes**. No stage in the plan handles video and **the Figma
@@ -1334,7 +1359,7 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   read off the data. Was it emptied deliberately, or did its images get lost? It is one of
   the two reasons Elxt 90 is held.
 
-- [ ] **ASK MAJA: how should a project's second text block be presented?** (raised
+- [x] ~~**ASK MAJA: how should a project's second text block be presented?** (raised
   2026-08-27, Stage 8; the decision is already implemented one way and is easy to change.)
   Some projects carry more than one text element on the old site. Eurokot's second block is
   `Invited artists:` — 26 names with nationalities; Eurokon's is `Artists East:` /
@@ -1343,9 +1368,12 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   prose, and the Figma project page has no component for one. Should they be a plain
   paragraph (as now), a visually distinct credits block, or a separate section with a
   heading? Nothing is lost either way — every block's uid is in `source_text_uids` and its
-  raw bytes are in `migrated-content/projects/raw/db/`.
+  raw bytes are in `migrated-content/projects/raw/db/`.~~ **Resolved 2026-10-26 (owner): stays
+  as it is** — further paragraphs in the body. No change.
 
-- [ ] **ASK MAJA: are the long headings right as project titles?** (raised 2026-08-27,
+- [x] ~~**ASK MAJA: are the long headings right as project titles?**~~ **Resolved 2026-10-26 (owner): the project page
+  keeps the full heading, as now; the project lists on the homepage's category tabs should use
+  the old site's page title (`source_page_title`) — a to-do in `pending-changes.md`.** Originally: (raised 2026-08-27,
   Stage 8.) `title` comes from the old site's content header, which for these reads
   *"Eurokon, 2. Symposium für interaktives Recycling"* and *"Eurokot, 1. Symposium für
   interaktives Recycling"*. That is what the live site displays, so it is rendered verbatim —
@@ -1364,7 +1392,9 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   handles it and the Figma project page has no video component. Needs a decision before
   Stage 9.
 
-- [ ] **ASK MAJA: what year should each project show? 55 of 79 have none in the database.** (raised
+- [x] ~~**ASK MAJA: what year should each project show? 55 of 79 have none in the database.**~~
+  **Resolved 2026-10-26 (owner): Maja will edit the years later.** A related homepage bug — missing years
+  showing as 1900 — is a to-do in `pending-changes.md`. Originally: (raised
   2026-08-27, Stage 6; blocks a complete caption from Stage 7 onward.) The Figma caption's
   top row is `Title` left, `Year` right. The year comes from `tt_content.header`, which is
   written `"Title, Year"` — but **only 24 of 79 project text elements carry one**. Most
@@ -1519,19 +1549,26 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   question was ever **which new category each project goes to**, and the owner has answered it:
   the eight collaborations projects go to `sculptures`. Nothing curatorial was at stake.
 
-- [ ] **ASK MAJA: misspellings in the press entries — correct them or keep them verbatim?**
+- [x] ~~**ASK MAJA: misspellings in the press entries — correct them or keep them verbatim?**
   The old site's press list contains **"Destoy HIV"** (Destroy), **"Anouncment"**
   (Announcement) and **"Wacken Scull"** (Skull). Migrated **verbatim**, per the rule that
   content is transcribed not edited. There is also a name inconsistency: the clipping files say
   `wohlgrott` while the page text says **Wohlgroth**. Her call whether these are fixed on the
-  new site.
+  new site.~~ **Resolved 2026-10-26 (owner): correct all four** — *Destroy*, *Announcement*,
+  *Skull*, *Wohlgroth* — in titles, published file names (`1993-wohlgroth{,2}.jpg`,
+  `2012-wacken-skull-…pdf`) and the timeline's preserved `source_bodytext_html`. Done by a
+  `SPELLING` table in `convert_press.py` and `convert_timeline.py`, so a re-run keeps it.
+  Unchanged on purpose: `normalized/*.json` titles, `raw/`, and every `source_file` /
+  `original` path, which point at real files in the backup (incl. the `2012WackenScull/`
+  directory) and would break if renamed.
 
 - [x] ~~**Press: 3 PDF clippings render without a link.**~~ **Fixed 2026-08-27** in
   `src/_user/includes/about-content.njk`: the list loop now uses `entry.image or entry.file`,
   so PDFs link as they do on the old site. The gallery still keys on `image` alone, correctly —
   a PDF is not an `<img>`. Linked entries 45 → 48.
 
-- [ ] **ASK MAJA: the timeline now shows titles the old site never displayed.** The old page
+- [x] ~~**ASK MAJA: the timeline now shows titles the old site never displayed.**~~ **Resolved 2026-10-26 (owner): kept
+  as is; Maja will edit later.** Originally: The old page
   rendered only a date label and a paragraph — its template (`NewsBio.tmpl`) never output the
   `title` field, although every record has one. The new design has a dedicated title slot, so
   all 85 entries now show a title above their text. For 32 entries the paragraph also opens with
@@ -1554,7 +1591,9 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
   previously had `info@maja-explosiv.com` (commented as a placeholder) and an empty phone. The
   build no longer references the placeholder anywhere.
 
-- [ ] **ASK MAJA: three hidden elements on the old contact page — do any belong on the new one?**
+- [x] ~~**ASK MAJA: three hidden elements on the old contact page — do any belong on the new one?**~~
+  **Resolved 2026-10-26 (owner): the map and the empty text block are ignored;
+  no contact form for now — Maja will say if she wants one.** Originally:
   All three are recorded in full in `migrated-content/legal/SOURCE.md`:
   - **An abandoned contact form** (`tt_content 1279`, "Anfrage"). Its content is the mail-form
     extension's **own shipped example text**, never configured. The new site has no contact form
@@ -1563,11 +1602,14 @@ pipeline. Nothing needing the owner's judgement is filed anywhere else. When som
     `image-archive/hidden/about/contact/kartePariskl.jpg`.
   - **An empty text element** (`tt_content 1477`) — created, never filled. Nothing to migrate.
 
-- [ ] **ASK MAJA: is the studio address on the contact page current?**
+- [x] ~~**ASK MAJA: is the studio address on the contact page current?**
   `ATELIER / MAAS & THOMMEN / 10997 BERLIN` comes from the Figma design and is hardcoded in
   `contact.njk`. It appears **nowhere in the migrated source**, so the migration has no way to
   verify it — it is the one piece of contact information that cannot be checked against the old
-  site. Everything else on the page (phone, email) migrated verbatim and matches.
+  site. Everything else on the page (phone, email) migrated verbatim and matches.~~
+  **Resolved 2026-10-26 (owner): it is `ATELIER / THOMMEN & MOSS / 10997 BERLIN`.** Changed in
+  all four places the name is hardcoded — `contact.njk`, `home.njk`, `sidebar-layout.njk`,
+  `left-nav.njk`. Figma still reads `MAAS & THOMMEN`; the owner's instruction governs.
 
 **Recorded difference, no action needed:** the *"Webdesign and Realisation: Werner Trunk,
 Oppelnerstr. 9, 10997 Berlin, Ust Id DE 190483520, wtweb.com"* credit appears on the old contact
@@ -1582,15 +1624,17 @@ and **the old photo is deliberately not carried over**. It is preserved at
 `migrated-content/legal/SOURCE.md`.
 
 
-- [ ] **ASK MAJA: is the Datenschutzerklärung current, and should the Impressum stay inside the
-  contact page?** The privacy policy migrated **verbatim** — 24,834 characters of German GDPR
+- [x] ~~**ASK MAJA: is the Datenschutzerklärung current, and should the Impressum stay inside the
+  contact page?**~~ **Resolved 2026-10-26 (owner): Maja will supply the texts to use.** Originally: The privacy policy migrated **verbatim** — 24,834 characters of German GDPR
   text, 31 sections — because legal text is transcribed and not edited. **Its provenance and date
   are unknown and nobody has reviewed it.** Separately, Maja has **no separate Impressum page**:
   the obligation is discharged by two blocks on the contact page headed `Impressum:` (her contact
   details, and a web-design credit for Werner Trunk with a Ust-Id). Both are legal-compliance
   questions rather than migration ones. Detail: `migrated-content/legal/SOURCE.md`.
 
-- [ ] **ASK MAJA: is the Bio text right, and is the phrasing what she wants?** The bio migrated
+- [ ] **ASK MAJA: is the Bio text right, and is the phrasing what she wants?** **Text resolved
+  2026-10-26 (owner): Maja will supply the texts to use. Still open: the portrait** — see *Also*
+  below. Originally: The bio migrated
   **verbatim from the database and is character-identical to the live site** (1,084 chars), so
   nothing was introduced — but it has not been revisited in years and several things stand out:
 
@@ -1618,22 +1662,26 @@ and **the old photo is deliberately not carried over**. It is preserved at
   rows are taller than the rest. Alternatives: widen the column, sort by displayed year rather
   than timestamp, or accept the wrap. Detail in `migrated-content/timeline/SOURCE.md`.
 
-- [ ] **ASK MAJA: what order should the press gallery use?** The new site's gallery holds the
+- [x] ~~**ASK MAJA: what order should the press gallery use?** The new site's gallery holds the
   same 48 images as the old one but **21 of 48 sit in a different position**. Nothing is missing,
   extra or duplicated. The old page built its gallery and its link list as two independent
   elements ordered differently; the new page builds both from one list, so the gallery inherits
   the list's order. Options: reproduce the old gallery's sequence, order by date, or keep the
   current list order. Worth knowing the old order may be nothing more than upload sequence.
-  **Full detail and a position-by-position comparison: `migrated-content/press/GALLERY-ORDER.md`.**
+  **Full detail and a position-by-position comparison: `migrated-content/press/GALLERY-ORDER.md`.**~~
+  **Resolved 2026-10-26 (owner): the current order is OK** — the gallery keeps the list's
+  order. No change.
 
-- [ ] **ASK MAJA: should the third 2018 press PDF appear on the site?**
+- [x] ~~**ASK MAJA: should the third 2018 press PDF appear on the site?**~~ **Resolved 2026-10-26 (owner): Maja will take
+  a look; if she wants it added, it gets added. No change for now.** Originally:
   `20180525ZürcherOberländer_1.pdf` (610 KB) exists in the media library and is preserved in the
   archive, but **no press entry links it and the gallery does not show it** — so it is invisible
   on the old site too, and the migration keeps it that way. There are three 2018 *Zürcher
   Oberländer* PDFs and only two are used. She may know whether this one was superseded, a
   duplicate, or simply forgotten. Context: `migrated-content/press/GALLERY-COMPANIONS.md`.
 
-- [ ] **ASK MAJA: is the press gallery change OK?** Three entries link a **PDF**, which cannot be
+- [x] ~~**ASK MAJA: is the press gallery change OK?**~~ **Resolved 2026-10-26 (owner): accepted.** Also a to-do in
+  `pending-changes.md`: remove the list under the gallery on the Press page. Originally: Three entries link a **PDF**, which cannot be
   an `<img>`, so they would have shown in the list but not the gallery. Each was given a JPG
   companion so the gallery matches the live site at **48 images**. Nothing is invented — every
   companion comes from a local source.
@@ -1656,7 +1704,8 @@ and **the old photo is deliberately not carried over**. It is preserved at
   Detail: `migrated-content/press/GALLERY-COMPANIONS.md`. All 53 press source files are archived
   at `image-archive/live/about/press/` with `PROVENANCE.json`.
 
-- [ ] **Ask Maja to confirm the 8 collaborations projects belong under `sculptures`** — she may overrule.
+- [x] ~~**Ask Maja to confirm the 8 collaborations projects belong under `sculptures`** — she may overrule.~~
+  **Resolved 2026-10-26 (owner): they stay under `sculptures`.**
 
 - [ ] **CHECK ON THE LIVE SITE: are these 12 galleries actually hidden, and is nothing shown
   in their place?** (raised 2026-09-09 at your request, after Stage 11.)

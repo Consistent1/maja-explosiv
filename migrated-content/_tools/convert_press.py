@@ -60,11 +60,26 @@ GALLERY_COMPANION = {
         ('typo3temp/pics/89d9b1aeec.jpg', '2013-destroy-hiv-clipping.jpg'),
 }
 
+# ---------------------------------------------------------------------------
+# SPELLING  (owner, 2026-10-26 -- PLAN.md open item "misspellings in the press entries")
+#
+# The old site's misspellings are corrected on the new one, in the visible titles AND in
+# the published file names. The `title` in normalized/press.json and every `source_file`
+# keep the original spelling, so each entry still traces back to its source. Same table in convert_timeline.py.
+SPELLING = {'destoy':'destroy', 'anouncment':'announcement', 'scull':'skull', 'wohlgrott':'wohlgroth'}
+_SP = re.compile('|'.join(SPELLING), re.I)
+def spell(s):
+    """Case-follows-source: 'Scull' -> 'Skull', 'scull' -> 'skull'."""
+    def r(m):
+        w=SPELLING[m.group(0).lower()]
+        return w.capitalize() if m.group(0)[0].isupper() else w
+    return _SP.sub(r, s)
+
 WRITE='--write' in sys.argv
 stats={'jpegtran':0,'copied-pdf':0,'missing':0}
 for e in d['entries']:
     fn=os.path.basename(e['file'])
-    e['target_name']=slugname(fn)
+    e['target_name']=spell(slugname(fn))
     e['target']=f"/assets/images/shared/press/{e['target_name']}"
     # a JPG companion for a PDF-linked entry, so it can appear in the gallery
     comp=GALLERY_COMPANION.get(nfc(fn))
@@ -108,7 +123,7 @@ L=['---',
    f'pressNote: {y(d["note"])}',
    'pressEntries:']
 for e in d['entries']:
-    L.append(f'  - title: {y(e["title"])}')
+    L.append(f'  - title: {y(spell(e["title"]))}')
     if e['target'] and not e['is_pdf']:
         L.append(f'    image: {y(e["target"])}')
     if e['target'] and e['is_pdf']:

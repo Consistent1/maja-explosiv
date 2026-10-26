@@ -33,6 +33,18 @@ def year_of(e):
     if m: return m.group(1)
     return (e['datetime_iso'] or '')[:4]
 
+# SPELLING  (owner, 2026-10-26) -- the old site's misspellings are corrected on the new one,
+# the preserved bodytext HTML included. normalized/timeline.json keeps the original.
+# Same table in convert_press.py.
+SPELLING = {'destoy':'destroy', 'anouncment':'announcement', 'scull':'skull', 'wohlgrott':'wohlgroth'}
+_SP = re.compile('|'.join(SPELLING), re.I)
+def spell(s):
+    """Case-follows-source: 'Scull' -> 'Skull', 'scull' -> 'skull'."""
+    def r(m):
+        w=SPELLING[m.group(0).lower()]
+        return w.capitalize() if m.group(0)[0].isupper() else w
+    return _SP.sub(r, s or '')
+
 def y(s): return '"'+str(s).replace('\\','\\\\').replace('"','\\"')+'"'
 
 L=['---','title: "Timeline"','layout: "about-page.njk"','permalink: "/about/timeline/"',
@@ -44,7 +56,7 @@ for s in d['sections']:
     L.append(f'    source_categories: {y(",".join(map(str,s["categories"])))}')
     L.append('    entries:')
     for e in s['entries']:
-        yr=year_of(e); body=text(e['bodytext']); ti=e['title']
+        yr=year_of(e); body=spell(text(e['bodytext'])); ti=spell(e['title'])
         L.append(f'      - year: {y(yr)}')
         L.append(f'        title: {y(ti)}')
         L.append(f'        description: {y(body)}')
@@ -54,7 +66,7 @@ for s in d['sections']:
         L.append(f'        source_datetime: {y(e["datetime_iso"] or "")}')
         L.append(f'        source_categories: {y(",".join(map(str,e["categories"])))}')
         L.append(f'        source_category_names: {y(", ".join(e["category_names"]))}')
-        L.append(f'        source_bodytext_html: {y(e["bodytext"])}')
+        L.append(f'        source_bodytext_html: {y(spell(e["bodytext"]))}')
         if e['date_label'] and not re.fullmatch(r'\d{4}:?', e['date_label'].strip()) and not yr.startswith('Since'):
             odd.append((e['source_uid'], e['date_label'], yr))
         n+=1

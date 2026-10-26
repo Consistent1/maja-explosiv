@@ -60,7 +60,8 @@ Header on both elements in TYPO3: `Impressum:`.
 **This is the only postal address anywhere in the migrated source, and it is the web designer's,
 not Maja's.** The old site published no studio address for her. Note the design's hardcoded
 `ATELIER / MAAS & THOMMEN / 10997 BERLIN` shares the **10997** postcode with Werner Trunk's
-Kreuzberg address — worth Maja confirming rather than assuming.
+Kreuzberg address — worth Maja confirming rather than assuming. **Confirmed 2026-10-26 (owner),
+with a correction: `ATELIER / THOMMEN & MOSS / 10997 BERLIN`.**
 
 The removal means the built contact page contains **no** occurrence of `Werner Trunk`, `wtweb`,
 `Oppelner` or `Ust Id` — verified.

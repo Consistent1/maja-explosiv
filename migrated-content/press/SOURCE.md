@@ -21,11 +21,15 @@
    `<link {file} - download "...">{anchor}</link>{trailing prose}`; the title is anchor plus
    prose, so *"Destoy HIV"* + *"; Schirmherrschaft Frank Walter Steinmeier, Public Marketing,
    October 2013"*. The source's spelling is kept verbatim, including *"Destoy"* and
-   *"Anouncment"*.
+   *"Anouncment"*. **Corrected at conversion since 2026-10-26** (owner): *Destroy*,
+   *Announcement*, *Skull*, *Wohlgroth*, in titles and published file names — the `SPELLING`
+   table in `convert_press.py`. `normalized/press.json` titles and `source_file` keep the
+   original.
 3. **Copied 48 of 50 clipping files** into `src/assets/images/shared/press/` —
    **45 JPGs through `jpegtran -optimize -progressive -copy none`** (lossless, identical
    pixels) and **3 PDFs byte-for-byte**. Filenames slugified from the originals, preserving
-   the year prefix: `1993_wohlgrott.jpg` → `1993-wohlgrott.jpg`.
+   the year prefix: `1993_wohlgrott.jpg` → `1993-wohlgrott.jpg` (→ `1993-wohlgroth.jpg` since
+   the 2026-10-26 spelling correction).
 4. **Converted** to `pressEntries` + `pressNote` and installed to `src/pages/about/press.md`.
 5. **Verified** against the live page.
 

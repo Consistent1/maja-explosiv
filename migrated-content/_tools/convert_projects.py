@@ -19,6 +19,19 @@ DEST = os.path.join(ROOT, 'src', 'posts', 'projects')
 
 def y(s): return '"'+str(s).replace('\\','\\\\').replace('"','\\"')+'"'
 
+# SPELLING  (owner, 2026-10-26) -- the old site's misspellings are corrected on the new one.
+# Applied to title, header and body text only, never to `original` paths, which point at real
+# files in the backup. normalized/stage*.json keeps the original. Kin of the tables in
+# convert_press.py and convert_timeline.py.
+SPELLING = {'suzan‘s':"susan's", 'suzan':'susan'}   # longest first: alternation tries in order
+_SP = re.compile('|'.join(SPELLING), re.I)
+def spell(s):
+    """Case-follows-source: 'Suzan' -> 'Susan', 'suzan' -> 'susan'."""
+    def r(m):
+        w=SPELLING[m.group(0).lower()]
+        return w.capitalize() if m.group(0)[0].isupper() else w
+    return _SP.sub(r, s or '')
+
 def body_md(h):
     """TYPO3 bodytext -> Markdown.
 
@@ -93,6 +106,7 @@ def run(stage, write=False):
         # hide the fact that its content lives elsewhere.
         if p.get('skip_reason'):
             skipped.append((p['slug'], p['page_uid'], p['skip_reason'])); continue
+        p = dict(p, title=spell(p['title']), header=spell(p['header']))
         rows, missing = [], 0
         for im in p['images']:
             m = imgs_by.get((p['page_uid'], im['dam_uid']))
@@ -159,8 +173,8 @@ def run(stage, write=False):
         parts = []
         for n, blk in enumerate(blocks):
             if n and blk['header'].strip():
-                parts.append('## ' + html.unescape(re.sub('<[^>]+>', '', blk['header'])).strip())
-            md_block = body_md(blk['bodytext_html']).strip()
+                parts.append('## ' + spell(html.unescape(re.sub('<[^>]+>', '', blk['header']))).strip())
+            md_block = spell(body_md(blk['bodytext_html'])).strip()
             if md_block: parts.append(md_block)
         L += ['---', '', '\n\n'.join(parts) + ('\n' if parts else '')]
         md = '\n'.join(L)

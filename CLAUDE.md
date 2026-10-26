@@ -288,6 +288,16 @@ Phases are in PLAN.md; the short version:
     touch this: `tx_dam.loc_country` stores `'0'` for unset, and `tx_dam.category` is a *count*,
     not a category — the real ones are the `tx_dam_mm_cat` → `tx_dam_cat` join. Do not decide a
     field is unnecessary because the old site does not print it.
+  - **Content is transcribed verbatim — except for owner-approved spelling corrections**
+    (2026-10-26). Those live in a `SPELLING` table in `convert_press.py`, `convert_timeline.py`
+    and `convert_projects.py`, applied at conversion, so a re-run keeps them. Current entries:
+    Destoy→Destroy, Anouncment→Announcement, Scull→Skull, wohlgrott→wohlgroth,
+    Suzan‘s→Susan's. They correct visible text **and published file names**, but never the
+    provenance paths (`original:`, `source_file`), which must match the backup — renaming those
+    waits for after the migration (`pending-changes.md`). `raw/` and `normalized/` keep the
+    original spelling. **Do not fix a spelling by hand in `src/`** — the next re-run reverts it;
+    add it to the table. And do not "restore" a corrected spelling because it differs from the
+    live site.
   - **`src/pages/` and `src/posts/` now contain only migration output** — currently one file,
     `about/links.md`. The 38 pre-existing Markdown files were **moved**, not deleted, to
     `pre-migration-content/`. The old "~26 of ~71 projects converted" line was wrong twice

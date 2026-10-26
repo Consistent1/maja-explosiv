@@ -1,5 +1,5 @@
 ---
-title: "Flower Power - or the Lazy Suzan's"
+title: "Flower Power - or the Lazy Susan's"
 layout: "project.njk"
 date: 1900-01-01
 year: ""
@@ -10,7 +10,7 @@ featuredImage: "/assets/images/projects/sculptures/flower-power/flower-power-01.
 featuredImageAlt: "Close Up Bouquet Nr. 1 || Berlin, October 2019"
 source_uid: 1072
 source_page_title: "Flower Power"
-source_header: "Flower Power - or the Lazy Suzan's"
+source_header: "Flower Power - or the Lazy Susan's"
 source_category: "sculptures"
 source_text_uid: 1634
 source_text_uids: "1634"
@@ -91,4 +91,4 @@ images:
     original: "fileadmin/s-maj/images/BilderMaja/2019_Flowerpower/011_IMGP5182_w_s.jpg"
 ---
 
-The 'Lazy Suzan‘s' are two round shelves mounted at the bar counter to hold the mixing bottles for the bar keepers. These two stands were designed and commissioned by the Karaoke Bar **Monster Ronson's Ichiban Karaoke** in Berlin Friedrichshain. The flower bouquets are designed to be a protection and yet a decoration for the liqueur shelves. Each bouquet holds about 70 flowers and in total we worked over 1800 singular pieces of cutlery into the two bouquets. This stainless steel installation was created together with Uri Moss IL/D and Charly F/D, from all kind of silverware like spoons, forks and knives but also embedded microphones, due to the topic of the bar. The Lazy Suzan‘s and the flower bouquets were realized in our Berlin atelier over the Summer and Autumn Months of 2019.
+The 'Lazy Susan's' are two round shelves mounted at the bar counter to hold the mixing bottles for the bar keepers. These two stands were designed and commissioned by the Karaoke Bar **Monster Ronson's Ichiban Karaoke** in Berlin Friedrichshain. The flower bouquets are designed to be a protection and yet a decoration for the liqueur shelves. Each bouquet holds about 70 flowers and in total we worked over 1800 singular pieces of cutlery into the two bouquets. This stainless steel installation was created together with Uri Moss IL/D and Charly F/D, from all kind of silverware like spoons, forks and knives but also embedded microphones, due to the topic of the bar. The Lazy Susan's and the flower bouquets were realized in our Berlin atelier over the Summer and Autumn Months of 2019.

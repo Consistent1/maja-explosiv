@@ -37,8 +37,8 @@
       "file": "fileadmin/s-maj/images/BilderMaja/presse/2012_Wacken_Scull_aus_Acrystal_--_Lange_Ritter_GmbH.pdf",
       "file_exists": true,
       "is_pdf": true,
-      "target_name": "2012-wacken-scull-aus-acrystal-lange-ritter-gmbh.pdf",
-      "target": "/assets/images/shared/press/2012-wacken-scull-aus-acrystal-lange-ritter-gmbh.pdf",
+      "target_name": "2012-wacken-skull-aus-acrystal-lange-ritter-gmbh.pdf",
+      "target": "/assets/images/shared/press/2012-wacken-skull-aus-acrystal-lange-ritter-gmbh.pdf",
       "gallery_companion": null
     },
     {
@@ -442,8 +442,8 @@
       "file": "fileadmin/s-maj/images/BilderMaja/presse/1993_wohlgrott2.jpg",
       "file_exists": true,
       "is_pdf": false,
-      "target_name": "1993-wohlgrott2.jpg",
-      "target": "/assets/images/shared/press/1993-wohlgrott2.jpg",
+      "target_name": "1993-wohlgroth2.jpg",
+      "target": "/assets/images/shared/press/1993-wohlgroth2.jpg",
       "gallery_companion": null
     },
     {
@@ -451,8 +451,8 @@
       "file": "fileadmin/s-maj/images/BilderMaja/presse/1993_wohlgrott.jpg",
       "file_exists": true,
       "is_pdf": false,
-      "target_name": "1993-wohlgrott.jpg",
-      "target": "/assets/images/shared/press/1993-wohlgrott.jpg",
+      "target_name": "1993-wohlgroth.jpg",
+      "target": "/assets/images/shared/press/1993-wohlgroth.jpg",
       "gallery_companion": null
     }
   ],
